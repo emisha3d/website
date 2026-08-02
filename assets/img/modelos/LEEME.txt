@@ -1,0 +1,18 @@
+Fotos de las impresoras que atendemos.
+
+De la tienda oficial de Bambu Lab (bambulab.com), guarda la foto de producto
+de cada modelo y déjala aquí con estos nombres:
+
+  a1.webp          Bambu Lab A1
+  a1-mini.webp     Bambu Lab A1 mini
+  p1s.webp         Bambu Lab P1S
+  x1-carbon.webp   Bambu Lab X1 Carbon
+  h2d.webp         Bambu Lab H2D
+
+Cuadradas, 600 x 600 px, de preferencia con fondo blanco: el CSS usa
+mix-blend-mode multiply, así el fondo blanco desaparece solo.
+
+No hace falta tenerlas todas. Cada tarjeta aparece cuando exista su archivo;
+las que falten se quitan solas.
+
+JPG o PNG también sirven, yo los convierto a WebP.

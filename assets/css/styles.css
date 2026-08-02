@@ -596,6 +596,13 @@ strong { font-weight: 640; }
   padding: 7px 8px; border-radius: var(--radius-sm);
   border: 1px solid var(--border); background: #fff; color: var(--text);
 }
+.filerow__tam { width: 84px; }
+.filerow__ctl { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.filerow__ctl span {
+  font-family: var(--font-mono); font-size: .58rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted);
+}
+.filerow--activa { border-color: var(--brand); }
 .filerow__remove {
   background: none; border: 0; cursor: pointer; color: var(--muted);
   font-size: 1.3rem; line-height: 1; padding: 4px 8px; border-radius: 6px;
@@ -603,6 +610,17 @@ strong { font-weight: 640; }
 .filerow__remove:hover { color: var(--bad); background: #fef3f2; }
 .filerow--error { border-color: rgba(180,35,24,.3); background: #fffbfa; }
 .filerow--error .filerow__meta { color: var(--bad); }
+
+.visor { margin-top: 14px; }
+/* El tamaño del canvas va en línea en el HTML (ver comentario ahí). */
+.visor canvas {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-2); touch-action: none;
+}
+.visor p {
+  font-family: var(--font-mono); font-size: .74rem; text-align: center;
+  margin-top: 8px; font-variant-numeric: tabular-nums; word-break: break-word;
+}
 
 .quote-total {
   display: flex; flex-wrap: wrap; gap: 16px 28px;
@@ -668,3 +686,132 @@ strong { font-weight: 640; }
   font-family: var(--font-mono); font-size: 1.2rem; font-weight: 620;
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
+
+/* ==========================================================================
+   Fotos del taller
+   Huecos que se llenan cuando existan las fotos reales. Si el archivo no
+   está, fotos.js quita el <figure> completo y la página no se entera.
+   ========================================================================== */
+.foto {
+  margin: 0 0 30px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--tile);
+}
+.foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.foto figcaption {
+  padding: 11px 15px;
+  font-size: .87rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border-soft);
+  background: var(--surface);
+}
+/* Mientras la imagen aún no responde no reservamos un hueco gris enorme. */
+.foto[data-esperando] { border-color: transparent; background: transparent; }
+.foto[data-esperando] figcaption { display: none; }
+
+/* Rejilla de modelos atendidos. Las tarjetas cuya foto falte las quita
+   fotos.js, así que la rejilla se acomoda sola con las que sí existan. */
+.modelos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.modelo {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  /* Blanco, no --tile: así se ve bien tanto con foto de producto sobre
+     fondo blanco como con foto de ambiente. Nada de mix-blend-mode, que
+     ensucia las fotos que traen fondo real. */
+  background: #fff;
+}
+.modelo img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 1 / 1; object-fit: contain;
+}
+.modelo figcaption {
+  padding: 7px 10px;
+  font-size: .8rem; font-weight: 560;
+  color: var(--text-2);
+  border-top: 1px solid var(--border-soft);
+  background: var(--surface);
+}
+
+/* Foto de producto sobre fondo blanco: una refacción no necesita ocupar todo
+   el ancho de la columna. Se queda chica, centrada y completa. */
+.foto--producto {
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+}
+.foto--producto img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  padding: 14px;
+}
+.foto--producto figcaption { text-align: center; }
+
+/* ==========================================================================
+   Fallas más comunes
+   Cada tarjeta lleva su foto arriba (si existe), el nombre de la falla, la
+   explicación y un ejemplo con las palabras con las que llega el cliente.
+   Si la foto no está, fotos.js quita nada más ese hueco y la tarjeta sigue.
+   ========================================================================== */
+.fallas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+  gap: 22px;
+}
+.falla {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.falla__foto { margin: 0; background: var(--tile); }
+.falla__foto img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 4 / 3; object-fit: cover;
+}
+.falla__cuerpo {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+.falla__cuerpo h4 { font-size: 1.05rem; margin: 0; }
+.falla__cuerpo p { margin: 0; }
+/* El ejemplo va al final de la tarjeta, separado, para que se lea como la
+   frase que suelta el cliente y no como parte de la explicación. */
+.falla__ej {
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid var(--border-soft);
+  font-size: .88rem;
+  color: var(--text-2);
+}
+.falla__ej b {
+  display: block;
+  font-size: .72rem;
+  font-weight: 660;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.falla__ej q { font-style: italic; }

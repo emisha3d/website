@@ -1,0 +1,9 @@
+Fotos del taller — deja los archivos aquí con estos nombres exactos y
+aparecen solas en /servicios/. No hay que tocar el HTML.
+
+  hotends-a1.webp        Los cuatro hotends juntos (0.2, 0.4, 0.6, 0.8 mm)
+  banco-reparacion.webp  Una impresora abierta en el banco, a media reparación
+  piezas-impresas.webp   Piezas recién salidas de la cama, con soportes puestos
+
+Formato: 1600 x 900 px, WebP, horizontal.
+Si las mandas en JPG o PNG a resolución completa, yo las convierto.

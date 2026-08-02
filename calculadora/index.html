@@ -20,7 +20,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css?v=6696fc66">
 
 <script type="application/ld+json">
 {
@@ -36,14 +36,30 @@
       "inLanguage": "es-MX",
       "isAccessibleForFree": true,
       "description": "Calculadora gratuita que estima el costo real de imprimir una pieza en 3D — filamento, electricidad, desgaste de la máquina y merma por fallos — y sugiere tres niveles de precio de venta. No requiere registro y funciona en el navegador.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
-      "provider": { "@id": "https://www.emisha.com.mx/#organization" }
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MXN"
+      },
+      "provider": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.emisha.com.mx/" },
-        { "@type": "ListItem", "position": 2, "name": "Calculadora", "item": "https://www.emisha.com.mx/calculadora/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.emisha.com.mx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculadora",
+          "item": "https://www.emisha.com.mx/calculadora/"
+        }
       ]
     },
     {
@@ -87,7 +103,7 @@
           "name": "¿Cuánto cuesta un kilo de filamento?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "En México un filamento PLA o PETG de buena calidad ronda los 250 a 400 pesos por kilo de 1.75 mm. La calculadora viene con 249 pesos precargados, que es el precio de referencia del filamento Emisha, pero puedes cambiarlo por el precio del que uses tú."
+            "text": "En México un filamento PLA o PETG de buena calidad ronda los 250 a 400 pesos por kilo de 1.75 mm. La calculadora trae 300 pesos precargados como referencia, pero cámbialo por lo que te cueste a ti el que uses."
           }
         }
       ]
@@ -145,8 +161,8 @@
           <div class="calc-inputs">
             <div class="field">
               <label for="calc-precio-kg">Precio del filamento (MXN por kilo)</label>
-              <input type="number" id="calc-precio-kg" value="249" min="0" step="1" inputmode="decimal">
-              <span class="field__hint">Precargado con el precio de referencia del filamento Emisha.</span>
+              <input type="number" id="calc-precio-kg" value="300" min="0" step="1" inputmode="decimal">
+              <span class="field__hint">Cámbialo por lo que te cueste a ti el filamento que uses.</span>
             </div>
             <div class="field">
               <label for="calc-gramos">Gramos de filamento</label>
@@ -294,9 +310,8 @@
           <summary>¿Cuánto cuesta un kilo de filamento?</summary>
           <div class="faq__body">
             <p>En México un filamento PLA o PETG de buena calidad ronda los 250 a 400 pesos por
-              kilo de 1.75 mm. La calculadora viene con 249 pesos precargados, que es el precio
-              de referencia del filamento Emisha, pero puedes cambiarlo por el precio del que
-              uses tú.</p>
+              kilo de 1.75 mm. La calculadora trae 300 pesos precargados como referencia, pero
+              cámbialo por lo que te cueste a ti el que uses.</p>
           </div>
         </details>
       </div>
@@ -349,7 +364,6 @@
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="mailto:3dprint@emisha.com.mx">3dprint@emisha.com.mx</a></li>
           <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
           <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
         </ul>
@@ -362,7 +376,7 @@
   </div>
 </footer>
 
-<script src="../assets/js/main.js" defer></script>
-<script src="../assets/js/calculadora.js" defer></script>
+<script src="../assets/js/main.js?v=c16eac99" defer></script>
+<script src="../assets/js/calculadora.js?v=04866538" defer></script>
 </body>
 </html>

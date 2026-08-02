@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Por qué se atasca el extrusor de tu Bambu Lab y cómo evitarlo | Blog Emisha</title>
-<meta name="description" content="Filamento húmedo, temperatura baja para la velocidad, heat creep, boquilla desgastada, retracción mal calibrada y fallas del AMS: las causas reales de un extrusor atascado en una Bambu Lab, cómo diagnosticar cada una y cómo prevenirlas.">
+<meta name="description" content="La máquina suena a chasquido y deja de salir material. Filamento húmedo, temperatura baja para la velocidad, heat creep, boquilla desgastada, retracción mal calibrada y fallas del AMS: cómo identificar cada causa en tu Bambu Lab y cómo prevenirlas.">
 <link rel="canonical" href="https://www.emisha.com.mx/blog/extrusor-atascado-bambu-lab/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#ffffff">
@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Emisha">
 <meta property="og:locale" content="es_MX">
 <meta property="og:title" content="Por qué se atasca el extrusor de tu Bambu Lab y cómo evitarlo">
-<meta property="og:description" content="Las causas reales de un extrusor obstruido, cómo diagnosticar cada una, el mantenimiento preventivo que sí sirve y cuándo conviene llevarla al taller.">
+<meta property="og:description" content="La máquina suena a chasquido y deja de salir material. Cómo identificar cada causa, el mantenimiento preventivo que sí sirve y cuándo conviene traerla al taller.">
 <meta property="og:url" content="https://www.emisha.com.mx/blog/extrusor-atascado-bambu-lab/">
 <meta property="og:image" content="https://www.emisha.com.mx/assets/img/filamentos/pla-midnight-black.webp">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../../assets/css/styles.css">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=6696fc66">
 
 <script type="application/ld+json">
 {
@@ -31,7 +31,7 @@
       "@id": "https://www.emisha.com.mx/blog/extrusor-atascado-bambu-lab/#post",
       "url": "https://www.emisha.com.mx/blog/extrusor-atascado-bambu-lab/",
       "headline": "Por qué se atasca el extrusor de tu Bambu Lab y cómo evitarlo",
-      "description": "Filamento húmedo, temperatura baja para la velocidad, heat creep, boquilla desgastada, retracción mal calibrada y fallas del AMS: las causas reales de un extrusor atascado en una Bambu Lab, cómo diagnosticar cada una y cómo prevenirlas.",
+      "description": "La máquina suena a chasquido y deja de salir material. Filamento húmedo, temperatura baja para la velocidad, heat creep, boquilla desgastada, retracción mal calibrada y fallas del AMS: cómo identificar cada causa en tu Bambu Lab y cómo prevenirlas.",
       "image": "https://www.emisha.com.mx/assets/img/filamentos/pla-midnight-black.webp",
       "datePublished": "2026-07-28",
       "dateModified": "2026-07-28",
@@ -93,6 +93,7 @@
       <a href="../../filamentos/">Filamentos</a>
       <a href="../../servicios/">Servicios</a>
       <a href="../../cotizador/">Cotizador</a>
+      <a href="../../calculadora/">Calculadora</a>
       <a href="../../blog/" aria-current="page">Blog</a>
       <a href="../../contacto/">Contacto</a>
       <a class="btn btn--primary btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
@@ -110,9 +111,10 @@
         <h1>Por qué se atasca el extrusor de tu Bambu Lab y cómo evitarlo</h1>
         <p class="muted"><time datetime="2026-07-28">28 de julio de 2026</time> · Mantenimiento</p>
         <p class="lede">
-          Un extrusor obstruido casi nunca es mala suerte. Detrás hay una causa concreta y
-          reconocible, y casi todas se pueden prevenir. Estas son las que más vemos en el taller,
-          con la forma de identificar cada una antes de desarmar de más.
+          En el taller nos llega mucho el mismo caso. La máquina empieza a sonar a chasquido, deja
+          de salir material y la pieza se queda a medias. Un extrusor tapado casi nunca es mala
+          suerte. Atrás hay una causa concreta y casi todas se previenen. Estas son las que más
+          vemos, con la forma de identificar cada una antes de desarmar de más.
         </p>
       </div>
 
@@ -124,138 +126,137 @@
 
       <div class="prose">
 
-        <h2>Primero: distingue el síntoma</h2>
+        <h2>Primero identifica el síntoma</h2>
         <p>
-          "Se atascó" abarca varias fallas distintas y confundirlas hace perder tiempo. Vale la
-          pena separarlas antes de tocar nada:
+          Cuando dices que se atascó pueden ser varias fallas distintas, y confundirlas te hace
+          perder la tarde. Sepáralas antes de tocar nada:
         </p>
         <ul>
           <li><strong>No sale nada.</strong> Obstrucción total en boquilla o garganta.</li>
           <li><strong>Sale poco o de forma intermitente.</strong> Obstrucción parcial, extrusión
             insuficiente o engranes patinando.</li>
           <li><strong>Se oye un chasquido rítmico.</strong> El extrusor empuja, algo se opone y el
-            engrane salta. Ese ruido es información: significa presión, no falta de material.</li>
+            engrane salta. Ese ruido te está diciendo que hay presión, no que falte material.</li>
           <li><strong>El filamento no avanza desde el AMS.</strong> El problema puede estar antes
             del extrusor, en el camino del tubo.</li>
         </ul>
 
         <h2>Filamento húmedo</h2>
         <p>
-          Es la causa número uno y la más subestimada. El plástico absorbe humedad del aire; al
-          fundirse, esa agua se convierte en vapor dentro de la boquilla. El resultado son
-          chasquidos, burbujas, superficie opaca, hilos que no se corrigen tocando la retracción y,
-          en casos avanzados, extrusión que se corta sola. El PETG es especialmente sensible; el
-          PLA con carga de madera también.
+          Es la causa número uno y la que más se subestima. El plástico chupa humedad del aire y,
+          al fundirse, esa agua se vuelve vapor dentro de la boquilla. De ahí salen los chasquidos,
+          las burbujas, la superficie opaca, los hilos que no se corrigen por más que le muevas a
+          la retracción y, ya en casos feos, extrusión que se corta sola. El PETG es el más
+          sensible. El PLA con carga de madera también.
         </p>
         <p>
           <strong>Cómo lo confirmas:</strong> extruye en el aire con la máquina caliente y escucha.
           Si truena y salen burbujas, es humedad. <strong>Qué haces:</strong> seca la bobina y
           guárdala sellada con su desecante. Si vives en zona húmeda o el rollo lleva semanas al
-          aire, considera esto rutina, no excepción.
+          aire, esto es rutina, no excepción.
         </p>
 
-        <h2>Temperatura demasiado baja para la velocidad que pediste</h2>
+        <h2>Temperatura baja para la velocidad</h2>
         <p>
           Las Bambu Lab imprimen rápido, y a más caudal el plástico tiene menos tiempo dentro de la
-          zona caliente para fundirse. Un perfil que funciona a 100 mm/s puede provocar
-          sub-extrusión y atasco a 250 mm/s con la misma temperatura. No es que la boquilla esté
-          tapada: es que el material no alcanzó a fundir.
+          zona caliente para fundir. Un perfil que va bien a 100 mm/s te puede dar sub-extrusión y
+          atasco a 250 mm/s con la misma temperatura. No es que la boquilla esté tapada. Es que el
+          material no alcanzó a fundir.
         </p>
         <p>
-          Por eso las líneas pensadas para alta velocidad publican dos tramos. El PETG Matte HF de
-          Emisha, por ejemplo, va de 230 a 240 °C entre 50 y 100 mm/s, y de 240 a 255 °C cuando
-          trabajas entre 100 y 300 mm/s. Si subes velocidad, sube temperatura. Si el problema
-          aparece solo en las capas rápidas y desaparece en las lentas, ahí está tu respuesta.
+          Por eso las líneas hechas para alta velocidad publican dos tramos. El PETG Matte HF de
+          Emisha va de 230 a 240 °C entre 50 y 100 mm/s, y de 240 a 255 °C cuando trabajas entre
+          100 y 300 mm/s. Si le subes a la velocidad, súbele a la temperatura. Si la falla aparece
+          nada más en las capas rápidas y se quita en las lentas, ahí está tu respuesta.
         </p>
 
         <h2>Heat creep</h2>
         <p>
-          El calor de la zona caliente sube por la garganta más de lo debido y ablanda el filamento
-          antes de tiempo. El plástico se hincha donde el conducto es más angosto y se convierte en
-          un tapón sólido. Es la falla más frustrante porque suele aparecer a mitad de una
+          El calor de la zona caliente sube por la garganta más de lo que debería y ablanda el
+          filamento antes de tiempo. El plástico se hincha donde el conducto es más angosto y se
+          hace un tapón sólido. Es la falla más desesperante porque suele aparecer a media
           impresión larga, cuando el conjunto ya se saturó de calor.
         </p>
         <p>
           <strong>Señales:</strong> las primeras capas salen bien y la falla llega después de un
-          rato; al desmontar, encuentras un tramo de filamento deformado y engrosado por arriba de
-          la boquilla. <strong>Causas habituales:</strong> ventilador del disipador sucio, parado o
-          con el flujo de aire bloqueado; temperatura ambiente alta; retracciones muy largas que
-          suben plástico fundido a la zona fría; o pausas prolongadas con la boquilla caliente.
+          rato. Al desmontar encuentras un tramo de filamento deformado y engrosado arriba de la
+          boquilla. <strong>Causas habituales:</strong> ventilador del disipador sucio, parado o
+          con el aire bloqueado; temperatura ambiente alta; retracciones muy largas que suben
+          plástico fundido a la zona fría; o pausas largas con la boquilla caliente.
         </p>
 
         <h2>Boquilla desgastada</h2>
         <p>
           Una boquilla no dura para siempre. El orificio se agranda y se deforma con el uso, y los
-          filamentos con carga —fibra de carbono, madera, brillos metálicos, algunos glow— la
-          desgastan mucho más rápido. Una boquilla gastada da paredes irregulares, extrusión
-          inconsistente y una tendencia creciente a obstruirse porque la geometría interna ya no es
-          la que el perfil supone.
+          filamentos con carga la desgastan mucho más rápido: fibra de carbono, madera, brillos
+          metálicos y algunos glow. Una boquilla gastada te da paredes irregulares, extrusión
+          inconsistente y cada vez más tendencia a taparse, porque la geometría de adentro ya no es
+          la que supone el perfil.
         </p>
         <p>
           <strong>Cómo lo compruebas:</strong> si vienes limpiando la misma máquina cada pocas
-          impresiones y el problema regresa, deja de limpiar y cambia la pieza. Para la A1 vendemos
-          hotends de repuesto a $499 MXN en 0.2, 0.4, 0.6 y 0.8 mm; tener uno guardado te evita
-          quedarte sin imprimir mientras consigues la refacción.
+          impresiones y el problema regresa, deja de limpiar y cambia la pieza. Para la A1
+          manejamos hotends de repuesto a $499 MXN en 0.2, 0.4, 0.6 y 0.8 mm. Tener uno guardado te
+          evita quedarte sin imprimir mientras consigues la refacción.
         </p>
 
         <h2>Residuos y contaminación</h2>
         <p>
-          Restos carbonizados de material anterior, polvo pegado al filamento, partículas del
-          empaque o mezcla de materiales con temperaturas muy distintas. El caso clásico es imprimir
-          PETG después de PLA sin una purga suficiente: el PLA que quedó se cocina a la temperatura
-          del PETG y se convierte en un grumo duro.
+          Restos carbonizados del material anterior, polvo pegado al filamento, partículas del
+          empaque, o mezcla de materiales con temperaturas muy distintas. El caso clásico es
+          imprimir PETG después de PLA sin purgar lo suficiente. El PLA que quedó se cocina a la
+          temperatura del PETG y se vuelve un grumo duro.
         </p>
         <p>
           <strong>Prevención:</strong> purga bien al cambiar de material, mantén las bobinas en su
-          bolsa y limpia el polvo del camino del filamento. Un fieltro o esponja limpiafilamento a
-          la entrada del extrusor evita mucho de esto.
+          bolsa y quítale el polvo al camino del filamento. Un fieltro o esponja limpiafilamento a
+          la entrada del extrusor te evita buena parte de esto.
         </p>
 
         <h2>Retracción mal calibrada</h2>
         <p>
-          Demasiada retracción sube material fundido a la zona fría, donde se solidifica y forma un
-          tapón; también muele el filamento en el mismo punto de contacto con los engranes.
-          Demasiado poca deja hilos y rezuma. En impresoras con AMS el efecto se multiplica porque
-          los cambios de material implican retracciones largas repetidas.
+          Demasiada retracción sube material fundido a la zona fría, donde se solidifica y forma
+          tapón, y de paso muele el filamento siempre en el mismo punto de contacto con los
+          engranes. Demasiado poca te deja hilos y rezumado. Con AMS el efecto se multiplica,
+          porque cada cambio de material implica retracciones largas repetidas.
         </p>
         <p>
-          <strong>Regla práctica:</strong> si empezaste a cambiar valores de retracción para
-          resolver hilos y desde entonces se atasca, regresa al perfil por defecto y ataca el
-          problema de hilos por temperatura y secado, que es donde suele estar.
+          <strong>Regla práctica:</strong> si empezaste a mover valores de retracción para quitar
+          hilos y desde entonces se atasca, regresa al perfil de fábrica y ataca los hilos por
+          temperatura y secado, que es donde suele estar el asunto.
         </p>
 
         <h2>Filamento molido por los engranes</h2>
         <p>
-          No es la causa raíz, es la consecuencia: cuando algo se opone al avance, los engranes
-          siguen girando y comen el filamento hasta dejarle una muesca. Una vez molido, ya no hay
-          agarre y no avanza aunque destapes la boquilla. Además, el polvo de plástico que genera
-          se queda entre los dientes y reduce el agarre para el siguiente rollo.
+          No es la causa, es la consecuencia. Cuando algo se opone al avance, los engranes siguen
+          girando y le comen una muesca al filamento. Ya molido no hay agarre y no avanza aunque
+          destapes la boquilla. Además, el polvo de plástico que suelta se queda entre los dientes
+          y le quita agarre al siguiente rollo.
         </p>
         <p>
           <strong>Qué hacer:</strong> corta el tramo dañado en recto antes de recargar, limpia los
-          dientes de los engranes con un cepillo rígido y busca la causa original. Recargar sin
-          resolverla solo repite el ciclo.
+          dientes de los engranes con un cepillo rígido y busca la causa original. Si recargas sin
+          resolverla, se repite igual.
         </p>
 
         <h2>El camino del AMS</h2>
         <p>
-          Cuando el AMS está en juego, el filamento recorre metros de tubo antes de llegar al
-          extrusor. Ahí aparecen fallas propias: tubos con dobleces cerrados o aplastados, acoples
-          flojos, punta del filamento mal cortada que se atora en una unión, rollos mal enrollados
-          que se cruzan sobre sí mismos y frenan el avance, o sensores que no detectan la bobina.
+          Con AMS el filamento recorre metros de tubo antes de llegar al extrusor, y ahí salen
+          fallas propias. Tubos con dobleces cerrados o aplastados. Acoples flojos. Punta del
+          filamento mal cortada que se atora en una unión. Rollos mal enrollados que se cruzan
+          sobre sí mismos y frenan el avance. Sensores que no detectan la bobina.
         </p>
         <p>
-          <strong>Cómo lo aíslas:</strong> carga el filamento directamente por la entrada superior,
-          sin pasar por el AMS. Si así imprime bien, el problema está en el camino, no en el
-          extrusor.
+          <strong>Cómo lo aíslas:</strong> carga el filamento directo por la entrada de arriba, sin
+          pasar por el AMS. Si así imprime bien, el problema está en el camino y no en el extrusor.
         </p>
 
         <h2>Mantenimiento preventivo que sí sirve</h2>
         <ul>
-          <li>Guarda todas las bobinas selladas con desecante; deja fuera solo la que está en uso.</li>
+          <li>Guarda todas las bobinas selladas con desecante y deja fuera solo la que está en uso.</li>
           <li>Corta la punta del filamento en diagonal y en limpio antes de cada carga.</li>
-          <li>Revisa que el ventilador del disipador gire libre y sin pelusa cada pocas semanas.</li>
-          <li>Purga generosamente al cambiar entre materiales de temperatura distinta.</li>
+          <li>Revisa cada pocas semanas que el ventilador del disipador gire libre y sin pelusa.</li>
+          <li>Purga de sobra al cambiar entre materiales de temperatura distinta.</li>
           <li>Limpia los dientes de los engranes del extrusor cuando notes polvo de plástico.</li>
           <li>Lleva cuenta de cuánto material abrasivo ha pasado por la boquilla y cámbiala antes
             de que empiece a fallar.</li>
@@ -264,17 +265,16 @@
 
         <h2>Cuándo conviene llevarla al taller</h2>
         <p>
-          Vale la pena intentarlo tú cuando el atasco es reciente, la máquina venía imprimiendo bien
-          y el material es sospechoso. Conviene traerla cuando el problema reaparece después de
-          limpiar, cuando hay error de temperatura o de termistor de por medio, cuando el
-          desarmado implica el conjunto completo del extrusor o cuando ya intentaste destapar con
-          herramienta y no cede.
+          Vale la pena que lo intentes tú cuando el atasco es reciente, la máquina venía imprimiendo
+          bien y el material se ve sospechoso. Tráenosla cuando el problema regresa después de
+          limpiar, cuando hay error de temperatura o de termistor de por medio, cuando hay que
+          desarmar el conjunto completo del extrusor o cuando ya le metiste herramienta y no cede.
         </p>
         <p>
-          En el taller el <strong>diagnóstico no tiene costo</strong> y la mano de obra de la
-          reparación son <strong>$700 MXN</strong> cuando la falla se resuelve sin refacciones; si
-          hace falta una pieza, se cotiza aparte y se autoriza contigo antes de instalarla. Emisha
-          es un taller independiente, no un centro de servicio autorizado por Bambu Lab.
+          En el taller la <strong>revisión no tiene ningún costo</strong> y la mano de obra son
+          <strong>$700 MXN</strong> cuando la falla se resuelve sin refacciones. Si hace falta una
+          pieza, te pasamos el precio antes y no la ponemos sin que la autorices. Emisha es un
+          taller independiente, no un centro de servicio autorizado por Bambu Lab.
         </p>
 
       </div>
@@ -287,11 +287,11 @@
       <div class="cta-band">
         <span class="eyebrow eyebrow--accent">Taller en CDMX</span>
         <h2>¿Sigue atascada?</h2>
-        <p>Revisamos tu Bambu Lab sin costo y te decimos qué tiene antes de cobrarte nada.
-          Mano de obra de $700 MXN cuando se resuelve sin refacciones.</p>
+        <p>Tráenos tu Bambu Lab. Revisarla no tiene ningún costo y te decimos qué tiene antes de
+          cobrarte nada. Mano de obra $700 MXN cuando se resuelve sin refacciones.</p>
         <div class="hero__cta">
           <a class="btn btn--accent btn--lg" href="../../servicios/#reparacion">Ver reparación</a>
-          <a class="btn btn--ghost btn--lg" href="mailto:3dprint@emisha.com.mx?subject=Extrusor%20atascado%20Bambu%20Lab">Escribir al taller</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20tengo%20el%20extrusor%20atascado%20en%20mi%20Bambu%20Lab." target="_blank" rel="noopener">Escribir al taller</a>
         </div>
       </div>
     </div>
@@ -328,7 +328,6 @@
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="mailto:3dprint@emisha.com.mx">3dprint@emisha.com.mx</a></li>
           <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
           <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
         </ul>
@@ -341,6 +340,6 @@
   </div>
 </footer>
 
-<script src="../../assets/js/main.js" defer></script>
+<script src="../../assets/js/main.js?v=c16eac99" defer></script>
 </body>
 </html>

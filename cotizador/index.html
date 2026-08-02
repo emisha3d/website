@@ -20,7 +20,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css?v=6696fc66">
 
 <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
       "serviceType": "Impresión 3D FDM por encargo",
       "provider": { "@id": "https://www.emisha.com.mx/#organization" },
       "areaServed": { "@type": "Country", "name": "México" },
-      "description": "Impresión 3D FDM de piezas bajo pedido en Ciudad de México, en filamento Emisha PLA y PETG de 1.75 mm. La cotización se calcula a partir del volumen real del modelo y se confirma por correo."
+      "description": "Impresión 3D FDM de piezas bajo pedido en Ciudad de México, en filamento Emisha PLA y PETG de 1.75 mm. La cotización se calcula a partir del volumen real del modelo y se confirma por WhatsApp."
     },
     {
       "@type": "BreadcrumbList",
@@ -63,7 +63,7 @@
           "name": "¿Mis archivos se suben a algún servidor?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria, se mide el volumen de la malla y se descarta al cerrar la pestaña. No hay ninguna transferencia a internet. Si después decides pedir la cotización formal, tú eliges qué archivos adjuntar al correo."
+            "text": "No. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria, se mide el volumen de la malla y se descarta al cerrar la pestaña. No hay ninguna transferencia a internet. Si después decides pedir la cotización formal, tú eliges qué archivos mandar por WhatsApp."
           }
         },
         {
@@ -71,7 +71,7 @@
           "name": "¿Qué formatos acepta el cotizador?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las mallas y las transformaciones del bloque de impresión, así que el volumen corresponde a lo que realmente vas a imprimir. Si tu pieza está en STEP, IGES u otro formato CAD, mándanosla por correo y la convertimos nosotros."
+            "text": "STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las mallas y las transformaciones del bloque de impresión, así que el volumen corresponde a lo que realmente vas a imprimir. Si tu pieza está en STEP, IGES u otro formato CAD, mándanosla por WhatsApp y la convertimos nosotros."
           }
         },
         {
@@ -87,7 +87,7 @@
           "name": "¿Qué tan exacto es el estimado?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "El volumen del modelo se mide de forma exacta a partir de la geometría. Lo que es aproximado es el resto: el material depositado depende del relleno, del grosor de pared y de si la pieza necesita soportes, y el tiempo depende de la altura de capa y de la boquilla. Por eso el número que ves es un estimado y la cotización final se confirma por correo antes de imprimir."
+            "text": "Si tu 3MF viene ya laminado (Bambu Studio u Orca), usamos los gramos y el tiempo que calculó tu propio laminador, con purga y soportes incluidos — el mejor dato posible, y lo verás señalado en la lista como «según tu laminador». Si no, estimamos por geometría: el volumen y el área de la malla se miden de forma exacta y con eso se calculan paredes y relleno; lo aproximado es lo demás (soportes, altura de capa). En todo caso la cotización final se confirma antes de imprimir."
           }
         },
         {
@@ -95,7 +95,7 @@
           "name": "¿Qué tamaño máximo de pieza pueden imprimir?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "El área de impresión es de 256 mm por lado. Si alguna medida de tu modelo excede ese límite, el cotizador te lo avisa. Las piezas más grandes se pueden imprimir seccionadas y unirse después; escríbenos y vemos cómo conviene dividirla."
+            "text": "El área de impresión es de 256 mm por lado, pero eso no limita el tamaño de tu pieza: escribe el tamaño final que quieres en la casilla de milímetros y, si no cabe en la impresora, el cotizador corta el modelo automáticamente en secciones imprimibles, te las muestra en el visor 3D y suma al estimado las camas y el ensamble. Nosotros imprimimos las secciones, las unimos y entregamos la pieza armada."
           }
         }
       ]
@@ -154,6 +154,8 @@
         </svg>
         <h3>Arrastra tus archivos aquí</h3>
         <p>o haz clic para elegirlos · STL y 3MF · puedes subir varios a la vez</p>
+        <p>Elige el tamaño final de cada pieza: si no cabe en la impresora, la cortamos
+          en secciones para armar y el estimado lo incluye.</p>
         <input type="file" id="file-input" accept=".stl,.3mf,model/stl,model/3mf" multiple>
       </div>
 
@@ -183,6 +185,17 @@
 
       <div class="filelist" id="filelist"></div>
 
+      <div id="visor" class="visor is-hidden">
+        <!-- El tamaño va en línea a propósito: si el navegador se queda con un
+             styles.css viejo en caché, un canvas sin medidas entra en un bucle
+             de redimensionado con el devicePixelRatio y deja la página en
+             blanco. Con el tamaño en línea eso no puede pasar. -->
+        <canvas id="visor-lienzo" role="img"
+                style="display:block;width:100%;height:clamp(240px,46vw,360px)"
+                aria-label="Vista previa 3D del modelo. Arrastra para girarlo."></canvas>
+        <p class="muted" id="visor-nota"></p>
+      </div>
+
       <div id="resultado" class="is-hidden">
         <div class="quote-total">
           <div>
@@ -190,13 +203,15 @@
             <div class="quote-total__sum" id="total">—</div>
             <div class="quote-total__label" id="total-detalle" style="margin-top:4px"></div>
           </div>
-          <a class="btn btn--ghost btn--lg" id="solicitar" href="mailto:3dprint@emisha.com.mx">
-            Pedir cotización formal
+          <a class="btn btn--ghost btn--lg" id="solicitar"
+             href="https://wa.me/525575639255" target="_blank" rel="noopener">
+            Pedir cotización por WhatsApp
           </a>
         </div>
 
         <p class="muted" style="font-size:.85rem;margin-top:10px">
-          Es un precio estimado. La cotización final puede cambiar.
+          Es un precio estimado. La cotización final puede cambiar. Al abrir WhatsApp ya va
+          escrito el detalle: solo adjunta tus archivos en el chat.
         </p>
       </div>
 
@@ -257,7 +272,7 @@
             <p>No. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria,
               se mide el volumen de la malla y se descarta al cerrar la pestaña. No hay ninguna
               transferencia a internet. Si después decides pedir la cotización formal, tú eliges
-              qué archivos adjuntar al correo.</p>
+              qué archivos mandar por WhatsApp.</p>
           </div>
         </details>
 
@@ -267,7 +282,7 @@
             <p>STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las
               mallas y las transformaciones del bloque de impresión, así que el volumen
               corresponde a lo que realmente vas a imprimir. Si tu pieza está en STEP, IGES u otro
-              formato CAD, mándanosla por correo y la convertimos nosotros.</p>
+              formato CAD, mándanosla por WhatsApp y la convertimos nosotros.</p>
           </div>
         </details>
 
@@ -285,20 +300,24 @@
         <details>
           <summary>¿Qué tan exacto es el estimado?</summary>
           <div class="faq__body">
-            <p>El volumen del modelo se mide de forma exacta a partir de la geometría. Lo que es
-              aproximado es el resto: el material depositado depende del relleno, del grosor de
-              pared y de si la pieza necesita soportes, y el tiempo depende de la altura de capa
-              y de la boquilla. Por eso el número que ves es un estimado y la cotización final se
-              confirma por correo antes de imprimir.</p>
+            <p>Si tu 3MF viene ya laminado (Bambu Studio u Orca), usamos los gramos y el tiempo
+              que calculó tu propio laminador, con purga y soportes incluidos — el mejor dato
+              posible, y lo verás señalado en la lista como «según tu laminador». Si no,
+              estimamos por geometría: el volumen y el área de la malla se miden de forma exacta
+              y con eso se calculan paredes y relleno; lo aproximado es lo demás (soportes,
+              altura de capa). En todo caso la cotización final se confirma antes de imprimir.</p>
           </div>
         </details>
 
         <details>
           <summary>¿Qué tamaño máximo de pieza pueden imprimir?</summary>
           <div class="faq__body">
-            <p>El área de impresión es de 256 mm por lado. Si alguna medida de tu modelo excede
-              ese límite, el cotizador te lo avisa. Las piezas más grandes se pueden imprimir
-              seccionadas y unirse después; escríbenos y vemos cómo conviene dividirla.</p>
+            <p>El área de impresión es de 256 mm por lado, pero eso no limita el tamaño de tu
+              pieza: escribe el tamaño final que quieres en la casilla de milímetros y, si no
+              cabe en la impresora, el cotizador corta el modelo automáticamente en secciones
+              imprimibles, te las muestra en el visor 3D y suma al estimado las camas y el
+              ensamble. Nosotros imprimimos las secciones, las unimos y entregamos la pieza
+              armada.</p>
           </div>
         </details>
       </div>
@@ -313,8 +332,8 @@
         <p>Si tu modelo está en otro formato o no estás seguro del material, escríbenos y lo
           revisamos contigo.</p>
         <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="mailto:3dprint@emisha.com.mx?subject=Cotizaci%C3%B3n%20de%20impresi%C3%B3n%203D">3dprint@emisha.com.mx</a>
-          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a>
+          <a class="btn btn--primary btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20quiero%20cotizar%20una%20impresi%C3%B3n%203D." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn--ghost btn--lg" href="../calculadora/">Calculadora de costos</a>
         </div>
       </div>
     </div>
@@ -352,7 +371,6 @@
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="mailto:3dprint@emisha.com.mx">3dprint@emisha.com.mx</a></li>
           <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
           <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
         </ul>
@@ -365,7 +383,8 @@
   </div>
 </footer>
 
-<script src="../assets/js/main.js" defer></script>
-<script src="../assets/js/cotizador.js" defer></script>
+<script src="../assets/js/main.js?v=c16eac99" defer></script>
+<script src="../assets/js/preview3d.js?v=bfaf3733" defer></script>
+<script src="../assets/js/cotizador.js?v=b4035fb1" defer></script>
 </body>
 </html>

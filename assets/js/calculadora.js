@@ -25,7 +25,7 @@
   };
 
   function calcular() {
-    var precioKg  = num('calc-precio-kg', 249);
+    var precioKg  = num('calc-precio-kg', 300);
     var gramos    = num('calc-gramos', 0);
     var horas     = num('calc-horas', 0);
     var watts     = num('calc-watts', 120);
@@ -68,7 +68,7 @@
   var reset = $('calc-reset');
   if (reset) {
     reset.addEventListener('click', function () {
-      var d = { 'calc-precio-kg': 249, 'calc-gramos': 20, 'calc-horas': 2,
+      var d = { 'calc-precio-kg': 300, 'calc-gramos': 20, 'calc-horas': 2,
                 'calc-watts': 120, 'calc-kwh': 2.5, 'calc-desgaste': 2, 'calc-fallo': 8 };
       Object.keys(d).forEach(function (k) { if ($(k)) $(k).value = d[k]; });
       calcular();

@@ -1,0 +1,45 @@
+FOTOS DE FALLAS — /assets/img/fallas/
+=====================================
+
+Cada tarjeta de "Fallas más comunes" en /servicios/ ya tiene su hueco de foto
+listo. Mientras el archivo no exista, el hueco se quita solo y la tarjeta se
+ve completa igual. En cuanto dejes el archivo aquí con el nombre exacto, la
+foto aparece. No hay que tocar nada del HTML.
+
+ARCHIVOS QUE ESPERA LA PÁGINA
+-----------------------------
+  extrusor-tapado.webp
+  hotend-termistor.webp
+  cama-nivelacion.webp
+  correas-ejes.webp
+  ams.webp
+  electronica-firmware.webp
+
+FORMATO
+-------
+  .webp, horizontal 4:3, mínimo 1200 x 900 px.
+  Para convertir desde una foto del celular:
+
+    sips -Z 1600 foto.jpg --out tmp.png && cwebp -q 84 tmp.png -o extrusor-tapado.webp
+
+QUÉ SACAR EN CADA UNA
+---------------------
+  extrusor-tapado ......... el extrusor abierto en el banco, con el filamento
+                            atorado o el engrane a la vista.
+  hotend-termistor ........ el hotend desmontado, con el termistor y la
+                            resistencia visibles, junto al multímetro si se usó.
+  cama-nivelacion ......... una primera capa mal pegada sobre la cama: las
+                            líneas separadas de un lado y bien del otro.
+  correas-ejes ............ una pieza con las capas corridas, de preferencia
+                            junto a la impresora abierta.
+  ams ..................... el AMS abierto en el banco durante la revisión.
+  electronica-firmware .... la placa o el cableado en revisión sobre el banco.
+
+RECOMENDACIONES
+---------------
+  - Luz pareja, sin flash directo. La luz de la ventana funciona bien.
+  - Fondo del banco, no de piso ni de cama de la casa.
+  - Que se note el detalle del que habla la tarjeta: el filamento atorado,
+    la capa despegada, la capa corrida.
+  - Nada de datos personales a la vista: notas con nombres, etiquetas de
+    cliente, pantallas con correos o direcciones.
