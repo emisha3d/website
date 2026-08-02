@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de costos de impresión 3D — gratis | Emisha</title>
+<meta name="description" content="Calculadora gratuita para saber cuánto cuesta imprimir una pieza en 3D: material, electricidad, desgaste y merma. Te sugiere precio de amigo, precio regular y precio de taller. Sin registro.">
+<link rel="canonical" href="https://www.emisha.com.mx/calculadora/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Calculadora de costos de impresión 3D — gratis">
+<meta property="og:description" content="Cuánto te cuesta imprimir una pieza y a cuánto deberías venderla. Material, luz, desgaste y merma. Sin registro.">
+<meta property="og:url" content="https://www.emisha.com.mx/calculadora/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/filamentos/petg-deep-orange.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.emisha.com.mx/calculadora/#app",
+      "name": "Calculadora de costos de impresión 3D",
+      "url": "https://www.emisha.com.mx/calculadora/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Cualquier navegador moderno",
+      "inLanguage": "es-MX",
+      "isAccessibleForFree": true,
+      "description": "Calculadora gratuita que estima el costo real de imprimir una pieza en 3D — filamento, electricidad, desgaste de la máquina y merma por fallos — y sugiere tres niveles de precio de venta. No requiere registro y funciona en el navegador.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+      "provider": { "@id": "https://www.emisha.com.mx/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.emisha.com.mx/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculadora", "item": "https://www.emisha.com.mx/calculadora/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.emisha.com.mx/calculadora/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el costo de una impresión 3D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Son cuatro cosas que se suman. El filamento, que es el peso de la pieza entre mil por el precio del kilo. La electricidad, que es la potencia de la impresora en kilowatts por las horas de impresión por el precio del kWh. El desgaste de la máquina, una cantidad fija por hora que va apartando dinero para boquillas, bandas, extrusores y la eventual reposición del equipo. Y la merma, un porcentaje que cubre las impresiones que fallan y hay que repetir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto gasta de luz una impresora 3D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mucho menos de lo que la gente supone. Una impresora tipo FDM con cama caliente promedia entre 100 y 150 watts durante la impresión, así que en dos horas consume alrededor de 0.24 kWh. A las tarifas domésticas en México eso son unos pocos pesos. El costo de la luz casi nunca es lo que define el precio: el filamento y tu tiempo pesan mucho más."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué hay que cobrar más que el costo del material?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque el material es solo una parte de lo que gastas. La impresora se desgasta y se tiene que reponer, algunas impresiones fallan y hay que repetirlas, y preparar el archivo, calibrar, quitar soportes y darle acabado a la pieza es tiempo tuyo. Si cobras solo el filamento estás trabajando gratis y además pagando por el privilegio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué margen conviene usar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de a quién le vendes. Alrededor de 1.3 veces el costo funciona para piezas entre conocidos, donde solo quieres no perder dinero. Cerca de 2.2 veces es un precio de venta normal que ya te paga el tiempo. Y arriba de 3 veces aplica cuando hay diseño de por medio, acabado fino, urgencia o garantía. Son puntos de partida: ajústalos a tu mercado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta un kilo de filamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En México un filamento PLA o PETG de buena calidad ronda los 250 a 400 pesos por kilo de 1.75 mm. La calculadora viene con 249 pesos precargados, que es el precio de referencia del filamento Emisha, pero puedes cambiarlo por el precio del que uses tú."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../" aria-label="Emisha — inicio">
+      <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="../liquid-ultra/">Liquid Ultra</a>
+      <a href="../filamentos/">Filamentos</a>
+      <a href="../servicios/">Servicios</a>
+      <a href="../cotizador/">Cotizador</a>
+      <a href="../calculadora/" aria-current="page">Calculadora</a>
+      <a href="../blog/">Blog</a>
+      <a href="../contacto/">Contacto</a>
+      <a class="btn btn--primary btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" style="padding-bottom:20px">
+    <div class="wrap" style="max-width:800px;text-align:center">
+      <span class="eyebrow">Herramienta libre</span>
+      <h1 style="font-size:clamp(2rem,4.6vw,3rem);margin:16px 0 18px">Calculadora de costos de impresión 3D</h1>
+      <p class="lede" style="margin-inline:auto">
+        Cuánto te cuesta realmente imprimir una pieza — filamento, luz, desgaste y las
+        impresiones que fallan — y a cuánto deberías venderla. Sin registro y sin límite
+        de uso: es para la comunidad.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================================================= CALCULADORA -->
+  <section class="section" style="padding-top:34px">
+    <div class="wrap" style="max-width:980px">
+      <div class="calc">
+
+        <!-- ---------------------------------------------------- entradas -->
+        <div class="card">
+          <h2 style="font-size:1.15rem;margin-bottom:20px">Tu impresión</h2>
+          <div class="calc-inputs">
+            <div class="field">
+              <label for="calc-precio-kg">Precio del filamento (MXN por kilo)</label>
+              <input type="number" id="calc-precio-kg" value="249" min="0" step="1" inputmode="decimal">
+              <span class="field__hint">Precargado con el precio de referencia del filamento Emisha.</span>
+            </div>
+            <div class="field">
+              <label for="calc-gramos">Gramos de filamento</label>
+              <input type="number" id="calc-gramos" value="20" min="0" step="0.1" inputmode="decimal">
+              <span class="field__hint">Tu rebanador te lo dice antes de imprimir.</span>
+            </div>
+            <div class="field">
+              <label for="calc-horas">Horas de impresión</label>
+              <input type="number" id="calc-horas" value="2" min="0" step="0.1" inputmode="decimal">
+            </div>
+          </div>
+
+          <details class="calc-adv" style="margin-top:22px">
+            <summary>Ajustes avanzados</summary>
+            <div class="calc-inputs">
+              <div class="field">
+                <label for="calc-watts">Consumo de la impresora (watts)</label>
+                <input type="number" id="calc-watts" value="120" min="0" step="5" inputmode="decimal">
+                <span class="field__hint">Una FDM con cama caliente promedia 100–150 W.</span>
+              </div>
+              <div class="field">
+                <label for="calc-kwh">Precio del kWh (MXN)</label>
+                <input type="number" id="calc-kwh" value="2.5" min="0" step="0.1" inputmode="decimal">
+                <span class="field__hint">Viene en tu recibo de luz.</span>
+              </div>
+              <div class="field">
+                <label for="calc-desgaste">Desgaste de máquina (MXN por hora)</label>
+                <input type="number" id="calc-desgaste" value="2" min="0" step="0.5" inputmode="decimal">
+                <span class="field__hint">Boquillas, bandas, extrusor y reposición del equipo.</span>
+              </div>
+              <div class="field">
+                <label for="calc-fallo">Merma por fallos (%)</label>
+                <input type="number" id="calc-fallo" value="8" min="0" max="100" step="1" inputmode="decimal">
+                <span class="field__hint">Reserva para las impresiones que hay que repetir.</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn--ghost btn--sm" id="calc-reset" style="margin-top:18px">
+              Restablecer valores
+            </button>
+          </details>
+        </div>
+
+        <!-- ---------------------------------------------------- salidas -->
+        <div>
+          <div class="card" style="margin-bottom:18px">
+            <h2 style="font-size:1.15rem;margin-bottom:16px">Lo que te cuesta</h2>
+            <div class="calc-breakdown">
+              <div class="calc-row"><span>Filamento</span><span id="out-material">—</span></div>
+              <div class="calc-row">
+                <span>Electricidad <span class="muted" id="out-kwh" style="font-size:.82rem"></span></span>
+                <span id="out-luz">—</span>
+              </div>
+              <div class="calc-row"><span>Desgaste de máquina</span><span id="out-desgaste">—</span></div>
+              <div class="calc-row"><span>Reserva por fallos</span><span id="out-fallo">—</span></div>
+              <div class="calc-row calc-row--total"><span>Costo real</span><span id="out-total">—</span></div>
+            </div>
+            <p class="muted" style="font-size:.82rem">
+              <span id="out-gramo">—</span> · esto es lo que sales debiendo, sin ganar nada.
+            </p>
+          </div>
+
+          <div class="calc-prices">
+            <div class="calc-price">
+              <span class="calc-price__label"><strong>Precio de amigo</strong>Solo para no perder</span>
+              <span class="calc-price__value" id="out-amigo">—</span>
+            </div>
+            <div class="calc-price calc-price--hero">
+              <span class="calc-price__label"><strong>Precio regular</strong>Ya te paga el tiempo</span>
+              <span class="calc-price__value" id="out-regular">—</span>
+            </div>
+            <div class="calc-price">
+              <span class="calc-price__label"><strong>Precio de taller</strong>Con diseño, acabado o urgencia</span>
+              <span class="calc-price__value" id="out-taller">—</span>
+            </div>
+          </div>
+
+          <p class="muted" style="font-size:.82rem;margin-top:14px;text-align:right">
+            A precio regular estás cobrando <strong id="out-hora">—</strong>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="note note--info" style="margin-top:26px">
+        <svg class="note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+        </svg>
+        <div>
+          <strong>Los márgenes son un punto de partida, no una regla.</strong>
+          Si tú diseñaste la pieza, si el acabado lleva lijado y pintura, o si el cliente la
+          necesita para mañana, cobra más. Si es una reimpresión de un modelo que ya tenías
+          calibrado, puedes cobrar menos. La calculadora te da el piso — el precio lo pones tú.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ FAQ -->
+  <section class="section section--alt" id="faq">
+    <div class="wrap" style="max-width:840px">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Cómo cobrar una impresión</h2>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>¿Cómo se calcula el costo de una impresión 3D?</summary>
+          <div class="faq__body">
+            <p>Son cuatro cosas que se suman. El filamento, que es el peso de la pieza entre mil
+              por el precio del kilo. La electricidad, que es la potencia de la impresora en
+              kilowatts por las horas de impresión por el precio del kWh. El desgaste de la
+              máquina, una cantidad fija por hora que va apartando dinero para boquillas, bandas,
+              extrusores y la eventual reposición del equipo. Y la merma, un porcentaje que cubre
+              las impresiones que fallan y hay que repetir.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuánto gasta de luz una impresora 3D?</summary>
+          <div class="faq__body">
+            <p>Mucho menos de lo que la gente supone. Una impresora tipo FDM con cama caliente
+              promedia entre 100 y 150 watts durante la impresión, así que en dos horas consume
+              alrededor de 0.24 kWh. A las tarifas domésticas en México eso son unos pocos pesos.
+              El costo de la luz casi nunca es lo que define el precio: el filamento y tu tiempo
+              pesan mucho más.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Por qué hay que cobrar más que el costo del material?</summary>
+          <div class="faq__body">
+            <p>Porque el material es solo una parte de lo que gastas. La impresora se desgasta y
+              se tiene que reponer, algunas impresiones fallan y hay que repetirlas, y preparar el
+              archivo, calibrar, quitar soportes y darle acabado a la pieza es tiempo tuyo. Si
+              cobras solo el filamento estás trabajando gratis y además pagando por el privilegio.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué margen conviene usar?</summary>
+          <div class="faq__body">
+            <p>Depende de a quién le vendes. Alrededor de 1.3 veces el costo funciona para piezas
+              entre conocidos, donde solo quieres no perder dinero. Cerca de 2.2 veces es un
+              precio de venta normal que ya te paga el tiempo. Y arriba de 3 veces aplica cuando
+              hay diseño de por medio, acabado fino, urgencia o garantía. Son puntos de partida:
+              ajústalos a tu mercado.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuánto cuesta un kilo de filamento?</summary>
+          <div class="faq__body">
+            <p>En México un filamento PLA o PETG de buena calidad ronda los 250 a 400 pesos por
+              kilo de 1.75 mm. La calculadora viene con 249 pesos precargados, que es el precio
+              de referencia del filamento Emisha, pero puedes cambiarlo por el precio del que
+              uses tú.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight" style="padding-bottom:84px">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow">¿No quieres imprimirla tú?</span>
+        <h2>Sube tu archivo y te cotizamos</h2>
+        <p>El cotizador lee tu STL o 3MF, mide el volumen real de la pieza y te da el precio
+          de imprimirla con nosotros.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="../cotizador/">Ir al cotizador</a>
+          <a class="btn btn--ghost btn--lg" href="../filamentos/">Ver filamento desde $249</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../servicios/">Servicios y reparación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../cotizador/">Cotizador 3D</a></li>
+          <li><a href="../calculadora/">Calculadora de costos</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:3dprint@emisha.com.mx">3dprint@emisha.com.mx</a></li>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/calculadora.js" defer></script>
+</body>
+</html>

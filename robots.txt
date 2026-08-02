@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.emisha.com.mx/sitemap.xml
+
+# Rastreadores de IA — permitidos de forma intencional.
+# Queremos que Liquid Ultra y el filamento Premium Ultra puedan aparecer
+# citados en respuestas de asistentes y buscadores con IA.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

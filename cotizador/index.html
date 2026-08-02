@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cotizador de impresión 3D — sube tu STL o 3MF | Emisha</title>
+<meta name="description" content="Sube tu archivo STL o 3MF y obtén al instante un estimado de impresión 3D en PLA o PETG. El cálculo se hace en tu navegador: tus modelos nunca se suben a ningún servidor.">
+<link rel="canonical" href="https://www.emisha.com.mx/cotizador/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Cotizador de impresión 3D — Emisha">
+<meta property="og:description" content="Sube tu STL o 3MF y obtén un estimado al instante, en PLA o PETG. El cálculo corre en tu navegador.">
+<meta property="og:url" content="https://www.emisha.com.mx/cotizador/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/filamentos/cosmic-blue.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.emisha.com.mx/cotizador/#app",
+      "name": "Cotizador de impresión 3D Emisha",
+      "url": "https://www.emisha.com.mx/cotizador/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Cualquier navegador moderno",
+      "inLanguage": "es-MX",
+      "description": "Herramienta que calcula el volumen de un modelo STL o 3MF directamente en el navegador y estima el costo de imprimirlo en PLA o PETG. Los archivos no se transfieren a ningún servidor.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+      "provider": { "@id": "https://www.emisha.com.mx/#organization" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.emisha.com.mx/cotizador/#servicio",
+      "name": "Impresión 3D bajo pedido",
+      "serviceType": "Impresión 3D FDM por encargo",
+      "provider": { "@id": "https://www.emisha.com.mx/#organization" },
+      "areaServed": { "@type": "Country", "name": "México" },
+      "description": "Impresión 3D FDM de piezas bajo pedido en Ciudad de México, en filamento Emisha PLA y PETG de 1.75 mm. La cotización se calcula a partir del volumen real del modelo y se confirma por correo."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.emisha.com.mx/" },
+        { "@type": "ListItem", "position": 2, "name": "Cotizador", "item": "https://www.emisha.com.mx/cotizador/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.emisha.com.mx/cotizador/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Mis archivos se suben a algún servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria, se mide el volumen de la malla y se descarta al cerrar la pestaña. No hay ninguna transferencia a internet. Si después decides pedir la cotización formal, tú eliges qué archivos adjuntar al correo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué formatos acepta el cotizador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las mallas y las transformaciones del bloque de impresión, así que el volumen corresponde a lo que realmente vas a imprimir. Si tu pieza está en STEP, IGES u otro formato CAD, mándanosla por correo y la convertimos nosotros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué solo hay PLA y PETG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Son los dos materiales que manejamos en inventario, en las cuatro líneas del filamento Emisha. El PLA es más rígido y fácil de imprimir, ideal para piezas decorativas, prototipos y modelos de exhibición. El PETG resiste mejor el impacto, la temperatura y la intemperie, así que conviene para piezas funcionales. Si necesitas otro material, escríbenos y lo vemos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tan exacto es el estimado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El volumen del modelo se mide de forma exacta a partir de la geometría. Lo que es aproximado es el resto: el material depositado depende del relleno, del grosor de pared y de si la pieza necesita soportes, y el tiempo depende de la altura de capa y de la boquilla. Por eso el número que ves es un estimado y la cotización final se confirma por correo antes de imprimir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tamaño máximo de pieza pueden imprimir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El área de impresión es de 256 mm por lado. Si alguna medida de tu modelo excede ese límite, el cotizador te lo avisa. Las piezas más grandes se pueden imprimir seccionadas y unirse después; escríbenos y vemos cómo conviene dividirla."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../" aria-label="Emisha — inicio">
+      <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="../liquid-ultra/">Liquid Ultra</a>
+      <a href="../filamentos/">Filamentos</a>
+      <a href="../servicios/">Servicios</a>
+      <a href="../cotizador/" aria-current="page">Cotizador</a>
+      <a href="../calculadora/">Calculadora</a>
+      <a href="../blog/">Blog</a>
+      <a href="../contacto/">Contacto</a>
+      <a class="btn btn--primary btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" style="padding-bottom:20px">
+    <div class="wrap" style="max-width:820px;text-align:center">
+      <span class="eyebrow">Impresión 3D bajo pedido</span>
+      <h1 style="font-size:clamp(2rem,4.6vw,3rem);margin:16px 0 18px">Cotiza tu pieza al instante</h1>
+      <p class="lede" style="margin-inline:auto">
+        Sube tu modelo en STL o 3MF y calculamos el volumen real de la malla para darte un
+        estimado en el momento. Todo corre dentro de tu navegador — <strong>tus archivos
+        nunca salen de tu computadora</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================= COTIZADOR -->
+  <section class="section" style="padding-top:34px">
+    <div class="wrap" style="max-width:880px">
+
+      <div class="dropzone" id="dropzone" role="button" tabindex="0"
+           aria-label="Selecciona o arrastra tus archivos STL o 3MF">
+        <svg class="dropzone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <path d="M7 10l5-5 5 5"/><path d="M12 5v13"/>
+        </svg>
+        <h3>Arrastra tus archivos aquí</h3>
+        <p>o haz clic para elegirlos · STL y 3MF · puedes subir varios a la vez</p>
+        <input type="file" id="file-input" accept=".stl,.3mf,model/stl,model/3mf" multiple>
+      </div>
+
+      <div class="quote-controls">
+        <div class="field">
+          <label for="material">Material</label>
+          <select id="material">
+            <option value="pla" selected>PLA — rígido, uso general</option>
+            <option value="petg">PETG — resistente, funcional</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="relleno">Relleno</label>
+          <select id="relleno">
+            <option value="0.10">10 % — decorativo</option>
+            <option value="0.15" selected>15 % — estándar</option>
+            <option value="0.25">25 % — reforzado</option>
+            <option value="0.50">50 % — alta resistencia</option>
+            <option value="1">100 % — sólido</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="muted is-hidden" id="empty-state" style="font-size:.9rem;text-align:center;margin-top:8px">
+        Agrega un modelo para ver el estimado.
+      </p>
+
+      <div class="filelist" id="filelist"></div>
+
+      <div id="resultado" class="is-hidden">
+        <div class="quote-total">
+          <div>
+            <div class="quote-total__label">Estimado total</div>
+            <div class="quote-total__sum" id="total">—</div>
+            <div class="quote-total__label" id="total-detalle" style="margin-top:4px"></div>
+          </div>
+          <a class="btn btn--ghost btn--lg" id="solicitar" href="mailto:3dprint@emisha.com.mx">
+            Pedir cotización formal
+          </a>
+        </div>
+
+        <div class="note note--info" style="margin-top:18px">
+          <svg class="note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Es un estimado, no una cotización en firme.</strong>
+            El volumen se mide de forma exacta, pero el soporte, el grosor de pared y el
+            acabado cambian el resultado. Al pedir la cotización formal se abre un correo con
+            el desglose ya escrito — solo adjunta tus archivos y te confirmamos precio y tiempo.
+          </div>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:14px">
+        <svg class="note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <div>
+          Los archivos se procesan localmente con las APIs del navegador. No se envían a
+          ningún servidor, ni al nuestro ni a terceros, y desaparecen al cerrar la pestaña.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================== QUÉ INFLUYE -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Cómo se calcula</span>
+        <h2>Qué mueve el precio</h2>
+        <p>No cobramos por tamaño de caja sino por material depositado y tiempo de máquina.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3 style="font-size:1.08rem;margin-bottom:9px">Volumen del modelo</h3>
+          <p class="muted">Se mide directo de la geometría, triángulo por triángulo. Una pieza
+            hueca cuesta mucho menos que una maciza del mismo tamaño exterior.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.08rem;margin-bottom:9px">Relleno</h3>
+          <p class="muted">Es la variable con más peso. Subir de 15 % a 50 % puede casi duplicar
+            el material y el tiempo. Para piezas decorativas 10–15 % basta.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.08rem;margin-bottom:9px">Material</h3>
+          <p class="muted">PLA y PETG cuestan lo mismo por kilo, pero el PETG es más denso y se
+            imprime más lento, así que sale ligeramente arriba.</p>
+        </div>
+      </div>
+
+      <div class="note note--warn" style="margin-top:26px">
+        <svg class="note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/>
+        </svg>
+        <div>
+          <strong>Soportes y orientación.</strong> Una pieza con voladizos necesita soporte, que
+          es material que se tira a la basura. A veces basta con reorientarla para bajar el costo
+          — si tu modelo lo permite, te lo decimos al cotizar.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap" style="max-width:840px">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Sobre el cotizador</h2>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>¿Mis archivos se suben a algún servidor?</summary>
+          <div class="faq__body">
+            <p>No. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria,
+              se mide el volumen de la malla y se descarta al cerrar la pestaña. No hay ninguna
+              transferencia a internet. Si después decides pedir la cotización formal, tú eliges
+              qué archivos adjuntar al correo.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué formatos acepta el cotizador?</summary>
+          <div class="faq__body">
+            <p>STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las
+              mallas y las transformaciones del bloque de impresión, así que el volumen
+              corresponde a lo que realmente vas a imprimir. Si tu pieza está en STEP, IGES u otro
+              formato CAD, mándanosla por correo y la convertimos nosotros.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Por qué solo hay PLA y PETG?</summary>
+          <div class="faq__body">
+            <p>Son los dos materiales que manejamos en inventario, en las cuatro líneas del
+              filamento Emisha. El PLA es más rígido y fácil de imprimir, ideal para piezas
+              decorativas, prototipos y modelos de exhibición. El PETG resiste mejor el impacto,
+              la temperatura y la intemperie, así que conviene para piezas funcionales. Si
+              necesitas otro material, escríbenos y lo vemos.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué tan exacto es el estimado?</summary>
+          <div class="faq__body">
+            <p>El volumen del modelo se mide de forma exacta a partir de la geometría. Lo que es
+              aproximado es el resto: el material depositado depende del relleno, del grosor de
+              pared y de si la pieza necesita soportes, y el tiempo depende de la altura de capa
+              y de la boquilla. Por eso el número que ves es un estimado y la cotización final se
+              confirma por correo antes de imprimir.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué tamaño máximo de pieza pueden imprimir?</summary>
+          <div class="faq__body">
+            <p>El área de impresión es de 256 mm por lado. Si alguna medida de tu modelo excede
+              ese límite, el cotizador te lo avisa. Las piezas más grandes se pueden imprimir
+              seccionadas y unirse después; escríbenos y vemos cómo conviene dividirla.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight" style="padding-bottom:84px">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow">¿Prefieres que lo veamos nosotros?</span>
+        <h2>Mándanos el archivo y te cotizamos</h2>
+        <p>Si tu modelo está en otro formato o no estás seguro del material, escríbenos y lo
+          revisamos contigo.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="mailto:3dprint@emisha.com.mx?subject=Cotizaci%C3%B3n%20de%20impresi%C3%B3n%203D">3dprint@emisha.com.mx</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../servicios/">Servicios y reparación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../cotizador/">Cotizador 3D</a></li>
+          <li><a href="../calculadora/">Calculadora de costos</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../liquid-ultra/#seguridad">Seguridad</a></li>
+          <li><a href="../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:3dprint@emisha.com.mx">3dprint@emisha.com.mx</a></li>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/cotizador.js" defer></script>
+</body>
+</html>
