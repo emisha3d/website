@@ -20,7 +20,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css?v=6696fc66">
+<link rel="stylesheet" href="../assets/css/styles.css?v=cc41bd95">
 
 <script type="application/ld+json">
 {
@@ -120,6 +120,7 @@
       <a href="../filamentos/">Filamentos</a>
       <a href="../servicios/">Servicios</a>
       <a href="../cotizador/" aria-current="page">Cotizador</a>
+      <a href="../cortador/">Cortador</a>
       <a href="../calculadora/">Calculadora</a>
       <a href="../blog/">Blog</a>
       <a href="../contacto/">Contacto</a>
@@ -152,7 +153,8 @@
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <path d="M7 10l5-5 5 5"/><path d="M12 5v13"/>
         </svg>
-        <h3>Arrastra tus archivos aquí</h3>
+        <h3><span class="dropzone__txt-inicial">Arrastra tus archivos aquí</span><span
+            class="dropzone__txt-compacto">Agrega más archivos — arrástralos o haz clic</span></h3>
         <p>o haz clic para elegirlos · STL y 3MF · puedes subir varios a la vez</p>
         <p>Elige el tamaño final de cada pieza: si no cabe en la impresora, la cortamos
           en secciones para armar y el estimado lo incluye.</p>
@@ -194,6 +196,10 @@
                 style="display:block;width:100%;height:clamp(240px,46vw,360px)"
                 aria-label="Vista previa 3D del modelo. Arrastra para girarlo."></canvas>
         <p class="muted" id="visor-nota"></p>
+        <p class="muted" style="font-size:.85rem">
+          ¿Quieres mover, girar, escalar o cortar las piezas a tu gusto (con planos o con
+          pincel)? Ábrelas en el <a href="../cortador/">cortador de piezas</a>.
+        </p>
       </div>
 
       <div id="resultado" class="is-hidden">
@@ -362,6 +368,7 @@
         <h4>Herramientas</h4>
         <ul>
           <li><a href="../cotizador/">Cotizador 3D</a></li>
+          <li><a href="../cortador/">Cortador de piezas</a></li>
           <li><a href="../calculadora/">Calculadora de costos</a></li>
           <li><a href="../blog/">Blog</a></li>
           <li><a href="../liquid-ultra/#seguridad">Seguridad</a></li>
@@ -384,7 +391,7 @@
 </footer>
 
 <script src="../assets/js/main.js?v=c16eac99" defer></script>
-<script src="../assets/js/preview3d.js?v=bfaf3733" defer></script>
-<script src="../assets/js/cotizador.js?v=b4035fb1" defer></script>
+<script src="../assets/js/preview3d.js?v=a5c6c573" defer></script>
+<script src="../assets/js/cotizador.js?v=8ebb30e3" defer></script>
 </body>
 </html>

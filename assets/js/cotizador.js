@@ -685,7 +685,10 @@
     return 0.5 * Math.sqrt(nx * nx + ny * ny + nz * nz);
   }
 
-  function cortarEnPiezas(malla, escala, maxMm) {
+  /* planos (opcional): posiciones de corte elegidas a mano por eje, en mm
+     ya escalados: {x:[...], y:[...], z:[...]}. Sin planos, la cuadrícula
+     se reparte pareja para que ninguna sección exceda maxMm.              */
+  function cortarEnPiezas(malla, escala, maxMm, planos) {
     if (!malla || malla.length < 9) return null;
 
     var min = [Infinity, Infinity, Infinity], max = [-Infinity, -Infinity, -Infinity];
@@ -700,9 +703,24 @@
     if (!isFinite(min[0])) return null;
 
     var dim = [max[0] - min[0], max[1] - min[1], max[2] - min[2]];
+    var EJES = ['x', 'y', 'z'];
+    var bordes = [null, null, null];    // fronteras por eje, extremos incluidos
     var n = [1, 1, 1], totalCeldas = 1;
     for (a = 0; a < 3; a++) {
-      n[a] = Math.max(1, Math.ceil((dim[a] - EPS_CORTE) / maxMm));
+      var interiores = null;
+      if (planos && planos[EJES[a]]) {
+        interiores = planos[EJES[a]].filter(function (q) {
+          return isFinite(q) && q > min[a] + EPS_CORTE && q < max[a] - EPS_CORTE;
+        }).sort(function (q, r) { return q - r; });
+      }
+      if (interiores === null) {
+        var cuantos = Math.max(1, Math.ceil((dim[a] - EPS_CORTE) / maxMm));
+        interiores = [];
+        for (i = 1; i < cuantos; i++) interiores.push(min[a] + dim[a] * i / cuantos);
+      }
+      bordes[a] = [min[a]].concat(interiores);
+      bordes[a].push(max[a]);
+      n[a] = bordes[a].length - 1;
       totalCeldas *= n[a];
     }
     if (totalCeldas === 1) return null;
@@ -710,9 +728,11 @@
     var tam = [dim[0] / n[0], dim[1] / n[1], dim[2] / n[2]];
 
     function celdaDe(valor, eje) {
-      if (n[eje] === 1) return 0;
-      var c = Math.floor((valor - min[eje]) / tam[eje]);
-      return c < 0 ? 0 : (c >= n[eje] ? n[eje] - 1 : c);
+      var b = bordes[eje], ultimo = b.length - 2;
+      for (var c = 1; c <= ultimo; c++) {
+        if (valor < b[c]) return c - 1;
+      }
+      return ultimo;
     }
 
     var tris  = new Array(totalCeldas);   // números sueltos por celda
@@ -743,12 +763,12 @@
         for (var cj = j0; cj <= j1; cj++) {
           for (var ck = k0; ck <= k1; ck++) {
             var poli = [[ax, ay, az], [bx, by, bz], [cx, cy, cz]];
-            poli = recortarPoligono(poli, 0, min[0] + ci * tam[0], 1);
-            if (poli.length > 2) poli = recortarPoligono(poli, 0, min[0] + (ci + 1) * tam[0], -1);
-            if (poli.length > 2) poli = recortarPoligono(poli, 1, min[1] + cj * tam[1], 1);
-            if (poli.length > 2) poli = recortarPoligono(poli, 1, min[1] + (cj + 1) * tam[1], -1);
-            if (poli.length > 2) poli = recortarPoligono(poli, 2, min[2] + ck * tam[2], 1);
-            if (poli.length > 2) poli = recortarPoligono(poli, 2, min[2] + (ck + 1) * tam[2], -1);
+            poli = recortarPoligono(poli, 0, bordes[0][ci], 1);
+            if (poli.length > 2) poli = recortarPoligono(poli, 0, bordes[0][ci + 1], -1);
+            if (poli.length > 2) poli = recortarPoligono(poli, 1, bordes[1][cj], 1);
+            if (poli.length > 2) poli = recortarPoligono(poli, 1, bordes[1][cj + 1], -1);
+            if (poli.length > 2) poli = recortarPoligono(poli, 2, bordes[2][ck], 1);
+            if (poli.length > 2) poli = recortarPoligono(poli, 2, bordes[2][ck + 1], -1);
             if (poli.length < 3) continue;
 
             var c = (ci * n[1] + cj) * n[2] + ck;
@@ -779,7 +799,88 @@
     }
     if (celdas.length < 2) return null;
 
-    return { celdas: celdas, n: n, tam: tam, cajaMayor: cajaMayor };
+    return {
+      celdas: celdas, n: n, tam: tam, cajaMayor: cajaMayor,
+      limites: { min: min, max: max },
+      fronteras: { x: bordes[0].slice(1, -1),
+                   y: bordes[1].slice(1, -1),
+                   z: bordes[2].slice(1, -1) }
+    };
+  }
+
+  /* Corte por pincel: cada etiqueta pintada es una sección; lo no pintado
+     es la sección base. Se separa el modelo por etiquetas, sin planos.    */
+  function cortarPorEtiquetas(malla, escala, etiquetas) {
+    if (!malla || !etiquetas) return null;
+    var nTri = Math.floor(malla.length / 9);
+    var grupos = {}, t, e;
+    for (t = 0; t < nTri; t++) {
+      e = t < etiquetas.length ? etiquetas[t] : 0;
+      (grupos[e] || (grupos[e] = [])).push(t);
+    }
+    var claves = Object.keys(grupos);
+    if (claves.length < 2) return null;
+
+    var celdas = [], cajaMayor = null;
+    var minG = [Infinity, Infinity, Infinity], maxG = [-Infinity, -Infinity, -Infinity];
+    claves.forEach(function (k) {
+      var lista = grupos[k];
+      var tri = new Float64Array(lista.length * 9), p = 0;
+      for (var i = 0; i < lista.length; i++) {
+        var o = lista[i] * 9;
+        for (var c = 0; c < 9; c++) tri[p++] = malla[o + c] * escala;
+      }
+      var lim = limitesDeMalla(tri);
+      var caja = [lim.max[0] - lim.min[0], lim.max[1] - lim.min[1], lim.max[2] - lim.min[2]];
+      cajaMayor = unirCaja(cajaMayor, caja);
+      for (var a = 0; a < 3; a++) {
+        if (lim.min[a] < minG[a]) minG[a] = lim.min[a];
+        if (lim.max[a] > maxG[a]) maxG[a] = lim.max[a];
+      }
+      /* Normal promedio del grupo: si su centro coincide con el del modelo
+         (un parche pintado al frente de una caja), el despiece sale por la
+         normal, no por el centro. */
+      var nx = 0, ny = 0, nz = 0;
+      for (var q = 0; q < tri.length; q += 9) {
+        var ux = tri[q + 3] - tri[q], uy = tri[q + 4] - tri[q + 1], uz = tri[q + 5] - tri[q + 2];
+        var wx = tri[q + 6] - tri[q], wy = tri[q + 7] - tri[q + 1], wz = tri[q + 8] - tri[q + 2];
+        nx += uy * wz - uz * wy;
+        ny += uz * wx - ux * wz;
+        nz += ux * wy - uy * wx;
+      }
+      celdas.push({ tri: tri, caja: caja, lim: lim, etiqueta: +k,
+                    normal: [nx, ny, nz] });
+    });
+
+    /* Despiece: cada sección se aparta del centro en la dirección de su
+       propio centro, como en la separación por colores. */
+    var centro = [(minG[0] + maxG[0]) / 2, (minG[1] + maxG[1]) / 2, (minG[2] + maxG[2]) / 2];
+    var tamM = Math.max(maxG[0] - minG[0], maxG[1] - minG[1], maxG[2] - minG[2]);
+    var gap = Math.max(8, Math.min(tamM * 0.14, 45));
+    var total = 0;
+    celdas.forEach(function (cel) { total += cel.tri.length; });
+    var out = new Float64Array(total), pos = 0;
+    celdas.forEach(function (cel) {
+      var d = [0, 0, 0], lg = 0, a;
+      for (a = 0; a < 3; a++) {
+        d[a] = (cel.lim.min[a] + cel.lim.max[a]) / 2 - centro[a];
+        lg += d[a] * d[a];
+      }
+      lg = Math.sqrt(lg);
+      if (lg < tamM * 0.03 && cel.etiqueta > 0) {
+        d = cel.normal.slice();
+        lg = Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
+      }
+      lg = lg || 1;
+      for (a = 0; a < 3; a++) d[a] = d[a] / lg * gap;
+      for (var i = 0; i < cel.tri.length; i += 3) {
+        out[pos++] = cel.tri[i] + d[0];
+        out[pos++] = cel.tri[i + 1] + d[1];
+        out[pos++] = cel.tri[i + 2] + d[2];
+      }
+    });
+
+    return { celdas: celdas, cajaMayor: cajaMayor, explotada: out, pincel: true };
   }
 
   /* Las secciones separadas unos milímetros, para que se vea el corte. */
@@ -836,7 +937,12 @@
      piezas, ya escaladas. Con eso las camas se cuentan sumando la fracción
      de cama que ocupa cada parte, no como si el juego entero fuera una
      sola pieza del tamaño de la mayor.                                     */
-  function cotizar(volumenCm3, materialKey, relleno, cantidad, caja, corte, partesCajas, placas, areaMm2, colores, medido) {
+  /* regiones (opcional): número de piezas al cortar el modelo POR COLOR,
+     estilo "optimización de color": cada región se imprime en un solo
+     color (sin purga) y se pegan al final. Quien llama ya debe haber
+     pasado colores=1, medido=null y las cajas de las regiones como
+     partesCajas para las camas.                                          */
+  function cotizar(volumenCm3, materialKey, relleno, cantidad, caja, corte, partesCajas, placas, areaMm2, colores, medido, regiones) {
     var mat = CONFIG.materiales[materialKey];
     var gramos, horas, delLaminador = false;
     if (medido && medido.gramos > 0) {
@@ -867,7 +973,7 @@
     var maquina = horas * CONFIG.tarifaHora;
 
     var n = Math.max(1, cantidad || 1);
-    var secciones = corte ? corte.celdas.length : 1;
+    var secciones = corte ? corte.celdas.length : (regiones > 1 ? regiones : 1);
     var porCama, camas;
     if (!corte && partesCajas && partesCajas.length > 1) {
       var frac = 0;
@@ -882,12 +988,16 @@
          repartos por color no se pueden fusionar en una sola cama. Con
          varias copias sí se aprovechan los huecos de cada placa.          */
       if (placas > 0 && camas < placas) camas = placas;
+      /* Al separar por color cada color imprime en su propia corrida:
+         nunca menos de una cama por color, sin importar lo chico que sea. */
+      if (regiones > 1 && camas < regiones) camas = regiones;
     } else {
       var cajaPack = corte ? corte.cajaMayor : caja;
       porCama = piezasPorCama(cajaPack);
       camas = porCama > 0 ? Math.ceil(n * secciones / porCama) : n * secciones;
     }
-    var ensamble = corte ? CONFIG.ensamblePorPieza * (secciones - 1) * n : 0;
+    var ensamble = (corte || regiones > 1)
+      ? CONFIG.ensamblePorPieza * (secciones - 1) * n : 0;
 
     var directo = (material + maquina) * CONFIG.margen * n;
     var total = directo + CONFIG.preparacionPorArchivo
@@ -908,11 +1018,15 @@
      la consola o desde un script. La interfaz no lo usa. Va aquí arriba a
      propósito, antes del `return` que corta cuando no existe el HTML del
      cotizador: así el motor se puede probar en una página vacía. */
+  /* El cortador de piezas (/cortador/) carga este archivo solo por el motor:
+     al no existir #dropzone en esa página, la interfaz de abajo no corre. */
   window.__emishaQuote = {
     parseSTL: parseSTL, parse3MF: parse3MF,
     volumen: volumenDeMalla, caja: cajaDeMalla, area: areaDeMalla,
-    cotizar: cotizar, cortar: cortarEnPiezas, explotar: mallaExplotada,
-    config: CONFIG
+    limites: limitesDeMalla, porCama: piezasPorCama,
+    cotizar: cotizar, cortar: cortarEnPiezas,
+    cortarEtiquetas: cortarPorEtiquetas, explotar: mallaExplotada,
+    config: CONFIG, whatsapp: WHATSAPP
   };
 
   var zona     = $('#dropzone');
@@ -980,24 +1094,50 @@
     return d / p.tamanoNatural;
   }
 
-  /* El corte se dispara solo cuando la pieza —al tamaño pedido— ya no cabe
-     en la impresora ni girada. Se guarda por (escala, límite) porque cortar
-     una malla grande cuesta trabajo y el usuario mueve el número seguido.  */
+  /* El corte se decide en este orden: el pincel del usuario mana sobre
+     todo; luego el corte automático (con los planos que el usuario haya
+     movido) cuando la pieza —al tamaño pedido— no cabe en la impresora ni
+     girada. Se guarda por clave porque cortar una malla grande cuesta
+     trabajo y el usuario mueve los números seguido.                        */
   function corteDe(p, s) {
     if (!p.malla) return null;
+
+    if (p.pincelListo && p.pincel) {
+      var clavePin = 'pin|' + s.toFixed(4) + '|' + (p.pincelVersion || 0);
+      if (!p._cortePin || p._cortePin.clave !== clavePin) {
+        p._cortePin = { clave: clavePin,
+                        datos: cortarPorEtiquetas(p.malla, s, p.pincel) };
+      }
+      if (p._cortePin.datos) return p._cortePin.datos;
+    }
+
     var cajaE = [p.caja[0] * s, p.caja[1] * s, p.caja[2] * s];
     if (piezasPorCama(cajaE) > 0) return null;
     var lim = Math.min(CONFIG.camaMm, CONFIG.alturaMm) - CONFIG.margenCorteMm;
-    var clave = s.toFixed(4) + '|' + lim;
+    var planos = (p.planos && p._planosEscala === s) ? p.planos : null;
+    var clave = s.toFixed(4) + '|' + lim + '|'
+              + (planos ? JSON.stringify(planos) : 'auto');
     if (!p._corte || p._corte.clave !== clave) {
-      p._corte = { clave: clave, datos: cortarEnPiezas(p.malla, s, lim) };
+      p._corte = { clave: clave, datos: cortarEnPiezas(p.malla, s, lim, planos) };
     }
     return p._corte.datos;
   }
 
   /* ------------------------------------------------------- visor 3D --- */
 
-  var visorCtrl = null, visorSel = -1, visorClave = '';
+  var visorCtrl = null, visorSel = -1, visorClave = '', visorPiezaAnt = -1;
+  var visorModo = 'ver';               // 'ver' | 'editar' | 'pincel'
+  var timerPlanos = null;
+
+  /* Secciones del pincel: 0 = borrador (sin sección). */
+  var SECCIONES_PINCEL = [
+    { nombre: 'A', color: [0.86, 0.26, 0.22] },
+    { nombre: 'B', color: [0.12, 0.47, 0.75] },
+    { nombre: 'C', color: [0.24, 0.65, 0.36] },
+    { nombre: 'D', color: [0.92, 0.55, 0.10] }
+  ];
+  var pincelSeccion = 1;               // 1..4, 0 = borrador
+  var pincelRadio = 34;
 
   function piezaVisible() {
     if (visorSel >= 0 && piezas[visorSel] && piezas[visorSel].malla) return visorSel;
@@ -1005,6 +1145,37 @@
       if (piezas[i].malla) return i;
     }
     return -1;
+  }
+
+  /* Trozos de colores de la pieza entera, en el MISMO orden de p.malla:
+     el pincel depende de que el índice de triángulo del visor coincida
+     con el de la malla. */
+  function trozosEnteros(p, s, separar) {
+    var conColor = p.partes && p.partes.some(function (x) {
+      return x.color || (x.rangos && x.rangos.some(function (r) { return r.color; }));
+    });
+    if (!conColor) return escalarMalla(p.malla, s);
+    var datos = [];
+    p.partes.forEach(function (x) {
+      rangosDe(x).forEach(function (rg) {
+        var tri = escalarMalla(x.malla.subarray(rg.ini, rg.fin), s);
+        var col = rg.color || x.color;
+        if (separar) {
+          var d = separar[col ? col.join(',') : 'base'];
+          if (d && (d[0] || d[1] || d[2])) {
+            var mov = new Float64Array(tri.length);
+            for (var mv = 0; mv < tri.length; mv += 3) {
+              mov[mv]     = tri[mv]     + d[0];
+              mov[mv + 1] = tri[mv + 1] + d[1];
+              mov[mv + 2] = tri[mv + 2] + d[2];
+            }
+            tri = mov;
+          }
+        }
+        datos.push({ tri: tri, color: col });
+      });
+    });
+    return datos;
   }
 
   function actualizarVisor() {
@@ -1016,52 +1187,62 @@
     piezas.forEach(function (p, i) {
       if (p._rowEl) p._rowEl.classList.toggle('filerow--activa', puede && i === idx && piezas.length > 1);
     });
-    if (!puede) return;
+    if (!puede) { actualizarBarraVisor(null, null); return; }
 
     var p = piezas[idx];
+    if (idx !== visorPiezaAnt) {
+      visorPiezaAnt = idx;
+      visorModo = 'ver';
+      if (visorCtrl) visorCtrl.reencuadrar();
+    }
     var s = escalaDe(p);
     var corte = corteDe(p, s);
-    var clave = idx + '|' + p.nombre + '|' + s.toFixed(4) + '|'
-              + (corte ? p._corte.clave : 'entera');
+    if (visorModo === 'editar' && (!corte || corte.pincel)) visorModo = 'ver';
+
+    var clave = idx + '|' + p.nombre + '|' + s.toFixed(4) + '|' + visorModo + '|'
+              + (corte ? (corte.pincel ? p._cortePin.clave : p._corte.clave) : 'entera')
+              + (!corte && p.porColor ? '|pc' : '')
+              + '|' + (p.pincelVersion || 0);
     if (clave === visorClave) {
       ponerNotaVisor(p, corte);
+      actualizarBarraVisor(p, corte);
       return;
     }
     visorClave = clave;
 
-    /* Cortada: las secciones separadas, sin cama (flotan para verse).
-       Entera: la pieza al tamaño pedido sobre la cama de impresión, y si
-       el 3MF trae colores de filamento, cada parte con su color. */
+    /* Ver: el resultado (cortada => despiece; entera => sobre la cama).
+       Editar: la pieza entera con los planos de corte encima.
+       Pincel: la pieza entera y se pinta sobre ella. */
     var datos, opciones;
-    if (corte) {
+    if (visorModo === 'ver' && corte) {
       datos = mallaExplotada(corte);
       opciones = null;
-    } else {
+    } else if (visorModo === 'editar') {
+      datos = trozosEnteros(p, s, null);
+      opciones = { camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
+                   camas: centrosDePlacas(p, s),
+                   planos: corte ? corte.fronteras : null };
+    } else if (visorModo === 'pincel') {
+      datos = trozosEnteros(p, s, null);
       opciones = { camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
                    camas: centrosDePlacas(p, s) };
-      var conColor = p.partes && p.partes.some(function (x) {
-        return x.color || (x.rangos && x.rangos.some(function (r) { return r.color; }));
-      });
-      if (conColor) {
-        /* Un trozo por sub-malla: así un objeto multicolor (tapa negra,
-           base amarilla) se pinta como en el proyecto, no todo de un color. */
-        datos = [];
-        p.partes.forEach(function (x) {
-          var rgs = (x.rangos && x.rangos.length)
-            ? x.rangos
-            : [{ ini: 0, fin: x.malla.length, color: x.color }];
-          rgs.forEach(function (rg) {
-            datos.push({ tri: escalarMalla(x.malla.subarray(rg.ini, rg.fin), s),
-                         color: rg.color || x.color });
-          });
-        });
-      } else {
-        datos = escalarMalla(p.malla, s);
-      }
+    } else {
+      var separar = p.porColor ? desplazamientosPorColor(p, s) : null;
+      datos = trozosEnteros(p, s, separar);
+      opciones = { camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
+                   camas: centrosDePlacas(p, s) };
     }
     if (!visorCtrl) visorCtrl = window.EmishaPreview.montar(lienzo, datos, opciones);
     else visorCtrl.actualizar(datos, opciones);
+
+    if (visorModo === 'pincel') {
+      visorCtrl.pincel(pincelRadio, function (indices) { alPintarPincel(p, indices); });
+      repintarMarcas(p);
+    } else {
+      visorCtrl.pincel(0);
+    }
     ponerNotaVisor(p, corte);
+    actualizarBarraVisor(p, corte);
   }
 
   function escalarMalla(m, s) {
@@ -1079,11 +1260,86 @@
   }
 
   /* Los datos del laminador valen tal cual solo si la pieza va al tamaño
-     original y sin corte: escalada o cortada ya no es el mismo trabajo que
-     se laminó, y se vuelve a estimar por geometría. */
+     original, sin corte y sin separar por color: cambiada ya no es el mismo
+     trabajo que se laminó, y se vuelve a estimar por geometría. */
   function medidoDe(p, s, corte) {
-    if (s !== 1 || corte || !(p.gramosSlicer > 0)) return null;
+    if (s !== 1 || corte || p.porColor || !(p.gramosSlicer > 0)) return null;
     return { gramos: p.gramosSlicer, horas: p.horasSlicer || 0 };
+  }
+
+  function rangosDe(x) {
+    return (x.rangos && x.rangos.length)
+      ? x.rangos
+      : [{ ini: 0, fin: x.malla.length, color: x.color, pintado: 0 }];
+  }
+
+  /* Cada región de color se aparta del centro del modelo en la dirección
+     de su propio centro: el clásico despiece. La región más grande (el
+     cuerpo) casi no se mueve; los detalles se apartan más.               */
+  function desplazamientosPorColor(p, s) {
+    var regiones = regionesPorColor(p);
+    if (!regiones) return null;
+    var min = [Infinity, Infinity, Infinity], max = [-Infinity, -Infinity, -Infinity];
+    var i, a;
+    for (i = 0; i < regiones.length; i++) {
+      for (a = 0; a < 3; a++) {
+        if (regiones[i].min[a] < min[a]) min[a] = regiones[i].min[a];
+        if (regiones[i].max[a] > max[a]) max[a] = regiones[i].max[a];
+      }
+    }
+    var centro = [(min[0] + max[0]) / 2, (min[1] + max[1]) / 2, (min[2] + max[2]) / 2];
+    var tam = Math.max(max[0] - min[0], max[1] - min[1], max[2] - min[2]) * s;
+    var gap = Math.max(8, Math.min(tam * 0.12, 40));
+    var por = {};
+    for (i = 0; i < regiones.length; i++) {
+      var g = regiones[i];
+      var d = [0, 0, 0], lg = 0;
+      for (a = 0; a < 3; a++) {
+        d[a] = (g.min[a] + g.max[a]) / 2 - centro[a];
+        lg += d[a] * d[a];
+      }
+      lg = Math.sqrt(lg);
+      var clave = g.color ? g.color.join(',') : 'base';
+      por[clave] = lg > 1e-6
+        ? [d[0] / lg * gap, d[1] / lg * gap, d[2] / lg * gap]
+        : [0, 0, 0];
+    }
+    return por;
+  }
+
+  /* Optimización de color, estilo dora: el modelo se separa en una región
+     por cada color y cada región se imprime aparte, en un solo color y sin
+     purga del AMS, para ensamblarse y pegarse al final. Las regiones ya
+     las conocemos: son los mismos tramos que pintan el visor. Devuelve
+     null si el modelo es de un solo color.                               */
+  function regionesPorColor(p) {
+    if (!p.partes || !(p.coloresUsados > 1)) return null;
+    if (p._regiones) return p._regiones;
+    var por = {};
+    p.partes.forEach(function (x) {
+      rangosDe(x).forEach(function (rg) {
+        if (rg.limites === undefined) {
+          rg.limites = (rg.fin > rg.ini)
+            ? limitesDeMalla(x.malla.subarray(rg.ini, rg.fin))
+            : null;
+        }
+        if (!rg.limites) return;
+        var clave = rg.color ? rg.color.join(',') : 'base';
+        var g = por[clave];
+        if (!g) {
+          por[clave] = { color: rg.color,
+                         min: rg.limites.min.slice(), max: rg.limites.max.slice() };
+          return;
+        }
+        for (var a = 0; a < 3; a++) {
+          if (rg.limites.min[a] < g.min[a]) g.min[a] = rg.limites.min[a];
+          if (rg.limites.max[a] > g.max[a]) g.max[a] = rg.limites.max[a];
+        }
+      });
+    });
+    var lista = Object.keys(por).map(function (k) { return por[k]; });
+    p._regiones = lista.length > 1 ? lista : null;
+    return p._regiones;
   }
 
   /* Una cama por cada placa del proyecto Bambu, centrada bajo lo que esa
@@ -1120,10 +1376,212 @@
 
   function ponerNotaVisor(p, corte) {
     if (!visorNota) return;
+    if (visorModo === 'pincel') {
+      visorNota.textContent = p.nombre + ' — pinta las secciones sobre la pieza · '
+        + 'Shift+arrastrar mueve la vista';
+      return;
+    }
+    if (visorModo === 'editar') {
+      visorNota.textContent = p.nombre + ' — mueve cada plano con su barra · '
+        + 'arrastra para girar · Shift+arrastrar mueve';
+      return;
+    }
     visorNota.textContent = corte
       ? p.nombre + ' — se corta en ' + corte.celdas.length
-        + ' secciones para armar · arrastra para girar'
-      : p.nombre + ' — arrastra para girar · rueda o pellizco para acercar';
+        + ' secciones para armar · arrastra para girar · Shift+arrastrar mueve'
+      : p.nombre + ' — arrastra para girar · rueda o pellizco acerca · Shift+arrastrar mueve';
+  }
+
+  /* ----------------------------- barra del visor: modos, planos, pincel */
+
+  var btnVer     = $('#modo-ver');
+  var btnEditar  = $('#modo-editar');
+  var btnPincel  = $('#modo-pincel');
+  var btnReiniciar = $('#corte-reset');
+  var panelPlanos  = $('#planos-panel');
+  var panelPincel  = $('#pincel-panel');
+
+  function cambiarModo(m) {
+    visorModo = m;
+    refrescar();
+  }
+  if (btnVer)    btnVer.addEventListener('click', function () { cambiarModo('ver'); });
+  if (btnEditar) btnEditar.addEventListener('click', function () { cambiarModo('editar'); });
+  if (btnPincel) btnPincel.addEventListener('click', function () { cambiarModo('pincel'); });
+  if (btnReiniciar) btnReiniciar.addEventListener('click', function () {
+    var idx = piezaVisible();
+    if (idx < 0) return;
+    var p = piezas[idx];
+    p.planos = null; p._planosEscala = null;
+    p.pincel = null; p.pincelListo = false;
+    p.pincelVersion = (p.pincelVersion || 0) + 1;
+    if (visorCtrl) visorCtrl.desmarcar();
+    refrescar();
+  });
+
+  function actualizarBarraVisor(p, corte) {
+    var barra = $('#visor-barra');
+    if (!barra) return;
+    barra.classList.toggle('is-hidden', !p);
+    if (!p) {
+      if (panelPlanos) panelPlanos.classList.add('is-hidden');
+      if (panelPincel) panelPincel.classList.add('is-hidden');
+      return;
+    }
+    [[btnVer, 'ver'], [btnEditar, 'editar'], [btnPincel, 'pincel']].forEach(function (par) {
+      if (par[0]) par[0].classList.toggle('visor-btn--activo', visorModo === par[1]);
+    });
+    if (btnEditar) btnEditar.disabled = !(corte && !corte.pincel);
+    if (btnReiniciar) btnReiniciar.disabled = !(p.planos || p.pincelListo || (p.pincel && p.pincel.some(function (e) { return e; })));
+
+    if (panelPlanos) {
+      var mostrarPlanos = visorModo === 'editar' && corte && !corte.pincel;
+      panelPlanos.classList.toggle('is-hidden', !mostrarPlanos);
+      if (mostrarPlanos) construirSlidersPlanos(p, corte);
+      else panelPlanos.innerHTML = '';
+    }
+    if (panelPincel) {
+      panelPincel.classList.toggle('is-hidden', visorModo !== 'pincel');
+      if (visorModo === 'pincel' && !panelPincel.childNodes.length) construirPanelPincel();
+    }
+  }
+
+  function construirSlidersPlanos(p, corte) {
+    var s = escalaDe(p);
+    panelPlanos.innerHTML = '';
+    var EJES = ['x', 'y', 'z'];
+    var NOMBRES = { x: 'Ancho (X)', y: 'Fondo (Y)', z: 'Alto (Z)' };
+    EJES.forEach(function (eje, a) {
+      var lista = corte.fronteras[eje];
+      if (!lista || !lista.length) return;
+      var lo = corte.limites.min[a] + 1, hi = corte.limites.max[a] - 1;
+      lista.forEach(function (valor, i) {
+        var fila = document.createElement('div');
+        fila.className = 'plano-fila';
+        var eti = document.createElement('span');
+        eti.textContent = NOMBRES[eje] + ' · corte ' + (i + 1);
+        var rango = document.createElement('input');
+        rango.type = 'range';
+        rango.min = lo.toFixed(0); rango.max = hi.toFixed(0);
+        rango.step = '1'; rango.value = Math.round(valor);
+        var num = document.createElement('span');
+        num.className = 'plano-mm';
+        num.textContent = Math.round(valor - corte.limites.min[a]) + ' mm';
+        rango.addEventListener('input', function () {
+          var v = parseFloat(rango.value);
+          num.textContent = Math.round(v - corte.limites.min[a]) + ' mm';
+          if (!p.planos || p._planosEscala !== s) {
+            p.planos = { x: corte.fronteras.x.slice(),
+                         y: corte.fronteras.y.slice(),
+                         z: corte.fronteras.z.slice() };
+            p._planosEscala = s;
+          }
+          p.planos[eje][i] = v;
+          /* la línea se mueve en vivo; el recorte y el precio, con calma */
+          if (visorCtrl) visorCtrl.configurar({
+            camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
+            camas: centrosDePlacas(p, s), planos: p.planos
+          });
+          clearTimeout(timerPlanos);
+          timerPlanos = setTimeout(refrescar, 300);
+        });
+        fila.appendChild(eti); fila.appendChild(rango); fila.appendChild(num);
+        panelPlanos.appendChild(fila);
+      });
+    });
+  }
+
+  function construirPanelPincel() {
+    panelPincel.innerHTML = '';
+    var eti = document.createElement('span');
+    eti.textContent = 'Sección:';
+    panelPincel.appendChild(eti);
+
+    var botones = [];
+    function botonSeccion(nombre, colorCss, valor) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pincel-sec';
+      b.textContent = nombre;
+      if (colorCss) b.style.background = colorCss;
+      b.addEventListener('click', function () {
+        pincelSeccion = valor;
+        botones.forEach(function (x) { x.classList.remove('pincel-sec--activo'); });
+        b.classList.add('pincel-sec--activo');
+      });
+      botones.push(b);
+      panelPincel.appendChild(b);
+      return b;
+    }
+    SECCIONES_PINCEL.forEach(function (sec, i) {
+      var css = 'rgb(' + sec.color.map(function (c) { return Math.round(c * 255); }).join(',') + ')';
+      var b = botonSeccion(sec.nombre, css, i + 1);
+      if (i + 1 === pincelSeccion) b.classList.add('pincel-sec--activo');
+    });
+    botonSeccion('Borrar', '', 0);
+
+    var etiT = document.createElement('span');
+    etiT.textContent = 'Tamaño:';
+    panelPincel.appendChild(etiT);
+    var rango = document.createElement('input');
+    rango.type = 'range'; rango.min = '10'; rango.max = '90';
+    rango.value = pincelRadio;
+    rango.addEventListener('input', function () {
+      pincelRadio = parseInt(rango.value, 10) || 34;
+      var idx = piezaVisible();
+      if (visorCtrl && idx >= 0 && visorModo === 'pincel') {
+        visorCtrl.pincel(pincelRadio, function (indices) { alPintarPincel(piezas[idx], indices); });
+      }
+    });
+    panelPincel.appendChild(rango);
+
+    var aplicar = document.createElement('button');
+    aplicar.type = 'button';
+    aplicar.className = 'btn btn--primary btn--sm';
+    aplicar.textContent = 'Aplicar corte';
+    aplicar.addEventListener('click', function () {
+      var idx = piezaVisible();
+      if (idx < 0) return;
+      var p = piezas[idx];
+      if (!p.pincel || !p.pincel.some(function (e) { return e; })) return;
+      p.pincelListo = true;
+      p.pincelVersion = (p.pincelVersion || 0) + 1;
+      visorModo = 'ver';
+      refrescar();
+    });
+    panelPincel.appendChild(aplicar);
+  }
+
+  function alPintarPincel(p, indices) {
+    if (!p.malla) return;
+    var nTri = Math.floor(p.malla.length / 9);
+    if (!p.pincel) p.pincel = new Uint8Array(nTri);
+    var nuevos = [], i, t;
+    for (i = 0; i < indices.length; i++) {
+      t = indices[i];
+      if (t >= nTri || p.pincel[t] === pincelSeccion) continue;
+      p.pincel[t] = pincelSeccion;
+      nuevos.push(t);
+    }
+    if (!nuevos.length) return;
+    if (pincelSeccion === 0) {
+      /* borrar exige redibujar todas las marcas */
+      if (visorCtrl) { visorCtrl.desmarcar(); repintarMarcas(p); }
+    } else if (visorCtrl) {
+      visorCtrl.marcar(nuevos, SECCIONES_PINCEL[pincelSeccion - 1].color);
+    }
+  }
+
+  function repintarMarcas(p) {
+    if (!visorCtrl || !p.pincel) return;
+    visorCtrl.desmarcar();
+    for (var sec = 1; sec <= SECCIONES_PINCEL.length; sec++) {
+      var lista = [];
+      for (var t = 0; t < p.pincel.length; t++) {
+        if (p.pincel[t] === sec) lista.push(t);
+      }
+      if (lista.length) visorCtrl.marcar(lista, SECCIONES_PINCEL[sec - 1].color);
+    }
   }
 
   /* ------------------------------------------------------- archivos --- */
@@ -1198,6 +1656,9 @@
     lista.innerHTML = '';
     vacio.classList.toggle('is-hidden', piezas.length > 0);
     resumen.classList.toggle('is-hidden', piezas.length === 0);
+    /* Con piezas cargadas la zona de subida se encoge para que el estimado
+       quede a la vista sin hacer scroll. */
+    zona.classList.toggle('dropzone--compacta', piezas.length > 0);
 
     piezas.forEach(function (p, idx) {
       var row = document.createElement('div');
@@ -1208,6 +1669,24 @@
       left.innerHTML = '<div class="filerow__name"></div><div class="filerow__meta"></div>';
       left.querySelector('.filerow__name').textContent = p.nombre;
       p._metaEl = left.querySelector('.filerow__meta');
+
+      /* Optimización de color: solo aparece cuando el modelo trae más de
+         un color y por lo tanto hay algo que separar. */
+      if (!p.error && !p.cargando && p.coloresUsados > 1) {
+        var opc = document.createElement('label');
+        opc.className = 'filerow__color';
+        var chk = document.createElement('input');
+        chk.type = 'checkbox';
+        chk.checked = !!p.porColor;
+        chk.addEventListener('change', function () {
+          p.porColor = chk.checked;
+          refrescar();
+        });
+        opc.appendChild(chk);
+        opc.appendChild(document.createTextNode(
+          ' Imprimir por colores y pegar — sin purga del AMS'));
+        left.appendChild(opc);
+      }
 
       var right = document.createElement('div');
       right.className = 'filerow__right';
@@ -1290,10 +1769,22 @@
       var volE = p.volumenCm3 * s * s * s;
       var cajaE = [p.caja[0] * s, p.caja[1] * s, p.caja[2] * s];
       var corte = corteDe(p, s);
-      var q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
-                      cajasEscaladas(p, s), p.placas,
-                      (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
-                      medidoDe(p, s, corte));
+      var regiones = (!corte && p.porColor) ? regionesPorColor(p) : null;
+      var q;
+      if (regiones) {
+        var cajasReg = regiones.map(function (g) {
+          return [(g.max[0] - g.min[0]) * s, (g.max[1] - g.min[1]) * s,
+                  (g.max[2] - g.min[2]) * s];
+        });
+        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, null,
+                    cajasReg, p.placas, (p.areaMm2 || 0) * s * s,
+                    1, null, regiones.length);
+      } else {
+        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
+                    cajasEscaladas(p, s), p.placas,
+                    (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
+                    medidoDe(p, s, corte));
+      }
 
       var dims = cajaE.map(function (v) { return Math.round(v); }).join(' × ');
       var nPartes = p.partes ? p.partes.length : 1;
@@ -1303,7 +1794,8 @@
       meta += volE.toFixed(1) + ' cm³ · ' + fmtPeso(q.gramos);
       if (q.delLaminador) meta += ' y ' + q.horas.toFixed(1) + ' h según tu laminador · ';
       else {
-        if (p.coloresUsados > 1) meta += ' (' + p.coloresUsados + ' colores, con purga)';
+        if (regiones) meta += ' (por colores, sin purga)';
+        else if (p.coloresUsados > 1) meta += ' (' + p.coloresUsados + ' colores, con purga)';
         meta += ' · ' + q.horas.toFixed(1) + ' h · ';
       }
       meta += (nPartes > 1 ? 'la mayor ' : '') + dims + ' mm';
@@ -1311,6 +1803,9 @@
 
       if (corte) {
         meta += ' · se corta en ' + q.secciones + ' secciones para armar · '
+             + q.camas + (q.camas === 1 ? ' cama' : ' camas');
+      } else if (regiones) {
+        meta += ' · ' + q.secciones + ' piezas por color, se pegan · '
              + q.camas + (q.camas === 1 ? ' cama' : ' camas');
       } else if (nPartes > 1) {
         meta += ' · ' + q.camas + (q.camas === 1 ? ' cama' : ' camas');
@@ -1355,15 +1850,28 @@
       var volE = p.volumenCm3 * s * s * s;
       var cajaE = [p.caja[0] * s, p.caja[1] * s, p.caja[2] * s];
       var corte = corteDe(p, s);
-      var q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
-                      cajasEscaladas(p, s), p.placas,
-                      (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
-                      medidoDe(p, s, corte));
+      var regiones = (!corte && p.porColor) ? regionesPorColor(p) : null;
+      var q;
+      if (regiones) {
+        var cajasReg = regiones.map(function (g) {
+          return [(g.max[0] - g.min[0]) * s, (g.max[1] - g.min[1]) * s,
+                  (g.max[2] - g.min[2]) * s];
+        });
+        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, null,
+                    cajasReg, p.placas, (p.areaMm2 || 0) * s * s,
+                    1, null, regiones.length);
+      } else {
+        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
+                    cajasEscaladas(p, s), p.placas,
+                    (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
+                    medidoDe(p, s, corte));
+      }
       var linea = '• ' + p.nombre + ' · ' + p.cantidad + ' pza · '
                 + Math.round(Math.max(cajaE[0], cajaE[1], cajaE[2])) + ' mm · '
                 + volE.toFixed(1) + ' cm³ · ' + fmtPeso(q.gramos);
       if (q.delLaminador) linea += ' (dato del laminador)';
-      if (p.coloresUsados > 1) linea += ' · ' + p.coloresUsados + ' colores';
+      if (regiones) linea += ' · ' + q.secciones + ' piezas por color, pegadas';
+      else if (p.coloresUsados > 1) linea += ' · ' + p.coloresUsados + ' colores';
       if (corte) linea += ' · en ' + q.secciones + ' secciones para armar';
       l.push(linea);
     });

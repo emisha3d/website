@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cortador de piezas 3D — corta, mueve y escala tu modelo | Emisha</title>
+<meta name="description" content="Editor gratuito de modelos 3D en el navegador: separa las piezas de tu STL o 3MF, muévelas, gíralas, escálalas y córtalas con planos o con pincel para imprimirlas por secciones. Tus archivos nunca se suben a ningún servidor.">
+<link rel="canonical" href="https://www.emisha.com.mx/cortador/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Cortador de piezas 3D — Emisha">
+<meta property="og:description" content="Separa, mueve, escala y corta tu modelo 3D directo en el navegador, con planos o con pincel, y cotiza la impresión por secciones.">
+<meta property="og:url" content="https://www.emisha.com.mx/cortador/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/filamentos/cosmic-blue.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../assets/css/styles.css?v=cc41bd95">
+<link rel="stylesheet" href="../assets/css/cortador.css?v=616b167d">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.emisha.com.mx/cortador/#app",
+      "name": "Cortador de piezas 3D Emisha",
+      "url": "https://www.emisha.com.mx/cortador/",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Cualquier navegador moderno",
+      "inLanguage": "es-MX",
+      "description": "Editor que separa las piezas de un modelo STL o 3MF, permite moverlas, girarlas y escalarlas, y las corta con planos o con pincel para imprimirlas por secciones. Todo el cálculo ocurre en el navegador; los archivos no se transfieren a ningún servidor.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+      "provider": { "@id": "https://www.emisha.com.mx/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.emisha.com.mx/" },
+        { "@type": "ListItem", "position": 2, "name": "Cortador de piezas", "item": "https://www.emisha.com.mx/cortador/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../" aria-label="Emisha — inicio">
+      <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="../liquid-ultra/">Liquid Ultra</a>
+      <a href="../filamentos/">Filamentos</a>
+      <a href="../servicios/">Servicios</a>
+      <a href="../cotizador/">Cotizador</a>
+      <a href="../cortador/" aria-current="page">Cortador</a>
+      <a href="../calculadora/">Calculadora</a>
+      <a href="../blog/">Blog</a>
+      <a href="../contacto/">Contacto</a>
+      <a class="btn btn--primary btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" style="padding-bottom:6px">
+    <div class="wrap" style="max-width:860px;text-align:center">
+      <span class="eyebrow">Herramienta gratuita</span>
+      <h1 style="font-size:clamp(1.7rem,4vw,2.4rem);margin:14px 0 10px">Cortador de piezas 3D</h1>
+      <p class="lede" style="margin-inline:auto;font-size:.98rem">
+        Separa, mueve, escala y corta tu modelo con planos o con pincel.
+        Todo corre en tu navegador — <strong>tus archivos nunca salen de tu computadora</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================== CORTADOR -->
+  <section class="section" style="padding-top:18px">
+    <div class="wrap" style="max-width:1220px">
+
+      <div class="ctr" id="zona-visor">
+
+        <!-- barra de herramientas vertical -->
+        <div class="ctr-tools" role="toolbar" aria-label="Herramientas del cortador">
+          <label class="ctr-tool ctr-tool--cargar" for="archivo" title="Cargar modelo — STL o 3MF, puedes subir varios">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="M6 9l6-6 6 6"/><path d="M4 20h16"/></svg>
+            <span class="sr-only">Cargar modelo</span>
+          </label>
+          <input type="file" id="archivo" accept=".stl,.3mf,model/stl,model/3mf" multiple class="is-hidden">
+          <span class="ctr-sep" aria-hidden="true"></span>
+          <button type="button" id="modo-mover" class="ctr-tool" data-key="W" disabled
+                  title="Mover — arrastra la pieza o su flecha (W)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20"/><path d="M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>
+            <span class="sr-only">Mover</span>
+          </button>
+          <button type="button" id="modo-girar" class="ctr-tool" data-key="R" disabled
+                  title="Girar — arrastra el anillo o la pieza (R)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.7-6.2"/><path d="M18 2v4h-4"/></svg>
+            <span class="sr-only">Girar</span>
+          </button>
+          <button type="button" id="modo-escalar" class="ctr-tool" data-key="S" disabled
+                  title="Escalar — jala los cubos o arrastra la pieza (S)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20L20 4"/><path d="M14 4h6v6"/><path d="M10 20H4v-6"/></svg>
+            <span class="sr-only">Escalar</span>
+          </button>
+          <button type="button" id="btn-enfocar" class="ctr-tool" data-key="F" disabled
+                  title="Encuadrar la pieza seleccionada (F)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"/></svg>
+            <span class="sr-only">Encuadrar</span>
+          </button>
+          <span class="ctr-sep" aria-hidden="true"></span>
+          <button type="button" id="btn-pincel" class="ctr-tool" disabled
+                  title="Pincel — pinta secciones libres para cortar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21c3.2-.8 4.8-1.4 6-2.6L20.4 7a2.3 2.3 0 0 0-3.3-3.3L5.6 15c-1.2 1.2-1.8 2.8-2.6 6z"/><path d="M14.5 5.5l4 4"/></svg>
+            <span class="sr-only">Pincel</span>
+          </button>
+          <button type="button" id="btn-separar" class="ctr-tool" disabled
+                  title="Separar piezas — encuentra las piezas sueltas del archivo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/><path d="M13.5 8l2.5 2.5M8 13.5l2.5 2.5" opacity=".55"/></svg>
+            <span class="sr-only">Separar piezas</span>
+          </button>
+          <button type="button" id="btn-vista" class="ctr-tool" disabled
+                  title="Despiece — muestra las secciones cortadas separadas">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6.5" height="6.5" rx="1.5"/><rect x="14.5" y="3" width="6.5" height="6.5" rx="1.5"/><rect x="8.75" y="14.5" width="6.5" height="6.5" rx="1.5"/></svg>
+            <span class="sr-only">Despiece</span>
+          </button>
+          <span class="ctr-sep" aria-hidden="true"></span>
+          <button type="button" id="btn-exportar" class="ctr-tool" disabled
+                  title="Descargar STL — la pieza seleccionada, o todas si no hay ninguna elegida">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 10l6 6 6-6"/><path d="M4 20h16"/></svg>
+            <span class="sr-only">Descargar STL</span>
+          </button>
+          <button type="button" id="btn-reset" class="ctr-tool" disabled
+                  title="Restablecer todo — posiciones, cortes y pincel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 3.5V8h4.5"/></svg>
+            <span class="sr-only">Restablecer</span>
+          </button>
+        </div>
+
+        <!-- visor -->
+        <div class="ctr-stage">
+          <div class="ctr-marco">
+            <div class="dropzone" id="zona-carga" role="button" tabindex="0"
+                 aria-label="Selecciona o arrastra tu archivo STL o 3MF">
+              <svg class="dropzone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <path d="M7 10l5-5 5 5"/><path d="M12 5v13"/>
+              </svg>
+              <h3>Arrastra tu modelo aquí</h3>
+              <p>o haz clic para elegirlo · STL y 3MF · puedes cargar varios</p>
+              <p>Sepáralo en piezas, muévelas, gíralas, escálalas y córtalas con
+                planos o con pincel.</p>
+            </div>
+            <!-- El tamaño va en línea a propósito: un canvas sin medidas entra
+                 en un bucle de redimensionado con el devicePixelRatio si el
+                 navegador se queda con un CSS viejo en caché. -->
+            <canvas id="lienzo" role="img" class="is-hidden"
+                    style="display:block;width:100%;height:clamp(340px,58vh,600px)"
+                    aria-label="Editor 3D. Clic elige una pieza, arrastrar gira la vista."></canvas>
+            <span id="contador" class="ctr-chip" aria-live="polite"></span>
+            <div id="pincel-panel" class="pincel-panel is-hidden"></div>
+          </div>
+          <p class="ctr-status" id="nota">
+            Carga un modelo STL o 3MF para empezar. Nunca sale de tu navegador.
+          </p>
+        </div>
+
+        <!-- panel lateral en tarjetas -->
+        <aside class="ctr-side">
+          <div class="ctr-card">
+            <h3 class="ctr-card__titulo" id="piezas-titulo">Piezas</h3>
+            <!-- desplegable: la lista no empuja los controles hacia abajo -->
+            <div class="ctr-desplegable-caja">
+              <button type="button" id="piezas-boton" class="ctr-desplegable"
+                      aria-expanded="false" aria-controls="lista-piezas" disabled>
+                <span class="pieza-fila__punto" id="piezas-punto" style="background:#cbd5e1"></span>
+                <span class="ctr-desplegable__nombre" id="piezas-actual">Sin piezas todavía</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div id="lista-piezas" class="piezas-lista ctr-piezas-menu is-hidden"></div>
+            </div>
+          </div>
+
+          <div id="panel-pieza" class="ctr-card is-hidden">
+            <h4 class="ctr-card__titulo" id="pieza-nombre"></h4>
+
+            <div class="ctl-grupo">
+              <span>Mover (mm)</span>
+              <div class="ctr-tres">
+                <label><b>X</b><input id="mov-x" class="ctl-num" type="number" step="1" value="0"></label>
+                <label><b>Y</b><input id="mov-y" class="ctl-num" type="number" step="1" value="0"></label>
+                <label><b>Z</b><input id="mov-z" class="ctl-num" type="number" step="1" value="0"></label>
+              </div>
+            </div>
+
+            <div class="ctl-grupo">
+              <span>Girar</span>
+              <div class="ctr-fila">
+                <input id="gir-z" type="range" min="-180" max="180" step="1" value="0">
+                <span id="gir-z-val" class="plano-mm">0°</span>
+                <button type="button" id="gir-90" class="ctr-mini">+90°</button>
+              </div>
+            </div>
+
+            <div class="ctl-grupo">
+              <span>Medidas (mm) — escribe para escalar</span>
+              <div class="ctr-tres">
+                <label><b>An</b><input id="med-x" class="ctl-num" type="number" step="0.5" min="1"></label>
+                <label><b>Fo</b><input id="med-y" class="ctl-num" type="number" step="0.5" min="1"></label>
+                <label><b>Al</b><input id="med-z" class="ctl-num" type="number" step="0.5" min="1"></label>
+              </div>
+              <label class="ctr-check"><input type="checkbox" id="med-uni" checked> Escalar uniforme</label>
+            </div>
+
+            <div class="ctl-grupo">
+              <span>Escala</span>
+              <div class="ctr-fila">
+                <label style="display:inline-flex;align-items:center;gap:5px;font-size:.8rem;color:var(--muted)">
+                  <input id="esc-pct" class="ctl-num" type="number" step="1" min="1" value="100"> %
+                </label>
+                <button type="button" id="pieza-reset" class="ctr-mini">Restablecer</button>
+                <button type="button" id="pieza-quitar" class="ctr-mini ctr-mini--rojo">Quitar</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-cortes" class="ctr-card is-hidden">
+            <h4 class="ctr-card__titulo">Cortes por plano</h4>
+            <div class="ctr-fila">
+              <button type="button" id="add-x" class="ctr-mini">+ X</button>
+              <button type="button" id="add-y" class="ctr-mini">+ Y</button>
+              <button type="button" id="add-z" class="ctr-mini">+ Z</button>
+              <button type="button" id="auto-cortes" class="ctr-mini"
+                      title="Corta la pieza sola para que quepa en la impresora">Automático</button>
+            </div>
+            <div id="lista-planos"></div>
+            <button type="button" id="btn-cortar" class="btn btn--primary btn--sm ctr-cortar" disabled
+                    title="Parte la pieza por sus cortes: cada sección pasa a la lista como pieza independiente">
+              ✂ Cortar pieza
+            </button>
+            <p class="muted" style="font-size:.76rem;margin-top:9px">
+              Arrastra la flecha o la sábana azul en el visor para acomodar el corte.
+              El pincel (barra de la izquierda) corta formas libres.
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <div id="resultado" class="ctr-quote is-hidden">
+        <div class="quote-total">
+          <div>
+            <div class="quote-total__label">Estimado de impresión (PLA, 15 % de relleno)</div>
+            <div class="quote-total__sum" id="total">—</div>
+            <div class="quote-total__label" id="total-detalle" style="margin-top:4px"></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn--ghost btn--lg" id="btn-wa"
+               href="https://wa.me/525575639255" target="_blank" rel="noopener">
+              Pedir por WhatsApp
+            </a>
+          </div>
+        </div>
+        <p class="muted" style="font-size:.85rem;margin-top:10px">
+          Es un estimado con material y relleno estándar. Para elegir material, relleno y
+          cantidades usa el <a href="../cotizador/">cotizador</a> — o mándanos los archivos
+          por WhatsApp y lo afinamos contigo.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================== CÓMO USAR -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Cómo se usa</span>
+        <h2>Del modelo a las secciones</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3 style="font-size:1.08rem;margin-bottom:9px">1 · Carga y separa</h3>
+          <p class="muted">Sube tu STL o 3MF. Si el archivo trae varias piezas pegadas,
+            «Separar piezas» las encuentra solas. Haz clic en cualquier pieza del visor
+            para seleccionarla.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.08rem;margin-bottom:9px">2 · Acomoda</h3>
+          <p class="muted">Mueve, gira y escala cada pieza con sus controles, o teclea la
+            medida final en milímetros. La cama de la impresora se dibuja abajo para que
+            veas si cabe.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.08rem;margin-bottom:9px">3 · Corta y cotiza</h3>
+          <p class="muted">Agrega cortes rectos por eje, deja que «Automático» corte lo que
+            no cabe, o pinta secciones libres con el pincel. El estimado de impresión se
+            actualiza solo, con camas y ensamble incluidos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight" style="padding-bottom:84px">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow">¿Listo para imprimir?</span>
+        <h2>Cotiza tus piezas con material y cantidades</h2>
+        <p>El cotizador lee el mismo archivo, te deja elegir PLA o PETG, relleno y cantidad,
+          y arma la solicitud por WhatsApp.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="../cotizador/">Ir al cotizador</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20quiero%20cotizar%20una%20impresi%C3%B3n%203D." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../servicios/">Servicios y reparación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../cotizador/">Cotizador 3D</a></li>
+          <li><a href="../cortador/">Cortador de piezas</a></li>
+          <li><a href="../calculadora/">Calculadora de costos</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../liquid-ultra/#seguridad">Seguridad</a></li>
+          <li><a href="../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js?v=c16eac99" defer></script>
+<script src="../assets/js/preview3d.js?v=a5c6c573" defer></script>
+<script src="../assets/js/cotizador.js?v=8ebb30e3" defer></script>
+<script src="../assets/js/cortador.js?v=b8e34989" defer></script>
+</body>
+</html>

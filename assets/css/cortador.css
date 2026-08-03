@@ -1,0 +1,278 @@
+/* ==========================================================================
+   Cortador de piezas — la piel del editor. Solo la carga /cortador/.
+
+   styles.css (compartido con el cotizador) pone los cimientos: tokens,
+   botones, .pieza-fila, .plano-fila, .pincel-*. Aquí vive la retícula del
+   editor — barra de herramientas vertical, visor protagonista, panel en
+   tarjetas — todo bajo el prefijo .ctr para no rozar al resto del sitio.
+   ========================================================================== */
+
+/* Barra de herramientas a la izquierda, visor al lado, y los paneles de
+   piezas/transformar/cortes en una fila debajo del visor. */
+.ctr {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  grid-template-areas:
+    "tools stage"
+    "panel panel";
+  gap: 14px;
+  align-items: start;
+}
+
+/* --------------------------------------------- barra de herramientas --- */
+
+.ctr-tools {
+  grid-area: tools;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 7px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  position: sticky;
+  top: 82px;
+}
+.ctr-sep {
+  width: 26px; height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+.ctr-tool {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  border: 0; border-radius: 11px;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background .14s var(--ease), color .14s var(--ease);
+}
+.ctr-tool svg { width: 20px; height: 20px; display: block; }
+.ctr-tool:hover:not(:disabled) { background: var(--surface-2); color: var(--text); }
+.ctr-tool:disabled { opacity: .32; cursor: default; }
+.ctr-tool.visor-btn--activo { background: var(--ink); color: #fff; }
+.ctr-tool--cargar { background: var(--brand); color: #fff; }
+.ctr-tool--cargar:hover { background: var(--brand-600); color: #fff; }
+/* la letra del atajo, abajo a la derecha del botón */
+.ctr-tool[data-key]::after {
+  content: attr(data-key);
+  position: absolute; right: 4px; bottom: 2px;
+  font-family: var(--font-mono);
+  font-size: 8px; font-weight: 700;
+  opacity: .55;
+}
+
+/* ------------------------------------------------------------- visor --- */
+
+.ctr-stage {
+  grid-area: stage;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.ctr-marco { position: relative; }
+.ctr-marco canvas { touch-action: none; }
+
+/* la zona de carga llena el visor cuando no hay piezas */
+.ctr .dropzone {
+  border: 0; border-radius: 0;
+  background: var(--bg-2);
+  min-height: clamp(340px, 58vh, 600px);
+  display: grid;
+  place-content: center;
+}
+.ctr .dropzone:hover, .ctr .dropzone.is-over { background: var(--brand-dim); }
+
+.ctr-chip {
+  position: absolute; top: 10px; right: 12px;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 4px 11px;
+  pointer-events: none;
+}
+.ctr-chip:empty { display: none; }
+
+/* el panel del pincel flota sobre el visor, no empuja el layout */
+.ctr .pincel-panel {
+  position: absolute; top: 10px; left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  max-width: calc(100% - 20px);
+  padding: 8px 13px;
+  background: rgba(255, 255, 255, .93);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  box-shadow: 0 8px 26px rgba(13, 17, 23, .10);
+}
+
+.ctr .pincel-sec--borrar { color: var(--text-2); width: auto; padding: 0 10px; }
+
+.ctr-status {
+  margin: 0;
+  padding: 9px 16px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg-2);
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+/* ------------------------------------------------------ panel lateral --- */
+
+.ctr-side {
+  grid-area: panel;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+.ctr-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 15px;
+}
+.ctr-card__titulo {
+  font-family: var(--font-mono);
+  font-size: .665rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+/* --------------------------------------------- desplegable de piezas --- */
+
+.ctr-desplegable-caja { position: relative; }
+.ctr-desplegable {
+  display: flex; align-items: center; gap: 9px;
+  width: 100%;
+  font: inherit; font-size: .85rem; font-weight: 560;
+  padding: 9px 11px;
+  background: var(--bg-2);
+  border: 1px solid var(--border); border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .14s var(--ease);
+}
+.ctr-desplegable:hover:not(:disabled) { border-color: #cfd8e3; }
+.ctr-desplegable:disabled { opacity: .55; cursor: default; }
+.ctr-desplegable__nombre {
+  flex: 1; text-align: left;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ctr-desplegable > svg {
+  width: 15px; height: 15px; flex: none;
+  color: var(--muted);
+  transition: transform .15s var(--ease);
+}
+.ctr-desplegable[aria-expanded="true"] > svg { transform: rotate(180deg); }
+
+.ctr-piezas-menu {
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  margin: 0;
+  padding: 6px;
+  max-height: 330px;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(13, 17, 23, .14);
+}
+
+/* grupos de controles: etiqueta arriba, campos en fila o rejilla de tres */
+.ctr .ctl-grupo { display: block; margin: 13px 0 0; }
+.ctr .ctl-grupo:first-of-type { margin-top: 0; }
+.ctr .ctl-grupo > span:first-child {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.ctr-tres {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.ctr-tres label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: .74rem; color: var(--muted);
+}
+.ctr-tres b { font-weight: 600; }
+.ctr-tres .ctl-num { width: 100%; min-width: 0; }
+.ctr-fila {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 7px;
+}
+.ctr-fila input[type="range"] { flex: 1; min-width: 80px; accent-color: var(--brand); }
+.ctr-check {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: 8px;
+  font-size: .8rem; color: var(--text-2);
+  cursor: pointer; user-select: none;
+}
+.ctr-check input { accent-color: var(--brand); }
+
+.ctr-mini {
+  font: inherit; font-size: .76rem; font-weight: 580;
+  padding: 6px 11px;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: #fff; color: var(--text-2);
+  cursor: pointer;
+  transition: border-color .14s var(--ease), color .14s var(--ease);
+}
+.ctr-mini:hover { border-color: #cfd8e3; color: var(--text); }
+.ctr-mini--rojo:hover { border-color: rgba(180, 35, 24, .4); color: var(--bad); }
+
+/* la lista de planos, compacta para 300 px de ancho */
+.ctr .plano-fila {
+  grid-template-columns: auto 1fr 46px auto;
+  gap: 7px;
+  margin-top: 8px;
+  font-size: .68rem;
+}
+.ctr-cortar { width: 100%; margin-top: 12px; justify-content: center; }
+.ctr-cortar:disabled { opacity: .38; cursor: default; }
+
+/* --------------------------------------------------------- cotización --- */
+
+.ctr-quote { margin-top: 14px; }
+.ctr-quote .quote-total { margin-top: 0; padding: 20px 24px; border-radius: 16px; }
+
+/* ---------------------------------------------------------- angosto --- */
+
+@media (max-width: 980px) {
+  .ctr {
+    grid-template-columns: 1fr;
+    grid-template-areas: "tools" "stage" "panel";
+  }
+  .ctr-tools {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 14px;
+  }
+  .ctr-sep { width: 1px; height: 26px; margin: 0 4px; }
+  .ctr .dropzone { min-height: 300px; }
+}

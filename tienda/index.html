@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tienda en línea — piezas impresas en 3D con envío a todo México | Emisha</title>
+<meta name="description" content="Compra piezas impresas en 3D directamente de Emisha: inventario real en Ciudad de México, pago seguro con Mercado Pago y envío a todo el país.">
+<link rel="canonical" href="https://www.emisha.com.mx/tienda/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Tienda Emisha — piezas impresas en 3D">
+<meta property="og:description" content="Inventario real, pago con Mercado Pago y envío a todo México.">
+<meta property="og:url" content="https://www.emisha.com.mx/tienda/">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../assets/css/styles.css?v=cc41bd95">
+
+<style>
+/* Estilos propios de la tienda (la hoja global no se toca desde aquí). */
+.tienda-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;margin-top:8px}
+.prod{border:1px solid #e6e3de;border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.prod__media{position:relative;aspect-ratio:1/1;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f6f4f1,#eae6e0)}
+.prod__media span{font-size:2.4rem;font-weight:700;color:#c9c2b8}
+.prod__body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.prod__nombre{font-weight:600;line-height:1.3;flex:1}
+.prod__precio{font-size:1.05rem;font-weight:700}
+.prod__pocas{font-size:.72rem;font-weight:600;color:#a05a00;background:#fdf1df;border-radius:99px;padding:2px 9px;margin-left:6px;vertical-align:2px}
+.prod__acciones{margin-top:2px}
+.prod__stepper{display:inline-flex;align-items:center;gap:14px;border:1px solid #e6e3de;border-radius:99px;padding:4px 10px}
+.prod__stepper button{border:0;background:none;font-size:1.2rem;width:28px;height:28px;cursor:pointer;line-height:1}
+.prod__stepper button:disabled{opacity:.35;cursor:default}
+.prod__stepper[hidden],.prod__acciones [hidden]{display:none}
+.prod__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cart-bar{position:fixed;left:0;right:0;bottom:0;background:#141210;color:#fff;padding:12px 0;z-index:50;box-shadow:0 -6px 24px rgba(0,0,0,.14)}
+.cart-bar__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cart-bar strong{font-size:1.02rem}
+.tienda-aviso{border:1px solid #e6e3de;border-radius:12px;padding:12px 16px;margin:0 0 22px;background:#f8f7f5}
+.tienda-aviso--error{border-color:#e3b08a;background:#fdf3ea}
+body{padding-bottom:88px}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../" aria-label="Emisha — inicio">
+      <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="../liquid-ultra/">Liquid Ultra</a>
+      <a href="../filamentos/">Filamentos</a>
+      <a href="../servicios/">Servicios</a>
+      <a href="../cotizador/">Cotizador</a>
+      <a href="../cortador/">Cortador</a>
+      <a href="../calculadora/">Calculadora</a>
+      <a href="../blog/">Blog</a>
+      <a href="../contacto/">Contacto</a>
+      <a class="btn btn--primary btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section" id="tienda">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Compra directa</span>
+        <h1>Tienda en línea</h1>
+        <p>Piezas impresas en 3D con inventario real en la Ciudad de México. El pago es con
+          <strong>Mercado Pago</strong> (tarjeta, transferencia o efectivo en tiendas) y el
+          apartado de tus piezas se hace en el momento: lo que ves disponible, está disponible.</p>
+      </div>
+
+      <div class="tienda-aviso" data-tienda-aviso hidden aria-live="polite"></div>
+
+      <div class="tienda-grid" data-tienda-grid>
+        <p class="muted">Cargando el catálogo…</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="cart-bar" data-cart-bar hidden>
+  <div class="wrap cart-bar__inner">
+    <strong data-cart-resumen></strong>
+    <button type="button" class="btn btn--primary" data-pagar>Pagar con Mercado Pago</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../tienda/">Tienda en línea</a></li>
+          <li><a href="../servicios/">Servicios y reparación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../cotizador/">Cotizador</a></li>
+          <li><a href="../cortador/">Cortador</a></li>
+          <li><a href="../calculadora/">Calculadora</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js?v=c16eac99" defer></script>
+<script src="../assets/js/tienda.js?v=cb70a7e6" defer></script>
+</body>
+</html>
