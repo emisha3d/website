@@ -39,6 +39,19 @@
 .cart-bar{position:fixed;left:0;right:0;bottom:0;background:#141210;color:#fff;padding:12px 0;z-index:50;box-shadow:0 -6px 24px rgba(0,0,0,.14)}
 .cart-bar__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cart-bar strong{font-size:1.02rem}
+.cart-bar__envio{display:block;font-size:.8rem;opacity:.75;margin-top:2px}
+.checkout{border:0;border-radius:16px;padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);box-shadow:0 24px 64px rgba(0,0,0,.28)}
+.checkout::backdrop{background:rgba(20,18,16,.55)}
+.checkout form{padding:26px 28px 24px;overflow-y:auto;max-height:inherit;box-sizing:border-box}
+.checkout h2{margin:0 0 4px;font-size:1.25rem}
+.checkout .checkout__intro{margin:0 0 18px}
+.checkout__campos{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.checkout__campos .field--ancho{grid-column:1/-1}
+@media (max-width:520px){.checkout__campos{grid-template-columns:1fr}}
+.checkout__resumen{margin:18px 0 16px;border-top:1px solid #e6e3de;padding-top:14px;display:grid;gap:5px;font-size:.95rem}
+.checkout__resumen div{display:flex;justify-content:space-between}
+.checkout__resumen .checkout__total{font-weight:700;font-size:1.05rem}
+.checkout__acciones{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .tienda-aviso{border:1px solid #e6e3de;border-radius:12px;padding:12px 16px;margin:0 0 22px;background:#f8f7f5}
 .tienda-aviso--error{border-color:#e3b08a;background:#fdf3ea}
 body{padding-bottom:88px}
@@ -93,10 +106,71 @@ body{padding-bottom:88px}
 
 <div class="cart-bar" data-cart-bar hidden>
   <div class="wrap cart-bar__inner">
-    <strong data-cart-resumen></strong>
+    <div>
+      <strong data-cart-resumen></strong>
+      <span class="cart-bar__envio" data-cart-envio hidden></span>
+    </div>
     <button type="button" class="btn btn--primary" data-pagar>Pagar con Mercado Pago</button>
   </div>
 </div>
+
+<!-- Datos de envío: se piden ANTES de ir a Mercado Pago. Sin dirección no hay
+     a dónde mandar el paquete; el worker los exige igual (esto solo evita el
+     viaje de ida y vuelta). -->
+<dialog class="checkout" data-checkout>
+  <form data-checkout-form>
+    <h2>Datos de envío</h2>
+    <p class="muted checkout__intro">Enviamos a todo México. Después de llenar tus datos
+      pasas a Mercado Pago para el cobro seguro.</p>
+    <div class="checkout__campos">
+      <div class="field field--ancho">
+        <label for="co-nombre">Nombre completo</label>
+        <input id="co-nombre" name="nombre" required maxlength="80" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="co-email">Correo</label>
+        <input id="co-email" name="email" type="email" required maxlength="120" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="co-telefono">WhatsApp o teléfono</label>
+        <input id="co-telefono" name="telefono" type="tel" required maxlength="20"
+               pattern="[0-9+()\- ]{8,20}" autocomplete="tel"
+               title="De 8 a 20 caracteres: números, espacios, +, -, ( )">
+      </div>
+      <div class="field field--ancho">
+        <label for="co-calle">Calle y número</label>
+        <input id="co-calle" name="calle" required maxlength="120" autocomplete="street-address">
+      </div>
+      <div class="field">
+        <label for="co-colonia">Colonia</label>
+        <input id="co-colonia" name="colonia" required maxlength="80" autocomplete="address-level3">
+      </div>
+      <div class="field">
+        <label for="co-cp">Código postal</label>
+        <input id="co-cp" name="cp" required pattern="[0-9]{5}" maxlength="5"
+               inputmode="numeric" autocomplete="postal-code" title="5 dígitos">
+      </div>
+      <div class="field">
+        <label for="co-ciudad">Ciudad o municipio</label>
+        <input id="co-ciudad" name="ciudad" required maxlength="80" autocomplete="address-level2">
+      </div>
+      <div class="field">
+        <label for="co-estado">Estado</label>
+        <input id="co-estado" name="estado" required maxlength="40" autocomplete="address-level1">
+      </div>
+      <div class="field field--ancho">
+        <label for="co-referencias">Referencias (opcional)</label>
+        <input id="co-referencias" name="referencias" maxlength="200"
+               placeholder="Color de la casa, entre qué calles…">
+      </div>
+    </div>
+    <div class="checkout__resumen" data-checkout-resumen></div>
+    <div class="checkout__acciones">
+      <button type="button" class="btn btn--ghost" data-cerrar>Volver</button>
+      <button type="submit" class="btn btn--primary" data-confirmar>Continuar al pago</button>
+    </div>
+  </form>
+</dialog>
 
 <footer class="site-footer">
   <div class="wrap">
@@ -139,6 +213,6 @@ body{padding-bottom:88px}
 </footer>
 
 <script src="../assets/js/main.js?v=c16eac99" defer></script>
-<script src="../assets/js/tienda.js?v=cb70a7e6" defer></script>
+<script src="../assets/js/tienda.js?v=b917551f" defer></script>
 </body>
 </html>

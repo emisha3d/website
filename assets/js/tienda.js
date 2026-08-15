@@ -15,6 +15,7 @@
 
   var catalogo = [];          // [{sku, nombre, precio_centavos, stock}]
   var porSku = {};
+  var envioCfg = null;        // {centavos, gratis_desde_centavos} — lo manda el worker
 
   /* --- Estado del carrito ---------------------------------------------- */
 
@@ -62,6 +63,13 @@
     return { centavos: t, piezas: piezas };
   }
 
+  // Informativo: el cobro real del envío siempre lo calcula el worker.
+  function costoEnvio(subtotalCentavos) {
+    if (!envioCfg || !envioCfg.centavos) return 0;
+    if (envioCfg.gratis_desde_centavos && subtotalCentavos >= envioCfg.gratis_desde_centavos) return 0;
+    return envioCfg.centavos;
+  }
+
   /* --- Pintado ---------------------------------------------------------- */
 
   var grid = document.querySelector('[data-tienda-grid]');
@@ -73,6 +81,11 @@
     aviso.textContent = texto || '';
     aviso.hidden = !texto;
     aviso.classList.toggle('tienda-aviso--error', !!esError);
+    // El aviso vive arriba del catálogo y el botón de pagar abajo: sin esto
+    // el error queda fuera de pantalla y parece que el clic no hizo nada.
+    if (texto && esError && aviso.scrollIntoView) {
+      aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 
   function tarjeta(p) {
@@ -137,6 +150,15 @@
     barra.hidden = t.piezas === 0;
     barra.querySelector('[data-cart-resumen]').textContent =
       t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + ' · ' + precio(t.centavos);
+    var envioEl = barra.querySelector('[data-cart-envio]');
+    if (!envioEl) return;
+    if (!envioCfg || !envioCfg.centavos) { envioEl.hidden = true; return; }
+    var e = costoEnvio(t.centavos);
+    envioEl.textContent = e === 0
+      ? 'Envío gratis · total ' + precio(t.centavos)
+      : '+ envío ' + precio(e) + (envioCfg.gratis_desde_centavos
+          ? ' · gratis desde ' + precio(envioCfg.gratis_desde_centavos) : '');
+    envioEl.hidden = false;
   }
 
   /* --- Catálogo --------------------------------------------------------- */
@@ -146,6 +168,7 @@
     fetch(API + '/productos')
       .then(function (r) { return r.json(); })
       .then(function (datos) {
+        envioCfg = datos.envio || null;
         catalogo = (datos.productos || []).filter(function (p) { return p.stock > 0; });
         porSku = {};
         catalogo.forEach(function (p) { porSku[p.sku] = p; });
@@ -177,24 +200,87 @@
   }
 
   /* --- Checkout --------------------------------------------------------- */
+  /* "Pagar" abre el diálogo de datos de envío; el POST al worker sale del
+     submit del formulario. Los datos se recuerdan en localStorage para que
+     un reintento (o la próxima compra) no obligue a teclear todo otra vez. */
+
+  var DATOS = 'emisha-datos-envio-v1';
+  var CAMPOS = ['nombre', 'email', 'telefono', 'calle', 'colonia', 'cp', 'ciudad', 'estado', 'referencias'];
 
   var botonPagar = document.querySelector('[data-pagar]');
-  if (botonPagar) botonPagar.addEventListener('click', pagar);
+  var dialogo = document.querySelector('[data-checkout]');
+  var formulario = dialogo && dialogo.querySelector('[data-checkout-form]');
 
-  function pagar() {
+  if (botonPagar && dialogo && formulario) {
+    botonPagar.addEventListener('click', abrirCheckout);
+    formulario.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      pagar(leerFormulario());
+    });
+    dialogo.querySelector('[data-cerrar]').addEventListener('click', cerrarCheckout);
+  }
+
+  function abrirCheckout() {
+    var t = totalCarrito();
+    if (!t.piezas) return;
+    avisar('');
+    prellenar();
+    var e = costoEnvio(t.centavos);
+    dialogo.querySelector('[data-checkout-resumen]').innerHTML =
+      '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
+      '<div><span>Envío</span><span>' + (e === 0 ? 'Gratis' : precio(e)) + '</span></div>' +
+      '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>';
+    if (dialogo.showModal) dialogo.showModal();
+    else dialogo.setAttribute('open', '');
+  }
+
+  function cerrarCheckout() {
+    if (dialogo.close) dialogo.close();
+    else dialogo.removeAttribute('open');
+  }
+
+  function prellenar() {
+    try {
+      var d = JSON.parse(localStorage.getItem(DATOS));
+      if (!d) return;
+      CAMPOS.forEach(function (k) {
+        var campo = formulario.elements[k];
+        if (campo && !campo.value && d[k]) campo.value = d[k];
+      });
+    } catch (e) { /* datos corruptos: el formulario queda vacío */ }
+  }
+
+  function leerFormulario() {
+    var d = {};
+    CAMPOS.forEach(function (k) {
+      d[k] = (formulario.elements[k] ? formulario.elements[k].value : '').trim();
+    });
+    try { localStorage.setItem(DATOS, JSON.stringify(d)); } catch (e) {}
+    return d;
+  }
+
+  function pagar(datos) {
     var lineas = Object.keys(carrito.lineas).map(function (sku) {
       return { sku: sku, cantidad: carrito.lineas[sku] };
     });
     if (!lineas.length) return;
 
-    botonPagar.disabled = true;
-    botonPagar.textContent = 'Preparando el pago…';
-    avisar('');
+    var confirmar = dialogo.querySelector('[data-confirmar]');
+    confirmar.disabled = true;
+    confirmar.textContent = 'Preparando el pago…';
 
     fetch(API + '/pedido', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ carrito_id: carrito.carrito_id, lineas: lineas })
+      body: JSON.stringify({
+        carrito_id: carrito.carrito_id,
+        lineas: lineas,
+        comprador: { nombre: datos.nombre, email: datos.email, telefono: datos.telefono },
+        envio: {
+          calle: datos.calle, colonia: datos.colonia, cp: datos.cp,
+          ciudad: datos.ciudad, estado: datos.estado, referencias: datos.referencias
+        }
+      })
     })
       .then(function (r) { return r.json().then(function (d) { return { status: r.status, datos: d }; }); })
       .then(function (r) {
@@ -207,15 +293,18 @@
         }
         if (r.status === 409 && r.datos.faltantes) {
           // No alcanzó el stock: ajustar el carrito a lo que sí hay.
+          restaurarBoton();
+          cerrarCheckout();
           r.datos.faltantes.forEach(function (f) {
             if (porSku[f.sku]) porSku[f.sku].stock = f.available;
             fijarCantidad(f.sku, Math.min(carrito.lineas[f.sku] || 0, f.available));
           });
           avisar('El inventario cambió mientras armabas tu carrito: lo ajustamos a las ' +
             'piezas que sí hay. Revisa las cantidades y vuelve a intentar.', true);
-          restaurarBoton();
           return;
         }
+        restaurarBoton();
+        cerrarCheckout();
         if (r.status === 503) {
           // Pago en línea aún no habilitado (falta el token de MP en el worker).
           avisar('El pago en línea se activa muy pronto. Mientras tanto escríbenos por ' +
@@ -223,17 +312,18 @@
         } else {
           avisar((r.datos && r.datos.error) || 'No se pudo iniciar el pago. Inténtalo de nuevo.', true);
         }
-        restaurarBoton();
       })
       .catch(function () {
-        avisar('No se pudo iniciar el pago. Revisa tu conexión e inténtalo de nuevo.', true);
         restaurarBoton();
+        cerrarCheckout();
+        avisar('No se pudo iniciar el pago. Revisa tu conexión e inténtalo de nuevo.', true);
       });
   }
 
   function restaurarBoton() {
-    botonPagar.disabled = false;
-    botonPagar.textContent = 'Pagar con Mercado Pago';
+    var confirmar = dialogo.querySelector('[data-confirmar]');
+    confirmar.disabled = false;
+    confirmar.textContent = 'Continuar al pago';
   }
 
   cargarCatalogo();

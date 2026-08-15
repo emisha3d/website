@@ -30,11 +30,23 @@
         mxn.format(l.unit_price_cents * l.quantity / 100) + '</td></tr>';
       return fila;
     }).join('');
+    // Pedidos previos al envío con tarifa no traen desglose: sin fila.
+    var envio = pedido.envio;
+    var filaEnvio = (envio && typeof envio.centavos === 'number')
+      ? '<tr><th scope="row" colspan="2">Envío</th><td>' +
+        (envio.centavos === 0 ? 'Gratis' : mxn.format(envio.centavos / 100)) + '</td></tr>'
+      : '';
+    var direccion = '';
+    if (envio && envio.direccion) {
+      var d = envio.direccion;
+      direccion = '<p class="muted" style="margin-top:14px">Enviaremos tu paquete a: ' +
+        escapar([d.calle, d.colonia, 'CP ' + d.cp, d.ciudad, d.estado].filter(Boolean).join(', ')) + '.</p>';
+    }
     return '<div class="table-scroll"><table class="specs">' +
       '<thead><tr><th scope="col">Pieza</th><th scope="col">Cantidad</th><th scope="col">Importe</th></tr></thead>' +
-      '<tbody>' + filas +
+      '<tbody>' + filas + filaEnvio +
       '<tr><th scope="row" colspan="2">Total</th><td><strong>' +
-      mxn.format(pedido.total_centavos / 100) + '</strong></td></tr></tbody></table></div>' +
+      mxn.format(pedido.total_centavos / 100) + '</strong></td></tr></tbody></table></div>' + direccion +
       '<p class="muted" style="font-size:.86rem;margin-top:14px">Folio: ' + escapar(pedido.pedido_id) + '</p>';
   }
 

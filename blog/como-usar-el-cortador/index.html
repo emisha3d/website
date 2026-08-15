@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo usar el cortador: parte tu STL en piezas que sí caben | Blog Emisha</title>
+<meta name="description" content="Tutorial del cortador de piezas 3D de Emisha: carga tu STL o 3MF, sepáralo, escálalo a la medida exacta y pártelo con planos, corte automático o pincel — todo en el navegador, sin registro y sin que tu archivo salga de tu computadora.">
+<link rel="canonical" href="https://www.emisha.com.mx/blog/como-usar-el-cortador/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Cómo usar el cortador: parte tu STL en piezas que sí caben">
+<meta property="og:description" content="Carga tu STL o 3MF, sepáralo, escálalo a la medida exacta y pártelo con planos, corte automático o pincel — en el navegador, sin registro.">
+<meta property="og:url" content="https://www.emisha.com.mx/blog/como-usar-el-cortador/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/modelos/x1-carbon.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=cc41bd95">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.emisha.com.mx/blog/como-usar-el-cortador/#post",
+      "url": "https://www.emisha.com.mx/blog/como-usar-el-cortador/",
+      "headline": "Cómo usar el cortador: parte tu STL en piezas que sí caben",
+      "description": "Tutorial del cortador de piezas 3D de Emisha: carga tu STL o 3MF, sepáralo, escálalo a la medida exacta y pártelo con planos, corte automático o pincel — todo en el navegador, sin registro y sin que tu archivo salga de tu computadora.",
+      "image": "https://www.emisha.com.mx/assets/img/modelos/x1-carbon.webp",
+      "datePublished": "2026-08-07",
+      "dateModified": "2026-08-07",
+      "inLanguage": "es-MX",
+      "articleSection": "Guía",
+      "keywords": "cortar STL online, dividir modelo 3D, partir STL para imprimir, cortador de piezas 3D, escalar STL, herramienta gratuita",
+      "author": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.emisha.com.mx/blog/como-usar-el-cortador/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.emisha.com.mx/blog/como-usar-el-cortador/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.emisha.com.mx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.emisha.com.mx/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cómo usar el cortador: parte tu STL en piezas que sí caben",
+          "item": "https://www.emisha.com.mx/blog/como-usar-el-cortador/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../" aria-label="Emisha — inicio">
+      <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="../../liquid-ultra/">Liquid Ultra</a>
+      <a href="../../filamentos/">Filamentos</a>
+      <a href="../../servicios/">Servicios</a>
+      <a href="../../cotizador/">Cotizador</a>
+      <a href="../../cortador/">Cortador</a>
+      <a href="../../calculadora/">Calculadora</a>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../contacto/">Contacto</a>
+      <a class="btn btn--accent btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section">
+    <div class="wrap">
+
+      <div class="post-header">
+        <span class="eyebrow eyebrow--accent">Guía</span>
+        <h1>Cómo usar el cortador: parte tu STL en piezas que sí caben</h1>
+        <p class="muted"><time datetime="2026-08-07">7 de agosto de 2026</time> · Guía</p>
+        <p class="lede">
+          El <a href="../../cortador/">cortador</a> es una herramienta gratuita que armamos para el
+          problema de todos los días: el modelo que no cabe en la cama, el archivo que trae seis
+          piezas pegadas o la figura que quieres a otra escala. Corre completo en tu navegador
+          —tu archivo nunca sale de tu computadora— y no pide registro. Este es el recorrido
+          completo, con los trucos que usamos nosotros.
+        </p>
+      </div>
+
+      <div class="hero__figure">
+        <img src="../../assets/img/modelos/x1-carbon.webp"
+             alt="Impresora 3D Bambu Lab X1 Carbon vista de frente"
+             width="1000" height="1000" fetchpriority="high">
+      </div>
+
+      <div class="prose">
+
+        <h2>Para qué sirve (y para qué no)</h2>
+        <p>
+          Tres casos lo cubren casi todo: <strong>partir</strong> una pieza más grande que la
+          cama en secciones imprimibles, <strong>separar</strong> un archivo que trae varias
+          piezas fusionadas en un solo STL, y <strong>medir o escalar</strong> un modelo a su
+          tamaño real antes de imprimirlo o cotizarlo. Lo que el cortador no hace es rebanar en
+          capas ni generar gcode: las secciones que descargas son STL normales que le das a tu
+          rebanador de siempre, o directo a nuestro <a href="../../cotizador/">cotizador</a>.
+        </p>
+
+        <h2>Paso 1 · Carga y separa</h2>
+        <p>
+          Arrastra tu <strong>STL o 3MF</strong> al recuadro (puedes soltar varios archivos a la
+          vez). Cada archivo aparece en la lista de piezas del panel derecho, y un clic sobre
+          cualquier pieza del visor la selecciona. Si tu archivo es de esos que traen todo un
+          ensamble fusionado —pasa mucho con modelos descargados—, el botón
+          <strong>Separar piezas</strong> de la barra izquierda encuentra las piezas sueltas por
+          su cuenta y las convierte en elementos independientes, cada una con su color en la
+          lista.
+        </p>
+
+        <h2>Paso 2 · Acomoda y escala</h2>
+        <p>
+          Con una pieza seleccionada tienes tres modos en la barra izquierda, con atajo de
+          teclado: <strong>Mover (W)</strong>, <strong>Girar (R)</strong> y
+          <strong>Escalar (S)</strong>. Puedes arrastrar directo en el visor o teclear números
+          exactos en el panel: mover en milímetros por eje, girar con el deslizador o de 90 en
+          90, y —el control que más usamos— <strong>escribir la medida final en
+          milímetros</strong> en Ancho, Fondo o Alto. Si el modelo debe medir 180&nbsp;mm de
+          alto, tecleas 180 y listo: con «Escalar uniforme» activo, los otros dos ejes se ajustan
+          en proporción. La rejilla de la cama se dibuja abajo, así que ves de inmediato si la
+          pieza cabe o de cuánto se pasa. La tecla <strong>F</strong> encuadra la pieza
+          seleccionada cuando te perdiste navegando.
+        </p>
+
+        <h2>Paso 3 · Corta: planos, automático o pincel</h2>
+        <p>
+          Hay tres maneras de partir, de la más común a la más libre:
+        </p>
+        <ul>
+          <li><strong>Planos por eje.</strong> Los botones + X, + Y y + Z agregan un plano de
+            corte recto. En el visor se ve como una sábana azul con su flecha: arrástrala hasta
+            donde quieras el corte. Puedes apilar varios planos en varios ejes y la pieza se
+            parte por todos a la vez.</li>
+          <li><strong>Automático.</strong> Un botón que mide la pieza contra la cama de la
+            impresora (256&nbsp;mm por lado, el estándar de las Bambu Lab grandes) y coloca solo
+            los cortes mínimos para que cada sección quepa. Si la pieza ya cabe, te lo dice y no
+            corta nada.</li>
+          <li><strong>Pincel.</strong> Para cortes que no son rectos: activa el pincel en la
+            barra izquierda y pinta directamente sobre la superficie la sección que quieres
+            desprender. Sirve para separar un brazo de una figura, quedarte con una zona de un
+            escaneo o partir por donde un plano no puede.</li>
+        </ul>
+        <p>
+          El botón <strong>✂ Cortar pieza</strong> ejecuta los cortes, y cada sección entra a la
+          lista como pieza independiente: se puede mover, escalar, volver a cortar o quitar como
+          cualquier otra. La vista de <strong>despiece</strong> (en la barra izquierda) separa
+          las secciones en el visor para revisar que el corte quedó donde querías, y
+          <strong>Restablecer</strong> regresa todo al inicio si te enredaste.
+        </p>
+
+        <h2>Paso 4 · Descarga o cotiza</h2>
+        <p>
+          <strong>Descargar STL</strong> baja la pieza seleccionada, o todas si no hay ninguna
+          elegida. De ahí, a tu rebanador. Abajo del visor corre un <strong>estimado de
+          impresión</strong> en vivo (PLA, 15&nbsp;% de relleno) que ya considera cuántas camas
+          ocupan tus secciones y el ensamble: es el orden de magnitud, no la cotización. Para
+          elegir material, relleno y cantidades está el <a href="../../cotizador/">cotizador</a>, que
+          lee los mismos archivos, o el botón de WhatsApp que arma el mensaje con tus piezas.
+        </p>
+
+        <h2>Trucos del taller</h2>
+        <ul>
+          <li><strong>Corta por la cara que nadie ve.</strong> La unión pegada siempre se nota un
+            poco: ponla en la base, en la espalda de la figura o donde el ensamble la tape.</li>
+          <li><strong>Corta para matar soportes.</strong> Una pieza con un voladizo grande
+            partida en dos mitades planas imprime sin soporte por los dos lados y ahorra más
+            tiempo que cualquier ajuste de perfil. Lo mismo aplica para
+            <a href="../../blog/warping-esquinas-levantadas/">quitarle fuerza al warping</a> en piezas
+            largas.</li>
+          <li><strong>Ojo con la dirección del esfuerzo.</strong> La unión pegada y las capas
+            comparten debilidad: si la pieza va a trabajar, orienta el corte para que la carga la
+            apriete en lugar de jalarla, igual que se orienta la pieza respecto a sus capas.</li>
+          <li><strong>Para pegar PLA y PETG</strong>, cianoacrilato (kola loka) en superficies
+            limpias y planas: el corte por plano deja las dos caras perfectamente planas justo
+            para eso. Unas gotas bastan; el exceso escurre y mancha.</li>
+          <li><strong>Escala con un dato conocido.</strong> ¿No sabes a qué escala está el
+            modelo? Busca una medida que conozcas —un barreno de tornillo M3, una base que debe
+            medir 100&nbsp;mm— y teclea esa medida real. Todo lo demás queda en proporción.</li>
+        </ul>
+
+        <h2>La regla corta</h2>
+        <p>
+          Carga, clic en la pieza, W-R-S para acomodar, medidas en milímetros para escalar
+          exacto. Para partir: «Automático» si el problema es que no cabe, planos si sabes dónde
+          quieres el corte, pincel si el corte no es recto. Descarga los STL o pásalos al
+          <a href="../../cotizador/">cotizador</a>, y recuerda que nada de lo que subes sale de tu
+          navegador.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow eyebrow--accent">Herramienta gratuita</span>
+        <h2>Pruébalo con tu modelo</h2>
+        <p>Sin registro y sin subir nada a ningún servidor: el cortador corre completo en tu
+          navegador. Y si prefieres que la imprimamos nosotros, el cotizador te da el precio
+          en un minuto.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="../../cortador/">Abrir el cortador</a>
+          <a class="btn btn--ghost btn--lg" href="../../cotizador/">Ir al cotizador</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../servicios/">Servicios y reparación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/#aplicacion">Cómo aplicar</a></li>
+          <li><a href="../../liquid-ultra/#seguridad">Seguridad</a></li>
+          <li><a href="../../liquid-ultra/#faq">Preguntas frecuentes</a></li>
+          <li><a href="../../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js?v=c16eac99" defer></script>
+</body>
+</html>
