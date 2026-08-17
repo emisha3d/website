@@ -18,10 +18,6 @@ las que falten se quitan solas.
 JPG o PNG también sirven, yo los convierto a WebP.
 
 ---
-Agregadas 2026-08-16:
-  x1e.webp         render de la tienda de Bambu Lab (fondo blanco)
-  h2s.webp         render de la tienda de Bambu Lab (recortado)
-  p1p.webp         POR AHORA es copia de p1s.webp (mismo cuerpo, sin paneles).
-                   Sustituir por una foto real de P1P cuando la haya.
-  *-thumb.webp     miniaturas de 240 px que usa el selector de modelo en
-                   /reparacion/. Si cambias una foto grande, regenera su thumb.
+Agregadas 2026-08-16 (renders de la tienda de Bambu Lab, aún sin usar en el sitio):
+  x1e.webp, h2s.webp
+El selector de modelo de /reparacion/ usa iconos SVG en línea, no fotos.
