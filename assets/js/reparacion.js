@@ -34,11 +34,11 @@
     });
   }
 
-  function avisar(texto, tipo) {
+  function avisar(texto, tipo, sinMover) {
     aviso.textContent = texto || '';
     aviso.hidden = !texto;
     aviso.className = 'cita-aviso' + (tipo ? ' cita-aviso--' + tipo : '');
-    if (texto && aviso.scrollIntoView) aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (texto && !sinMover && aviso.scrollIntoView) aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   function pedir(ruta, opciones) {
@@ -70,8 +70,9 @@
     }).catch(function () {
       cajaDias.innerHTML = '';
       cajaTurnos.hidden = true;
+      // Al cargar no movemos la página: el aviso ya está arriba del formulario.
       avisar('Ahorita no podemos cargar los turnos en línea. Escríbenos por WhatsApp al ' +
-        '+52 55 7563 9255 con el modelo de tu impresora y el día que te acomoda, y te apartamos el lugar.', 'error');
+        '+52 55 7563 9255 con el modelo de tu impresora y el día que te acomoda, y te apartamos el lugar.', 'error', true);
       botonEnviar.disabled = true;
       botonEnviar.textContent = 'Agendar por WhatsApp';
       botonEnviar.type = 'button';
@@ -125,9 +126,16 @@
     turnosVacio.hidden = d.libres > 0;
     turnosVacio.textContent = d.libres > 0 ? '' : 'Ese día ya está lleno. Elige otro.';
     pintarElegida();
-    // En móvil, que el día elegido quede a la vista.
+    // En móvil, que el día elegido quede a la vista dentro de la tira de
+    // días. Solo se mueve la tira (horizontal), nunca la página: con
+    // scrollIntoView la página brincaba hasta aquí al cargar.
     var activo = cajaDias.querySelector('[aria-pressed="true"]');
-    if (activo && activo.scrollIntoView) activo.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    if (activo && cajaDias.scrollTo) {
+      cajaDias.scrollTo({
+        left: activo.offsetLeft - (cajaDias.clientWidth - activo.offsetWidth) / 2,
+        behavior: 'smooth'
+      });
+    }
   }
 
   function elegirHora(hora) {
@@ -146,21 +154,44 @@
     elegida.hidden = false;
   }
 
-  /* --- Modelo "Otro" ---------------------------------------------------- */
+  /* --- Selectores de modelo y falla (tarjetas de radio) ------------------ */
+  /* form.elements.modelo es un RadioNodeList: .value da el elegido. La clase
+     is-checked replica :has(input:checked) para navegadores viejos. */
 
-  var selModelo = form.elements.modelo;
   var cajaOtro = form.querySelector('[data-modelo-otro]');
-  selModelo.addEventListener('change', function () {
-    var esOtro = selModelo.value === 'Otro';
-    cajaOtro.hidden = !esOtro;
-    form.elements.modelo_otro.required = esOtro;
+  function pintarPicker(nombre) {
+    form.querySelectorAll('input[name="' + nombre + '"]').forEach(function (r) {
+      r.closest('.picker__item').classList.toggle('is-checked', r.checked);
+    });
+  }
+  form.addEventListener('change', function (e) {
+    if (e.target.name === 'modelo') {
+      pintarPicker('modelo');
+      var esOtro = form.elements.modelo.value === 'Otro';
+      cajaOtro.hidden = !esOtro;
+      form.elements.modelo_otro.required = esOtro;
+      if (esOtro) form.elements.modelo_otro.focus();
+    }
+    if (e.target.name === 'tipo_falla') pintarPicker('tipo_falla');
   });
+  pintarPicker('modelo');
+  pintarPicker('tipo_falla');
 
   /* --- Envío ------------------------------------------------------------ */
 
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     avisar('');
+    if (!form.elements.modelo.value) {
+      avisar('Elige el modelo de tu impresora.', 'error');
+      form.querySelector('[data-picker-modelo]').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    if (!form.elements.tipo_falla.value) {
+      avisar('Elige el tipo de falla.', 'error');
+      form.querySelector('[data-picker-falla]').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
