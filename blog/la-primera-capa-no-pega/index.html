@@ -20,7 +20,7 @@
 
 <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../../assets/css/styles.css?v=b4d97c9a">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=8ab44756">
 
 <script type="application/ld+json">
 {
@@ -89,13 +89,23 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="nav" id="nav">
-      <a href="../../liquid-ultra/">Liquid Ultra</a>
-      <a href="../../filamentos/">Filamentos</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../filamentos/">Filamentos</a>
+        </div>
+      </div>
       <a href="../../servicios/">Servicios</a>
       <a href="../../reparacion/">Reparación</a>
-      <a href="../../cotizador/">Cotizador</a>
-      <a href="../../cortador/">Cortador</a>
-      <a href="../../calculadora/">Calculadora</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../cotizador/">Cotizador</a>
+          <a href="../../cortador/">Cortador</a>
+          <a href="../../calculadora/">Calculadora</a>
+        </div>
+      </div>
       <a href="../../blog/" aria-current="page">Blog</a>
       <a href="../../contacto/">Contacto</a>
       <a class="btn btn--accent btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
@@ -311,6 +321,6 @@
   </div>
 </footer>
 
-<script src="../../assets/js/main.js?v=c16eac99" defer></script>
+<script src="../../assets/js/main.js?v=7782446c" defer></script>
 </body>
 </html>

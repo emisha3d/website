@@ -134,6 +134,30 @@ strong { font-weight: 640; }
 .nav a:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
 .nav a[aria-current="page"] { color: var(--text); font-weight: 620; }
 
+/* Submenús del menú superior (Productos, Herramientas). En escritorio se
+   despliegan al pasar el cursor o al hacer clic; en móvil se muestran
+   siempre abiertos, como una sección con título. */
+.nav__group { position: relative; }
+.nav__group-btn {
+  font: inherit; color: var(--text-2); font-size: .925rem; font-weight: 520;
+  padding: 8px 10px 8px 13px; border-radius: 8px; border: 0; background: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 4px;
+  transition: background .16s var(--ease), color .16s var(--ease);
+}
+.nav__group-btn svg { width: 14px; height: 14px; transition: transform .16s var(--ease); }
+.nav__group-btn:hover, .nav__group[aria-expanded="true"] .nav__group-btn, .nav__group.is-open .nav__group-btn {
+  color: var(--text); background: var(--surface-2);
+}
+.nav__group-btn.is-current { color: var(--text); font-weight: 620; }
+.nav__group.is-open .nav__group-btn svg { transform: rotate(180deg); }
+.nav__menu {
+  position: absolute; top: calc(100% + 6px); left: 0; min-width: 196px;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg); padding: 6px; display: none; z-index: 40;
+}
+.nav__group.is-open .nav__menu { display: grid; gap: 2px; }
+.nav__menu a { display: block; padding: 9px 12px; border-radius: 8px; white-space: nowrap; }
+
 .nav-toggle {
   display: none; margin-left: auto;
   background: #fff; border: 1px solid var(--border); color: var(--text);
@@ -142,7 +166,7 @@ strong { font-weight: 640; }
 }
 .nav-toggle svg { width: 20px; height: 20px; }
 
-@media (max-width: 1200px) {
+@media (max-width: 1040px) {
   .nav-toggle { display: inline-flex; }
   .nav {
     position: fixed; inset: 66px 0 auto 0;
@@ -155,6 +179,18 @@ strong { font-weight: 640; }
   .nav.is-open { display: flex; }
   .nav a { padding: 12px; font-size: 1rem; }
   .nav .btn { margin-top: 8px; justify-content: center; }
+  /* Submenús: siempre abiertos, con su título como sección */
+  .nav__group { display: contents; }
+  .nav__group-btn {
+    pointer-events: none; cursor: default; padding: 14px 12px 4px;
+    font-family: var(--font-mono); font-size: .66rem; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); background: none !important;
+  }
+  .nav__group-btn svg { display: none; }
+  .nav__menu {
+    position: static; display: grid; gap: 2px; min-width: 0;
+    border: 0; box-shadow: none; padding: 0 0 0 10px; background: none;
+  }
 }
 
 /* -------------------------------------------------------------- buttons */
