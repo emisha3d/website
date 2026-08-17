@@ -142,7 +142,7 @@ strong { font-weight: 640; }
 }
 .nav-toggle svg { width: 20px; height: 20px; }
 
-@media (max-width: 1040px) {
+@media (max-width: 1200px) {
   .nav-toggle { display: inline-flex; }
   .nav {
     position: fixed; inset: 66px 0 auto 0;
