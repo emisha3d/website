@@ -254,6 +254,8 @@
   var TEXTO_ESTADO = {
     nueva: ['Cita confirmada', 'Te esperamos el {cuando}', 'Si no vas a poder venir, cancela aquí mismo o avísanos por WhatsApp para que otra persona pueda usar el turno.'],
     recibida: ['Impresora recibida', 'Ya tenemos tu {modelo} en el taller', 'Te avisamos por WhatsApp o correo en cuanto tengamos el diagnóstico.'],
+    en_diagnostico: ['En diagnóstico', 'Estamos revisando tu {modelo}', 'En cuanto sepamos qué tiene te mandamos la cotización. No reparamos nada sin tu autorización.'],
+    cotizada: ['Cotización enviada', 'Ya revisamos tu {modelo}', 'Te mandamos la cotización por correo. Autorízala (o no) desde el botón de abajo; no tocamos nada hasta que respondas.'],
     diagnosticada: ['Diagnóstico listo', 'Ya revisamos tu {modelo}', 'Te mandamos la cotización. Si tienes dudas, escríbenos por WhatsApp.'],
     en_reparacion: ['En reparación', 'Estamos trabajando en tu {modelo}', 'Te avisamos en cuanto esté lista.'],
     lista: ['Lista para entrega', 'Tu {modelo} ya está lista', 'Pasa por ella al taller de lunes a viernes de 9:00 a 19:00. Si prefieres otro horario, escríbenos.'],
@@ -283,7 +285,10 @@
 
     var acciones = conf.querySelector('[data-conf-acciones]');
     acciones.textContent = '';
-    if (cita.estado === 'nueva') {
+    if (cita.cotizacion_pendiente) {
+      acciones.appendChild(boton('Ver y autorizar mi cotización', API + '/cotizacion/' + cita.cita_id, 'btn btn--accent'));
+      acciones.appendChild(boton('WhatsApp', 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, tengo dudas de la cotización ' + cita.folio + ': '), 'btn btn--ghost'));
+    } else if (cita.estado === 'nueva') {
       acciones.appendChild(boton('Agregar a mi calendario', cita.calendario_url, 'btn btn--primary'));
       acciones.appendChild(boton('WhatsApp', 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, tengo la cita ' + cita.folio + ' y '), 'btn btn--ghost'));
       var cancelar = document.createElement('button');
