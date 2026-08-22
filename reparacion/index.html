@@ -135,8 +135,13 @@
 
 /* Cada impresora de la cita es un bloque repetible. Con una sola no se nota:
    el borde y el encabezado solo aparecen cuando hay más de una. */
+/* El paso 1 es una rejilla de dos columnas: el bloque de la impresora y el
+   botón de agregar tienen que ocupar el ancho completo, si no el botón se
+   estira solo en la celda de la derecha. */
+.cita-campos [data-equipos],.cita-campos [data-agregar-equipo]{grid-column:1/-1}
+.cita-campos [data-agregar-equipo]{justify-self:start;width:auto}
 .equipo-bloque + .equipo-bloque{border-top:1px solid var(--border);margin-top:26px;padding-top:20px}
-.equipo-bloque__cab{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.equipo-bloque__cab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
 .equipo-bloque__cab:empty{display:none}
 .equipo-bloque__num{font-family:var(--mono,ui-monospace,Menlo,monospace);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .equipo-bloque__num:empty{display:none}
