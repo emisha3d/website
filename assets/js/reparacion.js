@@ -358,6 +358,19 @@
       return '<div><dt>' + p[0] + '</dt><dd>' + p[1] + '</dd></div>';
     }).join('');
 
+    // Fotos y video que el taller marcó como visibles.
+    var gal = conf.querySelector('[data-conf-galeria]'), galT = conf.querySelector('[data-conf-galeria-t]');
+    var archivos = cita.archivos || [];
+    gal.hidden = galT.hidden = !archivos.length;
+    gal.innerHTML = archivos.map(function (a) {
+      var url = API + a.url;
+      var medio = a.es_video
+        ? '<video src="' + esc(url) + '" preload="metadata" muted playsinline></video><span class="play">▶</span>'
+        : '<img src="' + esc(url) + '" alt="' + esc(a.nota || 'Foto de la reparación') + '" loading="lazy">';
+      return '<figure><a href="' + esc(url) + '" target="_blank" rel="noopener">' + medio + '</a>' +
+        (a.nota ? '<figcaption>' + esc(a.nota) + '</figcaption>' : '') + '</figure>';
+    }).join('');
+
     var acciones = conf.querySelector('[data-conf-acciones]');
     acciones.textContent = '';
     if (cita.cotizacion_pendiente) {

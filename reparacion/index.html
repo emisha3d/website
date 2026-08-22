@@ -124,6 +124,15 @@
 .cita-campos .field--ancho{grid-column:1/-1}
 @media (max-width:560px){.cita-campos{grid-template-columns:1fr}}
 .field[hidden]{display:none}
+/* Fotos y video que el taller sube de la reparación. */
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:10px 0 4px}
+.galeria figure{margin:0}
+.galeria a{display:block;border-radius:10px;overflow:hidden;background:#0d1117;position:relative;aspect-ratio:4/3}
+.galeria img,.galeria video{width:100%;height:100%;object-fit:cover;display:block}
+.galeria .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-shadow:0 2px 8px rgba(0,0,0,.6);pointer-events:none}
+.galeria figcaption{font-size:.82rem;color:var(--muted);margin-top:5px;line-height:1.35}
+.galeria-t{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:18px 0 0}
+
 /* Cada impresora de la cita es un bloque repetible. Con una sola no se nota:
    el borde y el encabezado solo aparecen cuando hay más de una. */
 .equipo-bloque + .equipo-bloque{border-top:1px solid var(--border);margin-top:26px;padding-top:20px}
@@ -380,6 +389,8 @@
             <h2 data-conf-titulo></h2>
             <span class="folio" data-conf-folio></span>
             <dl class="confirmacion__datos" data-conf-datos></dl>
+            <p class="galeria-t" data-conf-galeria-t hidden>Fotos de tu reparación</p>
+            <div class="galeria" data-conf-galeria hidden></div>
             <div class="hero__cta" style="margin-top:6px" data-conf-acciones></div>
             <p class="muted" style="font-size:.88rem;margin-top:18px" data-conf-nota></p>
           </div>
@@ -517,6 +528,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/reparacion.js?v=bbf955a8" defer></script>
+<script src="../assets/js/reparacion.js?v=79d92ed6" defer></script>
 </body>
 </html>
