@@ -159,37 +159,111 @@
      is-checked replica :has(input:checked) para navegadores viejos. */
 
   var cajaOtro = form.querySelector('[data-modelo-otro]');
-  function pintarPicker(nombre) {
-    form.querySelectorAll('input[name="' + nombre + '"]').forEach(function (r) {
+  /* --- Impresoras (se puede traer más de una) ---------------------------- */
+
+  var cajaEquipos = form.querySelector('[data-equipos]');
+  var botonAgregar = form.querySelector('[data-agregar-equipo]');
+
+  function equipos() { return Array.prototype.slice.call(cajaEquipos.querySelectorAll('[data-equipo]')); }
+  function campo(bloque, nombre) { return bloque.querySelector('[data-campo="' + nombre + '"]'); }
+  function valorRadio(bloque, nombre) {
+    var m = bloque.querySelector('[data-campo="' + nombre + '"]:checked');
+    return m ? m.value : '';
+  }
+  function pintarPicker(bloque, nombre) {
+    bloque.querySelectorAll('[data-campo="' + nombre + '"]').forEach(function (r) {
       r.closest('.picker__item').classList.toggle('is-checked', r.checked);
     });
   }
+  function refrescarBloque(bloque) {
+    pintarPicker(bloque, 'modelo');
+    pintarPicker(bloque, 'tipo_falla');
+    var esOtro = valorRadio(bloque, 'modelo') === 'Otro';
+    var caja = bloque.querySelector('[data-modelo-otro]');
+    var otro = campo(bloque, 'modelo_otro');
+    if (caja) caja.hidden = !esOtro;
+    if (otro) otro.required = esOtro;
+    return esOtro;
+  }
+  // Cada bloque numerado, y con su botón de quitar a partir del segundo.
+  function renumerar() {
+    var lista = equipos();
+    lista.forEach(function (b, i) {
+      var t = b.querySelector('[data-equipo-titulo]');
+      if (t) t.textContent = lista.length > 1 ? 'Impresora ' + (i + 1) : '';
+      var q = b.querySelector('[data-quitar-equipo]');
+      if (q) q.hidden = lista.length < 2;
+    });
+    botonAgregar.hidden = lista.length >= 6;
+  }
+
   form.addEventListener('change', function (e) {
-    if (e.target.name === 'modelo') {
-      pintarPicker('modelo');
-      var esOtro = form.elements.modelo.value === 'Otro';
-      cajaOtro.hidden = !esOtro;
-      form.elements.modelo_otro.required = esOtro;
-      if (esOtro) form.elements.modelo_otro.focus();
+    var bloque = e.target.closest('[data-equipo]');
+    if (!bloque) return;
+    if (e.target.dataset.campo === 'modelo') {
+      if (refrescarBloque(bloque)) campo(bloque, 'modelo_otro').focus();
     }
-    if (e.target.name === 'tipo_falla') pintarPicker('tipo_falla');
+    if (e.target.dataset.campo === 'tipo_falla') pintarPicker(bloque, 'tipo_falla');
   });
-  pintarPicker('modelo');
-  pintarPicker('tipo_falla');
+
+  botonAgregar.addEventListener('click', function () {
+    var lista = equipos();
+    if (lista.length >= 6) return;
+    var n = lista.length + 1;
+    var clon = lista[0].cloneNode(true);
+    // Los radios necesitan un grupo propio, si no el segundo bloque
+    // desmarcaría al primero. Los id también, por las etiquetas.
+    clon.querySelectorAll('input[type="radio"]').forEach(function (r) {
+      r.name = r.name.replace(/-\d+$/, '') + '-' + n;
+      r.checked = false;
+    });
+    clon.querySelectorAll('[id]').forEach(function (el) {
+      var viejo = el.id, nuevo = viejo.replace(/-\d+$/, '') + '-' + n;
+      el.id = nuevo;
+      var lab = clon.querySelector('label[for="' + viejo + '"]');
+      if (lab) lab.setAttribute('for', nuevo);
+    });
+    clon.querySelectorAll('input[type="checkbox"]').forEach(function (c) { c.checked = false; });
+    clon.querySelectorAll('textarea, input[type="text"], input:not([type])').forEach(function (c) { c.value = ''; });
+    cajaEquipos.appendChild(clon);
+    refrescarBloque(clon);
+    renumerar();
+    clon.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  cajaEquipos.addEventListener('click', function (e) {
+    var q = e.target.closest('[data-quitar-equipo]');
+    if (!q) return;
+    var lista = equipos();
+    if (lista.length < 2) return;
+    q.closest('[data-equipo]').remove();
+    renumerar();
+  });
+
+  equipos().forEach(refrescarBloque);
+  renumerar();
 
   /* --- Envío ------------------------------------------------------------ */
 
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     avisar('');
-    if (!form.elements.modelo.value) {
-      avisar('Elige el modelo de tu impresora.', 'error');
-      form.querySelector('[data-picker-modelo]').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
+    var lista = equipos(), listos = [], falla = null;
+    for (var i = 0; i < lista.length; i++) {
+      var b = lista[i], cual = lista.length > 1 ? ' de la impresora ' + (i + 1) : ' de tu impresora';
+      if (!valorRadio(b, 'modelo')) { falla = ['Elige el modelo' + cual + '.', b.querySelector('[data-picker-modelo]')]; break; }
+      if (!valorRadio(b, 'tipo_falla')) { falla = ['Elige el tipo de falla' + cual + '.', b.querySelector('[data-picker-falla]')]; break; }
+      listos.push({
+        modelo: valorRadio(b, 'modelo'),
+        modelo_otro: (campo(b, 'modelo_otro').value || '').trim(),
+        tipo_falla: valorRadio(b, 'tipo_falla'),
+        descripcion: (campo(b, 'descripcion').value || '').trim(),
+        trae_ams: campo(b, 'trae_ams').checked
+      });
     }
-    if (!form.elements.tipo_falla.value) {
-      avisar('Elige el tipo de falla.', 'error');
-      form.querySelector('[data-picker-falla]').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (falla) {
+      avisar(falla[0], 'error');
+      if (falla[1]) falla[1].scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
     if (!form.checkValidity()) {
@@ -197,7 +271,7 @@
       return;
     }
     if (!diaSel || !horaSel) {
-      avisar('Elige el día y la hora en que traes tu impresora.', 'error');
+      avisar('Elige el día y la hora en que traes ' + (lista.length > 1 ? 'tus impresoras' : 'tu impresora') + '.', 'error');
       cajaDias.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
@@ -206,12 +280,8 @@
       nombre: f.nombre.value.trim(),
       telefono: f.telefono.value.trim(),
       email: f.email.value.trim(),
-      modelo: f.modelo.value,
-      modelo_otro: f.modelo_otro.value.trim(),
-      trae_ams: f.trae_ams.checked,
+      equipos: listos,
       diagnostico_previo: f.diagnostico_previo.checked,
-      tipo_falla: f.tipo_falla.value,
-      descripcion: f.descripcion.value.trim(),
       fecha: diaSel,
       hora: horaSel,
       sitio_web: f.sitio_web.value
@@ -274,8 +344,13 @@
     var datos = [
       ['Cuándo', esc(cuando)],
       ['Dónde', 'Av. División del Norte 1354, Piso 1, Letrán del Valle, Benito Juárez, CDMX 03650. Estacionamiento con valet parking.'],
-      ['Impresora', esc(cita.modelo) + (cita.trae_ams ? ' · con AMS' : '') + ' · ' + esc(cita.tipo_falla)],
-      ['Qué traer', 'La impresora con su cable de corriente' + (cita.trae_ams ? ' y el AMS con el suyo' : '') + '. Si la falla pasa con un filamento en particular, tráelo.'],
+      [(cita.equipos && cita.equipos.length > 1) ? 'Impresoras' : 'Impresora',
+        (cita.equipos && cita.equipos.length)
+          ? cita.equipos.map(function (e) {
+              return esc(e.modelo) + (e.trae_ams ? ' · con AMS' : '') + ' · ' + esc(e.tipo_falla);
+            }).join('<br>')
+          : esc(cita.modelo) + (cita.trae_ams ? ' · con AMS' : '') + ' · ' + esc(cita.tipo_falla)],
+      ['Qué traer', ((cita.equipos && cita.equipos.length > 1) ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (cita.trae_ams ? ' y el AMS con el suyo' : '') + '. Si la falla pasa con un filamento en particular, tráelo.'],
       ['Costos', 'Diagnóstico $300 · Reparación $700 (con diagnóstico previo, $400). Refacciones aparte, siempre con tu autorización.']
     ];
     if (cita.estado !== 'nueva') datos = datos.slice(0, 3);
