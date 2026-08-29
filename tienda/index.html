@@ -65,9 +65,10 @@
 .tienda-aviso--error{border-color:rgba(180,35,24,.32);background:rgba(180,35,24,.06)}
 
 /* --- Dos columnas: categorías a la izquierda, catálogo a la derecha ------ */
+#tienda{padding-top:22px}
 .tienda-layout{display:grid;grid-template-columns:236px minmax(0,1fr);gap:30px;align-items:start}
 @media (max-width:900px){.tienda-layout{grid-template-columns:1fr;gap:16px}}
-.cats{position:sticky;top:72px}
+.cats{position:sticky;top:76px}
 @media (max-width:900px){.cats{position:static}}
 .cats__movil{display:none;width:100%;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);background:#fff;border-radius:12px;padding:11px 15px;font:inherit;font-weight:600;color:var(--text);cursor:pointer}
 @media (max-width:900px){.cats__movil{display:flex}.cats__lista[hidden]{display:none}.cats__lista{margin-top:10px}}
@@ -179,18 +180,18 @@
         </div>
       </div>
       <a href="../servicios/">Servicios</a>
-      <a href="../reparacion/">Reparación</a>
+      <a href="../reparacion/">Agendar reparación</a>
+      <a href="../cotizador/">Cotizar pieza</a>
       <div class="nav__group" data-nav-group>
         <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
         <div class="nav__menu" id="nav-herramientas">
-          <a href="../cotizador/">Cotizador</a>
           <a href="../cortador/">Cortador</a>
           <a href="../calculadora/">Calculadora</a>
         </div>
       </div>
       <a href="../blog/">Blog</a>
       <a href="../contacto/">Contacto</a>
-      <a class="btn btn--accent btn--sm" href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda oficial</a>
+      <a class="btn btn--accent btn--sm" href="../tienda/">Tienda</a>
     </nav>
   </div>
 </header>
@@ -219,13 +220,11 @@
 
   <section class="section" id="tienda">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Compra directa</span>
-        <h1>Tienda en línea</h1>
-        <p>Piezas impresas en 3D con inventario real en la Ciudad de México. El pago es con
-          <strong>Mercado Pago</strong> (tarjeta, transferencia o efectivo en tiendas) y el
-          apartado de tus piezas se hace en el momento: lo que ves disponible, está disponible.</p>
-      </div>
+      <!-- El encabezado se quitó para que las piezas empiecen justo bajo el
+           buscador. El h1 se queda oculto a la vista: es la señal principal
+           para los buscadores y lo que anuncia la página a un lector de
+           pantalla. -->
+      <h1 class="sr-only">Tienda en línea — piezas impresas en 3D con envío a todo México</h1>
 
       <div class="tienda-aviso" data-tienda-aviso hidden aria-live="polite"></div>
 
