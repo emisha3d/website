@@ -139,15 +139,22 @@
     return (nombre || '?').trim().charAt(0).toUpperCase();
   }
 
+  // La misma pieza puede estar pintada dos veces: en la rejilla y en el panel
+  // de portada. Hay que repintar TODAS sus tarjetas, no solo la de la rejilla,
+  // o al agregar desde la portada el botón se queda igual y parece que el clic
+  // no hizo nada (la pieza sí entra al carrito).
   function pintarCantidad(sku) {
-    var el = grid && grid.querySelector('[data-sku="' + sku + '"]');
-    if (!el) return;
+    var tarjetas = document.querySelectorAll('.prod[data-sku="' + sku + '"]');
+    if (!tarjetas.length) return;
     var n = carrito.lineas[sku] || 0;
-    el.querySelector('[data-agregar]').hidden = n > 0;
-    el.querySelector('[data-stepper]').hidden = n === 0;
-    el.querySelector('[data-cantidad]').textContent = n;
     var p = porSku[sku];
-    el.querySelector('[data-mas]').disabled = p && n >= p.stock;
+    for (var i = 0; i < tarjetas.length; i++) {
+      var el = tarjetas[i];
+      el.querySelector('[data-agregar]').hidden = n > 0;
+      el.querySelector('[data-stepper]').hidden = n === 0;
+      el.querySelector('[data-cantidad]').textContent = n;
+      el.querySelector('[data-mas]').disabled = p && n >= p.stock;
+    }
   }
 
   function pintarCarrito() {
