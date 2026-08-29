@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Servicios — Reparación de impresoras Bambu Lab e impresión 3D | Emisha</title>
-<meta name="description" content="Taller independiente en Ciudad de México. Reparamos impresoras Bambu Lab: diagnóstico $300 MXN, reparación $700 MXN (o $400 con diagnóstico previo). Agenda tu cita en línea. Manejamos hotends para A1 en 0.2, 0.4, 0.6 y 0.8 mm a $499 MXN. También imprimimos piezas bajo pedido en PLA y PETG.">
+<meta name="description" content="Taller independiente en Ciudad de México. Reparamos impresoras Bambu Lab: diagnóstico $300 MXN, reparación $700 MXN (o $400 con diagnóstico previo). Agenda tu cita en línea. También imprimimos piezas bajo pedido en PLA y PETG y manejamos hotends y boquillas de repuesto.">
 <link rel="canonical" href="https://www.emisha.com.mx/servicios/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#ffffff">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Emisha">
 <meta property="og:locale" content="es_MX">
 <meta property="og:title" content="Servicios Emisha — Reparación de impresoras Bambu Lab e impresión 3D">
-<meta property="og:description" content="Reparamos impresoras Bambu Lab en CDMX con cita en línea: diagnóstico $300, reparación $700. Manejamos hotends para A1 e imprimimos piezas bajo pedido.">
+<meta property="og:description" content="Reparamos impresoras Bambu Lab en CDMX con cita en línea: diagnóstico $300, reparación $700. Manejamos hotends y boquillas de repuesto e imprimimos piezas bajo pedido.">
 <meta property="og:url" content="https://www.emisha.com.mx/servicios/">
 <meta property="og:image" content="https://www.emisha.com.mx/assets/img/filamentos/cosmic-black.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -106,47 +106,6 @@
       }
     },
     {
-      "@type": "Product",
-      "@id": "https://www.emisha.com.mx/servicios/#hotend-a1",
-      "name": "Hotend premium para Bambu Lab A1",
-      "brand": {
-        "@type": "Brand",
-        "name": "Emisha"
-      },
-      "category": "Refacciones para impresoras 3D",
-      "url": "https://www.emisha.com.mx/servicios/#hotends",
-      "image": "https://www.emisha.com.mx/assets/img/filamentos/cosmic-black.webp",
-      "description": "Hotend premium de repuesto para impresoras Bambu Lab A1, disponible en boquillas de 0.2, 0.4, 0.6 y 0.8 mm. Sirve como refacción y también para cambiar de diámetro de boquilla según el tipo de pieza. Compatible únicamente con el modelo Bambu Lab A1.",
-      "isAccessoryOrSparePartFor": {
-        "@type": "Product",
-        "name": "Bambu Lab A1"
-      },
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Diámetros disponibles",
-          "value": "0.2 mm, 0.4 mm, 0.6 mm, 0.8 mm"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Compatibilidad",
-          "value": "Bambu Lab A1"
-        }
-      ],
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "MXN",
-        "lowPrice": "499",
-        "highPrice": "499",
-        "offerCount": "4",
-        "availability": "https://schema.org/InStock",
-        "areaServed": "MX",
-        "seller": {
-          "@id": "https://www.emisha.com.mx/#organization"
-        }
-      }
-    },
-    {
       "@type": "Service",
       "@id": "https://www.emisha.com.mx/servicios/#impresion",
       "name": "Impresión 3D bajo pedido",
@@ -214,14 +173,6 @@
         },
         {
           "@type": "Question",
-          "name": "¿Los hotends de $499 sirven para cualquier impresora?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Estos hotends son para la Bambu Lab A1 y usan su montaje y su conector. No son universales ni intercambiables con hotends de otras marcas ni de otros modelos de la propia Bambu Lab. Antes de comprar, verifica que tu equipo sea una A1. Si tienes otro modelo y necesitas un hotend o cambiar de boquilla, escríbenos con el modelo exacto y te decimos qué te conviene."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "¿Puedo mandar mi impresora por paquetería si no estoy en CDMX?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -282,8 +233,8 @@
         <p class="lede">
           Además de vender filamento y compuesto térmico, tenemos
           <strong>taller independiente en Ciudad de México</strong>. Ahí reparamos impresoras
-          Bambu Lab. También manejamos hotends de repuesto para la A1 e imprimimos piezas bajo
-          pedido con filamento Emisha. La recepción de equipos se
+          Bambu Lab. También manejamos <a href="../hotends/">hotends y boquillas de repuesto</a> e
+          imprimimos piezas bajo pedido con filamento Emisha. La recepción de equipos se
           <a href="../reparacion/">agenda en línea</a>: lunes a viernes de 12:00 a 18:00.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:22px">
@@ -569,73 +520,24 @@
     </div>
   </section>
 
-  <!-- ============================================================ HOTENDS -->
+  <!-- ============================================================== HOTENDS
+       El catálogo completo (precios, diámetros, fotos y ficha técnica) vive
+       en /hotends/. Aquí queda solo el puente: el mismo producto en dos
+       páginas era el doble de trabajo cada vez que cambia un precio. -->
   <section class="section section--alt" id="hotends">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Refacciones</span>
-        <h2>Hotends para Bambu Lab A1</h2>
-        <p>Manejamos hotends de repuesto para la Bambu Lab A1 en cuatro diámetros de boquilla.
+        <h2>Hotends y boquillas de repuesto</h2>
+        <p>Manejamos hotends para la Bambu Lab <strong>A1</strong> y <strong>A1 mini</strong>, y
+          boquillas para la <strong>serie H2</strong> (H2D, H2S y H2C), en cuatro diámetros.
           Te sirven para tener uno listo en el cajón el día que el de la máquina se tape o se
-          dañe. También para cambiar de diámetro según la pieza que vayas a imprimir.</p>
-        <p>Para la <strong>serie H2</strong> (H2D, H2S y H2C) manejamos su propia boquilla, al
-          mismo precio. Todo el catálogo, con fotos y ficha técnica, está en
-          <a href="../hotends/">hotends y boquillas</a>.</p>
+          dañe, y también para cambiar de diámetro según la pieza que vayas a imprimir.</p>
       </div>
-
-      <!-- FOTO: los cuatro hotends acomodados juntos, etiquetados por diámetro.
-           Es el producto que hoy se vende a $499 sin una sola imagen. -->
-      <figure class="foto foto--producto" data-foto data-esperando>
-        <img src="../assets/img/servicios/hotends-a1.webp" loading="lazy" decoding="async"
-             width="1400" height="1400"
-             alt="Los cuatro hotends de repuesto para Bambu Lab A1, en 0.2, 0.4, 0.6 y 0.8 mm">
-        <figcaption>Los cuatro diámetros: 0.2, 0.4, 0.6 y 0.8&nbsp;mm.</figcaption>
-      </figure>
-
-      <div class="variants">
-        <div class="variant">
-          <span class="variant__size">0.2 mm</span>
-          <span class="variant__price">$499 MXN</span>
-          <span class="variant__note">Detalle fino. Miniaturas, figuras y piezas chicas con textura.</span>
-          <a class="btn btn--ghost btn--sm btn--block" href="https://wa.me/525575639255?text=Hola%2C%20quiero%20pedir%20un%20hotend%20para%20Bambu%20Lab%20A1%20de%200.2%20mm." target="_blank" rel="noopener">Pedir 0.2 mm</a>
-        </div>
-        <div class="variant variant--feature">
-          <span class="variant__size">0.4 mm</span>
-          <span class="variant__price">$499 MXN</span>
-          <span class="variant__note">El de uso general. Es el que trae la máquina de fábrica.</span>
-          <a class="btn btn--accent btn--sm btn--block" href="https://wa.me/525575639255?text=Hola%2C%20quiero%20pedir%20un%20hotend%20para%20Bambu%20Lab%20A1%20de%200.4%20mm." target="_blank" rel="noopener">Pedir 0.4 mm</a>
-        </div>
-        <div class="variant">
-          <span class="variant__size">0.6 mm</span>
-          <span class="variant__price">$499 MXN</span>
-          <span class="variant__note">Más rápido para piezas funcionales, con paredes más sólidas.</span>
-          <a class="btn btn--ghost btn--sm btn--block" href="https://wa.me/525575639255?text=Hola%2C%20quiero%20pedir%20un%20hotend%20para%20Bambu%20Lab%20A1%20de%200.6%20mm." target="_blank" rel="noopener">Pedir 0.6 mm</a>
-        </div>
-        <div class="variant">
-          <span class="variant__size">0.8 mm</span>
-          <span class="variant__price">$499 MXN</span>
-          <span class="variant__note">Para piezas grandes y rápidas, cuando el detalle no importa.</span>
-          <a class="btn btn--ghost btn--sm btn--block" href="https://wa.me/525575639255?text=Hola%2C%20quiero%20pedir%20un%20hotend%20para%20Bambu%20Lab%20A1%20de%200.8%20mm." target="_blank" rel="noopener">Pedir 0.8 mm</a>
-        </div>
+      <div class="hero__cta">
+        <a class="btn btn--accent btn--lg" href="../hotends/">Ver hotends y boquillas</a>
+        <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20quiero%20preguntar%20por%20un%20hotend%20de%20repuesto." target="_blank" rel="noopener">Preguntar por WhatsApp</a>
       </div>
-
-      <div class="note note--warn" style="margin-top:26px;max-width:760px">
-        <svg class="note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/>
-        </svg>
-        <div>
-          <strong>Solo para Bambu Lab A1 y A1 mini.</strong>
-          Estos hotends usan el montaje y el conector de la A1; las dos máquinas llevan la misma
-          pieza. No son compatibles con la P1 ni con la X1, ni con impresoras de otras marcas.
-          La serie H2 lleva <a href="../hotends/#h2">su propia boquilla</a>. Verifica tu modelo
-          antes de hacer el pedido.
-        </div>
-      </div>
-
-      <p class="muted" style="font-size:.86rem;margin-top:18px">
-        Precios de referencia en pesos mexicanos. Confirma disponibilidad y el precio vigente
-        por WhatsApp antes de hacer tu pedido.
-      </p>
     </div>
   </section>
 
@@ -758,17 +660,6 @@
           </div>
         </details>
 
-        <details>
-          <summary>¿Los hotends de $499 sirven para cualquier impresora?</summary>
-          <div class="faq__body">
-            <p><strong>No.</strong> Estos hotends son para la Bambu Lab A1 y usan su montaje y su
-              conector. No son universales ni intercambiables con hotends de otras marcas ni de
-              otros modelos de la propia Bambu Lab.</p>
-            <p>Antes de comprar, verifica que tu equipo sea una A1. Si tienes otro modelo y
-              necesitas un hotend o cambiar de boquilla, escríbenos con el modelo exacto y te
-              decimos qué te conviene.</p>
-          </div>
-        </details>
 
         <details>
           <summary>¿Puedo mandar mi impresora por paquetería si no estoy en CDMX?</summary>

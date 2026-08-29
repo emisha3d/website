@@ -1,0 +1,26 @@
+{
+  "actualizado": "2026-08-29T08:49:47+00:00",
+  "titulo": "Selección Emisha",
+  "subtitulo": "Piezas que nos gusta imprimir, escogidas a mano.",
+  "nota": "Lista curada a mano. El inventario (CanalPulse) no manda fecha de alta ni precio anterior, así que NO se puede calcular 'novedad' ni 'oferta' sin inventarlas. Para cambiar el panel, edita el arreglo 'skus': el orden de aquí es el orden en que se muestran. Precio, stock e imagen se leen siempre del catálogo en vivo, no de este archivo.",
+  "skus": [
+    "EMISHA-BU100479",
+    "EMISHA-BU1026995",
+    "EMISHA-BU1014357",
+    "EMISHA-BU1047341",
+    "EMISHA-BU1021562",
+    "EMISHA-BU1003222",
+    "EMISHA-BU1016252",
+    "EMISHA-BU1029917"
+  ],
+  "referencia": {
+    "EMISHA-BU100479": "Emisha Soporte para Laptop Escritorio Portátil Impresión 3D",
+    "EMISHA-BU1026995": "Emisha Estante Hexagonal Modular Pared Mural Decoración",
+    "EMISHA-BU1014357": "Emisha Soporte compatible con Control Ps5 Juego Calavera",
+    "EMISHA-BU1047341": "Emisha Cajón Hexagonal Organizador Almacenaje Modular",
+    "EMISHA-BU1021562": "Emisha Dosificador de Huevos Refrigerador Almacenaje",
+    "EMISHA-BU1003222": "Emisha Calibrador de Rosca Tornillos Tuercas Medición",
+    "EMISHA-BU1016252": "Emisha Estante para Hilos Filamento Organizador Modular",
+    "EMISHA-BU1029917": "Emisha Estante para Zapatos Modular"
+  }
+}

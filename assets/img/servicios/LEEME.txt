@@ -1,9 +1,15 @@
 Fotos del taller — deja los archivos aquí con estos nombres exactos y
 aparecen solas en /servicios/. No hay que tocar el HTML.
 
-  hotends-a1.webp        Los cuatro hotends juntos (0.2, 0.4, 0.6, 0.8 mm)
   banco-reparacion.webp  Una impresora abierta en el banco, a media reparación
   piezas-impresas.webp   Piezas recién salidas de la cama, con soportes puestos
 
 Formato: 1600 x 900 px, WebP, horizontal.
 Si las mandas en JPG o PNG a resolución completa, yo las convierto.
+
+---
+hotends-a1.webp se borró el 2026-08-29. Mostraba un hotend grabado "Bambu Lab",
+pieza original, cuando lo que vendemos es la refacción compatible de marca
+EMISHA: la foto no correspondía al producto. Las fotos buenas viven ahora en
+/assets/img/hotends/ y las pinta la página /hotends/. Si hiciera falta, el
+archivo sigue en el historial de git.

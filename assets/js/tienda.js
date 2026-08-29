@@ -44,7 +44,7 @@
     carrito.carrito_id = nuevoId();
     guardar();
     pintarCantidad(sku);
-    pintarBarra();
+    pintarCarrito();
   }
 
   /* --- Utilidades ------------------------------------------------------- */
@@ -73,8 +73,14 @@
   /* --- Pintado ---------------------------------------------------------- */
 
   var grid = document.querySelector('[data-tienda-grid]');
-  var barra = document.querySelector('[data-cart-bar]');
   var aviso = document.querySelector('[data-tienda-aviso]');
+  var cartBtn = document.querySelector('[data-cart-abrir]');
+  var cartN = document.querySelector('[data-cart-n]');
+  var cartTotal = document.querySelector('[data-cart-total]');
+  var drawer = document.querySelector('[data-cart-drawer]');
+  var fondo = document.querySelector('[data-cart-fondo]');
+  var lineasEl = document.querySelector('[data-cart-lineas]');
+  var cuentaEl = document.querySelector('[data-cart-cuenta]');
 
   function avisar(texto, esError) {
     if (!aviso) return;
@@ -144,22 +150,104 @@
     el.querySelector('[data-mas]').disabled = p && n >= p.stock;
   }
 
-  function pintarBarra() {
-    if (!barra) return;
+  function pintarCarrito() {
     var t = totalCarrito();
-    barra.hidden = t.piezas === 0;
-    barra.querySelector('[data-cart-resumen]').textContent =
-      t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + ' · ' + precio(t.centavos);
-    var envioEl = barra.querySelector('[data-cart-envio]');
-    if (!envioEl) return;
-    if (!envioCfg || !envioCfg.centavos) { envioEl.hidden = true; return; }
-    var e = costoEnvio(t.centavos);
-    envioEl.textContent = e === 0
-      ? 'Envío gratis · total ' + precio(t.centavos)
-      : '+ envío ' + precio(e) + (envioCfg.gratis_desde_centavos
-          ? ' · gratis desde ' + precio(envioCfg.gratis_desde_centavos) : '');
-    envioEl.hidden = false;
+    if (cartN) { cartN.hidden = t.piezas === 0; cartN.textContent = t.piezas; }
+    if (cartTotal) cartTotal.textContent = t.piezas ? precio(t.centavos) : 'Carrito';
+    pintarCajon(t);
   }
+
+  // El cajón se repinta siempre, esté abierto o no: así abrirlo es instantáneo.
+  function pintarCajon(t) {
+    if (!lineasEl || !cuentaEl) return;
+    lineasEl.textContent = '';
+
+    if (!t.piezas) {
+      var vacio = document.createElement('p');
+      vacio.className = 'drawer__vacio';
+      vacio.textContent = 'Todavía no agregas nada.';
+      lineasEl.appendChild(vacio);
+      cuentaEl.textContent = '';
+      var pagar = drawer && drawer.querySelector('[data-pagar]');
+      if (pagar) pagar.disabled = true;
+      return;
+    }
+
+    Object.keys(carrito.lineas).forEach(function (sku) {
+      var p = porSku[sku];
+      if (p) lineasEl.appendChild(lineaCarrito(p, carrito.lineas[sku]));
+    });
+
+    var envio = costoEnvio(t.centavos);
+    var falta = envioCfg && envioCfg.gratis_desde_centavos - t.centavos;
+    cuentaEl.innerHTML =
+      '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
+      '<div><span>Envío</span><span>' + (envio === 0 ? 'Gratis' : precio(envio)) + '</span></div>' +
+      (envio > 0 && falta > 0
+        ? '<div class="drawer__falta"><span>Te faltan ' + precio(falta) + ' para el envío gratis</span></div>' : '') +
+      '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio) + '</span></div>';
+
+    var boton = drawer && drawer.querySelector('[data-pagar]');
+    if (boton) boton.disabled = false;
+  }
+
+  function lineaCarrito(p, n) {
+    var el = document.createElement('div');
+    el.className = 'linea';
+    el.innerHTML =
+      (p.imagen ? '<img class="linea__img" alt="" loading="lazy">' : '<div class="linea__img"></div>') +
+      '<div class="linea__txt">' +
+        '<div class="linea__nombre"></div>' +
+        '<div class="linea__fila">' +
+          '<div class="prod__stepper">' +
+            '<button type="button" aria-label="Quitar una pieza" data-menos>−</button>' +
+            '<span data-cantidad>' + n + '</span>' +
+            '<button type="button" aria-label="Agregar una pieza" data-mas>+</button>' +
+          '</div>' +
+          '<span class="linea__precio">' + precio(p.precio_centavos * n) + '</span>' +
+        '</div>' +
+      '</div>';
+    el.querySelector('.linea__nombre').textContent = p.nombre;
+    if (p.imagen) el.querySelector('.linea__img').src = p.imagen;
+    el.querySelector('[data-menos]').addEventListener('click', function () {
+      fijarCantidad(p.sku, (carrito.lineas[p.sku] || 0) - 1);
+    });
+    var mas = el.querySelector('[data-mas]');
+    mas.disabled = n >= p.stock;
+    mas.addEventListener('click', function () {
+      fijarCantidad(p.sku, (carrito.lineas[p.sku] || 0) + 1);
+    });
+    return el;
+  }
+
+  /* --- Abrir y cerrar el cajón ------------------------------------------ */
+
+  function abrirCajon() {
+    if (!drawer) return;
+    drawer.hidden = false;
+    if (fondo) fondo.hidden = false;
+    if (cartBtn) cartBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    var cerrar = drawer.querySelector('[data-cart-cerrar]');
+    if (cerrar) cerrar.focus();
+  }
+
+  function cerrarCajon() {
+    if (!drawer) return;
+    drawer.hidden = true;
+    if (fondo) fondo.hidden = true;
+    if (cartBtn) { cartBtn.setAttribute('aria-expanded', 'false'); cartBtn.focus(); }
+    document.body.style.overflow = '';
+  }
+
+  if (cartBtn) cartBtn.addEventListener('click', abrirCajon);
+  if (fondo) fondo.addEventListener('click', cerrarCajon);
+  if (drawer) {
+    drawer.querySelector('[data-cart-cerrar]').addEventListener('click', cerrarCajon);
+  }
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && drawer && !drawer.hidden) cerrarCajon();
+  });
 
   /* --- Catálogo --------------------------------------------------------- */
 
@@ -180,23 +268,369 @@
         });
         if (huboCambio) { carrito.carrito_id = nuevoId(); guardar(); }
 
-        grid.textContent = '';
         if (!catalogo.length) {
           grid.innerHTML = '<p class="muted">Por ahora no hay piezas disponibles en línea. ' +
             'Encuéntranos en la <a href="https://www.mercadolibre.com.mx/tienda/emisha" ' +
             'target="_blank" rel="noopener">tienda oficial de MercadoLibre</a>.</p>';
           return;
         }
-        catalogo.forEach(function (p) {
-          grid.appendChild(tarjeta(p));
-          pintarCantidad(p.sku);
-        });
-        pintarBarra();
+        // El nombre normalizado se calcula UNA vez: el buscador corre en cada
+        // tecla sobre 1500 productos y no puede estar quitando acentos ahí.
+        catalogo.forEach(function (p) { p._busca = normaliza(p.nombre); });
+        pintarGrid();
+        pintarCarrito();
+        // Ambas necesitan porSku ya armado para contar solo lo que hay.
+        cargarCategorias();
+        cargarDestacados();
       })
       .catch(function () {
         grid.innerHTML = '<p class="muted">No pudimos cargar el catálogo. Recarga la página ' +
           'o inténtalo más tarde.</p>';
       });
+  }
+
+  /* --- Categorías -------------------------------------------------------- */
+  /* El inventario no manda categorías, así que el árbol se deriva de los
+     nombres (herramientas/categorizar.py) y se publica como JSON estático.
+     Si el archivo no carga, la tienda sigue funcionando sin barra lateral. */
+
+  var catsLista = document.querySelector('[data-cats-lista]');
+  var catsToggle = document.querySelector('[data-cats-toggle]');
+  var cuentaEl2 = document.querySelector('[data-cuenta]');
+  var arbol = [];
+  var catActiva = null;    // {nombre, skus:{sku:true}}
+
+  if (catsToggle && catsLista) {
+    // En móvil la lista arranca cerrada; en escritorio siempre se ve.
+    if (window.matchMedia('(max-width: 900px)').matches) catsLista.hidden = true;
+    catsToggle.addEventListener('click', function () {
+      catsLista.hidden = !catsLista.hidden;
+      catsToggle.setAttribute('aria-expanded', String(!catsLista.hidden));
+    });
+  }
+
+  function cargarCategorias() {
+    if (!catsLista) return Promise.resolve();
+    return fetch('/assets/data/categorias.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) { arbol = d.categorias || []; pintarCategorias(); })
+      .catch(function () { /* sin categorías: la tienda sigue siendo usable */ });
+  }
+
+  function conjunto(skus) {
+    var m = {};
+    for (var i = 0; i < skus.length; i++) m[skus[i]] = true;
+    return m;
+  }
+
+  // Solo se cuentan las piezas con stock: una categoría que dice 70 y enseña 3
+  // se siente rota.
+  function cuantasHay(skus) {
+    var n = 0;
+    for (var i = 0; i < skus.length; i++) if (porSku[skus[i]]) n++;
+    return n;
+  }
+
+  function pintarCategorias() {
+    catsLista.textContent = '';
+
+    var todo = document.createElement('button');
+    todo.type = 'button';
+    todo.className = 'cats__btn cats__todo';
+    todo.innerHTML = 'Todo el catálogo <b>' + catalogo.length + '</b>';
+    todo.addEventListener('click', function () { elegirCategoria(null); });
+    catsLista.appendChild(todo);
+
+    // El JSON viene en el orden en que las reglas las fueron creando: para
+    // buscar con la vista, alfabético es lo predecible.
+    var ordenadas = arbol.slice().sort(function (a, b) {
+      return a.nombre.localeCompare(b.nombre, 'es');
+    });
+    ordenadas.forEach(function (cat) {
+      var skusCat = [];
+      cat.subcategorias.forEach(function (s) { skusCat = skusCat.concat(s.skus); });
+      var nCat = cuantasHay(skusCat);
+      if (!nCat) return;                       // categoría sin stock: no se pinta
+
+      var grupo = document.createElement('div');
+      grupo.className = 'cats__grupo';
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cats__btn';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>' +
+        '<span></span><b>' + nCat + '</b>';
+      btn.querySelector('span').textContent = cat.nombre;
+
+      var sub = document.createElement('ul');
+      sub.className = 'cats__sub';
+      sub.hidden = true;
+
+      cat.subcategorias.slice().sort(function (a, b) {
+        return a.nombre.localeCompare(b.nombre, 'es');
+      }).forEach(function (s) {
+        var n = cuantasHay(s.skus);
+        if (!n) return;
+        var li = document.createElement('li');
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.innerHTML = '<span></span><b>' + n + '</b>';
+        b.querySelector('span').textContent = s.nombre;
+        b.addEventListener('click', function () {
+          elegirCategoria({ nombre: cat.nombre + ' · ' + s.nombre, skus: conjunto(s.skus), boton: b });
+        });
+        li.appendChild(b);
+        sub.appendChild(li);
+      });
+
+      btn.addEventListener('click', function () {
+        var abierto = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!abierto));
+        sub.hidden = abierto;
+        elegirCategoria({ nombre: cat.nombre, skus: conjunto(skusCat), boton: btn });
+      });
+
+      grupo.appendChild(btn);
+      grupo.appendChild(sub);
+      catsLista.appendChild(grupo);
+    });
+  }
+
+  function elegirCategoria(cat) {
+    catActiva = cat;
+    catsLista.querySelectorAll('.es-activa').forEach(function (e) { e.classList.remove('es-activa'); });
+    if (cat && cat.boton) cat.boton.classList.add('es-activa');
+    // Elegir categoría con una búsqueda puesta confunde: se limpia.
+    if (buscarEl && buscarEl.value) { buscarEl.value = ''; filtro = ''; if (limpiarEl) limpiarEl.hidden = true; }
+    pintarGrid();
+    if (catsLista && window.matchMedia('(max-width: 900px)').matches) {
+      catsLista.hidden = true;
+      if (catsToggle) catsToggle.setAttribute('aria-expanded', 'false');
+      var main = document.querySelector('[data-tienda-grid]');
+      if (main && main.scrollIntoView) main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  var limpiarCuenta = document.querySelector('[data-cuenta-limpiar]');
+  if (limpiarCuenta) {
+    limpiarCuenta.addEventListener('click', function () {
+      if (buscarEl) { buscarEl.value = ''; filtro = ''; }
+      if (limpiarEl) limpiarEl.hidden = true;
+      elegirCategoria(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* --- Selección de portada ---------------------------------------------- */
+
+  function cargarDestacados() {
+    var panel = document.querySelector('[data-destacados]');
+    if (!panel) return Promise.resolve();
+    return fetch('/assets/data/destacados.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        // Precio, stock e imagen SIEMPRE del catálogo vivo: el archivo solo
+        // dice qué SKUs enseñar, nunca cuánto cuestan.
+        var piezas = (d.skus || []).map(function (s) { return porSku[s]; })
+          .filter(function (p) { return p && p.stock > 0; });
+        if (!piezas.length) return;
+        panel.querySelector('[data-destacados-titulo]').textContent = d.titulo || 'Selección Emisha';
+        panel.querySelector('[data-destacados-sub]').textContent = d.subtitulo || '';
+        var fila = panel.querySelector('[data-destacados-fila]');
+        fila.textContent = '';
+        piezas.forEach(function (p) { fila.appendChild(tarjeta(p)); });
+        piezas.forEach(function (p) { pintarCantidad(p.sku); });
+        panel.dataset.listo = '1';
+        actualizarPortada();
+      })
+      .catch(function () { /* sin destacados: no se pinta el panel */ });
+  }
+
+  // La portada solo tiene sentido sin filtro: si el cliente ya buscó o eligió
+  // categoría, estorba.
+  function actualizarPortada() {
+    var panel = document.querySelector('[data-destacados]');
+    if (!panel || !panel.dataset.listo) return;
+    panel.hidden = !!(catActiva || filtro);
+  }
+
+  /* --- Buscador y pintado del catálogo ---------------------------------- */
+  /* Son 1500+ piezas: pintarlas todas de golpe cuesta segundos en un celular.
+     Se pintan por tandas y el buscador filtra sobre el arreglo, no sobre el DOM. */
+
+  var TANDA = 48;
+  var buscarEl = document.querySelector('[data-buscar]');
+  var sugEl = document.querySelector('[data-sugerencias]');
+  var limpiarEl = document.querySelector('[data-buscar-limpiar]');
+  var filtro = '';
+  var mostrados = 0;
+  var resultado = [];
+  var marcada = -1;
+
+  function normaliza(s) {
+    return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  // Todas las palabras tienen que aparecer: "caja tornillo" no es lo mismo
+  // que "caja" ni que "tornillo".
+  function coincide(p, palabras) {
+    for (var i = 0; i < palabras.length; i++) {
+      if (p._busca.indexOf(palabras[i]) === -1) return false;
+    }
+    return true;
+  }
+
+  function filtrar() {
+    var base = catActiva
+      ? catalogo.filter(function (p) { return catActiva.skus[p.sku]; })
+      : catalogo;
+    if (!filtro) return base;
+    var palabras = filtro.split(/\s+/).filter(Boolean);
+    return base.filter(function (p) { return coincide(p, palabras); });
+  }
+
+  function pintarGrid() {
+    if (!grid) return;
+    resultado = filtrar();
+    mostrados = 0;
+    actualizarPortada();
+    actualizarCuenta();
+    grid.textContent = '';
+    if (!resultado.length) {
+      grid.innerHTML = '<p class="muted">Ninguna pieza coincide con esa búsqueda. ' +
+        'Prueba con menos palabras.</p>';
+      return;
+    }
+    pintarTanda();
+  }
+
+  function actualizarCuenta() {
+    if (!cuentaEl2) return;
+    var hay = !!(catActiva || filtro);
+    cuentaEl2.hidden = !hay;
+    if (!hay) return;
+    cuentaEl2.querySelector('[data-cuenta-titulo]').textContent =
+      catActiva ? catActiva.nombre : 'Resultados';
+    cuentaEl2.querySelector('[data-cuenta-n]').textContent =
+      resultado.length + (resultado.length === 1 ? ' pieza' : ' piezas');
+    cuentaEl2.querySelector('[data-cuenta-limpiar]').hidden = false;
+  }
+
+  function pintarTanda() {
+    var hasta = Math.min(mostrados + TANDA, resultado.length);
+    var trozo = document.createDocumentFragment();
+    for (var i = mostrados; i < hasta; i++) trozo.appendChild(tarjeta(resultado[i]));
+    var boton = grid.querySelector('[data-ver-mas]');
+    if (boton) boton.remove();
+    grid.appendChild(trozo);
+    for (var j = mostrados; j < hasta; j++) pintarCantidad(resultado[j].sku);
+    mostrados = hasta;
+    if (mostrados < resultado.length) grid.appendChild(botonVerMas());
+  }
+
+  function botonVerMas() {
+    var envoltura = document.createElement('div');
+    envoltura.dataset.verMas = '';
+    envoltura.style.gridColumn = '1/-1';
+    envoltura.style.textAlign = 'center';
+    envoltura.style.padding = '10px 0 4px';
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'btn btn--ghost';
+    b.textContent = 'Ver más (' + (resultado.length - mostrados) + ' piezas)';
+    b.addEventListener('click', pintarTanda);
+    envoltura.appendChild(b);
+    return envoltura;
+  }
+
+  /* --- Autocompletado ---------------------------------------------------- */
+
+  function sugerir() {
+    if (!sugEl) return;
+    var q = normaliza(buscarEl.value.trim());
+    if (q.length < 2) return ocultarSugerencias();
+    var palabras = q.split(/\s+/).filter(Boolean);
+    var top = [];
+    for (var i = 0; i < catalogo.length && top.length < 8; i++) {
+      if (coincide(catalogo[i], palabras)) top.push(catalogo[i]);
+    }
+    sugEl.textContent = '';
+    marcada = -1;
+    if (!top.length) {
+      sugEl.innerHTML = '<li class="buscador__vacio">Sin coincidencias</li>';
+    } else {
+      top.forEach(function (p) {
+        var li = document.createElement('li');
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'buscador__op';
+        b.setAttribute('role', 'option');
+        b.innerHTML = (p.imagen ? '<img alt="" loading="lazy">' : '') +
+          '<span></span><b>' + precio(p.precio_centavos) + '</b>';
+        b.querySelector('span').textContent = p.nombre;
+        if (p.imagen) b.querySelector('img').src = p.imagen;
+        b.addEventListener('click', function () {
+          buscarEl.value = p.nombre;
+          aplicarFiltro(p.nombre);
+          ocultarSugerencias();
+        });
+        li.appendChild(b);
+        sugEl.appendChild(li);
+      });
+    }
+    sugEl.hidden = false;
+    buscarEl.setAttribute('aria-expanded', 'true');
+  }
+
+  function ocultarSugerencias() {
+    if (!sugEl) return;
+    sugEl.hidden = true;
+    marcada = -1;
+    if (buscarEl) buscarEl.setAttribute('aria-expanded', 'false');
+  }
+
+  function mover(paso) {
+    var ops = sugEl.querySelectorAll('.buscador__op');
+    if (!ops.length) return;
+    if (marcada >= 0) ops[marcada].removeAttribute('aria-selected');
+    marcada = (marcada + paso + ops.length) % ops.length;
+    ops[marcada].setAttribute('aria-selected', 'true');
+    ops[marcada].scrollIntoView({ block: 'nearest' });
+  }
+
+  function aplicarFiltro(texto) {
+    filtro = normaliza(texto.trim());
+    if (limpiarEl) limpiarEl.hidden = !texto;
+    pintarGrid();
+  }
+
+  if (buscarEl) {
+    var espera;
+    buscarEl.addEventListener('input', function () {
+      clearTimeout(espera);
+      var v = buscarEl.value;
+      espera = setTimeout(function () { aplicarFiltro(v); sugerir(); }, 140);
+    });
+    buscarEl.addEventListener('keydown', function (ev) {
+      if (sugEl.hidden) return;
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); mover(1); }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); mover(-1); }
+      else if (ev.key === 'Enter' && marcada >= 0) {
+        ev.preventDefault();
+        sugEl.querySelectorAll('.buscador__op')[marcada].click();
+      } else if (ev.key === 'Escape') { ocultarSugerencias(); }
+    });
+    buscarEl.addEventListener('blur', function () { setTimeout(ocultarSugerencias, 140); });
+  }
+  if (limpiarEl) {
+    limpiarEl.addEventListener('click', function () {
+      buscarEl.value = '';
+      aplicarFiltro('');
+      ocultarSugerencias();
+      buscarEl.focus();
+    });
   }
 
   /* --- Checkout --------------------------------------------------------- */
@@ -223,8 +657,11 @@
   function abrirCheckout() {
     var t = totalCarrito();
     if (!t.piezas) return;
+    cerrarCajon();          // el cajón estorba detrás del diálogo
     avisar('');
     prellenar();
+    cpUltimo = '';
+    buscarCp();             // datos recordados: resolver el CP sin que teclee
     var e = costoEnvio(t.centavos);
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
@@ -318,6 +755,130 @@
         cerrarCheckout();
         avisar('No se pudo iniciar el pago. Revisa tu conexión e inténtalo de nuevo.', true);
       });
+  }
+
+  /* --- Autocompletado por código postal ---------------------------------- */
+  /* SEPOMEX: un CP cae en UN municipio y UN estado, pero en varias colonias
+     (una sola en un tercio de los casos, seis o más en la cuarta parte). Por
+     eso la colonia es un input cuando hay una y un select cuando hay varias,
+     siempre con salida a "Otra" por si la colonia no está en el catálogo. */
+
+  var cpEl = formulario && formulario.elements.cp;
+  var coloniaEl = formulario && formulario.elements.colonia;
+  var coloniaSel = dialogo && dialogo.querySelector('[data-colonia-sel]');
+  var cpAviso = dialogo && dialogo.querySelector('[data-cp-aviso]');
+  var cpUltimo = '';
+  var autollenado = false;   // ¿ciudad/estado los pusimos nosotros?
+
+  function decirCp(texto) {
+    if (!cpAviso) return;
+    cpAviso.textContent = texto || '';
+    cpAviso.hidden = !texto;
+  }
+
+  // El "required" viaja con el control visible: un campo obligatorio oculto
+  // no se puede enfocar y Chrome se niega a enviar el formulario sin decir nada.
+  function mostrarInputColonia(valor) {
+    if (coloniaSel) { coloniaSel.hidden = true; coloniaSel.required = false; }
+    coloniaEl.hidden = false;
+    coloniaEl.required = true;
+    if (valor !== undefined) coloniaEl.value = valor;
+  }
+
+  function mostrarSelectColonia(colonias) {
+    if (!coloniaSel) return mostrarInputColonia();
+    coloniaSel.textContent = '';
+    var vacia = document.createElement('option');
+    vacia.value = '';
+    vacia.textContent = 'Elige tu colonia…';
+    coloniaSel.appendChild(vacia);
+    colonias.forEach(function (c) {
+      var o = document.createElement('option');
+      o.value = c;
+      o.textContent = c;
+      coloniaSel.appendChild(o);
+    });
+    var otra = document.createElement('option');
+    otra.value = '__otra__';
+    otra.textContent = 'Otra (escribirla)';
+    coloniaSel.appendChild(otra);
+
+    // Si ya traía una colonia (datos guardados) y está en la lista, se respeta.
+    if (coloniaEl.value && colonias.indexOf(coloniaEl.value) !== -1) {
+      coloniaSel.value = coloniaEl.value;
+    } else {
+      coloniaSel.value = '';
+      coloniaEl.value = '';
+    }
+    coloniaSel.hidden = false;
+    coloniaSel.required = true;
+    coloniaEl.hidden = true;
+    coloniaEl.required = false;
+  }
+
+  if (coloniaSel) {
+    coloniaSel.addEventListener('change', function () {
+      if (coloniaSel.value === '__otra__') {
+        mostrarInputColonia('');
+        coloniaEl.focus();
+        return;
+      }
+      coloniaEl.value = coloniaSel.value;   // el input sigue siendo el que se envía
+    });
+  }
+
+  function buscarCp() {
+    if (!cpEl) return;
+    var codigo = (cpEl.value || '').trim();
+    if (!/^[0-9]{5}$/.test(codigo)) { decirCp(''); return; }
+    if (codigo === cpUltimo) return;        // no repetir la consulta al salir del campo
+    cpUltimo = codigo;
+    decirCp('Buscando…');
+
+    fetch(API + '/cp?codigo=' + codigo)
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, datos: d }; }); })
+      .then(function (r) {
+        if (!r.ok) {
+          // 404: el CP no está en el catálogo. Se borra lo que habíamos puesto
+          // nosotros — si no, queda la ciudad del CP anterior y el paquete se
+          // va a otro lado sin que nadie lo note. Lo que escribió el cliente
+          // a mano no se toca.
+          if (autollenado) {
+            formulario.elements.ciudad.value = '';
+            formulario.elements.estado.value = '';
+            autollenado = false;
+          }
+          mostrarInputColonia();
+          decirCp('No encontramos ese código postal. Escribe los datos a mano.');
+          return;
+        }
+        formulario.elements.ciudad.value = r.datos.municipio;
+        formulario.elements.estado.value = r.datos.estado;
+        autollenado = true;
+        var colonias = r.datos.colonias || [];
+        if (colonias.length === 1) {
+          mostrarInputColonia(colonias[0]);
+          decirCp(r.datos.municipio + ', ' + r.datos.estado);
+        } else if (colonias.length > 1) {
+          mostrarSelectColonia(colonias);
+          decirCp(r.datos.municipio + ', ' + r.datos.estado + ' · elige tu colonia');
+        } else {
+          mostrarInputColonia();
+          decirCp(r.datos.municipio + ', ' + r.datos.estado);
+        }
+      })
+      .catch(function () {
+        cpUltimo = '';                      // que se pueda reintentar
+        mostrarInputColonia();
+        decirCp('No pudimos consultar el código postal. Escribe los datos a mano.');
+      });
+  }
+
+  if (cpEl) {
+    cpEl.addEventListener('input', function () {
+      if (/^[0-9]{5}$/.test(cpEl.value.trim())) buscarCp();
+    });
+    cpEl.addEventListener('blur', buscarCp);
   }
 
   function restaurarBoton() {
