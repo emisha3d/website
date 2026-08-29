@@ -213,17 +213,14 @@
 .confirmacion__datos dt{color:var(--muted);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
 .confirmacion__datos dd{margin:0}
 @media (max-width:520px){.confirmacion__datos div{grid-template-columns:1fr;gap:2px}}
-/* Sin portada: quien entra a esta página viene a agendar, no a leer. Una tira
-   de encabezado y enseguida el paso 1. */
-.cita-encabezado{padding:28px 0 20px;background:var(--bg)}
-.cita-encabezado h1{font-size:clamp(1.55rem,3.1vw,2.05rem);margin:8px 0 10px;max-width:22ch}
-.cita-encabezado__linea{margin:0;max-width:62ch;color:var(--text-2);font-size:.97rem}
-.cita-encabezado__linea a{white-space:nowrap;font-weight:560}
-.cita-encabezado__pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-@media (max-width:600px){
-  .cita-encabezado{padding:20px 0 16px}
-  .cita-encabezado h1{max-width:none}
-}
+/* Sin portada: quien entra aquí viene a agendar, no a leer. Título, un renglón
+   de datos y enseguida el paso 1. El horario y los precios ya vienen otra vez
+   en las tarjetas de la derecha y en el paso 3, así que aquí van una sola vez
+   y en chico. */
+.cita-encabezado{padding:20px 0 14px;background:var(--bg)}
+.cita-encabezado h1{font-size:clamp(1.35rem,2.6vw,1.6rem);margin:0 0 6px}
+.cita-encabezado__linea{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+@media (max-width:600px){.cita-encabezado{padding:16px 0 12px}}
 </style>
 </head>
 <body>
@@ -269,22 +266,16 @@
   <!-- ========================================================= ENCABEZADO -->
   <section class="cita-encabezado">
     <div class="wrap">
-      <span class="eyebrow eyebrow--accent">Reparación · Taller en CDMX</span>
       <h1>Agenda la recepción de tu impresora</h1>
       <p class="cita-encabezado__linea">
-        Recibimos tu <strong>Bambu Lab</strong> de <strong>lunes a viernes, 12:00 a 18:00</strong>, en Benito
-        Juárez, CDMX. Cualquier modelo, cualquier falla. <a href="../servicios/#reparacion">Cómo reparamos&nbsp;→</a>
+        Lun–vie 12:00 a 18:00 · Benito Juárez, CDMX · Diagnóstico $300 · Reparación $700
+        · <a href="../servicios/#reparacion">cómo reparamos</a>
       </p>
-      <div class="cita-encabezado__pills">
-        <span class="pill pill--brand">Diagnóstico $300</span>
-        <span class="pill pill--brand">Reparación $700</span>
-        <span class="pill pill--brand">Valet parking</span>
-      </div>
     </div>
   </section>
 
   <!-- ============================================================ AGENDAR -->
-  <section class="section" id="agendar" style="padding-top:20px">
+  <section class="section" id="agendar" style="padding-top:14px">
     <div class="wrap">
       <div class="cita-grid">
 
