@@ -20,7 +20,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css?v=8ab44756">
+<link rel="stylesheet" href="../assets/css/styles.css?v=ac35db75">
 
 <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
       "serviceType": "Impresión 3D FDM por encargo",
       "provider": { "@id": "https://www.emisha.com.mx/#organization" },
       "areaServed": { "@type": "Country", "name": "México" },
-      "description": "Impresión 3D FDM de piezas bajo pedido en Ciudad de México, en filamento Emisha PLA y PETG de 1.75 mm. La cotización se calcula a partir del volumen real del modelo y se confirma por WhatsApp."
+      "description": "Impresión 3D FDM de piezas bajo pedido en Ciudad de México, en filamento Emisha PLA y PETG de 1.75 mm. La cotización se calcula a partir del volumen real del modelo; se paga en línea con Mercado Pago o se confirma por WhatsApp."
     },
     {
       "@type": "BreadcrumbList",
@@ -63,7 +63,7 @@
           "name": "¿Mis archivos se suben a algún servidor?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria, se mide el volumen de la malla y se descarta al cerrar la pestaña. No hay ninguna transferencia a internet. Si después decides pedir la cotización formal, tú eliges qué archivos mandar por WhatsApp."
+            "text": "Para cotizar, no. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria, se mide el volumen de la malla y se descarta al cerrar la pestaña. Solo si decides pagar la impresión desde la misma página, los archivos se suben junto con tu pedido para poder imprimirlos. Si prefieres, pide la cotización por WhatsApp y tú eliges qué mandar."
           }
         },
         {
@@ -150,8 +150,8 @@
       <h1 style="font-size:clamp(2rem,4.6vw,3rem);margin:16px 0 18px">Cotiza tu pieza al instante</h1>
       <p class="lede" style="margin-inline:auto">
         Sube tu modelo en STL o 3MF y calculamos el volumen real de la malla para darte un
-        estimado en el momento. Todo corre dentro de tu navegador — <strong>tus archivos
-        nunca salen de tu computadora</strong>.
+        estimado en el momento. El cálculo corre dentro de tu navegador — <strong>tus archivos
+        no salen de tu computadora</strong> a menos que decidas pagar y pedir la impresión.
       </p>
     </div>
   </section>
@@ -222,15 +222,22 @@
             <div class="quote-total__sum" id="total">—</div>
             <div class="quote-total__label" id="total-detalle" style="margin-top:4px"></div>
           </div>
-          <a class="btn btn--ghost btn--lg" id="solicitar"
-             href="https://wa.me/525575639255" target="_blank" rel="noopener">
-            Pedir cotización por WhatsApp
-          </a>
+          <div class="quote-total__acciones">
+            <a class="btn btn--ghost btn--lg" id="solicitar"
+               href="https://wa.me/525575639255" target="_blank" rel="noopener">
+              Pedir por WhatsApp
+            </a>
+            <button type="button" class="btn btn--accent btn--lg" id="pagar" disabled>
+              Pagar ahora
+            </button>
+          </div>
         </div>
 
         <p class="muted" style="font-size:.85rem;margin-top:10px">
-          Es un precio estimado. La cotización final puede cambiar. Al abrir WhatsApp ya va
-          escrito el detalle: solo adjunta tus archivos en el chat.
+          Es un precio estimado. Si pagas ahora, pagas el estimado y tus archivos se suben con
+          el pedido: si al revisarlos el precio real cambia, te avisamos antes de imprimir y
+          ajustamos la diferencia. Por WhatsApp ya va escrito el detalle: solo adjunta tus
+          archivos en el chat.
         </p>
       </div>
 
@@ -288,10 +295,11 @@
         <details open>
           <summary>¿Mis archivos se suben a algún servidor?</summary>
           <div class="faq__body">
-            <p>No. Todo el cálculo ocurre dentro de tu navegador: el archivo se lee en memoria,
-              se mide el volumen de la malla y se descarta al cerrar la pestaña. No hay ninguna
-              transferencia a internet. Si después decides pedir la cotización formal, tú eliges
-              qué archivos mandar por WhatsApp.</p>
+            <p>Para cotizar, no. Todo el cálculo ocurre dentro de tu navegador: el archivo se
+              lee en memoria, se mide el volumen de la malla y se descarta al cerrar la pestaña.
+              Solo si decides <strong>pagar la impresión</strong> desde la misma página, los
+              archivos se suben junto con tu pedido para poder imprimirlos. Si prefieres, pide
+              la cotización por WhatsApp y tú eliges qué mandar.</p>
           </div>
         </details>
 
@@ -405,8 +413,80 @@
   </div>
 </footer>
 
+<!-- Pagar la impresión: datos de contacto, entrega y salto a Mercado Pago.
+     El POST multipart (datos + archivos) sale de cotizador.js. -->
+<dialog class="checkout" data-impresion>
+  <form data-impresion-form>
+    <h2>Pagar la impresión</h2>
+    <p class="muted checkout__intro">Tus archivos se suben con el pedido y pasas a Mercado Pago
+      para el cobro seguro. Pagas el estimado; si al revisar los archivos cambia, te avisamos
+      antes de imprimir.</p>
+    <p class="checkout__aviso" data-impresion-aviso hidden></p>
+    <div class="checkout__campos">
+      <div class="field field--ancho">
+        <label for="im-nombre">Nombre completo</label>
+        <input id="im-nombre" name="nombre" required maxlength="80" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="im-email">Correo</label>
+        <input id="im-email" name="email" type="email" required maxlength="120" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="im-telefono">WhatsApp o teléfono</label>
+        <input id="im-telefono" name="telefono" type="tel" required maxlength="20"
+               pattern="[0-9+\(\)\- ]{8,20}" autocomplete="tel"
+               title="De 8 a 20 caracteres: números, espacios, +, -, ( )">
+      </div>
+      <fieldset class="checkout__entrega">
+        <legend>Entrega</legend>
+        <label class="checkout__radio">
+          <input type="radio" name="entrega" value="taller" checked>
+          <span>Recoger en el taller (Ciudad de México)<small>Sin costo. Te avisamos por WhatsApp cuando esté lista.</small></span>
+        </label>
+        <label class="checkout__radio">
+          <input type="radio" name="entrega" value="envio">
+          <span>Envío a domicilio<small data-envio-texto>Enviamos a todo México.</small></span>
+        </label>
+      </fieldset>
+      <div class="field field--ancho" data-envio-campo hidden>
+        <label for="im-calle">Calle y número</label>
+        <input id="im-calle" name="calle" maxlength="120" autocomplete="street-address">
+      </div>
+      <div class="field" data-envio-campo hidden>
+        <label for="im-cp">Código postal</label>
+        <input id="im-cp" name="cp" pattern="[0-9]{5}" maxlength="5"
+               inputmode="numeric" autocomplete="postal-code" title="5 dígitos">
+        <p class="field__hint" data-cp-aviso hidden></p>
+      </div>
+      <div class="field" data-envio-campo hidden>
+        <label for="im-colonia">Colonia</label>
+        <input id="im-colonia" name="colonia" maxlength="80" autocomplete="address-level3" list="im-colonias">
+        <datalist id="im-colonias"></datalist>
+      </div>
+      <div class="field" data-envio-campo hidden>
+        <label for="im-ciudad">Ciudad o municipio</label>
+        <input id="im-ciudad" name="ciudad" maxlength="80" autocomplete="address-level2">
+      </div>
+      <div class="field" data-envio-campo hidden>
+        <label for="im-estado">Estado</label>
+        <input id="im-estado" name="estado" maxlength="40" autocomplete="address-level1">
+      </div>
+      <div class="field field--ancho" data-envio-campo hidden>
+        <label for="im-referencias">Referencias (opcional)</label>
+        <input id="im-referencias" name="referencias" maxlength="200"
+               placeholder="Color de la casa, entre qué calles…">
+      </div>
+    </div>
+    <div class="checkout__resumen" data-impresion-resumen></div>
+    <div class="checkout__acciones">
+      <button type="button" class="btn btn--ghost" data-cerrar>Volver</button>
+      <button type="submit" class="btn btn--primary" data-confirmar>Continuar al pago</button>
+    </div>
+  </form>
+</dialog>
+
 <script src="../assets/js/main.js?v=7782446c" defer></script>
 <script src="../assets/js/preview3d.js?v=a5c6c573" defer></script>
-<script src="../assets/js/cotizador.js?v=8ebb30e3" defer></script>
+<script src="../assets/js/cotizador.js?v=0f5459fb" defer></script>
 </body>
 </html>

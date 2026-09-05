@@ -46,6 +46,12 @@
   // Número de WhatsApp en formato internacional, sin + ni espacios.
   var WHATSAPP = '525575639255';
 
+  // Worker de checkout: solo se le habla al pagar (POST /impresion) y para
+  // la tarifa de envío y los códigos postales del formulario.
+  var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
+    ? 'http://localhost:8787'
+    : 'https://emisha-checkout.matosic-hrvoje.workers.dev';
+
   var $  = function (s, r) { return (r || document).querySelector(s); };
   var fmt = function (n) {
     return '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
@@ -1002,7 +1008,8 @@
     var directo = (material + maquina) * CONFIG.margen * n;
     var total = directo + CONFIG.preparacionPorArchivo
               + CONFIG.alistadoPorCama * camas + ensamble;
-    var unitario = Math.max(total / n, CONFIG.minimoPorPieza);
+    // En pesos enteros: así lo que muestra la página es exactamente lo que se cobra.
+    var unitario = Math.round(Math.max(total / n, CONFIG.minimoPorPieza));
 
     return {
       gramos: gramos, horas: horas, delLaminador: delLaminador,
@@ -1593,7 +1600,8 @@
         piezas.push({ nombre: file.name, error: 'Formato no soportado. Solo STL o 3MF.', cantidad: 1 });
         render(); return;
       }
-      var pieza = { nombre: file.name, cargando: true, cantidad: 1 };
+      // El File se conserva tal cual: si el cliente paga, es lo que se sube.
+      var pieza = { nombre: file.name, archivo: file, cargando: true, cantidad: 1 };
       piezas.push(pieza); render();
 
       var reader = new FileReader();
@@ -1755,36 +1763,46 @@
     refrescar();
   }
 
+  /* La cotización de UNA pieza al tamaño pedido: escala, corte o regiones
+     por color, y el resultado de cotizar(). La usan la lista, el mensaje de
+     WhatsApp y el pedido que se paga, para que los tres digan lo mismo. */
+  function cotizacionDe(p, mat, relleno) {
+    var s = escalaDe(p);
+    var volE = p.volumenCm3 * s * s * s;
+    var cajaE = [p.caja[0] * s, p.caja[1] * s, p.caja[2] * s];
+    var corte = corteDe(p, s);
+    var regiones = (!corte && p.porColor) ? regionesPorColor(p) : null;
+    var q;
+    if (regiones) {
+      var cajasReg = regiones.map(function (g) {
+        return [(g.max[0] - g.min[0]) * s, (g.max[1] - g.min[1]) * s,
+                (g.max[2] - g.min[2]) * s];
+      });
+      q = cotizar(volE, mat, relleno, p.cantidad, cajaE, null,
+                  cajasReg, p.placas, (p.areaMm2 || 0) * s * s,
+                  1, null, regiones.length);
+    } else {
+      q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
+                  cajasEscaladas(p, s), p.placas,
+                  (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
+                  medidoDe(p, s, corte));
+    }
+    return { s: s, volE: volE, cajaE: cajaE, corte: corte, regiones: regiones, q: q };
+  }
+
   function refrescar() {
     var relleno = parseFloat(selRell.value);
     var mat = selMat.value;
-    var total = 0, gramosTot = 0, horasTot = 0, listas = 0;
+    var total = 0, gramosTot = 0, horasTot = 0, listas = 0, noCabe = false;
 
     piezas.forEach(function (p) {
       if (!p._metaEl) return;
       if (p.cargando) { p._metaEl.textContent = 'Leyendo el modelo…'; return; }
       if (p.error)    { p._metaEl.textContent = p.error; return; }
 
-      var s = escalaDe(p);
-      var volE = p.volumenCm3 * s * s * s;
-      var cajaE = [p.caja[0] * s, p.caja[1] * s, p.caja[2] * s];
-      var corte = corteDe(p, s);
-      var regiones = (!corte && p.porColor) ? regionesPorColor(p) : null;
-      var q;
-      if (regiones) {
-        var cajasReg = regiones.map(function (g) {
-          return [(g.max[0] - g.min[0]) * s, (g.max[1] - g.min[1]) * s,
-                  (g.max[2] - g.min[2]) * s];
-        });
-        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, null,
-                    cajasReg, p.placas, (p.areaMm2 || 0) * s * s,
-                    1, null, regiones.length);
-      } else {
-        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
-                    cajasEscaladas(p, s), p.placas,
-                    (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
-                    medidoDe(p, s, corte));
-      }
+      var c = cotizacionDe(p, mat, relleno);
+      var s = c.s, volE = c.volE, cajaE = c.cajaE, corte = c.corte,
+          regiones = c.regiones, q = c.q;
 
       var dims = cajaE.map(function (v) { return Math.round(v); }).join(' × ');
       var nPartes = p.partes ? p.partes.length : 1;
@@ -1811,6 +1829,7 @@
         meta += ' · ' + q.camas + (q.camas === 1 ? ' cama' : ' camas');
       } else if (q.porCama === 0) {
         meta += ' · ⚠ no cabe en la cama de ' + CONFIG.camaMm + ' mm';
+        noCabe = true;
       } else if (p.cantidad > 1) {
         meta += ' · caben ' + q.porCama + ' por cama, van ' + q.camas
               + (q.camas === 1 ? ' cama' : ' camas');
@@ -1833,6 +1852,13 @@
     btnMail.href = 'https://wa.me/' + WHATSAPP + '?text='
       + encodeURIComponent(mensajeWhatsApp(mat, relleno, total));
 
+    if (btnPagar) {
+      btnPagar.disabled = !listas || noCabe;
+      btnPagar.title = noCabe
+        ? 'Hay una pieza que no cabe en la impresora ni cortada: ajusta su tamaño o pídela por WhatsApp.'
+        : '';
+    }
+
     actualizarVisor();
   }
 
@@ -1846,26 +1872,9 @@
     piezas.forEach(function (p) {
       if (p.error || p.cargando) return;
       n++;
-      var s = escalaDe(p);
-      var volE = p.volumenCm3 * s * s * s;
-      var cajaE = [p.caja[0] * s, p.caja[1] * s, p.caja[2] * s];
-      var corte = corteDe(p, s);
-      var regiones = (!corte && p.porColor) ? regionesPorColor(p) : null;
-      var q;
-      if (regiones) {
-        var cajasReg = regiones.map(function (g) {
-          return [(g.max[0] - g.min[0]) * s, (g.max[1] - g.min[1]) * s,
-                  (g.max[2] - g.min[2]) * s];
-        });
-        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, null,
-                    cajasReg, p.placas, (p.areaMm2 || 0) * s * s,
-                    1, null, regiones.length);
-      } else {
-        q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
-                    cajasEscaladas(p, s), p.placas,
-                    (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
-                    medidoDe(p, s, corte));
-      }
+      var c = cotizacionDe(p, mat, relleno);
+      var s = c.s, volE = c.volE, cajaE = c.cajaE, corte = c.corte,
+          regiones = c.regiones, q = c.q;
       var linea = '• ' + p.nombre + ' · ' + p.cantidad + ' pza · '
                 + Math.round(Math.max(cajaE[0], cajaE[1], cajaE[2])) + ' mm · '
                 + volE.toFixed(1) + ' cm³ · ' + fmtPeso(q.gramos);
@@ -1881,6 +1890,299 @@
            n === 1 ? 'Enseguida te mando el archivo por aquí.'
                    : 'Enseguida te mando los archivos por aquí.');
     return l.join('\n');
+  }
+
+  /* --------------------------------------------------------- pagar ---
+
+     "Pagar ahora" abre el diálogo de contacto y entrega. Al enviarlo, los
+     archivos originales (los File que soltó el usuario) viajan en un
+     multipart junto con la cotización tal como la vio, y el worker responde
+     con el link de Mercado Pago. Es el ÚNICO momento en que un archivo sale
+     del navegador; el resto de la página sigue sin tocar la red.          */
+
+  var btnPagar = $('#pagar');
+  var dialogo  = document.querySelector('[data-impresion]');
+  var formPago = dialogo && dialogo.querySelector('[data-impresion-form]');
+  var DATOS_LS = 'emisha-datos-envio-v1';   // los mismos que recuerda la tienda
+  var CAMPOS   = ['nombre', 'email', 'telefono', 'calle', 'colonia', 'cp',
+                  'ciudad', 'estado', 'referencias'];
+  var MAX_MB_ARCHIVO = 40, MAX_MB_PEDIDO = 60;   // los topes del worker
+  var envioCfg = null;          // { centavos, gratis_desde_centavos }
+  var envioPedido = false;      // ¿ya se intentó bajar la tarifa?
+  var pedidoActual = null;
+
+  function piezasListas() {
+    return piezas.filter(function (p) {
+      return !p.error && !p.cargando && p.archivo && p.volumenCm3 > 0;
+    });
+  }
+
+  /* Foto fija de la cotización: lo que ve el cliente es lo que se cobra.
+     Cada pieza lleva lo que midió el navegador para que el taller lo coteje
+     contra el archivo antes de imprimir. */
+  function armarPedido() {
+    var mat = selMat.value, relleno = parseFloat(selRell.value);
+    var lista = [], subtotal = 0, bytes = 0;
+    piezasListas().forEach(function (p) {
+      var c = cotizacionDe(p, mat, relleno);
+      var unit = Math.round(c.q.unitario * 100);
+      var notas = [];
+      if (c.q.delLaminador) notas.push('gramos y tiempo según el laminador del cliente');
+      if (c.corte) notas.push('se corta en ' + c.q.secciones + ' secciones para armar');
+      else if (c.regiones) notas.push(c.q.secciones + ' piezas por color, se pegan');
+      if (p.partes && p.partes.length > 1) notas.push(p.partes.length + ' partes en el archivo');
+      bytes += p.archivo.size;
+      subtotal += unit * p.cantidad;
+      lista.push({
+        archivo: p.archivo,
+        datos: {
+          nombre: p.nombre, cantidad: p.cantidad,
+          unitario_centavos: unit, total_centavos: unit * p.cantidad,
+          volumen_cm3: +c.volE.toFixed(2),
+          gramos: +c.q.gramos.toFixed(1),
+          horas: +c.q.horas.toFixed(2),
+          tamano_mm: Math.round(Math.max(c.cajaE[0], c.cajaE[1], c.cajaE[2])),
+          escala: +c.s.toFixed(3),
+          secciones: c.q.secciones,
+          colores: c.regiones ? 1 : (p.coloresUsados || 1),
+          nota: notas.join(' · ') || null
+        }
+      });
+    });
+    return { material: mat, relleno_pct: Math.round(relleno * 100),
+             piezas: lista, subtotal: subtotal, bytes: bytes };
+  }
+
+  function costoEnvio(subtotal) {
+    if (!envioCfg || !envioCfg.centavos) return 0;
+    if (envioCfg.gratis_desde_centavos && subtotal >= envioCfg.gratis_desde_centavos) return 0;
+    return envioCfg.centavos;
+  }
+
+  function cargarEnvio() {
+    if (envioPedido) return Promise.resolve(envioCfg);
+    envioPedido = true;
+    return fetch(API + '/envio')
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { envioCfg = d; return d; })
+      .catch(function () { envioPedido = false; envioCfg = null; return null; });
+  }
+
+  function avisar(texto) {
+    var el = dialogo.querySelector('[data-impresion-aviso]');
+    el.textContent = texto || '';
+    el.hidden = !texto;
+  }
+
+  function pintarResumen() {
+    if (!pedidoActual) return;
+    var esEnvio = formPago.elements.entrega.value === 'envio';
+    var n = 0;
+    pedidoActual.piezas.forEach(function (x) { n += x.datos.cantidad; });
+    var m = pedidoActual.piezas.length;
+    /* Sin tarifa (no se pudo bajar) no inventamos un cero: el envío se
+       agrega en Mercado Pago y aquí se dice. */
+    var envio = esEnvio ? (envioCfg ? costoEnvio(pedidoActual.subtotal) : null) : 0;
+    var html = '<div><span>' + n + (n === 1 ? ' pieza' : ' piezas') + ' · '
+      + m + (m === 1 ? ' modelo' : ' modelos') + '</span><span>'
+      + fmt(pedidoActual.subtotal / 100) + '</span></div>';
+    if (esEnvio) {
+      html += '<div><span>Envío</span><span>'
+        + (envio === null ? 'Se agrega al pagar' : (envio === 0 ? 'Gratis' : fmt(envio / 100)))
+        + '</span></div>';
+    }
+    html += '<div class="checkout__total"><span>Total</span><span>'
+      + fmt((pedidoActual.subtotal + (envio || 0)) / 100)
+      + (envio === null ? ' + envío' : '') + '</span></div>';
+    dialogo.querySelector('[data-impresion-resumen]').innerHTML = html;
+  }
+
+  /* Los campos de dirección solo existen (y solo son obligatorios) con
+     envío a domicilio: un campo obligatorio oculto no se puede enfocar y
+     el navegador se niega a enviar el formulario sin decir nada. */
+  function mostrarEnvio() {
+    var esEnvio = formPago.elements.entrega.value === 'envio';
+    Array.prototype.forEach.call(dialogo.querySelectorAll('[data-envio-campo]'), function (el) {
+      el.hidden = !esEnvio;
+      var input = el.querySelector('input');
+      if (input && input.name !== 'referencias') input.required = esEnvio;
+    });
+    pintarResumen();
+  }
+
+  function prellenar() {
+    try {
+      var d = JSON.parse(localStorage.getItem(DATOS_LS));
+      if (!d) return;
+      CAMPOS.forEach(function (k) {
+        var campo = formPago.elements[k];
+        if (campo && !campo.value && d[k]) campo.value = d[k];
+      });
+    } catch (e) { /* datos corruptos: el formulario queda vacío */ }
+  }
+
+  function leerFormulario() {
+    var d = {};
+    CAMPOS.forEach(function (k) {
+      d[k] = (formPago.elements[k] ? formPago.elements[k].value : '').trim();
+    });
+    try { localStorage.setItem(DATOS_LS, JSON.stringify(d)); } catch (e) {}
+    return d;
+  }
+
+  function restaurarBoton() {
+    var confirmar = dialogo.querySelector('[data-confirmar]');
+    confirmar.disabled = false;
+    confirmar.textContent = 'Continuar al pago';
+  }
+
+  function abrirPago() {
+    var pedido = armarPedido();
+    if (!pedido.piezas.length) return;
+    pedidoActual = pedido;
+    avisar('');
+    restaurarBoton();
+    var grande = pedido.piezas.filter(function (x) { return x.archivo.size > MAX_MB_ARCHIVO * 1048576; });
+    if (grande.length) {
+      avisar(grande[0].archivo.name + ' pesa más de ' + MAX_MB_ARCHIVO + ' MB. Para archivos así de grandes pídenos la impresión por WhatsApp.');
+      dialogo.querySelector('[data-confirmar]').disabled = true;
+    } else if (pedido.bytes > MAX_MB_PEDIDO * 1048576) {
+      avisar('Los archivos juntos pesan más de ' + MAX_MB_PEDIDO + ' MB. Divide el pedido o pídelo por WhatsApp.');
+      dialogo.querySelector('[data-confirmar]').disabled = true;
+    }
+    prellenar();
+    mostrarEnvio();
+    cargarEnvio().then(function (cfg) {
+      var t = dialogo.querySelector('[data-envio-texto]');
+      if (cfg && cfg.centavos) {
+        t.textContent = fmt(cfg.centavos / 100) + ' a todo México'
+          + (cfg.gratis_desde_centavos ? ', gratis desde ' + fmt(cfg.gratis_desde_centavos / 100) : '') + '.';
+      }
+      pintarResumen();
+    });
+    if (dialogo.showModal) dialogo.showModal();
+    else dialogo.setAttribute('open', '');
+  }
+
+  function cerrarPago() {
+    if (dialogo.close) dialogo.close();
+    else dialogo.removeAttribute('open');
+  }
+
+  function enviarPedido() {
+    if (!pedidoActual) return;
+    var d = leerFormulario();
+    var entrega = formPago.elements.entrega.value;
+    var fd = new FormData();
+    fd.append('datos', JSON.stringify({
+      comprador: { nombre: d.nombre, email: d.email, telefono: d.telefono },
+      entrega: entrega,
+      envio: entrega === 'envio' ? {
+        calle: d.calle, colonia: d.colonia, cp: d.cp,
+        ciudad: d.ciudad, estado: d.estado, referencias: d.referencias
+      } : null,
+      material: pedidoActual.material,
+      relleno_pct: pedidoActual.relleno_pct,
+      subtotal_centavos: pedidoActual.subtotal,
+      piezas: pedidoActual.piezas.map(function (x) { return x.datos; })
+    }));
+    // Mismo orden que datos.piezas: el worker los empareja por posición.
+    pedidoActual.piezas.forEach(function (x) { fd.append('archivo', x.archivo, x.archivo.name); });
+
+    var confirmar = dialogo.querySelector('[data-confirmar]');
+    confirmar.disabled = true;
+    confirmar.textContent = 'Subiendo tus archivos…';
+    avisar('');
+
+    fetch(API + '/impresion', { method: 'POST', body: fd })
+      .then(function (r) { return r.json().then(function (j) { return { status: r.status, datos: j }; }); })
+      .then(function (r) {
+        if (r.status === 201 && r.datos.url_pago) {
+          // Recordar el folio para la página de gracias (MP a veces regresa
+          // sin query params si el cliente cierra a medias).
+          try { localStorage.setItem('emisha-ultimo-pedido', r.datos.pedido_id); } catch (e) {}
+          confirmar.textContent = 'Abriendo Mercado Pago…';
+          window.location.href = r.datos.url_pago;
+          return;
+        }
+        restaurarBoton();
+        if (r.status === 503) {
+          avisar('El pago en línea no está disponible en este momento. Pide tu cotización por WhatsApp y te mandamos un link de pago.');
+        } else {
+          avisar((r.datos && r.datos.error) || 'No se pudo iniciar el pago. Inténtalo de nuevo.');
+        }
+      })
+      .catch(function () {
+        restaurarBoton();
+        avisar('No pudimos subir los archivos. Revisa tu conexión (o que el archivo siga en su lugar) e inténtalo de nuevo.');
+      });
+  }
+
+  /* Código postal → ciudad, estado y lista de colonias (SEPOMEX en el
+     worker). La colonia es un input con datalist: una sola se llena sola,
+     varias se ofrecen, y siempre se puede escribir otra. */
+  var cpEl = formPago && formPago.elements.cp;
+  var cpUltimo = '', autollenado = false;
+
+  function decirCp(t) {
+    var el = dialogo.querySelector('[data-cp-aviso]');
+    el.textContent = t || '';
+    el.hidden = !t;
+  }
+
+  function buscarCp() {
+    var codigo = (cpEl.value || '').trim();
+    if (!/^[0-9]{5}$/.test(codigo)) { decirCp(''); return; }
+    if (codigo === cpUltimo) return;
+    cpUltimo = codigo;
+    decirCp('Buscando…');
+    fetch(API + '/cp?codigo=' + codigo)
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, datos: j }; }); })
+      .then(function (r) {
+        var lista = $('#im-colonias');
+        lista.innerHTML = '';
+        if (!r.ok) {
+          // Se borra solo lo que pusimos nosotros; lo tecleado a mano se respeta.
+          if (autollenado) {
+            formPago.elements.ciudad.value = '';
+            formPago.elements.estado.value = '';
+            autollenado = false;
+          }
+          decirCp('No encontramos ese código postal. Escribe los datos a mano.');
+          return;
+        }
+        formPago.elements.ciudad.value = r.datos.municipio;
+        formPago.elements.estado.value = r.datos.estado;
+        autollenado = true;
+        var colonias = r.datos.colonias || [];
+        colonias.forEach(function (c) {
+          var o = document.createElement('option');
+          o.value = c;
+          lista.appendChild(o);
+        });
+        var col = formPago.elements.colonia;
+        if (colonias.length === 1) col.value = colonias[0];
+        else if (colonias.indexOf(col.value) === -1) col.value = '';
+        decirCp(r.datos.municipio + ', ' + r.datos.estado
+          + (colonias.length > 1 ? ' · elige tu colonia' : ''));
+      })
+      .catch(function () {
+        cpUltimo = '';
+        decirCp('No pudimos consultar el código postal. Escribe los datos a mano.');
+      });
+  }
+
+  if (btnPagar && dialogo && formPago) {
+    btnPagar.addEventListener('click', abrirPago);
+    formPago.addEventListener('submit', function (ev) { ev.preventDefault(); enviarPedido(); });
+    dialogo.querySelector('[data-cerrar]').addEventListener('click', cerrarPago);
+    Array.prototype.forEach.call(formPago.querySelectorAll('input[name="entrega"]'), function (r) {
+      r.addEventListener('change', mostrarEnvio);
+    });
+    cpEl.addEventListener('input', function () {
+      if (/^[0-9]{5}$/.test(cpEl.value.trim())) buscarCp();
+    });
+    cpEl.addEventListener('blur', buscarCp);
   }
 
   render();

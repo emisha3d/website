@@ -18,7 +18,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css?v=8ab44756">
+<link rel="stylesheet" href="../assets/css/styles.css?v=ac35db75">
 
 <style>
 /* Estilos propios de la tienda (la hoja global no se toca desde aquí). */
@@ -43,24 +43,6 @@
 .prod__stepper button:disabled{opacity:.35;cursor:default}
 .prod__stepper[hidden],.prod__acciones [hidden]{display:none}
 .prod__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.checkout{border:0;border-radius:16px;padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);box-shadow:0 24px 64px rgba(0,0,0,.28)}
-.checkout::backdrop{background:rgba(20,18,16,.55)}
-.checkout form{padding:26px 28px 24px;overflow-y:auto;max-height:inherit;box-sizing:border-box}
-.checkout h2{margin:0 0 4px;font-size:1.25rem}
-.checkout .checkout__intro{margin:0 0 18px}
-.checkout__campos{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
-/* Sin min-width:0 la columna crece hasta la colonia más larga del catálogo
-   ("Fraccionamiento…") y el diálogo se desborda. */
-.checkout__campos .field{min-width:0}
-.checkout__campos .field select,.checkout__campos .field input{max-width:100%;box-sizing:border-box}
-.checkout__campos .field--ancho{grid-column:1/-1}
-.checkout__campos .field__hint{margin:0;min-height:1.05em}
-.checkout__campos select[hidden]{display:none}
-@media (max-width:520px){.checkout__campos{grid-template-columns:1fr}}
-.checkout__resumen{margin:18px 0 16px;border-top:1px solid var(--border);padding-top:14px;display:grid;gap:5px;font-size:.95rem}
-.checkout__resumen div{display:flex;justify-content:space-between}
-.checkout__resumen .checkout__total{font-weight:700;font-size:1.05rem}
-.checkout__acciones{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .tienda-aviso{border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin:0 0 22px;background:var(--surface-2)}
 .tienda-aviso--error{border-color:rgba(180,35,24,.32);background:rgba(180,35,24,.06)}
 
@@ -296,7 +278,7 @@
       <div class="field">
         <label for="co-telefono">WhatsApp o teléfono</label>
         <input id="co-telefono" name="telefono" type="tel" required maxlength="20"
-               pattern="[0-9+()\- ]{8,20}" autocomplete="tel"
+               pattern="[0-9+\(\)\- ]{8,20}" autocomplete="tel"
                title="De 8 a 20 caracteres: números, espacios, +, -, ( )">
       </div>
       <div class="field field--ancho">
