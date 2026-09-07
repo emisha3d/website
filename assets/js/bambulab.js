@@ -71,20 +71,33 @@
     texto(precio, mxn.format(p.precio_centavos / 100));
     cuerpo.appendChild(precio);
 
+    // Las agotadas se publican a propósito: el cliente puede encontrarlas,
+    // ver el precio y pedirlas sobre pedido. Van al final de la lista.
     var disp = document.createElement('p');
     disp.className = 'swatch__line';
-    texto(disp, p.stock <= 3 ? ('Últimas ' + p.stock) : 'En existencia');
-    if (p.stock <= 3) disp.style.color = 'var(--accent)';
+    if (!p.disponible) {
+      texto(disp, 'Sobre pedido');
+      disp.style.color = 'var(--muted)';
+      art.style.opacity = '.72';
+    } else if (p.stock <= 3) {
+      texto(disp, 'Últimas ' + p.stock);
+      disp.style.color = 'var(--accent)';
+    } else {
+      texto(disp, 'En existencia');
+    }
     cuerpo.appendChild(disp);
 
     var a = document.createElement('a');
     a.className = 'btn btn--ghost btn--sm btn--block';
-    a.href = 'https://wa.me/525575639255?text=' +
-      encodeURIComponent('Hola, me interesa: ' + (p.nombre || p.sku) + ' (' + p.sku + ')');
+    a.href = 'https://wa.me/525575639255?text=' + encodeURIComponent(
+      p.disponible
+        ? 'Hola, me interesa: ' + (p.nombre || p.sku) + ' (' + p.sku + ')'
+        : 'Hola, ¿pueden conseguir esta pieza sobre pedido? ' +
+          (p.nombre || p.sku) + ' (' + p.sku + ')');
     a.target = '_blank';
     a.rel = 'noopener';
     a.style.marginTop = '10px';
-    texto(a, 'Pedir por WhatsApp');
+    texto(a, p.disponible ? 'Pedir por WhatsApp' : 'Preguntar sobre pedido');
     cuerpo.appendChild(a);
 
     art.appendChild(cuerpo);
@@ -106,7 +119,12 @@
     visibles.forEach(function (p) { rejilla.appendChild(tarjeta(p)); });
 
     var cuenta = document.querySelector('[data-ag-cuenta]');
-    if (cuenta) texto(cuenta, visibles.length + (visibles.length === 1 ? ' pieza' : ' piezas'));
+    if (cuenta) {
+      var hay = visibles.filter(function (p) { return p.disponible; }).length;
+      var pedido = visibles.length - hay;
+      texto(cuenta, hay + (hay === 1 ? ' pieza en existencia' : ' piezas en existencia') +
+        (pedido ? ' · ' + pedido + ' más sobre pedido' : ''));
+    }
   }
 
   function pintarFiltros() {
