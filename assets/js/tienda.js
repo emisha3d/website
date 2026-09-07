@@ -11,6 +11,49 @@
   'use strict';
 
   var API = 'https://emisha-checkout.matosic-hrvoje.workers.dev';
+
+  // Segundo origen: refacciones Bambu Lab que surte AG Electrónica. NO entran
+  // al carrito — el checkout aparta stock en el inventario propio y estas
+  // piezas están en la bodega de AG, así que se piden por WhatsApp. Van
+  // marcadas para que se note que es otro camino, no un botón roto.
+  var AG_API = 'https://emisha-ag.matosic-hrvoje.workers.dev';
+  var WA = 'https://wa.me/525575639255?text=';
+
+  // Modo "solo impresión 3D": lo prende la portada con
+  // <div data-tienda-grid data-solo="bambu">. Deja fuera las 1,500 piezas
+  // impresas del catálogo propio y enseña únicamente lo de impresora:
+  // las refacciones Bambu Lab de AG más los hotends y placas propios.
+  // /tienda/ no lleva el atributo, así que ahí sigue saliendo todo.
+  // Cuando las placas entren al inventario, basta con que su SKU empiece
+  // con uno de estos prefijos para que aparezcan solas.
+  var PREFIJOS_PROPIOS_3D = ['EMI-HE-', 'EMI-PL-', 'EMI-PLACA-', 'EMI-HOTEND-'];
+
+  // Boquillas y placas propias que todavía NO viven en el inventario: hoy se
+  // piden por WhatsApp. Se leen de un archivo curado a mano. Cuando entren a
+  // CanalPulse con stock, el catálogo en vivo las trae solas y este archivo
+  // se puede vaciar.
+  function catalogoPropio3D() {
+    return fetch('/assets/data/propios-3d.json')
+      .then(function (r) { return r.ok ? r.json() : { productos: [] }; })
+      .then(function (d) {
+        return (d.productos || []).map(function (p) {
+          return {
+            sku: p.sku, nombre: p.nombre, detalle: p.detalle,
+            precio_centavos: p.precio_centavos, imagen: p.imagen,
+            perfil: p.perfil, pagina: p.pagina, wa: p.wa,
+            origen: 'propio-3d', stock: 0, disponible: true
+          };
+        });
+      })
+      .catch(function () { return []; });
+  }
+
+  function esPropia3D(p) {
+    for (var i = 0; i < PREFIJOS_PROPIOS_3D.length; i++) {
+      if (p.sku.indexOf(PREFIJOS_PROPIOS_3D[i]) === 0) return true;
+    }
+    return false;
+  }
   var LLAVE = 'emisha-carrito-v1';
 
   var catalogo = [];          // [{sku, nombre, precio_centavos, stock}]
@@ -38,6 +81,10 @@
 
   // Cambió el contenido => es OTRO intento de compra: nuevo carrito_id.
   function fijarCantidad(sku, n) {
+    // Cinturón: una pieza de AG no se puede apartar en el inventario propio,
+    // así que jamás debe llegar al carrito ni por un clic raro.
+    var _p = porSku[sku];
+    if (_p && (_p.origen === 'ag' || _p.origen === 'propio-3d')) return;
     n = Math.max(0, Math.min(n, (porSku[sku] && porSku[sku].stock) || 0));
     if (n === 0) delete carrito.lineas[sku];
     else carrito.lineas[sku] = n;
@@ -73,6 +120,7 @@
   /* --- Pintado ---------------------------------------------------------- */
 
   var grid = document.querySelector('[data-tienda-grid]');
+  var soloBambu = !!(grid && grid.getAttribute('data-solo') === 'bambu');
   var aviso = document.querySelector('[data-tienda-aviso]');
   var cartBtn = document.querySelector('[data-cart-abrir]');
   var cartN = document.querySelector('[data-cart-n]');
@@ -98,22 +146,59 @@
     var el = document.createElement('div');
     el.className = 'prod';
     el.dataset.sku = p.sku;
-    var pocas = p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + p.stock + '</span>' : '';
+
+    var esAG = p.origen === 'ag';
+    var esPropiaWA = p.origen === 'propio-3d';
+    var pocas = esPropiaWA ? '' : esAG
+      ? (p.disponible
+          ? (p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + p.stock + '</span>' : '')
+          : '<span class="prod__pocas" style="color:var(--muted)">Sobre pedido</span>')
+      : (p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + p.stock + '</span>' : '');
+
+    // Ni las de AG ni las propias curadas llevan carrito todavía: las dos
+    // llevan enlace. La diferencia es el mensaje y la etiqueta.
+    var acciones = (esAG || esPropiaWA)
+      ? '<a class="btn btn--ghost btn--sm btn--block" data-wa target="_blank" rel="noopener"></a>'
+      : '<button type="button" class="btn btn--primary btn--sm" data-agregar>Agregar</button>' +
+        '<div class="prod__stepper" data-stepper hidden>' +
+          '<button type="button" aria-label="Quitar una pieza" data-menos>−</button>' +
+          '<span data-cantidad aria-live="polite">0</span>' +
+          '<button type="button" aria-label="Agregar una pieza" data-mas>+</button>' +
+        '</div>';
+
     el.innerHTML =
       '<div class="prod__media" aria-hidden="true"><span>' + inicial(p.nombre) + '</span></div>' +
       '<div class="prod__body">' +
         '<div class="prod__nombre"></div>' +
         '<div class="prod__precio">' + precio(p.precio_centavos) + ' ' + pocas + '</div>' +
-        '<div class="prod__acciones">' +
-          '<button type="button" class="btn btn--primary btn--sm" data-agregar>Agregar</button>' +
-          '<div class="prod__stepper" data-stepper hidden>' +
-            '<button type="button" aria-label="Quitar una pieza" data-menos>−</button>' +
-            '<span data-cantidad aria-live="polite">0</span>' +
-            '<button type="button" aria-label="Agregar una pieza" data-mas>+</button>' +
-          '</div>' +
-        '</div>' +
+        '<div class="prod__acciones">' + acciones + '</div>' +
       '</div>';
     el.querySelector('.prod__nombre').textContent = p.nombre;  // sin inyectar HTML
+
+    if (esAG || esPropiaWA) {
+      var wa = el.querySelector('[data-wa]');
+      if (esPropiaWA) {
+        wa.textContent = 'Pedir por WhatsApp';
+        wa.className = 'btn btn--accent btn--sm btn--block';   // las propias resaltan
+        wa.href = WA + encodeURIComponent(p.wa || ('Hola, quiero: ' + p.nombre));
+      } else {
+        wa.textContent = p.disponible ? 'Pedir por WhatsApp' : 'Preguntar sobre pedido';
+        wa.href = WA + encodeURIComponent(
+          (p.disponible
+            ? 'Hola, me interesa: '
+            : 'Hola, ¿pueden conseguir esta pieza sobre pedido? ') +
+          p.nombre + ' (' + p.sku + ')');
+      }
+      if (p.imagen) {
+        var m2 = el.querySelector('.prod__media');
+        m2.textContent = '';
+        var i2 = document.createElement('img');
+        i2.src = p.imagen; i2.alt = p.nombre; i2.loading = 'lazy';
+        i2.onerror = function () { m2.textContent = inicial(p.nombre); };
+        m2.appendChild(i2);
+      }
+      return el;
+    }
     if (p.imagen) {
       var media = el.querySelector('.prod__media');
       media.textContent = '';
@@ -150,7 +235,11 @@
     var p = porSku[sku];
     for (var i = 0; i < tarjetas.length; i++) {
       var el = tarjetas[i];
-      el.querySelector('[data-agregar]').hidden = n > 0;
+      // Las piezas que se piden por WhatsApp no tienen botón de carrito ni
+      // stepper: no hay cantidad que pintar y el querySelector daría null.
+      var agregar = el.querySelector('[data-agregar]');
+      if (!agregar) continue;
+      agregar.hidden = n > 0;
       el.querySelector('[data-stepper]').hidden = n === 0;
       el.querySelector('[data-cantidad]').textContent = n;
       el.querySelector('[data-mas]').disabled = p && n >= p.stock;
@@ -258,20 +347,58 @@
 
   /* --- Catálogo --------------------------------------------------------- */
 
+  // Si AG no contesta, la tienda propia tiene que abrir igual: por eso el
+  // catch devuelve una lista vacía en vez de tumbar el Promise.all.
+  function catalogoAG() {
+    return fetch(AG_API + '/productos')
+      .then(function (r) { return r.ok ? r.json() : { productos: [] }; })
+      .then(function (d) {
+        return (d.productos || []).map(function (p) {
+          return {
+            sku: p.sku,
+            nombre: p.nombre,
+            precio_centavos: p.precio_centavos,
+            stock: p.stock,
+            imagen: p.imagen,
+            origen: 'ag',
+            disponible: !!p.disponible,
+            perfil: p.perfil
+          };
+        });
+      })
+      .catch(function () { return []; });
+  }
+
   function cargarCatalogo() {
     if (!grid) return;
-    fetch(API + '/productos')
-      .then(function (r) { return r.json(); })
-      .then(function (datos) {
+    Promise.all([
+      fetch(API + '/productos').then(function (r) { return r.json(); }),
+      catalogoAG(),
+      soloBambu ? catalogoPropio3D() : Promise.resolve([])
+    ])
+      .then(function (par) {
+        var datos = par[0];
+        var ag = par[1];
+        var propias = par[2];
         envioCfg = datos.envio || null;
-        catalogo = (datos.productos || []).filter(function (p) { return p.stock > 0; });
+        catalogo = (datos.productos || []).filter(function (p) {
+          if (p.stock <= 0) return false;
+          return soloBambu ? esPropia3D(p) : true;
+        });
+        // Lo propio primero: es lo de Emisha, y es donde está el margen.
+        // Después las piezas curadas a mano, y hasta el final las de AG.
+        catalogo = catalogo.concat(propias).concat(ag);
         porSku = {};
         catalogo.forEach(function (p) { porSku[p.sku] = p; });
 
-        // Piezas del carrito que ya no existen o no tienen stock: fuera.
+        // Piezas del carrito que ya no existen, no tienen stock, o son de AG
+        // (que nunca debieron entrar): fuera.
         var huboCambio = false;
         Object.keys(carrito.lineas).forEach(function (sku) {
-          if (!porSku[sku]) { delete carrito.lineas[sku]; huboCambio = true; }
+          var p = porSku[sku];
+          if (!p || p.origen === 'ag' || p.origen === 'propio-3d') {
+            delete carrito.lineas[sku]; huboCambio = true;
+          }
         });
         if (huboCambio) { carrito.carrito_id = nuevoId(); guardar(); }
 
@@ -290,9 +417,18 @@
         cargarCategorias();
         cargarDestacados();
       })
-      .catch(function () {
-        grid.innerHTML = '<p class="muted">No pudimos cargar el catálogo. Recarga la página ' +
-          'o inténtalo más tarde.</p>';
+      .catch(function (e) {
+        if (window.console) console.error('[tienda] no se pudo armar el catálogo:', e);
+        grid.textContent = '';
+        var msg = document.createElement('p');
+        msg.className = 'muted';
+        msg.textContent = 'No pudimos cargar el catálogo. Recarga la página o inténtalo más tarde.';
+        grid.appendChild(msg);
+        var det = document.createElement('p');
+        det.className = 'muted';
+        det.style.fontSize = '.8rem';
+        det.textContent = 'Detalle: ' + ((e && e.message) || e);
+        grid.appendChild(det);
       });
   }
 
@@ -320,8 +456,50 @@
     if (!catsLista) return Promise.resolve();
     return fetch('/assets/data/categorias.json')
       .then(function (r) { return r.json(); })
-      .then(function (d) { arbol = d.categorias || []; pintarCategorias(); })
+      .then(function (d) {
+        arbol = soloBambu ? [] : (d.categorias || []);
+        arbol = arbol.concat(categoriasPorTipo());
+        pintarCategorias();
+      })
       .catch(function () { /* sin categorías: la tienda sigue siendo usable */ });
+  }
+
+  // categorias.json lo genera categorizar.py sobre el inventario propio, así
+  // que ni las piezas de AG ni las curadas a mano salen en ninguna rama. En
+  // la portada el árbol se arma aquí: arriba el TIPO de pieza, que es como
+  // busca el cliente ("necesito una boquilla"), y adentro la marca.
+  var NOMBRE_PERFIL = {
+    placa: 'Placas de impresión',
+    boquilla: 'Boquillas',
+    hotend: 'Hotends',
+    filamento: 'Filamentos',
+    ams: 'AMS',
+    mantenimiento: 'Mantenimiento',
+    refaccion: 'Refacciones',
+    impresora: 'Impresoras'
+  };
+
+  // La marca es un dato, no una promesa: las piezas Emisha se arman con
+  // componentes de importación, así que aquí NO se dice quién las fabrica.
+  var MARCA = { 'propio-3d': 'Emisha', ag: 'Bambu Lab' };
+
+  function categoriasPorTipo() {
+    var porTipo = {};
+    catalogo.forEach(function (p) {
+      var marca = MARCA[p.origen];
+      if (!marca) return;                     // el catálogo propio ya trae árbol
+      var t = p.perfil || 'refaccion';
+      (porTipo[t] = porTipo[t] || {});
+      (porTipo[t][marca] = porTipo[t][marca] || []).push(p.sku);
+    });
+
+    return Object.keys(porTipo).map(function (t) {
+      var subs = Object.keys(porTipo[t]).map(function (m) {
+        return { slug: t + '-' + m.toLowerCase().replace(/\s+/g, '-'),
+                 nombre: m, skus: porTipo[t][m] };
+      });
+      return { slug: 'tipo-' + t, nombre: NOMBRE_PERFIL[t] || t, subcategorias: subs };
+    });
   }
 
   function conjunto(skus) {
@@ -433,6 +611,7 @@
   /* --- Selección de portada ---------------------------------------------- */
 
   function cargarDestacados() {
+    if (soloBambu) return Promise.resolve();
     var panel = document.querySelector('[data-destacados]');
     if (!panel) return Promise.resolve();
     return fetch('/assets/data/destacados.json')

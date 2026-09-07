@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" preserveAspectRatio="xMidYMid meet" fill="none"
+     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Filamento: tres carretes y el hilo que sale de ellos -->
+  <g opacity=".18" stroke-width="1">
+    <path d="M0 30h360M0 70h360M0 110h360M0 150h360M0 190h360"/>
+  </g>
+
+  <g stroke-width="2.4">
+    <circle cx="96" cy="112" r="52"/><circle cx="96" cy="112" r="17"/>
+    <circle cx="96" cy="112" r="35" opacity=".45" stroke-width="1.6"/>
+    <circle cx="96" cy="112" r="44" opacity=".3" stroke-width="1.6"/>
+  </g>
+  <g stroke-width="2.2" opacity=".8">
+    <circle cx="206" cy="86" r="38"/><circle cx="206" cy="86" r="12"/>
+    <circle cx="206" cy="86" r="26" opacity=".45" stroke-width="1.5"/>
+  </g>
+  <g stroke-width="2" opacity=".55">
+    <circle cx="288" cy="148" r="28"/><circle cx="288" cy="148" r="9"/>
+    <circle cx="288" cy="148" r="19" opacity=".5" stroke-width="1.4"/>
+  </g>
+
+  <!-- el hilo -->
+  <path d="M148 112c22 0 26-26 58-26 26 0 24 34 52 42 20 6 34-6 44-14"
+        stroke-width="2.6" opacity=".9"/>
+</svg>

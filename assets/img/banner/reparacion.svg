@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" preserveAspectRatio="xMidYMid meet" fill="none"
+     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Servicio técnico: un cabezal sobre la cama, con el pulso del diagnóstico -->
+  <g opacity=".22" stroke-width="1">
+    <path d="M0 44h360M0 88h360M0 132h360M0 176h360"/>
+    <path d="M60 0v220M120 0v220M180 0v220M240 0v220M300 0v220"/>
+  </g>
+
+  <!-- pórtico -->
+  <g stroke-width="2.4" opacity=".95">
+    <path d="M74 46h212"/>
+    <path d="M96 46v26"/>
+    <path d="M264 46v26"/>
+  </g>
+
+  <!-- cabezal + boquilla -->
+  <g stroke-width="2.4">
+    <rect x="150" y="40" width="60" height="42" rx="7"/>
+    <path d="M180 82v20"/>
+    <path d="M172 102h16l-8 15z" fill="currentColor" stroke="none" opacity=".9"/>
+  </g>
+
+  <!-- pieza a medio imprimir sobre la cama -->
+  <g stroke-width="2.4">
+    <path d="M156 158h48v-26h-48z" opacity=".85"/>
+    <path d="M162 132v-14M180 132v-20M198 132v-9" opacity=".55" stroke-width="2"/>
+    <path d="M96 158h168" opacity=".95"/>
+    <path d="M104 158v14M256 158v14" opacity=".6"/>
+  </g>
+
+  <!-- pulso: el diagnóstico -->
+  <g stroke-width="2.2" opacity=".8">
+    <path d="M20 196h44l10-20 12 40 11-26 9 6h222"/>
+  </g>
+
+  <!-- llave: la reparación -->
+  <g stroke-width="2.4" opacity=".55" transform="translate(272 96) rotate(38)">
+    <path d="M0 34c-8-8-8-21 0-29 6-6 15-7 22-4l-9 9 1 12 12 1 9-9c3 7 2 16-4 22-8 8-21 8-29 0z"/>
+    <path d="M2 36-16 54"/>
+  </g>
+</svg>

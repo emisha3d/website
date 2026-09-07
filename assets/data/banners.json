@@ -1,0 +1,65 @@
+{
+  "actualizado": "2026-09-07",
+  "nota": [
+    "Las tiras que giran arriba de la tienda. Para cambiarlas no hace falta",
+    "tocar código: edita este archivo y publica con ./build.sh --deploy.",
+    "",
+    "Cada tira:",
+    "  id       identificador corto, para acordarte de cuál es",
+    "  eyebrow  el renglón chico de arriba",
+    "  titulo   una línea, lo que se lee de lejos",
+    "  texto    una frase, opcional",
+    "  cta      el texto del botón",
+    "  url      a dónde va (interna con / o completa con https://)",
+    "  imagen   opcional; si falta, la tira usa solo color",
+    "  tono     marca | acento | tinta   (azul, naranja, negro)",
+    "  arte     ilustracion | fondo | lado | trama",
+    "             ilustracion = un SVG de línea sobre el color (lo de hoy)",
+    "             fondo = una foto a toda la tira, con velo oscuro encima",
+    "             lado  = la foto va a la derecha, chica",
+    "             trama = sin dibujo, solo una retícula",
+    "  foco     con arte:fondo, qué parte de la foto se ve: 'right center',",
+    "             'center', '30% 40%'... Igual que background-position.",
+    "  desde/hasta  opcionales, formato 2026-12-01. Fuera de esas fechas la",
+    "               tira no se muestra: sirve para promos que se apagan solas",
+    "               sin que nadie tenga que acordarse de quitarlas.",
+    "",
+    "El orden de aquí es el orden en que giran. Si solo queda una activa, no",
+    "gira ni enseña flechas."
+  ],
+  "tiras": [
+    {
+      "id": "reparacion",
+      "eyebrow": "Servicio técnico",
+      "titulo": "Reparamos tu impresora 3D",
+      "texto": "Diagnóstico $300, reparación desde $700. Taller propio en CDMX, con cita en línea.",
+      "cta": "Agendar reparación",
+      "url": "/reparacion/",
+      "tono": "tinta",
+      "arte": "ilustracion",
+      "imagen": "/assets/img/banner/reparacion.svg"
+    },
+    {
+      "id": "placas",
+      "eyebrow": "Nuevo",
+      "titulo": "Placa Emisha Neo Ultra Sticky",
+      "texto": "Para A1, P1, X1 y la serie H2. Sujeción sin pegamento y sin levantar esquinas.",
+      "cta": "Ver placas",
+      "url": "/placas/",
+      "imagen": "/assets/img/banner/placas.svg",
+      "tono": "marca",
+      "arte": "ilustracion"
+    },
+    {
+      "id": "filamentos",
+      "eyebrow": "En existencia",
+      "titulo": "29 colores de filamento Emisha",
+      "texto": "PLA Matte, PETG Matte HF, Cosmic y Wood. 1.75 mm, salida el mismo día hábil.",
+      "cta": "Ver filamentos",
+      "url": "/filamentos/",
+      "tono": "acento",
+      "arte": "ilustracion",
+      "imagen": "/assets/img/banner/filamentos.svg"
+    }
+  ]
+}

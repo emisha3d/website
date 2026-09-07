@@ -1015,3 +1015,106 @@ strong { font-weight: 640; }
   line-height: 1;
   padding: 0 2px;
 }
+
+/* Piezas que surte AG Electrónica dentro de la tienda: se ven igual que las
+   propias, pero se piden por WhatsApp porque el stock no es de Emisha. */
+.prod__origen {
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted); margin-top: 2px;
+}
+
+/* --- Tira de avisos de la portada ---------------------------------------
+   Vive arriba del catálogo. El contenido lo manda /assets/data/banners.json
+   y lo pinta banner.js; aquí solo está cómo se ve. */
+.banner { position: relative; margin: 18px 0 26px; }
+.banner__tira {
+  display: grid; grid-template-columns: 1fr; gap: 18px;
+  align-items: center; align-content: center; padding: 26px 26px 24px;
+  border-radius: var(--radius-lg); overflow: hidden;
+  background: var(--surface-2); border: 1px solid var(--border);
+  /* Altura fija: sin esto la tira crece y encoge según cuánto texto trae
+     cada aviso, y al girar la página entera da un brinco. */
+  min-height: 224px;
+}
+@media (min-width: 760px) {
+  .banner__tira { grid-template-columns: 1fr auto; padding: 32px 34px; min-height: 236px; }
+}
+.banner__eyebrow {
+  font-family: var(--font-mono); font-size: .66rem; letter-spacing: .12em;
+  text-transform: uppercase; opacity: .78; margin-bottom: 8px;
+}
+.banner__titulo { font-size: 1.42rem; font-weight: 640; line-height: 1.2; }
+@media (min-width: 760px) { .banner__titulo { font-size: 1.72rem; } }
+.banner__texto { margin-top: 7px; max-width: 56ch; opacity: .88; font-size: .95rem; }
+.banner__cta { margin-top: 15px; background: #fff; color: var(--ink); border-color: transparent; }
+.banner__cta:hover { background: #f2f5f9; }
+.banner__media { justify-self: end; }
+.banner__media img {
+  display: block; width: 168px; height: 168px;
+  object-fit: contain; border-radius: var(--radius);
+}
+
+/* Tres tonos, para que tres avisos seguidos no se vean iguales. */
+.banner--marca  { background: var(--brand);  border-color: var(--brand);  color: #fff; }
+.banner--acento { background: var(--accent); border-color: var(--accent); color: #fff; }
+.banner--tinta  { background: var(--ink);    border-color: var(--ink);    color: #fff; }
+
+.banner__nav {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin-top: 12px;
+}
+.banner__flecha {
+  width: 30px; height: 30px; border-radius: 50%; line-height: 1;
+  border: 1px solid var(--border); background: #fff; color: var(--text-2);
+  font-size: 1.05rem; cursor: pointer; transition: border-color .18s var(--ease);
+}
+.banner__flecha:hover { border-color: #cfd8e3; color: var(--text); }
+.banner__puntos { display: flex; gap: 7px; }
+.banner__punto {
+  width: 7px; height: 7px; padding: 0; border-radius: 50%; cursor: pointer;
+  border: none; background: var(--border); transition: background .18s var(--ease);
+}
+.banner__punto:hover { background: #cfd8e3; }
+.banner__punto.es-activo { background: var(--ink); }
+
+/* Arte de la tira. Tres modos: foto al lado (por defecto), foto a sangre con
+   velo, o una trama SVG cuando no hay foto que valga la pena. */
+.banner__tira { position: relative; isolation: isolate; }
+.banner__cuerpo, .banner__media { position: relative; z-index: 2; }
+
+.banner__fondo {
+  position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+}
+/* El velo es lo que hace legible el texto encima de cualquier foto: sin él,
+   una imagen clara se come el titular blanco. */
+.banner-arte--fondo::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(100deg,
+    rgba(13, 17, 23, .92) 0%, rgba(13, 17, 23, .78) 42%, rgba(13, 17, 23, .30) 100%);
+}
+.banner-arte--fondo { color: #fff; border-color: transparent; }
+.banner-arte--fondo .banner__cuerpo { max-width: 62ch; }
+@media (min-width: 760px) {
+  .banner-arte--fondo { grid-template-columns: 1fr; }
+}
+
+.banner__trama {
+  position: absolute; inset: 0; z-index: 0;
+  color: #fff; opacity: .5; pointer-events: none;
+}
+.banner__trama svg { width: 100%; height: 100%; display: block; }
+
+/* Ilustración de la tira: dibujo de línea que hereda el color del fondo. */
+.banner__ilustracion {
+  position: absolute; inset: 0 0 0 auto; z-index: 0;
+  /* Ancho y alto fijos para que los tres dibujos ocupen exactamente el mismo
+     rectángulo: si cada uno se escala distinto, se nota como trabajo a medias. */
+  width: min(46%, 400px); aspect-ratio: 360 / 220; height: 100%;
+  color: #fff; opacity: .5; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%);
+          mask-image: linear-gradient(90deg, transparent, #000 22%);
+}
+.banner__ilustracion svg { width: 100%; height: 100%; display: block; }
+.banner__texto { min-height: 2.6em; }   /* una o dos líneas ocupan lo mismo */
+@media (max-width: 640px) { .banner__ilustracion { opacity: .26; width: 68%; } }

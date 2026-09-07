@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" preserveAspectRatio="xMidYMid meet" fill="none"
+     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Placas: la cama en perspectiva, con su textura y una pieza pegada -->
+  <g opacity=".2" stroke-width="1">
+    <circle cx="286" cy="110" r="96"/><circle cx="286" cy="110" r="68"/><circle cx="286" cy="110" r="40"/>
+  </g>
+
+  <!-- placa en perspectiva -->
+  <g stroke-width="2.4">
+    <path d="M52 150 170 96l138 40-118 56z" opacity=".95"/>
+    <path d="M52 150v12l138 46 118-56v-12" opacity=".8"/>
+  </g>
+
+  <!-- textura de la superficie -->
+  <g stroke-width="1.2" opacity=".45">
+    <path d="M82 141 216 180M112 128 246 167M142 115 276 154"/>
+    <path d="M96 168 208 122M130 179 242 133"/>
+  </g>
+
+  <!-- pieza impresa, bien pegada -->
+  <g stroke-width="2.4">
+    <path d="M150 128l34-13 32 10-34 13z" opacity=".95"/>
+    <path d="M150 128v-24l34-13v24M184 115v24M216 125v-24l-32-10" opacity=".9"/>
+  </g>
+
+  <!-- calor -->
+  <g stroke-width="2" opacity=".5">
+    <path d="M96 92c6-6 0-12 6-18M116 84c6-6 0-12 6-18M136 76c6-6 0-12 6-18"/>
+  </g>
+</svg>
