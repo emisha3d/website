@@ -20,7 +20,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css?v=ac35db75">
+<link rel="stylesheet" href="../assets/css/styles.css?v=8ab44756">
 
 <script type="application/ld+json">
 {
@@ -201,6 +201,12 @@
 .precios div{display:flex;justify-content:space-between;gap:12px;font-size:.95rem;border-bottom:1px dashed var(--border);padding-bottom:8px}
 .precios div:last-child{border-bottom:0;padding-bottom:0}
 .precios b{white-space:nowrap}
+/* display:grid le gana al [hidden] del navegador: sin esto la caja vacía
+   seguiría ocupando lugar cuando no hay nada que enseñar. */
+.precios[hidden],.galeria[hidden]{display:none}
+.cotizacion-cliente{margin-top:12px}
+.cotizacion-cliente .total{font-weight:600;border-bottom:0;padding-top:2px}
+.cotizacion-cliente .total b{font-size:1.15rem}
 .dato{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--text-2)}
 .dato + .dato{margin-top:10px}
 .dato svg{width:18px;height:18px;flex-shrink:0;color:var(--brand);margin-top:2px}
@@ -242,6 +248,7 @@
           <a href="../filamentos/">Filamentos</a>
           <a href="../hotends/">Hotends</a>
           <a href="../placas/">Placas</a>
+          <a href="../bambulab/">Bambu Lab</a>
         </div>
       </div>
       <a href="../servicios/">Servicios</a>
@@ -347,7 +354,7 @@
                 <div class="field">
                   <label for="c-telefono">WhatsApp o teléfono</label>
                   <input id="c-telefono" name="telefono" type="tel" required maxlength="20"
-                         pattern="[0-9+\(\)\- ]{8,20}" autocomplete="tel"
+                         pattern="[0-9+()\- ]{8,20}" autocomplete="tel"
                          title="De 8 a 20 caracteres: números, espacios, +, -, ( )">
                 </div>
                 <div class="field">
@@ -386,6 +393,9 @@
             <h2 data-conf-titulo></h2>
             <span class="folio" data-conf-folio></span>
             <dl class="confirmacion__datos" data-conf-datos></dl>
+            <p class="galeria-t" data-conf-costos-t hidden>Tu cotización</p>
+            <div class="precios cotizacion-cliente" data-conf-costos hidden></div>
+            <p class="muted" style="font-size:.86rem;margin-top:10px" data-conf-costos-nota hidden></p>
             <p class="galeria-t" data-conf-galeria-t hidden>Fotos de tu reparación</p>
             <div class="galeria" data-conf-galeria hidden></div>
             <div class="hero__cta" style="margin-top:6px" data-conf-acciones></div>
@@ -395,7 +405,7 @@
 
         <!-- ------------------------------------------------ LATERAL -->
         <aside class="cita-aside">
-          <div class="card">
+          <div class="card" data-precios-generales>
             <span class="pill pill--brand pill--dot" style="margin-bottom:12px">Precios</span>
             <div class="precios">
               <div><span>Diagnóstico</span><b>$300 MXN</b></div>
@@ -498,6 +508,7 @@
           <li><a href="../filamentos/">Filamentos 1.75 mm</a></li>
           <li><a href="../hotends/">Hotends y boquillas</a></li>
           <li><a href="../placas/">Placas de impresión</a></li>
+          <li><a href="../bambulab/">Refacciones Bambu Lab</a></li>
           <li><a href="../tienda/">Tienda en línea</a></li>
           <li><a href="../servicios/">Servicios y reparación</a></li>
         </ul>
@@ -527,6 +538,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/reparacion.js?v=79d92ed6" defer></script>
+<script src="../assets/js/reparacion.js?v=7cdd63dc" defer></script>
 </body>
 </html>

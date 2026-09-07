@@ -34,6 +34,11 @@
     });
   }
 
+  function mxn(cent) {
+    if (cent == null) return '';
+    return '$' + (cent / 100).toLocaleString('es-MX', { maximumFractionDigits: 2 }) + ' MXN';
+  }
+
   function avisar(texto, tipo, sinMover) {
     aviso.textContent = texto || '';
     aviso.hidden = !texto;
@@ -334,6 +339,14 @@
     no_llego: ['Cita vencida', 'No recibimos tu impresora ese día', 'Puedes agendar otra cita cuando gustes.']
   };
 
+  // Qué decirle debajo del desglose, segun donde va su cotizacion.
+  var TEXTO_COSTOS = {
+    pendiente: 'Falta que la autorices. No conseguimos ni instalamos nada hasta que respondas.',
+    aceptada: 'Autorizaste esta cotización. Se paga al recoger tu impresora.',
+    aceptada_sin_opcionales: 'Autorizaste la cotización poniendo tú las piezas marcadas: esos renglones ya salieron del total.',
+    rechazada: 'No autorizaste la reparación, así que solo se cobra el diagnóstico.'
+  };
+
   function mostrarConfirmacion(cita, recien) {
     var t = TEXTO_ESTADO[cita.estado] || TEXTO_ESTADO.nueva;
     var cuando = cita.fecha_legible + ' a las ' + cita.hora;
@@ -353,10 +366,40 @@
       ['Qué traer', ((cita.equipos && cita.equipos.length > 1) ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (cita.trae_ams ? ' y el AMS con el suyo' : '') + '. Si la falla pasa con un filamento en particular, tráelo.'],
       ['Costos', 'Diagnóstico $300 · Reparación $700 (con diagnóstico previo, $400). Refacciones aparte, siempre con tu autorización.']
     ];
-    if (cita.estado !== 'nueva') datos = datos.slice(0, 3);
+    // Con el equipo ya adentro, lo de traer y los precios de mostrador sobran:
+    // en su lugar va lo que encontramos al revisarla.
+    if (cita.estado !== 'nueva') {
+      datos = datos.slice(0, 3);
+      if (cita.diagnostico) datos.push(['Diagnóstico', esc(cita.diagnostico).replace(/\n/g, '<br>')]);
+    }
     conf.querySelector('[data-conf-datos]').innerHTML = datos.map(function (p) {
       return '<div><dt>' + p[0] + '</dt><dd>' + p[1] + '</dd></div>';
     }).join('');
+
+    // El desglose de su cotización: los mismos renglones y el mismo total que
+    // le llegaron por correo. Sin esto solo veía la lista de precios de
+    // mostrador, que no dice cuánto va a pagar él.
+    var costos = conf.querySelector('[data-conf-costos]');
+    var costosT = conf.querySelector('[data-conf-costos-t]');
+    var costosNota = conf.querySelector('[data-conf-costos-nota]');
+    var conceptos = cita.conceptos || [];
+    costos.hidden = costosT.hidden = !conceptos.length;
+    if (conceptos.length) {
+      costos.innerHTML = conceptos.map(function (x) {
+        return '<div><span>' + esc(x.nombre) + (x.opcional ? ' *' : '') + '</span><b>' + esc(mxn(x.centavos)) + '</b></div>';
+      }).join('') +
+        '<div class="total"><span>' + (cita.cotizacion_pendiente ? 'Total cotizado' : 'Total a pagar') +
+        '</span><b>' + esc(mxn(cita.a_pagar_centavos)) + '</b></div>';
+    }
+    var notaCostos = cita.cotizacion_pendiente
+      ? TEXTO_COSTOS.pendiente
+      : (TEXTO_COSTOS[cita.cotizacion_respuesta] || '');
+    costosNota.hidden = !conceptos.length || !notaCostos;
+    costosNota.textContent = notaCostos;
+    // Con su cotización a la vista, la lista de precios de mostrador estorba:
+    // esos $300/$700 no son lo que él paga.
+    var generales = document.querySelector('[data-precios-generales]');
+    if (generales) generales.hidden = !!conceptos.length;
 
     // Fotos y video que el taller marcó como visibles.
     var gal = conf.querySelector('[data-conf-galeria]'), galT = conf.querySelector('[data-conf-galeria-t]');
