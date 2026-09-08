@@ -3,9 +3,11 @@
    real lo dicta el worker; mientras el webhook de MP no llegue, el pedido
    sigue "pending" y aquí se reintenta unos segundos antes de rendirse.
 
-   Sirve para tres tipos de pedido (p.tipo): 'tienda' (piezas del catálogo,
-   con envío), 'impresion' (archivos del cotizador) y 'link' (cobro armado
-   por el taller). Cambian los textos y el desglose; el flujo es el mismo. */
+   Sirve para cuatro tipos de pedido (p.tipo): 'tienda' (piezas del catálogo,
+   con envío), 'ag' (refacciones que surte AG Electrónica, sin apartado porque
+   no son de esta bodega), 'impresion' (archivos del cotizador) y 'link'
+   (cobro armado por el taller). Cambian los textos y el desglose; el flujo
+   es el mismo. */
 (function () {
   'use strict';
 
@@ -98,11 +100,15 @@
           } else if (p.tipo === 'link') {
             cuerpo = '<p>Tu pago quedó confirmado. Te escribimos por WhatsApp o correo con el ' +
               'siguiente paso.</p>';
+          } else if (p.tipo === 'ag') {
+            cuerpo = '<p>Tu pago quedó confirmado. Estas piezas las surte nuestro proveedor, ' +
+              'así que las pedimos hoy mismo y te escribimos por correo con la guía en cuanto ' +
+              'salgan. Si algo no estuviera disponible, te avisamos y te devolvemos tu dinero.</p>';
           } else {
             cuerpo = '<p>Tu pago quedó confirmado y tus piezas ya están apartadas. Te escribimos por ' +
               'correo con la guía de envío en cuanto salga tu paquete.</p>';
           }
-          pintar('¡Gracias' + (p.tipo === 'tienda' ? ' por tu compra' : '') +
+          pintar('¡Gracias' + (p.tipo === 'tienda' || p.tipo === 'ag' ? ' por tu compra' : '') +
             (p.nombre ? ', ' + escapar(p.nombre) : '') + '!', cuerpo + lineasHtml(p));
           return;
         }
@@ -118,6 +124,7 @@
               '<p>Mercado Pago aún no nos confirma el resultado. Si ya pagaste, no te ' +
               'preocupes: en cuanto llegue la confirmación ' +
               (p.tipo === 'tienda' ? 'apartamos tus piezas y ' : '') +
+              (p.tipo === 'ag' ? 'pedimos tus piezas al proveedor y ' : '') +
               'te avisamos por correo. Si algo sale mal, escríbenos por WhatsApp al ' +
               '<a href="https://wa.me/525575639255" target="_blank" rel="noopener">+52 55 7563 9255</a> con tu folio.</p>' +
               '<p class="muted" style="font-size:.86rem">Folio: ' + escapar(folio) + '</p>');

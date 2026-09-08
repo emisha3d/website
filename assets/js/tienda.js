@@ -81,10 +81,12 @@
 
   // Cambió el contenido => es OTRO intento de compra: nuevo carrito_id.
   function fijarCantidad(sku, n) {
-    // Cinturón: una pieza de AG no se puede apartar en el inventario propio,
-    // así que jamás debe llegar al carrito ni por un clic raro.
+    // Las piezas de AG SÍ se venden: no se apartan en CanalPulse (no son de
+    // esta bodega) pero se cobran igual y el taller se las pide a AG con la
+    // dirección del cliente. Las propias curadas siguen fuera del carrito:
+    // ésas no existen en ningún inventario todavía, así que no hay qué cobrar.
     var _p = porSku[sku];
-    if (_p && (_p.origen === 'ag' || _p.origen === 'propio-3d')) return;
+    if (_p && _p.origen === 'propio-3d') return;
     n = Math.max(0, Math.min(n, (porSku[sku] && porSku[sku].stock) || 0));
     if (n === 0) delete carrito.lineas[sku];
     else carrito.lineas[sku] = n;
@@ -155,9 +157,10 @@
           : '<span class="prod__pocas" style="color:var(--muted)">Sobre pedido</span>')
       : (p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + p.stock + '</span>' : '');
 
-    // Ni las de AG ni las propias curadas llevan carrito todavía: las dos
-    // llevan enlace. La diferencia es el mensaje y la etiqueta.
-    var acciones = (esAG || esPropiaWA)
+    // Las propias curadas y las de AG agotadas llevan enlace de WhatsApp; las
+    // de AG con existencia se compran como cualquier otra pieza.
+    var agSobrePedido = esAG && !(p.disponible && p.stock > 0);
+    var acciones = (agSobrePedido || esPropiaWA)
       ? '<a class="btn btn--ghost btn--sm btn--block" data-wa target="_blank" rel="noopener"></a>'
       : '<button type="button" class="btn btn--primary btn--sm" data-agregar>Agregar</button>' +
         '<div class="prod__stepper" data-stepper hidden>' +
@@ -175,7 +178,7 @@
       '</div>';
     el.querySelector('.prod__nombre').textContent = p.nombre;  // sin inyectar HTML
 
-    if (esAG || esPropiaWA) {
+    if (agSobrePedido || esPropiaWA) {
       var wa = el.querySelector('[data-wa]');
       if (esPropiaWA) {
         wa.textContent = 'Pedir por WhatsApp';
@@ -391,12 +394,12 @@
         porSku = {};
         catalogo.forEach(function (p) { porSku[p.sku] = p; });
 
-        // Piezas del carrito que ya no existen, no tienen stock, o son de AG
-        // (que nunca debieron entrar): fuera.
+        // Piezas del carrito que ya no existen, se quedaron sin stock, o son
+        // propias curadas (que nunca debieron entrar): fuera.
         var huboCambio = false;
         Object.keys(carrito.lineas).forEach(function (sku) {
           var p = porSku[sku];
-          if (!p || p.origen === 'ag' || p.origen === 'propio-3d') {
+          if (!p || p.origen === 'propio-3d' || (p.origen === 'ag' && !(p.disponible && p.stock > 0))) {
             delete carrito.lineas[sku]; huboCambio = true;
           }
         });
@@ -849,10 +852,21 @@
     cpUltimo = '';
     buscarCp();             // datos recordados: resolver el CP sin que teclee
     var e = costoEnvio(t.centavos);
+    // Si el carrito trae refacciones de AG, se dice ANTES de cobrar: no salen
+    // del taller sino del proveedor, y eso cambia el tiempo de entrega.
+    var hayAG = Object.keys(carrito.lineas).some(function (sku) {
+      return porSku[sku] && porSku[sku].origen === 'ag';
+    });
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
       '<div><span>Envío</span><span>' + (e === 0 ? 'Gratis' : precio(e)) + '</span></div>' +
-      '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>';
+      '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>' +
+      (hayAG
+        ? '<div style="display:block;font-size:.86rem;color:var(--muted);margin-top:8px">' +
+          'Algunas refacciones de tu carrito las surte nuestro proveedor: salen directo de su ' +
+          'almacén y pueden tardar unos días más. Si algo no estuviera disponible, te avisamos ' +
+          'y te devolvemos tu dinero.</div>'
+        : '');
     if (dialogo.showModal) dialogo.showModal();
     else dialogo.setAttribute('open', '');
   }
