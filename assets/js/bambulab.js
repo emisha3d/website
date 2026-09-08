@@ -32,6 +32,7 @@
   var mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' });
   var productos = [];
   var filtro = 'todo';
+  var slugs = {};   // sku -> slug de su ficha en /refacciones/
 
   function texto(el, s) { el.textContent = s; }
 
@@ -39,6 +40,23 @@
     var art = document.createElement('article');
     art.className = 'swatch';
     art.setAttribute('data-perfil', p.perfil || 'otros');
+
+    // Si la pieza tiene ficha propia, la foto y el nombre llevan a ella. El
+    // mapa lo escribe herramientas/gen-refacciones.py; si todavía no cargó, o
+    // si la pieza no tiene ficha (agotadas y las que AG publica sin nombre),
+    // la tarjeta se queda como estaba y solo se puede pedir por WhatsApp.
+    var slug = slugs[p.sku];
+    var ficha = slug ? '/refacciones/' + slug + '/' : null;
+
+    function enlazar(el) {
+      if (!ficha) return el;
+      var a = document.createElement('a');
+      a.href = ficha;
+      a.style.color = 'inherit';
+      a.style.display = 'block';
+      a.appendChild(el);
+      return a;
+    }
 
     var media = document.createElement('div');
     media.className = 'swatch__media';
@@ -53,7 +71,7 @@
       img.onerror = function () { media.remove(); };
       media.appendChild(img);
     }
-    art.appendChild(media);
+    art.appendChild(enlazar(media));
 
     var cuerpo = document.createElement('div');
     cuerpo.className = 'swatch__body';
@@ -61,7 +79,7 @@
     var nom = document.createElement('p');
     nom.className = 'swatch__name';
     texto(nom, p.nombre || p.sku);
-    cuerpo.appendChild(nom);
+    cuerpo.appendChild(enlazar(nom));
 
     var precio = document.createElement('p');
     precio.className = 'swatch__line';
@@ -86,8 +104,20 @@
     }
     cuerpo.appendChild(disp);
 
+    // Botón explícito a la ficha: que la tarjeta sea clicable no se ve, y sin
+    // esto la única acción visible era pedir por WhatsApp sin saber qué es la
+    // pieza ni con qué impresora va.
+    if (ficha) {
+      var vf = document.createElement('a');
+      vf.className = 'btn btn--ghost btn--sm btn--block';
+      vf.href = ficha;
+      vf.style.marginTop = '10px';
+      texto(vf, 'Ver ficha');
+      cuerpo.appendChild(vf);
+    }
+
     var a = document.createElement('a');
-    a.className = 'btn btn--ghost btn--sm btn--block';
+    a.className = ficha ? 'btn btn--accent btn--sm btn--block' : 'btn btn--ghost btn--sm btn--block';
     a.href = 'https://wa.me/525575639255?text=' + encodeURIComponent(
       p.disponible
         ? 'Hola, me interesa: ' + (p.nombre || p.sku) + ' (' + p.sku + ')'
@@ -153,12 +183,21 @@
 
   texto(estado, 'Cargando el catálogo…');
 
-  fetch(API + '/productos')
+  // El mapa de fichas es opcional: si no carga, el catálogo se pinta igual,
+  // solo que sin enlace a la ficha. Por eso va en un Promise aparte que
+  // nunca rechaza, y no encadenado al del catálogo.
+  var mapaListo = fetch('/assets/data/refacciones-slugs.json')
+    .then(function (r) { return r.ok ? r.json() : {}; })
+    .catch(function () { return {}; })
+    .then(function (d) { slugs = d || {}; });
+
+  Promise.all([mapaListo, fetch(API + '/productos')
     .then(function (r) {
       if (!r.ok) throw new Error('el catálogo respondió ' + r.status);
       return r.json();
-    })
-    .then(function (d) {
+    })])
+    .then(function (res) {
+      var d = res[1];
       productos = (d && d.productos) || [];
       if (!productos.length) {
         texto(estado, 'Ahora mismo no hay piezas con existencia. Escríbenos por WhatsApp ' +

@@ -33,11 +33,22 @@
       "serviceType": "Reparación de impresoras 3D",
       "url": "https://www.emisha.com.mx/reparacion/",
       "description": "Taller independiente en Benito Juárez, Ciudad de México, especializado en impresoras Bambu Lab. Se agenda en línea el día y la hora de recepción del equipo (lunes a viernes de 12:00 a 18:00). Diagnóstico $300 MXN; reparación $700 MXN de mano de obra, o $400 MXN si ya se hizo el diagnóstico. Refacciones aparte, siempre autorizadas por el cliente. No es un centro de servicio autorizado por Bambu Lab.",
-      "provider": { "@id": "https://www.emisha.com.mx/#organization" },
-      "areaServed": { "@type": "City", "name": "Ciudad de México" },
+      "provider": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Ciudad de México"
+      },
       "hoursAvailable": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
         "opens": "12:00",
         "closes": "18:00"
       },
@@ -62,21 +73,78 @@
         "@type": "OfferCatalog",
         "name": "Reparación de impresoras Bambu Lab",
         "itemListElement": [
-          { "@type": "Offer", "name": "Diagnóstico", "price": "300", "priceCurrency": "MXN",
-            "itemOffered": { "@type": "Service", "name": "Diagnóstico de impresora 3D Bambu Lab" } },
-          { "@type": "Offer", "name": "Reparación (mano de obra)", "price": "700", "priceCurrency": "MXN",
-            "itemOffered": { "@type": "Service", "name": "Reparación de impresora 3D Bambu Lab" } },
-          { "@type": "Offer", "name": "Reparación con diagnóstico previo", "price": "400", "priceCurrency": "MXN",
-            "itemOffered": { "@type": "Service", "name": "Reparación de impresora 3D Bambu Lab (con diagnóstico previo en Emisha)" } }
+          {
+            "@type": "Offer",
+            "name": "Diagnóstico",
+            "price": "300",
+            "priceCurrency": "MXN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Diagnóstico de impresora 3D Bambu Lab"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "300",
+              "priceCurrency": "MXN",
+              "valueAddedTaxIncluded": true
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Reparación (mano de obra)",
+            "price": "700",
+            "priceCurrency": "MXN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Reparación de impresora 3D Bambu Lab"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "700",
+              "priceCurrency": "MXN",
+              "valueAddedTaxIncluded": true
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Reparación con diagnóstico previo",
+            "price": "400",
+            "priceCurrency": "MXN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Reparación de impresora 3D Bambu Lab (con diagnóstico previo en Emisha)"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "400",
+              "priceCurrency": "MXN",
+              "valueAddedTaxIncluded": true
+            }
+          }
         ]
       }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.emisha.com.mx/" },
-        { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.emisha.com.mx/servicios/" },
-        { "@type": "ListItem", "position": 3, "name": "Agendar reparación", "item": "https://www.emisha.com.mx/reparacion/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.emisha.com.mx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servicios",
+          "item": "https://www.emisha.com.mx/servicios/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Agendar reparación",
+          "item": "https://www.emisha.com.mx/reparacion/"
+        }
       ]
     },
     {
@@ -85,22 +153,34 @@
         {
           "@type": "Question",
           "name": "¿Cuánto cuesta reparar una impresora Bambu Lab en Emisha?",
-          "acceptedAnswer": { "@type": "Answer", "text": "El diagnóstico cuesta $300 MXN y la reparación $700 MXN de mano de obra. Si ya te hicimos el diagnóstico, la reparación te sale en $400 MXN. Las refacciones se cotizan aparte y no se instala ninguna sin tu autorización." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El diagnóstico cuesta $300 MXN y la reparación $700 MXN de mano de obra. Si ya te hicimos el diagnóstico, la reparación te sale en $400 MXN. Las refacciones se cotizan aparte y no se instala ninguna sin tu autorización."
+          }
         },
         {
           "@type": "Question",
           "name": "¿Qué tengo que llevar a la cita?",
-          "acceptedAnswer": { "@type": "Answer", "text": "La impresora con su cable de corriente. Si la falla tiene que ver con el AMS, trae también el AMS con su cable. Si el problema pasa con un filamento en particular, tráelo para reproducir la falla. No hace falta que traigas la caja." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La impresora con su cable de corriente. Si la falla tiene que ver con el AMS, trae también el AMS con su cable. Si el problema pasa con un filamento en particular, tráelo para reproducir la falla. No hace falta que traigas la caja."
+          }
         },
         {
           "@type": "Question",
           "name": "¿Puedo cambiar o cancelar mi cita?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. En el correo de confirmación viene un enlace para ver o cancelar tu cita. Para cambiarla de día u hora, cancela y agenda de nuevo, o escríbenos por WhatsApp al +52 55 7563 9255 y la movemos nosotros." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. En el correo de confirmación viene un enlace para ver o cancelar tu cita. Para cambiarla de día u hora, cancela y agenda de nuevo, o escríbenos por WhatsApp al +52 55 7563 9255 y la movemos nosotros."
+          }
         },
         {
           "@type": "Question",
           "name": "¿Y si no estoy en Ciudad de México?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Recibimos equipos de otros estados por paquetería. En ese caso no hace falta cita: escríbenos por WhatsApp al +52 55 7563 9255 con el modelo y la falla, te damos la dirección y las indicaciones de empaque. El envío de ida y vuelta corre por tu cuenta." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recibimos equipos de otros estados por paquetería. En ese caso no hace falta cita: escríbenos por WhatsApp al +52 55 7563 9255 con el modelo y la falla, te damos la dirección y las indicaciones de empaque. El envío de ida y vuelta corre por tu cuenta."
+          }
         }
       ]
     }
@@ -420,7 +500,7 @@
               <div><span>Reparación con diagnóstico previo</span><b>$400 MXN</b></div>
               <div><span>Refacciones</span><b>Se cotizan aparte</b></div>
             </div>
-            <p class="muted" style="font-size:.84rem;margin-top:12px">Ninguna refacción se consigue ni se instala sin que la autorices. Si decides no reparar, solo pagas el diagnóstico.</p>
+            <p class="muted" style="font-size:.84rem;margin-top:12px">Precios en pesos mexicanos con <b>IVA incluido</b>. Ninguna refacción se consigue ni se instala sin que la autorices. Si decides no reparar, solo pagas el diagnóstico.</p>
           </div>
 
           <div class="card">
