@@ -9,6 +9,11 @@
    ========================================================================== */
 
 :root {
+  /* Alto del encabezado pegajoso. Lo usa la barra de tienda para pegarse JUSTO
+     debajo y no quedar escondida atrás: las dos son sticky, y con las dos en
+     top:0 gana el encabezado por z-index y el carrito no se ve al bajar. */
+  --h-header: 67px;   /* 66 de min-height + 1 del borde */
+
   /* Fondos y superficies */
   --bg:          #ffffff;
   --bg-2:        #f5f7fa;
@@ -121,6 +126,10 @@ strong { font-weight: 640; }
   border-bottom: 1px solid var(--border-soft);
 }
 .site-header__inner { display: flex; align-items: center; gap: 20px; min-height: 66px; }
+@media (max-width: 700px) {
+  .site-header { position: static; }
+  :root { --h-header: 0px; }
+}
 .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .brand:hover { text-decoration: none; }
 .brand img { height: 32px; width: auto; }

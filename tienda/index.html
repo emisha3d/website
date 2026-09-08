@@ -18,7 +18,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css?v=b9773abd">
+<link rel="stylesheet" href="../assets/css/styles.css?v=96e16336">
 
 <style>
 /* Estilos propios de la tienda (la hoja global no se toca desde aquí). */
@@ -87,7 +87,7 @@
 .tienda-cuenta button{border:0;background:none;color:var(--brand);font:inherit;font-size:.86rem;cursor:pointer;padding:0;text-decoration:underline}
 
 /* --- Barra de tienda: buscador + carrito, pegada bajo el encabezado ------- */
-.tienda-bar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.tienda-bar{position:sticky;top:var(--h-header,67px);z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
 .tienda-bar__inner{display:flex;align-items:center;gap:12px;padding-block:10px}
 .buscador{position:relative;flex:1;min-width:0}
 .buscador__campo{display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:99px;background:var(--surface-2);padding:0 6px 0 14px}
@@ -294,15 +294,15 @@
         <input id="co-calle" name="calle" required maxlength="120" autocomplete="street-address">
       </div>
       <div class="field">
-        <label for="co-colonia">Colonia</label>
-        <select data-colonia-sel aria-label="Colonia" hidden></select>
-        <input id="co-colonia" name="colonia" required maxlength="80" autocomplete="address-level3">
-      </div>
-      <div class="field">
         <label for="co-cp">Código postal</label>
         <input id="co-cp" name="cp" required pattern="[0-9]{5}" maxlength="5"
                inputmode="numeric" autocomplete="postal-code" title="5 dígitos">
         <p class="field__hint" data-cp-aviso hidden></p>
+      </div>
+      <div class="field">
+        <label for="co-colonia">Colonia</label>
+        <select data-colonia-sel aria-label="Colonia" hidden></select>
+        <input id="co-colonia" name="colonia" required maxlength="80" autocomplete="address-level3">
       </div>
       <div class="field">
         <label for="co-ciudad">Ciudad o municipio</label>
