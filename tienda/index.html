@@ -15,6 +15,36 @@
 <meta property="og:title" content="Tienda Emisha — piezas impresas en 3D">
 <meta property="og:description" content="Inventario real, pago con Mercado Pago y envío a todo México.">
 <meta property="og:url" content="https://www.emisha.com.mx/tienda/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/filamentos/cosmic-blue.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["WebPage", "CollectionPage"],
+      "@id": "https://www.emisha.com.mx/tienda/#webpage",
+      "url": "https://www.emisha.com.mx/tienda/",
+      "name": "Tienda en línea — piezas impresas en 3D con envío a todo México | Emisha",
+      "description": "Compra piezas impresas en 3D directamente de Emisha: inventario real en Ciudad de México, pago seguro con Mercado Pago y envío a todo el país.",
+      "inLanguage": "es-MX",
+      "isPartOf": { "@id": "https://www.emisha.com.mx/#website" },
+      "about": { "@id": "https://www.emisha.com.mx/#organization" },
+      "provider": { "@id": "https://www.emisha.com.mx/#organization" },
+      "breadcrumb": { "@id": "https://www.emisha.com.mx/tienda/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.emisha.com.mx/tienda/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.emisha.com.mx/" },
+        { "@type": "ListItem", "position": 2, "name": "Tienda", "item": "https://www.emisha.com.mx/tienda/" }
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
@@ -251,6 +281,50 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       Catálogo en HTML de verdad.
+
+       Todo lo de arriba lo pinta tienda.js con JavaScript. Google a veces lo
+       ejecuta; GPTBot, ClaudeBot y PerplexityBot casi nunca. Estos enlaces van
+       a los hubs por categoría (los genera herramientas/gen-tienda-hubs.py),
+       que sí traen las piezas listadas en HTML estático. Sin ellos, el
+       catálogo entero es invisible para los rastreadores de IA.
+
+       Sin conteos a propósito: el número cambia con cada corrida del
+       generador y aquí quedaría viejo. Los conteos van en cada hub.
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" id="categorias">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Catálogo por categoría</span>
+        <h2>Explora el catálogo por categoría</h2>
+        <p>Cada categoría tiene su propia página con todas sus piezas, el material con el
+          que se imprime y el precio. Todo se imprime bajo pedido en nuestro taller de la
+          Ciudad de México, con envío a todo el país.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:9px">
+        <a class="pill pill--brand" href="../tienda/organizacion/">Organización y Almacenaje</a>
+        <a class="pill pill--brand" href="../tienda/escritorio-oficina/">Escritorio y Oficina</a>
+        <a class="pill pill--brand" href="../tienda/taller-herramientas/">Taller y Herramientas</a>
+        <a class="pill pill--brand" href="../tienda/tecnologia-gaming/">Tecnología y Gaming</a>
+        <a class="pill pill--brand" href="../tienda/pared-tableros/">Pared y Tableros</a>
+        <a class="pill pill--brand" href="../tienda/cocina-comedor/">Cocina y Comedor</a>
+        <a class="pill pill--brand" href="../tienda/viaje-edc/">Viaje y Uso Diario</a>
+        <a class="pill pill--brand" href="../tienda/juguetes/">Juguetes y Antiestrés</a>
+        <a class="pill pill--brand" href="../tienda/bano-cuidado/">Baño y Cuidado Personal</a>
+        <a class="pill pill--brand" href="../tienda/hogar-decoracion/">Hogar, Decoración y Limpieza</a>
+        <a class="pill pill--brand" href="../tienda/mascotas-jardin/">Mascotas, Jardín y Exterior</a>
+        <a class="pill pill--brand" href="../tienda/automovil/">Automóvil y Movilidad</a>
+        <a class="pill pill--brand" href="../tienda/impresion-3d/">Impresión 3D y Electrónica</a>
+        <a class="pill pill--brand" href="../tienda/otros/">Otros Artículos</a>
+      </div>
+      <div class="hero__cta">
+        <a class="btn btn--ghost" href="../tienda/categorias/">Ver todas las categorías</a>
+        <a class="btn btn--ghost" href="../cotizador/">¿Quieres algo a la medida?</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div class="drawer-fondo" data-cart-fondo hidden></div>
@@ -343,6 +417,7 @@
           <li><a href="../placas/">Placas de impresión</a></li>
           <li><a href="../bambulab/">Refacciones Bambu Lab</a></li>
           <li><a href="../tienda/">Tienda en línea</a></li>
+          <li><a href="../tienda/categorias/">Categorías de la tienda</a></li>
           <li><a href="../servicios/">Servicios y reparación</a></li>
           <li><a href="../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
         </ul>

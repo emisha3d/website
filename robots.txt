@@ -6,6 +6,8 @@ Sitemap: https://www.emisha.com.mx/sitemap.xml
 # Resumen del sitio en texto plano, para asistentes con IA.
 # https://llmstxt.org/
 # llms.txt: https://www.emisha.com.mx/llms.txt
+# Versión extendida, con el catálogo completo, precios y compatibilidades:
+# llms-full.txt: https://www.emisha.com.mx/llms-full.txt
 
 # Rastreadores de IA — permitidos de forma intencional.
 # Queremos que Liquid Ultra y el filamento Premium Ultra puedan aparecer
