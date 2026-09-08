@@ -23,7 +23,9 @@
     'P1S':       { dia: 650,  semana: 2400, mes: 6000,  valor: 15000, deposito: 4500 },
     'Snapmaker': { dia: 1200, semana: 4300, mes: 10800, valor: 27000, deposito: 8100 },
     'X1 Carbon': { dia: 1200, semana: 4500, mes: 11200, valor: 28000, deposito: 8400 },
-    'H2S':       { dia: 1600, semana: 5800, mes: 14400, valor: 36000, deposito: 10800 }
+    'H2S':       { dia: 1600, semana: 5800, mes: 14400, valor: 36000, deposito: 10800 },
+    // No sale del taller, así que no se pide depósito en garantía.
+    'Orange Storm': { dia: 4000, semana: 14400, mes: 36000, valor: 90000, deposito: 0, enTaller: true }
   };
 
   var IVA = 0.16;
@@ -123,14 +125,26 @@
     var renta = m[tarifa] * cantidad;
     var iva = renta * IVA;
     var total = renta + iva;
-    var anticipo = Math.round(total * ANTICIPO);
+    // Lo que no sale del taller no se aparta con anticipo: se paga al empezar.
+    var anticipo = m.enTaller ? 0 : Math.round(total * ANTICIPO);
 
     return {
       maquina: nombre, tarifa: tarifa, cantidad: cantidad,
       renta: renta, iva: iva, total: total,
       anticipo: anticipo, resto: total - anticipo,
-      deposito: m.deposito
+      deposito: m.deposito, enTaller: !!m.enTaller
     };
+  }
+
+  /* Las máquinas que no salen del taller no dejan depósito ni pagan anticipo:
+     el resumen cambia de renglones y de caja. */
+  function pintarModoTaller(enTaller) {
+    [['[data-caja-deposito]', enTaller], ['[data-caja-taller]', !enTaller],
+     ['[data-fila-anticipo]', enTaller], ['[data-fila-resto]', enTaller],
+     ['[data-fila-taller]', !enTaller]].forEach(function (par) {
+      var el = resumen.querySelector(par[0]);
+      if (el) el.hidden = par[1];
+    });
   }
 
   function pintarResumen() {
@@ -139,9 +153,12 @@
     var regla = TARIFAS[tarifaElegida()];
 
     if (!c) {
+      // Aunque el tiempo esté a medias, el resumen ya debe decir lo que toca a esa máquina.
+      var elegida = MAQUINAS[maquinaElegida()];
+      pintarModoTaller(!!(elegida && elegida.enTaller));
       t('[data-r-maquina]').textContent = maquinaElegida() ? 'Ajusta el tiempo' : 'Escoge una impresora';
       ['[data-r-renta]', '[data-r-iva]', '[data-r-total]', '[data-r-anticipo]',
-       '[data-r-resto]', '[data-r-deposito]'].forEach(function (s) { t(s).textContent = '—'; });
+       '[data-r-resto]', '[data-r-deposito]', '[data-r-entaller]'].forEach(function (s) { t(s).textContent = '—'; });
       return;
     }
 
@@ -153,6 +170,8 @@
     t('[data-r-anticipo]').textContent = mxn(c.anticipo);
     t('[data-r-resto]').textContent = mxn(c.resto);
     t('[data-r-deposito]').textContent = mxn(c.deposito);
+    t('[data-r-entaller]').textContent = mxn(c.total);
+    pintarModoTaller(c.enTaller);
   }
 
   /* --- La tarifa cambia el mínimo, el máximo y cómo se llama la unidad --- */
@@ -280,7 +299,8 @@
       return r.json().then(function (j) { return { ok: r.ok, cuerpo: j }; });
     }).then(function (r) {
       if (!r.ok) throw new Error(r.cuerpo && r.cuerpo.error || 'No se pudo apartar');
-      // El worker regresa a dónde ir a pagar el anticipo.
+      // El worker regresa a dónde ir a pagar el anticipo. Las máquinas que no salen
+      // del taller no llevan anticipo, así que ahí no debe mandar enlace de pago.
       if (r.cuerpo.pago) { location.href = r.cuerpo.pago; return; }
       decir('Listo, tu equipo quedó apartado. Te mandamos la confirmación a <b>' +
             form.correo.value.trim() + '</b>.', 'ok');

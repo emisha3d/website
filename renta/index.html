@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Renta de impresoras 3D en CDMX — por día, semana o mes | Emisha</title>
-<meta name="description" content="Renta una impresora 3D Bambu Lab o Snapmaker en Ciudad de México. Desde $220 el día. Recoges y devuelves en el taller de Benito Juárez. Depósito en garantía del 30% y pagaré; sin mensualidades ni contratos largos.">
+<meta name="description" content="Renta una impresora 3D Bambu Lab, Snapmaker o Elegoo en Ciudad de México. Desde $220 el día. Recoges y devuelves en el taller de Benito Juárez. Depósito en garantía del 30% y pagaré; sin mensualidades ni contratos largos.">
 <link rel="canonical" href="https://www.emisha.com.mx/renta/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#ffffff">
@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Emisha">
 <meta property="og:locale" content="es_MX">
 <meta property="og:title" content="Renta de impresoras 3D en CDMX — Emisha">
-<meta property="og:description" content="Bambu Lab y Snapmaker por día, semana o mes. Desde $220 el día. Recoges en Benito Juárez.">
+<meta property="og:description" content="Bambu Lab, Snapmaker y Elegoo por día, semana o mes. Desde $220 el día. Recoges en Benito Juárez.">
 <meta property="og:url" content="https://www.emisha.com.mx/renta/">
 <meta property="og:image" content="https://www.emisha.com.mx/assets/img/modelos/a1.webp">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css?v=14e5eeef">
+<link rel="stylesheet" href="../assets/css/styles.css?v=b9773abd">
 
 <script type="application/ld+json">
 {
@@ -32,7 +32,7 @@
       "name": "Renta de impresoras 3D en Ciudad de México",
       "serviceType": "Renta de impresoras 3D",
       "url": "https://www.emisha.com.mx/renta/",
-      "description": "Renta de impresoras 3D Bambu Lab y Snapmaker por día, semana o mes en Benito Juárez, Ciudad de México. El equipo se recoge y se devuelve en el taller. Se pide depósito en garantía equivalente al 30% del valor del equipo, pagaré por el valor total, identificación oficial y comprobante de domicilio. El depósito se devuelve completo al regresar el equipo en las mismas condiciones. Precios sin IVA.",
+      "description": "Renta de impresoras 3D Bambu Lab, Snapmaker y Elegoo por día, semana o mes en Benito Juárez, Ciudad de México. El equipo se recoge y se devuelve en el taller. Se pide depósito en garantía equivalente al 30% del valor del equipo, pagaré por el valor total, identificación oficial y comprobante de domicilio. El depósito se devuelve completo al regresar el equipo en las mismas condiciones. Precios sin IVA.",
       "provider": { "@id": "https://www.emisha.com.mx/#organization" },
       "areaServed": { "@type": "City", "name": "Ciudad de México" },
       "availableChannel": {
@@ -69,7 +69,9 @@
           { "@type": "Offer", "name": "Bambu Lab X1 Carbon — renta por día", "price": "1200", "priceCurrency": "MXN",
             "itemOffered": { "@type": "Product", "name": "Bambu Lab X1 Carbon" } },
           { "@type": "Offer", "name": "Bambu Lab H2S — renta por día", "price": "1600", "priceCurrency": "MXN",
-            "itemOffered": { "@type": "Product", "name": "Bambu Lab H2S" } }
+            "itemOffered": { "@type": "Product", "name": "Bambu Lab H2S" } },
+          { "@type": "Offer", "name": "Elegoo Orange Storm — renta por día", "price": "4000", "priceCurrency": "MXN",
+            "itemOffered": { "@type": "Product", "name": "Elegoo Orange Storm" } }
         ]
       }
     },
@@ -87,7 +89,7 @@
         {
           "@type": "Question",
           "name": "¿Cuánto cuesta rentar una impresora 3D en Emisha?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Depende del equipo. Va desde $220 MXN el día por una A1 mini hasta $1,600 MXN el día por una H2S. La semana equivale a unos cuatro días y el mes a unas nueve semanas de descuento acumulado: por ejemplo la A1 cuesta $350 el día, $1,300 la semana y $3,200 el mes. Todos los precios son sin IVA y la renta mínima es de tres días." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Depende del equipo. Va desde $220 MXN el día por una A1 mini hasta $4,000 MXN el día por una Elegoo Orange Storm. La semana equivale a unos cuatro días y el mes a unas nueve semanas de descuento acumulado: por ejemplo la A1 cuesta $350 el día, $1,300 la semana y $3,200 el mes. Todos los precios son sin IVA y la renta mínima es de tres días." }
         },
         {
           "@type": "Question",
@@ -132,9 +134,7 @@
 /* ---------- flota ---------- */
 .flota{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .maquina{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 16px 14px;min-width:0}
-.maquina__cab{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:2px}
 .maquina__nombre{font-size:1.02rem;font-weight:700;margin:0;line-height:1.2}
-.maquina__valor{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
 .maquina__para{margin:6px 0 12px;font-size:.85rem;line-height:1.45;color:var(--muted);flex:1}
 .maquina__precios{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
 .maquina__precio{border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:7px 4px;text-align:center}
@@ -179,7 +179,7 @@
 .renta-error{display:block;margin-top:5px;font-size:.76rem;color:var(--bad)}
 /* display:block es regla de autor y le gana al [hidden] del navegador:
    sin esta línea, el.hidden=true pone el atributo y el texto se queda a la vista. */
-.renta-error[hidden],.renta-aviso[hidden]{display:none}
+.renta-error[hidden],.renta-aviso[hidden],.resumen__renglon[hidden]{display:none}
 
 /* selector de máquina y de duración, mismo patrón que el picker de /reparacion/ */
 .picker{border:0;padding:0;margin:0;min-width:0;grid-column:1/-1}
@@ -291,10 +291,7 @@
       <div class="flota" data-flota>
 
         <article class="maquina">
-          <div class="maquina__cab">
-            <h3 class="maquina__nombre">A1 mini</h3>
-            <span class="maquina__valor">$5,000</span>
-          </div>
+          <h3 class="maquina__nombre">A1 mini</h3>
           <p class="maquina__para">Cama abierta, volumen chico. La más sencilla de usar si es tu primera impresora: PLA y PETG sin complicaciones.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$220</dd></div>
@@ -306,10 +303,7 @@
         </article>
 
         <article class="maquina">
-          <div class="maquina__cab">
-            <h3 class="maquina__nombre">A1</h3>
-            <span class="maquina__valor">$8,000</span>
-          </div>
+          <h3 class="maquina__nombre">A1</h3>
           <p class="maquina__para">Cama abierta con más volumen que la mini y multicolor si le pones el AMS lite. El caballito de batalla para PLA y PETG.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$350</dd></div>
@@ -321,10 +315,7 @@
         </article>
 
         <article class="maquina">
-          <div class="maquina__cab">
-            <h3 class="maquina__nombre">A2</h3>
-            <span class="maquina__valor">$12,000</span>
-          </div>
+          <h3 class="maquina__nombre">A2</h3>
           <p class="maquina__para">El escalón entre la A1 y la P1S. Si la A1 se te queda corta pero no necesitas cámara cerrada, esta es la que buscas.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$520</dd></div>
@@ -336,10 +327,7 @@
         </article>
 
         <article class="maquina">
-          <div class="maquina__cab">
-            <h3 class="maquina__nombre">P1S</h3>
-            <span class="maquina__valor">$15,000</span>
-          </div>
+          <h3 class="maquina__nombre">P1S</h3>
           <p class="maquina__para">Cámara cerrada. Aquí ya puedes imprimir ABS y ASA sin que se te levanten las esquinas. La renta más pedida para piezas funcionales.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$650</dd></div>
@@ -351,10 +339,7 @@
         </article>
 
         <article class="maquina maquina--pedido">
-          <div class="maquina__cab">
-            <h3 class="maquina__nombre">Snapmaker</h3>
-            <span class="maquina__valor">$27,000</span>
-          </div>
+          <h3 class="maquina__nombre">Snapmaker</h3>
           <p class="maquina__nota">Bajo disponibilidad</p>
           <p class="maquina__para">Volumen grande. Para piezas que sencillamente no caben en las demás.</p>
           <dl class="maquina__precios">
@@ -367,10 +352,7 @@
         </article>
 
         <article class="maquina maquina--pedido">
-          <div class="maquina__cab">
-            <h3 class="maquina__nombre">X1 Carbon</h3>
-            <span class="maquina__valor">$28,000</span>
-          </div>
+          <h3 class="maquina__nombre">X1 Carbon</h3>
           <p class="maquina__nota">Bajo disponibilidad</p>
           <p class="maquina__para">Cerrada, con lidar y AMS. Para materiales técnicos y para el trabajo que no admite una pieza fallada.</p>
           <dl class="maquina__precios">
@@ -383,12 +365,9 @@
         </article>
 
         <article class="maquina maquina--pedido">
-          <div class="maquina__cab">
-            <h3 class="maquina__nombre">H2S</h3>
-            <span class="maquina__valor">$36,000</span>
-          </div>
+          <h3 class="maquina__nombre">H2S</h3>
           <p class="maquina__nota">Bajo disponibilidad</p>
-          <p class="maquina__para">La más grande y la más rápida del taller. Se renta para producción en serie o para una pieza sola muy grande.</p>
+          <p class="maquina__para">La más rápida del taller y con cámara cerrada grande. Se renta para producción en serie o para una pieza sola de buen tamaño.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$1,600</dd></div>
             <div class="maquina__precio"><dt>Semana</dt><dd>$5,800</dd></div>
@@ -396,6 +375,19 @@
           </dl>
           <p class="maquina__deposito">Depósito en garantía <b>$10,800</b> · se devuelve completo</p>
           <button type="button" class="btn btn--primary btn--sm" data-rentar="H2S">Rentar esta</button>
+        </article>
+
+        <article class="maquina maquina--pedido">
+          <h3 class="maquina__nombre">Orange Storm</h3>
+          <p class="maquina__nota">Bajo disponibilidad</p>
+          <p class="maquina__para">La Elegoo de formato gigante: casi un metro de alto de impresión. Para la pieza que no se puede partir en pedazos.</p>
+          <dl class="maquina__precios">
+            <div class="maquina__precio"><dt>Día</dt><dd>$4,000</dd></div>
+            <div class="maquina__precio"><dt>Semana</dt><dd>$14,400</dd></div>
+            <div class="maquina__precio"><dt>Mes</dt><dd>$36,000</dd></div>
+          </dl>
+          <p class="maquina__deposito">Sin depósito: <b>esta se renta solo dentro del taller</b>, no sale a domicilio.</p>
+          <button type="button" class="btn btn--primary btn--sm" data-rentar="Orange Storm">Rentar esta</button>
         </article>
 
       </div>
@@ -416,7 +408,7 @@
       <div class="pasos" style="margin-top:18px">
         <div class="paso">
           <h3>Apartas en línea</h3>
-          <p>Escoges la máquina, cuántos días la quieres y desde cuándo. Pagas el anticipo del 20% para que el equipo quede apartado a tu nombre.</p>
+          <p>Escoges la máquina, cuántos días la quieres y desde cuándo. Pagas el anticipo del 20% para que el equipo quede apartado a tu nombre (la Orange Storm no lleva anticipo: esa se paga al empezar, aquí en el taller).</p>
         </div>
         <div class="paso">
           <h3>Pasas al taller</h3>
@@ -445,7 +437,7 @@
       <ul class="requisitos">
         <li><b>Identificación oficial vigente</b> INE o pasaporte. Nos quedamos con una copia, no con el original.</li>
         <li><b>Comprobante de domicilio</b> De menos de tres meses. Luz, agua, predial o estado de cuenta.</li>
-        <li><b>Depósito en garantía</b> El 30% del valor del equipo, en efectivo o transferencia. Se te devuelve completo al regresar la impresora.</li>
+        <li><b>Depósito en garantía</b> El 30% del valor del equipo, en efectivo o transferencia. Se te devuelve completo al regresar la impresora. La Orange Storm no lo lleva: esa no sale del taller.</li>
         <li><b>Contrato y pagaré</b> Se firman ahí mismo. El pagaré es por el valor total del equipo y se rompe cuando lo devuelves.</li>
       </ul>
       <p class="lede" style="margin-top:16px;font-size:.86rem">
@@ -486,6 +478,7 @@
                     <label class="picker__item"><input type="radio" name="maquina" value="Snapmaker"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 20h36"/><rect x="19" y="20" width="10" height="7" rx="1"/><path d="M12 36h24"/></svg></span><span class="picker__label">Snapmaker</span><span class="picker__desde">$1,200/día</span></label>
                     <label class="picker__item"><input type="radio" name="maquina" value="X1 Carbon"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M9 19h30"/><rect x="21" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 25v5"/></svg></span><span class="picker__label">X1 Carbon</span><span class="picker__desde">$1,200/día</span></label>
                     <label class="picker__item"><input type="radio" name="maquina" value="H2S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__label">H2S</span><span class="picker__desde">$1,600/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="Orange Storm"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="4" width="34" height="40" rx="2"/><path d="M7 14h34"/><rect x="20" y="14" width="8" height="6" rx="1"/><path d="M12 38h24"/><path d="M12 4v40M36 4v40"/></svg></span><span class="picker__label">Orange Storm</span><span class="picker__desde">$4,000/día</span></label>
                   </div>
                   <span class="renta-error" data-error-maquina hidden>Escoge una impresora.</span>
                 </fieldset>
@@ -564,13 +557,20 @@
           <div class="resumen__renglon"><span data-r-maquina>Escoge una impresora</span><span data-r-renta>—</span></div>
           <div class="resumen__renglon resumen__renglon--suave"><span>IVA 16%</span><span data-r-iva>—</span></div>
           <div class="resumen__renglon resumen__renglon--total"><span>Total de la renta</span><span data-r-total>—</span></div>
-          <div class="resumen__renglon"><span>Anticipo hoy (20%)</span><span data-r-anticipo>—</span></div>
-          <div class="resumen__renglon resumen__renglon--suave"><span>Resto en el taller</span><span data-r-resto>—</span></div>
+          <div class="resumen__renglon" data-fila-anticipo><span>Anticipo hoy (20%)</span><span data-r-anticipo>—</span></div>
+          <div class="resumen__renglon resumen__renglon--suave" data-fila-resto><span>Resto en el taller</span><span data-r-resto>—</span></div>
+          <div class="resumen__renglon resumen__renglon--suave" data-fila-taller hidden><span>Se paga completo al empezar, en el taller</span><span data-r-entaller>—</span></div>
 
-          <div class="resumen__caja">
+          <div class="resumen__caja" data-caja-deposito>
             Además del pago, al recoger dejas <b data-r-deposito>—</b> de depósito en garantía.
             No es un cobro: se te devuelve completo cuando regresas la impresora en las
             mismas condiciones.
+          </div>
+
+          <div class="resumen__caja" data-caja-taller hidden>
+            Esta máquina <b>no sale del taller</b>: la rentas aquí y trabajas con ella
+            aquí, así que no se deja depósito en garantía ni se cobra anticipo. Te damos
+            el acceso y el horario al confirmar el apartado, y pagas al empezar.
           </div>
 
           <button type="submit" class="btn btn--primary btn--lg" form="renta-form" data-enviar>Apartar mi equipo</button>
@@ -679,6 +679,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/renta.js?v=8fe7af6b" defer></script>
+<script src="../assets/js/renta.js?v=98a684bf" defer></script>
 </body>
 </html>
