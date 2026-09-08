@@ -193,6 +193,9 @@
       if (!r) return;
       r.checked = true;
       marcarPicker();
+      // Marcar por código no dispara 'change', así que el error de "escoge una
+      // impresora" se queda puesto si no se limpia aquí a mano.
+      mostrarError('maquina', '');
       pintarResumen();
       document.getElementById('rentar').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });

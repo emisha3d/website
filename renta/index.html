@@ -177,6 +177,9 @@
 .renta-campo__hint{margin:5px 0 0;font-size:.76rem;color:var(--muted);line-height:1.4}
 .renta-campo.is-error input,.renta-campo.is-error select{border-color:var(--bad)}
 .renta-error{display:block;margin-top:5px;font-size:.76rem;color:var(--bad)}
+/* display:block es regla de autor y le gana al [hidden] del navegador:
+   sin esta línea, el.hidden=true pone el atributo y el texto se queda a la vista. */
+.renta-error[hidden],.renta-aviso[hidden]{display:none}
 
 /* selector de máquina y de duración, mismo patrón que el picker de /reparacion/ */
 .picker{border:0;padding:0;margin:0;min-width:0;grid-column:1/-1}
@@ -676,6 +679,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/renta.js?v=8c53a44b" defer></script>
+<script src="../assets/js/renta.js?v=8fe7af6b" defer></script>
 </body>
 </html>
