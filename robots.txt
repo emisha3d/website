@@ -3,6 +3,10 @@ Allow: /
 
 Sitemap: https://www.emisha.com.mx/sitemap.xml
 
+# Resumen del sitio en texto plano, para asistentes con IA.
+# https://llmstxt.org/
+# llms.txt: https://www.emisha.com.mx/llms.txt
+
 # Rastreadores de IA — permitidos de forma intencional.
 # Queremos que Liquid Ultra y el filamento Premium Ultra puedan aparecer
 # citados en respuestas de asistentes y buscadores con IA.

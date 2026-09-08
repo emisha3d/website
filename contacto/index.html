@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contacto — Emisha</title>
-<meta name="description" content="Datos de contacto de Emisha: correo y WhatsApp. Atendemos a técnicos, talleres y distribuidores desde Ciudad de México, y manejamos precios de mayoreo para el metal líquido Liquid Ultra y el filamento Emisha PLA y PETG.">
+<title>Contacto — taller de impresión 3D en Benito Juárez, CDMX | Emisha</title>
+<meta name="description" content="Datos de contacto de Emisha: correo, WhatsApp, dirección del taller en Av. División del Norte 1354, Benito Juárez, CDMX, y horario de lunes a viernes de 9:00 a 19:00. Atendemos a técnicos, talleres y distribuidores desde Ciudad de México, y manejamos precios de mayoreo para el metal líquido Liquid Ultra y el filamento Emisha PLA y PETG.">
 <link rel="canonical" href="https://www.emisha.com.mx/contacto/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#ffffff">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Emisha">
 <meta property="og:locale" content="es_MX">
-<meta property="og:title" content="Contacto — Emisha">
+<meta property="og:title" content="Contacto — taller de impresión 3D en Benito Juárez, CDMX">
 <meta property="og:description" content="Correo y WhatsApp de Emisha. Atendemos a técnicos, talleres y distribuidores. Manejamos precios por volumen para mayoreo.">
 <meta property="og:url" content="https://www.emisha.com.mx/contacto/">
 <meta property="og:image" content="https://www.emisha.com.mx/assets/img/liquid-ultra/normal-01.webp">
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://www.emisha.com.mx/#organization",
       "name": "Emisha",
       "legalName": "Emisha Design And Consulting S.A. de C.V.",
@@ -80,9 +80,24 @@
         "availableLanguage": ["es-MX", "en"],
         "areaServed": "MX"
       },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 19.3745121,
+        "longitude": -99.1576659
+      },
+      "hasMap": "https://maps.app.goo.gl/fZnFa1JurYKchB5F9",
       "sameAs": [
         "https://www.mercadolibre.com.mx/tienda/emisha",
-        "https://www.amazon.com.mx/s?k=emisha"
+        "https://www.amazon.com.mx/s?k=emisha",
+        "https://maps.google.com/?cid=2848263702305576539"
       ]
     }
   ]
@@ -111,9 +126,16 @@
           <a href="../bambulab/">Bambu Lab</a>
         </div>
       </div>
-      <a href="../servicios/">Servicios</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../servicios/">Servicios y reparación</a>
+          <a href="../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../renta/">Renta de impresoras</a>
+          <a href="../cotizador/">Cotizar pieza</a>
+        </div>
+      </div>
       <a href="../reparacion/">Agendar reparación</a>
-      <a href="../cotizador/">Cotizar pieza</a>
       <div class="nav__group" data-nav-group>
         <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
         <div class="nav__menu" id="nav-herramientas">
@@ -176,8 +198,21 @@
               </svg>
               <div>
                 <span class="label">Almacén y entregas</span>
-                Av. División del Norte 1354, Piso 1, Letrán del Valle,
-                Benito Juárez, CDMX 03650. Enviamos a todo el país.
+                <a href="https://maps.app.goo.gl/fZnFa1JurYKchB5F9" target="_blank" rel="noopener">Av. División del Norte 1354, Piso 1, Letrán del Valle,
+                Benito Juárez, CDMX 03650</a>. Enviamos a todo el país.
+              </div>
+            </li>
+            <li>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 2"/>
+              </svg>
+              <div>
+                <span class="label">Horario</span>
+                El taller abre de lunes a viernes, de 9:00 a 19:00. Los sábados
+                atendemos con cita previa por WhatsApp. La recepción de impresoras
+                para reparación es de 12:00 a 18:00 y se
+                <a href="../reparacion/">agenda en línea</a>.
               </div>
             </li>
           </ul>
@@ -286,6 +321,7 @@
           <li><a href="../placas/">Placas de impresión</a></li>
           <li><a href="../bambulab/">Refacciones Bambu Lab</a></li>
           <li><a href="../servicios/">Servicios y reparación</a></li>
+          <li><a href="../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
         </ul>
       </div>
       <div>

@@ -27,7 +27,6 @@
   var rejilla = document.querySelector('[data-ag-grid]');
   var estado = document.querySelector('[data-ag-estado]');
   var barra = document.querySelector('[data-ag-filtros]');
-  var sello = document.querySelector('[data-ag-actualizado]');
   if (!rejilla) return;
 
   var mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' });
@@ -165,13 +164,6 @@
         texto(estado, 'Ahora mismo no hay piezas con existencia. Escríbenos por WhatsApp ' +
                       'y te decimos cuándo llegan.');
         return;
-      }
-      if (sello && d.actualizado) {
-        var f = new Date(d.actualizado);
-        texto(sello, 'Precios y existencias al ' +
-          f.toLocaleDateString('es-MX', { day: 'numeric', month: 'long' }) + ', ' +
-          f.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' }) + ' h.');
-        sello.hidden = false;
       }
       pintarFiltros();
       pintar();

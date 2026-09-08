@@ -1,0 +1,57 @@
+# Emisha
+
+> Taller de impresión 3D en la Ciudad de México (Av. División del Norte 1354,
+> Piso 1, Letrán del Valle, Benito Juárez, CDMX 03650). Imprimimos piezas bajo
+> pedido en PLA y PETG, reparamos impresoras Bambu Lab con cita en línea, y
+> fabricamos consumibles propios: filamento Emisha de 1.75 mm, placas de
+> impresión, hotends y el compuesto térmico de metal líquido Liquid Ultra.
+> Enviamos a todo México. Razón social: Emisha Design And Consulting S.A. de
+> C.V. (RFC EDC140515CJ7).
+
+Datos que se citan seguido:
+
+- Horario del taller: lunes a viernes de 9:00 a 19:00; sábados con cita previa por WhatsApp.
+- Recepción de impresoras para reparación: lunes a viernes de 12:00 a 18:00, agendada en línea.
+- Reparación: diagnóstico $300 MXN; mano de obra $700 MXN, o $400 MXN si el diagnóstico ya se hizo en Emisha. Las refacciones se cotizan aparte y se autorizan antes de instalarlas.
+- No somos centro de servicio autorizado por Bambu Lab: somos un taller independiente.
+- Contacto: 3dprint@emisha.com.mx · WhatsApp +52 55 7563 9255.
+- Ubicación en Google Maps: https://maps.app.goo.gl/fZnFa1JurYKchB5F9
+
+## Servicios
+
+- [Impresión 3D y reparación en CDMX](https://www.emisha.com.mx/impresion-3d-cdmx/): qué imprimimos, en qué materiales, cuánto tarda y cómo se cotiza una pieza en la Ciudad de México.
+- [Servicios](https://www.emisha.com.mx/servicios/): impresión bajo pedido y reparación de impresoras Bambu Lab, con precios.
+- [Agendar reparación](https://www.emisha.com.mx/reparacion/): calendario en línea para dejar la impresora en el taller. Modelos A1, A1 mini, P1P, P1S, X1C, H2D y AMS.
+- [Cotizador](https://www.emisha.com.mx/cotizador/): sube un STL o 3MF y da un estimado al instante. El cálculo corre en el navegador; los modelos no se suben a ningún servidor.
+
+## Productos
+
+- [Filamento Emisha](https://www.emisha.com.mx/filamentos/): 29 colores en cuatro líneas (PETG Matte HF, PLA Matte, PLA Cosmic, PLA Wood), 1.75 mm, bobina de 1 kg neto.
+- [Liquid Ultra](https://www.emisha.com.mx/liquid-ultra/): compuesto térmico de metal líquido (aleación galio-indio), alrededor de 38 W/m·K, para PS5, laptops y PC.
+- [Placas Neo Ultra Sticky](https://www.emisha.com.mx/placas/): 257 × 257 mm para A1, P1P, P1S, X1, X1C y X1E; 355 × 346 mm para la serie H2.
+- [Hotends y boquillas](https://www.emisha.com.mx/hotends/): acero endurecido para A1 y A1 mini, y boquillas para H2D, H2S y H2C en 0.2, 0.4, 0.6 y 0.8 mm.
+- [Refacciones Bambu Lab](https://www.emisha.com.mx/bambulab/): consumibles y refacciones con existencia en la Ciudad de México.
+- [Tienda en línea](https://www.emisha.com.mx/tienda/): piezas ya impresas, pago con Mercado Pago, envío a todo el país.
+
+## Herramientas gratuitas
+
+- [Cortador de piezas 3D](https://www.emisha.com.mx/cortador/): separa, mueve, gira, escala y corta un STL o 3MF en el navegador.
+- [Calculadora de costos](https://www.emisha.com.mx/calculadora/): material, electricidad, desgaste y merma para saber cuánto cuesta imprimir una pieza.
+
+## Guías del taller
+
+- [¿Cuánto cuesta mandar a imprimir una pieza en 3D?](https://www.emisha.com.mx/blog/cuanto-cuesta-imprimir-3d/)
+- [PLA o PETG: cuál conviene para cada pieza](https://www.emisha.com.mx/blog/pla-o-petg/)
+- [¿Qué Bambu Lab te conviene? A1 mini, A1, P1S, X1C o H2D](https://www.emisha.com.mx/blog/que-bambu-lab-comprar/)
+- [La primera capa no pega: las causas en el orden correcto](https://www.emisha.com.mx/blog/la-primera-capa-no-pega/)
+- [Warping: por qué se levantan las esquinas](https://www.emisha.com.mx/blog/warping-esquinas-levantadas/)
+- [Filamento húmedo: cómo reconocerlo y secarlo](https://www.emisha.com.mx/blog/filamento-humedo/)
+- [Por qué se atasca el extrusor de tu Bambu Lab](https://www.emisha.com.mx/blog/extrusor-atascado-bambu-lab/)
+- [0.2, 0.4, 0.6 u 0.8 mm: qué boquilla usar](https://www.emisha.com.mx/blog/que-boquilla-usar/)
+- [Cómo aplicar metal líquido en una PS5 sin arruinarla](https://www.emisha.com.mx/blog/metal-liquido-ps5/)
+- [Cómo usar el cortador](https://www.emisha.com.mx/blog/como-usar-el-cortador/)
+
+## Opcional
+
+- [Blog completo](https://www.emisha.com.mx/blog/)
+- [Contacto y mayoreo](https://www.emisha.com.mx/contacto/)
