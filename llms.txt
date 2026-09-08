@@ -13,7 +13,7 @@ compatibilidades en texto plano: https://www.emisha.com.mx/llms-full.txt
 
 Datos que se citan seguido:
 
-- Horario del taller: lunes a viernes de 9:00 a 19:00; sábados con cita previa por WhatsApp.
+- Horario del taller: lunes a viernes de 9:00 a 19:00. Sábados y domingos cerrado.
 - Recepción de impresoras para reparación: lunes a viernes de 12:00 a 18:00, agendada en línea.
 - Reparación: diagnóstico $300 MXN; mano de obra $700 MXN, o $400 MXN si el diagnóstico ya se hizo en Emisha. Las refacciones se cotizan aparte y se autorizan antes de instalarlas.
 - No somos centro de servicio autorizado por Bambu Lab: somos un taller independiente.
