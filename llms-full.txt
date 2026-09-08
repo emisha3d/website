@@ -96,7 +96,8 @@ Página: https://www.emisha.com.mx/servicios/ · Agenda: https://www.emisha.com.
 
 ### 2.3 Renta de impresoras 3D
 
-Página: https://www.emisha.com.mx/renta/ — precios SIN IVA, renta mínima de 3 días. El filamento
+Página: https://www.emisha.com.mx/renta/ — precios ANTES DE IVA (el 16% se suma en el total),
+renta mínima de 3 días. El filamento
 va aparte. Se recoge y se devuelve en el taller; no hay entrega a domicilio.
 
 | Equipo        | Día    | Semana  | Mes     | Depósito en garantía |
