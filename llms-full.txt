@@ -915,13 +915,13 @@ Rango de precio: $129 MXN a $4,239 MXN. Peso: 25 a 14040 g.
 - Emisha Caja compatible con Repuestos Bambu Lab — $849 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU97173
 - Emisha Carrete para Cables Usb Viaje Organizador — $869 MXN · 90 × 100 × 80 mm · SKU EMISHA-BU553595
 - Emisha Embudo con Salida de Aire Impresora Bambulab Flujo — $399 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU166974
-- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Blue — $389 MXN · 211 × 216 × 76 mm · SKU E-PETG-M-1KG-DBlue
-- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Red — $389 MXN · 216 × 208 × 76 mm · SKU E-PETG-M-1KG-DRed
-- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Sky Blue — $389 MXN · 208 × 212 × 76 mm · SKU E-PETG-M-1KG-SkyBlue
+- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Blue — $249 MXN · 211 × 216 × 76 mm · SKU E-PETG-M-1KG-DBlue
+- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Red — $249 MXN · 216 × 208 × 76 mm · SKU E-PETG-M-1KG-DRed
+- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Sky Blue — $249 MXN · 208 × 212 × 76 mm · SKU E-PETG-M-1KG-SkyBlue
 - Emisha Filamento Pla 10kg Matte Premium Ultra Varios Colores Pearl White — $2,790 MXN · 230 × 390 × 440 mm · SKU E-PLA-M-10KG-PearlWhite
-- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Midnight Black — $389 MXN · 208 × 216 × 78 mm · SKU E-PLA-M-1KG-MidnightBlack
-- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Soft Grey — $389 MXN · 214 × 206 × 76 mm · SKU E-PLA-M-1KG-SoftGrey
-- Emisha Filamento Pla 1kg Premium Ultra Colores Color Cosmic Black — $399 MXN · 210 × 212 × 78 mm · SKU E-PLA-M-1KG-CosmicBlack
+- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Midnight Black — $249 MXN · 208 × 216 × 78 mm · SKU E-PLA-M-1KG-MidnightBlack
+- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Soft Grey — $249 MXN · 214 × 206 × 76 mm · SKU E-PLA-M-1KG-SoftGrey
+- Emisha Filamento Pla 1kg Premium Ultra Colores Color Cosmic Black — $249 MXN · 210 × 212 × 78 mm · SKU E-PLA-M-1KG-CosmicBlack
 - Emisha Filamento Pla 5kg Matte Premium Ultra Colores Midnight Black — $1,449 MXN · 220 × 230 × 370 mm · SKU E-PLA-M-5KG-MidnightBlack
 - Emisha Hélice Decorativa Decoración compatible con Bambu — $629 MXN · 80 × 100 × 90 mm · SKU EMISHA-BU1200771
 - Emisha Módulo Organizador compatible con Cajón Bambu — $2,159 MXN · 190 × 320 × 120 mm · SKU EMISHA-BU16350

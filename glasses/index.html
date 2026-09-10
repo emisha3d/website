@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lentes impresos a tu medida — demo | Emisha</title>
+<meta name="description" content="Demo: arma tus lentes impresos en 3D — forma, color, textura, piezas y dijes — y pruébatelos con tu cámara.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../assets/css/styles.css?v=468cb189">
+<link rel="modulepreload" href="../assets/js/vendor/three-0.186.0.min.js">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../" aria-label="Emisha — inicio">
+      <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../liquid-ultra/">Liquid Ultra</a>
+          <a href="../filamentos/">Filamentos</a>
+          <a href="../hotends/">Hotends</a>
+          <a href="../placas/">Placas</a>
+          <a href="../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../servicios/">Servicios y reparación</a>
+          <a href="../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../renta/">Renta de impresoras</a>
+          <a href="../cotizador/">Cotizar pieza</a>
+        </div>
+      </div>
+      <a href="../reparacion/">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../cortador/">Cortador</a>
+          <a href="../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../blog/">Blog</a>
+      <a href="../contacto/">Contacto</a>
+      <a class="btn btn--accent btn--sm" href="../tienda/">Tienda</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="lentes">
+
+  <section class="lentes-cabeza">
+    <div class="wrap">
+      <span class="eyebrow">Demo · todavía no está a la venta</span>
+      <h1>Lentes impresos a tu medida</h1>
+      <p class="lede">Elige la forma, el color, la textura y cada pieza; ponle dijes y pruébatelos con tu cámara. Los imprimimos en 3D en la Ciudad de México y el laboratorio les pone el lente.</p>
+    </div>
+  </section>
+
+  <div class="wrap lentes-app">
+    <div class="lentes-escena" data-escena>
+      <div class="lentes-escena__espejo">
+        <video data-video playsinline muted hidden></video>
+        <canvas data-lienzo role="img" aria-label="Vista 3D de tus lentes. Arrastra para girarlos."></canvas>
+      </div>
+      <div class="lentes-escena__barra">
+        <button type="button" class="btn btn--accent btn--sm" data-camara>Probar con mi cámara</button>
+        <button type="button" class="btn btn--ghost btn--sm" data-foto hidden>Tomar foto</button>
+        <div class="lentes-vistas" data-vistas role="group" aria-label="Vistas"></div>
+      </div>
+      <p class="lentes-escena__aviso" data-aviso role="status" hidden></p>
+      <p class="lentes-escena__medidas lentes-mono" data-medidas></p>
+      <p class="lentes-escena__privado">El video no sale de tu dispositivo.</p>
+      <noscript><p class="lentes-escena__aviso">El configurador necesita JavaScript.</p></noscript>
+    </div>
+
+    <div class="lentes-panel">
+      <div class="lentes-tabs" role="tablist" aria-label="Partes de los lentes" data-tabs></div>
+      <div class="lentes-paneles" id="panel-lentes" role="tabpanel" data-paneles></div>
+
+      <div class="lentes-extra">
+        <p class="lentes-precio__lab" data-lab></p>
+        <button type="button" class="btn btn--ghost btn--block btn--sm" data-copiar>Copiar enlace de este diseño</button>
+        <p class="lentes-precio__nota">Precios de demostración. Te confirmamos el precio final y el tiempo de entrega por WhatsApp.</p>
+      </div>
+
+      <div class="lentes-precio">
+        <div class="lentes-precio__fila">
+          <span>Total estimado</span>
+          <strong data-total>—</strong>
+        </div>
+        <a class="btn btn--primary lentes-precio__wa" data-whatsapp href="https://wa.me/525575639255" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <details class="lentes-desglose">
+          <summary>Ver desglose</summary>
+          <table data-desglose></table>
+        </details>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../placas/">Placas de impresión</a></li>
+          <li><a href="../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../servicios/">Servicios y reparación</a></li>
+          <li><a href="../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../cotizador/">Cotizador 3D</a></li>
+          <li><a href="../cortador/">Cortador de piezas</a></li>
+          <li><a href="../calculadora/">Calculadora de costos</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js?v=7782446c" defer></script>
+<script src="../assets/js/lentes-precios.js?v=7ca12911" defer></script>
+<script type="module" src="../assets/js/lentes-geometria.js?v=f3978dbe"></script>
+<script type="module" src="../assets/js/lentes-materiales.js?v=947c7978"></script>
+<script type="module" src="../assets/js/lentes-camara.js?v=544cb6dc"></script>
+<script type="module" src="../assets/js/lentes.js?v=5485406a"></script>
+</body>
+</html>
