@@ -1264,6 +1264,11 @@ o cortar.
 
 Índice: https://www.emisha.com.mx/blog/
 
+- Pasta térmica o metal líquido: cuál le toca a tu equipo — https://www.emisha.com.mx/blog/pasta-termica-o-metal-liquido/
+- Mantenimiento de tu Bambu Lab: el calendario del taller — https://www.emisha.com.mx/blog/mantenimiento-bambu-lab/
+- Qué placa de impresión usar: lisa, texturizada o Ultra Sticky — https://www.emisha.com.mx/blog/que-placa-de-impresion-usar/
+- Stringing: los hilos entre las piezas y cómo quitarlos — https://www.emisha.com.mx/blog/stringing-hilos-en-las-piezas/
+- AMS y multicolor: cuánto se va en la purga y cómo bajarlo — https://www.emisha.com.mx/blog/ams-multicolor-desperdicio/
 - ¿Cuánto cuesta mandar a imprimir una pieza en 3D? — https://www.emisha.com.mx/blog/cuanto-cuesta-imprimir-3d/
 - PLA o PETG: cuál conviene para cada pieza — https://www.emisha.com.mx/blog/pla-o-petg/
 - ¿Qué Bambu Lab te conviene? A1 mini, A1, P1S, X1C o H2D — https://www.emisha.com.mx/blog/que-bambu-lab-comprar/
