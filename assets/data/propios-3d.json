@@ -20,6 +20,28 @@
   ],
   "productos": [
     {
+      "sku": "EMI-PL-NEO-257",
+      "nombre": "Placa Emisha Neo Ultra Sticky 257 × 257 mm",
+      "detalle": "Para A1, P1P, P1S, X1, X1C y X1E",
+      "precio_centavos": 69900,
+      "imagen": "/assets/img/placas/neo-256-sm.webp",
+      "perfil": "placa",
+      "pagina": "/placas/neo-ultra-sticky-257/",
+      "en_inventario": "EMI-CP-A1X1P1S",
+      "wa": "Hola, quiero una placa Emisha Neo Ultra Sticky de 257 × 257 mm"
+    },
+    {
+      "sku": "EMI-PL-NEO-355",
+      "nombre": "Placa Emisha Neo Ultra Sticky 355 × 346 mm",
+      "detalle": "Para la serie H2: H2D y H2S",
+      "precio_centavos": 139900,
+      "imagen": "/assets/img/placas/neo-h2-sm.webp",
+      "perfil": "placa",
+      "pagina": "/placas/neo-ultra-sticky-355/",
+      "en_inventario": "EMI-CP-H2",
+      "wa": "Hola, quiero una placa Emisha Neo Ultra Sticky de 355 × 346 mm"
+    },
+    {
       "sku": "EMI-HE-A1-0.2",
       "nombre": "Hotend Emisha 0.2 mm · Bambu Lab A1 y A1 mini",
       "detalle": "Detalle fino: miniaturas, figuras y piezas chicas",

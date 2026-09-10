@@ -41,7 +41,12 @@
     ['EMI-FIL-', '/filamentos/']
   ];
 
+  // sku -> ficha, armado con el archivo curado. Incluye el SKU de inventario
+  // ('en_inventario'), que es con el que llega la pieza del catálogo vivo.
+  var PAGINA_POR_SKU = {};
+
   function paginaDe(p) {
+    if (PAGINA_POR_SKU[p.sku]) return PAGINA_POR_SKU[p.sku];
     if (p.pagina) return p.pagina;
     for (var i = 0; i < PAGINA_POR_PREFIJO.length; i++) {
       if (p.sku.indexOf(PAGINA_POR_PREFIJO[i][0]) === 0) return PAGINA_POR_PREFIJO[i][1];
@@ -57,7 +62,21 @@
     return fetch('/assets/data/propios-3d.json')
       .then(function (r) { return r.ok ? r.json() : { productos: [] }; })
       .then(function (d) {
-        return (d.productos || []).map(function (p) {
+        var lista = d.productos || [];
+        // El mapa se arma con TODO el archivo, incluso lo que ya vive en
+        // inventario: es de ahí de donde sale la ficha de las camas, que
+        // llegan del catálogo vivo con otro SKU (EMI-CP-*).
+        lista.forEach(function (p) {
+          if (!p.pagina) return;
+          PAGINA_POR_SKU[p.sku] = p.pagina;
+          if (p.en_inventario) PAGINA_POR_SKU[p.en_inventario] = p.pagina;
+        });
+        return lista
+          // 'en_inventario' dice que la pieza ya se vende sola desde
+          // CanalPulse. Pintarla también aquí la enseñaba dos veces: una
+          // comprable y otra con botón de WhatsApp.
+          .filter(function (p) { return !p.en_inventario; })
+          .map(function (p) {
           return {
             sku: p.sku, nombre: p.nombre, detalle: p.detalle,
             precio_centavos: p.precio_centavos, imagen: p.imagen,
@@ -413,12 +432,14 @@
     Promise.all([
       fetch(API + '/productos').then(function (r) { return r.json(); }),
       catalogoAG(),
-      soloBambu ? catalogoPropio3D() : Promise.resolve([])
+      catalogoPropio3D()   // siempre: de aquí sale el mapa de fichas
     ])
       .then(function (par) {
         var datos = par[0];
         var ag = par[1];
-        var propias = par[2];
+        // Las tarjetas curadas solo se pintan en la portada; en /tienda/ el
+        // archivo se leyó nada más por el mapa de fichas.
+        var propias = soloBambu ? par[2] : [];
         envioCfg = datos.envio || null;
         catalogo = (datos.productos || []).filter(function (p) {
           if (p.stock <= 0) return false;

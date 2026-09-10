@@ -172,19 +172,34 @@ a.prod__media{cursor:pointer}
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["Organization", "ProfessionalService"],
+      "@type": ["Organization", "LocalBusiness", "Store"],
       "@id": "https://www.emisha.com.mx/#organization",
       "name": "Emisha",
       "legalName": "Emisha Design And Consulting S.A. de C.V.",
-      "url": "https://www.emisha.com.mx/",
-      "logo": "https://www.emisha.com.mx/assets/img/emisha-logo-512.png",
-      "image": "https://www.emisha.com.mx/assets/img/emisha-logo-512.png",
-      "email": "3dprint@emisha.com.mx",
-      "telephone": "+52-55-7563-9255",
+      "taxID": "EDC140515CJ7",
       "vatID": "EDC140515CJ7",
+      "url": "https://www.emisha.com.mx/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.emisha.com.mx/assets/img/emisha-logo-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": [
+        "https://www.emisha.com.mx/assets/img/emisha-logo-512.png",
+        "https://www.emisha.com.mx/assets/img/liquid-ultra/normal-01.webp"
+      ],
+      "telephone": "+52-55-7563-9255",
+      "email": "3dprint@emisha.com.mx",
       "priceRange": "$$",
-      "description": "Taller de impresión 3D en Ciudad de México. Impresión de piezas bajo pedido, reparación de impresoras 3D Bambu Lab con cita en línea (diagnóstico $300 MXN, reparación $700 MXN), y venta de filamento Emisha de 1.75 mm y del compuesto térmico de metal líquido Emisha Liquid Ultra.",
-      "areaServed": { "@type": "Country", "name": "México" },
+      "currenciesAccepted": "MXN",
+      "paymentAccepted": "Mercado Pago, tarjeta de crédito, tarjeta de débito, transferencia bancaria, efectivo",
+      "description": "Taller de impresión 3D en la Ciudad de México. Impresión de piezas bajo pedido en PLA y PETG, reparación de impresoras 3D Bambu Lab con cita en línea (diagnóstico $300 MXN, reparación $700 MXN de mano de obra), renta de impresoras, y venta de refacciones, filamento Emisha de 1.75 mm, placas de impresión, hotends y el compuesto térmico de metal líquido Emisha Liquid Ultra. Abierto de lunes a viernes de 9:00 a 19:00. Sábados y domingos cerrado.",
+      "slogan": "Impresión 3D, servicio técnico y consumibles en CDMX",
+      "areaServed": [
+        { "@type": "City", "name": "Ciudad de México" },
+        { "@type": "Country", "name": "México" }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. División del Norte 1354, Piso 1, Letrán del Valle",
@@ -193,24 +208,31 @@ a.prod__media{cursor:pointer}
         "postalCode": "03650",
         "addressCountry": "MX"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "3dprint@emisha.com.mx",
-        "telephone": "+52-55-7563-9255",
-        "availableLanguage": ["es-MX", "en"],
-        "areaServed": "MX"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 19.3745121,
+        "longitude": -99.1576659
       },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servicios y productos Emisha",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impresión 3D bajo pedido" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de impresoras 3D Bambu Lab" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Filamento Emisha 1.75 mm" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Emisha Liquid Ultra — compuesto térmico de metal líquido" } }
-        ]
-      },
+      "hasMap": "https://maps.app.goo.gl/fZnFa1JurYKchB5F9",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "3dprint@emisha.com.mx",
+          "telephone": "+52-55-7563-9255",
+          "availableLanguage": ["es-MX", "en"],
+          "areaServed": "MX"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "3dprint@emisha.com.mx",
+          "telephone": "+52-55-7563-9255",
+          "url": "https://wa.me/525575639255",
+          "availableLanguage": ["es-MX", "en"],
+          "areaServed": "MX"
+        }
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -219,16 +241,25 @@ a.prod__media{cursor:pointer}
           "closes": "19:00"
         }
       ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 19.3745121,
-        "longitude": -99.1576659
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios y productos Emisha",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impresión 3D bajo pedido", "url": "https://www.emisha.com.mx/impresion-3d-cdmx/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de impresoras 3D Bambu Lab", "url": "https://www.emisha.com.mx/reparacion/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Renta de impresoras 3D", "url": "https://www.emisha.com.mx/renta/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Filamento Emisha 1.75 mm", "url": "https://www.emisha.com.mx/filamentos/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Placa de impresión Emisha Neo Ultra Sticky", "url": "https://www.emisha.com.mx/placas/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Hotends y boquillas para Bambu Lab", "url": "https://www.emisha.com.mx/hotends/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Emisha Liquid Ultra — compuesto térmico de metal líquido", "url": "https://www.emisha.com.mx/liquid-ultra/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Refacciones y consumibles para impresoras Bambu Lab", "url": "https://www.emisha.com.mx/bambulab/" } }
+        ]
       },
-      "hasMap": "https://maps.app.goo.gl/fZnFa1JurYKchB5F9",
       "sameAs": [
         "https://www.mercadolibre.com.mx/tienda/emisha",
-        "https://www.amazon.com.mx/s?k=emisha",
-        "https://maps.google.com/?cid=2848263702305576539"
+        "https://maps.app.goo.gl/fZnFa1JurYKchB5F9",
+        "https://maps.google.com/?cid=2848263702305576539",
+        "https://wa.me/525575639255"
       ]
     },
     {
@@ -238,6 +269,17 @@ a.prod__media{cursor:pointer}
       "name": "Emisha",
       "inLanguage": "es-MX",
       "publisher": { "@id": "https://www.emisha.com.mx/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.emisha.com.mx/#webpage",
+      "url": "https://www.emisha.com.mx/",
+      "name": "Emisha — Impresión 3D, servicio técnico y filamento en CDMX",
+      "description": "Taller de impresión 3D en Ciudad de México: piezas bajo pedido, reparación de impresoras Bambu Lab con cita en línea, refacciones y consumibles, filamento Emisha de 1.75 mm y el compuesto térmico Liquid Ultra.",
+      "inLanguage": "es-MX",
+      "isPartOf": { "@id": "https://www.emisha.com.mx/#website" },
+      "about": { "@id": "https://www.emisha.com.mx/#organization" },
+      "primaryImageOfPage": "https://www.emisha.com.mx/assets/img/liquid-ultra/normal-01.webp"
     }
   ]
 }
@@ -748,6 +790,6 @@ a.prod__media{cursor:pointer}
 
 <script src="assets/js/main.js?v=7782446c" defer></script>
 <script src="assets/js/banner.js?v=3e7a1c28" defer></script>
-<script src="assets/js/tienda.js?v=cbd8835b" defer></script>
+<script src="assets/js/tienda.js?v=eefaef30" defer></script>
 </body>
 </html>
