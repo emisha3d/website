@@ -48,7 +48,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/a1-01-sm.webp",
       "perfil": "hotend",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/hotend-a1-0-2-mm/",
       "wa": "Hola, quiero un hotend de 0.2 mm para Bambu Lab A1"
     },
     {
@@ -58,7 +58,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/a1-01-sm.webp",
       "perfil": "hotend",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/hotend-a1-0-4-mm/",
       "wa": "Hola, quiero un hotend de 0.4 mm para Bambu Lab A1"
     },
     {
@@ -68,7 +68,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/a1-02-sm.webp",
       "perfil": "hotend",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/hotend-a1-0-6-mm/",
       "wa": "Hola, quiero un hotend de 0.6 mm para Bambu Lab A1"
     },
     {
@@ -78,7 +78,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/a1-03-sm.webp",
       "perfil": "hotend",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/hotend-a1-0-8-mm/",
       "wa": "Hola, quiero un hotend de 0.8 mm para Bambu Lab A1"
     },
     {
@@ -88,7 +88,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/h2-01-sm.webp",
       "perfil": "boquilla",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/boquilla-h2-0-2-mm/",
       "wa": "Hola, quiero una boquilla de 0.2 mm para Bambu Lab serie H2"
     },
     {
@@ -98,7 +98,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/h2-02-sm.webp",
       "perfil": "boquilla",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/boquilla-h2-0-4-mm/",
       "wa": "Hola, quiero una boquilla de 0.4 mm para Bambu Lab serie H2"
     },
     {
@@ -108,7 +108,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/h2-03-sm.webp",
       "perfil": "boquilla",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/boquilla-h2-0-6-mm/",
       "wa": "Hola, quiero una boquilla de 0.6 mm para Bambu Lab serie H2"
     },
     {
@@ -118,7 +118,7 @@
       "precio_centavos": 49900,
       "imagen": "/assets/img/hotends/h2-04-sm.webp",
       "perfil": "boquilla",
-      "pagina": "/hotends/",
+      "pagina": "/hotends/boquilla-h2-0-8-mm/",
       "wa": "Hola, quiero una boquilla de 0.8 mm para Bambu Lab serie H2"
     },
     {
@@ -128,7 +128,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-black.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-black/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Black de 1 kg"
     },
     {
@@ -138,7 +138,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-white.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-white/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep White de 1 kg"
     },
     {
@@ -148,7 +148,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-red.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-red/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Red de 1 kg"
     },
     {
@@ -158,7 +158,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-blue.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-blue/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Blue de 1 kg"
     },
     {
@@ -168,7 +168,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-green.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-green/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Green de 1 kg"
     },
     {
@@ -178,7 +178,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-pink.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-pink/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Pink de 1 kg"
     },
     {
@@ -188,7 +188,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-orange.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-orange/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Orange de 1 kg"
     },
     {
@@ -198,7 +198,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-yellow.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-yellow/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Yellow de 1 kg"
     },
     {
@@ -208,7 +208,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-deep-grey.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-deep-grey/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Deep Grey de 1 kg"
     },
     {
@@ -218,7 +218,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-mint-green.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-mint-green/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Mint Green de 1 kg"
     },
     {
@@ -228,7 +228,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/petg-sky-blue.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/petg-matte-hf-sky-blue/",
       "wa": "Hola, quiero filamento Emisha PETG Matte HF Sky Blue de 1 kg"
     },
     {
@@ -238,7 +238,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-midnight-black.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-midnight-black/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Midnight Black de 1 kg"
     },
     {
@@ -248,7 +248,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-pearl-white.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-pearl-white/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Pearl White de 1 kg"
     },
     {
@@ -258,7 +258,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-deep-red.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-deep-red/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Deep Red de 1 kg"
     },
     {
@@ -268,7 +268,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-deep-blue.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-deep-blue/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Deep Blue de 1 kg"
     },
     {
@@ -278,7 +278,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-deep-green.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-deep-green/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Deep Green de 1 kg"
     },
     {
@@ -288,7 +288,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-soft-pink.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-soft-pink/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Soft Pink de 1 kg"
     },
     {
@@ -298,7 +298,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-soft-grey.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-soft-grey/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Soft Grey de 1 kg"
     },
     {
@@ -308,7 +308,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-clay.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-clay/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Clay de 1 kg"
     },
     {
@@ -318,7 +318,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-sunbean-yellow.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-sunbean-yellow/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Sunbean Yellow de 1 kg"
     },
     {
@@ -328,7 +328,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-olive-green.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-olive-green/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Olive Green de 1 kg"
     },
     {
@@ -338,7 +338,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-soft-blue.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-soft-blue/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Soft Blue de 1 kg"
     },
     {
@@ -348,7 +348,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/pla-powder-blue.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-matte-powder-blue/",
       "wa": "Hola, quiero filamento Emisha PLA Matte Powder Blue de 1 kg"
     },
     {
@@ -358,7 +358,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/cosmic-blue.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-cosmic-blue/",
       "wa": "Hola, quiero filamento Emisha PLA Cosmic Cosmic Blue de 1 kg"
     },
     {
@@ -368,7 +368,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/cosmic-black.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-cosmic-black/",
       "wa": "Hola, quiero filamento Emisha PLA Cosmic Cosmic Black de 1 kg"
     },
     {
@@ -378,7 +378,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/wood-forest-wood.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-wood-forest-wood/",
       "wa": "Hola, quiero filamento Emisha PLA Wood Forest Wood de 1 kg"
     },
     {
@@ -388,7 +388,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/wood-honey-maple.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-wood-honey-maple/",
       "wa": "Hola, quiero filamento Emisha PLA Wood Honey Maple de 1 kg"
     },
     {
@@ -398,7 +398,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/wood-dark-walnut.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-wood-dark-walnut/",
       "wa": "Hola, quiero filamento Emisha PLA Wood Dark Walnut de 1 kg"
     },
     {
@@ -408,7 +408,7 @@
       "precio_centavos": 24900,
       "imagen": "/assets/img/filamentos/wood-autumn-cherry.webp",
       "perfil": "filamento",
-      "pagina": "/filamentos/",
+      "pagina": "/filamentos/pla-wood-autumn-cherry/",
       "wa": "Hola, quiero filamento Emisha PLA Wood Autumn Cherry de 1 kg"
     }
   ]
