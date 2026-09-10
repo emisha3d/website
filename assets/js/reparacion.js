@@ -10,7 +10,7 @@
 
   var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
     ? 'http://localhost:8787'
-    : 'https://citas.emisha.com.mx';
+    : 'https://emisha-reparaciones.matosic-hrvoje.workers.dev';
   var WA = 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, quiero agendar la reparación de mi impresora Bambu Lab.');
 
   var form = document.querySelector('[data-cita-form]');
