@@ -49,7 +49,8 @@
       "imagen": "/assets/img/hotends/a1-01-sm.webp",
       "perfil": "hotend",
       "pagina": "/hotends/hotend-a1-0-2-mm/",
-      "wa": "Hola, quiero un hotend de 0.2 mm para Bambu Lab A1"
+      "wa": "Hola, quiero un hotend de 0.2 mm para Bambu Lab A1",
+      "en_inventario": "EMI-HE-HS-0.2"
     },
     {
       "sku": "EMI-HE-A1-0.4",
@@ -59,7 +60,8 @@
       "imagen": "/assets/img/hotends/a1-01-sm.webp",
       "perfil": "hotend",
       "pagina": "/hotends/hotend-a1-0-4-mm/",
-      "wa": "Hola, quiero un hotend de 0.4 mm para Bambu Lab A1"
+      "wa": "Hola, quiero un hotend de 0.4 mm para Bambu Lab A1",
+      "en_inventario": "EMI-HE-HS-0.4"
     },
     {
       "sku": "EMI-HE-A1-0.6",
@@ -69,7 +71,8 @@
       "imagen": "/assets/img/hotends/a1-02-sm.webp",
       "perfil": "hotend",
       "pagina": "/hotends/hotend-a1-0-6-mm/",
-      "wa": "Hola, quiero un hotend de 0.6 mm para Bambu Lab A1"
+      "wa": "Hola, quiero un hotend de 0.6 mm para Bambu Lab A1",
+      "en_inventario": "EMI-HE-HS-0.6"
     },
     {
       "sku": "EMI-HE-A1-0.8",
@@ -79,7 +82,8 @@
       "imagen": "/assets/img/hotends/a1-03-sm.webp",
       "perfil": "hotend",
       "pagina": "/hotends/hotend-a1-0-8-mm/",
-      "wa": "Hola, quiero un hotend de 0.8 mm para Bambu Lab A1"
+      "wa": "Hola, quiero un hotend de 0.8 mm para Bambu Lab A1",
+      "en_inventario": "EMI-HE-HS-0.8"
     },
     {
       "sku": "EMI-HE-H2-0.2",

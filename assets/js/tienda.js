@@ -71,16 +71,12 @@
           PAGINA_POR_SKU[p.sku] = p.pagina;
           if (p.en_inventario) PAGINA_POR_SKU[p.en_inventario] = p.pagina;
         });
-        return lista
-          // 'en_inventario' dice que la pieza ya se vende sola desde
-          // CanalPulse. Pintarla también aquí la enseñaba dos veces: una
-          // comprable y otra con botón de WhatsApp.
-          .filter(function (p) { return !p.en_inventario; })
-          .map(function (p) {
+        return lista.map(function (p) {
           return {
             sku: p.sku, nombre: p.nombre, detalle: p.detalle,
             precio_centavos: p.precio_centavos, imagen: p.imagen,
             perfil: p.perfil, pagina: p.pagina, wa: p.wa,
+            en_inventario: p.en_inventario,
             origen: 'propio-3d', stock: 0, disponible: true
           };
         });
@@ -445,6 +441,18 @@
           if (p.stock <= 0) return false;
           return soloBambu ? esPropia3D(p) : true;
         });
+        // Una pieza que el inventario ya publica NO se vuelve a pintar desde el
+        // archivo curado: se enseñaba dos veces, una comprable y otra con botón
+        // de WhatsApp. Se compara contra el catálogo vivo en vez de contra una
+        // lista escrita a mano porque el SKU de inventario puede ser otro
+        // (las camas llegan como EMI-CP-*, las boquillas A1 como EMI-HE-HS-*):
+        // 'en_inventario' dice con cuál sale publicada.
+        var yaVivas = {};
+        catalogo.forEach(function (p) { yaVivas[p.sku] = true; });
+        propias = propias.filter(function (p) {
+          return !yaVivas[p.sku] && !(p.en_inventario && yaVivas[p.en_inventario]);
+        });
+
         // Lo propio primero: es lo de Emisha, y es donde está el margen.
         // Después las piezas curadas a mano, y hasta el final las de AG.
         catalogo = catalogo.concat(propias).concat(ag);
