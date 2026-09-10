@@ -895,7 +895,7 @@ Rango de precio: $149 MXN a $1,349 MXN.
 
 Página: https://www.emisha.com.mx/tienda/
 
-2294 diseños distintos, todos impresos por Emisha en la CDMX con filamento
+2481 diseños distintos, todos impresos por Emisha en la CDMX con filamento
 propio de 1.75 mm. Se fabrican BAJO PEDIDO: no son existencia en anaquel,
 así que aquí no se publican cifras de inventario. Pago con Mercado Pago y
 envío a todo México ($149 MXN; gratis desde $999 MXN).
@@ -904,85 +904,85 @@ Abajo va el resumen por categoría con el rango de precio y una muestra
 representativa de hasta 20 piezas por categoría. El catálogo completo,
 con foto, peso y medidas de cada pieza, está en https://www.emisha.com.mx/tienda/
 
-### 5.1 Impresión 3D y filamento (44 piezas)
+### 5.1 Impresión 3D y filamento (92 piezas)
 
-Rango de precio: $129 MXN a $4,239 MXN. Peso: 50 a 659 g.
+Rango de precio: $129 MXN a $4,239 MXN. Peso: 25 a 14040 g.
 
-- Emisha Almacenaje Vertical para Filamento — $2,149 MXN · 220 × 160 × 290 mm · SKU EMISHA-BU721386
-- Emisha Aro para Bolsa de Filamento Almacenamiento — $139 MXN · 90 × 90 × 60 mm · SKU EMISHA-BU859308
-- Emisha Boquilla Compatible para Aspiradora — $4,239 MXN · 80 × 110 × 90 mm · SKU EMISHA-BU1412654
-- Emisha Boquilla para Aspiradora Ancha Adaptador Limpieza — $3,839 MXN · 100 × 320 × 120 mm · SKU EMISHA-BU1311897
-- Emisha Boquilla para Spray Ajustable Lubricante Reemplazo — $149 MXN · 60 × 60 × 80 mm · SKU EMISHA-BU1768932
-- Emisha Caja de Herramientas compatible con Bambu — $999 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU508656
-- Emisha Carrete para Cables Usb Viaje Escritorio Organizador — $609 MXN · 90 × 100 × 70 mm · SKU EMISHA-BU1395993
-- Emisha Carrete para Cintas de Amarre Automotriz Tensión — $609 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU1267206
-- Emisha Contenedor para Gel de Sílice Almacenamiento Ams — $249 MXN · 80 × 110 × 80 mm · SKU EMISHA-BU394541
+- Emisha 5 Pack Carretes Vacíos Reutilizables Impresion 3d Azul — $199 MXN · 210 × 230 × 350 mm · SKU E-SP-E-5P
+- Emisha Boquilla Compatible Con Impresoras Bambulab Serie H2 0.2mm — $499 MXN · 30 × 40 × 90 mm · SKU EMI-HE-H2-0.2
+- Emisha Boquilla Lubricante compatible con Bambu A1 — $169 MXN · 70 × 70 × 80 mm · SKU EMISHA-BU566465
+- Emisha Caja compatible con Repuestos Bambu Lab — $849 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU97173
+- Emisha Carrete para Cables Usb Viaje Organizador — $869 MXN · 90 × 100 × 80 mm · SKU EMISHA-BU553595
 - Emisha Embudo con Salida de Aire Impresora Bambulab Flujo — $399 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU166974
-- Emisha Herramienta Mantenimiento compatible con Bambu Lab — $169 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU905294
+- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Blue — $389 MXN · 211 × 216 × 76 mm · SKU E-PETG-M-1KG-DBlue
+- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Red — $389 MXN · 216 × 208 × 76 mm · SKU E-PETG-M-1KG-DRed
+- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Sky Blue — $389 MXN · 208 × 212 × 76 mm · SKU E-PETG-M-1KG-SkyBlue
+- Emisha Filamento Pla 10kg Matte Premium Ultra Varios Colores Pearl White — $2,790 MXN · 230 × 390 × 440 mm · SKU E-PLA-M-10KG-PearlWhite
+- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Midnight Black — $389 MXN · 208 × 216 × 78 mm · SKU E-PLA-M-1KG-MidnightBlack
+- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Soft Grey — $389 MXN · 214 × 206 × 76 mm · SKU E-PLA-M-1KG-SoftGrey
+- Emisha Filamento Pla 1kg Premium Ultra Colores Color Cosmic Black — $399 MXN · 210 × 212 × 78 mm · SKU E-PLA-M-1KG-CosmicBlack
+- Emisha Filamento Pla 5kg Matte Premium Ultra Colores Midnight Black — $1,449 MXN · 220 × 230 × 370 mm · SKU E-PLA-M-5KG-MidnightBlack
 - Emisha Hélice Decorativa Decoración compatible con Bambu — $629 MXN · 80 × 100 × 90 mm · SKU EMISHA-BU1200771
-- Emisha Limpiador de Boquilla Silicón Pistola Caulking — $199 MXN · 60 × 70 × 80 mm · SKU EMISHA-BU1201490
-- Emisha Limpiador de Placa Microfibra Impresora — $529 MXN · 70 × 80 × 60 mm · SKU EMISHA-BU2542369
-- Emisha Organizador de Herramientas compatible con Bambu — $559 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU1410077
-- Emisha Placa Cold Plate Ultra Sticky Para Bambu A1 P1s X1c — $699 MXN · 300 × 300 × 30 mm · SKU EMI-CP-A1X1P1S
-- Emisha Rascador para Cama Impresora Herramienta — $409 MXN · 50 × 80 × 140 mm · SKU EMISHA-BU1208293
-- Emisha Soporte para Alambre de Soldar Soldadura Bobina — $289 MXN · 80 × 100 × 90 mm · SKU EMISHA-BU194888
-- Emisha Soporte para Plumas con Diseño de Boquilla Oficina — $1,039 MXN · 110 × 130 × 160 mm · SKU EMISHA-BU720618
-- Filamento Pla De 96 Metros Para Lápiz 3d, 1.75mm, 12 Colores 12 Colores — $189 MXN · 70 × 160 × 160 mm · SKU E-PLA-M-96m
-- (…y 24 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Módulo Organizador compatible con Cajón Bambu — $2,159 MXN · 190 × 320 × 120 mm · SKU EMISHA-BU16350
+- Emisha Placa Cold Plate Ultra Sticky Para Bambu Lab H2s H2d — $1,399 MXN · 400 × 400 × 30 mm · SKU EMI-CP-H2
+- Emisha Soporte para Bobina Filamento Sunlu A1 — $549 MXN · 160 × 150 × 120 mm · SKU EMISHA-BU109516
+- Filamento Pla 100m Para Pluma 3d, 10 Colores Aleatorios 10 Colores Surtidos — $229 MXN · 60 × 170 × 190 mm · SKU E-PLA-V2-100m
+- Hotend Boquilla Compatible Con Impresora Bambulab A1/a1 Mini 0.8mm — $499 MXN · 100 × 320 × 230 mm · SKU EMI-HE-HS-0.8
+- (…y 72 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.2 Tecnología, cómputo y gaming (383 piezas)
+### 5.2 Tecnología, cómputo y gaming (423 piezas)
 
-Rango de precio: $119 MXN a $7,849 MXN. Peso: 51 a 1733 g.
+Rango de precio: $59 MXN a $7,849 MXN. Peso: 10 a 1733 g.
 
-- Emisha Agarre para Celular Cómodo Móvil — $139 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU1382854
-- Emisha Caja para Tarjetas Sd Viaje Robusta Adaptador — $469 MXN · 70 × 110 × 80 mm · SKU EMISHA-BU564191
-- Emisha Conducto para Cables Pared Modular Esquina — $589 MXN · 80 × 290 × 100 mm · SKU EMISHA-BU1798646
-- Emisha Funda compatible con Airpods 4 Cargador Inalámbrico — $809 MXN · 70 × 90 × 70 mm · SKU EMISHA-BU703834
-- Emisha Organizador Apilable para Pilas 9v — $259 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU432889
-- Emisha Organizador de Cables Ajustable Escritorio — $149 MXN · 50 × 70 × 60 mm · SKU EMISHA-BU1599103
-- Emisha Organizador de Cables Escritorio Mesa Cableado — $289 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1062464
-- Emisha Organizador de Cables Escritorio Usb-c Ajustable — $199 MXN · 60 × 80 × 70 mm · SKU EMISHA-BU1096500
-- Emisha Organizador para Audífonos Escritorio Cable — $139 MXN · 90 × 100 × 70 mm · SKU EMISHA-BU750939
-- Emisha Organizador Retráctil de Cables Escritorio Cable — $469 MXN · 90 × 100 × 70 mm · SKU EMISHA-BU725329
-- Emisha Soporte compatible con Baterías Dewalt Herramientas — $669 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU162295
-- Emisha Soporte Ergonómico para Celular Cama Ergonomía — $2,219 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU941734
-- Emisha Soporte para Cargador de Watch Viaje Enrollable — $229 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU1962849
-- Emisha Soporte para Celular Escritorio Automóvil Ajustable — $509 MXN · 130 × 150 × 190 mm · SKU EMISHA-BU1249333
-- Emisha Soporte para Celular Escritorio Universal — $769 MXN · 100 × 130 × 160 mm · SKU EMISHA-BU1688003
-- Emisha Soporte para Gafas de Realidad Virtual Vr Escritorio — $2,489 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU1065873
-- Emisha Soporte para Mandos Pared Control — $199 MXN · 90 × 150 × 100 mm · SKU EMISHA-BU172015
+- Base Compatible Con Dispositivos Apple Todo En Uno — $249 MXN · 70 × 210 × 220 mm · SKU EMI-AADD-DP-W-001
+- Emisha Caja para Baterías Almacenamiento Apilable — $689 MXN · 160 × 240 × 190 mm · SKU EMISHA-BU108302
+- Emisha Clip para Cables Escritorio Cable Organizador — $129 MXN · 60 × 70 × 50 mm · SKU EMISHA-BU1498245
+- Emisha Extractor de Teclas Teclado Mecánico Accesorio — $129 MXN · 50 × 70 × 70 mm · SKU EMISHA-BU417594
+- Emisha Llavero Kawaii Aguacate Feliz Switch Fidget Clicky Color Marrón Claro — $69 MXN · 110 × 260 × 370 mm · SKU EMI-KC-DP-A-BR-001
+- Emisha Organizador compatible con Tarjetas Sd Gridfinity — $429 MXN · 100 × 130 × 80 mm · SKU EMISHA-BU521388
+- Emisha Organizador de Cables Escritorio Mesa Impresión 3D — $209 MXN · 60 × 90 × 60 mm · SKU EMISHA-BU215875
+- Emisha Organizador de Cables Escritorio Viaje Usb — $929 MXN · 70 × 100 × 80 mm · SKU EMISHA-BU2119053
+- Emisha Organizador para Cargador Usb-c Viaje Compacto — $239 MXN · 70 × 90 × 70 mm · SKU EMISHA-BU590236
+- Emisha Reposacabezas para Auriculares Escritorio — $419 MXN · 70 × 100 × 80 mm · SKU EMISHA-BU538309
+- Emisha Soporte compatible con Mandos Ps5 Consola Organizador — $279 MXN · 70 × 140 × 90 mm · SKU EMISHA-BU633424
+- Emisha Soporte para Audífonos Escritorio Ajustable Oficina — $409 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU490776
+- Emisha Soporte para Celular Controlador — $509 MXN · 60 × 110 × 70 mm · SKU EMISHA-BU500367
+- Emisha Soporte para Celular Escritorio Oficina Industrial — $529 MXN · 100 × 130 × 160 mm · SKU EMISHA-BU202649
+- Emisha Soporte para Consola Escritorio — $229 MXN · 120 × 150 × 160 mm · SKU EMISHA-BU650879
+- Emisha Soporte para Mandos a Distancia Pared Delgado — $239 MXN · 80 × 160 × 120 mm · SKU EMISHA-BU623921
 - Emisha Soporte para Watch Escritorio Cargador — $439 MXN · 100 × 120 × 90 mm · SKU EMISHA-BU104114
-- Emisha Sujetacables Pared Cable Manguera Impresión 3D — $629 MXN · 70 × 90 × 100 mm · SKU EMISHA-BU958192
-- Emisha Volante Mini compatible con Control Ps5 Juego — $239 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU245543
-- (…y 363 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Sujetador de Cables Escritorio Mesa Cable — $279 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU878180
+- Grip Soporte Para Joy-con Compatibles Con Nintendo Switch 2 — $339 MXN · 60 × 170 × 230 mm · SKU EMI-DP-GRIP
+- Soportedual Para Cargador Inalambrico Compatible Con Magsafe — $259 MXN · 100 × 150 × 150 mm · SKU EMI-MSSD-DP-BL-001
+- (…y 403 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.3 Baño, salud y cuidado personal (156 piezas)
+### 5.3 Baño, salud y cuidado personal (158 piezas)
 
-Rango de precio: $139 MXN a $4,669 MXN. Peso: 52 a 1122 g.
+Rango de precio: $129 MXN a $4,669 MXN. Peso: 40 a 1122 g.
 
 - Emisha Araña Bromista para Papel Higiénico — $139 MXN · 100 × 120 × 90 mm · SKU EMISHA-BU2469265
 - Emisha Caja para Dientes de Bebé Recuerdo Regalo Dentales — $259 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU158571
-- Emisha Contenedor para Pastillas Llave Portátil Medicamentos — $169 MXN · 70 × 80 × 100 mm · SKU EMISHA-BU155504
-- Emisha Dispensador de Pastillas Suplementos Almacenaje — $1,699 MXN · 80 × 140 × 100 mm · SKU EMISHA-BU424380
+- Emisha Contenedor para Pastillas Viaje Llavero Portátil — $229 MXN · 60 × 80 × 70 mm · SKU EMISHA-BU1183091
+- Emisha Dispensador Semanal de Medicamentos Farmacia — $679 MXN · 80 × 130 × 90 mm · SKU EMISHA-BU174640
 - Emisha Exprimidor de Pasta de Dientes Baño Ahorro — $139 MXN · 80 × 100 × 130 mm · SKU EMISHA-BU1449266
 - Emisha Exprimidor de Pasta Dental Cocina Ahorrador — $199 MXN · 80 × 80 × 120 mm · SKU EMISHA-BU1851515
-- Emisha Funda para Cepillo de Dientes Viaje Dental Portátil — $209 MXN · 70 × 110 × 70 mm · SKU EMISHA-BU722636
-- Emisha Gancho para Toallas Pared Autocerrable Grabado — $179 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU2250519
-- Emisha Limpiador de Drenaje Baño Fontanería Desagüe — $169 MXN · 60 × 70 × 290 mm · SKU EMISHA-BU1874456
-- Emisha Organizador de Cepillos Baño Animales Ajustable — $399 MXN · 100 × 120 × 140 mm · SKU EMISHA-BU1921144
-- Emisha Organizador de Pastillas Medicamento Viaje Seguro — $1,389 MXN · 70 × 110 × 90 mm · SKU EMISHA-BU1849322
-- Emisha Organizador Giratorio para Baño Fregadero Giro — $1,589 MXN · 220 × 240 × 190 mm · SKU EMISHA-BU381162
-- Emisha Pastillero Compartimentos Sin Soportes — $229 MXN · 90 × 100 × 80 mm · SKU EMISHA-BU1859162
-- Emisha Pastillero Viaje Compacto Impresión 3D — $289 MXN · 70 × 110 × 90 mm · SKU EMISHA-BU173562
-- Emisha Peine para Barba Viaje Impresión — $169 MXN · 60 × 130 × 70 mm · SKU EMISHA-BU1058810
-- Emisha Peines para Cabello Estilo Clásico — $429 MXN · 70 × 120 × 80 mm · SKU EMISHA-BU1231476
-- Emisha Rellenador de Tubos de Pasta Dental Viaje Baño — $149 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU421791
-- Emisha Soporte para Gafas de Sol Automovil Parasol Universal — $199 MXN · 70 × 120 × 90 mm · SKU EMISHA-BU2558189
-- Emisha Soporte para Toallas de Cocina Montaje — $749 MXN · 220 × 160 × 390 mm · SKU EMISHA-BU955266
-- Emisha Tapa para Tubo de Pasta Dental Perro Doberman — $389 MXN · 70 × 80 × 80 mm · SKU EMISHA-BU1265770
-- (…y 136 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Funda para Cepillo de Dientes Viaje Protección — $189 MXN · 70 × 100 × 70 mm · SKU EMISHA-BU913492
+- Emisha Gancho Puerta Toalla — $149 MXN · 70 × 80 × 100 mm · SKU EMISHA-BU51319
+- Emisha Limpiador de Drenaje Cocina Baño Impresión 3D — $139 MXN · 80 × 80 × 100 mm · SKU EMISHA-BU149573
+- Emisha Organizador de Cepillos de Dientes Baño Doble — $779 MXN · 110 × 150 × 120 mm · SKU EMISHA-BU741363
+- Emisha Organizador de Pastillas Semanal Viaje Medicamentos — $469 MXN · 90 × 110 × 80 mm · SKU EMISHA-BU173048
+- Emisha Organizador Giratorio para Pinceles de Maquillaje — $1,209 MXN · 120 × 150 × 160 mm · SKU EMISHA-BU375299
+- Emisha Pastillero de Bolsillo Viaje Compacto Organizador — $469 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU1542726
+- Emisha Pastillero Viaje Portátil Medicamentos Impresión 3D — $679 MXN · 100 × 120 × 70 mm · SKU EMISHA-BU1158418
+- Emisha Peine para Calvos Regalo Divertido Juguete — $189 MXN · 70 × 110 × 70 mm · SKU EMISHA-BU813117
+- Emisha Percha con Cierre Automático Baño Toalla Pared — $1,039 MXN · 80 × 100 × 290 mm · SKU EMISHA-BU978372
+- Emisha Rociador de Ducha Anular Baño Moderno Minimalista — $669 MXN · 220 × 240 × 190 mm · SKU EMISHA-BU752317
+- Emisha Soporte para Gafas de Sol Decorativo Hexagonal Estilo — $1,239 MXN · 100 × 120 × 140 mm · SKU EMISHA-BU1561862
+- Emisha Sujetador para Gafas Automóvil Parasol Universal — $429 MXN · 70 × 110 × 90 mm · SKU EMISHA-BU1578412
+- Soporte Compatible Con Rasuradora Oneblade De Philips Blanco — $129 MXN · 50 × 120 × 120 mm · SKU EMI-POS-DP-W-001
+- (…y 138 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.4 Cocina, comedor y hogar (171 piezas)
+### 5.4 Cocina, comedor y hogar (175 piezas)
 
 Rango de precio: $139 MXN a $18,339 MXN. Peso: 52 a 4025 g.
 
@@ -990,257 +990,257 @@ Rango de precio: $139 MXN a $18,339 MXN. Peso: 52 a 4025 g.
 - Emisha Abrelatas para Bebidas Bebida Tapa Facil Impresión 3D — $159 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1773948
 - Emisha Bandeja Embudo Escritorio Organizador Oficina — $189 MXN · 160 × 140 × 120 mm · SKU EMISHA-BU1984393
 - Emisha Cesta para Bolsas Cocina Alacena Impresión 3D — $579 MXN · 140 × 240 × 190 mm · SKU EMISHA-BU62286
-- Emisha Contenedor Apilable Personalizable Almacenaje Cocina — $539 MXN · 120 × 120 × 160 mm · SKU EMISHA-BU1681768
-- Emisha Cuchara para Arena Niños Jardín Cocina — $559 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU1315454
-- Emisha Dispensador de Palillos Cocina Automático Mecánico — $789 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU2281924
-- Emisha Embudo de Transferencia Cocina Taller Lavandería — $219 MXN · 100 × 110 × 110 mm · SKU EMISHA-BU2323117
-- Emisha Estante Modular Hogar Escalable Mural — $6,469 MXN · 140 × 240 × 190 mm · SKU EMISHA-BU1350569
-- Emisha Florero Decoración Futurista Hogar — $419 MXN · 120 × 130 × 160 mm · SKU EMISHA-BU469806
-- Emisha Herramienta para Lanzas de Cerveza Fiesta Bar — $419 MXN · 100 × 120 × 190 mm · SKU EMISHA-BU1347631
-- Emisha Organizador Apilable Esquina Cocina Modular Ventilado — $1,389 MXN · 190 × 190 × 160 mm · SKU EMISHA-BU2075071
-- Emisha Organizador de Huevos Cocina Apilable Refrigerador — $1,739 MXN · 190 × 290 × 140 mm · SKU EMISHA-BU1681075
-- Emisha Organizador para Cubiertos Cocina Escurreplatos — $889 MXN · 190 × 220 × 160 mm · SKU EMISHA-BU1870422
-- Emisha Organizador para Tapas de Ollas Cocina Olla Sartén — $629 MXN · 140 × 240 × 190 mm · SKU EMISHA-BU1507819
-- Emisha Pinza para Bolsas de Alimentos Cocina Reutilizable — $179 MXN · 50 × 70 × 60 mm · SKU EMISHA-BU1130078
-- Emisha Serpiente Desatascador Cocina Fregadero Extensible — $139 MXN · 60 × 70 × 190 mm · SKU EMISHA-BU993363
-- Emisha Soporte para Tazas Escritorio Mesa Adaptable — $1,319 MXN · 100 × 130 × 160 mm · SKU EMISHA-BU707670
-- Emisha Taza Medidora Cocina Repostería Volumen Impresión 3D — $409 MXN · 110 × 110 × 140 mm · SKU EMISHA-BU504520
-- Emisha Árbol de Navidad Decoración Vaso Iluminación — $489 MXN · 120 × 120 × 160 mm · SKU EMISHA-BU800827
-- (…y 151 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Contenedor de Huevos Cocina Apilable — $979 MXN · 100 × 140 × 120 mm · SKU EMISHA-BU409895
+- Emisha Cuchara para Detergente Lavandería Medidor Hogar — $259 MXN · 70 × 80 × 110 mm · SKU EMISHA-BU192342
+- Emisha Dispensador de Platos de Papel Cocina Rv Almacenaje — $1,729 MXN · 190 × 160 × 290 mm · SKU EMISHA-BU1705412
+- Emisha Embudo Dosificador para Hierbas Cocina — $219 MXN · 80 × 100 × 90 mm · SKU EMISHA-BU463866
+- Emisha Estante para Botellas de Pintura Miniaturas — $1,169 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU1572118
+- Emisha Florero Decorativo Hogar Decoración Botánica — $569 MXN · 120 × 140 × 240 mm · SKU EMISHA-BU775156
+- Emisha Lanzador de Botellas Táctico Fiesta Militar — $6,469 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU2757024
+- Emisha Organizador de Bolsas de Basura Cocina Taller Rv — $509 MXN · 120 × 140 × 190 mm · SKU EMISHA-BU1435952
+- Emisha Organizador de Películas Plásticas Cocina Almacenaje — $1,109 MXN · 120 × 190 × 240 mm · SKU EMISHA-BU425957
+- Emisha Organizador para Esponjas Cocina Imantado — $279 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU1282329
+- Emisha Pelador de Naranjas Cocina Frutas Ayudante — $139 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU2039514
+- Emisha Porta Huevos Refrigerador Cocina Apilable — $829 MXN · 200 × 170 × 120 mm · SKU EMISHA-BU497190
+- Emisha Soporte para Bolsas de Comestibles Cocina Compras — $489 MXN · 90 × 160 × 120 mm · SKU EMISHA-BU1083285
+- Emisha Soporte Vertical para Home Música Hogar — $399 MXN · 100 × 110 × 160 mm · SKU EMISHA-BU192196
+- Emisha Tazón para Pistachos Nueces Snacks Cocina — $1,439 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU954556
+- Sujetador Para Vaso De Detergente — $159 MXN · 120 × 240 × 320 mm · SKU EMI-LLCH-DP-W-001
+- (…y 155 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.5 Jardín, plantas y mascotas (79 piezas)
+### 5.5 Jardín, plantas y mascotas (81 piezas)
 
-Rango de precio: $129 MXN a $11,619 MXN. Peso: 52 a 2779 g.
+Rango de precio: $109 MXN a $11,619 MXN. Peso: 20 a 2779 g.
 
 - Emisha Adaptador de Conducto Ventilación Manguera Conexión — $1,779 MXN · 120 × 140 × 120 mm · SKU EMISHA-BU536810
 - Emisha Adaptador para Mangueras de Vacío Manguera Conector — $629 MXN · 80 × 80 × 60 mm · SKU EMISHA-BU437239
 - Emisha Aro de Baloncesto Flexible Deporte Jardín Niños — $259 MXN · 240 × 340 × 490 mm · SKU EMISHA-BU1055971
-- Emisha Casita de Árbol en Miniatura Maceta Jardín Decoración — $519 MXN · 100 × 120 × 140 mm · SKU EMISHA-BU1312117
-- Emisha Conector para Mangueras Manguera Tubo Adaptador — $849 MXN · 60 × 70 × 70 mm · SKU EMISHA-BU1259571
+- Emisha Clicker de Patita de Gato Escritorio Juguete — $279 MXN · 70 × 90 × 70 mm · SKU EMISHA-BU1252949
+- Emisha Copa Dosificadora Alimento Mascota Medidor — $789 MXN · 90 × 120 × 100 mm · SKU EMISHA-BU37125
 - Emisha Figura de Gato Decoración Minimalista Escultura — $619 MXN · 80 × 100 × 120 mm · SKU EMISHA-BU1033449
 - Emisha Florero Facetado Decorativo Plantas Corte — $389 MXN · 130 × 130 × 200 mm · SKU EMISHA-BU748131
 - Emisha Gato Articulado Juguete Mascota Decoración — $619 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1397464
-- Emisha Guía para Manguera de Lavado Automotriz Rueda Jardín — $679 MXN · 90 × 140 × 120 mm · SKU EMISHA-BU568247
-- Emisha Juguete para Gatos Mascotas Diversión Impreso — $1,149 MXN · 80 × 100 × 90 mm · SKU EMISHA-BU1129196
-- Emisha Loto Acuático Decoración Jardín Flor — $259 MXN · 100 × 120 × 90 mm · SKU EMISHA-BU1354004
-- Emisha Macetas de Autorriego Plantas Carnívoras — $989 MXN · 140 × 160 × 190 mm · SKU EMISHA-BU561477
-- Emisha Macetas en Espiral Jardín Decoración Plantas — $739 MXN · 120 × 150 × 160 mm · SKU EMISHA-BU27094
-- Emisha Macetas Poligonales Decoración Jardín Minimalista — $1,049 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU474831
-- Emisha Marcador para Libros Animal Lectura Gato — $179 MXN · 50 × 70 × 160 mm · SKU EMISHA-BU1222875
-- Emisha Organizador de Herramientas Jardín Pared Manguera — $569 MXN · 120 × 160 × 390 mm · SKU EMISHA-BU463417
-- Emisha Regador de Pájaros para Plantas Jardín Maceta — $859 MXN · 80 × 100 × 160 mm · SKU EMISHA-BU1342261
-- Emisha Semillero Auto-riego Jardín Plantas Hortalizas — $1,149 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU1154305
-- Emisha Soporte para Herramientas de Jardín Pared — $389 MXN · 70 × 100 × 140 mm · SKU EMISHA-BU1342536
-- Emisha Válvula de Trasvase por Sacudida Jardín — $209 MXN · 70 × 80 × 110 mm · SKU EMISHA-BU849701
-- (…y 59 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Juguete de Gato Flexible Mascotas Llavero Articulado — $2,719 MXN · 70 × 80 × 110 mm · SKU EMISHA-BU2459711
+- Emisha Llavero de Bulldog Francés Mascota Mini Regalo — $189 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU250122
+- Emisha Macetas Cinéticas Decoración Minimalista Interior — $1,149 MXN · 140 × 160 × 190 mm · SKU EMISHA-BU1070011
+- Emisha Macetas Decorativas Decoración Minimalista Habitación — $729 MXN · 120 × 150 × 120 mm · SKU EMISHA-BU796264
+- Emisha Macetas Hexagonales Jardín Decoración Escalable — $479 MXN · 120 × 120 × 160 mm · SKU EMISHA-BU497342
+- Emisha Marcador de Página Libro Gato — $129 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU86345
+- Emisha Marcador para Libros Libro Gato Personalizable — $149 MXN · 50 × 70 × 220 mm · SKU EMISHA-BU449941
+- Emisha Perro Fantasma Flotante Halloween Ilusión Óptica — $749 MXN · 140 × 160 × 220 mm · SKU EMISHA-BU1864876
+- Emisha Rosa Decoración Jardín Escritorio — $749 MXN · 100 × 120 × 190 mm · SKU EMISHA-BU662896
+- Emisha Silbato de Pájaro Juguete Sonido Exterior — $759 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1148442
+- Emisha Topagujos de Gato Decoración Puerta Mascota — $389 MXN · 100 × 120 × 140 mm · SKU EMISHA-BU52260
+- Palillos Para Sushi Con Patas De Gato Y Perro Blanco Perro Y Gato — $249 MXN · 30 × 150 × 220 mm · SKU EMI-SPT-DP-Mc-001
+- (…y 61 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.6 Deporte, camping y aire libre (36 piezas)
+### 5.6 Deporte, camping y aire libre (39 piezas)
 
-Rango de precio: $129 MXN a $4,849 MXN. Peso: 51 a 1026 g.
+Rango de precio: $99 MXN a $4,849 MXN. Peso: 51 a 1363 g.
 
-- Emisha Arco y Flecha Juguete Niños Impresión 3D — $199 MXN · 120 × 290 × 220 mm · SKU EMISHA-BU892892
-- Emisha Bidé de Viaje Senderismo Camping Portátil — $169 MXN · 80 × 100 × 160 mm · SKU EMISHA-BU1318654
-- Emisha Caja para Municiones 9mm Almacenaje Munición — $1,679 MXN · 240 × 190 × 120 mm · SKU EMISHA-BU27953
+- 2 Soportes Gancho Para Casco Biker Moto Negro — $139 MXN · 50 × 100 × 110 mm · SKU EMI-SW2-DP-W-001
+- Emisha Avión Planador Juguete Vuelo Exterior — $169 MXN · 70 × 190 × 120 mm · SKU EMISHA-BU525146
+- Emisha Caja Enrollable Taller Pesca Costura — $2,349 MXN · 120 × 290 × 140 mm · SKU EMISHA-BU1821535
+- Emisha Compartimiento Oculto Para Bici C/ Airtag Brompton Negro — $119 MXN · 70 × 310 × 400 mm · SKU EMI-HC-DP-BL-001
 - Emisha Contenedor Resistente Aventura Exterior Seguro — $539 MXN · 120 × 140 × 110 mm · SKU EMISHA-BU716156
-- Emisha Contenedor Resistente Exterior Viaje Hermético — $819 MXN · 140 × 130 × 100 mm · SKU EMISHA-BU1232711
-- Emisha Empuñadura para Rifle Mlok Montaje — $249 MXN · 170 × 80 × 70 mm · SKU EMISHA-BU591354
-- Emisha Ganchos para Casco y Chaleco Camioneta Asiento — $849 MXN · 70 × 130 × 100 mm · SKU EMISHA-BU828745
-- Emisha Herramienta para Retirar Neumáticos de Bicicleta — $259 MXN · 160 × 100 × 80 mm · SKU EMISHA-BU489923
-- Emisha Lanzador de Tic Tacs Juguete Niños Exterior — $669 MXN · 70 × 120 × 90 mm · SKU EMISHA-BU125422
-- Emisha Llavero de Casco Moto Visera Kart — $259 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU407684
+- Emisha Cuchillo de Gravedad Plegable Paracord — $289 MXN · 60 × 110 × 80 mm · SKU EMISHA-BU59931
+- Emisha Figura de Golf Articulada Deporte Juguete Llave — $199 MXN · 70 × 80 × 100 mm · SKU EMISHA-BU921144
+- Emisha Giro de Munición Fortnite Alivio del Estrés — $409 MXN · 60 × 90 × 60 mm · SKU EMISHA-BU2170086
+- Emisha Huevo de Dragón Fantasia Decoración Aventura — $4,849 MXN · 120 × 140 × 160 mm · SKU EMISHA-BU395708
+- Emisha Linterna de Calabaza Halloween Decoración Vela — $929 MXN · 140 × 160 × 220 mm · SKU EMISHA-BU608645
 - Emisha Llavero de Gimnasio Personalizable Deporte — $1,349 MXN · 70 × 80 × 100 mm · SKU EMISHA-BU535987
 - Emisha Mosquetón Accesorios Mochila Llave Impresión 3D — $149 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU550165
 - Emisha Mosquetón Tipo Llavero Personalizable — $169 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU857360
 - Emisha Pinza para Mancuernas Gimnasio Herramienta Ergonómico — $1,279 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU792115
 - Emisha Silbato Micro Emergencia Exterior Pequeño — $129 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU2318088
 - Emisha Silbato Turbo Juguete Exterior Ruidoso — $169 MXN · 60 × 80 × 80 mm · SKU EMISHA-BU887162
-- Emisha Silbato Ultrasónico Camping Emergencia Llavero — $189 MXN · 50 × 70 × 100 mm · SKU EMISHA-BU2598185
+- Emisha Silbato Ultrasónico Rescate Exterior Fuerte — $199 MXN · 50 × 80 × 80 mm · SKU EMISHA-BU2999228
 - Emisha Soporte para Casco Muro Gimnasio Almacenaje — $569 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU783069
 - Emisha Soporte para Cañas de Pesca Pared Techo — $489 MXN · 120 × 140 × 290 mm · SKU EMISHA-BU1860865
 - Emisha Tapa para Lata Camping Bebidas Exterior — $719 MXN · 110 × 110 × 80 mm · SKU EMISHA-BU517581
-- (…y 16 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- (…y 19 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.7 Automotriz y movilidad (53 piezas)
+### 5.7 Automotriz y movilidad (54 piezas)
 
 Rango de precio: $129 MXN a $9,799 MXN. Peso: 52 a 2679 g.
 
 - Emisha Accesorios para Tablero Perforado — $3,409 MXN · 90 × 190 × 240 mm · SKU EMISHA-BU869344
 - Emisha Bandeja para Tablero Perforado Organizador — $239 MXN · 340 × 240 × 90 mm · SKU EMISHA-BU497499
-- Emisha Basurero para Auto Coche Portavasos Tapa — $899 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU2599851
+- Emisha Caja para Tablero Perforado Organizador — $519 MXN · 220 × 290 × 340 mm · SKU EMISHA-BU213759
 - Emisha Calibrador de Profundidad de Neumáticos Automotriz — $149 MXN · 60 × 70 × 100 mm · SKU EMISHA-BU596833
 - Emisha Conector compatible con Tablero Skadis Horizontal — $179 MXN · 60 × 100 × 70 mm · SKU EMISHA-BU471800
 - Emisha Conector compatible con Tablero Skadis Vertical — $199 MXN · 60 × 70 × 100 mm · SKU EMISHA-BU466731
-- Emisha Enrollador para Tensoras Carga Camioneta Herramienta — $969 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU670947
-- Emisha Estante para Tablero Perforado Escritorio — $239 MXN · 120 × 190 × 290 mm · SKU EMISHA-BU984760
+- Emisha Estante compatible con Tablero Perforado Ikea — $619 MXN · 120 × 190 × 240 mm · SKU EMISHA-BU835903
+- Emisha Gancho compatible con Tablero Ikea Skadis — $229 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU632335
 - Emisha Gancho para Tablero Perforado Metal Garaje — $159 MXN · 50 × 70 × 120 mm · SKU EMISHA-BU23474
 - Emisha Ganchos para Tablero Perforado — $219 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU748932
-- Emisha Ganchos para Tablero Perforado Taller Organización — $129 MXN · 50 × 70 × 100 mm · SKU EMISHA-BU406046
-- Emisha Llavero de Palanca Coche Manual Juguete Impresión 3D — $659 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU188346
+- Emisha Ganchos y Cajas para Tablero Perforado — $2,249 MXN · 70 × 120 × 80 mm · SKU EMISHA-BU710070
+- Emisha Llavero Palanca de Cambios Coche Juguete Llave — $589 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU725445
 - Emisha Organizador de Llaves para Garage Coche — $779 MXN · 110 × 160 × 220 mm · SKU EMISHA-BU1325131
 - Emisha Panel compatible con Tablero Skadis Herramientas — $509 MXN · 60 × 290 × 220 mm · SKU EMISHA-BU57601
-- Emisha Portavasos para Gimbal Vehículo Bebidas Estabilizador — $1,059 MXN · 100 × 130 × 110 mm · SKU EMISHA-BU1062749
-- Emisha Soporte compatible con Cinta Tablero Perforado Skadis — $259 MXN · 90 × 120 × 160 mm · SKU EMISHA-BU693408
-- Emisha Soporte para Destornilladores Tablero Perforado — $669 MXN · 90 × 190 × 240 mm · SKU EMISHA-BU619826
+- Emisha Rodamientos Patineta Herramienta Giro Impresión 3D — $129 MXN · 60 × 70 × 50 mm · SKU EMISHA-BU396617
+- Emisha Soporte compatible con Pegamento Ikea Tablero — $259 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU47873
+- Emisha Soporte para Paraguas Automóvil Isofix — $419 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU1793135
 - Emisha Tablero compatible con Ikea Skadis Pared Ligero — $1,329 MXN · 60 × 340 × 340 mm · SKU EMISHA-BU1397731
-- Emisha Tablero de Arte con Alfileres Mano Juguete Fidget — $1,099 MXN · 70 × 120 × 160 mm · SKU EMISHA-BU616565
-- Emisha Tapa compatible con Tornillos Skadis Tablero — $129 MXN · 50 × 70 × 60 mm · SKU EMISHA-BU463997
-- (…y 33 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Tablero Perforado Ganchos Taller Almacenamiento — $679 MXN · 60 × 440 × 640 mm · SKU EMISHA-BU2048355
+- Portavasos Giroscópico Para El Automóvil Azul — $449 MXN · 130 × 240 × 340 mm · SKU EMI-GCH-DP-Bl-001
+- (…y 34 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.8 Herramientas y taller (335 piezas)
+### 5.8 Herramientas y taller (345 piezas)
 
-Rango de precio: $119 MXN a $6,339 MXN. Peso: 51 a 1964 g.
+Rango de precio: $89 MXN a $6,339 MXN. Peso: 20 a 1964 g.
 
-- Emisha Abrazadera para Tubería Tuberías Industrial Ajustable — $699 MXN · 100 × 90 × 70 mm · SKU EMISHA-BU166713
-- Emisha Base para Organizador de Herramientas — $2,709 MXN · 340 × 240 × 90 mm · SKU EMISHA-BU1179101
+- Cortadores De Galletas De Halloween (12 Modelos) Blanco — $189 MXN · 70 × 210 × 210 mm · SKU EMI-HCC-DP-BW-001
+- Emisha Base para Caja Herramientas Organización — $669 MXN · 120 × 150 × 110 mm · SKU EMISHA-BU860672
 - Emisha Caja Organizadora Herramientas Taller Resistente — $1,679 MXN · 190 × 240 × 140 mm · SKU EMISHA-BU132417
 - Emisha Calibrador de Radio Medición Carpintería Curvaturas — $409 MXN · 160 × 120 × 80 mm · SKU EMISHA-BU2125992
-- Emisha Cierre de Seguridad Herramientas Crates Esquina — $189 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1540928
-- Emisha Contenedor Resistente Herramientas Almacenamiento — $1,209 MXN · 140 × 160 × 120 mm · SKU EMISHA-BU476221
-- Emisha Destornillador Portátil Herramientas Pequeño Compacto — $899 MXN · 60 × 80 × 220 mm · SKU EMISHA-BU417208
-- Emisha Etiquetas Intercambiables Organización Herramientas — $2,619 MXN · 70 × 90 × 60 mm · SKU EMISHA-BU446624
-- Emisha Guía para Taladro Construcción Precisión — $219 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU909708
-- Emisha Kit de Lubricación Herramienta Eje Limpieza — $139 MXN · 70 × 120 × 90 mm · SKU EMISHA-BU1186687
-- Emisha Llavero Dragón Animal Decoración — $249 MXN · 50 × 80 × 80 mm · SKU EMISHA-BU72476
-- Emisha Mordaza de Precisión Miniatura Escritorio — $399 MXN · 70 × 80 × 70 mm · SKU EMISHA-BU1152749
-- Emisha Organizador de Llaves Herramientas — $509 MXN · 70 × 140 × 90 mm · SKU EMISHA-BU676116
-- Emisha Organizador para Alicates Herramientas Escritorio — $439 MXN · 100 × 150 × 90 mm · SKU EMISHA-BU496112
-- Emisha Pomo Roscado Tornillo Hexagono M3 — $209 MXN · 50 × 50 × 70 mm · SKU EMISHA-BU74557
-- Emisha Silbato Fuerte Emergencia Llavero Rescate — $149 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU70984
-- Emisha Soporte de Pared compatible con Soplador Milwaukee — $769 MXN · 120 × 160 × 220 mm · SKU EMISHA-BU30982
-- Emisha Soporte para Escobas Pared Herramientas Organizador — $459 MXN · 120 × 160 × 340 mm · SKU EMISHA-BU1080126
-- Emisha Soporte para Taladro Taller Pared — $5,259 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU14664
-- Emisha Transportador Ángulo Medición Dibujo — $669 MXN · 70 × 130 × 100 mm · SKU EMISHA-BU2049061
-- (…y 315 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Clasificador de Pernos Taller Organización Medición — $389 MXN · 140 × 160 × 120 mm · SKU EMISHA-BU252854
+- Emisha Cortador de Cajas Paquete Almacén Herramienta — $169 MXN · 50 × 80 × 100 mm · SKU EMISHA-BU2787208
+- Emisha Destornillador Ratchet Portátil Herramienta — $779 MXN · 60 × 80 × 120 mm · SKU EMISHA-BU2174916
+- Emisha Extractor de Teclas Mecánico Limpieza Personalizable — $149 MXN · 50 × 70 × 50 mm · SKU EMISHA-BU780544
+- Emisha Guía y Colector de Polvo para Taladro — $489 MXN · 90 × 100 × 120 mm · SKU EMISHA-BU1032829
+- Emisha Llave Industrial Mantenimiento Seguridad — $419 MXN · 50 × 70 × 100 mm · SKU EMISHA-BU1918060
+- Emisha Llavero Tiburón Ballena Marino Articulado — $1,149 MXN · 60 × 90 × 100 mm · SKU EMISHA-BU595107
+- Emisha Mordaza para Carpintería Herramientas — $619 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1731451
+- Emisha Organizador de Llaves Herramientas Módulo Gabinete — $709 MXN · 100 × 190 × 120 mm · SKU EMISHA-BU1525511
+- Emisha Organizador para Destornilladores Escritorio — $1,069 MXN · 100 × 140 × 120 mm · SKU EMISHA-BU395210
+- Emisha Prensa para Insertos Térmicos Soldadura Herramienta — $2,179 MXN · 120 × 190 × 140 mm · SKU EMISHA-BU825644
+- Emisha Soporte compatible con Calibrador Ikea Skadis — $159 MXN · 70 × 120 × 90 mm · SKU EMISHA-BU105092
+- Emisha Soporte para Calibrador Hsw Pared Organizador — $169 MXN · 70 × 120 × 90 mm · SKU EMISHA-BU456068
+- Emisha Soporte para Martillo Pared Herramienta Gancho — $189 MXN · 70 × 90 × 100 mm · SKU EMISHA-BU213985
+- Emisha Sujetador para Llave Automotriz Decorativo Articulado — $149 MXN · 60 × 70 × 60 mm · SKU EMISHA-BU880154
+- Soporte Para Sujeción De Lija Con Identificador De Grano 1 — $159 MXN · 80 × 260 × 320 mm · SKU EMI-SSGN-DP-W-001
+- (…y 325 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.9 Escritorio, oficina y papelería (215 piezas)
+### 5.9 Escritorio, oficina y papelería (222 piezas)
 
-Rango de precio: $109 MXN a $16,689 MXN. Peso: 51 a 3067 g.
+Rango de precio: $99 MXN a $16,689 MXN. Peso: 30 a 3067 g.
 
-- Emisha Adaptador para Tarjeta Sim Teléfono Iot Nano — $129 MXN · 50 × 60 × 50 mm · SKU EMISHA-BU226788
-- Emisha Basurero de Escritorio Diorama Miniatura — $879 MXN · 110 × 120 × 110 mm · SKU EMISHA-BU767644
-- Emisha Billetera Tarjetero Clip Dinero Portatarjetas — $489 MXN · 50 × 110 × 140 mm · SKU EMISHA-BU1955132
-- Emisha Caja Apilable Oficina Electrónica Modular — $1,209 MXN · 290 × 190 × 120 mm · SKU EMISHA-BU139372
-- Emisha Caja Resistente Escritorio Dinero Útil — $689 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU1030815
-- Emisha Christmas / Birthday Gift Tarjeta Caja con Excelente — $389 MXN · 80 × 130 × 110 mm · SKU EMISHA-BU42662
-- Emisha Clip Versátil Bolsa Cierre Mini Impresión 3D — $159 MXN · 50 × 70 × 60 mm · SKU EMISHA-BU708853
-- Emisha Dispensador de Chicles Escritorio Organizador — $489 MXN · 90 × 120 × 100 mm · SKU EMISHA-BU1902522
+- Clip Multiusos De Fuerte Tensión — $139 MXN · 120 × 280 × 360 mm · SKU EMI-MCSCT-DP-W-001
+- Emisha Basurero con Tapa Escritorio A1 Mini — $1,729 MXN · 120 × 140 × 160 mm · SKU EMISHA-BU2291836
+- Emisha Billetera para Tarjetas Dinero Portátil — $479 MXN · 50 × 110 × 140 mm · SKU EMISHA-BU758701
+- Emisha Caja Apilable Escritorio Almacenaje Oficina — $1,559 MXN · 160 × 140 × 110 mm · SKU EMISHA-BU139300
+- Emisha Caja Plegable Escritorio Almacenaje — $209 MXN · 140 × 160 × 120 mm · SKU EMISHA-BU1681478
+- Emisha Cesta Apilable Escritorio Oficina — $669 MXN · 210 × 160 × 110 mm · SKU EMISHA-BU521879
+- Emisha Clip para Sábanas Cama Fácil Impresión — $909 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU2048752
+- Emisha Dispensador de Bolígrafos Magnéticos Escritorio — $14,949 MXN · 70 × 90 × 110 mm · SKU EMISHA-BU663160
 - Emisha Estuche para Lápices Escritorio Oficina — $779 MXN · 90 × 140 × 100 mm · SKU EMISHA-BU576693
 - Emisha Funda para Pasaporte Viaje Documentos Impresión 3D — $499 MXN · 50 × 150 × 190 mm · SKU EMISHA-BU698078
-- Emisha Marcapáginas Libro Lectura Impresión 3D — $119 MXN · 50 × 60 × 190 mm · SKU EMISHA-BU559295
+- Emisha Marcapáginas Libro Bosque — $219 MXN · 50 × 70 × 220 mm · SKU EMISHA-BU846264
 - Emisha Organizador de Escritorio Grande — $2,539 MXN · 240 × 290 × 220 mm · SKU EMISHA-BU855046
-- Emisha Organizador de Escritorio Post It Oficina — $1,569 MXN · 120 × 190 × 140 mm · SKU EMISHA-BU940481
-- Emisha Pinza Modular Escritorio Universal Sujeción — $419 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU1039985
+- Emisha Organizador de Escritorio Xxl Modular — $4,099 MXN · 190 × 290 × 190 mm · SKU EMISHA-BU788835
+- Emisha Pinza Modular Universal Escritorio Mesa Sujeción — $1,249 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1579791
 - Emisha Porta-lápices con Capucha Escritorio Decorativo — $679 MXN · 120 × 130 × 160 mm · SKU EMISHA-BU2074420
 - Emisha Soporte Calavera Escritorio Decoración Gótico — $1,319 MXN · 120 × 140 × 160 mm · SKU EMISHA-BU1202378
-- Emisha Soporte para Libros Escritorio Minimalista — $559 MXN · 120 × 140 × 190 mm · SKU EMISHA-BU550376
-- Emisha Soporte para Plumas Escritorio Organizador Utensilios — $499 MXN · 110 × 120 × 110 mm · SKU EMISHA-BU2104663
-- Emisha Sujetacables de Escritorio Organizador — $259 MXN · 60 × 90 × 60 mm · SKU EMISHA-BU2027682
-- Emisha Varita para Tarjetas Tarjeta Mágica Pagos — $579 MXN · 50 × 60 × 390 mm · SKU EMISHA-BU2507806
-- (…y 195 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Soporte para Libros Lectura Cómodo Ergonómico — $199 MXN · 120 × 160 × 240 mm · SKU EMISHA-BU1341349
+- Emisha Soporte para Reloj Escritorio — $209 MXN · 70 × 110 × 90 mm · SKU EMISHA-BU868425
+- Emisha Sujetacables Escritorio Almacenaje Organizador — $519 MXN · 50 × 70 × 100 mm · SKU EMISHA-BU941862
+- Porta Lápices Voronoi - Organizador De Escritorio — $239 MXN · 110 × 230 × 320 mm · SKU EMI-VPHC-DP-B-001
+- (…y 202 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.10 Juguetes, llaveros y decoración (387 piezas)
+### 5.10 Juguetes, llaveros y decoración (404 piezas)
 
-Rango de precio: $129 MXN a $8,829 MXN. Peso: 51 a 1620 g.
+Rango de precio: $99 MXN a $8,829 MXN. Peso: 40 a 1750 g.
 
-- Emisha Abanico Plegable de Libélula Decoración Original — $569 MXN · 70 × 290 × 440 mm · SKU EMISHA-BU2904810
-- Emisha Bumerán Vuelo Deporte Juguete — $419 MXN · 70 × 240 × 190 mm · SKU EMISHA-BU1530358
-- Emisha Ciervo Navideño Navidad Decoración — $679 MXN · 80 × 100 × 120 mm · SKU EMISHA-BU874194
-- Emisha Corazón Antiestrés Regalo Amor Niña Impresión 3D — $229 MXN · 60 × 90 × 80 mm · SKU EMISHA-BU1080615
-- Emisha Dado D20 Rpg Juego de Mesa Impresión 3D — $149 MXN · 60 × 60 × 60 mm · SKU EMISHA-BU126373
-- Emisha Dragón Flexible Articulado Juguete — $2,609 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU1444181
-- Emisha Espada de Plástico con Forma de Banana Juguete — $1,469 MXN · 80 × 120 × 290 mm · SKU EMISHA-BU405549
-- Emisha Fantasma con Piernas Halloween Articulado Decoración — $169 MXN · 90 × 100 × 120 mm · SKU EMISHA-BU668761
-- Emisha Florero Corazón Decoración Romántico Regalo — $1,859 MXN · 140 × 160 × 190 mm · SKU EMISHA-BU401409
+- Adorno Con Forma De Copo De Nieve Para Foto Circular (4pack) Blanco Copo De Nieve — $469 MXN · 100 × 220 × 250 mm · SKU EMI-SPCO-DP-W-001
+- Emisha Bandeja Clasificadora Juguetes Modular Almacenaje — $1,139 MXN · 340 × 240 × 90 mm · SKU EMISHA-BU834081
+- Emisha Calvera de Tiranosaurio Rex Decoración Pared — $2,519 MXN · 140 × 290 × 340 mm · SKU EMISHA-BU1246821
+- Emisha Contenedor de Huevo con Escamas de Dragón Decoración — $549 MXN · 140 × 160 × 190 mm · SKU EMISHA-BU1209723
+- Emisha Cubo Transformable Juguete Puzzle Origami — $489 MXN · 100 × 100 × 100 mm · SKU EMISHA-BU1492537
+- Emisha Dragón de Cristal Articulado Coleccionable Fantasia — $439 MXN · 140 × 160 × 220 mm · SKU EMISHA-BU141051
+- Emisha Esfera Fidget Transformable Manos Juguete — $879 MXN · 80 × 80 × 80 mm · SKU EMISHA-BU1101000
+- Emisha Fabricador de Bolas de Nieve Invierno Juguete — $539 MXN · 80 × 110 × 90 mm · SKU EMISHA-BU754999
+- Emisha Florero Burbuja Decoración Geométrico Espiral — $669 MXN · 120 × 140 × 240 mm · SKU EMISHA-BU142482
 - Emisha Giro Spinner de Anillos Juguete Fidget — $429 MXN · 110 × 110 × 70 mm · SKU EMISHA-BU624400
-- Emisha Jarrón Antiestrés Retorcido Decoración Juguete — $819 MXN · 100 × 100 × 120 mm · SKU EMISHA-BU1444526
-- Emisha Juguete Fidget de Estrellas Sensorial Diversión Joven — $439 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU1755208
-- Emisha Lanzador de Hélices y Trompo Juguete Spin — $729 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU1233085
-- Emisha Orca Flexible Juguete Animal Articulado — $639 MXN · 100 × 120 × 90 mm · SKU EMISHA-BU1584583
-- Emisha Porta Huevos Sorpresa Niños Pascua Decoración — $429 MXN · 90 × 120 × 100 mm · SKU EMISHA-BU1008721
-- Emisha Serpentina Articulada Juguete Flexibilidad Reptil — $1,019 MXN · 100 × 120 × 70 mm · SKU EMISHA-BU1000942
-- Emisha Silbato Emergencia Supervivencia Portátil — $159 MXN · 50 × 70 × 60 mm · SKU EMISHA-BU532485
-- Emisha Sujetador para Miniaturas Pintura Miniatura Mano — $399 MXN · 70 × 80 × 60 mm · SKU EMISHA-BU1620572
-- Emisha Varita Mágica Juguete Fiesta Disfraz — $919 MXN · 60 × 70 × 390 mm · SKU EMISHA-BU2246254
-- Emisha Árbol en Miniatura Realista Juego Mesa Dungeons — $829 MXN · 60 × 70 × 100 mm · SKU EMISHA-BU990535
-- (…y 367 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Jarrón para Flores de Decoración Habitación — $409 MXN · 100 × 100 × 120 mm · SKU EMISHA-BU787174
+- Emisha Juguete Fidget Estelar Mano Ansiedad Concentración — $1,059 MXN · 60 × 120 × 80 mm · SKU EMISHA-BU1783379
+- Emisha Lanzador Planetario Juguete Engranaje Fidget — $229 MXN · 70 × 80 × 70 mm · SKU EMISHA-BU803543
+- Emisha Paleta para Texturas Secas Pintura Miniaturas — $589 MXN · 60 × 150 × 110 mm · SKU EMISHA-BU1493338
+- Emisha Pulpo Articulado Juguete Fidget A1 Mini — $1,039 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1297536
+- Emisha Serpiente Articulada Fantástica Juguete Decoración — $1,339 MXN · 100 × 290 × 120 mm · SKU EMISHA-BU2397308
+- Emisha Silbato Súper Sonoro Emergencia Loud Keychain — $139 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU1610978
+- Emisha Tiburón Mordedor Juguete Fidget Títere Impresión 3D — $769 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU1721287
+- Emisha Árbol de Navidad Articulado Decoración — $289 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU840028
+- Portavasos Flexible Para Sofá Portavasos Flexible Negro — $289 MXN · 50 × 80 × 240 mm · SKU EMI-FSAT-DP-B-001
+- (…y 384 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.11 Organización y almacenamiento (229 piezas)
+### 5.11 Organización y almacenamiento (240 piezas)
 
-Rango de precio: $129 MXN a $55,779 MXN. Peso: 52 a 18084 g.
+Rango de precio: $69 MXN a $55,779 MXN. Peso: 50 a 18084 g.
 
 - Emisha Accesorios compatible con Skådis Garage Pared — $4,709 MXN · 90 × 290 × 140 mm · SKU EMISHA-BU708229
-- Emisha Bandeja para Zócalos Universal Modular Organizador — $5,869 MXN · 140 × 150 × 90 mm · SKU EMISHA-BU502884
-- Emisha Caja Apilable Almacenaje Organización Modular — $189 MXN · 140 × 160 × 120 mm · SKU EMISHA-BU251517
-- Emisha Caja con Cierre Almacenaje Contenedor Seguro — $459 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU2168356
-- Emisha Caja con Tapa Mini Deslizante Almacenaje — $259 MXN · 80 × 90 × 70 mm · SKU EMISHA-BU198150
-- Emisha Caja Deslizante Joyas Pequeña Minimalista — $559 MXN · 120 × 150 × 120 mm · SKU EMISHA-BU751299
-- Emisha Caja Organizadora Paramétrica Personalizable — $549 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU1859912
-- Emisha Caja Resistente Almacenaje Apilable Robusta — $599 MXN · 290 × 190 × 120 mm · SKU EMISHA-BU1430947
-- Emisha Cesta Apilable Almacenaje Manijas Organización — $1,089 MXN · 270 × 270 × 190 mm · SKU EMISHA-BU1382577
-- Emisha Contenedor Apilable Organización Modular — $16,849 MXN · 120 × 150 × 90 mm · SKU EMISHA-BU700381
-- Emisha Contenedor con Cierre Giratorio Almacenaje — $449 MXN · 100 × 130 × 100 mm · SKU EMISHA-BU431105
-- Emisha Contenedor para Almacenamiento Garage Organizador — $619 MXN · 190 × 290 × 220 mm · SKU EMISHA-BU1721852
-- Emisha Divisor para Cartas Mágicas Organizador Caja — $569 MXN · 180 × 150 × 70 mm · SKU EMISHA-BU498769
-- Emisha Estante para Servidores Servidor Mural Modular — $7,749 MXN · 290 × 340 × 490 mm · SKU EMISHA-BU1317298
-- Emisha Gancho para Abrigo Closet Organizador — $169 MXN · 60 × 80 × 100 mm · SKU EMISHA-BU570534
-- Emisha Organizador compatible con Skadis Modular Almacenaje — $1,599 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU895826
-- Emisha Organizador Modular para Pinturas Pintura — $3,079 MXN · 190 × 290 × 220 mm · SKU EMISHA-BU1625421
-- Emisha Paneles Perforados Muro Organizador Colgante — $9,329 MXN · 70 × 440 × 640 mm · SKU EMISHA-BU154218
-- Emisha Soporte compatible con Tijeras y Alicates Skadis — $389 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU175234
-- Emisha Tarro Personalizable Almacenaje Modificable Hilos — $209 MXN · 110 × 110 × 140 mm · SKU EMISHA-BU1131035
-- (…y 209 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Bandeja Personalizable compatible con Skadis — $3,449 MXN · 390 × 290 × 120 mm · SKU EMISHA-BU824527
+- Emisha Caja Apilable Almacenaje Organización Modular — $1,149 MXN · 220 × 290 × 190 mm · SKU EMISHA-BU97304
+- Emisha Caja con Cierre Almacenaje Organización Click — $649 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU1382560
+- Emisha Caja de Almacenaje Almacén Organización Impresión 3D — $17,259 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU213420
+- Emisha Caja Deslizante Personalizable Almacenaje Compacta — $169 MXN · 70 × 110 × 80 mm · SKU EMISHA-BU1960715
+- Emisha Caja para Cartas Juegos Coleccionables Organizador — $639 MXN · 90 × 110 × 70 mm · SKU EMISHA-BU1076649
+- Emisha Cajas Apilables Organización Modular Almacenamiento — $8,659 MXN · 140 × 240 × 190 mm · SKU EMISHA-BU1259420
+- Emisha Clasificador de Monedas Euro Moneda Organizador — $1,529 MXN · 140 × 160 × 120 mm · SKU EMISHA-BU142761
+- Emisha Contenedor compatible con Gridfinity Organización — $1,879 MXN · 150 × 150 × 110 mm · SKU EMISHA-BU1072049
+- Emisha Contenedor de Viaje Pequeño Impermeable Organizador — $499 MXN · 80 × 90 × 120 mm · SKU EMISHA-BU826856
+- Emisha Dispensador de Chicles Viaje Seguro Almacenaje — $509 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU1969302
+- Emisha Estante Hexagonal Modular Pared Decorativo — $2,879 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU1282310
+- Emisha Estuche para Cigarrillos y Encendedor Bolsillo — $559 MXN · 60 × 110 × 80 mm · SKU EMISHA-BU890634
+- Emisha Organizador compatible con Cajón Alex Ikea Gridfinity — $1,389 MXN · 470 × 310 × 140 mm · SKU EMISHA-BU116580
+- Emisha Organizador de Zapatos Closet Pared — $3,209 MXN · 220 × 290 × 440 mm · SKU EMISHA-BU55522
+- Emisha Panel Perforado Pared Organización Modular — $4,259 MXN · 60 × 540 × 640 mm · SKU EMISHA-BU2419153
+- Emisha Soporte compatible con Desbarbadora Skadis — $229 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU466888
+- Emisha Sujetacables compatible con Skadis Pared Organizador — $179 MXN · 70 × 100 × 80 mm · SKU EMISHA-BU571650
+- Soporte Universal Para Teléfono/bandeja De Almacenamiento — $159 MXN · 80 × 120 × 150 mm · SKU EMI-USPST-DP-B-001
+- (…y 220 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.12 Soportes, ganchos y sujeción (70 piezas)
+### 5.12 Soportes, ganchos y sujeción (76 piezas)
 
-Rango de precio: $139 MXN a $2,189 MXN. Peso: 53 a 469 g.
+Rango de precio: $109 MXN a $2,189 MXN. Peso: 53 a 2827 g.
 
 - Emisha Billetera Perfilado Minimalista Cartera Pared — $269 MXN · 60 × 110 × 150 mm · SKU EMISHA-BU1381419
 - Emisha Colgador para Bolsa Mesa Universales — $449 MXN · 70 × 130 × 80 mm · SKU EMISHA-BU652981
-- Emisha Conector para Paneles Panel Universal Montaje — $419 MXN · 70 × 80 × 60 mm · SKU EMISHA-BU790825
-- Emisha Gancho de Pared Puerta Removible Pequeño — $139 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU210353
-- Emisha Gancho Plegable para Abrigo Pared Minimalista — $229 MXN · 80 × 100 × 140 mm · SKU EMISHA-BU980224
-- Emisha Marco para Fotos con Base Pared Instax Polaroid — $1,209 MXN · 70 × 190 × 260 mm · SKU EMISHA-BU394707
-- Emisha Percha Plegable de Viaje Ropa — $619 MXN · 80 × 160 × 290 mm · SKU EMISHA-BU710637
-- Emisha Pinza de Precisión Electrónica Modelo Diy — $149 MXN · 50 × 70 × 140 mm · SKU EMISHA-BU997577
-- Emisha Pinza para Bolsa Empaque Alimentos Pequeña — $219 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1182676
-- Emisha Pinzas Precisión Manualidades — $169 MXN · 50 × 60 × 220 mm · SKU EMISHA-BU1039684
+- Emisha Conos para Pintar Pintura Manualidades Soportes — $159 MXN · 70 × 70 × 100 mm · SKU EMISHA-BU856901
+- Emisha Gancho de Pared Resistente Fuerte Bolsas — $229 MXN · 70 × 90 × 100 mm · SKU EMISHA-BU798773
+- Emisha Gancho Universal para Pared Almacén Fuerte — $259 MXN · 60 × 80 × 80 mm · SKU EMISHA-BU2777171
+- Emisha Percha para Abrigo Puerta Fuerte Gancho Impresión 3D — $699 MXN · 100 × 160 × 290 mm · SKU EMISHA-BU570536
+- Emisha Pinza de Fijación Pegamento Impresión — $429 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU1382348
+- Emisha Pinza para Bolsa de Papas Snacks Divertido Sellado — $279 MXN · 50 × 90 × 70 mm · SKU EMISHA-BU1732983
+- Emisha Pinzas para Multímetro Electrónica Reparación — $169 MXN · 50 × 70 × 220 mm · SKU EMISHA-BU1064113
 - Emisha Soporte compatible con Alicates Knipex Ikea — $819 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU1601747
-- Emisha Soporte de Pared para Cuerdas Cuerda Rope — $229 MXN · 80 × 100 × 120 mm · SKU EMISHA-BU1070478
-- Emisha Soporte para Cargar y Watch — $669 MXN · 120 × 140 × 80 mm · SKU EMISHA-BU1075820
+- Emisha Soporte de Pared compatible con Accesorios Dyson — $919 MXN · 90 × 160 × 120 mm · SKU EMISHA-BU445879
+- Emisha Soporte para Balón de Basquetbol Muro Baloncesto — $459 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU170767
 - Emisha Soporte para Control Juego — $649 MXN · 140 × 160 × 220 mm · SKU EMISHA-BU1048144
 - Emisha Soporte para Guitarra Música Ajustable Acústica — $529 MXN · 290 × 240 × 390 mm · SKU EMISHA-BU516854
-- Emisha Soporte para Labial Mamá Floral Accesorio — $439 MXN · 50 × 80 × 100 mm · SKU EMISHA-BU2706365
-- Emisha Soporte para Latas de Aerosol Pared Organización — $419 MXN · 90 × 160 × 120 mm · SKU EMISHA-BU850440
-- Emisha Soporte para Mochila Accesorios Cámara — $179 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU495618
-- Emisha Soporte para Sombreros Ropa Organización Compacto — $439 MXN · 120 × 160 × 190 mm · SKU EMISHA-BU920642
-- Emisha Sujetador para Tiras de Corriente Mesa Práctico — $949 MXN · 120 × 160 × 80 mm · SKU EMISHA-BU1085132
-- (…y 50 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Soporte para Lata Delgada Bebidas Ajustable — $539 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU2395516
+- Emisha Soporte para Latas Delgadas Bebidas Grip Alani — $449 MXN · 90 × 120 × 140 mm · SKU EMISHA-BU1434979
+- Emisha Soporte para Palos de Hockey Muro Deportes — $829 MXN · 120 × 190 × 290 mm · SKU EMISHA-BU159751
+- Emisha Sujetador de Hilo Yarnomatic Hilado Tejido — $219 MXN · 70 × 80 × 70 mm · SKU EMISHA-BU983487
+- Percha Para Bolsos Y Mochilas Para Armario Negro — $109 MXN · 180 × 380 × 570 mm · SKU EMI-CBHW-DP-W-001
+- Soporte Vertical Compatible Con Cartuchos De Nes — $1,099 MXN · 150 × 160 × 290 mm · SKU EMI-NVCH-DP-G-001
+- (…y 56 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.13 Otras piezas (136 piezas)
+### 5.13 Otras piezas (172 piezas)
 
-Rango de precio: $119 MXN a $7,419 MXN. Peso: 51 a 1313 g.
+Rango de precio: $69 MXN a $7,419 MXN. Peso: 20 a 2312 g.
 
-- Emisha Abrebotellas para Adultos Mayores Artritis Agarre — $1,149 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU1493731
-- Emisha Agarre para Joy-con Ergonómico — $529 MXN · 140 × 160 × 90 mm · SKU EMISHA-BU579623
-- Emisha Barajador de Cartas Juegos de Mesa Manualidades — $3,029 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU536164
-- Emisha Cerradura de Pasadores Seguridad Aprendizaje — $1,219 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU668637
-- Emisha Cubo Antiestrés Manos Concentración Diversión — $479 MXN · 120 × 120 × 120 mm · SKU EMISHA-BU888012
+- Calendario Estilo F1 Temporada 2026 Con Fechas Temporada 2026 — $629 MXN · 80 × 270 × 370 mm · SKU EMI-F1S26WD-DP-Mc-001
+- Emisha Abrebotellas Universal Ergonómico Ajustable — $229 MXN · 50 × 80 × 100 mm · SKU EMISHA-BU1093642
+- Emisha Almohadilla Sensorial Antiestrés — $2,239 MXN · 50 × 120 × 100 mm · SKU EMISHA-BU2629018
+- Emisha Billetera Plegable Cartera Compacta Táctica — $559 MXN · 60 × 110 × 150 mm · SKU EMISHA-BU1334027
+- Emisha Cráneo Humano Anatomía Ciencia Escuela — $2,809 MXN · 190 × 220 × 290 mm · SKU EMISHA-BU229818
 - Emisha Cuerno para Zapatos Zapato Ayuda Accesorio — $169 MXN · 60 × 80 × 130 mm · SKU EMISHA-BU2862004
-- Emisha Dispensador de Cinta Empaque Envoltura Adhesiva — $729 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU2272948
-- Emisha Fabricador de Bolas de Nieve Minecraft Invierno — $529 MXN · 70 × 110 × 80 mm · SKU EMISHA-BU946269
-- Emisha Florero Decorativo Japandi Moderno Escandinavo — $2,439 MXN · 140 × 160 × 290 mm · SKU EMISHA-BU1783622
-- Emisha Guía para Huecos de Bolsillo Madera Carpintería — $389 MXN · 100 × 140 × 120 mm · SKU EMISHA-BU115072
-- Emisha Juego de Conecta Cuatro Espiral Autoorganizable — $2,059 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU737254
-- Emisha Marcapáginas Decorativo Lectura — $459 MXN · 50 × 80 × 190 mm · SKU EMISHA-BU1195415
+- Emisha Empujador para Mesa de Corte Madera Seguridad — $2,279 MXN · 160 × 100 × 80 mm · SKU EMISHA-BU1515963
+- Emisha Flauta de Pan Música Instrumento Folclor — $649 MXN · 70 × 90 × 240 mm · SKU EMISHA-BU13026
+- Emisha Guía para Accesorios de Navaja Philips One Blade — $189 MXN · 60 × 70 × 60 mm · SKU EMISHA-BU119485
+- Emisha Juego de Conecta Cuatro Vortex Passthrough Espiral — $2,789 MXN · 190 × 240 × 290 mm · SKU EMISHA-BU594789
+- Emisha Marcador Central Carpintería Metalurgia Escalable — $189 MXN · 60 × 80 × 100 mm · SKU EMISHA-BU971412
 - Emisha Motor a Reacción Avión Modelo Turbina — $7,419 MXN · 190 × 290 × 220 mm · SKU EMISHA-BU13806
-- Emisha Porta Paneles Construcción Transporte — $1,259 MXN · 120 × 290 × 140 mm · SKU EMISHA-BU754543
-- Emisha Púa para Guitarra Músico — $229 MXN · 50 × 70 × 50 mm · SKU EMISHA-BU63731
-- Emisha Refuerzo de Esquina Estructura Cnc Mecánica — $789 MXN · 70 × 80 × 80 mm · SKU EMISHA-BU1866429
-- Emisha Rodamiento Métrico Industrial Mecánico Repuesto — $159 MXN · 70 × 70 × 60 mm · SKU EMISHA-BU442105
+- Emisha Portavasos Térmico Bebidas Aislante Congelador — $809 MXN · 120 × 130 × 160 mm · SKU EMISHA-BU1688159
+- Emisha Rascador de Espalda Telescópico Impresión 3D — $399 MXN · 60 × 70 × 290 mm · SKU EMISHA-BU67079
+- Emisha Rodamiento Mecánico Deslizante 608 — $149 MXN · 70 × 70 × 120 mm · SKU EMISHA-BU1724561
 - Emisha Tapa para Lata Bebidas Protección Insectos — $2,879 MXN · 60 × 110 × 80 mm · SKU EMISHA-BU508263
-- Emisha Trampa de Oso Caza Supervivencia Impresión 3D — $639 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU1102163
-- Emisha Yate Benchy Barco Remix Test — $249 MXN · 90 × 160 × 100 mm · SKU EMISHA-BU1311637
-- (…y 116 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- Emisha Tuerca y Perno Imperial Kit Metal Impresión 3D — $1,709 MXN · 70 × 120 × 80 mm · SKU EMISHA-BU466326
+- Gonggi De Squid Games 2 Juego Del Calamar 10 Juegos Premium Blanco — $699 MXN · 60 × 240 × 320 mm · SKU E-G-DP-010
+- Porta Cucharon De Plastico Salvamanteles Blanco Oval — $79 MXN · 50 × 130 × 180 mm · SKU EMI-SH-DP-W-001
+- Trampa Para Moscas De La Fruta En Forma De Piña — $229 MXN · 110 × 180 × 260 mm · SKU EMI-FFT-DP-GY-001
+- (…y 152 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
 ## 6. Herramientas gratuitas
 
