@@ -8,12 +8,9 @@
 > Enviamos a todo México. Razón social: Emisha Design And Consulting S.A. de
 > C.V. (RFC EDC140515CJ7).
 
-Versión extendida, con el catálogo completo, los precios y las
-compatibilidades en texto plano: https://www.emisha.com.mx/llms-full.txt
-
 Datos que se citan seguido:
 
-- Horario del taller: lunes a viernes de 9:00 a 19:00. Sábados y domingos cerrado.
+- Horario del taller: lunes a viernes de 9:00 a 19:00; sábados con cita previa por WhatsApp.
 - Recepción de impresoras para reparación: lunes a viernes de 12:00 a 18:00, agendada en línea.
 - Reparación: diagnóstico $300 MXN; mano de obra $700 MXN, o $400 MXN si el diagnóstico ya se hizo en Emisha. Las refacciones se cotizan aparte y se autorizan antes de instalarlas.
 - No somos centro de servicio autorizado por Bambu Lab: somos un taller independiente.
@@ -56,6 +53,5 @@ Datos que se citan seguido:
 
 ## Opcional
 
-- [llms-full.txt](https://www.emisha.com.mx/llms-full.txt): este mismo sitio en versión larga — los 29 filamentos, las placas, los hotends, la ficha de Liquid Ultra, las refacciones Bambu Lab con existencia y las piezas de la tienda, con precio, SKU y compatibilidad.
 - [Blog completo](https://www.emisha.com.mx/blog/)
 - [Contacto y mayoreo](https://www.emisha.com.mx/contacto/)

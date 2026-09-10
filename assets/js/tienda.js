@@ -26,7 +26,28 @@
   // /tienda/ no lleva el atributo, así que ahí sigue saliendo todo.
   // Cuando las placas entren al inventario, basta con que su SKU empiece
   // con uno de estos prefijos para que aparezcan solas.
-  var PREFIJOS_PROPIOS_3D = ['EMI-HE-', 'EMI-PL-', 'EMI-PLACA-', 'EMI-HOTEND-'];
+  // 'EMI-CP-' son las placas Cold Plate, que ya viven en CanalPulse con stock:
+  // sin este prefijo el catálogo vivo las trae pero la portada las esconde.
+  var PREFIJOS_PROPIOS_3D = ['EMI-HE-', 'EMI-PL-', 'EMI-PLACA-', 'EMI-HOTEND-', 'EMI-CP-'];
+
+  // A dónde lleva la tarjeta al hacerle clic. Las curadas ya traen su 'pagina'
+  // en el JSON; las del catálogo vivo se resuelven por prefijo de SKU, que es
+  // lo único que comparten (EMI-CP-* son las camas, EMI-HE-* las boquillas).
+  // Las 1,500 piezas impresas y las de AG no tienen página: se quedan sin
+  // enlace, igual que hoy.
+  var PAGINA_POR_PREFIJO = [
+    ['EMI-CP-', '/placas/'], ['EMI-PL-', '/placas/'], ['EMI-PLACA-', '/placas/'],
+    ['EMI-HE-', '/hotends/'], ['EMI-HOTEND-', '/hotends/'],
+    ['EMI-FIL-', '/filamentos/']
+  ];
+
+  function paginaDe(p) {
+    if (p.pagina) return p.pagina;
+    for (var i = 0; i < PAGINA_POR_PREFIJO.length; i++) {
+      if (p.sku.indexOf(PAGINA_POR_PREFIJO[i][0]) === 0) return PAGINA_POR_PREFIJO[i][1];
+    }
+    return '';
+  }
 
   // Boquillas y placas propias que todavía NO viven en el inventario: hoy se
   // piden por WhatsApp. Se leen de un archivo curado a mano. Cuando entren a
@@ -169,14 +190,29 @@
           '<button type="button" aria-label="Agregar una pieza" data-mas>+</button>' +
         '</div>';
 
+    // La foto y el nombre abren la página del producto cuando existe. La foto
+    // va con tabindex="-1": si no, cada tarjeta gastaría dos paradas del
+    // tabulador para llegar al mismo lado. El href se pone por propiedad, no
+    // dentro del innerHTML, por lo mismo que el nombre: aquí no se inyecta HTML.
+    var pagina = paginaDe(p);
+    var etqMedia = pagina ? 'a' : 'div';
+    var etqNombre = pagina ? 'a' : 'div';
+
     el.innerHTML =
-      '<div class="prod__media" aria-hidden="true"><span>' + inicial(p.nombre) + '</span></div>' +
+      '<' + etqMedia + ' class="prod__media"' +
+        (pagina ? ' data-ver tabindex="-1" aria-hidden="true"' : ' aria-hidden="true"') + '>' +
+        '<span>' + inicial(p.nombre) + '</span>' +
+      '</' + etqMedia + '>' +
       '<div class="prod__body">' +
-        '<div class="prod__nombre"></div>' +
+        '<' + etqNombre + ' class="prod__nombre"' + (pagina ? ' data-ver' : '') + '></' + etqNombre + '>' +
         '<div class="prod__precio">' + precio(p.precio_centavos) + ' ' + pocas + '</div>' +
         '<div class="prod__acciones">' + acciones + '</div>' +
       '</div>';
     el.querySelector('.prod__nombre').textContent = p.nombre;  // sin inyectar HTML
+    if (pagina) {
+      var enlaces = el.querySelectorAll('[data-ver]');
+      for (var e = 0; e < enlaces.length; e++) enlaces[e].href = pagina;
+    }
 
     if (agSobrePedido || esPropiaWA) {
       var wa = el.querySelector('[data-wa]');

@@ -15,36 +15,6 @@
 <meta property="og:title" content="Tienda Emisha — piezas impresas en 3D">
 <meta property="og:description" content="Inventario real, pago con Mercado Pago y envío a todo México.">
 <meta property="og:url" content="https://www.emisha.com.mx/tienda/">
-<meta property="og:image" content="https://www.emisha.com.mx/assets/img/filamentos/cosmic-blue.webp">
-<meta name="twitter:card" content="summary_large_image">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["WebPage", "CollectionPage"],
-      "@id": "https://www.emisha.com.mx/tienda/#webpage",
-      "url": "https://www.emisha.com.mx/tienda/",
-      "name": "Tienda en línea — piezas impresas en 3D con envío a todo México | Emisha",
-      "description": "Compra piezas impresas en 3D directamente de Emisha: inventario real en Ciudad de México, pago seguro con Mercado Pago y envío a todo el país.",
-      "inLanguage": "es-MX",
-      "isPartOf": { "@id": "https://www.emisha.com.mx/#website" },
-      "about": { "@id": "https://www.emisha.com.mx/#organization" },
-      "provider": { "@id": "https://www.emisha.com.mx/#organization" },
-      "breadcrumb": { "@id": "https://www.emisha.com.mx/tienda/#breadcrumb" }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.emisha.com.mx/tienda/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.emisha.com.mx/" },
-        { "@type": "ListItem", "position": 2, "name": "Tienda", "item": "https://www.emisha.com.mx/tienda/" }
-      ]
-    }
-  ]
-}
-</script>
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
@@ -73,6 +43,12 @@
 .prod__stepper button:disabled{opacity:.35;cursor:default}
 .prod__stepper[hidden],.prod__acciones [hidden]{display:none}
 .prod__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* La foto y el nombre son enlaces a /placas/, /hotends/ o /filamentos/ cuando
+   el producto tiene página. Heredan color: un nombre azul subrayado dentro de
+   la reja se lee como error, no como enlace. */
+a.prod__nombre{color:inherit;text-decoration:none}
+a.prod__nombre:hover,a.prod__nombre:focus-visible{text-decoration:underline}
+a.prod__media{cursor:pointer}
 .tienda-aviso{border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin:0 0 22px;background:var(--surface-2)}
 .tienda-aviso--error{border-color:rgba(180,35,24,.32);background:rgba(180,35,24,.06)}
 
@@ -281,7 +257,6 @@
     </div>
   </section>
 
-
 </main>
 
 <div class="drawer-fondo" data-cart-fondo hidden></div>
@@ -402,6 +377,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/tienda.js?v=8195a22f" defer></script>
+<script src="../assets/js/tienda.js?v=cbd8835b" defer></script>
 </body>
 </html>

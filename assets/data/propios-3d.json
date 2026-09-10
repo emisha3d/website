@@ -1,39 +1,24 @@
 {
-  "actualizado": "2026-09-07",
+  "actualizado": "2026-09-09",
   "nota": [
-    "Productos Emisha para la portada: placas, boquillas/hotends y los 29",
-    "filamentos. Están aquí y no en el catálogo del inventario porque hoy no se",
-    "venden por el carrito: se piden por WhatsApp o se compran en MercadoLibre.",
+    "Productos Emisha para la portada: boquillas/hotends y los 29 filamentos.",
+    "Están aquí y no en el catálogo del inventario porque hoy no se venden por",
+    "el carrito: se piden por WhatsApp o se compran en MercadoLibre.",
+    "",
+    "Las placas SALIERON de aquí el 9 de septiembre de 2026: ya viven en",
+    "CanalPulse como EMI-CP-A1X1P1S y EMI-CP-H2, con stock, peso y medidas,",
+    "así que el catálogo vivo las trae con carrito. Tenerlas en los dos lados",
+    "las enseñaba dos veces, una comprable y otra por WhatsApp.",
     "",
     "El día que entren a CanalPulse con SKU, stock, peso y medidas, se pueden",
     "borrar de aquí: tienda.js ya los toma solos del catálogo en vivo y ese",
     "camino sí lleva carrito y pago en línea.",
     "",
-    "PRECIOS: si cambian aquí, cambian también en /filamentos/, /hotends/ y",
-    "/placas/ (y en el JSON-LD de esas páginas). Son tres lugares, no uno.",
+    "PRECIOS: si cambian aquí, cambian también en /filamentos/ y /hotends/",
+    "(y en el JSON-LD de esas páginas). El de las placas ahora manda CanalPulse.",
     "El filamento va a $249 el kilo, que es el precio de /filamentos/."
   ],
   "productos": [
-    {
-      "sku": "EMI-PL-NEO-257",
-      "nombre": "Placa Emisha Neo Ultra Sticky 257 × 257 mm",
-      "detalle": "Para A1, P1P, P1S, X1, X1C y X1E",
-      "precio_centavos": 69900,
-      "imagen": "/assets/img/placas/neo-256-sm.webp",
-      "perfil": "placa",
-      "pagina": "/placas/",
-      "wa": "Hola, quiero una placa Emisha Neo Ultra Sticky de 257 × 257 mm"
-    },
-    {
-      "sku": "EMI-PL-NEO-355",
-      "nombre": "Placa Emisha Neo Ultra Sticky 355 × 346 mm",
-      "detalle": "Para la serie H2: H2D y H2S",
-      "precio_centavos": 139900,
-      "imagen": "/assets/img/placas/neo-h2-sm.webp",
-      "perfil": "placa",
-      "pagina": "/placas/",
-      "wa": "Hola, quiero una placa Emisha Neo Ultra Sticky de 355 × 346 mm"
-    },
     {
       "sku": "EMI-HE-A1-0.2",
       "nombre": "Hotend Emisha 0.2 mm · Bambu Lab A1 y A1 mini",
