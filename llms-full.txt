@@ -294,7 +294,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-554 piezas con existencia confirmada, listas para salir de la Ciudad de
+555 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -760,7 +760,7 @@ Rango de precio: $249 MXN a $11,879 MXN.
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $10,629 MXN · SKU AG-BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,379 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (110 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (111 piezas)
 
 Rango de precio: $249 MXN a $2,869 MXN.
 
@@ -814,6 +814,7 @@ Rango de precio: $249 MXN a $2,869 MXN.
 - Filamento Bambu Lab PLA CF rojo burdeos 1.75 mm 1 kg — $869 MXN · SKU AG-BAMBULAB-PLA-CF-ROJO-BURD
 - Filamento Bambu Lab PLA crepusculo brillante 1.75 mm 1 kg — $499 MXN · SKU AG-BAMBULAB-PLA-CREPUS-BRILL
 - Filamento Bambu Lab PLA girasol amarillo 1.75 mm 1 kg — $499 MXN · SKU AG-BAMBULAB-PLA-GIRASOL-AMAR
+- Filamento Bambu Lab PLA gris 1.75 mm 1 kg — $499 MXN · SKU AG-BAMBULAB-PLA-GRIS
 - Filamento Bambu Lab PLA gris azulado 1.75 mm 1 kg — $499 MXN · SKU AG-BAMBULAB-PLA-GRIS-AZULADO
 - Filamento Bambu Lab PLA Lite amarillo 1.75 mm 1 kg — $369 MXN · SKU AG-BAMBULAB-PLA-LITE-AMARILL
 - Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg — $369 MXN · SKU AG-BAMBULAB-PLA-LITE-AZUL

@@ -10,7 +10,7 @@
   var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
     ? 'http://localhost:8788'
     : 'https://emisha-renta.matosic-hrvoje.workers.dev';
-  var WA = 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, quiero rentar una impresora 3D.');
+  var WA_NUM = '525575639255';
 
   /* Precios SIN IVA, en pesos. Salen de aplicar el 40% del valor del equipo al
      mes; la semana es el 40% del mes y el día el 11% del mes. El depósito en
@@ -54,6 +54,48 @@
 
   function mxn(pesos) {
     return '$' + Math.round(pesos).toLocaleString('es-MX');
+  }
+
+  var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
+               'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+  /* '2026-09-15' -> '15 de septiembre'. A mano y no con toLocaleDateString,
+     porque eso interpreta la cadena como UTC y en México adelanta un día. */
+  function fechaLarga(iso) {
+    var p = iso.split('-');
+    return (+p[2]) + ' de ' + MESES[+p[1] - 1];
+  }
+
+  /* 3 'días' -> '3 días'; 1 'semanas' -> '1 semana'. */
+  function unidades(n, unidad) {
+    return n + ' ' + (n === 1 ? unidad.replace(/es$|s$/, '') : unidad);
+  }
+
+  /* El apartado en línea todavía no existe: el worker de renta está pendiente,
+     así que este formulario SIEMPRE termina aquí. Si el mensaje llega vacío, el
+     cliente tiene que volver a escribir las seis cosas que acaba de llenar, y
+     ahí es donde se cae el trato. Este lo arma con lo que ya puso, para que la
+     conversación empiece con todo sobre la mesa.
+     Cuando el worker exista, esto se queda igual: sigue siendo la salida
+     cuando la red falla. */
+  function waRenta(c) {
+    var l = ['Hola, quiero rentar una impresora 3D.'];
+    if (c) {
+      var desde = campoInicio.value
+        ? ', a partir del ' + fechaLarga(campoInicio.value) : '';
+      l.push('');
+      l.push('Equipo: ' + c.maquina);
+      l.push('Tiempo: ' + unidades(c.cantidad, TARIFAS[c.tarifa].unidad) + desde);
+      l.push('Total estimado: ' + mxn(c.total) + ' con IVA');
+      var para = form.para.value.trim();
+      if (para) l.push('Para: ' + para);
+      var quien = [form.nombre.value.trim(), form.correo.value.trim()]
+        .filter(Boolean).join(' · ');
+      if (quien) l.push('Soy: ' + quien);
+      l.push('');
+      l.push('(Lo llené en la página de renta.)');
+    }
+    return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(l.join('\n'));
   }
 
   function hoyMX() {
@@ -309,9 +351,11 @@
       marcarPicker();
       pintarResumen();
     }).catch(function () {
+      // c ya viene calculado arriba: el mensaje sale con el equipo, el tiempo
+      // y el estimado que el cliente acaba de ver, no en blanco.
       decir('No se pudo apartar en línea ahora mismo. Escríbenos por ' +
-            '<a href="' + WA + '" target="_blank" rel="noopener">WhatsApp</a> ' +
-            'y lo apartamos nosotros.');
+            '<a href="' + waRenta(c) + '" target="_blank" rel="noopener">WhatsApp</a>' +
+            ' —tu solicitud ya va escrita— y lo apartamos nosotros.');
     }).then(function () {
       botonEnviar.disabled = false;
       botonEnviar.textContent = 'Apartar mi equipo';
