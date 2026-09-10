@@ -28,7 +28,10 @@
   // con uno de estos prefijos para que aparezcan solas.
   // 'EMI-CP-' son las placas Cold Plate, que ya viven en CanalPulse con stock:
   // sin este prefijo el catálogo vivo las trae pero la portada las esconde.
-  var PREFIJOS_PROPIOS_3D = ['EMI-HE-', 'EMI-PL-', 'EMI-PLACA-', 'EMI-HOTEND-', 'EMI-CP-'];
+  // 'E-PLA-' y 'E-PETG-' son los filamentos propios: en CanalPulse viven con
+  // el SKU con el que se publican en MercadoLibre, no con uno EMI-.
+  var PREFIJOS_PROPIOS_3D = ['EMI-HE-', 'EMI-PL-', 'EMI-PLACA-', 'EMI-HOTEND-',
+                             'EMI-CP-', 'E-PLA-', 'E-PETG-'];
 
   // A dónde lleva la tarjeta al hacerle clic. Las curadas ya traen su 'pagina'
   // en el JSON; las del catálogo vivo se resuelven por prefijo de SKU, que es
