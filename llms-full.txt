@@ -82,7 +82,8 @@ Página: https://www.emisha.com.mx/servicios/ · Agenda: https://www.emisha.com.
   diagnóstico y se le devuelve la impresora.
 - Qué incluye la mano de obra: desmontaje, limpieza y desobstrucción, ajustes
   mecánicos, calibración y pruebas de impresión antes de la entrega.
-- Modelos que se atienden: A1, A1 mini, P1P, P1S, X1 Carbon, X1E, H2D, H2S y
+- Modelos que se atienden: A1, A1 mini, P1P, P1S, P2S, X1 Carbon, X1E, H2D,
+  H2S y
   el AMS por separado. Otras marcas: se revisa caso por caso.
 - Fallas más comunes que llegan al taller: extrusor tapado, hotend o termistor,
   cama y nivelación, correas y ejes desalineados, fallas del AMS, y
