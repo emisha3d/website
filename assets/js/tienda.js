@@ -16,7 +16,7 @@
   // al carrito — el checkout aparta stock en el inventario propio y estas
   // piezas están en la bodega de AG, así que se piden por WhatsApp. Van
   // marcadas para que se note que es otro camino, no un botón roto.
-  var AG_API = 'https://emisha-ag.matosic-hrvoje.workers.dev';
+  var AG_API = 'https://catalogo.emisha.com.mx';
   var WA = 'https://wa.me/525575639255?text=';
 
   // Modo "solo impresión 3D": lo prende la portada con

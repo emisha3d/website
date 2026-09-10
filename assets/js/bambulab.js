@@ -11,7 +11,7 @@
 (function () {
   'use strict';
 
-  var API = 'https://emisha-ag.matosic-hrvoje.workers.dev';
+  var API = 'https://catalogo.emisha.com.mx';
 
   var GRUPOS = [
     ['boquilla',      'Boquillas'],
