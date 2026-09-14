@@ -66,10 +66,11 @@
     return 'refaccion';
   }
 
-  // Las cajas de 10 kg viven en CanalPulse (se venden en MercadoLibre) pero
-  // no se venden en el sitio: decisión de Hrvoje, 14 sep 2026.
+  // Las cajas de 5 y 10 kg viven en CanalPulse (se venden en MercadoLibre) pero
+  // no se venden en el sitio: decisión de Hrvoje, 14 sep 2026. El worker de
+  // checkout las rechaza igual, por si quedaron en un carrito guardado.
   function fueraDelSitio(p) {
-    return /-10KG-/i.test(p.sku);
+    return /-(5|10)KG-/i.test(p.sku);
   }
 
   function paginaDe(p) {
@@ -171,18 +172,48 @@
   function precio(centavos) { return mxn.format(centavos / 100); }
 
   function totalCarrito() {
-    var t = 0, piezas = 0;
+    var t = 0, piezas = 0, kg = 0;
     Object.keys(carrito.lineas).forEach(function (sku) {
       var p = porSku[sku];
       if (!p) return;
       t += p.precio_centavos * carrito.lineas[sku];
       piezas += carrito.lineas[sku];
+      kg += kgFilamento(p) * carrito.lineas[sku];
     });
-    return { centavos: t, piezas: piezas };
+    // Redondeado al gramo: 0.75 kg sumados en flotante dan 9.999… y no 10.
+    return { centavos: t, piezas: piezas, kg: Math.round(kg * 1000) / 1000 };
+  }
+
+  // Kilos de filamento de una pieza: la MISMA regla que kgFilamento() del
+  // worker, que es el que cobra. Emisha trae los kilos en el SKU
+  // (E-PLA-M-1KG-*); Bambu Lab (AG, perfil 'filamento') en el nombre.
+  function kgFilamento(p) {
+    var s = /^E-(?:PLA|PETG)-.*-(\d+(?:\.\d+)?)KG-/i.exec(p.sku || '');
+    if (s) return Number(s[1]);
+    if (p.perfil !== 'filamento') return 0;
+    var kg = /(\d+(?:[.,]\d+)?)\s*KG\b/i.exec(p.nombre || '');
+    if (kg) return Number(kg[1].replace(',', '.'));
+    var juego = /(\d+)\s*X\s*(\d+)\s*G\b/i.exec(p.nombre || '');
+    if (juego) return Number(juego[1]) * Number(juego[2]) / 1000;
+    return 0;
+  }
+
+  // Con 10 kg o más de filamento el envío tiene su propia tarifa, aunque el
+  // subtotal pase del envío gratis.
+  function envioPorFilamento(kg) {
+    return !!(envioCfg && envioCfg.filamento_centavos && envioCfg.filamento_desde_kg &&
+      kg >= envioCfg.filamento_desde_kg);
+  }
+
+  function etiquetaEnvio(kg) {
+    return envioPorFilamento(kg)
+      ? 'Envío (' + envioCfg.filamento_desde_kg + ' kg o más de filamento)'
+      : 'Envío';
   }
 
   // Informativo: el cobro real del envío siempre lo calcula el worker.
-  function costoEnvio(subtotalCentavos) {
+  function costoEnvio(subtotalCentavos, kg) {
+    if (envioPorFilamento(kg)) return envioCfg.filamento_centavos;
     if (!envioCfg || !envioCfg.centavos) return 0;
     if (envioCfg.gratis_desde_centavos && subtotalCentavos >= envioCfg.gratis_desde_centavos) return 0;
     return envioCfg.centavos;
@@ -361,11 +392,12 @@
       if (p) lineasEl.appendChild(lineaCarrito(p, carrito.lineas[sku]));
     });
 
-    var envio = costoEnvio(t.centavos);
-    var falta = envioCfg && envioCfg.gratis_desde_centavos - t.centavos;
+    var envio = costoEnvio(t.centavos, t.kg);
+    // Con tarifa de filamento el envío gratis no aplica: no se promete.
+    var falta = !envioPorFilamento(t.kg) && envioCfg && envioCfg.gratis_desde_centavos - t.centavos;
     cuentaEl.innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      '<div><span>Envío</span><span>' + (envio === 0 ? 'Gratis' : precio(envio)) + '</span></div>' +
+      '<div><span>' + etiquetaEnvio(t.kg) + '</span><span>' + (envio === 0 ? 'Gratis' : precio(envio)) + '</span></div>' +
       (envio > 0 && falta > 0
         ? '<div class="drawer__falta"><span>Te faltan ' + precio(falta) + ' para el envío gratis</span></div>' : '') +
       '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio) + '</span></div>';
@@ -542,7 +574,9 @@
   var catsToggle = document.querySelector('[data-cats-toggle]');
   var cuentaEl2 = document.querySelector('[data-cuenta]');
   var arbol = [];
-  var catActiva = null;    // {nombre, skus:{sku:true}}
+  var catActiva = null;    // {nombre, skus:{sku:true}, boton, slug}
+  var catsPorSlug = {};    // slug -> {cat, padre, sub}: para abrir ?cat= al cargar
+  var catDeUrlAplicada = false;
 
   if (catsToggle && catsLista) {
     // En móvil la lista arranca cerrada; en escritorio siempre se ve.
@@ -668,30 +702,61 @@
         b.type = 'button';
         b.innerHTML = '<span></span><b>' + n + '</b>';
         b.querySelector('span').textContent = s.nombre;
-        b.addEventListener('click', function () {
-          elegirCategoria({ nombre: cat.nombre + ' · ' + s.nombre, skus: conjunto(s.skus), boton: b });
-        });
+        var elegidaSub = { nombre: cat.nombre + ' · ' + s.nombre, skus: conjunto(s.skus), boton: b, slug: s.slug };
+        catsPorSlug[s.slug] = { cat: elegidaSub, padre: btn, sub: sub };
+        b.addEventListener('click', function () { elegirCategoria(elegidaSub); });
         li.appendChild(b);
         sub.appendChild(li);
       });
 
+      var elegidaCat = { nombre: cat.nombre, skus: conjunto(skusCat), boton: btn, slug: cat.slug };
+      catsPorSlug[cat.slug] = { cat: elegidaCat, padre: btn, sub: sub };
       btn.addEventListener('click', function () {
         var abierto = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!abierto));
         sub.hidden = abierto;
-        elegirCategoria({ nombre: cat.nombre, skus: conjunto(skusCat), boton: btn });
+        elegirCategoria(elegidaCat);
       });
 
       grupo.appendChild(btn);
       grupo.appendChild(sub);
       catsLista.appendChild(grupo);
     });
+
+    aplicarCategoriaDeUrl();
+  }
+
+  // Un enlace con ?cat=<slug> (p. ej. /?cat=filamento-emisha) abre la tienda
+  // ya en esa categoría: así se le puede mandar a alguien sin instrucciones.
+  // Solo la primera vez que se pinta el árbol; después manda el clic.
+  function aplicarCategoriaDeUrl() {
+    if (catDeUrlAplicada) return;
+    catDeUrlAplicada = true;
+    var slug = null;
+    try { slug = new URLSearchParams(window.location.search).get('cat'); } catch (e) { return; }
+    var hit = slug && catsPorSlug[slug];
+    if (!hit) return;
+    hit.padre.setAttribute('aria-expanded', 'true');
+    hit.sub.hidden = false;
+    elegirCategoria(hit.cat);
+    // En móvil elegirCategoria ya baja al catálogo; en escritorio se baja aquí.
+    if (!window.matchMedia('(max-width: 900px)').matches && cuentaEl2 && cuentaEl2.scrollIntoView) {
+      cuentaEl2.scrollIntoView({ block: 'start' });
+    }
   }
 
   function elegirCategoria(cat) {
     catActiva = cat;
     catsLista.querySelectorAll('.es-activa').forEach(function (e) { e.classList.remove('es-activa'); });
     if (cat && cat.boton) cat.boton.classList.add('es-activa');
+    // La categoría queda en la URL (?cat=) para poder compartir el enlace.
+    // replaceState y no pushState: elegir categorías no llena el botón "atrás".
+    try {
+      var u = new URL(window.location.href);
+      if (cat && cat.slug) u.searchParams.set('cat', cat.slug);
+      else u.searchParams.delete('cat');
+      window.history.replaceState(window.history.state, '', u.toString());
+    } catch (e) { /* sin History API: la tienda funciona igual, sin enlace */ }
     // Elegir categoría con una búsqueda puesta confunde: se limpia.
     if (buscarEl && buscarEl.value) { buscarEl.value = ''; filtro = ''; if (limpiarEl) limpiarEl.hidden = true; }
     pintarGrid();
@@ -953,7 +1018,7 @@
     prellenar();
     cpUltimo = '';
     buscarCp();             // datos recordados: resolver el CP sin que teclee
-    var e = costoEnvio(t.centavos);
+    var e = costoEnvio(t.centavos, t.kg);
     // Si el carrito trae refacciones de AG, se dice ANTES de cobrar: no salen
     // del taller sino del proveedor, y eso cambia el tiempo de entrega.
     var hayAG = Object.keys(carrito.lineas).some(function (sku) {
@@ -961,7 +1026,7 @@
     });
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      '<div><span>Envío</span><span>' + (e === 0 ? 'Gratis' : precio(e)) + '</span></div>' +
+      '<div><span>' + etiquetaEnvio(t.kg) + '</span><span>' + (e === 0 ? 'Gratis' : precio(e)) + '</span></div>' +
       '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>' +
       (hayAG
         ? '<div style="display:block;font-size:.86rem;color:var(--muted);margin-top:8px">' +
