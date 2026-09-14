@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Emisha — lentes 3D: escena, estado e interfaz de /lentes/
+   Emisha — lentes 3D: escena, estado e interfaz de /glasses/
    Depende de lentes-precios.js (catálogo y precios), lentes-geometria.js,
    lentes-materiales.js y lentes-camara.js, que se cargan antes en la página.
 

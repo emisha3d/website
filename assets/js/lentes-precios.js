@@ -1,6 +1,6 @@
 /* ==========================================================================
    Emisha — lentes impresos en 3D: catálogo de opciones y precios
-   Lo usa /lentes/ (demo sin enlazar). Script clásico, sin dependencias:
+   Lo usa /glasses/ (demo sin enlazar). Script clásico, sin dependencias:
    deja todo en window.EmishaLentes para que lentes.js lo lea.
 
    ⚠️ TODOS LOS PRECIOS DE AQUÍ SON UN PUNTO DE PARTIDA.

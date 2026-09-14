@@ -1,6 +1,6 @@
 # Librerías de terceros
 
-Solo las usa `/lentes/` (la demo del configurador de lentes). El resto del sitio
+Solo las usa `/glasses/` (la demo del configurador de lentes). El resto del sitio
 sigue sin dependencias. Se sirven desde aquí, no desde un CDN, para que la página
 no dependa de nadie más y el video de la cámara nunca salga del navegador.
 

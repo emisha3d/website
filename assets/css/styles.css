@@ -1161,7 +1161,7 @@ strong { font-weight: 640; }
 @media (max-width: 640px) { .banner__ilustracion { opacity: .26; width: 68%; } }
 
 /* ==========================================================================
-   /lentes/ — configurador de lentes impresos (demo sin enlazar)
+   /glasses/ — configurador de lentes impresos (demo sin enlazar)
    Escena 3D a la izquierda, pegada al hacer scroll; panel de opciones a la
    derecha. En teléfono: escena arriba, panel abajo, precio pegado al fondo.
    ========================================================================== */

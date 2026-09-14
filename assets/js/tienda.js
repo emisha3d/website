@@ -48,6 +48,30 @@
   // ('en_inventario'), que es con el que llega la pieza del catálogo vivo.
   var PAGINA_POR_SKU = {};
 
+  // sku -> perfil (filamento, placa, hotend, boquilla), del mismo archivo
+  // curado. Lo que no está ahí se resuelve por prefijo.
+  var PERFIL_POR_SKU = {};
+  var PERFIL_POR_PREFIJO = [
+    ['E-PLA-', 'filamento'], ['E-PETG-', 'filamento'], ['EMI-FIL-', 'filamento'],
+    ['EMI-CP-', 'placa'], ['EMI-PL-', 'placa'], ['EMI-PLACA-', 'placa'],
+    ['EMI-HE-', 'hotend'], ['EMI-HOTEND-', 'hotend']
+  ];
+
+  function perfilDe(p) {
+    if (p.perfil) return p.perfil;
+    if (PERFIL_POR_SKU[p.sku]) return PERFIL_POR_SKU[p.sku];
+    for (var i = 0; i < PERFIL_POR_PREFIJO.length; i++) {
+      if (p.sku.indexOf(PERFIL_POR_PREFIJO[i][0]) === 0) return PERFIL_POR_PREFIJO[i][1];
+    }
+    return 'refaccion';
+  }
+
+  // Las cajas de 10 kg viven en CanalPulse (se venden en MercadoLibre) pero
+  // no se venden en el sitio: decisión de Hrvoje, 14 sep 2026.
+  function fueraDelSitio(p) {
+    return /-10KG-/i.test(p.sku);
+  }
+
   function paginaDe(p) {
     if (PAGINA_POR_SKU[p.sku]) return PAGINA_POR_SKU[p.sku];
     if (p.pagina) return p.pagina;
@@ -70,6 +94,12 @@
         // inventario: es de ahí de donde sale la ficha de las camas, que
         // llegan del catálogo vivo con otro SKU (EMI-CP-*).
         lista.forEach(function (p) {
+          // El tipo también se hereda: la pieza que llega del catálogo vivo no
+          // trae perfil, y sin él se queda fuera del árbol de la portada.
+          if (p.perfil) {
+            PERFIL_POR_SKU[p.sku] = p.perfil;
+            if (p.en_inventario) PERFIL_POR_SKU[p.en_inventario] = p.perfil;
+          }
           if (!p.pagina) return;
           PAGINA_POR_SKU[p.sku] = p.pagina;
           if (p.en_inventario) PAGINA_POR_SKU[p.en_inventario] = p.pagina;
@@ -441,7 +471,7 @@
         var propias = soloBambu ? par[2] : [];
         envioCfg = datos.envio || null;
         catalogo = (datos.productos || []).filter(function (p) {
-          if (p.stock <= 0) return false;
+          if (p.stock <= 0 || fueraDelSitio(p)) return false;
           return soloBambu ? esPropia3D(p) : true;
         });
         // Una pieza que el inventario ya publica NO se vuelve a pintar desde el
@@ -558,8 +588,12 @@
     var porTipo = {};
     catalogo.forEach(function (p) {
       var marca = MARCA[p.origen];
+      // En la portada, lo propio de impresión 3D que ya vive en CanalPulse
+      // (filamentos, camas, boquillas) es Emisha igual que su tarjeta curada:
+      // sin esto, al entrar al inventario desaparecía de su categoría.
+      if (!marca && soloBambu && !p.origen && esPropia3D(p)) marca = 'Emisha';
       if (!marca) return;                     // el catálogo propio ya trae árbol
-      var t = p.perfil || 'refaccion';
+      var t = perfilDe(p);
       (porTipo[t] = porTipo[t] || {});
       (porTipo[t][marca] = porTipo[t][marca] || []).push(p.sku);
     });
