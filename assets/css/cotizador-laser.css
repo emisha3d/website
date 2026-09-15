@@ -98,6 +98,46 @@
 .lz-check small { display: block; color: var(--muted); font-size: .8rem; }
 .lz-archivo .lz-check { margin-top: 10px; }
 
+/* ------------------------------------------------------------ escala del diseño
+   Cuatro campos (% y mm, X e Y) en dos renglones compactos, con el mismo aire
+   que el resto de la tarjeta. En móvil los renglones se parten solos. */
+.lz-escala { margin-top: 10px; display: grid; gap: 6px; }
+.lz-escala__fila { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.lz-escala__et {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); min-width: 56px;
+}
+.lz-escala__campo {
+  display: inline-flex; align-items: center; gap: 5px; font-size: .78rem; color: var(--muted); cursor: text;
+}
+.lz-escala__campo > span { font-weight: 600; color: var(--text-2); }
+.lz-escala__campo > i { font-style: normal; }
+.lz-escala__inp {
+  width: 84px; font: inherit; font-size: .84rem; padding: 5px 7px; text-align: right;
+  border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: var(--text);
+  font-variant-numeric: tabular-nums; box-sizing: border-box;
+}
+/* Sin flechitas: estorban y se comen el ancho que necesita un 1119.00.
+   Las teclas ↑ ↓ siguen funcionando en el campo. */
+.lz-escala__inp::-webkit-outer-spin-button,
+.lz-escala__inp::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.lz-escala__inp { -moz-appearance: textfield; appearance: textfield; }
+.lz-escala__inp:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+.lz-escala__pie { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.lz-archivo .lz-escala__uniforme { margin-top: 0; font-size: .82rem; }
+.lz-escala__uniforme input { margin-top: 1px; width: 15px; height: 15px; }
+.lz-escala__reset {
+  font: inherit; font-size: .78rem; font-weight: 580; cursor: pointer; padding: 0;
+  background: none; border: 0; color: var(--brand-600); text-decoration: underline;
+}
+.lz-escala__reset[hidden] { display: none; }
+.lz-escala__aviso {
+  margin: 2px 0 0; font-size: .8rem; color: var(--warn); background: #fffbeb;
+  border: 1px solid rgba(180,83,9,.2); border-radius: var(--radius-sm); padding: 6px 10px;
+}
+.lz-escala__aviso[hidden] { display: none; }
+.lz-escala__reset:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
 /* ------------------------------------------------------------ vistas */
 .lz-vistas { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; }
 .lz-vistas__cab { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 10px; }

@@ -9,9 +9,18 @@ Sitemap: https://www.emisha.com.mx/sitemap.xml
 # Versión extendida, con el catálogo completo, precios y compatibilidades:
 # llms-full.txt: https://www.emisha.com.mx/llms-full.txt
 
+# Servicios que se piden en línea, para que un asistente pueda enviarnos
+# el trabajo del usuario:
+# Cotizador de corte y grabado láser (SVG, DXF, DWG, PDF, AI, EPS, CDR e
+# imágenes; MDF, triplay y acrílico, o material del cliente):
+# https://www.emisha.com.mx/servicios/cotizador-laser/
+# Cotizador de impresión 3D (STL y 3MF):
+# https://www.emisha.com.mx/cotizador/
+
 # Rastreadores de IA — permitidos de forma intencional.
-# Queremos que Liquid Ultra y el filamento Premium Ultra puedan aparecer
-# citados en respuestas de asistentes y buscadores con IA.
+# Queremos que Liquid Ultra, el filamento Premium Ultra y los cotizadores de
+# corte láser e impresión 3D puedan aparecer citados en respuestas de
+# asistentes y buscadores con IA.
 
 User-agent: GPTBot
 Allow: /

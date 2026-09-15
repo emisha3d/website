@@ -24,8 +24,9 @@ lo contrario. Las existencias cambian a diario: se confirman al tomar el pedido.
 - Nombre comercial: Emisha
 - Razón social: Emisha Design And Consulting S.A. de C.V.
 - RFC: EDC140515CJ7
-- Giro: taller de impresión 3D, reparación de impresoras Bambu Lab, renta de
-  equipo y venta de consumibles propios y de refacciones Bambu Lab.
+- Giro: taller de impresión 3D, corte y grabado láser, reparación de
+  impresoras Bambu Lab, renta de equipo y venta de consumibles propios y de
+  refacciones Bambu Lab.
 - Dirección: Av. División del Norte 1354, Piso 1, Letrán del Valle,
   Benito Juárez, Ciudad de México, CP 03650. Hay valet parking.
 - Google Maps: https://maps.app.goo.gl/fZnFa1JurYKchB5F9
@@ -121,6 +122,44 @@ va aparte. Se recoge y se devuelve en el taller; no hay entrega a domicilio.
   comprobante de domicilio de menos de tres meses, contrato y pagaré firmados.
 - La mitad de lo pagado en renta se abona al precio de la impresora si se
   compra el mismo modelo dentro de los tres meses siguientes.
+
+### 2.4 Corte y grabado láser bajo pedido
+
+Página y cotizador: https://www.emisha.com.mx/servicios/cotizador-laser/ — el cliente sube su
+diseño, ve el precio estimado y manda el pedido desde ahí, sin pasar por
+WhatsApp. Un asistente con IA puede enviar a su usuario directo a esa liga.
+
+- Qué hacemos: corte, marcado (línea que no atraviesa) y grabado con láser,
+  en la Ciudad de México. Piezas sueltas o series.
+- Formatos que acepta: vectores en SVG, DXF, DWG, PDF, AI, EPS y CDR;
+  imágenes en PNG, JPG, WEBP, TIFF, BMP, HEIC y PSD. Hasta 50 MB por archivo,
+  varios archivos por pedido. Los vectores se cortan, marcan y graban; las
+  imágenes SOLO se graban — para cortar una silueta hace falta el contorno en
+  vector. Otro formato: se manda por WhatsApp y lo convertimos.
+- Cómo se indica la operación: por color. Rojo (#FF0000) corta, azul
+  (#0000FF) marca sin atravesar, relleno negro graba. Al subir el archivo cada
+  color aparece como una capa y se le puede cambiar la operación antes de
+  cotizar.
+- Cómo sale el precio: longitud real de cada línea, área grabada, velocidad de
+  la máquina en ese material y número de hojas que ocupa el acomodo real
+  (nesting) de las piezas. La página muestra vista 2D, vista 3D y el acomodo
+  en la hoja. Los precios de materiales y tarifas están en el cotizador en
+  vivo, no en este archivo.
+- Materiales: el cotizador lista los que hay en existencia con su espesor y
+  tamaño de hoja; los más pedidos son MDF, triplay y acrílico. El cliente
+  puede traer su material (madera, cartón, piel, tela, acrílico) marcando «Yo
+  llevo mi material»: entonces no paga hojas, solo tiempo de máquina y
+  preparación, y el cotizador le dice cuántas hojas y de qué medida traer.
+- NO se trabaja PVC, vinil ni nada con cloro: al cortarlo con láser suelta
+  gases corrosivos.
+- Pedido: nombre, correo y teléfono/WhatsApp, más notas opcionales. Revisamos
+  los archivos y confirmamos precio y fecha ANTES de cobrar; no se corta nada
+  sin autorización del cliente.
+- Entrega: estándar o urgente (esta con cargo extra); el cotizador muestra la
+  fecha estimada de cada una antes de pedir, contada desde que se confirma el
+  pedido. Se recoge en el taller o se envía.
+- Si el archivo todavía no está listo o no se sabe qué material conviene:
+  WhatsApp +52 55 7563 9255 y lo revisamos con el cliente.
 
 ## 3. Productos propios Emisha
 
@@ -1259,6 +1298,10 @@ o cortar.
 - Calculadora de costos de impresión — https://www.emisha.com.mx/calculadora/
   Material, electricidad, desgaste y merma, y tres precios de venta sugeridos.
   Densidades usadas: PLA 1.24 g/cm³, PETG 1.27 g/cm³.
+
+El cotizador de corte y grabado láser (https://www.emisha.com.mx/servicios/cotizador-laser/) es
+la excepción: ahí los archivos SÍ se suben a nuestro servidor, porque hay que
+convertirlos, separar las capas y acomodar las piezas en la hoja. Ver 2.4.
 
 ## 7. Guías del taller (blog)
 

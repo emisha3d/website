@@ -168,6 +168,123 @@
     return d;
   }
 
+  function largoPoli(puntos, cerrada) {
+    var s = 0, p = puntos || [], n = p.length;
+    for (var i = 1; i < n; i++) s += Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]);
+    if (cerrada && n > 1) s += Math.hypot(p[0][0] - p[n - 1][0], p[0][1] - p[n - 1][1]);
+    return s;
+  }
+
+  /* ================================================================ escala (como Bambu Studio)
+
+     escalaX/escalaY (1 = 100 %) estiran el diseño antes de todo lo demás. El
+     servidor hace lo mismo con `escalarAnalisis` de @laser/core; aquí se repite
+     para que las vistas 2D/3D y el acomodo dibujen lo que se va a cortar. Las
+     longitudes se recalculan segmento por segmento: con escala no uniforme no
+     basta multiplicar longitudMm. */
+
+  var ESC_MIN = 0.01, ESC_MAX = 100, LADO_MIN_MM = 1;
+
+  function escalarPuntos(ps, sx, sy) {
+    var o = new Array((ps || []).length);
+    for (var i = 0; i < o.length; i++) o[i] = [ps[i][0] * sx, ps[i][1] * sy];
+    return o;
+  }
+
+  function escalarAnalisis(a, sx, sy) {
+    if (!a || (sx === 1 && sy === 1)) return a;
+    return {
+      archivoId: a.archivoId, nombreOriginal: a.nombreOriginal, formato: a.formato,
+      anchoMm: (a.anchoMm || 0) * sx, altoMm: (a.altoMm || 0) * sy,
+      svgNormalizadoUrl: a.svgNormalizadoUrl, avisos: a.avisos,
+      capas: (a.capas || []).map(function (c) {
+        var pls = (c.polilineas || []).map(function (pl) {
+          return { puntos: escalarPuntos(pl.puntos, sx, sy), cerrada: pl.cerrada };
+        });
+        var L = 0;
+        pls.forEach(function (pl) { L += largoPoli(pl.puntos, pl.cerrada); });
+        return {
+          id: c.id, color: c.color, tipo: c.tipo, operacionSugerida: c.operacionSugerida,
+          numRutas: c.numRutas, longitudMm: L, areaMm2: (c.areaMm2 || 0) * sx * sy, polilineas: pls
+        };
+      }),
+      rasters: (a.rasters || []).map(function (r) {
+        return {
+          id: r.id, x: r.x * sx, y: r.y * sy, anchoMm: r.anchoMm * sx, altoMm: r.altoMm * sy,
+          dpi: r.dpi ? r.dpi / Math.sqrt(sx * sy) : r.dpi,
+          coberturaOscura: r.coberturaOscura, vistaUrl: r.vistaUrl
+        };
+      }),
+      piezas: (a.piezas || []).map(function (p) {
+        var ext = escalarPuntos(p.exterior, sx, sy);
+        var b = cajaDe(ext);
+        return {
+          id: p.id, exterior: ext,
+          agujeros: (p.agujeros || []).map(function (h) { return escalarPuntos(h, sx, sy); }),
+          anchoMm: b.w, altoMm: b.h, areaMm2: (p.areaMm2 || 0) * sx * sy
+        };
+      })
+    };
+  }
+
+  /** El análisis del archivo ya escalado (memorizado: cambia poco y se pide mucho). */
+  function analisisDe(ar) {
+    if (!ar || !ar.analisis) return null;
+    var sx = ar.escalaX || 1, sy = ar.escalaY || 1;
+    var clave = sx + '|' + sy;
+    if (ar._escClave !== clave) {
+      ar._escCache = escalarAnalisis(ar.analisis, sx, sy);
+      ar._escClave = clave;
+    }
+    return ar._escCache;
+  }
+
+  function escalado(ar) { return (ar.escalaX || 1) !== 1 || (ar.escalaY || 1) !== 1; }
+
+  function hayEscalados() {
+    return listos().some(function (a) { return escalado(a); });
+  }
+
+  function pct(v) { return num(v * 100, 2) + ' %'; }
+
+  function textoEscala(ar) {
+    var sx = ar.escalaX || 1, sy = ar.escalaY || 1;
+    return sx === sy ? pct(sx) : pct(sx) + ' × ' + pct(sy);
+  }
+
+  function baseEje(ar, eje) {
+    var v = eje === 'x' ? ar.analisis.anchoMm : ar.analisis.altoMm;
+    return (isFinite(v) && v > 0) ? v : 1;
+  }
+
+  /** Mínimo del eje: nunca menos de 1 % ni menos de 1 mm de lado. */
+  function minEje(ar, eje) { return Math.max(ESC_MIN, LADO_MIN_MM / baseEje(ar, eje)); }
+
+  function dentro(ar, eje, v) {
+    return isFinite(v) && v >= minEje(ar, eje) - 1e-9 && v <= ESC_MAX + 1e-9;
+  }
+
+  /** Aplica `valor` al eje pedido. Con escala uniforme el otro eje se mueve por
+   *  el mismo factor, así que la proporción de ese momento se conserva venga el
+   *  cambio del campo que venga (% o mm, X o Y). Devuelve false si no es válido. */
+  function aplicarEscala(ar, eje, valor) {
+    var sx = ar.escalaX || 1, sy = ar.escalaY || 1;
+    var nx = sx, ny = sy;
+    if (ar.uniforme) {
+      var k = valor / (eje === 'x' ? sx : sy);
+      if (!isFinite(k) || k <= 0) return false;
+      nx = sx * k; ny = sy * k;
+    }
+    if (eje === 'x') nx = valor; else ny = valor;
+    // Se redondea aquí para que el navegador dibuje exactamente la misma escala
+    // que se manda al servidor.
+    nx = Math.round(nx * 1e6) / 1e6;
+    ny = Math.round(ny * 1e6) / 1e6;
+    if (!dentro(ar, 'x', nx) || !dentro(ar, 'y', ny)) return false;
+    ar.escalaX = nx; ar.escalaY = ny;
+    return true;
+  }
+
   function leerLS(clave) {
     try { return JSON.parse(localStorage.getItem(clave) || 'null'); } catch (e) { return null; }
   }
@@ -204,7 +321,10 @@
   }
 
   function mensajeError(e, contexto) {
-    if (e && e.codigo && ERRORES_COTIZACION[e.codigo]) return ERRORES_COTIZACION[e.codigo];
+    if (e && e.codigo && ERRORES_COTIZACION[e.codigo]) {
+      return ERRORES_COTIZACION[e.codigo] +
+        (e.codigo === 'no_cabe' && hayEscalados() ? ' También puedes bajarle a la escala del diseño.' : '');
+    }
     if (!e || e.status == null) {
       return 'No pudimos conectar con el cotizador. Revisa tu conexión e inténtalo de nuevo, o escríbenos por WhatsApp al +52 55 7563 9255.';
     }
@@ -468,7 +588,8 @@
       var ar = {
         uid: uidSig++, nombre: file.name, file: file, estado: 'en_cola', progreso: 0,
         error: '', analisis: null, cantidad: (opciones && opciones.cantidad) || 1,
-        operaciones: {}, grabarRasters: true, xhr: null
+        operaciones: {}, grabarRasters: true, xhr: null,
+        escalaX: 1, escalaY: 1, uniforme: true
       };
       if (EXTENSIONES.indexOf(ext) < 0) {
         ar.estado = 'error';
@@ -557,11 +678,25 @@
     if (ar.estado === 'subiendo') return 'Subiendo… ' + Math.round(ar.progreso * 100) + ' %';
     if (ar.estado === 'analizando') return 'Analizando el archivo…';
     if (ar.estado === 'error') return ar.error;
-    var a = ar.analisis;
+    var a = analisisDe(ar);
     var partes = [medidas(a.anchoMm, a.altoMm)];
+    if (escalado(ar)) partes.push('escala ' + textoEscala(ar));
     var np = (a.piezas || []).length;
     if (np) partes.push(np + (np === 1 ? ' pieza' : ' piezas'));
     return partes.join(' · ');
+  }
+
+  function textoRasters(a) {
+    return (a.rasters || []).map(function (r) {
+      return num(r.anchoMm) + ' × ' + num(r.altoMm) + ' mm' + (r.dpi ? ' a ' + Math.round(r.dpi) + ' dpi' : '');
+    }).join(' · ');
+  }
+
+  function textoCapa(c) {
+    var d = c.numRutas + (c.numRutas === 1 ? ' ruta' : ' rutas');
+    if (c.tipo === 'relleno') d += ' · ' + area(c.areaMm2) + ' · contorno ' + longitud(c.longitudMm);
+    else d += ' · ' + longitud(c.longitudMm);
+    return d;
   }
 
   function renderArchivos() {
@@ -623,6 +758,7 @@
       cab.appendChild(izq);
       cab.appendChild(der);
       card.appendChild(cab);
+      if (ar.estado === 'listo') pintarEscala(ar, card);
 
       ar._barra = null;
       if (ar.estado === 'subiendo' || ar.estado === 'analizando' || ar.estado === 'en_cola') {
@@ -645,8 +781,151 @@
     });
   }
 
+  /* Panel de escala de cada archivo (como Bambu Studio): % y mm, X e Y, los
+     cuatro campos sincronizados. Al teclear no se vuelve a dibujar la tarjeta
+     —se perdería el foco—: sólo se refrescan los otros campos y los textos que
+     dependen del tamaño. */
+
+  function campoEscala(ar, eje, unidad) {
+    var id = 'lz-esc-' + ar.uid + '-' + unidad + '-' + eje;
+    var lab = document.createElement('label');
+    lab.className = 'lz-escala__campo';
+    lab.setAttribute('for', id);
+    var et = document.createElement('span');
+    et.textContent = eje.toUpperCase();
+    var inp = document.createElement('input');
+    inp.type = 'number';
+    inp.id = id;
+    inp.step = 'any';
+    inp.min = '0';
+    inp.inputMode = 'decimal';
+    inp.className = 'lz-escala__inp';
+    inp.setAttribute('aria-label', (unidad === 'pct' ? 'Escala ' : 'Tamaño ') + eje.toUpperCase() +
+      ' de ' + ar.nombre + (unidad === 'pct' ? ', en por ciento' : ', en milímetros'));
+    var uni = document.createElement('i');
+    uni.textContent = unidad === 'pct' ? '%' : 'mm';
+    lab.appendChild(et);
+    lab.appendChild(inp);
+    lab.appendChild(uni);
+    inp.addEventListener('input', function () {
+      var v = parseFloat(String(inp.value).replace(',', '.'));
+      if (!isFinite(v)) return;
+      var s = unidad === 'pct' ? v / 100 : v / baseEje(ar, eje);
+      if (!aplicarEscala(ar, eje, s)) return;   // fuera de rango: se ignora y al salir se restaura
+      refrescarArchivo(ar, inp);
+      actualizarVistas();
+      programarCotizacion();
+    });
+    // Igual que el campo de cantidad: lo que no sirve se descarta al salir.
+    inp.addEventListener('change', function () { refrescarArchivo(ar); });
+    return { lab: lab, inp: inp };
+  }
+
+  function pintarEscala(ar, card) {
+    var caja = document.createElement('div');
+    caja.className = 'lz-escala';
+    var refs = {};
+
+    [['pct', 'Escala'], ['mm', 'Tamaño']].forEach(function (par) {
+      var fila = document.createElement('div');
+      fila.className = 'lz-escala__fila';
+      var et = document.createElement('span');
+      et.className = 'lz-escala__et';
+      et.textContent = par[1];
+      fila.appendChild(et);
+      ['x', 'y'].forEach(function (eje) {
+        var c = campoEscala(ar, eje, par[0]);
+        refs[par[0] + eje] = c.inp;
+        fila.appendChild(c.lab);
+      });
+      caja.appendChild(fila);
+    });
+
+    var pie = document.createElement('div');
+    pie.className = 'lz-escala__pie';
+    var uniforme = document.createElement('label');
+    uniforme.className = 'lz-check lz-escala__uniforme';
+    var chk = document.createElement('input');
+    chk.type = 'checkbox';
+    chk.checked = !!ar.uniforme;
+    chk.setAttribute('aria-label', 'Escala uniforme de ' + ar.nombre);
+    var txt = document.createElement('span');
+    txt.textContent = 'Escala uniforme';
+    uniforme.appendChild(chk);
+    uniforme.appendChild(txt);
+    chk.addEventListener('change', function () { ar.uniforme = chk.checked; });
+    refs.uniforme = chk;
+
+    var reset = document.createElement('button');
+    reset.type = 'button';
+    reset.className = 'lz-escala__reset';
+    reset.textContent = 'Restablecer';
+    reset.setAttribute('aria-label', 'Restablecer al 100 % la escala de ' + ar.nombre);
+    reset.addEventListener('click', function () {
+      ar.escalaX = 1;
+      ar.escalaY = 1;
+      refrescarArchivo(ar);
+      actualizarVistas();
+      programarCotizacion();
+    });
+    refs.reset = reset;
+
+    pie.appendChild(uniforme);
+    pie.appendChild(reset);
+    caja.appendChild(pie);
+
+    // Al agrandar, los dpi de las imágenes bajan (dpi / √(sx·sy)): hay que decirlo.
+    var aviso = document.createElement('p');
+    aviso.className = 'lz-escala__aviso';
+    aviso.hidden = true;
+    caja.appendChild(aviso);
+    refs.aviso = aviso;
+
+    card.appendChild(caja);
+    ar._esc = refs;
+    refrescarArchivo(ar);
+  }
+
+  /** Reescribe los cuatro campos y los textos que dependen del tamaño.
+   *  `omitir` es el campo que se está tecleando: a ése no se le toca el valor. */
+  function refrescarArchivo(ar, omitir) {
+    var r = ar._esc;
+    if (r) {
+      var sx = ar.escalaX || 1, sy = ar.escalaY || 1;
+      var valor = {
+        pctx: sx * 100, pcty: sy * 100,
+        mmx: baseEje(ar, 'x') * sx, mmy: baseEje(ar, 'y') * sy
+      };
+      Object.keys(valor).forEach(function (k) {
+        if (r[k] && r[k] !== omitir) r[k].value = valor[k].toFixed(2);
+      });
+      r.uniforme.checked = !!ar.uniforme;
+      r.reset.hidden = !escalado(ar);
+    }
+    var a = analisisDe(ar);
+    if (r && r.aviso) {
+      var dpi = Infinity;
+      (a.rasters || []).forEach(function (x) { if (x.dpi && x.dpi < dpi) dpi = x.dpi; });
+      var flojo = (ar.escalaX || 1) * (ar.escalaY || 1) > 1 && isFinite(dpi) && dpi < 150;
+      r.aviso.hidden = !flojo;
+      if (flojo) {
+        r.aviso.textContent = 'Al agrandarlo, ' + (a.rasters.length === 1 ? 'la imagen queda' : 'las imágenes quedan') +
+          ' a ' + Math.round(dpi) + ' dpi: el grabado saldría borroso. Lo ideal son 300 dpi al tamaño final.';
+      }
+    }
+    if (ar._meta) ar._meta.textContent = metaArchivo(ar);
+    if (ar._rasterTxt) ar._rasterTxt.textContent = textoRasters(a);
+    if (ar._capaTxt) {
+      (a.capas || []).forEach(function (c) {
+        if (ar._capaTxt[c.id]) ar._capaTxt[c.id].textContent = textoCapa(c);
+      });
+    }
+  }
+
   function pintarDetalle(ar, card) {
-    var a = ar.analisis;
+    var a = analisisDe(ar);
+    ar._rasterTxt = null;
+    ar._capaTxt = {};
 
     if (a.avisos && a.avisos.length) {
       var ul = document.createElement('ul');
@@ -663,9 +942,9 @@
       var chk = document.createElement('label');
       chk.className = 'lz-check';
       chk.innerHTML = '<input type="checkbox"><span>Grabar ' + (a.rasters.length === 1 ? 'la imagen' : 'las ' + a.rasters.length + ' imágenes') +
-        '<small>' + esc(a.rasters.map(function (r) {
-          return num(r.anchoMm) + ' × ' + num(r.altoMm) + ' mm' + (r.dpi ? ' a ' + Math.round(r.dpi) + ' dpi' : '');
-        }).join(' · ')) + '</small></span>';
+        '<small></small></span>';
+      ar._rasterTxt = chk.querySelector('small');
+      ar._rasterTxt.textContent = textoRasters(a);
       var caja = chk.querySelector('input');
       caja.checked = ar.grabarRasters;
       caja.addEventListener('change', function () {
@@ -690,9 +969,7 @@
       var li = document.createElement('li');
       li.className = 'lz-capa';
       var idSel = 'lz-capa-' + ar.uid + '-' + i;
-      var detalle = c.numRutas + (c.numRutas === 1 ? ' ruta' : ' rutas');
-      if (c.tipo === 'relleno') detalle += ' · ' + area(c.areaMm2) + ' · contorno ' + longitud(c.longitudMm);
-      else detalle += ' · ' + longitud(c.longitudMm);
+      var detalle = textoCapa(c);
       li.innerHTML =
         '<span class="lz-capa__muestra' + (c.tipo === 'trazo' ? ' lz-capa__muestra--trazo' : '') + '" style="' +
           (c.tipo === 'trazo' ? 'border-color:' : 'background:') + esc(c.color) + '" aria-hidden="true"></span>' +
@@ -701,6 +978,7 @@
         '<select id="' + idSel + '">' + OPERACIONES.map(function (o) {
           return '<option value="' + o[0] + '"' + (ar.operaciones[c.id] === o[0] ? ' selected' : '') + '>' + o[1] + '</option>';
         }).join('') + '</select>';
+      ar._capaTxt[c.id] = li.querySelector('.lz-capa__texto small');
       li.querySelector('select').addEventListener('change', function (e) {
         ar.operaciones[c.id] = e.target.value;
         if (estado.sel !== ar.uid) seleccionar(ar.uid, false);
@@ -733,7 +1011,10 @@
       lineas: listos().map(function (ar) {
         var ops = {};
         Object.keys(ar.operaciones).forEach(function (k) { ops[k] = ar.operaciones[k]; });
-        return { archivoId: ar.analisis.archivoId, cantidad: ar.cantidad, operaciones: ops, grabarRasters: ar.grabarRasters };
+        var linea = { archivoId: ar.analisis.archivoId, cantidad: ar.cantidad, operaciones: ops, grabarRasters: ar.grabarRasters };
+        // Sólo va si el cliente la cambió: en el contrato, ausente = 1 = 100 %.
+        if (escalado(ar)) { linea.escalaX = ar.escalaX || 1; linea.escalaY = ar.escalaY || 1; }
+        return linea;
       })
     };
     if (selMaquina.value) s.maquinaId = selMaquina.value;
@@ -864,7 +1145,9 @@
   function enlaceWhatsApp() {
     var l = ['Hola, quiero cotizar un corte láser:', ''];
     listos().forEach(function (ar) {
-      l.push('• ' + ar.nombre + ' · ' + ar.cantidad + ' pza · ' + num(ar.analisis.anchoMm) + ' × ' + num(ar.analisis.altoMm) + ' mm');
+      var a = analisisDe(ar);
+      l.push('• ' + ar.nombre + ' · ' + ar.cantidad + ' pza · ' + num(a.anchoMm) + ' × ' + num(a.altoMm) + ' mm' +
+             (escalado(ar) ? ' · escala ' + textoEscala(ar) : ''));
     });
     var m = material();
     if (m) l.push('', 'Material: ' + nombreMaterial(m) + (chkPropio.checked ? ' (lo llevo yo)' : ''));
@@ -935,16 +1218,18 @@
   function dibujar2D() {
     var ar = archivoSel();
     if (!ar) return;
-    var a = ar.analisis;
+    var a = analisisDe(ar);
     var m = material();
     btnOriginal.setAttribute('aria-pressed', String(estado.original));
     btnOriginal.classList.toggle('visor-btn--activo', estado.original);
     btnOriginal.hidden = !a.svgNormalizadoUrl;
 
     if (estado.original && a.svgNormalizadoUrl) {
-      lienzo2d.innerHTML = '<img class="lz-original" alt="' + esc('Archivo ' + a.nombreOriginal + ' tal como lo leímos') +
-        '" src="' + esc(urlApi(a.svgNormalizadoUrl)) + '">';
-      nota2d.textContent = a.nombreOriginal + ' · ' + medidas(a.anchoMm, a.altoMm) + ' · archivo convertido, sin colores de operación';
+      var a0 = ar.analisis;   // el archivo tal cual, sin la escala elegida
+      lienzo2d.innerHTML = '<img class="lz-original" alt="' + esc('Archivo ' + a0.nombreOriginal + ' tal como lo leímos') +
+        '" src="' + esc(urlApi(a0.svgNormalizadoUrl)) + '">';
+      nota2d.textContent = a0.nombreOriginal + ' · ' + medidas(a0.anchoMm, a0.altoMm) +
+        ' · archivo convertido, sin colores de operación' + (escalado(ar) ? ' ni la escala que elegiste' : '');
       return;
     }
 
@@ -988,7 +1273,8 @@
     });
     s += '</svg>';
     lienzo2d.innerHTML = s;
-    nota2d.textContent = a.nombreOriginal + ' · ' + medidas(a.anchoMm, a.altoMm) + (m ? ' · sobre ' + nombreMaterial(m) : '');
+    nota2d.textContent = a.nombreOriginal + ' · ' + medidas(a.anchoMm, a.altoMm) +
+      (escalado(ar) ? ' · escala ' + textoEscala(ar) : '') + (m ? ' · sobre ' + nombreMaterial(m) : '');
   }
 
   /* ------------------------------------------------------------ 3D */
@@ -1095,8 +1381,9 @@
     var ar = archivoSel();
     var m = material();
     if (!ar || !T) return;
-    var a = ar.analisis;
-    var clave = ar.uid + '|' + (m ? m.id : '') + '|' + JSON.stringify(ar.operaciones) + '|' + ar.grabarRasters;
+    var a = analisisDe(ar);
+    var clave = ar.uid + '|' + (m ? m.id : '') + '|' + JSON.stringify(ar.operaciones) + '|' + ar.grabarRasters +
+      '|' + (ar.escalaX || 1) + 'x' + (ar.escalaY || 1);
     tres.medir();
     if (clave === tres.clave) { render3D(); return; }
     tres.clave = clave;
@@ -1108,7 +1395,7 @@
     var espesor = (m && m.espesorMm) || 3;
     var colorMat = (m && m.colorVista) || '#c8a27a';
     var W = a.anchoMm || 1, H = a.altoMm || 1;
-    var tex = texturaGrabado(T, ar, colorMat);
+    var tex = texturaGrabado(T, ar, a, colorMat);
 
     var matCara = new T.MeshStandardMaterial({ color: new T.Color(colorMat), roughness: 0.85, metalness: 0 });
     var matCanto = new T.MeshStandardMaterial({ color: new T.Color(mezclar(colorMat, '#2a1a0c', 0.35)), roughness: 0.9, metalness: 0 });
@@ -1147,6 +1434,7 @@
 
     var extra = [];
     if (!(a.piezas && a.piezas.length)) extra.push('sin contorno de corte: se muestra el rectángulo del diseño');
+    if (escalado(ar)) extra.push('escala ' + textoEscala(ar));
     if (ar.cantidad > 1) extra.push('se muestra 1 de ' + ar.cantidad + ' copias');
     nota3d.textContent = (m ? nombreMaterial(m) : 'Material') + ' · ' + medidas(W, H) + (extra.length ? ' · ' + extra.join(' · ') : '');
   }
@@ -1169,8 +1457,7 @@
   /* La cara de arriba lleva una textura transparente con lo grabado (más
      oscuro que el material) y lo marcado (líneas finas). Las coordenadas UV
      de la tapa son (x, -y) en mm; repeat/offset las llevan a 0..1. */
-  function texturaGrabado(T, ar, colorMat) {
-    var a = ar.analisis;
+  function texturaGrabado(T, ar, a, colorMat) {
     var W = a.anchoMm || 1, H = a.altoMm || 1;
     var esc2 = Math.min(2048 / Math.max(W, H), 24);
     var cv = document.createElement('canvas');
@@ -1307,8 +1594,9 @@
       if (c.hoja !== estado.hoja) return;
       var ar = porArchivo[c.archivoId];
       if (!ar) return;
+      var ps = analisisDe(ar).piezas || [];
       var p = null;
-      for (var j = 0; j < ar.analisis.piezas.length; j++) if (ar.analisis.piezas[j].id === c.piezaId) { p = ar.analisis.piezas[j]; break; }
+      for (var j = 0; j < ps.length; j++) if (ps[j].id === c.piezaId) { p = ps[j]; break; }
       if (!p) return;
       enHoja++;
       var b = cajaDe(p.exterior);
@@ -1366,9 +1654,14 @@
     introPedido.textContent = q.esEstimado
       ? 'Revisamos tus archivos y te confirmamos precio y fecha antes de cobrar. No cortamos nada sin tu autorización.'
       : 'Al enviar el pedido te damos el enlace para pagar y lo ponemos en la fila de corte.';
+    var escalas = listos().filter(function (ar) { return escalado(ar); }).map(function (ar) {
+      var a = analisisDe(ar);
+      return '<div><span>' + esc(ar.nombre) + '</span><span>' +
+        esc('escala ' + textoEscala(ar) + ' · ' + num(a.anchoMm) + ' × ' + num(a.altoMm) + ' mm') + '</span></div>';
+    }).join('');
     resumenPedido.innerHTML =
       '<div><span>' + esc(listos().length + (listos().length === 1 ? ' archivo' : ' archivos')) + '</span><span>' +
-        esc(nombreMaterial(m) + (chkPropio.checked ? ' (lo traes tú)' : '')) + '</span></div>' +
+        esc(nombreMaterial(m) + (chkPropio.checked ? ' (lo traes tú)' : '')) + '</span></div>' + escalas +
       '<div><span>Entrega ' + (urgente() ? 'urgente' : 'estándar') + '</span><span>' + esc(fechaLarga(q.entregaEstimada)) + '</span></div>' +
       '<div class="checkout__total"><span>' + (q.esEstimado ? 'Total estimado' : 'Total') + '</span><span>' + esc(mxn(q.totalCentavos)) + '</span></div>';
     var guardado = leerLS(DATOS_LS) || {};
@@ -1531,12 +1824,7 @@
       }
       return p;
     }
-    function largo(pl) {
-      var s = 0, p = pl.puntos, n = p.length;
-      for (var i = 1; i < n; i++) s += Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]);
-      if (pl.cerrada && n > 1) s += Math.hypot(p[0][0] - p[n - 1][0], p[0][1] - p[n - 1][1]);
-      return s;
-    }
+    function largo(pl) { return largoPoli(pl.puntos, pl.cerrada); }
     function areaPol(p) {
       var s = 0;
       for (var i = 0, j = p.length - 1; i < p.length; j = i++) s += (p[j][0] + p[i][0]) * (p[j][1] - p[i][1]);
@@ -1650,10 +1938,16 @@
       if (mat.id === 'acr-10') return rechazo(422, 'sin_maquina', 'Sin parámetros para acrílico de 10 mm');
       var t = { corteS: 0, marcadoS: 0, grabadoS: 0, perforacionS: 0, trasladoS: 0, totalS: 0 };
       var items = [];
+      var cortoMax = 0, largoMax = 0;
       sol.lineas.forEach(function (l) {
-        var a = analisisPorId[l.archivoId];
+        // Igual que el servidor: primero se escala el análisis, después todo lo demás.
+        var a = escalarAnalisis(analisisPorId[l.archivoId], l.escalaX || 1, l.escalaY || 1);
         if (!a) return;
         var n = Math.max(1, l.cantidad | 0);
+        (a.piezas.length ? a.piezas : [{ anchoMm: a.anchoMm, altoMm: a.altoMm }]).forEach(function (p) {
+          cortoMax = Math.max(cortoMax, Math.min(p.anchoMm, p.altoMm));
+          largoMax = Math.max(largoMax, Math.max(p.anchoMm, p.altoMm));
+        });
         a.capas.forEach(function (c) {
           var op = l.operaciones[c.id] || c.operacionSugerida;
           if (op === 'corte') { t.corteS += c.longitudMm / 18 * (mat.espesorMm / 3) * n; t.perforacionS += c.numRutas * 0.4 * n; }
@@ -1666,14 +1960,21 @@
       t.trasladoS = (t.corteS + t.marcadoS) * 0.15;
       var base = t.corteS + t.marcadoS + t.grabadoS + t.perforacionS + t.trasladoS;
 
-      var opciones = catalogo.maquinas.filter(function (m) {
+      var aptas = catalogo.maquinas.filter(function (m) {
         if (sol.maquinaId && m.id !== sol.maquinaId) return false;
         return m.id === 'm1' || ((mat.nombre === 'MDF' || mat.nombre === 'Triplay de pino') && mat.espesorMm <= 3);
-      }).map(function (m) {
+      });
+      if (!aptas.length) return rechazo(422, 'sin_maquina', 'Ninguna máquina puede con ese material');
+      // Con la escala aplicada la pieza puede dejar de caber en la cama.
+      var caben = aptas.filter(function (m) {
+        var corto = Math.min(m.camaAnchoMm, m.camaAltoMm), largoC = Math.max(m.camaAnchoMm, m.camaAltoMm);
+        return cortoMax <= corto && largoMax <= largoC;
+      });
+      if (!caben.length) return rechazo(422, 'no_cabe', 'La pieza no cabe en la cama de ninguna máquina');
+      var opciones = caben.map(function (m) {
         var f = m.id === 'm1' ? 1 : 2.4, tarifa = m.id === 'm1' ? 1215 : 540;
         return { m: m, f: f, costo: Math.round(base * f / 60 * tarifa) };
       }).sort(function (a, b) { return a.costo - b.costo; });
-      if (!opciones.length) return rechazo(422, 'sin_maquina', 'Ninguna máquina puede con ese material');
       var elegida = opciones[0];
 
       var nesting = anidar(items, mat.hojaAnchoMm, mat.hojaAltoMm);

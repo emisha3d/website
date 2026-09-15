@@ -2,9 +2,11 @@
 
 > Taller de impresión 3D en la Ciudad de México (Av. División del Norte 1354,
 > Piso 1, Letrán del Valle, Benito Juárez, CDMX 03650). Imprimimos piezas bajo
-> pedido en PLA y PETG, reparamos impresoras Bambu Lab con cita en línea, y
-> fabricamos consumibles propios: filamento Emisha de 1.75 mm, placas de
-> impresión, hotends y el compuesto térmico de metal líquido Liquid Ultra.
+> pedido en PLA y PETG, cortamos y grabamos con láser en MDF, triplay y
+> acrílico (o en el material que traiga el cliente), reparamos impresoras
+> Bambu Lab con cita en línea, y fabricamos consumibles propios: filamento
+> Emisha de 1.75 mm, placas de impresión, hotends y el compuesto térmico de
+> metal líquido Liquid Ultra.
 > Enviamos a todo México. Razón social: Emisha Design And Consulting S.A. de
 > C.V. (RFC EDC140515CJ7).
 
@@ -26,6 +28,7 @@ Datos que se citan seguido:
 - [Servicios](https://www.emisha.com.mx/servicios/): impresión bajo pedido y reparación de impresoras Bambu Lab, con precios.
 - [Agendar reparación](https://www.emisha.com.mx/reparacion/): calendario en línea para dejar la impresora en el taller. Modelos A1, A1 mini, P1P, P1S, X1C, H2D y AMS.
 - [Cotizador](https://www.emisha.com.mx/cotizador/): sube un STL o 3MF y da un estimado al instante. El cálculo corre en el navegador; los modelos no se suben a ningún servidor.
+- [Cotizador de corte y grabado láser](https://www.emisha.com.mx/servicios/cotizador-laser/): sube el diseño y pide el trabajo en línea, sin pasar por WhatsApp. Acepta vectores en SVG, DXF, DWG, PDF, AI, EPS y CDR, e imágenes en PNG, JPG, WEBP, TIFF, BMP, HEIC y PSD, de hasta 50 MB cada una; los vectores se cortan, marcan y graban, las imágenes solo se graban. El color manda la operación: rojo (#FF0000) corta, azul (#0000FF) marca sin atravesar y el relleno negro graba; cada capa se puede reasignar antes de cotizar. Calcula el precio con la longitud real de las líneas, el área grabada, la velocidad de la máquina en ese material y las hojas que ocupa el acomodo, y muestra vista 2D, 3D y el acomodo en la hoja. Materiales en existencia: MDF, triplay y acrílico, entre otros; también se puede traer material propio (menos PVC, que no se corta con láser). Revisamos los archivos y confirmamos el precio antes de cobrar; no se corta nada sin autorización. Entrega estándar o urgente, con fecha estimada antes de pedir. Taller en la Ciudad de México.
 
 ## Productos
 
