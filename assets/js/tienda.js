@@ -129,6 +129,11 @@
   var catalogo = [];          // [{sku, nombre, precio_centavos, stock}]
   var porSku = {};
   var envioCfg = null;        // {centavos, gratis_desde_centavos} — lo manda el worker
+  // Envío cotizado con la paquetería para ESTA dirección. Null mientras no
+  // haya dirección completa (o si el worker no cotiza): ahí manda la tarifa
+  // plana. Se guarda el CP con el que se cotizó para no reusarlo si lo cambian.
+  var cotizacion = null;
+  var cotizando = false;      // hay una cotización en vuelo
 
   /* --- Estado del carrito ---------------------------------------------- */
 
@@ -1008,6 +1013,12 @@
       pagar(leerFormulario());
     });
     dialogo.querySelector('[data-cerrar]').addEventListener('click', cerrarCheckout);
+    // «¿Cómo nos encontraste?»: el detalle solo cuando sirve (quién, cuál «otro»).
+    formulario.addEventListener('change', function (ev) {
+      if (ev.target.name !== 'referencia') return;
+      var caja = formulario.querySelector('[data-referencia-detalle]');
+      if (caja) caja.hidden = !(ev.target.value === 'otro' || ev.target.value === 'recomendacion');
+    });
   }
 
   function abrirCheckout() {
@@ -1018,7 +1029,22 @@
     prellenar();
     cpUltimo = '';
     buscarCp();             // datos recordados: resolver el CP sin que teclee
-    var e = costoEnvio(t.centavos, t.kg);
+    cotizacion = null;
+    pintarResumen();
+    if (dialogo.showModal) dialogo.showModal();
+    else dialogo.setAttribute('open', '');
+  }
+
+  /* El resumen del diálogo. El envío sale de la cotización real cuando ya la
+     hay; mientras tanto, de la tarifa plana. Se vuelve a pintar solo, así que
+     el cliente ve el precio cambiar en cuanto termina su dirección. */
+  function pintarResumen() {
+    var t = totalCarrito();
+    var cotizado = cotizacion && cotizacion.cp === cpActual();
+    var e = cotizado ? cotizacion.centavos : costoEnvio(t.centavos, t.kg);
+    var etiqueta = cotizado && cotizacion.paqueteria
+      ? 'Envío · ' + cotizacion.paqueteria + (cotizacion.dias ? ' · ' + cotizacion.dias + (cotizacion.dias === 1 ? ' día' : ' días') : '')
+      : etiquetaEnvio(t.kg);
     // Si el carrito trae refacciones de AG, se dice ANTES de cobrar: no salen
     // del taller sino del proveedor, y eso cambia el tiempo de entrega.
     var hayAG = Object.keys(carrito.lineas).some(function (sku) {
@@ -1026,7 +1052,8 @@
     });
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      '<div><span>' + etiquetaEnvio(t.kg) + '</span><span>' + (e === 0 ? 'Gratis' : precio(e)) + '</span></div>' +
+      '<div><span>' + etiqueta + '</span><span>' + (e === 0 ? 'Gratis' : precio(e)) +
+        (cotizando ? ' <span style="color:var(--muted)">·  calculando…</span>' : '') + '</span></div>' +
       '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>' +
       (hayAG
         ? '<div style="display:block;font-size:.86rem;color:var(--muted);margin-top:8px">' +
@@ -1034,8 +1061,54 @@
           'almacén y pueden tardar unos días más. Si algo no estuviera disponible, te avisamos ' +
           'y te devolvemos tu dinero.</div>'
         : '');
-    if (dialogo.showModal) dialogo.showModal();
-    else dialogo.setAttribute('open', '');
+  }
+
+  function cpActual() {
+    return cpEl ? (cpEl.value || '').trim() : '';
+  }
+
+  /* Le pide al worker el precio real del envío a esta dirección. Nunca es
+     obligatorio: si falla, si tarda o si el worker no cotiza, el resumen se
+     queda con la tarifa plana y el cliente paga eso. El número que se cobra
+     lo vuelve a calcular el worker en /pedido — esto es solo para enseñarlo. */
+  function pedirCotizacion() {
+    if (!envioCfg || !envioCfg.cotizado) return;
+    var cp = cpActual();
+    if (!/^[0-9]{5}$/.test(cp)) return;
+    var d = {
+      calle: valor('calle'), colonia: valor('colonia'), cp: cp,
+      ciudad: valor('ciudad'), estado: valor('estado'), referencias: valor('referencias')
+    };
+    if (!d.calle || !d.colonia || !d.ciudad || !d.estado) return;
+    var lineas = Object.keys(carrito.lineas).map(function (sku) {
+      return { sku: sku, cantidad: carrito.lineas[sku] };
+    });
+    if (!lineas.length) return;
+
+    cotizando = true;
+    pintarResumen();
+    fetch(API + '/cotizar-envio', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lineas: lineas, envio: d })
+    })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (q) {
+        cotizando = false;
+        if (q && typeof q.envio_centavos === 'number') {
+          cotizacion = {
+            cp: cp, centavos: q.envio_centavos,
+            paqueteria: q.modo === 'cotizado' ? q.paqueteria : null,
+            dias: q.modo === 'cotizado' ? q.dias : null
+          };
+        }
+        pintarResumen();
+      })
+      .catch(function () { cotizando = false; pintarResumen(); });
+  }
+
+  function valor(campo) {
+    return formulario && formulario.elements[campo] ? (formulario.elements[campo].value || '').trim() : '';
   }
 
   function cerrarCheckout() {
@@ -1060,6 +1133,10 @@
       d[k] = (formulario.elements[k] ? formulario.elements[k].value : '').trim();
     });
     try { localStorage.setItem(DATOS, JSON.stringify(d)); } catch (e) {}
+    // «¿Cómo nos encontraste?» se manda pero NO se recuerda: la segunda compra
+    // no nos la trajo Google otra vez, y prellenar la respuesta vieja la sesga.
+    d.referencia = formulario.elements.referencia ? formulario.elements.referencia.value : '';
+    d.referencia_detalle = formulario.elements.referencia_detalle ? formulario.elements.referencia_detalle.value.trim() : '';
     return d;
   }
 
@@ -1086,7 +1163,8 @@
       body: JSON.stringify({
         carrito_id: carrito.carrito_id,
         lineas: lineas,
-        comprador: { nombre: datos.nombre, email: datos.email, telefono: datos.telefono },
+        comprador: { nombre: datos.nombre, email: datos.email, telefono: datos.telefono,
+                     referencia: datos.referencia, referencia_detalle: datos.referencia_detalle },
         envio: {
           calle: datos.calle, colonia: datos.colonia, cp: datos.cp,
           ciudad: datos.ciudad, estado: datos.estado, referencias: datos.referencias
@@ -1198,6 +1276,7 @@
         return;
       }
       coloniaEl.value = coloniaSel.value;   // el input sigue siendo el que se envía
+      pedirCotizacion();
     });
   }
 
@@ -1229,6 +1308,7 @@
         formulario.elements.ciudad.value = r.datos.municipio;
         formulario.elements.estado.value = r.datos.estado;
         autollenado = true;
+        pedirCotizacion();   // ya hay destino: el envío real se puede cotizar
         var colonias = r.datos.colonias || [];
         if (colonias.length === 1) {
           mostrarInputColonia(colonias[0]);
@@ -1254,6 +1334,14 @@
     });
     cpEl.addEventListener('blur', buscarCp);
   }
+
+  // La calle y la colonia no cambian el precio del envío (la paquetería cobra
+  // por CP y por bulto), pero sí completan la dirección: hasta que están, no
+  // hay nada que cotizar. Por eso se reintenta al salir de cada campo.
+  ['calle', 'colonia'].forEach(function (campo) {
+    var el = formulario && formulario.elements[campo];
+    if (el) el.addEventListener('blur', function () { if (!cotizacion) pedirCotizacion(); });
+  });
 
   function restaurarBoton() {
     var confirmar = dialogo.querySelector('[data-confirmar]');

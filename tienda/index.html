@@ -327,6 +327,26 @@ a.prod__media{cursor:pointer}
                pattern="[0-9+\(\)\- ]{8,20}" autocomplete="tel"
                title="De 8 a 20 caracteres: números, espacios, +, -, ( )">
       </div>
+      <div class="field">
+        <label for="co-referencia">¿Cómo nos encontraste? (opcional)</label>
+        <select id="co-referencia" name="referencia">
+          <option value="">Elige una opción</option>
+          <option value="google">Google (búsqueda o Maps)</option>
+          <option value="instagram">Instagram</option>
+          <option value="facebook">Facebook</option>
+          <option value="tiktok">TikTok</option>
+          <option value="youtube">YouTube</option>
+          <option value="mercadolibre">Mercado Libre</option>
+          <option value="recomendacion">Me lo recomendaron</option>
+          <option value="cliente">Ya era cliente de Emisha</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="field" data-referencia-detalle hidden>
+        <label for="co-referencia-detalle">Cuéntanos más (opcional)</label>
+        <input id="co-referencia-detalle" name="referencia_detalle" maxlength="120"
+               placeholder="¿Quién te recomendó? ¿Dónde nos viste?">
+      </div>
       <div class="field field--ancho">
         <label for="co-calle">Calle y número</label>
         <input id="co-calle" name="calle" required maxlength="120" autocomplete="street-address">
@@ -409,6 +429,6 @@ a.prod__media{cursor:pointer}
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/tienda.js?v=8dda2178" defer></script>
+<script src="../assets/js/tienda.js?v=7ef50294" defer></script>
 </body>
 </html>

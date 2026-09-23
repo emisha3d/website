@@ -452,6 +452,26 @@
                pattern="[0-9+\(\)\- ]{8,20}" autocomplete="tel"
                title="De 8 a 20 caracteres: números, espacios, +, -, ( )">
       </div>
+      <div class="field">
+        <label for="im-referencia">¿Cómo nos encontraste? (opcional)</label>
+        <select id="im-referencia" name="referencia">
+          <option value="">Elige una opción</option>
+          <option value="google">Google (búsqueda o Maps)</option>
+          <option value="instagram">Instagram</option>
+          <option value="facebook">Facebook</option>
+          <option value="tiktok">TikTok</option>
+          <option value="youtube">YouTube</option>
+          <option value="mercadolibre">Mercado Libre</option>
+          <option value="recomendacion">Me lo recomendaron</option>
+          <option value="cliente">Ya era cliente de Emisha</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="field" data-referencia-detalle hidden>
+        <label for="im-referencia-detalle">Cuéntanos más (opcional)</label>
+        <input id="im-referencia-detalle" name="referencia_detalle" maxlength="120"
+               placeholder="¿Quién te recomendó? ¿Dónde nos viste?">
+      </div>
       <fieldset class="checkout__entrega">
         <legend>Entrega</legend>
         <label class="checkout__radio">
@@ -502,6 +522,6 @@
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
 <script src="../assets/js/preview3d.js?v=a5c6c573" defer></script>
-<script src="../assets/js/cotizador.js?v=0f5459fb" defer></script>
+<script src="../assets/js/cotizador.js?v=f096a7f6" defer></script>
 </body>
 </html>

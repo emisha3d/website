@@ -450,6 +450,26 @@
                   <input id="c-email" name="email" type="email" required maxlength="120" autocomplete="email">
                   <span class="field__hint">Ahí te llega la confirmación y el enlace para cancelar.</span>
                 </div>
+                <div class="field">
+                  <label for="c-referencia">¿Cómo nos encontraste?</label>
+                  <select id="c-referencia" name="referencia" required>
+                    <option value="">Elige una opción</option>
+                    <option value="google">Google (búsqueda o Maps)</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="mercadolibre">Mercado Libre</option>
+                    <option value="recomendacion">Me lo recomendaron</option>
+                    <option value="cliente">Ya era cliente de Emisha</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="field" data-referencia-detalle hidden>
+                  <label for="c-referencia-detalle">Cuéntanos más (opcional)</label>
+                  <input id="c-referencia-detalle" name="referencia_detalle" maxlength="120"
+                         placeholder="¿Quién te recomendó? ¿Dónde nos viste?">
+                </div>
                 <!-- Trampa para bots: la gente no lo ve ni lo llena. -->
                 <div class="hp" aria-hidden="true">
                   <label for="c-sitio">Sitio web</label>
@@ -652,6 +672,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/reparacion.js?v=7cdd63dc" defer></script>
+<script src="../assets/js/reparacion.js?v=898fd0a3" defer></script>
 </body>
 </html>

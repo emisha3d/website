@@ -250,6 +250,16 @@
 
   /* --- Envío ------------------------------------------------------------ */
 
+  // «¿Cómo nos encontraste?»: el renglón de detalle solo aparece cuando
+  // sirve de algo (quién lo recomendó, cuál es el «otro»).
+  var refDetalle = form.querySelector('[data-referencia-detalle]');
+  if (refDetalle && form.elements.referencia) {
+    form.elements.referencia.addEventListener('change', function () {
+      var v = form.elements.referencia.value;
+      refDetalle.hidden = !(v === 'otro' || v === 'recomendacion');
+    });
+  }
+
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     avisar('');
@@ -287,6 +297,8 @@
       email: f.email.value.trim(),
       equipos: listos,
       diagnostico_previo: f.diagnostico_previo.checked,
+      referencia: f.referencia ? f.referencia.value : '',
+      referencia_detalle: f.referencia_detalle ? f.referencia_detalle.value.trim() : '',
       fecha: diaSel,
       hora: horaSel,
       sitio_web: f.sitio_web.value

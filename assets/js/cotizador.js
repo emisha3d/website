@@ -2027,6 +2027,9 @@
       d[k] = (formPago.elements[k] ? formPago.elements[k].value : '').trim();
     });
     try { localStorage.setItem(DATOS_LS, JSON.stringify(d)); } catch (e) {}
+    // «¿Cómo nos encontraste?» se manda pero NO se recuerda (ver tienda.js).
+    d.referencia = formPago.elements.referencia ? formPago.elements.referencia.value : '';
+    d.referencia_detalle = formPago.elements.referencia_detalle ? formPago.elements.referencia_detalle.value.trim() : '';
     return d;
   }
 
@@ -2075,7 +2078,8 @@
     var entrega = formPago.elements.entrega.value;
     var fd = new FormData();
     fd.append('datos', JSON.stringify({
-      comprador: { nombre: d.nombre, email: d.email, telefono: d.telefono },
+      comprador: { nombre: d.nombre, email: d.email, telefono: d.telefono,
+                   referencia: d.referencia, referencia_detalle: d.referencia_detalle },
       entrega: entrega,
       envio: entrega === 'envio' ? {
         calle: d.calle, colonia: d.colonia, cp: d.cp,
@@ -2175,6 +2179,12 @@
   if (btnPagar && dialogo && formPago) {
     btnPagar.addEventListener('click', abrirPago);
     formPago.addEventListener('submit', function (ev) { ev.preventDefault(); enviarPedido(); });
+    // «¿Cómo nos encontraste?»: el detalle solo cuando sirve (quién, cuál «otro»).
+    formPago.addEventListener('change', function (ev) {
+      if (ev.target.name !== 'referencia') return;
+      var caja = formPago.querySelector('[data-referencia-detalle]');
+      if (caja) caja.hidden = !(ev.target.value === 'otro' || ev.target.value === 'recomendacion');
+    });
     dialogo.querySelector('[data-cerrar]').addEventListener('click', cerrarPago);
     Array.prototype.forEach.call(formPago.querySelectorAll('input[name="entrega"]'), function (r) {
       r.addEventListener('change', mostrarEnvio);

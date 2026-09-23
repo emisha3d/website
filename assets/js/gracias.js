@@ -61,8 +61,18 @@
     var direccion = '';
     if (envio && envio.direccion) {
       var d = envio.direccion;
-      direccion = '<p class="muted" style="margin-top:14px">Enviaremos tu paquete a: ' +
+      direccion = '<p class="muted" style="margin-top:14px">' +
+        (pedido.guia ? 'Tu paquete va en camino a: ' : 'Enviaremos tu paquete a: ') +
         escapar([d.calle, d.colonia, 'CP ' + d.cp, d.ciudad, d.estado].filter(Boolean).join(', ')) + '.</p>';
+    }
+    // En cuanto el taller genera la guía, el cliente ve su número de rastreo
+    // aquí sin que nadie se lo tenga que mandar.
+    if (pedido.guia && pedido.guia.tracking) {
+      var g = pedido.guia;
+      direccion += '<p class="muted" style="margin-top:10px">Guía de ' + escapar(g.paqueteria || 'tu paquetería') +
+        ': ' + (g.tracking_url
+          ? '<a href="' + escapar(g.tracking_url) + '" target="_blank" rel="noopener">' + escapar(g.tracking) + '</a>'
+          : '<strong>' + escapar(g.tracking) + '</strong>') + '.</p>';
     }
     if (pedido.tipo === 'impresion' && (detalle.material || detalle.relleno_pct)) {
       direccion += '<p class="muted" style="margin-top:10px">Material: ' + escapar(detalle.material || '') +
