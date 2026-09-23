@@ -2010,6 +2010,13 @@
     pintarResumen();
   }
 
+
+  // Lo que el snippet del <head> guardó del primer toque (referrer, utm_*,
+  // página de aterrizaje). Si no hay nada, no se manda nada.
+  function origenWeb() {
+    try { return JSON.parse(localStorage.getItem('emisha-origen-v1')) || undefined; } catch (e) { return undefined; }
+  }
+
   function prellenar() {
     try {
       var d = JSON.parse(localStorage.getItem(DATOS_LS));
@@ -2080,6 +2087,7 @@
     fd.append('datos', JSON.stringify({
       comprador: { nombre: d.nombre, email: d.email, telefono: d.telefono,
                    referencia: d.referencia, referencia_detalle: d.referencia_detalle },
+      origen_web: origenWeb(),
       entrega: entrega,
       envio: entrega === 'envio' ? {
         calle: d.calle, colonia: d.colonia, cp: d.cp,

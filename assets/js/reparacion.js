@@ -260,6 +260,13 @@
     });
   }
 
+
+  // Lo que el snippet del <head> guardó del primer toque (referrer, utm_*,
+  // página de aterrizaje). Si no hay nada, no se manda nada.
+  function origenWeb() {
+    try { return JSON.parse(localStorage.getItem('emisha-origen-v1')) || undefined; } catch (e) { return undefined; }
+  }
+
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     avisar('');
@@ -299,6 +306,7 @@
       diagnostico_previo: f.diagnostico_previo.checked,
       referencia: f.referencia ? f.referencia.value : '',
       referencia_detalle: f.referencia_detalle ? f.referencia_detalle.value.trim() : '',
+      origen_web: origenWeb(),
       fecha: diaSel,
       hora: horaSel,
       sitio_web: f.sitio_web.value
