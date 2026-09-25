@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-09-22
+Generado: 2026-09-24
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
 - Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-09-10
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-09-23
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-09-25
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -1343,7 +1343,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-09-22 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-09-24 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 
