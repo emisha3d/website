@@ -457,6 +457,15 @@ strong { font-weight: 640; }
 }
 .swatch[hidden] { display: none; }
 
+/* Agotado (existencia.js): la pastilla se enseña, la foto se apaga. */
+.agotado-pill { background: var(--accent-dim); border-color: rgba(210,89,11,.22); color: var(--accent);
+  font-size: .72rem; padding: 3px 10px; vertical-align: middle; }
+.agotado-pill[hidden] { display: none; }
+.swatch .agotado-pill { margin-top: 8px; }
+.lane-card__foot .agotado-pill { margin-left: 8px; }
+.swatch.agotado .swatch__media img,
+.lane-card.agotado .lane-card__media img { opacity: .45; }
+
 /* --------------------------------------------------------- material hd */
 .material-head {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px;

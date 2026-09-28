@@ -517,8 +517,11 @@
         // lista escrita a mano porque el SKU de inventario puede ser otro
         // (las camas llegan como EMI-CP-*, las boquillas A1 como EMI-HE-HS-*):
         // 'en_inventario' dice con cuál sale publicada.
+        // Cuenta TODO el inventario, agotados incluidos: si solo contaran los
+        // que tienen stock, un color agotado salía del catálogo vivo y volvía
+        // a entrar por aquí como tarjeta de WhatsApp.
         var yaVivas = {};
-        catalogo.forEach(function (p) { yaVivas[p.sku] = true; });
+        (datos.productos || []).forEach(function (p) { yaVivas[p.sku] = true; });
         propias = propias.filter(function (p) {
           return !yaVivas[p.sku] && !(p.en_inventario && yaVivas[p.en_inventario]);
         });

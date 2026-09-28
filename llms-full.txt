@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-09-24
+Generado: 2026-09-28
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
 - Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-09-10
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-09-25
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-09-28
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -935,7 +935,7 @@ Rango de precio: $149 MXN a $1,349 MXN.
 
 Página: https://www.emisha.com.mx/tienda/
 
-2608 diseños distintos, todos impresos por Emisha en la CDMX con filamento
+2609 diseños distintos, todos impresos por Emisha en la CDMX con filamento
 propio de 1.75 mm. Se fabrican BAJO PEDIDO: no son existencia en anaquel,
 así que aquí no se publican cifras de inventario. Pago con Mercado Pago y
 envío a todo México ($149 MXN; gratis desde $999 MXN).
@@ -1256,7 +1256,7 @@ Rango de precio: $49 MXN a $2,189 MXN. Peso: 53 a 3316 g.
 - Soporte Vertical Compatible Con Cartuchos De Nes — $1,099 MXN · 150 × 160 × 290 mm · SKU EMI-NVCH-DP-G-001
 - (…y 63 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.13 Otras piezas (188 piezas)
+### 5.13 Otras piezas (189 piezas)
 
 Rango de precio: $59 MXN a $7,419 MXN. Peso: 20 a 5658 g.
 
@@ -1264,23 +1264,23 @@ Rango de precio: $59 MXN a $7,419 MXN. Peso: 20 a 5658 g.
 - Emisha Abrebotellas para Adultos Mayores Artritis Agarre — $1,149 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU1493731
 - Emisha Almohadilla Sensorial Antiestrés — $2,239 MXN · 50 × 120 × 100 mm · SKU EMISHA-BU2629018
 - Emisha Bolígrafo Magnético Precisión Control Dibujo — $579 MXN · 50 × 60 × 200 mm · SKU EMISHA-BU1752938
-- Emisha Cubo Antiestrés Manos Concentración Diversión — $479 MXN · 120 × 120 × 120 mm · SKU EMISHA-BU888012
+- Emisha Cuchillo de Corte Multiusos compatible con Stanley — $239 MXN · 50 × 70 × 140 mm · SKU EMISHA-BU1908869
 - Emisha Diadema de Unicornio Fiesta Niñas Accesorio — $179 MXN · 60 × 160 × 90 mm · SKU EMISHA-BU1035641
 - Emisha Enrollador de Lana Tejido Crochet Impresión — $1,789 MXN · 120 × 140 × 190 mm · SKU EMISHA-BU941319
 - Emisha Fuente para Alberca M30x3 — $639 MXN · 140 × 160 × 120 mm · SKU EMISHA-BU554200
 - Emisha Hoja Circular Táctica Táctico Defensa Supervivencia — $529 MXN · 110 × 110 × 70 mm · SKU EMISHA-BU2088021
 - Emisha Liquid Ultra 1g Metal Líquido Edición Esp Mundial — $699 MXN · 30 × 80 × 120 mm · SKU E-LM-U-1GR-EE
-- Emisha Masajeador de Cabeza Relajación Estrés Alivio — $399 MXN · 90 × 100 × 130 mm · SKU EMISHA-BU961541
-- Emisha Plumero para Moscas Mano Duradero — $419 MXN · 70 × 290 × 640 mm · SKU EMISHA-BU615910
-- Emisha Púa para Guitarra Músico — $229 MXN · 50 × 70 × 50 mm · SKU EMISHA-BU63731
-- Emisha Resorte Metal Fuerte Compresión — $159 MXN · 50 × 60 × 60 mm · SKU EMISHA-BU628888
-- Emisha Tapa para Cartuchos de Silicona Cartucho Sellado — $189 MXN · 70 × 80 × 60 mm · SKU EMISHA-BU2791261
+- Emisha Medidor de Anillos Joyería Dedos Universal — $219 MXN · 140 × 90 × 70 mm · SKU EMISHA-BU1081776
+- Emisha Porta Paneles Construcción Transporte — $1,259 MXN · 120 × 290 × 140 mm · SKU EMISHA-BU754543
+- Emisha Rascador Corporal Espalda Masaje — $289 MXN · 80 × 120 × 290 mm · SKU EMISHA-BU509890
+- Emisha Robot Transformable Calabaza Mecha Kit — $429 MXN · 90 × 100 × 120 mm · SKU EMISHA-BU672454
+- Emisha Tapa para Cartuchos de Silicona Cartucho Sellador — $209 MXN · 70 × 80 × 70 mm · SKU EMISHA-BU2153800
 - Emisha Trampa para Moscas de la Fruta Decorativa — $3,209 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1742424
-- Gonggi De Squid Games 2 (juego Del Calamar) 2 Juegos Premium Blanco — $169 MXN · 80 × 100 × 100 mm · SKU E-G-DP-002
-- Mini Cdmx — $250 MXN · 50 × 180 × 260 mm · SKU EMI-DP-MINICDMX
+- Gonggi De Squid Games 2 Juego Del Calamar 10 Juegos Premium Blanco — $699 MXN · 60 × 240 × 320 mm · SKU E-G-DP-010
+- Muro De Escalada Para Reptiles — $129 MXN · 90 × 370 × 460 mm · SKU EMI-LRCW-DP-WBr-001
 - Raqueta Ligera De Ping-pong Rojo Fl (cóncavo) — $339 MXN · 70 × 220 × 320 mm · SKU EMI-APPP-DP-R-001
 - Zapatera Vertical Negro — $2,499 MXN · 150 × 270 × 670 mm · SKU EMI-VSR-DP-B-001
-- (…y 168 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- (…y 169 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
 ## 6. Herramientas gratuitas
 
@@ -1343,7 +1343,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-09-24 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-09-28 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 
