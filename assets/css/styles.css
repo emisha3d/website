@@ -742,10 +742,14 @@ strong { font-weight: 640; }
 .quote-total .btn--ghost { background: #fff; border-color: #fff; }
 .quote-total__acciones { display: flex; gap: 10px; flex-wrap: wrap; }
 .quote-total__acciones .btn--accent { border-color: var(--brand); }
+/* Tres botones (WhatsApp, cotización, pagar): en el celular, uno por renglón y parejos. */
+@media (max-width: 520px) { .quote-total__acciones .btn { flex: 1 1 100%; justify-content: center; } }
 
 /* ------------------------------------------------- diálogo de checkout */
 /* Lo usan la tienda (datos de envío) y el cotizador (pagar la impresión). */
-.checkout{border:0;border-radius:16px;padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);box-shadow:0 24px 64px rgba(0,0,0,.28)}
+/* margin:auto: el `* { margin: 0 }` de arriba le quita al <dialog> el centrado
+   del navegador y el diálogo se pegaba a la esquina superior izquierda. */
+.checkout{margin:auto;border:0;border-radius:16px;padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);box-shadow:0 24px 64px rgba(0,0,0,.28)}
 .checkout::backdrop{background:rgba(20,18,16,.55)}
 .checkout form{padding:26px 28px 24px;overflow-y:auto;max-height:inherit;box-sizing:border-box}
 .checkout h2{margin:0 0 4px;font-size:1.25rem}
@@ -772,6 +776,12 @@ strong { font-weight: 640; }
 .checkout__acciones{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .checkout__aviso{margin:0 0 12px;padding:10px 12px;border-radius:var(--radius-sm);font-size:.88rem;border:1px solid rgba(180,35,24,.32);background:rgba(180,35,24,.06);color:#b42318}
 .checkout__aviso[hidden]{display:none}
+.checkout__campos .field textarea{font:inherit;font-size:.93rem;color:var(--text);padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:#fff;resize:vertical;max-width:100%;box-sizing:border-box}
+.checkout__campos .field textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
+/* Acuse de «Solicitar cotización»: reemplaza al formulario dentro del diálogo. */
+.checkout__listo{padding:26px 28px 24px}
+.checkout__listo p{margin:8px 0 18px}
+.checkout form[hidden],.checkout__listo[hidden]{display:none}
 
 .is-hidden { display: none !important; }
 

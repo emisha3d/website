@@ -1858,6 +1858,10 @@
         ? 'Hay una pieza que no cabe en la impresora ni cortada: ajusta su tamaño o pídela por WhatsApp.'
         : '';
     }
+    if (btnCotizar) {
+      btnCotizar.disabled = !listas || noCabe;
+      btnCotizar.title = btnPagar ? btnPagar.title : '';
+    }
 
     actualizarVisor();
   }
@@ -1898,9 +1902,32 @@
      archivos originales (los File que soltó el usuario) viajan en un
      multipart junto con la cotización tal como la vio, y el worker responde
      con el link de Mercado Pago. Es el ÚNICO momento en que un archivo sale
-     del navegador; el resto de la página sigue sin tocar la red.          */
+     del navegador; el resto de la página sigue sin tocar la red.
+
+     "Solicitar cotización" usa el mismo diálogo y el mismo multipart, pero
+     va a POST /cotizacion: no hay cobro, al taller le llegan los archivos por
+     correo y en su panel, y desde ahí le manda al cliente el precio final
+     con un link de pago.                                                  */
 
   var btnPagar = $('#pagar');
+  var btnCotizar = $('#cotizar');
+  var modo = 'pagar';           // 'pagar' | 'cotizar': qué botón abrió el diálogo
+  var TEXTOS = {
+    pagar: {
+      titulo: 'Pagar la impresión',
+      intro: 'Tus archivos se suben con el pedido y pasas a Mercado Pago para el cobro seguro. '
+           + 'Pagas el estimado; si al revisar los archivos cambia, te avisamos antes de imprimir.',
+      boton: 'Continuar al pago',
+      subiendo: 'Subiendo tus archivos…'
+    },
+    cotizar: {
+      titulo: 'Solicitar cotización',
+      intro: 'Tus archivos nos llegan con tus datos. Los revisamos y te mandamos el precio final '
+           + 'con un link de pago, por correo o WhatsApp. No pagas nada todavía.',
+      boton: 'Enviar solicitud',
+      subiendo: 'Enviando tus archivos…'
+    }
+  };
   var dialogo  = document.querySelector('[data-impresion]');
   var formPago = dialogo && dialogo.querySelector('[data-impresion-form]');
   var DATOS_LS = 'emisha-datos-envio-v1';   // los mismos que recuerda la tienda
@@ -1988,10 +2015,11 @@
       + fmt(pedidoActual.subtotal / 100) + '</span></div>';
     if (esEnvio) {
       html += '<div><span>Envío</span><span>'
-        + (envio === null ? 'Se agrega al pagar' : (envio === 0 ? 'Gratis' : fmt(envio / 100)))
+        + (envio === null ? (modo === 'cotizar' ? 'Va en la cotización' : 'Se agrega al pagar')
+                          : (envio === 0 ? 'Gratis' : fmt(envio / 100)))
         + '</span></div>';
     }
-    html += '<div class="checkout__total"><span>Total</span><span>'
+    html += '<div class="checkout__total"><span>' + (modo === 'cotizar' ? 'Estimado' : 'Total') + '</span><span>'
       + fmt((pedidoActual.subtotal + (envio || 0)) / 100)
       + (envio === null ? ' + envío' : '') + '</span></div>';
     dialogo.querySelector('[data-impresion-resumen]').innerHTML = html;
@@ -2043,18 +2071,24 @@
   function restaurarBoton() {
     var confirmar = dialogo.querySelector('[data-confirmar]');
     confirmar.disabled = false;
-    confirmar.textContent = 'Continuar al pago';
+    confirmar.textContent = TEXTOS[modo].boton;
   }
 
-  function abrirPago() {
+  function abrirPago(m) {
     var pedido = armarPedido();
     if (!pedido.piezas.length) return;
     pedidoActual = pedido;
+    modo = m === 'cotizar' ? 'cotizar' : 'pagar';
+    dialogo.querySelector('[data-impresion-titulo]').textContent = TEXTOS[modo].titulo;
+    dialogo.querySelector('[data-impresion-intro]').textContent = TEXTOS[modo].intro;
+    dialogo.querySelector('[data-cotizar-campo]').hidden = modo !== 'cotizar';
+    formPago.hidden = false;
+    dialogo.querySelector('[data-impresion-listo]').hidden = true;
     avisar('');
     restaurarBoton();
     var grande = pedido.piezas.filter(function (x) { return x.archivo.size > MAX_MB_ARCHIVO * 1048576; });
     if (grande.length) {
-      avisar(grande[0].archivo.name + ' pesa más de ' + MAX_MB_ARCHIVO + ' MB. Para archivos así de grandes pídenos la impresión por WhatsApp.');
+      avisar(grande[0].archivo.name + ' pesa más de ' + MAX_MB_ARCHIVO + ' MB. Para archivos así de grandes escríbenos por WhatsApp.');
       dialogo.querySelector('[data-confirmar]').disabled = true;
     } else if (pedido.bytes > MAX_MB_PEDIDO * 1048576) {
       avisar('Los archivos juntos pesan más de ' + MAX_MB_PEDIDO + ' MB. Divide el pedido o pídelo por WhatsApp.');
@@ -2096,6 +2130,8 @@
       material: pedidoActual.material,
       relleno_pct: pedidoActual.relleno_pct,
       subtotal_centavos: pedidoActual.subtotal,
+      comentario: modo === 'cotizar' && formPago.elements.comentario
+        ? formPago.elements.comentario.value.trim() : undefined,
       piezas: pedidoActual.piezas.map(function (x) { return x.datos; })
     }));
     // Mismo orden que datos.piezas: el worker los empareja por posición.
@@ -2103,12 +2139,24 @@
 
     var confirmar = dialogo.querySelector('[data-confirmar]');
     confirmar.disabled = true;
-    confirmar.textContent = 'Subiendo tus archivos…';
+    confirmar.textContent = TEXTOS[modo].subiendo;
     avisar('');
+    var esCotizar = modo === 'cotizar';
 
-    fetch(API + '/impresion', { method: 'POST', body: fd })
+    fetch(API + (esCotizar ? '/cotizacion' : '/impresion'), { method: 'POST', body: fd })
       .then(function (r) { return r.json().then(function (j) { return { status: r.status, datos: j }; }); })
       .then(function (r) {
+        if (esCotizar && r.status === 201 && r.datos.pedido_id) {
+          if (formPago.elements.comentario) formPago.elements.comentario.value = '';
+          dialogo.querySelector('[data-listo-texto]').textContent =
+            'Revisamos ' + (pedidoActual.piezas.length === 1 ? 'tu modelo' : 'tus modelos')
+            + ' y te mandamos el precio final con un link de pago a ' + d.email
+            + ' o por WhatsApp. Te llega también un correo con el resumen. Folio: '
+            + String(r.datos.pedido_id).slice(0, 8).toUpperCase() + '.';
+          formPago.hidden = true;
+          dialogo.querySelector('[data-impresion-listo]').hidden = false;
+          return;
+        }
         if (r.status === 201 && r.datos.url_pago) {
           // Recordar el folio para la página de gracias (MP a veces regresa
           // sin query params si el cliente cierra a medias).
@@ -2119,9 +2167,13 @@
         }
         restaurarBoton();
         if (r.status === 503) {
-          avisar('El pago en línea no está disponible en este momento. Pide tu cotización por WhatsApp y te mandamos un link de pago.');
+          avisar(esCotizar
+            ? 'No pudimos recibir tu solicitud en este momento. Mándanos tus archivos por WhatsApp.'
+            : 'El pago en línea no está disponible en este momento. Pide tu cotización por WhatsApp y te mandamos un link de pago.');
         } else {
-          avisar((r.datos && r.datos.error) || 'No se pudo iniciar el pago. Inténtalo de nuevo.');
+          avisar((r.datos && r.datos.error) || (esCotizar
+            ? 'No se pudo enviar la solicitud. Inténtalo de nuevo.'
+            : 'No se pudo iniciar el pago. Inténtalo de nuevo.'));
         }
       })
       .catch(function () {
@@ -2185,7 +2237,9 @@
   }
 
   if (btnPagar && dialogo && formPago) {
-    btnPagar.addEventListener('click', abrirPago);
+    btnPagar.addEventListener('click', function () { abrirPago('pagar'); });
+    if (btnCotizar) btnCotizar.addEventListener('click', function () { abrirPago('cotizar'); });
+    dialogo.querySelector('[data-listo-cerrar]').addEventListener('click', cerrarPago);
     formPago.addEventListener('submit', function (ev) { ev.preventDefault(); enviarPedido(); });
     // «¿Cómo nos encontraste?»: el detalle solo cuando sirve (quién, cuál «otro»).
     formPago.addEventListener('change', function (ev) {
