@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manda tu impresora a reparar por paquetería | Emisha</title>
+<meta name="description" content="¿No estás en CDMX? Manda tu impresora Bambu Lab a reparar a Emisha por paquetería. Cotiza la guía en línea, págala con Mercado Pago y te mandamos el PDF por correo. Diagnóstico $300, reparación $700.">
+<link rel="canonical" href="https://www.emisha.com.mx/reparacion/envio/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Manda tu impresora a reparar desde cualquier parte de México — Emisha">
+<meta property="og:description" content="Cotiza y paga la guía en línea; te mandamos el PDF por correo. Diagnóstico $300, reparación $700.">
+<meta property="og:url" content="https://www.emisha.com.mx/reparacion/envio/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/modelos/a1.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=368d7314">
+<style>
+/* Estilos propios de la página de citas (la hoja global no se toca desde aquí). */
+#agendar{scroll-margin-top:70px}
+.cita-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start;min-width:0}
+@media (max-width:900px){.cita-grid{grid-template-columns:minmax(0,1fr)}}
+.cita-form{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 28px 26px}
+@media (max-width:520px){.cita-form{padding:22px 18px 20px}}
+.cita-paso{margin-bottom:26px}
+.cita-paso:last-of-type{margin-bottom:0}
+.cita-paso__titulo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cita-paso__num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:.85rem;display:grid;place-items:center;flex-shrink:0}
+.cita-paso__titulo h2{font-size:1.1rem;margin:0}
+.cita-campos{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.cita-campos .field--ancho{grid-column:1/-1}
+@media (max-width:560px){.cita-campos{grid-template-columns:1fr}}
+.field[hidden]{display:none}
+/* Fotos y video que el taller sube de la reparación. */
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:10px 0 4px}
+.galeria figure{margin:0}
+.galeria a{display:block;border-radius:10px;overflow:hidden;background:#0d1117;position:relative;aspect-ratio:4/3}
+.galeria img,.galeria video{width:100%;height:100%;object-fit:cover;display:block}
+.galeria .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-shadow:0 2px 8px rgba(0,0,0,.6);pointer-events:none}
+.galeria figcaption{font-size:.82rem;color:var(--muted);margin-top:5px;line-height:1.35}
+.galeria-t{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:18px 0 0}
+
+/* Cada impresora de la cita es un bloque repetible. Con una sola no se nota:
+   el borde y el encabezado solo aparecen cuando hay más de una. */
+/* El paso 1 es una rejilla de dos columnas: el bloque de la impresora y el
+   botón de agregar tienen que ocupar el ancho completo, si no el botón se
+   estira solo en la celda de la derecha. */
+.cita-campos [data-equipos],.cita-campos [data-agregar-equipo]{grid-column:1/-1}
+.cita-campos [data-agregar-equipo]{justify-self:start;width:auto}
+.equipo-bloque + .equipo-bloque{border-top:1px solid var(--border);margin-top:26px;padding-top:20px}
+.equipo-bloque__cab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.equipo-bloque__cab:empty{display:none}
+.equipo-bloque__num{font-family:var(--mono,ui-monospace,Menlo,monospace);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.equipo-bloque__num:empty{display:none}
+.equipo-bloque__quitar{border:0;background:none;color:var(--muted);font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;padding:4px 8px;border-radius:7px}
+.equipo-bloque__quitar:hover{background:rgba(180,35,24,.08);color:#b42318}
+[data-agregar-equipo]{margin-top:6px}
+[data-agregar-equipo][hidden]{display:none}
+
+/* Selectores con imagen (modelo) e icono (falla): tarjetas de radio. */
+.picker{border:0;padding:0;margin:0;min-width:0;grid-column:1/-1}
+.picker legend{font-family:var(--font-mono);font-size:.665rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:8px}
+.picker__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.picker__grid--fallas{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.picker__item{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px 9px;border:1px solid var(--border);border-radius:var(--radius);background:#fff;cursor:pointer;text-align:center;transition:border-color .15s var(--ease),box-shadow .15s var(--ease),background .15s var(--ease)}
+.picker__item:hover{border-color:#cfd8e3}
+.picker__item input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.picker__item.is-checked,.picker__item:has(input:checked){border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);background:#f5f9ff}
+.picker__item:has(input:focus-visible){outline:2px solid var(--brand);outline-offset:2px}
+.picker__media{width:64px;height:64px;display:grid;place-items:center}
+.picker__media--modelo svg{width:46px;height:46px;color:var(--text)}
+.picker__media--icono svg{width:36px;height:36px;color:var(--text-2)}
+.picker__label{font-size:.82rem;font-weight:600;line-height:1.2;color:var(--text)}
+.picker__item--falla{flex-direction:row;text-align:left;gap:10px;padding:10px 12px}
+.picker__item--falla .picker__media{width:32px;height:32px;flex-shrink:0}
+.picker__item--falla .picker__media--icono svg{width:26px;height:26px}
+.picker__item--falla .picker__label{font-weight:500;font-size:.88rem}
+@media (max-width:520px){.picker__grid{grid-template-columns:repeat(3,1fr)}.picker__grid--fallas{grid-template-columns:1fr}}
+.field textarea{font:inherit;font-size:.93rem;color:var(--text);padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:#fff;min-height:96px;resize:vertical}
+.field textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
+.check{display:flex;align-items:center;gap:9px;font-size:.92rem;color:var(--text-2);cursor:pointer}
+.check input{width:17px;height:17px;accent-color:var(--brand)}
+.dias{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.dia{flex:0 0 auto;scroll-snap-align:start;border:1px solid var(--border);background:#fff;border-radius:var(--radius);padding:10px 14px;min-width:96px;text-align:center;cursor:pointer;font:inherit;line-height:1.25}
+.dia:hover{border-color:#cfd8e3}
+.dia[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.dia b{display:block;font-size:1.05rem}
+.dia small{display:block;font-size:.72rem;opacity:.75}
+.dia small:first-child{text-transform:capitalize}
+.dia:disabled{opacity:.45;cursor:default}
+.turnos{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;margin-top:12px}
+.turno{border:1px solid var(--border);background:#fff;border-radius:var(--radius-sm);padding:10px 6px;font:inherit;font-weight:600;font-size:.95rem;cursor:pointer;font-variant-numeric:tabular-nums}
+.turno:hover{border-color:#cfd8e3;background:var(--surface-2)}
+.turno[aria-pressed="true"]{border-color:var(--brand);background:var(--brand);color:#fff}
+.turno:disabled{opacity:.35;cursor:default;text-decoration:line-through}
+.turnos-vacio{color:var(--muted);font-size:.9rem;margin-top:12px}
+.cita-elegida{margin-top:14px;font-size:.95rem;color:var(--text-2)}
+.cita-elegida b{color:var(--text)}
+.cita-aviso{border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin:0 0 18px;background:#f8f7f5;font-size:.95rem}
+.cita-aviso--error{border-color:#e3b08a;background:#fdf3ea}
+.cita-aviso--ok{border-color:#c6ebd6;background:#e8f7ef}
+.cita-enviar{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.cita-enviar .muted{font-size:.85rem}
+.hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;overflow:hidden}
+.cita-aside .card + .card{margin-top:16px}
+.cita-aside .card h3{font-size:1.05rem;margin-bottom:12px}
+.precios{display:grid;gap:8px}
+.precios div{display:flex;justify-content:space-between;gap:12px;font-size:.95rem;border-bottom:1px dashed var(--border);padding-bottom:8px}
+.precios div:last-child{border-bottom:0;padding-bottom:0}
+.precios b{white-space:nowrap}
+/* display:grid le gana al [hidden] del navegador: sin esto la caja vacía
+   seguiría ocupando lugar cuando no hay nada que enseñar. */
+.precios[hidden],.galeria[hidden]{display:none}
+.cotizacion-cliente{margin-top:12px}
+.cotizacion-cliente .total{font-weight:600;border-bottom:0;padding-top:2px}
+.cotizacion-cliente .total b{font-size:1.15rem}
+.dato{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--text-2)}
+.dato + .dato{margin-top:10px}
+.dato svg{width:18px;height:18px;flex-shrink:0;color:var(--brand);margin-top:2px}
+.confirmacion{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 30px}
+@media (max-width:520px){.confirmacion{padding:24px 18px}}
+.confirmacion h2{font-size:clamp(1.5rem,3vw,2rem);margin:8px 0 6px}
+.confirmacion .folio{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);letter-spacing:.06em}
+.confirmacion__datos{margin:22px 0;display:grid;gap:12px}
+.confirmacion__datos div{display:grid;grid-template-columns:120px 1fr;gap:10px;font-size:.95rem}
+.confirmacion__datos dt{color:var(--muted);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.confirmacion__datos dd{margin:0}
+@media (max-width:520px){.confirmacion__datos div{grid-template-columns:1fr;gap:2px}}
+/* Sin portada: quien entra aquí viene a agendar, no a leer. Título, un renglón
+   de datos y enseguida el paso 1. El horario y los precios ya vienen otra vez
+   en las tarjetas de la derecha y en el paso 3, así que aquí van una sola vez
+   y en chico. */
+.cita-encabezado{padding:20px 0 14px;background:var(--bg)}
+.cita-encabezado h1{font-size:clamp(1.35rem,2.6vw,1.6rem);margin:0 0 6px}
+.cita-encabezado__linea{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+@media (max-width:600px){.cita-encabezado{padding:16px 0 12px}}
+
+/* Envío al taller */
+.envio-nota{font-size:.9rem;color:var(--text-2);margin:-4px 0 14px}
+.envio-caja{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 16px}
+@media (max-width:560px){.envio-caja{grid-template-columns:1fr 1fr}}
+.envio-opciones{border:0;padding:0;margin:18px 0 0;min-width:0}
+.envio-opciones[hidden]{display:none}
+.envio-opciones legend{font-family:var(--font-mono);font-size:.665rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:8px}
+.opcion{display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;background:#fff;cursor:pointer}
+.opcion + .opcion{margin-top:8px}
+.opcion:has(input:checked){border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);background:#f5f9ff}
+.opcion input{accent-color:var(--brand);width:17px;height:17px;flex-shrink:0}
+.opcion__txt{flex:1;min-width:0;line-height:1.3}
+.opcion__txt small{display:block;color:var(--muted);font-size:.82rem}
+.opcion b.precio{white-space:nowrap;font-size:1.05rem}
+.envio-pasos{margin:0;padding-left:20px;display:grid;gap:8px;font-size:.93rem;color:var(--text-2)}
+.envio-empaque{margin:0;padding-left:22px;display:grid;gap:14px;font-size:1rem;color:var(--text-2)}
+.envio-empaque b{color:var(--text)}
+#enviar,#empaque{scroll-margin-top:70px}
+</style>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../" aria-label="Emisha — inicio">
+      <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../filamentos/">Filamentos</a>
+          <a href="../../hotends/">Hotends</a>
+          <a href="../../placas/">Placas</a>
+          <a href="../../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../../servicios/">Servicios y reparación</a>
+          <a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../../renta/">Renta de impresoras</a>
+          <a href="../../cotizador/">Cotizar pieza</a>
+          <a href="../../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../../reparacion/" aria-current="page">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../cortador/">Cortador</a>
+          <a href="../../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../../blog/">Blog</a>
+      <a href="../../contacto/">Contacto</a>
+      <a class="btn btn--accent btn--sm" href="../../tienda/">Tienda</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="cita-encabezado">
+    <div class="wrap">
+      <h1>Manda tu impresora a reparar desde cualquier parte de México</h1>
+      <p class="cita-encabezado__linea">
+        Cotiza la guía, págala en línea y te mandamos el PDF a tu correo · Diagnóstico $300 · Reparación $700
+        · ¿Estás en CDMX? <a href="../../reparacion/">agenda una cita</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="enviar" style="padding-top:14px">
+    <div class="wrap">
+      <div class="cita-grid">
+
+        <div>
+          <div class="cita-aviso" data-envio-aviso hidden aria-live="polite"></div>
+
+          <form class="cita-form" data-envio-form novalidate>
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">1</span><h2>Tu impresora</h2></div>
+              <div class="cita-campos">
+                <div class="field">
+                  <label for="e-modelo">Modelo</label>
+                  <select id="e-modelo" name="modelo" required>
+                    <option value="">Elige el modelo</option>
+                    <option>A1</option>
+                    <option>A1 mini</option>
+                    <option>P1P</option>
+                    <option>P1S</option>
+                    <option>X1 Carbon</option>
+                    <option>X1E</option>
+                    <option>H2D</option>
+                    <option>H2S</option>
+                    <option value="AMS">Solo el AMS</option>
+                    <option value="Otro">Otro modelo o marca</option>
+                  </select>
+                </div>
+                <div class="field" data-modelo-otro hidden>
+                  <label for="e-modelo-otro">¿Cuál?</label>
+                  <input id="e-modelo-otro" name="modelo_otro" maxlength="50" placeholder="Marca y modelo">
+                </div>
+                <div class="field field--ancho">
+                  <label for="e-falla">¿Qué falla tiene?</label>
+                  <textarea id="e-falla" name="falla" required minlength="5" maxlength="1000"
+                    placeholder="Desde cuándo falla, qué mensaje marca, si ya intentaste algo. Si mandas también el AMS, dilo aquí."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">2</span><h2>La caja, ya empacada</h2></div>
+              <p class="envio-nota">Pésala y mídela <b>ya cerrada</b>. Sin báscula: súbete a una báscula de baño con la caja y resta tu peso.
+                La guía se hace con estos datos; si la caja pesa o mide más, la paquetería cobra la diferencia y se suma a tu reparación.</p>
+              <div class="envio-caja">
+                <div class="field">
+                  <label for="e-peso">Peso (kg)</label>
+                  <input id="e-peso" name="peso_kg" type="number" inputmode="decimal" min="1" max="70" step="0.1" required placeholder="18">
+                </div>
+                <div class="field">
+                  <label for="e-largo">Largo (cm)</label>
+                  <input id="e-largo" name="largo_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="50">
+                </div>
+                <div class="field">
+                  <label for="e-ancho">Ancho (cm)</label>
+                  <input id="e-ancho" name="ancho_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="50">
+                </div>
+                <div class="field">
+                  <label for="e-alto">Alto (cm)</label>
+                  <input id="e-alto" name="alto_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="55">
+                </div>
+              </div>
+            </div>
+
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">3</span><h2>Desde dónde la mandas</h2></div>
+              <div class="cita-campos">
+                <div class="field">
+                  <label for="e-cp">Código postal</label>
+                  <input id="e-cp" name="cp" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required autocomplete="postal-code">
+                  <span class="field__hint" data-cp-estado></span>
+                </div>
+                <div class="field">
+                  <label for="e-colonia">Colonia</label>
+                  <select id="e-colonia-sel" data-colonia-sel hidden></select>
+                  <input id="e-colonia" name="colonia" maxlength="80" required autocomplete="address-level3">
+                </div>
+                <div class="field">
+                  <label for="e-ciudad">Municipio o alcaldía</label>
+                  <input id="e-ciudad" name="ciudad" maxlength="80" required autocomplete="address-level2">
+                </div>
+                <div class="field">
+                  <label for="e-estado">Estado</label>
+                  <input id="e-estado" name="estado" maxlength="40" required autocomplete="address-level1">
+                </div>
+                <div class="field field--ancho">
+                  <label for="e-calle">Calle y número</label>
+                  <input id="e-calle" name="calle" maxlength="120" required autocomplete="address-line1" placeholder="Av. Juárez 123, int. 4">
+                </div>
+                <div class="field field--ancho">
+                  <label for="e-referencias">Referencias (opcional)</label>
+                  <input id="e-referencias" name="referencias" maxlength="200" placeholder="Entre qué calles, color de la casa">
+                </div>
+              </div>
+              <div class="cita-enviar" style="margin-top:16px">
+                <button type="button" class="btn btn--primary" data-cotizar>Cotizar guía</button>
+                <span class="muted" data-cotizar-estado></span>
+              </div>
+              <fieldset class="envio-opciones" data-opciones hidden>
+                <legend>Elige paquetería</legend>
+                <div data-opciones-lista></div>
+              </fieldset>
+            </div>
+
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">4</span><h2>Tus datos</h2></div>
+              <div class="cita-campos">
+                <div class="field field--ancho">
+                  <label for="e-nombre">Nombre completo</label>
+                  <input id="e-nombre" name="nombre" maxlength="60" required autocomplete="name">
+                  <span class="field__hint">Así sale en la guía como remitente.</span>
+                </div>
+                <div class="field">
+                  <label for="e-telefono">WhatsApp</label>
+                  <input id="e-telefono" name="telefono" type="tel" inputmode="tel" maxlength="20" required autocomplete="tel" placeholder="10 dígitos">
+                </div>
+                <div class="field">
+                  <label for="e-correo">Correo</label>
+                  <input id="e-correo" name="correo" type="email" maxlength="120" required autocomplete="email">
+                  <span class="field__hint">Ahí te llega la guía en PDF.</span>
+                </div>
+                <div class="field">
+                  <label for="e-referencia">¿Cómo nos encontraste?</label>
+                  <select id="e-referencia" name="referencia">
+                    <option value="">Elige una opción</option>
+                    <option value="google">Google (búsqueda o Maps)</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="mercadolibre">Mercado Libre</option>
+                    <option value="recomendacion">Me lo recomendaron</option>
+                    <option value="cliente">Ya era cliente de Emisha</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="field" data-referencia-detalle hidden>
+                  <label for="e-referencia-detalle">Cuéntanos más (opcional)</label>
+                  <input id="e-referencia-detalle" name="referencia_detalle" maxlength="120" placeholder="¿Quién te recomendó? ¿Dónde nos viste?">
+                </div>
+              </div>
+            </div>
+
+            <div class="cita-enviar">
+              <button type="submit" class="btn btn--accent btn--lg" data-pagar disabled>Pagar guía</button>
+              <span class="muted">Pagas con Mercado Pago. Generamos tu guía y te llega por correo el mismo día hábil.</span>
+            </div>
+          </form>
+        </div>
+
+        <aside class="cita-aside">
+          <div class="card">
+            <h3>Cómo funciona</h3>
+            <ol class="envio-pasos">
+              <li>Cotizas y pagas la guía aquí.</li>
+              <li>Generamos tu guía y te llega en PDF a tu correo el mismo día hábil. La imprimes y la pegas en la caja.</li>
+              <li>Entregas la caja en una sucursal de la paquetería.</li>
+              <li>Cuando llega, te escribimos por WhatsApp, hacemos el diagnóstico y te mandamos la cotización antes de reparar.</li>
+            </ol>
+          </div>
+          <div class="card">
+            <h3>A dónde llega</h3>
+            <p class="dato" style="display:block">Emisha<br>Av. División del Norte 1354, Piso 1<br>Col. Letrán Valle, Benito Juárez<br>Ciudad de México, CP 03650</p>
+            <p class="muted" style="font-size:.85rem;margin-top:10px">Ya va impresa en la guía. Si prefieres usar tu propia paquetería, manda a esta dirección y pásanos el número de guía por
+              <a href="https://wa.me/525575639255?text=Hola%2C%20les%20mando%20mi%20impresora%20a%20reparar.%20Mi%20gu%C3%ADa%20es%3A%20" target="_blank" rel="noopener">WhatsApp</a>.</p>
+          </div>
+          <div class="card">
+            <h3>Precios</h3>
+            <div class="precios">
+              <div><span>Diagnóstico</span><b>$300</b></div>
+              <div><span>Reparación (mano de obra)</span><b>$700</b></div>
+              <div><span>Refacciones</span><b>con tu autorización</b></div>
+              <div><span>Envío de regreso</span><b>se cotiza al final</b></div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="empaque">
+    <div class="wrap" style="max-width:820px">
+      <div class="section-head">
+        <span class="eyebrow">Antes de cerrar la caja</span>
+        <h2>Cómo empacar tu impresora</h2>
+      </div>
+      <ol class="envio-empaque">
+        <li><b>Saca el filamento.</b> Descarga el filamento del extrusor y del AMS y quita las bobinas. Saca también la placa de impresión y envuélvela aparte.</li>
+        <li><b>Inmoviliza la cama y el cabezal.</b> En P1 y X1, vuelve a apretar los tornillos de transporte de la cama. Si ya no los tienes (o es A1), fija cama y cabezal con cinta de papel y un trozo de espuma o cartón para que no se muevan.</li>
+        <li><b>Empaca bien.</b> Usa la caja original con sus espumas si la tienes. Si no, una caja rígida con al menos 5 cm de relleno por cada lado (burbuja, espuma o papel arrugado). La impresora no debe moverse si sacudes la caja.</li>
+        <li><b>Mete una hoja con tus datos.</b> Tu nombre, WhatsApp, el folio y qué falla tiene. Manda solo lo que haga falta: si la falla es del AMS, incluye el AMS y su cable.</li>
+        <li><b>Toma fotos.</b> De la impresora antes de empacar y de la caja ya cerrada. Si la paquetería la golpea, con eso se reclama.</li>
+        <li><b>Pega la guía y entrégala.</b> Imprime la guía y pégala en la cara más grande, sin cinta sobre el código de barras. Lleva la caja a una sucursal de la paquetería (o pídeles recolección con el número de guía).</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../../placas/">Placas de impresión</a></li>
+          <li><a href="../../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../../tienda/">Tienda en línea</a></li>
+          <li><a href="../../servicios/">Servicios y reparación</a></li>
+          <li><a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../../cotizador/">Cotizador</a></li>
+          <li><a href="../../cortador/">Cortador</a></li>
+          <li><a href="../../calculadora/">Calculadora</a></li>
+          <li><a href="../../reparacion/">Agendar reparación</a></li>
+          <li><a href="../../renta/">Renta de impresoras</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js?v=7782446c" defer></script>
+<script src="../../assets/js/reparacion-envio.js?v=83105d81" defer></script>
+</body>
+</html>

@@ -441,6 +441,12 @@
       acciones.appendChild(boton('WhatsApp', 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, tengo dudas de la cotización ' + cita.folio + ': '), 'btn btn--ghost'));
     } else if (cita.estado === 'nueva') {
       acciones.appendChild(boton('Agregar a mi calendario', cita.calendario_url, 'btn btn--primary'));
+      // ¿No puede venir (vive fuera, cambió de idea)? Manda la impresora por
+      // paquetería: la página de envío llega con sus datos de esta cita.
+      var enviar = boton('Quiero enviar mi impresora', '/reparacion/envio/?cita=' + encodeURIComponent(cita.cita_id), 'btn btn--accent');
+      enviar.removeAttribute('target');
+      enviar.removeAttribute('rel');
+      acciones.appendChild(enviar);
       acciones.appendChild(boton('WhatsApp', 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, tengo la cita ' + cita.folio + ' y '), 'btn btn--ghost'));
       var cancelar = document.createElement('button');
       cancelar.type = 'button';

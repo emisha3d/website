@@ -6,8 +6,9 @@
    Sirve para cuatro tipos de pedido (p.tipo): 'tienda' (piezas del catálogo,
    con envío), 'ag' (refacciones que surte AG Electrónica, sin apartado porque
    no son de esta bodega), 'impresion' (archivos del cotizador) y 'link'
-   (cobro armado por el taller). Cambian los textos y el desglose; el flujo
-   es el mismo. */
+   (cobro armado por el taller), más 'recoleccion' (la guía para mandarnos
+   una impresora a reparar: el taller la compra y aquí sale el PDF). Cambian
+   los textos y el desglose; el flujo es el mismo. */
 (function () {
   'use strict';
 
@@ -40,7 +41,7 @@
         return '<tr><td>' + escapar(x.nombre) + '</td><td>' + x.cantidad + '</td><td>' +
           mxn.format(x.total_centavos / 100) + '</td></tr>';
       }).join('');
-    } else if (pedido.tipo === 'link') {
+    } else if (pedido.tipo === 'link' || pedido.tipo === 'recoleccion') {
       filas = '<tr><td colspan="2">' + escapar(detalle.concepto || 'Pago a Emisha') + '</td><td>' +
         mxn.format(pedido.total_centavos / 100) + '</td></tr>';
     } else {
@@ -54,7 +55,7 @@
     var filaEnvio = '';
     if (pedido.entrega === 'taller') {
       filaEnvio = '<tr><th scope="row" colspan="2">Entrega</th><td>Recoges en el taller</td></tr>';
-    } else if (pedido.tipo !== 'link' && envio && typeof envio.centavos === 'number') {
+    } else if (pedido.tipo !== 'link' && pedido.tipo !== 'recoleccion' && envio && typeof envio.centavos === 'number') {
       filaEnvio = '<tr><th scope="row" colspan="2">Envío</th><td>' +
         (envio.centavos === 0 ? 'Gratis' : mxn.format(envio.centavos / 100)) + '</td></tr>';
     }
@@ -62,7 +63,8 @@
     if (envio && envio.direccion) {
       var d = envio.direccion;
       direccion = '<p class="muted" style="margin-top:14px">' +
-        (pedido.guia ? 'Tu paquete va en camino a: ' : 'Enviaremos tu paquete a: ') +
+        (pedido.tipo === 'recoleccion' ? 'La guía sale de: '
+          : (pedido.guia ? 'Tu paquete va en camino a: ' : 'Enviaremos tu paquete a: ')) +
         escapar([d.calle, d.colonia, 'CP ' + d.cp, d.ciudad, d.estado].filter(Boolean).join(', ')) + '.</p>';
     }
     // En cuanto el taller genera la guía, el cliente ve su número de rastreo
@@ -78,7 +80,7 @@
       direccion += '<p class="muted" style="margin-top:10px">Material: ' + escapar(detalle.material || '') +
         (detalle.relleno_pct ? ' · relleno ' + detalle.relleno_pct + ' %' : '') + '.</p>';
     }
-    var cabecera = pedido.tipo === 'link' ? 'Concepto' : (pedido.tipo === 'impresion' ? 'Modelo' : 'Pieza');
+    var cabecera = (pedido.tipo === 'link' || pedido.tipo === 'recoleccion') ? 'Concepto' : (pedido.tipo === 'impresion' ? 'Modelo' : 'Pieza');
     return '<div class="table-scroll"><table class="specs">' +
       '<thead><tr><th scope="col">' + cabecera + '</th><th scope="col">Cantidad</th><th scope="col">Importe</th></tr></thead>' +
       '<tbody>' + filas + filaEnvio +
@@ -110,6 +112,15 @@
           } else if (p.tipo === 'link') {
             cuerpo = '<p>Tu pago quedó confirmado. Te escribimos por WhatsApp o correo con el ' +
               'siguiente paso.</p>';
+          } else if (p.tipo === 'recoleccion') {
+            cuerpo = p.guia && p.guia.pdf
+              ? '<p>Tu guía está lista. Imprímela, pégala en la caja y entrégala en una sucursal de ' +
+                escapar(p.guia.paqueteria || 'la paquetería') + '. También te la mandamos por correo.</p>' +
+                '<p><a class="btn btn--accent" href="' + escapar(p.guia.pdf) + '" target="_blank" rel="noopener">Descargar mi guía (PDF)</a></p>'
+              : '<p>Tu pago quedó confirmado. Generamos tu guía y te la mandamos por correo el mismo día ' +
+                'hábil (si pagaste en la noche o en fin de semana, el siguiente). También aparece aquí, en esta misma página.</p>';
+            cuerpo += '<p>Mientras, revisa <a href="/reparacion/envio/#empaque">cómo empacar tu impresora</a>. ' +
+              'Cuando llegue al taller te escribimos por WhatsApp.</p>';
           } else if (p.tipo === 'ag') {
             cuerpo = '<p>Tu pago quedó confirmado. Estas piezas las surte nuestro proveedor, ' +
               'así que las pedimos hoy mismo y te escribimos por correo con la guía en cuanto ' +
@@ -147,6 +158,10 @@
             '<p>No se hizo ningún cargo. Puedes volver a cotizar y pagar cuando gustes, o ' +
             'pedirnos la impresión por <a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp</a>.</p>' +
             '<p><a class="btn btn--primary" href="/cotizador/">Volver al cotizador</a></p>');
+        } else if (p.tipo === 'recoleccion') {
+          pintar('El pago no se completó',
+            '<p>No se hizo ningún cargo. Puedes volver a cotizar tu guía cuando gustes.</p>' +
+            '<p><a class="btn btn--primary" href="/reparacion/envio/">Volver a cotizar</a></p>');
         } else if (p.tipo === 'link') {
           pintar('El pago no se completó',
             '<p>No se hizo ningún cargo. Escríbenos por ' +
