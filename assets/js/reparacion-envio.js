@@ -128,8 +128,8 @@
     f[k].addEventListener('input', invalidar);
   });
 
-  // Seguro: el valor declarado cambia el precio, y sin caja original no va
-  // por Estafeta; las dos cosas piden cotizar otra vez.
+  // Seguro: el valor declarado cambia el precio, y sin caja original no se
+  // ofrece Estafeta; las dos cosas piden cotizar otra vez.
   var asegurar = form.querySelector('[data-asegurar]');
   var camposSeguro = form.querySelector('[data-seguro-campos]');
   asegurar.addEventListener('change', function () {
@@ -195,8 +195,7 @@
             '<small>' + esc([o.servicio, dias && 'llega en ' + dias].filter(Boolean).join(' · ')) + '</small>' +
             (seg ? '<small>Guía ' + mxn.format(o.centavos / 100) + ' + seguro ' + mxn.format(seg.centavos / 100) + '</small>' : '') +
             '</span><b class="precio">' + mxn.format(o.total_centavos / 100) + '</b></label>';
-        }).join('') +
-          (r.d.sin_estafeta ? '<p class="envio-nota" style="margin-top:10px">Sin Estafeta: no asegura aparatos que no van en su caja original.</p>' : '');
+        }).join('');
         caja.hidden = false;
         estadoCot.textContent = '';
         btnPagar.disabled = false;
