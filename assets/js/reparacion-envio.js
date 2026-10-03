@@ -124,9 +124,28 @@
     btnPagar.textContent = 'Pagar guía';
     estadoCot.textContent = 'Cambiaste datos: vuelve a cotizar.';
   }
-  ['peso_kg', 'largo_cm', 'ancho_cm', 'alto_cm', 'colonia', 'ciudad', 'estado'].forEach(function (k) {
+  ['peso_kg', 'largo_cm', 'ancho_cm', 'alto_cm', 'colonia', 'ciudad', 'estado', 'valor_mxn'].forEach(function (k) {
     f[k].addEventListener('input', invalidar);
   });
+
+  // Seguro: el valor declarado cambia el precio, y sin caja original no va
+  // por Estafeta; las dos cosas piden cotizar otra vez.
+  var asegurar = form.querySelector('[data-asegurar]');
+  var camposSeguro = form.querySelector('[data-seguro-campos]');
+  asegurar.addEventListener('change', function () {
+    camposSeguro.hidden = !asegurar.checked;
+    f.valor_mxn.required = asegurar.checked;
+    invalidar();
+  });
+  Array.prototype.forEach.call(f.caja_original, function (r) { r.addEventListener('change', invalidar); });
+  function datosSeguro() {
+    var original = form.querySelector('input[name="caja_original"]:checked');
+    return {
+      quiere: asegurar.checked,
+      valor_mxn: asegurar.checked ? parseFloat(f.valor_mxn.value) : null,
+      caja_original: !!(original && original.value === 'si')
+    };
+  }
 
   function datosCaja() {
     return {
@@ -148,7 +167,10 @@
   btnCotizar.addEventListener('click', function () {
     decir('');
     // La colonia puede estar escondida tras el select: se revisa aparte.
-    if (!revisar(['peso_kg', 'largo_cm', 'ancho_cm', 'alto_cm', 'cp', 'ciudad', 'estado'])) return;
+    if (!revisar(['peso_kg', 'largo_cm', 'ancho_cm', 'alto_cm'])) return;
+    if (!form.querySelector('input[name="caja_original"]:checked')) { decir('Dinos si va en su caja original.', 'error'); return; }
+    if (asegurar.checked && !revisar(['valor_mxn'])) return;
+    if (!revisar(['cp', 'ciudad', 'estado'])) return;
     if (!f.colonia.value.trim()) { decir('Elige tu colonia.', 'error'); return; }
     btnCotizar.disabled = true;
     estadoCot.textContent = 'Preguntando a las paqueterías… (unos segundos)';
@@ -157,20 +179,24 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         direccion: { cp: f.cp.value.trim(), colonia: f.colonia.value.trim(), ciudad: f.ciudad.value.trim(), estado: f.estado.value.trim() },
-        caja: datosCaja()
+        caja: datosCaja(),
+        seguro: datosSeguro()
       })
     })
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (r) {
         if (!r.ok) throw new Error(r.d.error || 'No pudimos cotizar.');
-        cotizacion = { cotizacion_id: r.d.cotizacion_id, opciones: r.d.opciones, cp: f.cp.value.trim() };
+        cotizacion = { cotizacion_id: r.d.cotizacion_id, opciones: r.d.opciones, cp: f.cp.value.trim(), seguro: r.d.seguro };
+        var seg = r.d.seguro;
         lista.innerHTML = r.d.opciones.map(function (o, i) {
           var dias = o.dias ? (o.dias === 1 ? '1 día' : o.dias + ' días') : '';
           return '<label class="opcion"><input type="radio" name="tarifa" value="' + esc(o.id) + '"' + (i === 0 ? ' checked' : '') + '>' +
             '<span class="opcion__txt"><b>' + esc(o.paqueteria) + '</b>' +
-            '<small>' + esc([o.servicio, dias && 'llega en ' + dias].filter(Boolean).join(' · ')) + '</small></span>' +
-            '<b class="precio">' + mxn.format(o.centavos / 100) + '</b></label>';
-        }).join('');
+            '<small>' + esc([o.servicio, dias && 'llega en ' + dias].filter(Boolean).join(' · ')) + '</small>' +
+            (seg ? '<small>Guía ' + mxn.format(o.centavos / 100) + ' + seguro ' + mxn.format(seg.centavos / 100) + '</small>' : '') +
+            '</span><b class="precio">' + mxn.format(o.total_centavos / 100) + '</b></label>';
+        }).join('') +
+          (r.d.sin_estafeta ? '<p class="envio-nota" style="margin-top:10px">Sin Estafeta: no asegura aparatos que no van en su caja original.</p>' : '');
         caja.hidden = false;
         estadoCot.textContent = '';
         btnPagar.disabled = false;
@@ -192,7 +218,9 @@
   }
   function precioBoton() {
     var o = elegida();
-    btnPagar.textContent = o ? 'Pagar guía · ' + mxn.format(o.centavos / 100) : 'Pagar guía';
+    btnPagar.textContent = o
+      ? (cotizacion.seguro ? 'Pagar guía y seguro · ' : 'Pagar guía · ') + mxn.format(o.total_centavos / 100)
+      : 'Pagar guía';
   }
   lista.addEventListener('change', precioBoton);
 

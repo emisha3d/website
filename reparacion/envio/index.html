@@ -159,6 +159,12 @@
 .envio-empaque{margin:0;padding-left:22px;display:grid;gap:14px;font-size:1rem;color:var(--text-2)}
 .envio-empaque b{color:var(--text)}
 #enviar,#empaque{scroll-margin-top:70px}
+.envio-si-no{border:0;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.envio-si-no legend{font-size:.93rem;color:var(--text);padding:0;margin-bottom:6px;width:100%}
+.envio-seguro{margin-top:16px;border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;background:#fafbfc}
+.envio-seguro__campos{display:grid;grid-template-columns:200px 1fr;gap:12px 16px;align-items:start;margin-top:12px}
+.envio-seguro__campos[hidden]{display:none}
+@media (max-width:560px){.envio-seguro__campos{grid-template-columns:1fr}}
 </style>
 <script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
 </head>
@@ -280,6 +286,24 @@
                 <div class="field">
                   <label for="e-alto">Alto (cm)</label>
                   <input id="e-alto" name="alto_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="55">
+                </div>
+              </div>
+              <fieldset class="envio-si-no">
+                <legend>¿Va en su caja original, con sus espumas?</legend>
+                <label class="check"><input type="radio" name="caja_original" value="si" required> Sí</label>
+                <label class="check"><input type="radio" name="caja_original" value="no"> No, en otra caja</label>
+              </fieldset>
+              <div class="envio-seguro">
+                <label class="check"><input type="checkbox" name="asegurar" data-asegurar> <span><b>Asegurar mi impresora</b> contra pérdida o daño en el camino</span></label>
+                <div class="envio-seguro__campos" data-seguro-campos hidden>
+                  <div class="field">
+                    <label for="e-valor">¿Cuánto vale? (MXN)</label>
+                    <input id="e-valor" name="valor_mxn" type="number" inputmode="numeric" min="1000" max="150000" step="1" placeholder="15000">
+                  </div>
+                  <p class="envio-nota" style="margin:0">Cuesta el 1&nbsp;% de lo que declares + $70, más 10&nbsp;%. Si la paquetería la pierde o la daña,
+                    se reclama con la <b>factura o comprobante de compra</b> y las fotos del empaque; te reembolsamos hasta el valor declarado
+                    en cuanto la aseguradora aprueba el reclamo. Asegurada y sin su caja original, no la mandamos por Estafeta
+                    (no cubre aparatos sin su empaque).</p>
                 </div>
               </div>
             </div>
@@ -468,6 +492,6 @@
 </footer>
 
 <script src="../../assets/js/main.js?v=7782446c" defer></script>
-<script src="../../assets/js/reparacion-envio.js?v=1e979759" defer></script>
+<script src="../../assets/js/reparacion-envio.js?v=6081d201" defer></script>
 </body>
 </html>
