@@ -86,8 +86,11 @@
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (r) {
         if (!r.ok) {
+          // No está en SEPOMEX: casi siempre es un dígito equivocado, y las
+          // paqueterías tampoco lo aceptan (Skydropx contesta "no existe").
           mostrarInputColonia();
-          cpEstado.textContent = 'No encontramos ese código postal. Escribe los datos a mano.';
+          f.ciudad.value = f.estado.value = '';
+          cpEstado.textContent = 'Ese código postal no existe en el catálogo de Correos de México. Revísalo: viene en tu recibo de luz o en Google Maps.';
           return;
         }
         f.ciudad.value = r.d.municipio;
