@@ -19,6 +19,64 @@
   var AG_API = 'https://catalogo.emisha.com.mx';
   var WA = 'https://wa.me/525575639255?text=';
 
+  // Tope de espera: si el worker no contesta en este tiempo, se da por caído
+  // y se ofrece WhatsApp. Un «Cargando…» eterno se ve igual que una página
+  // rota. AbortSignal.timeout no existe en navegadores viejos (Safari < 16):
+  // ahí la petición sale sin tope, como antes.
+  var T_LEER = 15000;     // GET de catálogo y JSON
+  var T_ENVIAR = 30000;   // POST (cotizar, crear el pedido)
+  function limite(ms) {
+    return (window.AbortSignal && AbortSignal.timeout) ? AbortSignal.timeout(ms) : undefined;
+  }
+
+  // Para lo que va dentro de innerHTML (también entre comillas de atributo).
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // El botón de pagar solo lleva a Mercado Pago. Si el worker devolviera otra
+  // cosa (configuración rota, respuesta alterada), no se sigue.
+  var URL_MP = /^https:\/\/([a-z0-9-]+\.)*mercadopago\.com(\.mx)?\//;
+
+  // Las fotos de CanalPulse salen de un Directus que redimensiona al vuelo:
+  // la original pesa 15–45 KB en JPEG; a 480 px en WebP, 5–12 KB. La tarjeta
+  // mide ~170–230 px, así que 480 alcanza para pantallas 2x. Si el
+  // redimensionado fallara, la tarjeta vuelve a la original (ver foto()).
+  var CANALPULSE = /^https:\/\/admin\.canalpulse\.com\/assets\/[0-9a-f-]+$/;
+  function fotoChica(url) {
+    return CANALPULSE.test(url || '') ? url + '?width=480&format=webp' : url;
+  }
+
+  // <img> de producto. La caja .prod__media ya tiene aspect-ratio 1:1 y la
+  // foto va en absoluto, así que cargarla no mueve nada; width/height van
+  // igual, por si la foto se usa fuera de esa caja. La primera fila de
+  // tarjetas es lo más grande que se ve al abrir (el LCP): esas no esperan al
+  // lazy-load, y las dos primeras van con prioridad alta.
+  // alFallar: qué hacer si ni la original carga (opcional).
+  function foto(url, alt, orden, alFallar) {
+    var img = document.createElement('img');
+    var chica = fotoChica(url);
+    img.src = chica;
+    img.alt = alt;
+    img.width = 480;
+    img.height = 480;
+    img.decoding = 'async';
+    if (orden != null && orden < 4) {
+      img.loading = 'eager';
+      if (orden < 2) img.setAttribute('fetchpriority', 'high');
+    } else {
+      img.loading = 'lazy';
+    }
+    var reintentada = chica === url;
+    img.addEventListener('error', function () {
+      if (!reintentada) { reintentada = true; img.src = url; return; }
+      if (alFallar) alFallar();
+    });
+    return img;
+  }
+
   // Modo "solo impresión 3D": lo prende la portada con
   // <div data-tienda-grid data-solo="bambu">. Deja fuera las 1,500 piezas
   // impresas del catálogo propio y enseña únicamente lo de impresora:
@@ -87,7 +145,7 @@
   // CanalPulse con stock, el catálogo en vivo las trae solas y este archivo
   // se puede vaciar.
   function catalogoPropio3D() {
-    return fetch('/assets/data/propios-3d.json')
+    return fetch('/assets/data/propios-3d.json', { signal: limite(T_LEER) })
       .then(function (r) { return r.ok ? r.json() : { productos: [] }; })
       .then(function (d) {
         var lista = d.productos || [];
@@ -249,7 +307,10 @@
     }
   }
 
-  function tarjeta(p) {
+  // orden: posición de la tarjeta en lo que se ve primero (0 = la primera).
+  // Solo sirve para decidir qué fotos no esperan al lazy-load; sin orden,
+  // lazy.
+  function tarjeta(p, orden) {
     var el = document.createElement('div');
     el.className = 'prod';
     el.dataset.sku = p.sku;
@@ -258,9 +319,9 @@
     var esPropiaWA = p.origen === 'propio-3d';
     var pocas = esPropiaWA ? '' : esAG
       ? (p.disponible
-          ? (p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + p.stock + '</span>' : '')
+          ? (p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + esc(p.stock) + '</span>' : '')
           : '<span class="prod__pocas" style="color:var(--muted)">Sobre pedido</span>')
-      : (p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + p.stock + '</span>' : '');
+      : (p.stock <= 3 ? '<span class="prod__pocas">Últimas ' + esc(p.stock) + '</span>' : '');
 
     // Las propias curadas y las de AG agotadas llevan enlace de WhatsApp; las
     // de AG con existencia se compran como cualquier otra pieza.
@@ -285,7 +346,7 @@
     el.innerHTML =
       '<' + etqMedia + ' class="prod__media"' +
         (pagina ? ' data-ver tabindex="-1" aria-hidden="true"' : ' aria-hidden="true"') + '>' +
-        '<span>' + inicial(p.nombre) + '</span>' +
+        '<span>' + esc(inicial(p.nombre)) + '</span>' +
       '</' + etqMedia + '>' +
       '<div class="prod__body">' +
         '<' + etqNombre + ' class="prod__nombre"' + (pagina ? ' data-ver' : '') + '></' + etqNombre + '>' +
@@ -315,21 +376,17 @@
       if (p.imagen) {
         var m2 = el.querySelector('.prod__media');
         m2.textContent = '';
-        var i2 = document.createElement('img');
-        i2.src = p.imagen; i2.alt = p.nombre; i2.loading = 'lazy';
-        i2.onerror = function () { m2.textContent = inicial(p.nombre); };
-        m2.appendChild(i2);
+        // Si ni la foto original carga: la inicial, no un ícono roto.
+        m2.appendChild(foto(p.imagen, p.nombre, orden, function () {
+          m2.textContent = inicial(p.nombre);
+        }));
       }
       return el;
     }
     if (p.imagen) {
       var media = el.querySelector('.prod__media');
       media.textContent = '';
-      var img = document.createElement('img');
-      img.src = p.imagen;
-      img.alt = p.nombre;
-      img.loading = 'lazy';
-      media.appendChild(img);
+      media.appendChild(foto(p.imagen, p.nombre, orden));
     }
     el.querySelector('[data-agregar]').addEventListener('click', function () {
       fijarCantidad(p.sku, 1);
@@ -341,6 +398,15 @@
       fijarCantidad(p.sku, (carrito.lineas[p.sku] || 0) + 1);
     });
     return el;
+  }
+
+  // Miniaturas del carrito y del buscador: la misma versión chica que la
+  // tarjeta (ya está en caché), con vuelta a la original si falla.
+  function miniatura(img, url) {
+    var chica = fotoChica(url);
+    img.src = chica;
+    if (chica === url) return;
+    img.onerror = function () { img.onerror = null; img.src = url; };
   }
 
   function inicial(nombre) {
@@ -402,7 +468,7 @@
     var falta = !envioPorFilamento(t.kg) && envioCfg && envioCfg.gratis_desde_centavos - t.centavos;
     cuentaEl.innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      '<div><span>' + etiquetaEnvio(t.kg) + '</span><span>' + (envio === 0 ? 'Gratis' : precio(envio)) + '</span></div>' +
+      '<div><span>' + esc(etiquetaEnvio(t.kg)) + '</span><span>' + (envio === 0 ? 'Gratis' : precio(envio)) + '</span></div>' +
       (envio > 0 && falta > 0
         ? '<div class="drawer__falta"><span>Te faltan ' + precio(falta) + ' para el envío gratis</span></div>' : '') +
       '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio) + '</span></div>';
@@ -415,20 +481,20 @@
     var el = document.createElement('div');
     el.className = 'linea';
     el.innerHTML =
-      (p.imagen ? '<img class="linea__img" alt="" loading="lazy">' : '<div class="linea__img"></div>') +
+      (p.imagen ? '<img class="linea__img" alt="" loading="lazy" decoding="async" width="56" height="56">' : '<div class="linea__img"></div>') +
       '<div class="linea__txt">' +
         '<div class="linea__nombre"></div>' +
         '<div class="linea__fila">' +
           '<div class="prod__stepper">' +
             '<button type="button" aria-label="Quitar una pieza" data-menos>−</button>' +
-            '<span data-cantidad>' + n + '</span>' +
+            '<span data-cantidad>' + esc(n) + '</span>' +
             '<button type="button" aria-label="Agregar una pieza" data-mas>+</button>' +
           '</div>' +
           '<span class="linea__precio">' + precio(p.precio_centavos * n) + '</span>' +
         '</div>' +
       '</div>';
     el.querySelector('.linea__nombre').textContent = p.nombre;
-    if (p.imagen) el.querySelector('.linea__img').src = p.imagen;
+    if (p.imagen) miniatura(el.querySelector('.linea__img'), p.imagen);
     el.querySelector('[data-menos]').addEventListener('click', function () {
       fijarCantidad(p.sku, (carrito.lineas[p.sku] || 0) - 1);
     });
@@ -474,7 +540,7 @@
   // Si AG no contesta, la tienda propia tiene que abrir igual: por eso el
   // catch devuelve una lista vacía en vez de tumbar el Promise.all.
   function catalogoAG() {
-    return fetch(AG_API + '/productos')
+    return fetch(AG_API + '/productos', { signal: limite(T_LEER) })
       .then(function (r) { return r.ok ? r.json() : { productos: [] }; })
       .then(function (d) {
         return (d.productos || []).map(function (p) {
@@ -493,84 +559,129 @@
       .catch(function () { return []; });
   }
 
+  // GET de JSON con tope de espera. Un 5xx cuenta como falla: sin esto, un
+  // error del worker se pintaba como «no hay piezas».
+  function leerJSON(url) {
+    return fetch(url, { signal: limite(T_LEER) }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
+  // Los tres orígenes se piden a la vez, pero no se esperan entre sí: lo
+  // propio (checkout + archivo curado) es lo primero de la rejilla y se pinta
+  // en cuanto llega; AG va al final del catálogo y se suma cuando conteste.
+  // Así la primera fila (lo más grande que se ve al abrir) no espera a un
+  // servidor que ni siquiera sale en ella.
+  var pintado = false;     // ¿la rejilla ya enseña tarjetas de verdad?
+
   function cargarCatalogo() {
     if (!grid) return;
+    var pAG = catalogoAG();             // nunca rechaza: si AG cae, []
     Promise.all([
-      fetch(API + '/productos').then(function (r) { return r.json(); }),
-      catalogoAG(),
+      leerJSON(API + '/productos'),
       catalogoPropio3D()   // siempre: de aquí sale el mapa de fichas
     ])
       .then(function (par) {
-        var datos = par[0];
-        var ag = par[1];
-        // Las tarjetas curadas solo se pintan en la portada; en /tienda/ el
-        // archivo se leyó nada más por el mapa de fichas.
-        var propias = soloBambu ? par[2] : [];
-        envioCfg = datos.envio || null;
-        catalogo = (datos.productos || []).filter(function (p) {
-          if (p.stock <= 0 || fueraDelSitio(p)) return false;
-          return soloBambu ? esPropia3D(p) : true;
-        });
-        // Una pieza que el inventario ya publica NO se vuelve a pintar desde el
-        // archivo curado: se enseñaba dos veces, una comprable y otra con botón
-        // de WhatsApp. Se compara contra el catálogo vivo en vez de contra una
-        // lista escrita a mano porque el SKU de inventario puede ser otro
-        // (las camas llegan como EMI-CP-*, las boquillas A1 como EMI-HE-HS-*):
-        // 'en_inventario' dice con cuál sale publicada.
-        // Cuenta TODO el inventario, agotados incluidos: si solo contaran los
-        // que tienen stock, un color agotado salía del catálogo vivo y volvía
-        // a entrar por aquí como tarjeta de WhatsApp.
-        var yaVivas = {};
-        (datos.productos || []).forEach(function (p) { yaVivas[p.sku] = true; });
-        propias = propias.filter(function (p) {
-          return !yaVivas[p.sku] && !(p.en_inventario && yaVivas[p.en_inventario]);
-        });
-
-        // Lo propio primero: es lo de Emisha, y es donde está el margen.
-        // Después las piezas curadas a mano, y hasta el final las de AG.
-        catalogo = catalogo.concat(propias).concat(ag);
-        porSku = {};
-        catalogo.forEach(function (p) { porSku[p.sku] = p; });
-
-        // Piezas del carrito que ya no existen, se quedaron sin stock, o son
-        // propias curadas (que nunca debieron entrar): fuera.
-        var huboCambio = false;
-        Object.keys(carrito.lineas).forEach(function (sku) {
-          var p = porSku[sku];
-          if (!p || p.origen === 'propio-3d' || (p.origen === 'ag' && !(p.disponible && p.stock > 0))) {
-            delete carrito.lineas[sku]; huboCambio = true;
-          }
-        });
-        if (huboCambio) { carrito.carrito_id = nuevoId(); guardar(); }
-
+        armarPropio(par[0], par[1]);
+        if (catalogo.length) {
+          pintado = true;
+          pintarGrid();
+          pintarCarrito();   // sin las piezas de AG todavía; se repinta abajo
+          cargarDestacados();
+        }
+        return pAG;
+      })
+      .then(function (ag) {
+        sumarAG(ag);
+        limpiarCarrito();
         if (!catalogo.length) {
           grid.innerHTML = '<p class="muted">Por ahora no hay piezas disponibles en línea. ' +
             'Encuéntranos en la <a href="https://www.mercadolibre.com.mx/tienda/emisha" ' +
             'target="_blank" rel="noopener">tienda oficial de MercadoLibre</a>.</p>';
+          ocultarDestacados();
           return;
         }
-        // El nombre normalizado se calcula UNA vez: el buscador corre en cada
-        // tecla sobre 1500 productos y no puede estar quitando acentos ahí.
-        catalogo.forEach(function (p) { p._busca = normaliza(p.nombre); });
-        pintarGrid();
+        if (pintado) {
+          extenderGrid();
+        } else {
+          pintado = true;
+          pintarGrid();
+          cargarDestacados();
+        }
         pintarCarrito();
-        // Ambas necesitan porSku ya armado para contar solo lo que hay.
+        // Necesita porSku completo (AG incluido) para contar solo lo que hay.
         cargarCategorias();
-        cargarDestacados();
       })
       .catch(function (e) {
         if (window.console) console.error('[tienda] no se pudo armar el catálogo:', e);
         grid.textContent = '';
         var msg = document.createElement('p');
         msg.className = 'muted';
-        msg.textContent = 'No pudimos cargar el catálogo. Recarga la página o inténtalo más tarde.';
+        var lento = e && e.name === 'TimeoutError';
+        msg.innerHTML = (lento
+          ? 'El catálogo está tardando más de lo normal. '
+          : 'No pudimos cargar el catálogo. ') +
+          'Recarga la página en un momento o pídenos lo que buscas por ' +
+          '<a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp</a>.';
         grid.appendChild(msg);
-        var det = document.createElement('p');
-        det.className = 'muted';
-        det.style.fontSize = '.8rem';
-        det.textContent = 'Detalle: ' + ((e && e.message) || e);
-        grid.appendChild(det);
+        ocultarDestacados();
       });
+  }
+
+  // Lo que manda el worker de checkout + las piezas curadas, sin AG.
+  function armarPropio(datos, curadas) {
+    // Las tarjetas curadas solo se pintan en la portada; en /tienda/ el
+    // archivo se leyó nada más por el mapa de fichas.
+    var propias = soloBambu ? curadas : [];
+    envioCfg = datos.envio || null;
+    catalogo = (datos.productos || []).filter(function (p) {
+      if (p.stock <= 0 || fueraDelSitio(p)) return false;
+      return soloBambu ? esPropia3D(p) : true;
+    });
+    // Una pieza que el inventario ya publica NO se vuelve a pintar desde el
+    // archivo curado: se enseñaba dos veces, una comprable y otra con botón
+    // de WhatsApp. Se compara contra el catálogo vivo en vez de contra una
+    // lista escrita a mano porque el SKU de inventario puede ser otro
+    // (las camas llegan como EMI-CP-*, las boquillas A1 como EMI-HE-HS-*):
+    // 'en_inventario' dice con cuál sale publicada.
+    // Cuenta TODO el inventario, agotados incluidos: si solo contaran los
+    // que tienen stock, un color agotado salía del catálogo vivo y volvía
+    // a entrar por aquí como tarjeta de WhatsApp.
+    var yaVivas = {};
+    (datos.productos || []).forEach(function (p) { yaVivas[p.sku] = true; });
+    propias = propias.filter(function (p) {
+      return !yaVivas[p.sku] && !(p.en_inventario && yaVivas[p.en_inventario]);
+    });
+
+    // Lo propio primero: es lo de Emisha, y es donde está el margen.
+    // Después las piezas curadas a mano, y hasta el final las de AG.
+    catalogo = catalogo.concat(propias);
+    porSku = {};
+    // El nombre normalizado se calcula UNA vez: el buscador corre en cada
+    // tecla sobre 1500 productos y no puede estar quitando acentos ahí.
+    catalogo.forEach(function (p) { porSku[p.sku] = p; p._busca = normaliza(p.nombre); });
+  }
+
+  // AG va al final: lo que ya está pintado sigue siendo el principio de la
+  // lista, así que no hace falta repintar (ver extenderGrid).
+  function sumarAG(ag) {
+    ag.forEach(function (p) { porSku[p.sku] = p; p._busca = normaliza(p.nombre); });
+    catalogo = catalogo.concat(ag);
+  }
+
+  // Piezas del carrito que ya no existen, se quedaron sin stock, o son
+  // propias curadas (que nunca debieron entrar): fuera. Solo con el catálogo
+  // completo: antes de que llegue AG, sus piezas parecerían inexistentes.
+  function limpiarCarrito() {
+    var huboCambio = false;
+    Object.keys(carrito.lineas).forEach(function (sku) {
+      var p = porSku[sku];
+      if (!p || p.origen === 'propio-3d' || (p.origen === 'ag' && !(p.disponible && p.stock > 0))) {
+        delete carrito.lineas[sku]; huboCambio = true;
+      }
+    });
+    if (huboCambio) { carrito.carrito_id = nuevoId(); guardar(); }
   }
 
   /* --- Categorías -------------------------------------------------------- */
@@ -597,7 +708,7 @@
 
   function cargarCategorias() {
     if (!catsLista) return Promise.resolve();
-    return fetch('/assets/data/categorias.json')
+    return fetch('/assets/data/categorias.json', { signal: limite(T_LEER) })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         arbol = soloBambu ? [] : (d.categorias || []);
@@ -788,35 +899,55 @@
 
   /* --- Selección de portada ---------------------------------------------- */
 
+  // El archivo se pide desde el arranque, junto con el catálogo: en /tienda/
+  // el panel es lo primero que se ve, y antes esperaba a que terminara todo.
+  // El panel ya viene pintado en el HTML con tarjetas vacías del mismo
+  // tamaño, para que al llenarse no empuje la rejilla.
+  var panelDestacados = soloBambu ? null : document.querySelector('[data-destacados]');
+  var destacadosJSON = panelDestacados
+    ? fetch('/assets/data/destacados.json', { signal: limite(T_LEER) })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .catch(function () { return null; })
+    : null;
+  // Con ?cat= la tienda abre filtrada y el panel no se enseña: mejor que no
+  // aparezca para luego irse.
+  try {
+    if (panelDestacados && new URLSearchParams(window.location.search).get('cat')) {
+      panelDestacados.hidden = true;
+    }
+  } catch (e) { /* sin URLSearchParams: el panel se queda */ }
+
+  function ocultarDestacados() {
+    if (panelDestacados) panelDestacados.hidden = true;
+  }
+
   function cargarDestacados() {
-    if (soloBambu) return Promise.resolve();
-    var panel = document.querySelector('[data-destacados]');
-    if (!panel) return Promise.resolve();
-    return fetch('/assets/data/destacados.json')
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        // Precio, stock e imagen SIEMPRE del catálogo vivo: el archivo solo
-        // dice qué SKUs enseñar, nunca cuánto cuestan.
-        var piezas = (d.skus || []).map(function (s) { return porSku[s]; })
-          .filter(function (p) { return p && p.stock > 0; });
-        if (!piezas.length) return;
-        panel.querySelector('[data-destacados-titulo]').textContent = d.titulo || 'Selección Emisha';
-        panel.querySelector('[data-destacados-sub]').textContent = d.subtitulo || '';
-        var fila = panel.querySelector('[data-destacados-fila]');
-        fila.textContent = '';
-        piezas.forEach(function (p) { fila.appendChild(tarjeta(p)); });
-        piezas.forEach(function (p) { pintarCantidad(p.sku); });
-        panel.dataset.listo = '1';
-        actualizarPortada();
-      })
-      .catch(function () { /* sin destacados: no se pinta el panel */ });
+    if (!panelDestacados) return Promise.resolve();
+    var panel = panelDestacados;
+    return destacadosJSON.then(function (d) {
+      // Precio, stock e imagen SIEMPRE del catálogo vivo: el archivo solo
+      // dice qué SKUs enseñar, nunca cuánto cuestan.
+      var piezas = ((d && d.skus) || []).map(function (s) { return porSku[s]; })
+        .filter(function (p) { return p && p.stock > 0; });
+      if (!piezas.length) { ocultarDestacados(); return; }   // sin destacados: sin panel
+      panel.querySelector('[data-destacados-titulo]').textContent = d.titulo || 'Selección Emisha';
+      panel.querySelector('[data-destacados-sub]').textContent = d.subtitulo || '';
+      var fila = panel.querySelector('[data-destacados-fila]');
+      fila.textContent = '';
+      piezas.forEach(function (p, i) { fila.appendChild(tarjeta(p, i)); });
+      piezas.forEach(function (p) { pintarCantidad(p.sku); });
+      panel.dataset.listo = '1';
+      actualizarPortada();
+    });
   }
 
   // La portada solo tiene sentido sin filtro: si el cliente ya buscó o eligió
   // categoría, estorba.
   function actualizarPortada() {
-    var panel = document.querySelector('[data-destacados]');
-    if (!panel || !panel.dataset.listo) return;
+    var panel = panelDestacados;
+    if (!panel) return;
+    // Aún con las tarjetas vacías: si el cliente ya buscó, se va igual.
+    if (!panel.dataset.listo) { if (catActiva || filtro) panel.hidden = true; return; }
     panel.hidden = !!(catActiva || filtro);
   }
 
@@ -870,6 +1001,18 @@
     pintarTanda();
   }
 
+  // AG llegó después de pintar lo propio. Como va al final del catálogo, lo
+  // ya pintado sigue siendo el principio del resultado: solo se completa la
+  // primera tanda y se corrige el «Ver más». Repintar todo recargaría las
+  // fotos y movería la página bajo el dedo del cliente.
+  function extenderGrid() {
+    if (!grid) return;
+    resultado = filtrar();
+    actualizarCuenta();
+    if (!mostrados) { pintarGrid(); return; }   // decía «ninguna coincide»
+    pintarTanda(Math.max(mostrados, TANDA));
+  }
+
   function actualizarCuenta() {
     if (!cuentaEl2) return;
     var hay = !!(catActiva || filtro);
@@ -882,10 +1025,15 @@
     cuentaEl2.querySelector('[data-cuenta-limpiar]').hidden = false;
   }
 
-  function pintarTanda() {
-    var hasta = Math.min(mostrados + TANDA, resultado.length);
+  // tope: hasta qué posición pintar; sin él, una tanda más.
+  function pintarTanda(tope) {
+    var hasta = Math.min(typeof tope === 'number' ? tope : mostrados + TANDA, resultado.length);
+    if (hasta < mostrados) hasta = mostrados;
+    // En /tienda/ las fotos con prioridad alta son las del panel de arriba;
+    // la rejilla, debajo, solo se salta el lazy-load en su primera fila.
+    var corrimiento = (panelDestacados && !panelDestacados.hidden) ? 2 : 0;
     var trozo = document.createDocumentFragment();
-    for (var i = mostrados; i < hasta; i++) trozo.appendChild(tarjeta(resultado[i]));
+    for (var i = mostrados; i < hasta; i++) trozo.appendChild(tarjeta(resultado[i], i + corrimiento));
     var boton = grid.querySelector('[data-ver-mas]');
     if (boton) boton.remove();
     grid.appendChild(trozo);
@@ -904,7 +1052,7 @@
     b.type = 'button';
     b.className = 'btn btn--ghost';
     b.textContent = 'Ver más (' + (resultado.length - mostrados) + ' piezas)';
-    b.addEventListener('click', pintarTanda);
+    b.addEventListener('click', function () { pintarTanda(); });
     envoltura.appendChild(b);
     return envoltura;
   }
@@ -931,10 +1079,10 @@
         b.type = 'button';
         b.className = 'buscador__op';
         b.setAttribute('role', 'option');
-        b.innerHTML = (p.imagen ? '<img alt="" loading="lazy">' : '') +
+        b.innerHTML = (p.imagen ? '<img alt="" loading="lazy" decoding="async" width="38" height="38">' : '') +
           '<span></span><b>' + precio(p.precio_centavos) + '</b>';
         b.querySelector('span').textContent = p.nombre;
-        if (p.imagen) b.querySelector('img').src = p.imagen;
+        if (p.imagen) miniatura(b.querySelector('img'), p.imagen);
         b.addEventListener('click', function () {
           buscarEl.value = p.nombre;
           aplicarFiltro(p.nombre);
@@ -1055,7 +1203,7 @@
     });
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      '<div><span>' + etiqueta + '</span><span>' + (e === 0 ? 'Gratis' : precio(e)) +
+      '<div><span>' + esc(etiqueta) + '</span><span>' + (e === 0 ? 'Gratis' : precio(e)) +
         (cotizando ? ' <span style="color:var(--muted)">·  calculando…</span>' : '') + '</span></div>' +
       '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>' +
       (hayAG
@@ -1092,6 +1240,7 @@
     pintarResumen();
     fetch(API + '/cotizar-envio', {
       method: 'POST',
+      signal: limite(T_ENVIAR),
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ lineas: lineas, envio: d })
     })
@@ -1169,6 +1318,7 @@
 
     fetch(API + '/pedido', {
       method: 'POST',
+      signal: limite(T_ENVIAR),
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         carrito_id: carrito.carrito_id,
@@ -1185,6 +1335,14 @@
       .then(function (r) { return r.json().then(function (d) { return { status: r.status, datos: d }; }); })
       .then(function (r) {
         if ((r.status === 201 || r.status === 200) && r.datos.url_pago) {
+          if (!URL_MP.test(String(r.datos.url_pago))) {
+            // Solo se sale hacia Mercado Pago. Otra URL no se sigue.
+            restaurarBoton();
+            cerrarCheckout();
+            avisar('No se pudo abrir Mercado Pago. Inténtalo de nuevo en un momento o ' +
+              'escríbenos por WhatsApp al +52 55 7563 9255 y te mandamos el link de pago.', true);
+            return;
+          }
           // Recordar el folio para la página de gracias (MP a veces regresa
           // sin query params si el cliente cierra a medias).
           try { localStorage.setItem('emisha-ultimo-pedido', r.datos.pedido_id); } catch (e) {}
@@ -1213,10 +1371,13 @@
           avisar((r.datos && r.datos.error) || 'No se pudo iniciar el pago. Inténtalo de nuevo.', true);
         }
       })
-      .catch(function () {
+      .catch(function (e) {
         restaurarBoton();
         cerrarCheckout();
-        avisar('No se pudo iniciar el pago. Revisa tu conexión e inténtalo de nuevo.', true);
+        avisar(e && e.name === 'TimeoutError'
+          ? 'Mercado Pago está tardando en responder. Inténtalo de nuevo en un momento o ' +
+            'escríbenos por WhatsApp al +52 55 7563 9255.'
+          : 'No se pudo iniciar el pago. Revisa tu conexión e inténtalo de nuevo.', true);
       });
   }
 
@@ -1299,7 +1460,7 @@
     cpUltimo = codigo;
     decirCp('Buscando…');
 
-    fetch(API + '/cp?codigo=' + codigo)
+    fetch(API + '/cp?codigo=' + codigo, { signal: limite(T_LEER) })
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, datos: d }; }); })
       .then(function (r) {
         if (!r.ok) {

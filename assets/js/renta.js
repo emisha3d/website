@@ -1,21 +1,19 @@
 /* Emisha — renta de impresoras: escoger equipo y tarifa, ver lo que se paga y
-   apartar el turno. Los precios viven aquí Y en las tarjetas de la página; el
-   worker los vuelve a calcular al recibir el apartado, así que nadie puede
-   rentar más barato tocando el navegador.
+   pedir el turno. Los precios viven aquí Y en las tarjetas de la página.
 
-   Si el worker no responde, la página no se rompe: ofrece WhatsApp. */
+   No hay worker de renta: la solicitud sale por WhatsApp con todo ya escrito
+   (equipo, tiempo, fecha y estimado), y el taller confirma y cobra el anticipo
+   por ahí. El precio que se ve aquí es un estimado; el que vale es el que se
+   confirma por WhatsApp, así que tocar el navegador no abarata nada. */
 (function () {
   'use strict';
 
-  var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
-    ? 'http://localhost:8788'
-    : 'https://emisha-renta.matosic-hrvoje.workers.dev';
   var WA_NUM = '525575639255';
 
   /* Precios SIN IVA, en pesos. Salen de aplicar el 40% del valor del equipo al
      mes; la semana es el 40% del mes y el día el 11% del mes. El depósito en
      garantía es el 30% del valor. Cambiar algo aquí obliga a cambiarlo también
-     en las tarjetas de /renta/ y en el worker. */
+     en las tarjetas de /renta/. */
   var MAQUINAS = {
     'A1 mini':   { dia: 220,  semana: 800,  mes: 2000,  valor: 5000,  deposito: 1500 },
     'A1':        { dia: 350,  semana: 1300, mes: 3200,  valor: 8000,  deposito: 2400 },
@@ -48,7 +46,6 @@
   var campoInicio = form.querySelector('#inicio');
   var etiquetaUnidad = form.querySelector('[data-unidad]');
   var hintCantidad = form.querySelector('[data-hint-cantidad]');
-  var botonEnviar = resumen.querySelector('[data-enviar]');
 
   /* --- Utilidades ------------------------------------------------------- */
 
@@ -71,13 +68,10 @@
     return n + ' ' + (n === 1 ? unidad.replace(/es$|s$/, '') : unidad);
   }
 
-  /* El apartado en línea todavía no existe: el worker de renta está pendiente,
-     así que este formulario SIEMPRE termina aquí. Si el mensaje llega vacío, el
-     cliente tiene que volver a escribir las seis cosas que acaba de llenar, y
-     ahí es donde se cae el trato. Este lo arma con lo que ya puso, para que la
-     conversación empiece con todo sobre la mesa.
-     Cuando el worker exista, esto se queda igual: sigue siendo la salida
-     cuando la red falla. */
+  /* El apartado en línea no existe: este formulario SIEMPRE termina aquí. Si el
+     mensaje llega vacío, el cliente tiene que volver a escribir las seis cosas
+     que acaba de llenar, y ahí es donde se cae el trato. Este lo arma con lo que
+     ya puso, para que la conversación empiece con todo sobre la mesa. */
   function waRenta(c) {
     var l = ['Hola, quiero rentar una impresora 3D.'];
     if (c) {
@@ -89,7 +83,7 @@
       l.push('Total estimado: ' + mxn(c.total) + ' con IVA');
       var para = form.para.value.trim();
       if (para) l.push('Para: ' + para);
-      var quien = [form.nombre.value.trim(), form.correo.value.trim()]
+      var quien = [form.nombre.value.trim(), form.telefono.value.trim(), form.correo.value.trim()]
         .filter(Boolean).join(' · ');
       if (quien) l.push('Soy: ' + quien);
       l.push('');
@@ -141,10 +135,21 @@
       .forEach(function (c) { mostrarError(c, ''); });
   }
 
-  function decir(texto, tipo) {
+  /* Todo con textContent: lo que escribió el cliente nunca entra como HTML.
+     `enlace` es opcional: { href, texto } se pinta como un <a> al final. */
+  function decir(texto, tipo, enlace) {
     if (!aviso) return;
     aviso.className = 'renta-aviso renta-aviso--' + (tipo || 'error');
-    aviso.innerHTML = texto;
+    aviso.textContent = texto;
+    if (enlace) {
+      var a = document.createElement('a');
+      a.href = enlace.href;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = enlace.texto;
+      aviso.appendChild(document.createTextNode(' '));
+      aviso.appendChild(a);
+    }
     aviso.hidden = false;
     aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
@@ -320,46 +325,20 @@
       return;
     }
 
+    // Directo a WhatsApp con la solicitud ya escrita. Se abre en otra pestaña
+    // (el submit cuenta como clic, así que el navegador no lo bloquea); si aun
+    // así no abre, se va en esta misma.
     var c = calcular();
-    botonEnviar.disabled = true;
-    botonEnviar.textContent = 'Apartando…';
-
-    fetch(API + '/api/renta', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        maquina: c.maquina,
-        tarifa: c.tarifa,
-        cantidad: c.cantidad,
-        inicio: campoInicio.value,
-        para: form.para.value.trim(),
-        nombre: form.nombre.value.trim(),
-        telefono: form.telefono.value.trim(),
-        correo: form.correo.value.trim()
-      })
-    }).then(function (r) {
-      return r.json().then(function (j) { return { ok: r.ok, cuerpo: j }; });
-    }).then(function (r) {
-      if (!r.ok) throw new Error(r.cuerpo && r.cuerpo.error || 'No se pudo apartar');
-      // El worker regresa a dónde ir a pagar el anticipo. Las máquinas que no salen
-      // del taller no llevan anticipo, así que ahí no debe mandar enlace de pago.
-      if (r.cuerpo.pago) { location.href = r.cuerpo.pago; return; }
-      decir('Listo, tu equipo quedó apartado. Te mandamos la confirmación a <b>' +
-            form.correo.value.trim() + '</b>.', 'ok');
-      form.reset();
-      ajustarTarifa();
-      marcarPicker();
-      pintarResumen();
-    }).catch(function () {
-      // c ya viene calculado arriba: el mensaje sale con el equipo, el tiempo
-      // y el estimado que el cliente acaba de ver, no en blanco.
-      decir('No se pudo apartar en línea ahora mismo. Escríbenos por ' +
-            '<a href="' + waRenta(c) + '" target="_blank" rel="noopener">WhatsApp</a>' +
-            ' —tu solicitud ya va escrita— y lo apartamos nosotros.');
-    }).then(function () {
-      botonEnviar.disabled = false;
-      botonEnviar.textContent = 'Apartar mi equipo';
-    });
+    var url = waRenta(c);
+    decir('Tu solicitud ya va escrita en WhatsApp: solo dale enviar. Te confirmamos ' +
+          'por ahí si la máquina está libre y cómo apartarla. ¿No se abrió?', 'ok',
+          { href: url, texto: 'Abrir WhatsApp' });
+    // Sin 'noopener' en el tercer argumento: con él window.open siempre regresa
+    // null y no habría forma de saber si se bloqueó. Se corta el opener a mano.
+    var ventana = null;
+    try { ventana = window.open(url, '_blank'); } catch (err) { ventana = null; }
+    if (ventana) { try { ventana.opener = null; } catch (err) {} }
+    else location.href = url;
   });
 
 })();

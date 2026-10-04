@@ -46,7 +46,14 @@
     if (texto && !sinMover && aviso.scrollIntoView) aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
+  // Tope de espera (15 s leer, 30 s agendar): si el worker no contesta, el
+  // .catch ofrece WhatsApp en vez de un «Reservando…» eterno. Sin
+  // AbortSignal.timeout (Safari < 16) la petición va sin tope, como antes.
   function pedir(ruta, opciones) {
+    opciones = opciones || {};
+    if (window.AbortSignal && AbortSignal.timeout) {
+      opciones.signal = AbortSignal.timeout(opciones.method && opciones.method !== 'GET' ? 30000 : 15000);
+    }
     return fetch(API + ruta, opciones).then(function (r) {
       return r.json().then(function (d) { return { status: r.status, datos: d }; });
     });
@@ -78,10 +85,17 @@
       // Al cargar no movemos la página: el aviso ya está arriba del formulario.
       avisar('Ahorita no podemos cargar los turnos en línea. Escríbenos por WhatsApp al ' +
         '+52 55 7563 9255 con el modelo de tu impresora y el día que te acomoda, y te apartamos el lugar.', 'error', true);
-      botonEnviar.disabled = true;
+      // Habilitado: antes quedaba disabled y su clic nunca llegaba. Un solo
+      // listener aunque esto corra otra vez (cargarDisponibilidad(true)).
+      botonEnviar.disabled = false;
       botonEnviar.textContent = 'Agendar por WhatsApp';
       botonEnviar.type = 'button';
-      botonEnviar.addEventListener('click', function () { window.open(WA, '_blank', 'noopener'); });
+      if (!botonEnviar.dataset.wa) {
+        botonEnviar.dataset.wa = '1';
+        botonEnviar.addEventListener('click', function () {
+          if (botonEnviar.dataset.wa === '1') window.open(WA, '_blank', 'noopener');
+        });
+      }
     });
   }
 
@@ -423,7 +437,11 @@
 
     // Fotos y video que el taller marcó como visibles.
     var gal = conf.querySelector('[data-conf-galeria]'), galT = conf.querySelector('[data-conf-galeria-t]');
-    var archivos = cita.archivos || [];
+    // Solo rutas del propio worker ("/cita/…"): API + "@otro.com/…" o
+    // "//otro.com" apuntarían a otro sitio.
+    var archivos = (cita.archivos || []).filter(function (a) {
+      return typeof a.url === 'string' && /^\/[^\/\\]/.test(a.url);
+    });
     gal.hidden = galT.hidden = !archivos.length;
     gal.innerHTML = archivos.map(function (a) {
       var url = API + a.url;

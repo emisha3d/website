@@ -20,7 +20,7 @@
 
 <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../../assets/css/styles.css?v=368d7314">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=e3d742c2">
 
 <script type="application/ld+json">
 {
@@ -195,20 +195,20 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" data-existencia-sku="AG-FAC123" data-existencia-fuente="ag">
 
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow"><a href="../../refacciones/">Refacciones Bambu Lab</a> · Mantenimiento</p>
       <h1>Conducto de purga para H2D</h1>
-      <p class="lede">Compatible con la H2D · <strong>$589 MXN</strong> · Últimas 1 piezas</p>
+      <p class="lede">Compatible con la H2D · <strong data-precio-vivo>$589 MXN</strong> · <span data-existencia-cantidad data-agotado-texto="Agotada por ahora">Últimas 1 piezas</span></p>
       <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:18px">
         <span class="pill pill--brand">SKU AG-FAC123</span>
-        <span class="pill pill--accent">Últimas 1 piezas</span>
+        <span class="pill pill--accent" data-existencia-cantidad data-agotado-texto="Agotado">Últimas 1 piezas</span>
         <span class="pill">Envío inmediato. Se envía hoy</span>
       </div>
       <div class="hero__cta">
-        <a class="btn btn--accent btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20me%20interesa%3A%20Conducto%20de%20purga%20para%20H2D%20(AG-FAC123)" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <a class="btn btn--accent btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20me%20interesa%3A%20Conducto%20de%20purga%20para%20H2D%20(AG-FAC123)" target="_blank" rel="noopener" data-agotado-texto="Preguntar cuándo llega">Pedir por WhatsApp</a>
         <a class="btn btn--ghost btn--lg" href="../../reparacion/">¿Prefieres que la instalemos?</a>
       </div>
     </div>
@@ -245,8 +245,8 @@
                 <tr><th scope="row">SKU</th><td>AG-FAC123</td></tr>
                 <tr><th scope="row">Marca</th><td>Bambu Lab</td></tr>
                 <tr><th scope="row">Tipo de pieza</th><td>Mantenimiento</td></tr>
-                <tr><th scope="row">Precio</th><td><strong>$589 MXN</strong></td></tr>
-                <tr><th scope="row">Existencia</th><td>Últimas 1 piezas</td></tr>
+                <tr><th scope="row">Precio</th><td><strong data-precio-vivo>$589 MXN</strong></td></tr>
+                <tr><th scope="row">Existencia</th><td data-existencia-cantidad data-agotado-texto="Agotada por ahora">Últimas 1 piezas</td></tr>
                 <tr><th scope="row">Entrega</th><td>Envío inmediato. Se envía hoy</td></tr>
                 <tr><th scope="row">Compra mínima</th><td>1 pieza</td></tr>
                 <tr><th scope="row">Inventario</th><td>Ciudad de México</td></tr>
@@ -256,6 +256,10 @@
           <p class="muted" style="font-size:.86rem;margin-top:14px">
             Precio en pesos mexicanos con IVA incluido. La existencia se confirma al tomar el
             pedido; el catálogo se revisa cada seis horas.
+          </p>
+          <p class="note" style="margin-top:14px" data-agotado-mostrar hidden>
+            Esta pieza se nos acaba de agotar. Escríbenos por WhatsApp y te decimos cuándo
+            vuelve a llegar, o te la conseguimos sobre pedido.
           </p>
       <div class="note note--warn" style="margin-top:26px">
         <svg class="note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -282,60 +286,68 @@
         <p>Piezas del mismo tipo o compatibles con la misma impresora.</p>
       </div>
       <div class="swatches">
-        <a class="swatch" href="../../refacciones/canal-de-purga-para-serie-h2-fac123-v1/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/canal-de-purga-para-serie-h2-fac123-v1/" style="color:inherit;display:block" data-existencia-sku="AG-FAC123-V1" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/F/FAC123-V1.jpg" alt="Canal de purga para serie H2" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Canal de purga para serie H2</p>
             <p class="swatch__line">$719 · AG-FAC123-V1</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
-        <a class="swatch" href="../../refacciones/herramienta-de-desbaste-compatible-con-h2d-sca001/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/herramienta-de-desbaste-compatible-con-h2d-sca001/" style="color:inherit;display:block" data-existencia-sku="AG-SCA001" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/S/SCA001.jpg" alt="Herramienta de desbaste compatible con H2D" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Herramienta de desbaste compatible con H2D</p>
             <p class="swatch__line">$269 · AG-SCA001</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
-        <a class="swatch" href="../../refacciones/conducto-de-purga-compatible-con-serie-x1-y-p1-fac023/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/conducto-de-purga-compatible-con-serie-x1-y-p1-fac023/" style="color:inherit;display:block" data-existencia-sku="AG-FAC023" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/F/FAC023.jpg" alt="Conducto de purga compatible con serie X1 y P1" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Conducto de purga compatible con serie X1 y P1</p>
             <p class="swatch__line">$1,079 · AG-FAC023</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
-        <a class="swatch" href="../../refacciones/filtro-de-aire-compatible-con-serie-h2-fac116/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/filtro-de-aire-compatible-con-serie-h2-fac116/" style="color:inherit;display:block" data-existencia-sku="AG-FAC116" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/F/FAC116.jpg" alt="Filtro de aire compatible con serie H2" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Filtro de aire compatible con serie H2</p>
             <p class="swatch__line">$1,289 · AG-FAC116</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
-        <a class="swatch" href="../../refacciones/filtro-de-bomba-de-aire-compatible-con-serie-h2-fac131/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/filtro-de-bomba-de-aire-compatible-con-serie-h2-fac131/" style="color:inherit;display:block" data-existencia-sku="AG-FAC131" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/F/FAC131.jpg" alt="Filtro de bomba de aire compatible con serie H2" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Filtro de bomba de aire compatible con serie H2</p>
             <p class="swatch__line">$149 · AG-FAC131</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
-        <a class="swatch" href="../../refacciones/limpiador-de-boquillas-compatible-con-p1p-p1s-x1c-faw001/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/limpiador-de-boquillas-compatible-con-p1p-p1s-x1c-faw001/" style="color:inherit;display:block" data-existencia-sku="AG-FAW001" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/F/FAW001.jpg" alt="Limpiador de boquillas compatible con P1P, P1S, X1C y X1E" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Limpiador de boquillas compatible con P1P, P1S, X1C y X1E</p>
             <p class="swatch__line">$219 · AG-FAW001</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
-        <a class="swatch" href="../../refacciones/limpiador-de-boquilla-para-a1-mini-faw002/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/limpiador-de-boquilla-para-a1-mini-faw002/" style="color:inherit;display:block" data-existencia-sku="AG-FAW002" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/F/FAW002.jpg" alt="Limpiador de boquilla para A1 mini" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Limpiador de boquilla para A1 mini</p>
             <p class="swatch__line">$309 · AG-FAW002</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
-        <a class="swatch" href="../../refacciones/limpiador-de-boquilla-para-a1-faw003/" style="color:inherit;display:block">
+        <a class="swatch" href="../../refacciones/limpiador-de-boquilla-para-a1-faw003/" style="color:inherit;display:block" data-existencia-sku="AG-FAW003" data-existencia-fuente="ag">
           <div class="swatch__media"><img src="https://agelectronica.com/vistas/images/F/FAW003.jpg" alt="Limpiador de boquilla para A1" width="400" height="400" loading="lazy" decoding="async"></div>
           <div class="swatch__body">
             <p class="swatch__name">Limpiador de boquilla para A1</p>
             <p class="swatch__line">$179 · AG-FAW003</p>
+            <span class="pill agotado-pill" data-agotado-mostrar hidden>Agotado</span>
           </div>
         </a>
       </div>
@@ -347,13 +359,13 @@
     <div class="wrap">
       <div class="cta-band">
         <div>
-          <p class="eyebrow">En existencia en CDMX</p>
+          <p class="eyebrow" data-agotado-texto="Agotada por ahora">En existencia en CDMX</p>
           <h2>¿La pides o te la instalamos?</h2>
           <p>Si tienes claro el diagnóstico, pídela por WhatsApp y sale hoy. Si la impresora
             está fallando y no sabes qué pieza es, agenda una revisión y la vemos en el taller.</p>
         </div>
         <div class="hero__cta">
-          <a class="btn btn--accent" href="https://wa.me/525575639255?text=Hola%2C%20me%20interesa%3A%20Conducto%20de%20purga%20para%20H2D%20(AG-FAC123)" target="_blank" rel="noopener">Pedir esta pieza</a>
+          <a class="btn btn--accent" href="https://wa.me/525575639255?text=Hola%2C%20me%20interesa%3A%20Conducto%20de%20purga%20para%20H2D%20(AG-FAC123)" target="_blank" rel="noopener" data-agotado-texto="Preguntar cuándo llega">Pedir esta pieza</a>
           <a class="btn btn--ghost" href="../../reparacion/">Agendar reparación</a>
         </div>
       </div>
@@ -361,6 +373,7 @@
   </section>
 
 </main>
+<script src="../../assets/js/existencia.js?v=a5ca988f" defer></script>
 
 <footer class="site-footer">
   <div class="wrap">

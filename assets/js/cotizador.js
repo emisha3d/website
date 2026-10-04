@@ -52,6 +52,20 @@
     ? 'http://localhost:8787'
     : 'https://emisha-checkout.matosic-hrvoje.workers.dev';
 
+  /* Tope de espera para hablar con el worker: sin él, una red que se cuelga
+     deja el botón en «Subiendo…» para siempre. Navegadores sin
+     AbortSignal.timeout (Safari < 16) siguen como antes, sin tope. */
+  var ESPERA_JSON_MS = 30000, ESPERA_SUBIDA_MS = 180000;
+  function conTope(ms) {
+    return (typeof AbortSignal !== 'undefined' && AbortSignal.timeout)
+      ? { signal: AbortSignal.timeout(ms) } : {};
+  }
+  function opciones(ms, extra) {
+    var o = conTope(ms), k;
+    for (k in extra) if (Object.prototype.hasOwnProperty.call(extra, k)) o[k] = extra[k];
+    return o;
+  }
+
   var $  = function (s, r) { return (r || document).querySelector(s); };
   var fmt = function (n) {
     return '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
@@ -66,7 +80,15 @@
     var dv = new DataView(buffer);
     if (buffer.byteLength >= 84) {
       var n = dv.getUint32(80, true);
-      if (84 + n * 50 === buffer.byteLength) return parseBinarySTL(dv, n);
+      var esperado = 84 + n * 50, sobra = buffer.byteLength - esperado;
+      /* Binario si los triángulos caben en el archivo y: lo que sobra al final
+         es poco (hay exportadores que dejan basura o relleno de unos bytes), o
+         el encabezado no empieza con "solid" (un ASCII siempre empieza así).
+         Un ASCII leído como binario da un conteo enorme que no cabe.        */
+      if (n > 0 && sobra >= 0) {
+        var cabeza = new TextDecoder().decode(new Uint8Array(buffer, 0, 5)).toLowerCase();
+        if (sobra <= 4096 || cabeza !== 'solid') return parseBinarySTL(dv, n);
+      }
     }
     return parseAsciiSTL(new TextDecoder().decode(buffer));
   }
@@ -136,8 +158,25 @@
     }
     var ds = new DecompressionStream('deflate-raw');
     var stream = new Blob([raw]).stream().pipeThrough(ds);
-    return await new Response(stream).text();
+    /* Se cuentan los bytes mientras se descomprime: un ZIP de pocos MB puede
+       inflarse a decenas de GB (bomba de compresión) y tumbar la pestaña sin
+       aviso. Pasado el tope se corta y se explica.                        */
+    var lector = stream.getReader(), texto = new TextDecoder(), partes = [], total = 0;
+    for (;;) {
+      var paso = await lector.read();
+      if (paso.done) break;
+      total += paso.value.byteLength;
+      if (total > MAX_DESCOMPRIMIDO) {
+        try { lector.cancel(); } catch (e) {}
+        throw new Error('Este 3MF es demasiado grande para cotizarlo en el navegador. ' +
+                        'Mándanoslo por WhatsApp y te lo cotizamos.');
+      }
+      partes.push(texto.decode(paso.value, { stream: true }));
+    }
+    partes.push(texto.decode());
+    return partes.join('');
   }
+  var MAX_DESCOMPRIMIDO = 300 * 1048576;   // 300 MB por entrada del 3MF
 
   /* ============================================================== 3MF === */
   var UNIDADES = { micron: 0.001, millimeter: 1, centimeter: 10,
@@ -1934,6 +1973,7 @@
   var CAMPOS   = ['nombre', 'email', 'telefono', 'calle', 'colonia', 'cp',
                   'ciudad', 'estado', 'referencias'];
   var MAX_MB_ARCHIVO = 40, MAX_MB_PEDIDO = 60;   // los topes del worker
+  var URL_MP = /^https:\/\/([a-z0-9-]+\.)*mercadopago\.com(\.mx)?\//;
   var envioCfg = null;          // { centavos, gratis_desde_centavos }
   var envioPedido = false;      // ¿ya se intentó bajar la tarifa?
   var pedidoActual = null;
@@ -1989,7 +2029,7 @@
   function cargarEnvio() {
     if (envioPedido) return Promise.resolve(envioCfg);
     envioPedido = true;
-    return fetch(API + '/envio')
+    return fetch(API + '/envio', conTope(ESPERA_JSON_MS))
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { envioCfg = d; return d; })
       .catch(function () { envioPedido = false; envioCfg = null; return null; });
@@ -2143,7 +2183,8 @@
     avisar('');
     var esCotizar = modo === 'cotizar';
 
-    fetch(API + (esCotizar ? '/cotizacion' : '/impresion'), { method: 'POST', body: fd })
+    fetch(API + (esCotizar ? '/cotizacion' : '/impresion'),
+          opciones(ESPERA_SUBIDA_MS, { method: 'POST', body: fd }))
       .then(function (r) { return r.json().then(function (j) { return { status: r.status, datos: j }; }); })
       .then(function (r) {
         if (esCotizar && r.status === 201 && r.datos.pedido_id) {
@@ -2155,6 +2196,13 @@
             + String(r.datos.pedido_id).slice(0, 8).toUpperCase() + '.';
           formPago.hidden = true;
           dialogo.querySelector('[data-impresion-listo]').hidden = false;
+          return;
+        }
+        if (r.status === 201 && r.datos.url_pago && !URL_MP.test(String(r.datos.url_pago))) {
+          // Un worker comprometido o un proxy no deben poder mandar al cliente
+          // a pagar en otra parte.
+          restaurarBoton();
+          avisar('El enlace de pago que recibimos no es de Mercado Pago, así que no lo abrimos. Escríbenos por WhatsApp y te mandamos el link correcto.');
           return;
         }
         if (r.status === 201 && r.datos.url_pago) {
@@ -2176,9 +2224,11 @@
             : 'No se pudo iniciar el pago. Inténtalo de nuevo.'));
         }
       })
-      .catch(function () {
+      .catch(function (err) {
         restaurarBoton();
-        avisar('No pudimos subir los archivos. Revisa tu conexión (o que el archivo siga en su lugar) e inténtalo de nuevo.');
+        avisar(err && err.name === 'TimeoutError'
+          ? 'La subida tardó demasiado y la cortamos. Inténtalo de nuevo con mejor conexión, o mándanos tus archivos por WhatsApp.'
+          : 'No pudimos subir los archivos. Revisa tu conexión (o que el archivo siga en su lugar) e inténtalo de nuevo, o mándanoslos por WhatsApp.');
       });
   }
 
@@ -2200,7 +2250,7 @@
     if (codigo === cpUltimo) return;
     cpUltimo = codigo;
     decirCp('Buscando…');
-    fetch(API + '/cp?codigo=' + codigo)
+    fetch(API + '/cp?codigo=' + codigo, conTope(ESPERA_JSON_MS))
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, datos: j }; }); })
       .then(function (r) {
         var lista = $('#im-colonias');

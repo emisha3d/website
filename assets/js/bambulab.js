@@ -191,7 +191,10 @@
     .catch(function () { return {}; })
     .then(function (d) { slugs = d || {}; });
 
-  Promise.all([mapaListo, fetch(API + '/productos')
+  // Tope de 15 s: un worker colgado cae al mensaje de WhatsApp de abajo en vez
+  // de «Cargando…» para siempre. Sin AbortSignal.timeout (Safari < 16), sin tope.
+  var tope = (window.AbortSignal && AbortSignal.timeout) ? AbortSignal.timeout(15000) : undefined;
+  Promise.all([mapaListo, fetch(API + '/productos', { signal: tope })
     .then(function (r) {
       if (!r.ok) throw new Error('el catálogo respondió ' + r.status);
       return r.json();

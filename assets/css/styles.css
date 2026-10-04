@@ -39,6 +39,12 @@
 
   --accent:      #d2590b;
   --accent-dim:  rgba(210, 89, 11, .08);
+  /* El naranja de marca da 4.06:1 sobre blanco (3.67:1 sobre --accent-dim):
+     no alcanza el 4.5:1 de AA para texto chico. Las etiquetas de 11–13 px
+     (eyebrow, pastillas, «Agotado») usan este tono más oscuro: 5.39:1 sobre
+     blanco, 4.87:1 sobre --accent-dim, 5.02:1 sobre --bg-2. Botones, tiras y
+     fondos siguen con --accent. */
+  --accent-text: #b4490a;
   --warn:        #b45309;
   --warn-dim:    rgba(245, 158, 11, .10);
   --good:        #067647;
@@ -234,7 +240,7 @@ strong { font-weight: 640; }
   font-family: var(--font-mono); font-size: .715rem; font-weight: 550;
   letter-spacing: .14em; text-transform: uppercase; color: var(--brand);
 }
-.eyebrow--accent { color: var(--accent); }
+.eyebrow--accent { color: var(--accent-text); }
 
 .section { padding: 88px 0; }
 .section--tight { padding: 52px 0; }
@@ -257,7 +263,7 @@ strong { font-weight: 640; }
   font-size: .805rem; font-weight: 540; color: var(--text-2);
 }
 .pill--brand { background: var(--brand-dim); border-color: rgba(11,107,203,.18); color: var(--brand-600); }
-.pill--accent { background: var(--accent-dim); border-color: rgba(210,89,11,.22); color: var(--accent); }
+.pill--accent { background: var(--accent-dim); border-color: rgba(210,89,11,.22); color: var(--accent-text); }
 .pill--dot::before {
   content: ""; width: 6px; height: 6px; border-radius: 50%;
   background: currentColor; flex-shrink: 0;
@@ -458,7 +464,7 @@ strong { font-weight: 640; }
 .swatch[hidden] { display: none; }
 
 /* Agotado (existencia.js): la pastilla se enseña, la foto se apaga. */
-.agotado-pill { background: var(--accent-dim); border-color: rgba(210,89,11,.22); color: var(--accent);
+.agotado-pill { background: var(--accent-dim); border-color: rgba(210,89,11,.22); color: var(--accent-text);
   font-size: .72rem; padding: 3px 10px; vertical-align: middle; }
 .agotado-pill[hidden] { display: none; }
 .swatch .agotado-pill { margin-top: 8px; }
@@ -1083,10 +1089,38 @@ strong { font-weight: 640; }
   text-transform: uppercase; color: var(--muted); margin-top: 2px;
 }
 
+/* --- Esqueleto del catálogo ----------------------------------------------
+   La rejilla de la tienda (portada y /tienda/) llega del worker un par de
+   segundos después de pintar la página. Mientras, su lugar lo ocupan tarjetas
+   vacías del tamaño de las reales: antes la rejilla nacía con un renglón de
+   «Cargando…» y al llenarse empujaba todo lo de abajo (CLS 0.5 en
+   Lighthouse). Las tarjetas de verdad reemplazan a éstas, y lo que queda
+   debajo ya estaba fuera de la pantalla, así que nada se mueve a la vista.
+   Los avisos de error y de «sin resultados» ocupan la fila entera. */
+.tienda-grid > p { grid-column: 1 / -1; }
+.prod--esqueleto { pointer-events: none; }
+.prod--esqueleto .prod__body { min-height: 158px; }
+.prod--esqueleto .prod__body > span {
+  display: block; height: 14px; border-radius: 6px;
+  background: linear-gradient(90deg, var(--tile) 0%, var(--border-soft) 50%, var(--tile) 100%);
+  background-size: 200% 100%; animation: esqueleto 1.4s ease-in-out infinite;
+}
+.prod--esqueleto .prod__body > span:nth-child(2) { width: 62%; }
+.prod--esqueleto .prod__body > span:nth-child(3) { width: 40%; height: 18px; margin-top: auto; }
+.prod--esqueleto .prod__body > span:nth-child(4) { width: 58%; height: 32px; border-radius: 99px; }
+@keyframes esqueleto { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@media (prefers-reduced-motion: reduce) { .prod--esqueleto .prod__body > span { animation: none; } }
+
 /* --- Tira de avisos de la portada ---------------------------------------
    Vive arriba del catálogo. El contenido lo manda /assets/data/banners.json
    y lo pinta banner.js; aquí solo está cómo se ve. */
 .banner { position: relative; margin: 18px 0 26px; }
+/* Mientras banner.js trae los avisos, la caja vacía ya mide lo que va a medir
+   la tira con su navegación (224 + 12 + 30; 236 + 12 + 30 en escritorio):
+   si naciera en cero, al llenarse empujaría la tienda entera hacia abajo.
+   Sin avisos vigentes, banner.js quita la caja. */
+.banner:empty { min-height: 266px; }
+@media (min-width: 760px) { .banner:empty { min-height: 278px; } }
 .banner__tira {
   display: grid; grid-template-columns: 1fr; gap: 18px;
   align-items: center; align-content: center; padding: 26px 26px 24px;

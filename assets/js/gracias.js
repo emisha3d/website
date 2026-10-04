@@ -72,8 +72,8 @@
     if (pedido.guia && pedido.guia.tracking) {
       var g = pedido.guia;
       direccion += '<p class="muted" style="margin-top:10px">Guía de ' + escapar(g.paqueteria || 'tu paquetería') +
-        ': ' + (g.tracking_url
-          ? '<a href="' + escapar(g.tracking_url) + '" target="_blank" rel="noopener">' + escapar(g.tracking) + '</a>'
+        ': ' + (enlaceSeguro(g.tracking_url)
+          ? '<a href="' + escapar(enlaceSeguro(g.tracking_url)) + '" target="_blank" rel="noopener">' + escapar(g.tracking) + '</a>'
           : '<strong>' + escapar(g.tracking) + '</strong>') + '.</p>';
     }
     if (pedido.tipo === 'impresion' && (detalle.material || detalle.relleno_pct)) {
@@ -89,10 +89,18 @@
       '<p class="muted" style="font-size:.86rem;margin-top:14px">Folio: ' + escapar(pedido.pedido_id) + '</p>';
   }
 
+  // También las comillas: escapar() se usa dentro de href="…".
   function escapar(s) {
-    var d = document.createElement('div');
-    d.textContent = s == null ? '' : String(s);
-    return d.innerHTML;
+    return (s == null ? '' : String(s)).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // Solo enlaces https (rastreo de la paquetería, PDF de la guía): nada de
+  // javascript: ni data: aunque el worker devolviera algo raro. (http solo
+  // contra el worker local de pruebas.)
+  function enlaceSeguro(u) {
+    return /^(https:\/\/|http:\/\/(localhost|127\.0\.0\.1)[:\/])/i.test(String(u || '')) ? String(u) : '';
   }
 
   function consultar() {
@@ -113,10 +121,10 @@
             cuerpo = '<p>Tu pago quedó confirmado. Te escribimos por WhatsApp o correo con el ' +
               'siguiente paso.</p>';
           } else if (p.tipo === 'recoleccion') {
-            cuerpo = p.guia && p.guia.pdf
+            cuerpo = p.guia && enlaceSeguro(p.guia.pdf)
               ? '<p>Tu guía está lista. Imprímela, pégala en la caja y entrégala en una sucursal de ' +
                 escapar(p.guia.paqueteria || 'la paquetería') + '. También te la mandamos por correo.</p>' +
-                '<p><a class="btn btn--accent" href="' + escapar(p.guia.pdf) + '" target="_blank" rel="noopener">Descargar mi guía (PDF)</a></p>'
+                '<p><a class="btn btn--accent" href="' + escapar(enlaceSeguro(p.guia.pdf)) + '" target="_blank" rel="noopener">Descargar mi guía (PDF)</a></p>'
               : '<p>Tu pago quedó confirmado. Generamos tu guía y te la mandamos por correo el mismo día ' +
                 'hábil (si pagaste en la noche o en fin de semana, el siguiente). También aparece aquí, en esta misma página.</p>';
             cuerpo += '<p>Mientras, revisa <a href="/reparacion/envio/#empaque">cómo empacar tu impresora</a>. ' +
@@ -129,8 +137,9 @@
             cuerpo = '<p>Tu pago quedó confirmado y tus piezas ya están apartadas. Te escribimos por ' +
               'correo con la guía de envío en cuanto salga tu paquete.</p>';
           }
+          // El título va con textContent: el nombre va tal cual, sin escapar.
           pintar('¡Gracias' + (p.tipo === 'tienda' || p.tipo === 'ag' ? ' por tu compra' : '') +
-            (p.nombre ? ', ' + escapar(p.nombre) : '') + '!', cuerpo + lineasHtml(p));
+            (p.nombre ? ', ' + p.nombre : '') + '!', cuerpo + lineasHtml(p));
           return;
         }
         if (p.estado === 'pending') {
@@ -150,6 +159,17 @@
               '<a href="https://wa.me/525575639255" target="_blank" rel="noopener">+52 55 7563 9255</a> con tu folio.</p>' +
               '<p class="muted" style="font-size:.86rem">Folio: ' + escapar(folio) + '</p>');
           }
+          return;
+        }
+        // Un pago que sí se cobró y luego se devolvió (o se disputó en el banco):
+        // no es «no se hizo ningún cargo».
+        if (p.estado === 'reembolsado' || p.estado === 'contracargo') {
+          pintar(p.estado === 'reembolsado' ? 'Tu pago fue devuelto' : 'Tu pago está en aclaración',
+            '<p>' + (p.estado === 'reembolsado'
+              ? 'Mercado Pago te devolvió el pago de este pedido. Según tu banco, el reembolso tarda unos días en verse.'
+              : 'Tu banco abrió una aclaración por este pago. La estamos revisando con Mercado Pago.') +
+            ' Dudas: <a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp</a> con tu folio.</p>' +
+            '<p class="muted" style="font-size:.86rem">Folio: ' + escapar(folio) + '</p>');
           return;
         }
         // released / failed

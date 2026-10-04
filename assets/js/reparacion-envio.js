@@ -1,7 +1,7 @@
 /* Emisha — /reparacion/envio/: el cliente de fuera de CDMX cotiza y paga la
    guía para mandarnos su impresora. El worker de checkout cotiza en Skydropx
    (del domicilio del cliente al taller), cobra con Mercado Pago lo que cobra
-   la paquetería + 10 %, y el taller compra la guía después desde /admin; al
+   la paquetería + 15 %, y el taller compra la guía después desde /admin; al
    cliente le llega el PDF por correo. El precio nunca sale de aquí: el
    worker cobra lo que él mismo cotizó. */
 (function () {
@@ -40,10 +40,36 @@
     aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
+  // Para lo que va dentro de innerHTML (también entre comillas de atributo).
   function esc(s) {
-    var d = document.createElement('div');
-    d.textContent = s == null ? '' : String(s);
-    return d.innerHTML;
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // Tope de espera, igual que en la tienda: un «Preguntando…» eterno se ve
+  // como una página rota. Sin AbortSignal.timeout (Safari < 16) va sin tope.
+  var T_LEER = 15000;
+  var T_ENVIAR = 30000;
+  function limite(ms) {
+    return (window.AbortSignal && AbortSignal.timeout) ? AbortSignal.timeout(ms) : undefined;
+  }
+
+  // El botón de pagar solo lleva a Mercado Pago.
+  var URL_MP = /^https:\/\/([a-z0-9-]+\.)*mercadopago\.com(\.mx)?\//;
+
+  // Lo que se le dice al cliente cuando algo falla: el mensaje del worker si
+  // lo hubo (ya viene en español); si no, uno nuestro, nunca el «Failed to
+  // fetch» del navegador.
+  function errorServidor(texto) {
+    var e = new Error(texto);
+    e.servidor = true;
+    return e;
+  }
+  function mensajeDe(e, generico) {
+    if (e && e.servidor) return e.message;
+    if (e && e.name === 'TimeoutError') return 'El servidor tardó demasiado en contestar.';
+    return generico;
   }
 
   /* ---------------- Modelo «Otro» y «¿Cómo nos encontraste?» ------------ */
@@ -82,7 +108,7 @@
     if (!/^[0-9]{5}$/.test(codigo) || codigo === cpUltimo) return;
     cpUltimo = codigo;
     cpEstado.textContent = 'Buscando…';
-    fetch(API + '/cp?codigo=' + codigo)
+    fetch(API + '/cp?codigo=' + codigo, { signal: limite(T_LEER) })
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (r) {
         if (!r.ok) {
@@ -176,6 +202,7 @@
     estadoCot.textContent = 'Preguntando a las paqueterías… (unos segundos)';
     fetch(API + '/recoleccion/cotizar', {
       method: 'POST',
+      signal: limite(T_ENVIAR),
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         direccion: { cp: f.cp.value.trim(), colonia: f.colonia.value.trim(), ciudad: f.ciudad.value.trim(), estado: f.estado.value.trim() },
@@ -185,7 +212,7 @@
     })
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (r) {
-        if (!r.ok) throw new Error(r.d.error || 'No pudimos cotizar.');
+        if (!r.ok) throw errorServidor(r.d.error || 'No pudimos cotizar.');
         cotizacion = { cotizacion_id: r.d.cotizacion_id, opciones: r.d.opciones, cp: f.cp.value.trim(), seguro: r.d.seguro };
         var seg = r.d.seguro;
         lista.innerHTML = r.d.opciones.map(function (o, i) {
@@ -203,7 +230,7 @@
       })
       .catch(function (e) {
         estadoCot.textContent = '';
-        decir(e.message, 'error');
+        decir(mensajeDe(e, 'No pudimos cotizar.') + ' Inténtalo de nuevo o escríbenos por WhatsApp al 55 7563 9255.', 'error');
       })
       .then(function () { btnCotizar.disabled = false; });
   });
@@ -231,7 +258,7 @@
   var citaId = new URLSearchParams(location.search).get('cita');
   var cita = null;
   if (citaId && /^[0-9a-f-]{36}$/.test(citaId)) {
-    fetch(API_CITAS + '/cita/' + citaId)
+    fetch(API_CITAS + '/cita/' + citaId, { signal: limite(T_LEER) })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (c) {
         if (!c || c.estado !== 'nueva') return;
@@ -280,6 +307,7 @@
     btnPagar.textContent = 'Abriendo Mercado Pago…';
     fetch(API + '/recoleccion', {
       method: 'POST',
+      signal: limite(T_ENVIAR),
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         cotizacion_id: cotizacion.cotizacion_id,
@@ -305,13 +333,15 @@
         if (!r.ok) {
           // 409 = la cotización venció o cambió el CP: hay que cotizar otra vez.
           if (r.status === 409) invalidar();
-          throw new Error(r.d.error || 'No pudimos crear el pago.');
+          throw errorServidor(r.d.error || 'No pudimos crear el pago.');
         }
+        // Solo se sale hacia Mercado Pago; otra URL no se sigue.
+        if (!URL_MP.test(String(r.d.url_pago))) throw errorServidor('No se pudo abrir Mercado Pago.');
         try { localStorage.setItem('emisha-ultimo-pedido', r.d.pedido_id); } catch (e) {}
         location.href = r.d.url_pago;
       })
       .catch(function (e) {
-        decir(e.message + ' Si sigue fallando, escríbenos por WhatsApp al 55 7563 9255.', 'error');
+        decir(mensajeDe(e, 'No pudimos crear el pago.') + ' Si sigue fallando, escríbenos por WhatsApp al 55 7563 9255.', 'error');
         btnPagar.disabled = !cotizacion;
         precioBoton();
       });
