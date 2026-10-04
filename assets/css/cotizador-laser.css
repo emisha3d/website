@@ -191,7 +191,7 @@
 .lz-opciones { display: grid; gap: 14px; padding: 18px; }
 .lz-opciones .field select { width: 100%; }
 .lz-opciones .field__hint:empty { display: none; }
-.lz-entrega b { font-weight: 600; color: var(--accent); font-size: .85rem; }
+.lz-entrega b { font-weight: 600; color: var(--accent-text, var(--accent)); font-size: .85rem; }
 
 .lz-resultado { display: grid; gap: 10px; }
 .lz-total { margin-top: 0; padding: 20px 22px; }

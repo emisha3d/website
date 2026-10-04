@@ -1150,7 +1150,8 @@ strong { font-weight: 640; }
 
 /* Tres tonos, para que tres avisos seguidos no se vean iguales. */
 .banner--marca  { background: var(--brand);  border-color: var(--brand);  color: #fff; }
-.banner--acento { background: var(--accent); border-color: var(--accent); color: #fff; }
+/* Texto blanco chico: sobre --accent da 4.06:1; sobre --accent-text, 5.39:1. */
+.banner--acento { background: var(--accent-text); border-color: var(--accent-text); color: #fff; }
 .banner--tinta  { background: var(--ink);    border-color: var(--ink);    color: #fff; }
 
 .banner__nav {
