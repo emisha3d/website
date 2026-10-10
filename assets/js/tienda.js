@@ -192,6 +192,7 @@
   // plana. Se guarda el CP con el que se cotizó para no reusarlo si lo cambian.
   var cotizacion = null;
   var cotizando = false;      // hay una cotización en vuelo
+  var cotTurno = 0;           // solo cuenta la respuesta de la última que se pidió
 
   /* --- Estado del carrito ---------------------------------------------- */
 
@@ -234,17 +235,56 @@
   var mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' });
   function precio(centavos) { return mxn.format(centavos / 100); }
 
+  // Las piezas de AG salen de AG en su propio paquete y pagan lo que cobra
+  // AG; el envío de Emisha (gratis desde $999, tarifa de 10 kg) se calcula
+  // solo con lo propio. Igual que armarCarrito() del worker.
   function totalCarrito() {
-    var t = 0, piezas = 0, kg = 0;
+    var t = 0, piezas = 0, kg = 0, propio = 0, agGramos = 0, hayPropio = false, hayAG = false;
     Object.keys(carrito.lineas).forEach(function (sku) {
       var p = porSku[sku];
       if (!p) return;
-      t += p.precio_centavos * carrito.lineas[sku];
-      piezas += carrito.lineas[sku];
-      kg += kgFilamento(p) * carrito.lineas[sku];
+      var n = carrito.lineas[sku];
+      t += p.precio_centavos * n;
+      piezas += n;
+      if (p.origen === 'ag') {
+        hayAG = true;
+        agGramos += gramosAG(p) * n;
+      } else {
+        hayPropio = true;
+        propio += p.precio_centavos * n;
+        kg += kgFilamento(p) * n;
+      }
     });
     // Redondeado al gramo: 0.75 kg sumados en flotante dan 9.999… y no 10.
-    return { centavos: t, piezas: piezas, kg: Math.round(kg * 1000) / 1000 };
+    return {
+      centavos: t, piezas: piezas, kg: Math.round(kg * 1000) / 1000,
+      propio: propio, hayPropio: hayPropio, hayAG: hayAG, agGramos: agGramos
+    };
+  }
+
+  // Peso del paquete de AG por pieza: los kilos del rollo más carrete y caja;
+  // lo demás, el bulto promedio. Mismos números que gramosEnvioAG() del worker.
+  function gramosAG(p) {
+    var cfg = (envioCfg && envioCfg.ag) || {};
+    var kg = kgFilamento(p);
+    return kg > 0 ? kg * 1000 + (cfg.empaque_filamento_g || 300) : (cfg.pieza_g || 400);
+  }
+
+  // Aproximado del envío de AG antes de saber el CP: DHL, primer kilo más
+  // kilos extra. Con el CP, /cotizar-envio da el número de verdad (que puede
+  // salir más barato por Paquete Express, o más caro en zona extendida).
+  function envioAGAprox(gramos) {
+    var cfg = envioCfg && envioCfg.ag;
+    if (!cfg || !gramos) return 0;
+    var extra = Math.max(0, Math.ceil(gramos / 1000) - 1);
+    return cfg.base_centavos + extra * cfg.kg_extra_centavos;
+  }
+
+  // El envío sin cotizar: lo propio con las reglas de siempre, lo de AG aprox.
+  function envioEstimado(t) {
+    var propio = t.hayPropio ? costoEnvio(t.propio, t.kg) : 0;
+    var ag = t.hayAG ? envioAGAprox(t.agGramos) : 0;
+    return { propio: propio, ag: ag, total: propio + ag };
   }
 
   // Kilos de filamento de una pieza: la MISMA regla que kgFilamento() del
@@ -463,15 +503,20 @@
       if (p) lineasEl.appendChild(lineaCarrito(p, carrito.lineas[sku]));
     });
 
-    var envio = costoEnvio(t.centavos, t.kg);
-    // Con tarifa de filamento el envío gratis no aplica: no se promete.
-    var falta = !envioPorFilamento(t.kg) && envioCfg && envioCfg.gratis_desde_centavos - t.centavos;
+    var envio = envioEstimado(t);
+    // Con tarifa de filamento el envío gratis no aplica: no se promete. Y
+    // solo cuenta lo propio: lo de AG paga su envío aparte.
+    var falta = t.hayPropio && !envioPorFilamento(t.kg) && envioCfg && envioCfg.gratis_desde_centavos - t.propio;
     cuentaEl.innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      '<div><span>' + esc(etiquetaEnvio(t.kg)) + '</span><span>' + (envio === 0 ? 'Gratis' : precio(envio)) + '</span></div>' +
-      (envio > 0 && falta > 0
-        ? '<div class="drawer__falta"><span>Te faltan ' + precio(falta) + ' para el envío gratis</span></div>' : '') +
-      '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio) + '</span></div>';
+      (t.hayPropio
+        ? '<div><span>' + esc(etiquetaEnvio(t.kg)) + '</span><span>' + (envio.propio === 0 ? 'Gratis' : precio(envio.propio)) + '</span></div>' : '') +
+      (envio.propio > 0 && falta > 0
+        ? '<div class="drawer__falta"><span>Te faltan ' + precio(falta) + (t.hayAG ? ' en productos Emisha' : '') + ' para el envío gratis</span></div>' : '') +
+      (t.hayAG
+        ? '<div><span>Envío del proveedor (aprox.)</span><span>' + precio(envio.ag) + '</span></div>' +
+          '<div class="drawer__falta"><span>Las refacciones de proveedor salen de su almacén y pagan su envío; el exacto sale con tu código postal.</span></div>' : '') +
+      '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio.total) + '</span></div>';
 
     var boton = drawer && drawer.querySelector('[data-pagar]');
     if (boton) boton.disabled = false;
@@ -1191,11 +1236,16 @@
      el cliente ve el precio cambiar en cuanto termina su dirección. */
   function pintarResumen() {
     var t = totalCarrito();
-    var cotizado = cotizacion && cotizacion.cp === cpActual();
-    var e = cotizado ? cotizacion.centavos : costoEnvio(t.centavos, t.kg);
-    var etiqueta = cotizado && cotizacion.paqueteria
-      ? 'Envío · ' + cotizacion.paqueteria + (cotizacion.dias ? ' · ' + cotizacion.dias + (cotizacion.dias === 1 ? ' día' : ' días') : '')
+    var cot = cotizacion && cotizacion.cp === cpActual() ? cotizacion : null;
+    var est = envioEstimado(t);
+    var ePropio = cot ? cot.propio : est.propio;
+    var eAG = cot ? cot.ag : est.ag;
+    var e = ePropio + eAG;
+    var etiqueta = cot && cot.paqueteria
+      ? 'Envío · ' + cot.paqueteria + (cot.dias ? ' · ' + cot.dias + (cot.dias === 1 ? ' día' : ' días') : '')
       : etiquetaEnvio(t.kg);
+    var etiquetaAG = cot && cot.agPaq ? 'Envío del proveedor · ' + cot.agPaq : 'Envío del proveedor (aprox.)';
+    var calculando = cotizando ? ' <span style="color:var(--muted)">·  calculando…</span>' : '';
     // Si el carrito trae refacciones de AG, se dice ANTES de cobrar: no salen
     // del taller sino del proveedor, y eso cambia el tiempo de entrega.
     var hayAG = Object.keys(carrito.lineas).some(function (sku) {
@@ -1203,8 +1253,11 @@
     });
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      '<div><span>' + esc(etiqueta) + '</span><span>' + (e === 0 ? 'Gratis' : precio(e)) +
-        (cotizando ? ' <span style="color:var(--muted)">·  calculando…</span>' : '') + '</span></div>' +
+      (t.hayPropio
+        ? '<div><span>' + esc(etiqueta) + '</span><span>' + (ePropio === 0 ? 'Gratis' : precio(ePropio)) +
+          (t.hayAG ? '' : calculando) + '</span></div>' : '') +
+      (t.hayAG
+        ? '<div><span>' + esc(etiquetaAG) + '</span><span>' + precio(eAG) + calculando + '</span></div>' : '') +
       '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>' +
       (hayAG
         ? '<div style="display:block;font-size:.86rem;color:var(--muted);margin-top:8px">' +
@@ -1222,20 +1275,27 @@
      obligatorio: si falla, si tarda o si el worker no cotiza, el resumen se
      queda con la tarifa plana y el cliente paga eso. El número que se cobra
      lo vuelve a calcular el worker en /pedido — esto es solo para enseñarlo. */
+  // Las piezas de AG se cotizan con el puro CP (AG cobra por CP): se pide
+  // en cuanto el cliente lo teclea, y la cotización de AG (tarda unos
+  // segundos) ya está lista cuando termina la dirección.
   function pedirCotizacion() {
-    if (!envioCfg || !envioCfg.cotizado) return;
+    var porAG = totalCarrito().hayAG && !!(envioCfg && envioCfg.ag);
+    var porPaqueteria = !!(envioCfg && envioCfg.cotizado);
+    if (!porAG && !porPaqueteria) return;
     var cp = cpActual();
     if (!/^[0-9]{5}$/.test(cp)) return;
     var d = {
       calle: valor('calle'), colonia: valor('colonia'), cp: cp,
       ciudad: valor('ciudad'), estado: valor('estado'), referencias: valor('referencias')
     };
-    if (!d.calle || !d.colonia || !d.ciudad || !d.estado) return;
+    var completa = !!(d.calle && d.colonia && d.ciudad && d.estado);
+    if (!completa && !porAG) return;
     var lineas = Object.keys(carrito.lineas).map(function (sku) {
       return { sku: sku, cantidad: carrito.lineas[sku] };
     });
     if (!lineas.length) return;
 
+    var turno = ++cotTurno;
     cotizando = true;
     pintarResumen();
     fetch(API + '/cotizar-envio', {
@@ -1246,17 +1306,23 @@
     })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (q) {
+        if (turno !== cotTurno) return;     // ya se pidió otra
         cotizando = false;
         if (q && typeof q.envio_centavos === 'number') {
+          var desglose = typeof q.envio_propio_centavos === 'number';
           cotizacion = {
             cp: cp, centavos: q.envio_centavos,
+            propio: desglose ? q.envio_propio_centavos : q.envio_centavos,
+            ag: desglose && q.envio_ag ? q.envio_ag.centavos : 0,
+            agPaq: q.envio_ag ? q.envio_ag.paqueteria : null,
+            completa: desglose ? !!q.direccion_completa : true,
             paqueteria: q.modo === 'cotizado' ? q.paqueteria : null,
             dias: q.modo === 'cotizado' ? q.dias : null
           };
         }
         pintarResumen();
       })
-      .catch(function () { cotizando = false; pintarResumen(); });
+      .catch(function () { if (turno !== cotTurno) return; cotizando = false; pintarResumen(); });
   }
 
   function valor(campo) {
@@ -1512,7 +1578,11 @@
   // hay nada que cotizar. Por eso se reintenta al salir de cada campo.
   ['calle', 'colonia'].forEach(function (campo) {
     var el = formulario && formulario.elements[campo];
-    if (el) el.addEventListener('blur', function () { if (!cotizacion) pedirCotizacion(); });
+    if (el) el.addEventListener('blur', function () {
+      // Lo de AG ya se cotizó con el CP; lo propio por paquetería necesita
+      // la dirección entera, así que se vuelve a pedir al completarla.
+      if (!cotizacion || (!cotizacion.completa && envioCfg && envioCfg.cotizado)) pedirCotizacion();
+    });
   });
 
   function restaurarBoton() {
