@@ -655,6 +655,7 @@
           cargarDestacados();
         }
         pintarCarrito();
+        carritoDeUrl();
         // Necesita porSku completo (AG incluido) para contar solo lo que hay.
         cargarCategorias();
       })
@@ -727,6 +728,38 @@
       }
     });
     if (huboCambio) { carrito.carrito_id = nuevoId(); guardar(); }
+  }
+
+  // ?carrito=SKU,SKU:2 — un carrito que arma el taller para mandarlo por
+  // WhatsApp. REEMPLAZA lo que hubiera (es el pedido de esa persona) y abre
+  // el cajón. Entra solo lo que hoy se puede comprar, topado al stock; lo
+  // demás se ignora. El parámetro se quita de la barra para que recargar
+  // no deshaga los cambios que haga el cliente.
+  function carritoDeUrl() {
+    var crudo = null;
+    try { crudo = new URLSearchParams(window.location.search).get('carrito'); } catch (e) { return; }
+    if (!crudo) return;
+    var antes = Object.keys(carrito.lineas);
+    var lineas = {};
+    crudo.split(',').forEach(function (par) {
+      var m = /^\s*([^:\s]+)(?::(\d+))?\s*$/.exec(par);
+      var p = m && porSku[m[1]];
+      if (!p || p.origen === 'propio-3d' || (p.origen === 'ag' && !(p.disponible && p.stock > 0))) return;
+      var n = Math.min((lineas[p.sku] || 0) + parseInt(m[2] || '1', 10), p.stock || 0);
+      if (n > 0) lineas[p.sku] = n;
+    });
+    try {
+      var u = new URL(window.location.href);
+      u.searchParams.delete('carrito');
+      history.replaceState(null, '', u.pathname + u.search + u.hash);
+    } catch (e) { /* sin URL/history: se queda en la barra, no pasa nada */ }
+    if (!Object.keys(lineas).length) return;
+    carrito.lineas = lineas;
+    carrito.carrito_id = nuevoId();
+    guardar();
+    antes.concat(Object.keys(lineas)).forEach(pintarCantidad);
+    pintarCarrito();
+    abrirCajon();
   }
 
   /* --- Categorías -------------------------------------------------------- */

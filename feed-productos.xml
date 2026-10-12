@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-10-09</lastBuildDate>
+    <lastBuildDate>2026-10-12</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -955,6 +955,20 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
+      <g:id>AG-BAMBULAB-PETG-TRANSP-AZCL</g:id>
+      <title><![CDATA[Filamento Bambu Lab PETG transparente azul claro 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab PETG transparente azul claro 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-azul-claro-1-75-transp-azcl/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PETG-TRANSP-AZCL.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>449.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-BAMBULAB-PETG-TRANSP-AZCL</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
       <g:id>AG-BAMBULAB-PETG-TRANSP-CAFE</g:id>
       <title><![CDATA[Filamento Bambu Lab PETG transparente café 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PETG transparente café 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -1227,7 +1241,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-azul-1-75-mm-1-kg-pla-lite-azul/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-AZUL.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>489.00 MXN</g:price>
+      <g:price>379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-AZUL</g:mpn>
@@ -1325,7 +1339,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-beige-mate-1-75-mm-spl-b-m/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-SPL-B-M.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>449.00 MXN</g:price>
+      <g:price>339.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-SPL-B-M</g:mpn>
@@ -1367,7 +1381,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-gris-1-75-mm-1-kg-spl-gri/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-SPL-GRI.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>449.00 MXN</g:price>
+      <g:price>339.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-SPL-GRI</g:mpn>
@@ -3247,20 +3261,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAC019</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-FAC021-N</g:id>
-      <title><![CDATA[Limpiador de purga compatible con A1 mini y A1]]></title>
-      <description><![CDATA[Limpiador de purga compatible con A1 mini y A1. toda la serie A1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/limpiador-de-purga-compatible-con-a1-mini-y-a1-fac021-n/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/F/FAC021-N.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAC021-N</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -5949,20 +5949,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAM010</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-FAM011</g:id>
-      <title><![CDATA[Motor eje Z para A1]]></title>
-      <description><![CDATA[Motor eje Z para A1. la A1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/motor-eje-z-para-a1-fam011/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/F/FAM011.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>999.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAM011</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>

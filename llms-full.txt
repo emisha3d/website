@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-10-09
+Generado: 2026-10-12
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
-- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-10-10
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-10-10
+- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-10-12
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-10-12
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -333,7 +333,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-549 piezas con existencia confirmada, listas para salir de la Ciudad de
+548 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -341,7 +341,7 @@ leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
 comprar, porque boquillas y hotends NO son iguales entre las series A1, P1,
 X1 y H2. Emisha no es distribuidor autorizado de Bambu Lab.
 
-### 4.1 Refacciones y piezas de repuesto (358 piezas)
+### 4.1 Refacciones y piezas de repuesto (357 piezas)
 
 Rango de precio: $169 MXN a $33,159 MXN.
 
@@ -518,7 +518,6 @@ Rango de precio: $169 MXN a $33,159 MXN.
 - Motor del extrusor para H2S — $2,729 MXN · Compatible: H2S · SKU AG-FAM019
 - Motor eje X para A1 — $1,119 MXN · Compatible: A1 · SKU AG-FAM009
 - Motor eje Y para A1 — $1,339 MXN · Compatible: A1 · SKU AG-FAM010
-- Motor eje Z para A1 — $999 MXN · Compatible: A1 · SKU AG-FAM011
 - Motor X para A1 mini — $1,119 MXN · Compatible: A1 mini · SKU AG-FAM005
 - Motor XY compatible con H2D — $1,399 MXN · Compatible: H2D · SKU AG-FAM016
 - Motor XY compatible con X1, X1C y X1E — $1,339 MXN · Compatible: X1, X1C, X1E · SKU AG-FAM001
@@ -805,7 +804,7 @@ Rango de precio: $249 MXN a $11,879 MXN.
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $10,629 MXN · SKU AG-BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,379 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (98 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (99 piezas)
 
 Rango de precio: $249 MXN a $1,779 MXN.
 
@@ -830,6 +829,7 @@ Rango de precio: $249 MXN a $1,779 MXN.
 - Filamento Bambu Lab PETG CF rojo ladrillo 1.75 mm 1 kg — $909 MXN · SKU AG-BAMBULAB-PETG-CF-ROJO-LAD
 - Filamento Bambu Lab PETG CF verde marea 1.75 mm 1 kg — $909 MXN · SKU AG-BAMBULAB-PETG-CF-VERDE-MA
 - Filamento Bambu Lab PETG naranja 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-NARANJA
+- Filamento Bambu Lab PETG transparente azul claro 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-AZCL
 - Filamento Bambu Lab PETG transparente café 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-CAFE
 - Filamento Bambu Lab PETG transparente morado 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-MORA
 - Filamento Bambu Lab PETG transparente naranja 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-NARA
@@ -850,16 +850,16 @@ Rango de precio: $249 MXN a $1,779 MXN.
 - Filamento Bambu Lab PLA girasol amarillo 1.75 mm 1 kg — $509 MXN · SKU AG-BAMBULAB-PLA-GIRASOL-AMAR
 - Filamento Bambu Lab PLA gris azulado 1.75 mm 1 kg — $509 MXN · SKU AG-BAMBULAB-PLA-GRIS-AZULADO
 - Filamento Bambu Lab PLA Lite amarillo 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-AMARILL
-- Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg — $489 MXN · SKU AG-BAMBULAB-PLA-LITE-AZUL
+- Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-AZUL
 - Filamento Bambu Lab PLA Lite beige mate 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-BEIG-MA
 - Filamento Bambu Lab PLA Lite cyan 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-CYAN
 - Filamento Bambu Lab PLA Lite girasol amarillo 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-GSOL-AM
 - Filamento Bambu Lab PLA Lite gris 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-GRIS
 - Filamento Bambu Lab PLA Lite naranja 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-NARANJA
-- Filamento Bambu Lab PLA Lite Refill beige mate 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-B-M
+- Filamento Bambu Lab PLA Lite Refill beige mate 1.75 mm 1 kg — $339 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-B-M
 - Filamento Bambu Lab PLA Lite Refill cyan 1.75 mm 1 kg — $339 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-CYA
 - Filamento Bambu Lab PLA Lite Refill girasol amarillo 1.75 mm 1 kg — $339 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-G-A
-- Filamento Bambu Lab PLA Lite Refill gris 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-GRI
+- Filamento Bambu Lab PLA Lite Refill gris 1.75 mm 1 kg — $339 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-GRI
 - Filamento Bambu Lab PLA Lite Refill naranja 1.75 mm 1 kg — $339 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-NAR
 - Filamento Bambu Lab PLA Lite Refill rojo 1.75 mm 1 kg — $339 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-ROJ
 - Filamento Bambu Lab PLA Lite Refill verde 1.75 mm 1 kg — $339 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-VER
@@ -908,7 +908,7 @@ Rango de precio: $249 MXN a $1,779 MXN.
 - Tope de cortador de filamento izquierdo compatible con H2D — $719 MXN · Compatible: H2D · SKU AG-FAC101
 - Tope del cortador de filamento para P2S — $459 MXN · Compatible: P2S · SKU AG-FAC171
 
-### 4.7 Mantenimiento: filtros, limpiadores y purga (12 piezas)
+### 4.7 Mantenimiento: filtros, limpiadores y purga (11 piezas)
 
 Rango de precio: $149 MXN a $1,389 MXN.
 
@@ -923,7 +923,6 @@ Rango de precio: $149 MXN a $1,389 MXN.
 - Limpiador de boquilla para A1 — $179 MXN · Compatible: A1 · SKU AG-FAW003
 - Limpiador de boquilla para A1 mini — $319 MXN · Compatible: A1 mini · SKU AG-FAW002
 - Limpiador de boquillas compatible con P1P, P1S, X1C y X1E — $219 MXN · Compatible: P1P, P1S, X1C, X1E · SKU AG-FAW001
-- Limpiador de purga compatible con A1 mini y A1 — $369 MXN · Compatible: A1 mini, A1 · SKU AG-FAC021-N
 
 ## 5. Piezas impresas en 3D bajo pedido (tienda en línea)
 
@@ -1339,7 +1338,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-10-09 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-10-12 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 
