@@ -280,11 +280,19 @@
     return cfg.base_centavos + extra * cfg.kg_extra_centavos;
   }
 
+  // Con filamento el envío lo cotiza la paquetería y nunca es gratis
+  // (cotizaFilamento() del worker): sin dirección no hay número que enseñar.
+  function envioPorCotizar(t) {
+    return !!(envioCfg && envioCfg.cotiza_filamento && t.hayPropio && t.kg > 0);
+  }
+
   // El envío sin cotizar: lo propio con las reglas de siempre, lo de AG aprox.
+  // `pendiente`: lo propio espera la dirección y no suma todavía.
   function envioEstimado(t) {
-    var propio = t.hayPropio ? costoEnvio(t.propio, t.kg) : 0;
+    var pendiente = envioPorCotizar(t);
+    var propio = t.hayPropio && !pendiente ? costoEnvio(t.propio, t.kg) : 0;
     var ag = t.hayAG ? envioAGAprox(t.agGramos) : 0;
-    return { propio: propio, ag: ag, total: propio + ag };
+    return { propio: propio, ag: ag, total: propio + ag, pendiente: pendiente };
   }
 
   // Kilos de filamento de una pieza: la MISMA regla que kgFilamento() del
@@ -509,14 +517,17 @@
     var falta = t.hayPropio && !envioPorFilamento(t.kg) && envioCfg && envioCfg.gratis_desde_centavos - t.propio;
     cuentaEl.innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
-      (t.hayPropio
+      (t.hayPropio && envio.pendiente
+        ? '<div><span>Envío</span><span>Se calcula con tu dirección</span></div>' : '') +
+      (t.hayPropio && !envio.pendiente
         ? '<div><span>' + esc(etiquetaEnvio(t.kg)) + '</span><span>' + (envio.propio === 0 ? 'Gratis' : precio(envio.propio)) + '</span></div>' : '') +
       (envio.propio > 0 && falta > 0
         ? '<div class="drawer__falta"><span>Te faltan ' + precio(falta) + (t.hayAG ? ' en productos Emisha' : '') + ' para el envío gratis</span></div>' : '') +
       (t.hayAG
         ? '<div><span>Envío del proveedor (aprox.)</span><span>' + precio(envio.ag) + '</span></div>' +
           '<div class="drawer__falta"><span>Las refacciones de proveedor salen de su almacén y pagan su envío; el exacto sale con tu código postal.</span></div>' : '') +
-      '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio.total) + '</span></div>';
+      '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio.total) +
+        (envio.pendiente ? ' + envío' : '') + '</span></div>';
 
     var boton = drawer && drawer.querySelector('[data-pagar]');
     if (boton) boton.disabled = false;
@@ -1274,6 +1285,9 @@
     var ePropio = cot ? cot.propio : est.propio;
     var eAG = cot ? cot.ag : est.ag;
     var e = ePropio + eAG;
+    // Filamento sin cotización completa todavía: no se enseña un número que
+    // luego cambie, se dice que sale con la dirección.
+    var pendiente = est.pendiente && !(cot && cot.completa);
     var etiqueta = cot && cot.paqueteria
       ? 'Envío · ' + cot.paqueteria + (cot.dias ? ' · ' + cot.dias + (cot.dias === 1 ? ' día' : ' días') : '')
       : etiquetaEnvio(t.kg);
@@ -1287,11 +1301,13 @@
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
       (t.hayPropio
-        ? '<div><span>' + esc(etiqueta) + '</span><span>' + (ePropio === 0 ? 'Gratis' : precio(ePropio)) +
+        ? '<div><span>' + esc(pendiente ? 'Envío' : etiqueta) + '</span><span>' +
+          (pendiente ? 'Se calcula con tu dirección' : ePropio === 0 ? 'Gratis' : precio(ePropio)) +
           (t.hayAG ? '' : calculando) + '</span></div>' : '') +
       (t.hayAG
         ? '<div><span>' + esc(etiquetaAG) + '</span><span>' + precio(eAG) + calculando + '</span></div>' : '') +
-      '<div class="checkout__total"><span>Total</span><span>' + precio(t.centavos + e) + '</span></div>' +
+      '<div class="checkout__total"><span>Total</span><span>' +
+        precio(t.centavos + (pendiente ? eAG : e)) + (pendiente ? ' + envío' : '') + '</span></div>' +
       (hayAG
         ? '<div style="display:block;font-size:.86rem;color:var(--muted);margin-top:8px">' +
           'Algunas refacciones de tu carrito las surte nuestro proveedor: salen directo de su ' +
@@ -1313,7 +1329,7 @@
   // segundos) ya está lista cuando termina la dirección.
   function pedirCotizacion() {
     var porAG = totalCarrito().hayAG && !!(envioCfg && envioCfg.ag);
-    var porPaqueteria = !!(envioCfg && envioCfg.cotizado);
+    var porPaqueteria = !!(envioCfg && envioCfg.cotizado) || envioPorCotizar(totalCarrito());
     if (!porAG && !porPaqueteria) return;
     var cp = cpActual();
     if (!/^[0-9]{5}$/.test(cp)) return;
@@ -1614,7 +1630,8 @@
     if (el) el.addEventListener('blur', function () {
       // Lo de AG ya se cotizó con el CP; lo propio por paquetería necesita
       // la dirección entera, así que se vuelve a pedir al completarla.
-      if (!cotizacion || (!cotizacion.completa && envioCfg && envioCfg.cotizado)) pedirCotizacion();
+      if (!cotizacion || (!cotizacion.completa &&
+          ((envioCfg && envioCfg.cotizado) || envioPorCotizar(totalCarrito())))) pedirCotizacion();
     });
   });
 
