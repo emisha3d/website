@@ -667,6 +667,7 @@
         }
         pintarCarrito();
         carritoDeUrl();
+        agregarDeUrl();
         // Necesita porSku completo (AG incluido) para contar solo lo que hay.
         cargarCategorias();
       })
@@ -770,6 +771,29 @@
     guardar();
     antes.concat(Object.keys(lineas)).forEach(pintarCantidad);
     pintarCarrito();
+    abrirCajon();
+  }
+
+  // ?agregar=SKU — el botón «Agregar al carrito» de las fichas estáticas
+  // (/filamentos/…). A diferencia de ?carrito=, SUMA una pieza a lo que ya
+  // hubiera y abre el cajón. Si la pieza ya no se puede comprar (agotada o
+  // fuera del catálogo vivo) se avisa en vez de abrir un cajón sin ella. El
+  // parámetro se quita para que recargar no sume otra.
+  function agregarDeUrl() {
+    var sku = null;
+    try { sku = new URLSearchParams(window.location.search).get('agregar'); } catch (e) { return; }
+    if (!sku) return;
+    try {
+      var u = new URL(window.location.href);
+      u.searchParams.delete('agregar');
+      history.replaceState(null, '', u.pathname + u.search + u.hash);
+    } catch (e) { /* sin URL/history: se queda en la barra */ }
+    var p = porSku[sku];
+    if (!p || p.origen === 'propio-3d' || !(p.stock > 0)) {
+      avisar('Ese producto está agotado por ahora. Escríbenos por WhatsApp y te avisamos cuando vuelva.', true);
+      return;
+    }
+    fijarCantidad(sku, (carrito.lineas[sku] || 0) + 1);
     abrirCajon();
   }
 

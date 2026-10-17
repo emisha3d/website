@@ -132,8 +132,11 @@ strong { font-weight: 640; }
   border-bottom: 1px solid var(--border-soft);
 }
 .site-header__inner { display: flex; align-items: center; gap: 20px; min-height: 66px; }
+/* En el teléfono el encabezado se va con el scroll, pero relative y no static:
+   static apaga su z-index, y entonces el banner, el buscador y las fotos de
+   la tienda (todos posicionados) se pintaban encima del menú abierto. */
 @media (max-width: 700px) {
-  .site-header { position: static; }
+  .site-header { position: relative; }
   :root { --h-header: 0px; }
 }
 .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
@@ -148,6 +151,9 @@ strong { font-weight: 640; }
 }
 .nav a:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
 .nav a[aria-current="page"] { color: var(--text); font-weight: 620; }
+/* .nav a pesa más que .btn--accent: sin esto «Tienda» salía gris sobre azul */
+.nav a.btn--accent { color: #fff; }
+.nav a.btn--accent:hover { color: #fff; background: var(--brand-600); }
 
 /* Submenús del menú superior (Productos, Herramientas). En escritorio se
    despliegan al pasar el cursor o al hacer clic; en móvil se muestran
@@ -190,6 +196,10 @@ strong { font-weight: 640; }
     padding: 12px 24px 20px; margin: 0;
     box-shadow: var(--shadow-lg);
     display: none;
+    /* El menú completo mide ~1000 px: sin esto, Blog, Contacto y Tienda
+       quedaban abajo de la pantalla del teléfono, sin forma de llegar. */
+    max-height: calc(100vh - 66px); max-height: calc(100dvh - 66px);
+    overflow-y: auto; overscroll-behavior: contain;
   }
   .nav.is-open { display: flex; }
   .nav a { padding: 12px; font-size: 1rem; }

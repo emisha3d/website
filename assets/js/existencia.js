@@ -17,7 +17,8 @@
                                   tarjeta. Agotado → recibe la clase .agotado.
      [data-existencia-fuente="ag"] en el mismo elemento: el SKU es de AG.
      [data-agotado-texto]         dentro del producto: su texto cambia a este.
-     [data-agotado-href]          dentro del producto: su enlace cambia a este.
+     [data-agotado-href]          dentro del producto: su enlace cambia a este
+                                  (si es de WhatsApp, se abre en otra pestaña).
      [data-agotado-mostrar]       dentro del producto: deja de estar hidden.
      [data-existencia-cantidad]   (AG) dentro del producto: «N piezas en
                                   existencia» con el número vivo.
@@ -63,7 +64,14 @@
       n.textContent = n.getAttribute('data-agotado-texto');
     });
     cadaUno(producto, '[data-agotado-href]', function (n) {
-      n.setAttribute('href', n.getAttribute('data-agotado-href'));
+      var href = n.getAttribute('data-agotado-href');
+      n.setAttribute('href', href);
+      // «Agregar al carrito» se abre en la misma pestaña; ya convertido en
+      // «Avísame cuando llegue» lleva a WhatsApp y va aparte, como los demás.
+      if (href.indexOf('https://wa.me/') === 0) {
+        n.setAttribute('target', '_blank');
+        n.setAttribute('rel', 'noopener');
+      }
     });
     cadaUno(producto, '[data-agotado-mostrar]', function (n) { n.hidden = false; });
   }
