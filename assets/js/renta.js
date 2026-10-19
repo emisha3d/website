@@ -1,14 +1,21 @@
 /* Emisha — renta de impresoras: escoger equipo y tarifa, ver lo que se paga y
    pedir el turno. Los precios viven aquí Y en las tarjetas de la página.
 
-   No hay worker de renta: la solicitud sale por WhatsApp con todo ya escrito
-   (equipo, tiempo, fecha y estimado), y el taller confirma y cobra el anticipo
-   por ahí. El precio que se ve aquí es un estimado; el que vale es el que se
-   confirma por WhatsApp, así que tocar el navegador no abarata nada. */
+   La solicitud sale por WhatsApp con todo ya escrito (equipo, tiempo, fecha y
+   estimado), y el taller confirma y cobra el anticipo por ahí. Los mismos
+   datos van también al worker de reparaciones (POST /renta), que solo manda
+   un correo al taller: si el cliente no le da enviar en WhatsApp, la
+   solicitud no se pierde. El precio que se ve aquí es un estimado; el que
+   vale es el que se confirma por WhatsApp, así que tocar el navegador no
+   abarata nada. */
 (function () {
   'use strict';
 
   var WA_NUM = '525575639255';
+  // El mismo worker al que agenda /reparacion/ (ver reparacion.js).
+  var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
+    ? 'http://localhost:8787'
+    : 'https://emisha-reparaciones.matosic-hrvoje.workers.dev';
 
   /* Precios SIN IVA, en pesos. Salen de aplicar el 40% del valor del equipo al
      mes; la semana es el 40% del mes y el día el 11% del mes. El depósito en
@@ -316,6 +323,23 @@
     return ok;
   }
 
+  /* Copia por correo al taller. sendBeacon (texto plano, sin preflight de
+     CORS) sobrevive aunque la página se vaya a WhatsApp en esta misma
+     pestaña; si falla, da igual: la solicitud sigue saliendo por WhatsApp. */
+  function avisarTaller(c) {
+    var datos = JSON.stringify({
+      maquina: c.maquina, tarifa: c.tarifa, cantidad: c.cantidad,
+      inicio: campoInicio.value, total: Math.round(c.total),
+      para: form.para.value.trim(), nombre: form.nombre.value.trim(),
+      telefono: form.telefono.value.trim(), correo: form.correo.value.trim()
+    });
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon(API + '/renta', datos)) return;
+      fetch(API + '/renta', { method: 'POST', body: datos, keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' } }).catch(function () {});
+    } catch (err) {}
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     callar();
@@ -329,6 +353,7 @@
     // (el submit cuenta como clic, así que el navegador no lo bloquea); si aun
     // así no abre, se va en esta misma.
     var c = calcular();
+    avisarTaller(c);
     var url = waRenta(c);
     decir('Tu solicitud ya va escrita en WhatsApp: solo dale enviar. Te confirmamos ' +
           'por ahí si la máquina está libre y cómo apartarla. ¿No se abrió?', 'ok',
