@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solicita tu factura | Emisha</title>
+<meta name="description" content="¿Ya pagaste tu reparación, tu compra o tu impresión en Emisha? Déjanos tus datos fiscales o tu constancia de situación fiscal y te mandamos la factura a tu correo.">
+<link rel="canonical" href="https://www.emisha.com.mx/factura/">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../assets/css/styles.css?v=42a66ae3">
+<style>
+/* Estilos propios de la página (los mismos del formulario de /reparacion/). */
+.cita-encabezado{padding:20px 0 14px;background:var(--bg)}
+.cita-encabezado h1{font-size:clamp(1.35rem,2.6vw,1.6rem);margin:0 0 6px}
+.cita-encabezado__linea{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+@media (max-width:600px){.cita-encabezado{padding:16px 0 12px}}
+.cita-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start;min-width:0}
+.cita-grid[hidden]{display:none}
+@media (max-width:900px){.cita-grid{grid-template-columns:minmax(0,1fr)}}
+.cita-form{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 28px 26px}
+@media (max-width:520px){.cita-form{padding:22px 18px 20px}}
+.cita-paso{margin-bottom:26px}
+.cita-paso:last-of-type{margin-bottom:0}
+.cita-paso__titulo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cita-paso__num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:.85rem;display:grid;place-items:center;flex-shrink:0}
+.cita-paso__titulo h2{font-size:1.1rem;margin:0}
+.cita-campos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 16px}
+/* Las opciones del régimen son largas: sin esto el select ensancha la rejilla. */
+.cita-campos .field{min-width:0}
+.cita-campos select{width:100%;min-width:0;text-overflow:ellipsis}
+.cita-campos .field--ancho{grid-column:1/-1}
+@media (max-width:560px){.cita-campos{grid-template-columns:minmax(0,1fr)}}
+.cita-aviso{border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin:0 0 18px;background:#f8f7f5;font-size:.95rem}
+.cita-aviso--error{border-color:#e3b08a;background:#fdf3ea}
+.cita-enviar{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.cita-enviar .muted{font-size:.85rem}
+.hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;overflow:hidden}
+.cita-aside .card + .card{margin-top:16px}
+.cita-aside .card h3{font-size:1.05rem;margin-bottom:12px}
+.lista-req{margin:0;padding-left:20px;display:grid;gap:8px;font-size:.93rem;color:var(--text-2)}
+.field .opcional{font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0}
+/* La constancia: un recuadro aparte, arriba de los datos que reemplaza. */
+.csf{grid-column:1/-1;border:1px dashed #c9d3df;border-radius:var(--radius);padding:14px 16px;background:#fafbfc}
+.csf label{font-weight:600;font-size:.95rem;display:block;margin-bottom:4px}
+.csf p{font-size:.86rem;color:var(--muted);margin:0 0 10px}
+.csf input[type=file]{font:inherit;font-size:.9rem;max-width:100%}
+.csf--lista{border-style:solid;border-color:#c6ebd6;background:#f2fbf6}
+.separa{grid-column:1/-1;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+.separa::before,.separa::after{content:"";flex:1;border-top:1px solid var(--border)}
+.confirmacion{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 30px;max-width:720px}
+@media (max-width:520px){.confirmacion{padding:24px 18px}}
+.confirmacion h2{font-size:clamp(1.5rem,3vw,2rem);margin:8px 0 6px}
+.confirmacion .folio{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);letter-spacing:.06em}
+.confirmacion p{color:var(--text-2);margin-top:10px}
+</style>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../" aria-label="Emisha — inicio">
+      <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../liquid-ultra/">Liquid Ultra</a>
+          <a href="../filamentos/">Filamentos</a>
+          <a href="../hotends/">Hotends</a>
+          <a href="../placas/">Placas</a>
+          <a href="../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../servicios/">Servicios y reparación</a>
+          <a href="../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../renta/">Renta de impresoras</a>
+          <a href="../cotizador/">Cotizar pieza</a>
+          <a href="../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../reparacion/">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../cortador/">Cortador</a>
+          <a href="../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../blog/">Blog</a>
+      <a href="../contacto/">Contacto</a>
+      <a class="btn btn--accent btn--sm" href="../tienda/">Tienda</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="cita-encabezado">
+    <div class="wrap">
+      <h1>Solicita tu factura</h1>
+      <p class="cita-encabezado__linea">
+        Para reparaciones, compras en la tienda e impresión 3D que ya pagaste · Te la mandamos a tu correo
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:14px">
+    <div class="wrap">
+
+      <div class="confirmacion" data-confirmacion hidden>
+        <span class="folio" data-c-folio></span>
+        <h2>Listo, recibimos tus datos</h2>
+        <p>Te mandamos la factura a <b data-c-correo></b>.</p>
+        <p data-c-acuse hidden>También te llegó un correo con los datos que nos dejaste: si algo está mal, respóndelo y lo corregimos antes de timbrar.</p>
+        <p>¿Dudas? Escríbenos por <a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp</a>.</p>
+      </div>
+
+      <div class="cita-grid" data-formulario>
+
+        <div>
+          <div class="cita-aviso" data-aviso hidden aria-live="polite"></div>
+
+          <form class="cita-form" data-factura-form novalidate>
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">1</span><h2>Lo que pagaste</h2></div>
+              <div class="cita-campos">
+                <div class="field field--ancho">
+                  <label for="f-concepto">¿Qué pagaste?</label>
+                  <select id="f-concepto" name="concepto" required>
+                    <option value="">Elige una opción</option>
+                    <option value="reparacion">Reparación de impresora</option>
+                    <option value="tienda">Compra en la tienda en línea</option>
+                    <option value="impresion">Impresión 3D, corte láser o diseño</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-folio">Folio o número de pedido <span class="opcional">(si lo tienes)</span></label>
+                  <input id="f-folio" name="folio" maxlength="60" autocomplete="off" placeholder="R-261017-AB3D">
+                  <span class="field__hint">Viene en tu correo de confirmación.</span>
+                </div>
+                <div class="field">
+                  <label for="f-monto">¿Cuánto pagaste? (MXN)</label>
+                  <input id="f-monto" name="monto" type="number" inputmode="decimal" min="1" max="1000000" step="0.01" required placeholder="1000">
+                </div>
+                <div class="field">
+                  <label for="f-fecha">¿Qué día pagaste?</label>
+                  <input id="f-fecha" name="fecha_pago" type="date" required>
+                </div>
+                <div class="field">
+                  <label for="f-forma">¿Cómo pagaste?</label>
+                  <select id="f-forma" name="forma_pago" required>
+                    <option value="">Elige una opción</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia</option>
+                    <option value="tarjeta_credito">Tarjeta de crédito</option>
+                    <option value="tarjeta_debito">Tarjeta de débito</option>
+                    <option value="mercado_pago">Mercado Pago (link de pago o tienda en línea)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">2</span><h2>Tus datos fiscales</h2></div>
+              <div class="cita-campos">
+                <div class="csf" data-csf-caja>
+                  <label for="f-csf">Sube tu constancia de situación fiscal</label>
+                  <p data-csf-nota>PDF o foto, hasta 8 MB. Con ella ya no hace falta escribir tu RFC, nombre, régimen ni código postal.</p>
+                  <input id="f-csf" name="csf" type="file" accept="application/pdf,.pdf,image/jpeg,image/png,image/webp,image/heic,.heic">
+                </div>
+                <div class="separa" data-separa>o escríbelos</div>
+                <div class="field">
+                  <label for="f-rfc">RFC</label>
+                  <input id="f-rfc" name="rfc" maxlength="14" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="12 o 13 caracteres">
+                </div>
+                <div class="field">
+                  <label for="f-cp">Código postal fiscal</label>
+                  <input id="f-cp" name="cp" inputmode="numeric" maxlength="5" pattern="\d{5}" required placeholder="03650">
+                  <span class="field__hint">El de tu domicilio fiscal.</span>
+                </div>
+                <div class="field field--ancho">
+                  <label for="f-nombre">Nombre o razón social</label>
+                  <input id="f-nombre" name="nombre" maxlength="200" required autocomplete="organization">
+                  <span class="field__hint">Tal como aparece en tu constancia, sin «S.A. de C.V.».</span>
+                </div>
+                <div class="field field--ancho">
+                  <label for="f-regimen">Régimen fiscal</label>
+                  <select id="f-regimen" name="regimen" required>
+                    <option value="">Elige tu régimen</option>
+                    <option value="626">626 · Régimen Simplificado de Confianza</option>
+                    <option value="612">612 · Personas Físicas con Actividades Empresariales y Profesionales</option>
+                    <option value="605">605 · Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
+                    <option value="601">601 · General de Ley Personas Morales</option>
+                    <option value="603">603 · Personas Morales con Fines no Lucrativos</option>
+                    <option value="606">606 · Arrendamiento</option>
+                    <option value="607">607 · Régimen de Enajenación o Adquisición de Bienes</option>
+                    <option value="608">608 · Demás ingresos</option>
+                    <option value="610">610 · Residentes en el Extranjero sin Establecimiento Permanente en México</option>
+                    <option value="611">611 · Ingresos por Dividendos (socios y accionistas)</option>
+                    <option value="614">614 · Ingresos por intereses</option>
+                    <option value="615">615 · Régimen de los ingresos por obtención de premios</option>
+                    <option value="616">616 · Sin obligaciones fiscales</option>
+                    <option value="620">620 · Sociedades Cooperativas de Producción que optan por diferir sus ingresos</option>
+                    <option value="621">621 · Incorporación Fiscal</option>
+                    <option value="622">622 · Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
+                    <option value="623">623 · Opcional para Grupos de Sociedades</option>
+                    <option value="624">624 · Coordinados</option>
+                    <option value="625">625 · Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
+                  </select>
+                </div>
+                <div class="field field--ancho">
+                  <label for="f-uso">Uso de CFDI</label>
+                  <select id="f-uso" name="uso_cfdi" required>
+                    <option value="G03" selected>G03 · Gastos en general</option>
+                    <option value="G01">G01 · Adquisición de mercancías</option>
+                    <option value="I04">I04 · Equipo de cómputo y accesorios</option>
+                    <option value="I08">I08 · Otra maquinaria y equipo</option>
+                    <option value="S01">S01 · Sin efectos fiscales</option>
+                  </select>
+                  <span class="field__hint">Si no sabes cuál, deja «Gastos en general».</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">3</span><h2>A dónde te la mandamos</h2></div>
+              <div class="cita-campos">
+                <div class="field">
+                  <label for="f-correo">Correo</label>
+                  <input id="f-correo" name="correo" type="email" maxlength="120" required autocomplete="email">
+                  <span class="field__hint">Ahí te llegan el PDF y el XML.</span>
+                </div>
+                <div class="field">
+                  <label for="f-telefono">WhatsApp <span class="opcional">(opcional)</span></label>
+                  <input id="f-telefono" name="telefono" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="10 dígitos">
+                  <span class="field__hint">Por si falta algún dato.</span>
+                </div>
+                <div class="hp" aria-hidden="true">
+                  <label for="f-sitio">No llenar</label>
+                  <input id="f-sitio" name="sitio_web" tabindex="-1" autocomplete="off">
+                </div>
+              </div>
+            </div>
+
+            <div class="cita-enviar">
+              <button type="submit" class="btn btn--accent btn--lg" data-enviar>Enviar mis datos</button>
+              <span class="muted">Te mandamos la factura a tu correo.</span>
+            </div>
+          </form>
+        </div>
+
+        <aside class="cita-aside">
+          <div class="card">
+            <h3>Qué necesitas</h3>
+            <ul class="lista-req">
+              <li>Tu <b>constancia de situación fiscal</b>, o tu RFC, nombre, régimen y código postal tal como vienen en ella.</li>
+              <li>El <b>uso de CFDI</b>. Si no sabes cuál, «Gastos en general».</li>
+              <li>Qué pagaste, cuánto y qué día.</li>
+            </ul>
+            <p class="muted" style="font-size:.85rem;margin-top:12px">La constancia la descargas en <a href="https://www.sat.gob.mx" target="_blank" rel="noopener">sat.gob.mx</a> con tu RFC y contraseña.</p>
+          </div>
+          <div class="card">
+            <h3>¿Dudas?</h3>
+            <p class="muted" style="font-size:.93rem">Escríbenos por <a href="https://wa.me/525575639255?text=Hola%2C%20tengo%20una%20duda%20sobre%20mi%20factura." target="_blank" rel="noopener">WhatsApp</a> al +52 55 7563 9255.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../placas/">Placas de impresión</a></li>
+          <li><a href="../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../tienda/">Tienda en línea</a></li>
+          <li><a href="../servicios/">Servicios y reparación</a></li>
+          <li><a href="../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../cotizador/">Cotizador</a></li>
+          <li><a href="../cortador/">Cortador</a></li>
+          <li><a href="../calculadora/">Calculadora</a></li>
+          <li><a href="../reparacion/">Agendar reparación</a></li>
+          <li><a href="../renta/">Renta de impresoras</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="../assets/js/main.js?v=7782446c" defer></script>
+<script src="../assets/js/factura.js?v=6565fc3e" defer></script>
+</body>
+</html>
