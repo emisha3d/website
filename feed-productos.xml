@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-10-19</lastBuildDate>
+    <lastBuildDate>2026-10-27</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -647,20 +647,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-ABS-PLATEADO</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS plateado 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS plateado 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-plateado-1-75-mm-1-kg-abs-plateado/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-ABS-PLATEADO.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>599.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-ABS-PLATEADO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-ABS-VERDE</g:id>
       <title><![CDATA[Filamento Bambu Lab ABS verde 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab ABS verde 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -681,7 +667,7 @@
       <link>https://www.emisha.com.mx/refacciones/accesorio-ams-permite-utilizar-4-filamentos-en-una-sola-ams/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-AMS.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>12039.00 MXN</g:price>
+      <g:price>8249.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-AMS</g:mpn>
@@ -695,7 +681,7 @@
       <link>https://www.emisha.com.mx/refacciones/sistema-de-alimentacion-automatica-de-filamento-ams-2-pro/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-AMS-2-PRO.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>10769.00 MXN</g:price>
+      <g:price>10629.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-AMS-2-PRO</g:mpn>
@@ -709,7 +695,7 @@
       <link>https://www.emisha.com.mx/refacciones/version-especializada-de-ams-para-materiales-de-alta-ht/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-AMS-HT.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>5449.00 MXN</g:price>
+      <g:price>5379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-AMS-HT</g:mpn>
@@ -737,7 +723,7 @@
       <link>https://www.emisha.com.mx/refacciones/accesorio-ams-permite-utilizar-hasta-4-filamentos-lite/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-AMS-LITE.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>6209.00 MXN</g:price>
+      <g:price>6129.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-AMS-LITE</g:mpn>
@@ -1199,24 +1185,10 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-azul-1-75-mm-1-kg-pla-lite-azul/</link>
       <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-AZUL.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>389.00 MXN</g:price>
+      <g:price>379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-AZUL</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-LITE-BEIG-MA</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA Lite beige mate 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA Lite beige mate 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-beige-mate-1-75-mm-1-kg-beig-ma/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-BEIG-MA.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>309.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-LITE-BEIG-MA</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -1399,20 +1371,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-VERDE</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-MAGENTA</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA basic magenta 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA basic magenta 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-magenta-1-75-mm-1-kg-pla-magenta/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-MAGENTA.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-MAGENTA</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -1623,20 +1581,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-MUERDAGO-VER</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-NARANJA</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA naranja 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA naranja 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-naranja-1-75-mm-1-kg-pla-naranja/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-NARANJA.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-NARANJA</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -5253,20 +5197,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-FAH004-P</g:id>
-      <title><![CDATA[Hotend completo con boquilla de acero inoxidable 0.2 mm para P1P y P1S]]></title>
-      <description><![CDATA[Hotend completo con boquilla de acero inoxidable 0.2 mm para P1P y P1S. toda la serie P1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/hotend-completo-con-boquilla-de-acero-inoxidable-0-2-mm-fah004-p/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/F/FAH004-P.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>1529.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAH004-P</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-FAH005-N-1</g:id>
       <title><![CDATA[Boquilla de acero endurecido 0.6 mm compatible con serie P y X1C]]></title>
       <description><![CDATA[Boquilla de acero endurecido 0.6 mm compatible con serie P y X1C. toda la serie P1 y la X1C. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -7167,20 +7097,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAZ049</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-FAZ051</g:id>
-      <title><![CDATA[Pies antivibración para P2S]]></title>
-      <description><![CDATA[Pies antivibración para P2S. la P2S. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/pies-antivibracion-para-p2s-faz051/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/F/FAZ051.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAZ051</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>

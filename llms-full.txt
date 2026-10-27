@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-10-19
+Generado: 2026-10-27
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
-- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-10-19
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-10-19
+- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-10-27
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-10-27
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -333,7 +333,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-541 piezas con existencia confirmada, listas para salir de la Ciudad de
+535 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -341,7 +341,7 @@ leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
 comprar, porque boquillas y hotends NO son iguales entre las series A1, P1,
 X1 y H2. Emisha no es distribuidor autorizado de Bambu Lab.
 
-### 4.1 Refacciones y piezas de repuesto (355 piezas)
+### 4.1 Refacciones y piezas de repuesto (354 piezas)
 
 Rango de precio: $169 MXN a $33,599 MXN.
 
@@ -548,7 +548,6 @@ Rango de precio: $169 MXN a $33,599 MXN.
 - Pantalla de alta resolución compatible con P1P y P1S — $1,359 MXN · Compatible: P1P, P1S · SKU AG-DIS002
 - Pantalla de alta resolución para X1C y X1E — $5,989 MXN · Compatible: X1C, X1E · SKU AG-DIS001
 - Paquete de cables MC AP 2 en 1 para P2S — $579 MXN · Compatible: P2S · SKU AG-CAB044
-- Pies antivibracion para P2S — $369 MXN · Compatible: P2S · SKU AG-FAZ051
 - Placa ac LV para P2S — $1,799 MXN · Compatible: P2S · SKU AG-DLB054
 - Placa ac para serie H2 — $2,089 MXN · Compatible: serie H2 · SKU AG-DLB031
 - Placa AP (impresora 110v) compatible con H2D, H2S y láser H2D y H2S — $5,859 MXN · Compatible: H2D, H2S · SKU AG-DLB027
@@ -701,7 +700,7 @@ Rango de precio: $169 MXN a $33,599 MXN.
 - Ventilador regulador de temperatura de la cámara compatible con X1E — $1,999 MXN · Compatible: X1E · SKU AG-FAF008
 - Vidrio lateral para H2D y H2C — $1,439 MXN · Compatible: H2D, H2C · SKU AG-FAS041
 
-### 4.2 Hotends, extrusores y cabezales (41 piezas)
+### 4.2 Hotends, extrusores y cabezales (40 piezas)
 
 Rango de precio: $209 MXN a $20,319 MXN.
 
@@ -723,7 +722,6 @@ Rango de precio: $209 MXN a $20,319 MXN.
 - Hotend completo con boquilla de acero endurecido 0.6 mm para X1E — $1,859 MXN · Compatible: X1E · SKU AG-FAH015
 - Hotend completo con boquilla de acero endurecido 0.8 mm para P1P y P1S — $1,529 MXN · Compatible: P1P, P1S · SKU AG-FAH003-P
 - Hotend completo con boquilla de acero endurecido 0.8 mm para X1E — $1,859 MXN · Compatible: X1E · SKU AG-FAH014
-- Hotend completo con boquilla de acero inoxidable 0.2 mm para P1P y P1S — $1,529 MXN · Compatible: P1P, P1S · SKU AG-FAH004-P
 - Hotend completo con boquilla de acero inoxidable 0.2 mm para X1C — $1,529 MXN · Compatible: X1C · SKU AG-FAH004
 - Hotend completo con boquilla de acero inoxidable 0.2 mm para X1E — $1,859 MXN · Compatible: X1E · SKU AG-FAH016
 - Hotend completo con boquilla de acero inoxidable 0.4 mm para X1C — $1,309 MXN · Compatible: X1C · SKU AG-FAH002
@@ -781,10 +779,10 @@ Rango de precio: $849 MXN a $4,819 MXN.
 
 ### 4.5 AMS y alimentación de filamento (16 piezas)
 
-Rango de precio: $259 MXN a $12,039 MXN.
+Rango de precio: $259 MXN a $10,629 MXN.
 
-- Accesorio AMS permite utilizar 4 filamentos en una sola impresión, compatible con Bambu Lab X1, X1 carbón y serie P1 — $12,039 MXN · Compatible: serie P1, X1, X1C, AMS · SKU AG-BAMBULAB-AMS
-- Accesorio AMS permite utilizar hasta 4 filamentos diferentes en una sola impresión compatible con Bambu Lab A1 y A1 mini — $6,209 MXN · Compatible: A1 mini, A1, AMS · SKU AG-BAMBULAB-AMS-LITE
+- Accesorio AMS permite utilizar 4 filamentos en una sola impresión, compatible con Bambu Lab X1, X1 carbón y serie P1 — $8,249 MXN · Compatible: serie P1, X1, X1C, AMS · SKU AG-BAMBULAB-AMS
+- Accesorio AMS permite utilizar hasta 4 filamentos diferentes en una sola impresión compatible con Bambu Lab A1 y A1 mini — $6,129 MXN · Compatible: A1 mini, A1, AMS · SKU AG-BAMBULAB-AMS-LITE
 - AMS hub compatible con P1P,P1S,X1C — $2,289 MXN · Compatible: P1P, P1S, X1C, AMS · SKU AG-SA002-N
 - AMS Lite hub compartible con serie A1 — $1,279 MXN · Compatible: serie A1, AMS lite · SKU AG-BAMBULAB-AMS-HUB
 - Bobina RFID AMS HT — $289 MXN · Compatible: AMS HT · SKU AG-SAA059
@@ -797,10 +795,10 @@ Rango de precio: $259 MXN a $12,039 MXN.
 - Portacarrete giratorio versión verde para AMS Lite — $499 MXN · Compatible: AMS lite · SKU AG-SAA010
 - Sello de goma para AMS — $709 MXN · Compatible: AMS · SKU AG-SAA021
 - Sistema automático de materiales AMS Lite compatible con serie A1 — $10,049 MXN · Compatible: serie A1, AMS lite · SKU AG-SA005
-- Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $10,769 MXN · SKU AG-BAMBULAB-AMS-2-PRO
-- Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,449 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
+- Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $10,629 MXN · SKU AG-BAMBULAB-AMS-2-PRO
+- Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,379 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (96 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (92 piezas)
 
 Rango de precio: $259 MXN a $1,809 MXN.
 
@@ -811,7 +809,6 @@ Rango de precio: $259 MXN a $1,809 MXN.
 - Filamento Bambu Lab ABS GF naranja 1.75 mm 1 kg — $929 MXN · SKU AG-BAMBULAB-ABS-GF-NARANJA
 - Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg — $929 MXN · SKU AG-BAMBULAB-ABS-GF-ROJO
 - Filamento Bambu Lab ABS naranja 1.75 mm 1 kg — $799 MXN · SKU AG-BAMBULAB-ABS-NARANJA
-- Filamento Bambu Lab ABS plateado 1.75 mm 1 kg — $599 MXN · SKU AG-BAMBULAB-ABS-PLATEADO
 - Filamento Bambu Lab ABS verde 1.75 mm 1 kg — $799 MXN · SKU AG-BAMBULAB-ABS-VERDE
 - Filamento Bambu Lab PA6 GF azul 1.75 mm 1 kg — $1,079 MXN · SKU AG-BAMBULAB-PA6-GF-AZUL
 - Filamento Bambu Lab PA6 GF blanco 1.75 mm 1 kg — $1,079 MXN · SKU AG-BAMBULAB-PA6-GF-BLANCO
@@ -834,7 +831,6 @@ Rango de precio: $259 MXN a $1,809 MXN.
 - Filamento Bambu Lab PLA Basic azul 1.75 mm 1 kg — $419 MXN · SKU AG-BAMBULAB-PLA-AZUL
 - Filamento Bambu Lab PLA Basic cmyk set multicolor 1.75 mm 4 x 1 kg — $1,809 MXN · SKU AG-BAMBULAB-PLA-CMYK
 - Filamento Bambu Lab PLA Basic cyan 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-CYAN
-- Filamento Bambu Lab PLA Basic magenta 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-MAGENTA
 - Filamento Bambu Lab PLA bronce 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-BRONCE
 - Filamento Bambu Lab PLA CF azul mezcla 1.75 mm 1 kg — $899 MXN · SKU AG-BAMBULAB-PLA-CF-AZUL-MEZC
 - Filamento Bambu Lab PLA CF morado iridio 1.75 mm 1 kg — $909 MXN · SKU AG-BAMBULAB-PLA-CF-MORADO-IR
@@ -843,8 +839,7 @@ Rango de precio: $259 MXN a $1,809 MXN.
 - Filamento Bambu Lab PLA girasol amarillo 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-GIRASOL-AMAR
 - Filamento Bambu Lab PLA gris azulado 1.75 mm 1 kg — $419 MXN · SKU AG-BAMBULAB-PLA-GRIS-AZULADO
 - Filamento Bambu Lab PLA Lite amarillo 1.75 mm 1 kg — $309 MXN · SKU AG-BAMBULAB-PLA-LITE-AMARILL
-- Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg — $389 MXN · SKU AG-BAMBULAB-PLA-LITE-AZUL
-- Filamento Bambu Lab PLA Lite beige mate 1.75 mm 1 kg — $309 MXN · SKU AG-BAMBULAB-PLA-LITE-BEIG-MA
+- Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg — $379 MXN · SKU AG-BAMBULAB-PLA-LITE-AZUL
 - Filamento Bambu Lab PLA Lite cyan 1.75 mm 1 kg — $309 MXN · SKU AG-BAMBULAB-PLA-LITE-CYAN
 - Filamento Bambu Lab PLA Lite girasol amarillo 1.75 mm 1 kg — $309 MXN · SKU AG-BAMBULAB-PLA-LITE-GSOL-AM
 - Filamento Bambu Lab PLA Lite gris 1.75 mm 1 kg — $389 MXN · SKU AG-BAMBULAB-PLA-LITE-GRIS
@@ -873,7 +868,6 @@ Rango de precio: $259 MXN a $1,809 MXN.
 - Filamento Bambu Lab PLA metal oro iridio 1.75 mm 1 kg — $859 MXN · SKU AG-BAMBULAB-PLA-METAL-ORO-IR
 - Filamento Bambu Lab PLA metal verde 1.75 mm 1 kg — $859 MXN · SKU AG-BAMBULAB-PLA-METAL-VERDE
 - Filamento Bambu Lab PLA muerdago verde 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-MUERDAGO-VER
-- Filamento Bambu Lab PLA naranja 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-NARANJA
 - Filamento Bambu Lab PLA nube algodon dulce 1.75 mm 1 kg — $539 MXN · SKU AG-BAMBULAB-PLA-NUBE-ALG-DUL
 - Filamento Bambu Lab PLA púrpura indigo 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-PURPURA-INDI
 - Filamento Bambu Lab PLA Refill amarillo 1.75 mm 1 kg — $459 MXN · SKU AG-BAMBULAB-PLA-SPL-AMARILLO
@@ -1331,7 +1325,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-10-19 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-10-27 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 

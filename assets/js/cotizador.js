@@ -1908,8 +1908,23 @@
   /* WhatsApp solo permite prellenar TEXTO: no existe forma de adjuntar un
      archivo desde un enlace wa.me. Además el modelo nunca sale del navegador
      del cliente, así que tampoco hay una URL que mandar. Por eso el mensaje
-     nombra los archivos y le pide al cliente que los adjunte en el chat. */
+     nombra los archivos y le pide al cliente que los adjunte en el chat.
+
+     Los archivos que la página no pudo leer (STEP, SolidWorks…) no tienen
+     estimado, pero igual se nombran para que el taller sepa que vienen. Si
+     no se leyó ninguno, el mensaje va sin lista ni estimado: un «$0 MXN»
+     confunde al cliente y al taller.                                      */
   function mensajeWhatsApp(mat, relleno, total) {
+    var sinLeer = piezas.filter(function (p) { return p.error; })
+                        .map(function (p) { return p.nombre; });
+    var leidas = piezas.filter(function (p) { return !p.error && !p.cargando; });
+    if (!leidas.length) {
+      return sinLeer.length
+        ? 'Hola, quiero cotizar una impresión 3D. Enseguida te mando por aquí: '
+          + sinLeer.join(', ') + '.'
+        : 'Hola, quiero cotizar una impresión 3D. Enseguida te mando el archivo por aquí.';
+    }
+
     var l = ['Hola, quiero cotizar estas piezas:', ''];
     var n = 0;
     piezas.forEach(function (p) {
@@ -1927,6 +1942,12 @@
       if (corte) linea += ' · en ' + q.secciones + ' secciones para armar';
       l.push(linea);
     });
+    if (sinLeer.length) {
+      l.push('', sinLeer.length === 1 ? 'Sin estimado (el sitio no pudo leerlo):'
+                                      : 'Sin estimado (el sitio no pudo leerlos):');
+      sinLeer.forEach(function (nombre) { l.push('• ' + nombre); });
+      n += sinLeer.length;
+    }
     l.push('', 'Material: ' + CONFIG.materiales[mat].nombre,
            'Relleno: ' + Math.round(relleno * 100) + '%',
            'Estimado del sitio: ' + fmt(total), '',

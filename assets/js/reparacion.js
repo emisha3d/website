@@ -448,9 +448,11 @@
       var medio = a.es_video
         ? '<video src="' + esc(url) + '" preload="metadata" muted playsinline></video><span class="play">▶</span>'
         : '<img src="' + esc(url) + '" alt="' + esc(a.nota || 'Foto de la reparación') + '" loading="lazy">';
-      return '<figure><a href="' + esc(url) + '" target="_blank" rel="noopener">' + medio + '</a>' +
+      return '<figure><a href="' + esc(url) + '" data-visor' + (a.es_video ? ' data-video' : '') + ' data-nota="' + esc(a.nota || '') + '">' + medio + '</a>' +
         (a.nota ? '<figcaption>' + esc(a.nota) + '</figcaption>' : '') + '</figure>';
     }).join('');
+
+    if (!gal._visor) { gal._visor = true; visorGaleria(gal); }
 
     var acciones = conf.querySelector('[data-conf-acciones]');
     acciones.textContent = '';
@@ -536,5 +538,98 @@
     }).catch(function () { cargarDisponibilidad(false); });
   } else {
     cargarDisponibilidad(false);
+  }
+
+  // Visor de fotos/video: se abre encima de la página (no en otra pestaña).
+  // Flechas, teclado (← → Esc) y deslizar con el dedo.
+  function visorGaleria(gal) {
+    var css = document.createElement('style');
+    css.textContent =
+      '.visor{position:fixed;inset:0;z-index:9999;background:rgba(8,10,14,.94);display:flex;align-items:center;justify-content:center;touch-action:pan-y}' +
+      '.visor[hidden]{display:none}' +
+      '.visor__medio{max-width:94vw;max-height:80vh;display:flex;align-items:center;justify-content:center}' +
+      '.visor__medio img,.visor__medio video{max-width:94vw;max-height:80vh;object-fit:contain;border-radius:8px;user-select:none;-webkit-user-drag:none}' +
+      '.visor__pie{position:absolute;left:16px;right:16px;bottom:18px;text-align:center;color:#e6e8eb;font-size:.92rem;line-height:1.4}' +
+      '.visor__cuenta{opacity:.65;font-size:.8rem;margin-top:4px}' +
+      '.visor button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;width:48px;height:48px;border-radius:50%;font-size:26px;line-height:1;cursor:pointer;display:grid;place-items:center}' +
+      '.visor button:hover{background:rgba(255,255,255,.24)}' +
+      '.visor__cerrar{top:14px;right:14px}' +
+      '.visor__ant{left:14px;top:50%;transform:translateY(-50%)}' +
+      '.visor__sig{right:14px;top:50%;transform:translateY(-50%)}' +
+      '@media (max-width:600px){.visor__ant,.visor__sig{width:40px;height:40px;font-size:22px;left:8px}.visor__sig{left:auto;right:8px}}';
+    document.head.appendChild(css);
+
+    var v = document.createElement('div');
+    v.className = 'visor';
+    v.hidden = true;
+    v.setAttribute('role', 'dialog');
+    v.setAttribute('aria-modal', 'true');
+    v.setAttribute('aria-label', 'Fotos de tu reparación');
+    v.innerHTML =
+      '<div class="visor__medio"></div>' +
+      '<div class="visor__pie"><div class="visor__nota"></div><div class="visor__cuenta"></div></div>' +
+      '<button type="button" class="visor__ant" aria-label="Anterior">‹</button>' +
+      '<button type="button" class="visor__sig" aria-label="Siguiente">›</button>' +
+      '<button type="button" class="visor__cerrar" aria-label="Cerrar">✕</button>';
+    document.body.appendChild(v);
+    var medio = v.querySelector('.visor__medio'), nota = v.querySelector('.visor__nota'), cuenta = v.querySelector('.visor__cuenta');
+    var lista = [], i = 0, antesOverflow = '';
+
+    function mostrar(n) {
+      i = (n + lista.length) % lista.length;
+      var a = lista[i];
+      medio.textContent = '';
+      var el;
+      if (a.hasAttribute('data-video')) {
+        el = document.createElement('video');
+        el.controls = true; el.playsInline = true; el.autoplay = true;
+      } else {
+        el = document.createElement('img');
+        el.alt = a.getAttribute('data-nota') || 'Foto de la reparación';
+      }
+      el.src = a.getAttribute('href');
+      medio.appendChild(el);
+      nota.textContent = a.getAttribute('data-nota') || '';
+      cuenta.textContent = lista.length > 1 ? (i + 1) + ' / ' + lista.length : '';
+      v.querySelector('.visor__ant').hidden = v.querySelector('.visor__sig').hidden = lista.length < 2;
+    }
+    function abrir(a) {
+      lista = Array.prototype.slice.call(gal.querySelectorAll('a[data-visor]'));
+      antesOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      v.hidden = false;
+      mostrar(lista.indexOf(a));
+      v.querySelector('.visor__cerrar').focus();
+    }
+    function cerrar() {
+      v.hidden = true;
+      medio.textContent = '';  // detiene el video
+      document.body.style.overflow = antesOverflow;
+    }
+
+    gal.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-visor]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;  // ⌘-clic sigue abriendo pestaña
+      e.preventDefault();
+      abrir(a);
+    });
+    v.querySelector('.visor__ant').onclick = function () { mostrar(i - 1); };
+    v.querySelector('.visor__sig').onclick = function () { mostrar(i + 1); };
+    v.querySelector('.visor__cerrar').onclick = cerrar;
+    v.addEventListener('click', function (e) { if (e.target === v || e.target === medio) cerrar(); });
+    document.addEventListener('keydown', function (e) {
+      if (v.hidden) return;
+      if (e.key === 'Escape') cerrar();
+      else if (e.key === 'ArrowLeft') mostrar(i - 1);
+      else if (e.key === 'ArrowRight') mostrar(i + 1);
+    });
+    var x0 = null, y0 = 0;
+    v.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    v.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) && lista.length > 1) mostrar(dx < 0 ? i + 1 : i - 1);
+    }, { passive: true });
   }
 })();
