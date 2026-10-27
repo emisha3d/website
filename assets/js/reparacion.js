@@ -448,7 +448,7 @@
       var medio = a.es_video
         ? '<video src="' + esc(url) + '" preload="metadata" muted playsinline></video><span class="play">▶</span>'
         : '<img src="' + esc(url) + '" alt="' + esc(a.nota || 'Foto de la reparación') + '" loading="lazy">';
-      return '<figure><a href="' + esc(url) + '" data-visor' + (a.es_video ? ' data-video' : '') + ' data-nota="' + esc(a.nota || '') + '">' + medio + '</a>' +
+      return '<figure><a role="button" tabindex="0" data-src="' + esc(url) + '" data-visor' + (a.es_video ? ' data-video' : '') + ' data-nota="' + esc(a.nota || '') + '">' + medio + '</a>' +
         (a.nota ? '<figcaption>' + esc(a.nota) + '</figcaption>' : '') + '</figure>';
     }).join('');
 
@@ -587,7 +587,7 @@
         el = document.createElement('img');
         el.alt = a.getAttribute('data-nota') || 'Foto de la reparación';
       }
-      el.src = a.getAttribute('href');
+      el.src = a.getAttribute('data-src');
       medio.appendChild(el);
       nota.textContent = a.getAttribute('data-nota') || '';
       cuenta.textContent = lista.length > 1 ? (i + 1) + ' / ' + lista.length : '';
@@ -609,9 +609,13 @@
 
     gal.addEventListener('click', function (e) {
       var a = e.target.closest('a[data-visor]');
-      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;  // ⌘-clic sigue abriendo pestaña
+      if (!a) return;
       e.preventDefault();
       abrir(a);
+    });
+    gal.addEventListener('keydown', function (e) {
+      var a = e.target.closest('a[data-visor]');
+      if (a && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); abrir(a); }
     });
     v.querySelector('.visor__ant').onclick = function () { mostrar(i - 1); };
     v.querySelector('.visor__sig').onclick = function () { mostrar(i + 1); };
