@@ -213,7 +213,7 @@
       var q = b.querySelector('[data-quitar-equipo]');
       if (q) q.hidden = lista.length < 2;
     });
-    botonAgregar.hidden = lista.length >= 6;
+    botonAgregar.hidden = lista.length >= 40;
   }
 
   form.addEventListener('change', function (e) {
@@ -227,7 +227,7 @@
 
   botonAgregar.addEventListener('click', function () {
     var lista = equipos();
-    if (lista.length >= 6) return;
+    if (lista.length >= 40) return;
     var n = lista.length + 1;
     var clon = lista[0].cloneNode(true);
     // Los radios necesitan un grupo propio, si no el segundo bloque

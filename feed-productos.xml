@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-10-27</lastBuildDate>
+    <lastBuildDate>2026-10-28</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -1133,20 +1133,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-CYAN</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-GIRASOL-AMAR</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA girasol amarillo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA girasol amarillo 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-girasol-amarillo-1-75-mm-1-kg-amar/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-GIRASOL-AMAR.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-GIRASOL-AMAR</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -5217,7 +5203,7 @@
       <link>https://www.emisha.com.mx/refacciones/conjunto-de-calefaccion-para-hotend-version-2-fah012-v1/</link>
       <g:image_link>https://agelectronica.com/vistas/images/F/FAH012-V1.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1199.00 MXN</g:price>
+      <g:price>959.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAH012-V1</g:mpn>
@@ -6691,20 +6677,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAT002-8</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-FAT003</g:id>
-      <title><![CDATA[Tubo de PTFE de 4 m blanco]]></title>
-      <description><![CDATA[Tubo de PTFE de 4 m blanco. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-de-4-m-blanco-fat003/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/F/FAT003.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>509.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAT003</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
