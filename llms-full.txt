@@ -333,7 +333,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-532 piezas con existencia confirmada, listas para salir de la Ciudad de
+539 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -341,7 +341,7 @@ leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
 comprar, porque boquillas y hotends NO son iguales entre las series A1, P1,
 X1 y H2. Emisha no es distribuidor autorizado de Bambu Lab.
 
-### 4.1 Refacciones y piezas de repuesto (353 piezas)
+### 4.1 Refacciones y piezas de repuesto (354 piezas)
 
 Rango de precio: $169 MXN a $33,599 MXN.
 
@@ -547,6 +547,7 @@ Rango de precio: $169 MXN a $33,599 MXN.
 - Pantalla AMS HT — $1,289 MXN · Compatible: AMS HT · SKU AG-SAA058
 - Pantalla de alta resolución compatible con P1P y P1S — $1,359 MXN · Compatible: P1P, P1S · SKU AG-DIS002
 - Pantalla de alta resolución para X1C y X1E — $5,989 MXN · Compatible: X1C, X1E · SKU AG-DIS001
+- Pantalla táctil para A1 mini — $1,139 MXN · Compatible: A1 mini · SKU AG-DIS003
 - Paquete de cables MC AP 2 en 1 para P2S — $579 MXN · Compatible: P2S · SKU AG-CAB044
 - Placa ac LV para P2S — $1,799 MXN · Compatible: P2S · SKU AG-DLB054
 - Placa ac para serie H2 — $2,089 MXN · Compatible: serie H2 · SKU AG-DLB031
@@ -699,9 +700,9 @@ Rango de precio: $169 MXN a $33,599 MXN.
 - Ventilador regulador de temperatura de la cámara compatible con X1E — $1,999 MXN · Compatible: X1E · SKU AG-FAF008
 - Vidrio lateral para H2D y H2C — $1,439 MXN · Compatible: H2D, H2C · SKU AG-FAS041
 
-### 4.2 Hotends, extrusores y cabezales (40 piezas)
+### 4.2 Hotends, extrusores y cabezales (45 piezas)
 
-Rango de precio: $209 MXN a $20,319 MXN.
+Rango de precio: $179 MXN a $20,319 MXN.
 
 - Cabezal de herramienta con ensamblaje de eje X compatible con serie H2 — $20,319 MXN · Compatible: serie H2 · SKU AG-FAC132
 - Cabezal de herramientas con conjunto eje X para Bambu Lab H2S — $13,829 MXN · Compatible: H2S · SKU AG-FAE043
@@ -715,12 +716,17 @@ Rango de precio: $209 MXN a $20,319 MXN.
 - Engranajes de doble extrusor compatible con H2D — $539 MXN · Compatible: H2D · SKU AG-FAE025
 - Ensamble de calentador de hotend derecho compatible con H2D — $1,289 MXN · Compatible: H2D · SKU AG-FAH029
 - Funda de silicona para hotend compatible con H2D — $239 MXN · Compatible: H2D · SKU AG-FAH022
+- Funda de silicona para hotend de A1 mini y A1 — $179 MXN · Compatible: A1 mini, A1 · SKU AG-FAH006
 - Funda de silicona para hotend para P2S — $209 MXN · Compatible: P2S · SKU AG-FAH048
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1C — $1,529 MXN · Compatible: X1C · SKU AG-FAH001
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1E — $1,859 MXN · Compatible: X1E · SKU AG-FAH013
+- Hotend completo con boquilla de acero endurecido 0.6 mm para P1P y P1S — $1,529 MXN · Compatible: P1P, P1S · SKU AG-FAH005-P
+- Hotend completo con boquilla de acero endurecido 0.6 mm para X1C — $1,529 MXN · Compatible: X1C · SKU AG-FAH005
 - Hotend completo con boquilla de acero endurecido 0.6 mm para X1E — $1,859 MXN · Compatible: X1E · SKU AG-FAH015
 - Hotend completo con boquilla de acero endurecido 0.8 mm para P1P y P1S — $1,529 MXN · Compatible: P1P, P1S · SKU AG-FAH003-P
+- Hotend completo con boquilla de acero endurecido 0.8 mm para X1C — $1,529 MXN · Compatible: X1C · SKU AG-FAH003
 - Hotend completo con boquilla de acero endurecido 0.8 mm para X1E — $1,859 MXN · Compatible: X1E · SKU AG-FAH014
+- Hotend completo con boquilla de acero inoxidable 0.2 mm para P1P y P1S — $1,529 MXN · Compatible: P1P, P1S · SKU AG-FAH004-P
 - Hotend completo con boquilla de acero inoxidable 0.2 mm para X1C — $1,529 MXN · Compatible: X1C · SKU AG-FAH004
 - Hotend completo con boquilla de acero inoxidable 0.2 mm para X1E — $1,859 MXN · Compatible: X1E · SKU AG-FAH016
 - Hotend completo con boquilla de acero inoxidable 0.4 mm para X1C — $1,309 MXN · Compatible: X1C · SKU AG-FAH002
@@ -744,7 +750,7 @@ Rango de precio: $209 MXN a $20,319 MXN.
 - Servo motor 3513 para extrusor compatible con H2D — $2,309 MXN · Compatible: H2D · SKU AG-FAM012
 - Servomotor 3508 para extrusor compatible con P2S — $2,609 MXN · Compatible: P2S · SKU AG-FAM018
 
-### 4.3 Boquillas (13 piezas)
+### 4.3 Boquillas (14 piezas)
 
 Rango de precio: $369 MXN a $869 MXN.
 
@@ -761,6 +767,7 @@ Rango de precio: $369 MXN a $869 MXN.
 - Boquilla de acero endurecido 0.8 mm estándar compatible con H2/P2S/X2D/a2l — $869 MXN · Compatible: P2S, X2D, serie H2 · SKU AG-FAH062
 - Boquilla de acero inoxidable 0.2 mm compatible con serie P y X1C — $719 MXN · Compatible: serie P1, X1C · SKU AG-FAH004-N-1
 - Boquilla de acero inoxidable 0.4 mm compatible con serie P y X1C — $509 MXN · Compatible: serie P1, X1C · SKU AG-FAH002-N-1
+- Boquilla de acero inoxidable 0.4 mm compatible serie A1 — $479 MXN · Compatible: serie A1 · SKU AG-FAH007
 
 ### 4.4 Camas calientes y placas de impresión (9 piezas)
 

@@ -2313,6 +2313,20 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
+      <g:id>AG-DIS003</g:id>
+      <title><![CDATA[Pantalla tactil para A1 mini]]></title>
+      <description><![CDATA[Pantalla tactil para A1 mini. la A1 mini. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/pantalla-tactil-para-a1-mini-dis003/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/D/DIS003.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>1139.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-DIS003</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
       <g:id>AG-DLB006</g:id>
       <title><![CDATA[Placa madre para A1]]></title>
       <description><![CDATA[Placa madre para A1. la A1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -5113,6 +5127,20 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
+      <g:id>AG-FAH003</g:id>
+      <title><![CDATA[Hotend completo con boquilla de acero endurecido 0.8 mm para X1C]]></title>
+      <description><![CDATA[Hotend completo con boquilla de acero endurecido 0.8 mm para X1C. la X1C. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/hotend-completo-con-boquilla-de-acero-endurecido-0-8-mm-fah003/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/F/FAH003.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>1529.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-FAH003</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
       <g:id>AG-FAH003-N-1</g:id>
       <title><![CDATA[Boquilla de acero endurecido 0.8 mm compatible con serie P y X1C]]></title>
       <description><![CDATA[Boquilla de acero endurecido 0.8 mm compatible con serie P y X1C. toda la serie P1 y la X1C. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -5169,6 +5197,34 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
+      <g:id>AG-FAH004-P</g:id>
+      <title><![CDATA[Hotend completo con boquilla de acero inoxidable 0.2 mm para P1P y P1S]]></title>
+      <description><![CDATA[Hotend completo con boquilla de acero inoxidable 0.2 mm para P1P y P1S. toda la serie P1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/hotend-completo-con-boquilla-de-acero-inoxidable-0-2-mm-fah004-p/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/F/FAH004-P.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>1529.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-FAH004-P</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-FAH005</g:id>
+      <title><![CDATA[Hotend completo con boquilla de acero endurecido 0.6 mm para X1C]]></title>
+      <description><![CDATA[Hotend completo con boquilla de acero endurecido 0.6 mm para X1C. la X1C. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/hotend-completo-con-boquilla-de-acero-endurecido-0-6-mm-fah005/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/F/FAH005.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>1529.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-FAH005</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
       <g:id>AG-FAH005-N-1</g:id>
       <title><![CDATA[Boquilla de acero endurecido 0.6 mm compatible con serie P y X1C]]></title>
       <description><![CDATA[Boquilla de acero endurecido 0.6 mm compatible con serie P y X1C. toda la serie P1 y la X1C. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -5179,6 +5235,48 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAH005-N-1</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-FAH005-P</g:id>
+      <title><![CDATA[Hotend completo con boquilla de acero endurecido 0.6 mm para P1P y P1S]]></title>
+      <description><![CDATA[Hotend completo con boquilla de acero endurecido 0.6 mm para P1P y P1S. toda la serie P1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/hotend-completo-con-boquilla-de-acero-endurecido-0-6-mm-fah005-p/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/F/FAH005-P.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>1529.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-FAH005-P</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-FAH006</g:id>
+      <title><![CDATA[Funda de silicona para hotend de A1 mini y A1]]></title>
+      <description><![CDATA[Funda de silicona para hotend de A1 mini y A1. toda la serie A1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/funda-de-silicona-para-hotend-de-a1-mini-y-a1-fah006/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/F/FAH006.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>179.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-FAH006</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-FAH007</g:id>
+      <title><![CDATA[Boquilla de acero inoxidable 0.4 mm compatible serie A1]]></title>
+      <description><![CDATA[Boquilla de acero inoxidable 0.4 mm compatible serie A1. toda la serie A1. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/boquilla-de-acero-inoxidable-0-4-mm-compatible-serie-a1-fah007/</link>
+      <g:image_link>https://agelectronica.com/vistas/images/F/FAH007.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>479.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>AG-FAH007</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>

@@ -11,7 +11,7 @@
   // El mismo worker que recibe las citas de /reparacion/.
   var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
     ? 'http://localhost:8787'
-    : 'https://emisha-reparaciones.matosic-hrvoje.workers.dev';
+    : 'https://citas.emisha.com.mx';
   var MAX_MB = 8;
   var RFC_RE = /^[A-ZÑ&]{3,4}\d{6}[A-Z\d]{3}$/;
 

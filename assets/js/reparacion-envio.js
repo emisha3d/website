@@ -14,7 +14,7 @@
   // Las citas viven en el worker de reparaciones (el mismo que usa /reparacion/).
   var API_CITAS = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
     ? 'http://localhost:8788'
-    : 'https://emisha-reparaciones.matosic-hrvoje.workers.dev';
+    : 'https://citas.emisha.com.mx';
 
   var form = document.querySelector('[data-envio-form]');
   if (!form) return;

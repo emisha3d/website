@@ -15,7 +15,7 @@
   // El mismo worker al que agenda /reparacion/ (ver reparacion.js).
   var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname))
     ? 'http://localhost:8787'
-    : 'https://emisha-reparaciones.matosic-hrvoje.workers.dev';
+    : 'https://citas.emisha.com.mx';
 
   /* Precios SIN IVA, en pesos. Salen de aplicar el 40% del valor del equipo al
      mes; la semana es el 40% del mes y el día el 11% del mes. El depósito en
