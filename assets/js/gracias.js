@@ -103,6 +103,31 @@
     return /^(https:\/\/|http:\/\/(localhost|127\.0\.0\.1)[:\/])/i.test(String(u || '')) ? String(u) : '';
   }
 
+  // Reseñas de Clientes en Google: Google ofrece (en su propia ventana) mandar
+  // una encuesta después de la entrega. Solo compras de la tienda con correo.
+  function resenasGoogle(p) {
+    if (!p.correo || window.__resenasGoogle) return;
+    window.__resenasGoogle = true;
+    var dias = p.entrega === 'taller' ? 3 : 7;
+    var f = new Date(Date.now() + dias * 864e5);
+    var fecha = f.getFullYear() + '-' + ('0' + (f.getMonth() + 1)).slice(-2) + '-' + ('0' + f.getDate()).slice(-2);
+    window.renderOptIn = function () {
+      window.gapi.load('surveyoptin', function () {
+        window.gapi.surveyoptin.render({
+          merchant_id: 5896473562,
+          order_id: p.pedido_id,
+          email: p.correo,
+          delivery_country: 'MX',
+          estimated_delivery_date: fecha
+        });
+      });
+    };
+    var s = document.createElement('script');
+    s.src = 'https://apis.google.com/js/platform.js?onload=renderOptIn';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+
   function consultar() {
     fetch(API + '/pedido/' + encodeURIComponent(folio))
       .then(function (r) {
@@ -140,6 +165,7 @@
           // El título va con textContent: el nombre va tal cual, sin escapar.
           pintar('¡Gracias' + (p.tipo === 'tienda' || p.tipo === 'ag' ? ' por tu compra' : '') +
             (p.nombre ? ', ' + p.nombre : '') + '!', cuerpo + lineasHtml(p));
+          resenasGoogle(p);
           return;
         }
         if (p.estado === 'pending') {

@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-10-31
+Generado: 2026-11-02
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
-- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-10-31
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-10-31
+- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-11-02
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-02
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -929,7 +929,7 @@ Rango de precio: $159 MXN a $1,429 MXN.
 
 Página: https://www.emisha.com.mx/tienda/
 
-2613 diseños distintos, todos impresos por Emisha en la CDMX con filamento
+2614 diseños distintos, todos impresos por Emisha en la CDMX con filamento
 propio de 1.75 mm. Se fabrican BAJO PEDIDO: no son existencia en anaquel,
 así que aquí no se publican cifras de inventario. Pago con Mercado Pago y
 envío a todo México ($149 MXN; gratis desde $999 MXN).
@@ -1146,7 +1146,7 @@ Rango de precio: $79 MXN a $6,339 MXN. Peso: 20 a 1964 g.
 - Soporte Para Sujeción De Lija Con Identificador De Grano 1 — $159 MXN · 80 × 260 × 320 mm · SKU EMI-SSGN-DP-W-001
 - (…y 338 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
-### 5.9 Escritorio, oficina y papelería (230 piezas)
+### 5.9 Escritorio, oficina y papelería (231 piezas)
 
 Rango de precio: $69 MXN a $16,689 MXN. Peso: 30 a 3067 g.
 
@@ -1155,22 +1155,22 @@ Rango de precio: $69 MXN a $16,689 MXN. Peso: 30 a 3067 g.
 - Emisha Billetera Delgada Dinero Tarjetas Compacta — $839 MXN · 60 × 110 × 140 mm · SKU EMISHA-BU732289
 - Emisha Caja Almacenaje Escritorio Decoración Impresión 3D — $779 MXN · 160 × 190 × 140 mm · SKU EMISHA-BU1390380
 - Emisha Caja Organizadora Escritorio Almacenaje Practico — $3,629 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU147260
-- Emisha Cajón para Escritorio Almacenaje — $1,409 MXN · 440 × 290 × 120 mm · SKU EMISHA-BU426376
-- Emisha Clip para Estante Organización — $459 MXN · 50 × 70 × 60 mm · SKU EMISHA-BU466851
-- Emisha Cubo Infinito Decoración Escritorio Geométrico — $399 MXN · 130 × 130 × 130 mm · SKU EMISHA-BU909738
-- Emisha Estuche para Lápices Escritorio Divertido — $1,669 MXN · 80 × 120 × 110 mm · SKU EMISHA-BU771439
-- Emisha Florero para Lápices Automotriz Deportes Escritorio — $989 MXN · 110 × 140 × 120 mm · SKU EMISHA-BU699196
-- Emisha Marcapáginas Libro Bosque — $219 MXN · 50 × 70 × 220 mm · SKU EMISHA-BU846264
-- Emisha Organizador de Escritorio Grande — $2,539 MXN · 240 × 290 × 220 mm · SKU EMISHA-BU855046
-- Emisha Organizador de Escritorio Xxl Modular — $4,099 MXN · 190 × 290 × 190 mm · SKU EMISHA-BU788835
-- Emisha Pirámides para Pintor Pintura Soporte Escritorio — $269 MXN · 100 × 100 × 90 mm · SKU EMISHA-BU638371
-- Emisha Portaforro Oficina Viaje Identificación Impresión 3D — $229 MXN · 50 × 110 × 130 mm · SKU EMISHA-BU719895
+- Emisha Camaleón Articulado Decoración Escritorio Juguete — $549 MXN · 70 × 90 × 100 mm · SKU EMISHA-BU1744181
+- Emisha Clip para Fotos Foto Organizador Estante — $199 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU1012679
+- Emisha Cuchillo Plegable Tarjeta Bolsillo Práctico — $399 MXN · 50 × 70 × 110 mm · SKU EMISHA-BU1092420
+- Emisha Estuche para Lápices Escritorio Magnético Expandible — $1,179 MXN · 90 × 140 × 100 mm · SKU EMISHA-BU599053
+- Emisha Funda para Pasaporte Viaje Documentos Delgada — $459 MXN · 50 × 150 × 190 mm · SKU EMISHA-BU980908
+- Emisha Marcapáginas de Mariposa Lectura Libro — $269 MXN · 50 × 80 × 100 mm · SKU EMISHA-BU1036219
+- Emisha Organizador de Escritorio Giratorio — $1,349 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU140821
+- Emisha Organizador de Escritorio Post It Oficina — $1,569 MXN · 120 × 190 × 140 mm · SKU EMISHA-BU940481
+- Emisha Pinza Modular Universal Escritorio Mesa Sujeción — $1,249 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1579791
+- Emisha Porta-lápices con Capucha Escritorio Decorativo — $679 MXN · 120 × 130 × 160 mm · SKU EMISHA-BU2074420
 - Emisha Soporte compatible con Ratón Escritorio Ikea — $229 MXN · 130 × 150 × 110 mm · SKU EMISHA-BU1155469
 - Emisha Soporte para Libros Lectura Mano Escritorio — $169 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU92061
 - Emisha Soporte para Reloj Escritorio Relojería Decoración — $399 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU1843636
 - Emisha Sujetacables Escritorio Organización Impresión 3D — $159 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1553496
 - Regla Centro Para Carpintería Gris — $69 MXN · 70 × 300 × 390 mm · SKU EMI-CPM-DP-G-001
-- (…y 210 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
+- (…y 211 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
 
 ### 5.10 Juguetes, llaveros y decoración (413 piezas)
 
@@ -1339,7 +1339,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-10-31 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-11-02 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 
