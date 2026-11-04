@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-11-02
+Generado: 2026-11-03
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
-- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-11-02
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-02
+- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-11-04
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-04
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -333,7 +333,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-549 piezas con existencia confirmada, listas para salir de la Ciudad de
+547 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -812,7 +812,7 @@ Rango de precio: $259 MXN a $10,629 MXN.
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $10,629 MXN · SKU AG-BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,379 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (91 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (89 piezas)
 
 Rango de precio: $259 MXN a $1,829 MXN.
 
@@ -842,7 +842,6 @@ Rango de precio: $259 MXN a $1,829 MXN.
 - Filamento Bambu Lab PETG transparente rosa 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-ROSA
 - Filamento Bambu Lab PETG transparente verde azulado 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-VEAZ
 - Filamento Bambu Lab PETG transparente verde oliva 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-VEOL
-- Filamento Bambu Lab PLA Basic azul 1.75 mm 1 kg — $429 MXN · SKU AG-BAMBULAB-PLA-AZUL
 - Filamento Bambu Lab PLA Basic cmyk set multicolor 1.75 mm 4 x 1 kg — $1,829 MXN · SKU AG-BAMBULAB-PLA-CMYK
 - Filamento Bambu Lab PLA Basic cyan 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-CYAN
 - Filamento Bambu Lab PLA bronce 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-BRONCE
@@ -864,7 +863,6 @@ Rango de precio: $259 MXN a $1,829 MXN.
 - Filamento Bambu Lab PLA Lite Refill naranja 1.75 mm 1 kg — $369 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-NAR
 - Filamento Bambu Lab PLA Lite Refill rojo 1.75 mm 1 kg — $369 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-ROJ
 - Filamento Bambu Lab PLA Lite Refill verde 1.75 mm 1 kg — $369 MXN · SKU AG-BAMBULAB-PLA-LITE-SPL-VER
-- Filamento Bambu Lab PLA Lite rojo 1.75 mm 1 kg — $439 MXN · SKU AG-BAMBULAB-PLA-LITE-ROJO
 - Filamento Bambu Lab PLA Lite verde 1.75 mm 1 kg — $319 MXN · SKU AG-BAMBULAB-PLA-LITE-VERDE
 - Filamento Bambu Lab PLA marrón cocoa 1.75 mm 1 kg — $519 MXN · SKU AG-BAMBULAB-PLA-MARRON-COCOA
 - Filamento Bambu Lab PLA Matte azul 1.75 mm 1 kg — $599 MXN · SKU AG-BAMBULAB-PLA-MATTE-AZUL
@@ -1339,7 +1337,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-11-02 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-11-03 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 

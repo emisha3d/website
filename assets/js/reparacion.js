@@ -419,8 +419,17 @@
     var conceptos = cita.conceptos || [];
     costos.hidden = costosT.hidden = !conceptos.length;
     if (conceptos.length) {
-      costos.innerHTML = conceptos.map(function (x) {
-        return '<div><span>' + esc(x.nombre) + (x.opcional ? ' *' : '') + '</span><b>' + esc(mxn(x.centavos)) + '</b></div>';
+      costos.innerHTML = conceptos.map(function (x, i) {
+        // Con varias impresoras: encabezado por impresora y su subtotal.
+        var cab = x.grupo && (i === 0 || conceptos[i - 1].grupo !== x.grupo)
+          ? '<div style="display:block;margin-top:12px;font-weight:700">' + esc(x.grupo) +
+            (x.grupo_diag ? '<span style="display:block;font-weight:400;font-size:.88rem;opacity:.8;white-space:pre-wrap">' + esc(x.grupo_diag) + '</span>' : '') + '</div>' : '';
+        var sub = '';
+        if (x.grupo && (i === conceptos.length - 1 || conceptos[i + 1].grupo !== x.grupo)) {
+          var st = conceptos.filter(function (y) { return y.grupo === x.grupo; }).reduce(function (t, y) { return t + (y.centavos || 0); }, 0);
+          sub = '<div style="opacity:.75"><span>Subtotal</span><b>' + esc(mxn(st)) + '</b></div>';
+        }
+        return cab + '<div><span>' + esc(x.nombre) + (x.opcional ? ' *' : '') + '</span><b>' + esc(mxn(x.centavos)) + '</b></div>' + sub;
       }).join('') +
         '<div class="total"><span>' + (cita.cotizacion_pendiente ? 'Total cotizado' : 'Total a pagar') +
         '</span><b>' + esc(mxn(cita.a_pagar_centavos)) + '</b></div>';
