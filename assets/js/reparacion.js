@@ -452,12 +452,15 @@
       return typeof a.url === 'string' && /^\/[^\/\\]/.test(a.url);
     });
     gal.hidden = galT.hidden = !archivos.length;
-    gal.innerHTML = archivos.map(function (a) {
+    gal.innerHTML = archivos.map(function (a, i) {
       var url = API + a.url;
+      // Con varias impresoras, un encabezado cuando cambia de impresora.
+      var cab = a.grupo && (i === 0 || archivos[i - 1].grupo !== a.grupo)
+        ? '<p style="grid-column:1/-1;margin:10px 0 0;font-weight:700;font-size:.9rem">' + esc(a.grupo) + '</p>' : '';
       var medio = a.es_video
         ? '<video src="' + esc(url) + '" preload="metadata" muted playsinline></video><span class="play">▶</span>'
         : '<img src="' + esc(url) + '" alt="' + esc(a.nota || 'Foto de la reparación') + '" loading="lazy">';
-      return '<figure><a role="button" tabindex="0" data-src="' + esc(url) + '" data-visor' + (a.es_video ? ' data-video' : '') + ' data-nota="' + esc(a.nota || '') + '">' + medio + '</a>' +
+      return cab + '<figure><a role="button" tabindex="0" data-src="' + esc(url) + '" data-visor' + (a.es_video ? ' data-video' : '') + ' data-nota="' + esc(a.nota || '') + '">' + medio + '</a>' +
         (a.nota ? '<figcaption>' + esc(a.nota) + '</figcaption>' : '') + '</figure>';
     }).join('');
 
