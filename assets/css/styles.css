@@ -612,6 +612,8 @@ strong { font-weight: 640; }
   display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
   color: var(--muted); font-size: .83rem;
 }
+.footer-bottom a { color: inherit; font-size: inherit; }
+.footer-bottom a:hover { color: var(--brand-600); }
 
 /* ------------------------------------------------------------ prose 404 */
 .center-block { max-width: 620px; margin-inline: auto; text-align: center; }
