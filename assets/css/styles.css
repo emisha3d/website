@@ -410,6 +410,9 @@ strong { font-weight: 640; }
   border-radius: var(--radius); border: 1px solid var(--border);
   background: var(--bg-2); font-size: .945rem; color: var(--text-2);
 }
+/* display:flex le gana al atributo hidden: sin esto, el aviso «se nos acaba
+   de agotar» de las refacciones salía en todas las fichas con existencia. */
+.note[hidden] { display: none; }
 .note__icon { flex-shrink: 0; width: 21px; height: 21px; margin-top: 2px; }
 .note--warn { background: #fffbeb; border-color: rgba(180,83,9,.24); }
 .note--warn .note__icon { color: var(--warn); }
