@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-11-03</lastBuildDate>
+    <lastBuildDate>2026-11-06</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -899,20 +899,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-PETG-CF-ROJO-LAD</g:id>
-      <title><![CDATA[Filamento Bambu Lab PETG CF rojo ladrillo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PETG CF rojo ladrillo 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-cf-rojo-ladrillo-1-75-mm-1-kg-lad/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PETG-CF-ROJO-LAD.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>929.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PETG-CF-ROJO-LAD</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-PETG-CF-VERDE-MA</g:id>
       <title><![CDATA[Filamento Bambu Lab PETG CF verde marea 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PETG CF verde marea 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -1137,20 +1123,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-PLA-LITE-AMARILL</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA Lite amarillo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA Lite amarillo 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-amarillo-1-75-mm-1-kg-amarill/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-AMARILL.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>319.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-LITE-AMARILL</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-PLA-LITE-AZUL</g:id>
       <title><![CDATA[Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -1319,20 +1291,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-PLA-LITE-VERDE</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA Lite verde 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA Lite verde 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-verde-1-75-mm-1-kg-pla-lite-verde/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-VERDE.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>319.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-LITE-VERDE</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-PLA-MARRON-COCOA</g:id>
       <title><![CDATA[Filamento Bambu Lab PLA marrón cocoa 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PLA marrón cocoa 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -1375,20 +1333,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-PLA-MATTE-BLANCO</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA matte blanco 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA matte blanco 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-blanco-1-75-mm-1-kg-pla-matte-blanco/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-MATTE-BLANCO.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>529.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-MATTE-BLANCO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-PLA-MATTE-CAFE</g:id>
       <title><![CDATA[Filamento Bambu Lab PLA matte café 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PLA matte café 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -1427,20 +1371,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-MATTE-GRIS</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-MATTE-ROJO</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA matte rojo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA matte rojo 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-rojo-1-75-mm-1-kg-pla-matte-rojo/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-MATTE-ROJO.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>809.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-MATTE-ROJO</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -1525,20 +1455,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-METAL-VERDE</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-MUERDAGO-VER</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA muérdago verde 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA muérdago verde 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-muerdago-verde-1-75-mm-1-kg-ver/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-MUERDAGO-VER.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-MUERDAGO-VER</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -5725,20 +5641,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAH056</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-FAH059</g:id>
-      <title><![CDATA[Boquilla de acero endurecido 0.2 mm estándar compatible con H2/P2S/X2D/A2L]]></title>
-      <description><![CDATA[Boquilla de acero endurecido 0.2 mm estándar compatible con H2/P2S/X2D/A2L. toda la serie H2, la P2S, la X2D y la A2L. Refacción original Bambu Lab, nueva, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-2-mm-estandar-compatible-fah059/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/F/FAH059.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>879.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAH059</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>

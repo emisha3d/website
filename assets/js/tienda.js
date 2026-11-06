@@ -524,8 +524,7 @@
       (envio.propio > 0 && falta > 0
         ? '<div class="drawer__falta"><span>Te faltan ' + precio(falta) + (t.hayAG ? ' en productos Emisha' : '') + ' para el envío gratis</span></div>' : '') +
       (t.hayAG
-        ? '<div><span>Envío del proveedor (aprox.)</span><span>' + precio(envio.ag) + '</span></div>' +
-          '<div class="drawer__falta"><span>Las refacciones de proveedor salen de su almacén y pagan su envío; el exacto sale con tu código postal.</span></div>' : '') +
+        ? '<div><span>Envío del proveedor (aprox.)</span><span>' + precio(envio.ag) + '</span></div>' : '') +
       '<div class="drawer__total"><span>Total</span><span>' + precio(t.centavos + envio.total) +
         (envio.pendiente ? ' + envío' : '') + '</span></div>';
 
