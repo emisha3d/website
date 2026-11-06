@@ -315,6 +315,17 @@
 .confirmacion__datos dt{color:var(--muted);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
 .confirmacion__datos dd{margin:0}
 @media (max-width:520px){.confirmacion__datos div{grid-template-columns:1fr;gap:2px}}
+/* Varias impresoras: en qué va cada una. Sin divs: .confirmacion__datos div es rejilla. */
+.avance-resumen{margin:0 0 8px;font-weight:600}
+.avance{list-style:none;margin:0;padding:0}
+.avance li{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:8px 0;border-top:1px solid var(--border-soft)}
+.avance li:first-child{border-top:0;padding-top:0}
+.avance small{display:block;color:var(--muted);font-size:.82rem}
+.avance__e{flex:none;font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:99px;white-space:nowrap;background:var(--surface-2);color:var(--text-2)}
+.avance__e--cotizada{background:#fff1f7;color:#a1245e}
+.avance__e--en_reparacion{background:#fff6e5;color:#b45309}
+.avance__e--lista{background:#e8f7ef;color:#067647}
+.avance__e--entregada,.avance__e--fuera{background:transparent;color:var(--muted);border:1px solid var(--border)}
 /* Sin portada: quien entra aquí viene a agendar, no a leer. Título, un renglón
    de datos y enseguida el paso 1. El horario y los precios ya vienen otra vez
    en las tarjetas de la derecha y en el paso 3, así que aquí van una sola vez
@@ -708,6 +719,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/reparacion.js?v=e397c1fb" defer></script>
+<script src="../assets/js/reparacion.js?v=383cc79e" defer></script>
 </body>
 </html>

@@ -372,6 +372,23 @@
     cancelada: ['Cita cancelada', 'Esta cita fue cancelada', 'Si quieres, agenda otra abajo o escríbenos por WhatsApp.'],
     no_llego: ['Cita vencida', 'No recibimos tu impresora ese día', 'Puedes agendar otra cita cuando gustes.']
   };
+  // Con varias impresoras: «tus 8 impresoras» en vez de «tu X1 Carbon + X1 Carbon + …».
+  var TEXTO_VARIAS = {
+    recibida: [null, 'Ya tenemos tus {n} impresoras en el taller'],
+    en_diagnostico: [null, 'Estamos revisando tus {n} impresoras'],
+    cotizada: [null, 'Ya revisamos tus {n} impresoras'],
+    en_reparacion: [null, 'Estamos trabajando en tus {n} impresoras', 'Abajo ves en qué va cada una. Te avisamos en cuanto estén listas.'],
+    lista: ['Listas para entrega', 'Tus {n} impresoras ya están listas', 'Pasa por ellas al taller de lunes a viernes de 9:00 a 19:00. Si prefieres otro horario, escríbenos.']
+  };
+
+  // Una impresora de la lista: número, modelo, serie y falla, y su estado si ya está en el taller.
+  function filaEquipo(e, i, conAvance) {
+    var nombre = (i + 1) + '. ' + esc(e.modelo) + (e.trae_ams ? ' · con AMS' : '');
+    var sub = [e.serie ? 'Serie ' + esc(e.serie) : '', esc(e.tipo_falla)].filter(Boolean).join(' · ');
+    if (!conAvance) return esc(e.modelo) + (e.trae_ams ? ' · con AMS' : '') + ' · ' + esc(e.tipo_falla);
+    return '<li><span>' + nombre + '<small>' + sub + '</small></span>' +
+      '<b class="avance__e avance__e--' + esc(e.estado || 'fuera') + '">' + esc(e.estado_legible || 'Va tal como llegó') + '</b></li>';
+  }
 
   // Qué decirle debajo del desglose, segun donde va su cotizacion.
   var TEXTO_COSTOS = {
@@ -383,20 +400,31 @@
 
   function mostrarConfirmacion(cita, recien) {
     var t = TEXTO_ESTADO[cita.estado] || TEXTO_ESTADO.nueva;
+    var equipos = cita.equipos || [];
+    // Varias impresoras ya en el taller: cada una con su estado.
+    var conAvance = equipos.length > 1 && equipos.some(function (e) { return e.estado; });
+    var trabajadas = equipos.filter(function (e) { return !e.no_se_repara; }).length;
+    var tv = trabajadas > 1 && TEXTO_VARIAS[cita.estado];
+    if (tv) t = [tv[0] || t[0], tv[1].replace('{n}', trabajadas), tv[2] || t[2]];
     var cuando = cita.fecha_legible + ' a las ' + cita.hora;
     conf.querySelector('[data-conf-eyebrow]').textContent = t[0];
     conf.querySelector('[data-conf-titulo]').textContent = t[1].replace('{cuando}', cuando).replace('{modelo}', cita.modelo);
     conf.querySelector('[data-conf-folio]').textContent = 'Folio ' + cita.folio;
 
+    // «3 de 8 listas para recoger» cuando no van al parejo.
+    var listas = equipos.filter(function (e) { return e.estado === 'lista'; }).length;
+    var resumen = conAvance && listas && listas < trabajadas
+      ? '<p class="avance-resumen">' + listas + ' de ' + trabajadas + (listas === 1 ? ' lista' : ' listas') + ' para recoger</p>' : '';
+
     var datos = [
       ['Cuándo', esc(cuando)],
       ['Dónde', 'Av. División del Norte 1354, Piso 1, Letrán del Valle, Benito Juárez, CDMX 03650. Estacionamiento con valet parking.'],
-      [(cita.equipos && cita.equipos.length > 1) ? 'Impresoras' : 'Impresora',
-        (cita.equipos && cita.equipos.length)
-          ? cita.equipos.map(function (e) {
-              return esc(e.modelo) + (e.trae_ams ? ' · con AMS' : '') + ' · ' + esc(e.tipo_falla);
-            }).join('<br>')
-          : esc(cita.modelo) + (cita.trae_ams ? ' · con AMS' : '') + ' · ' + esc(cita.tipo_falla)],
+      [equipos.length > 1 ? 'Impresoras' : 'Impresora',
+        conAvance
+          ? resumen + '<ul class="avance">' + equipos.map(function (e, i) { return filaEquipo(e, i, true); }).join('') + '</ul>'
+          : equipos.length
+            ? equipos.map(function (e, i) { return filaEquipo(e, i, false); }).join('<br>')
+            : esc(cita.modelo) + (cita.trae_ams ? ' · con AMS' : '') + ' · ' + esc(cita.tipo_falla)],
       ['Qué traer', ((cita.equipos && cita.equipos.length > 1) ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (cita.trae_ams ? ' y el AMS con el suyo' : '') + '. Si la falla pasa con un filamento en particular, tráelo.'],
       ['Costos', 'Diagnóstico $300 · Reparación $700 (con diagnóstico previo, $400). Refacciones aparte, siempre con tu autorización.']
     ];
