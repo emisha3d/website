@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-11-06</lastBuildDate>
+    <lastBuildDate>2026-11-08</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -619,20 +619,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-ABS-GF-ROJO</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-rojo-1-75-mm-1-kg-abs-gf-rojo/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-ABS-GF-ROJO.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>939.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-ABS-GF-ROJO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-ABS-NARANJA</g:id>
       <title><![CDATA[Filamento Bambu Lab ABS naranja 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab ABS naranja 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -913,20 +899,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-PETG-NARANJA</g:id>
-      <title><![CDATA[Filamento Bambu Lab PETG naranja 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PETG naranja 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-naranja-1-75-mm-1-kg-petg-naranja/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PETG-NARANJA.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>449.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PETG-NARANJA</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-PETG-TRANSP-CAFE</g:id>
       <title><![CDATA[Filamento Bambu Lab PETG transparente café 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PETG transparente café 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -1179,20 +1151,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-PLA-LITE-NARANJA</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA Lite naranja 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA Lite naranja 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-naranja-1-75-mm-1-kg-pla-lite-naranja/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-NARANJA.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>319.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-LITE-NARANJA</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-PLA-LITE-SPL-B-M</g:id>
       <title><![CDATA[Filamento Bambu Lab PLA Lite refill beige mate 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PLA Lite refill beige mate 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
@@ -1259,20 +1217,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-SPL-NAR</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-LITE-SPL-ROJ</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA Lite refill rojo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA Lite refill rojo 1.75 mm 1 kg. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-rojo-1-75-mm-1-kg-spl-roj/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/B/BAMBULAB-PLA-LITE-SPL-ROJ.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-LITE-SPL-ROJ</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
