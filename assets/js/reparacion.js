@@ -398,6 +398,24 @@
     rechazada: 'No autorizaste la reparación, así que solo se cobra el diagnóstico.'
   };
 
+  // Los renglones de totales: [[texto, centavos, fuerte, signo]]. Lo que ya
+  // pagó por adelantado (los diagnósticos al dejarla) se resta.
+  function filasTotales(cita, porEq, pendEq) {
+    var ya = cita.pagado_centavos || 0, a = cita.a_pagar_centavos || 0;
+    if (porEq) {
+      if (!pendEq && !ya) return [['Total a pagar', a, true]];
+      var f = [['Lo ya hecho', a, false]];
+      if (ya) f.push(['Ya pagaste', ya, false, '− ']);
+      if (pendEq) f.push(['Si autorizas lo pendiente', cita.por_autorizar_centavos, false, '+ ']);
+      f.push([pendEq ? 'Por pagar si autorizas todo' : 'Por pagar al recoger', Math.max(0, a + (pendEq ? cita.por_autorizar_centavos : 0) - ya), true]);
+      return f;
+    }
+    var etiqueta = cita.cotizacion_pendiente ? 'Total cotizado' : 'Total a pagar';
+    if (!ya) return [[etiqueta, a, true]];
+    return [[cita.cotizacion_pendiente ? 'Total cotizado' : 'Total', a, false], ['Ya pagaste', ya, false, '− '],
+      [cita.cotizacion_pendiente ? 'Por pagar si autorizas' : 'Por pagar al recoger', Math.max(0, a - ya), true]];
+  }
+
   // En qué va una impresora de una cita cotizada por impresora.
   function chipEquipo(e) {
     var k = e.por_autorizar ? 'cotizada' : e.respuesta === 'rechazada' ? 'fuera' : (e.estado || 'fuera');
@@ -470,14 +488,9 @@
           sub = '<div style="opacity:.75"><span>' + (eq && eq.por_autorizar ? 'Si la autorizas' : 'Subtotal') + '</span><b>' + esc(mxn(st)) + '</b></div>';
         }
         return cab + '<div><span>' + esc(x.nombre) + (x.opcional ? ' *' : '') + '</span><b>' + esc(mxn(x.centavos)) + '</b></div>' + sub;
-      }).join('') + (porEq
-        ? '<div' + (pendEq ? '' : ' class="total"') + '><span>' + (pendEq ? 'Lo ya hecho, se paga al recoger' : 'Total a pagar') + '</span><b>' + esc(mxn(cita.a_pagar_centavos)) + '</b></div>' +
-          (pendEq
-            ? '<div><span>Si autorizas lo pendiente</span><b>+ ' + esc(mxn(cita.por_autorizar_centavos)) + '</b></div>' +
-              '<div class="total"><span>Total si autorizas todo</span><b>' + esc(mxn(cita.total_si_autoriza_centavos)) + '</b></div>'
-            : '')
-        : '<div class="total"><span>' + (cita.cotizacion_pendiente ? 'Total cotizado' : 'Total a pagar') +
-          '</span><b>' + esc(mxn(cita.a_pagar_centavos)) + '</b></div>');
+      }).join('') + filasTotales(cita, porEq, pendEq).map(function (f) {
+        return '<div' + (f[2] ? ' class="total"' : '') + '><span>' + esc(f[0]) + '</span><b>' + (f[3] || '') + esc(mxn(f[1])) + '</b></div>';
+      }).join('');
     }
     var sinPrecio = porEq && (cita.equipos_sin_precio || []).length
       ? ' Sin contar ' + cita.equipos_sin_precio.join(', ') + ': su costo se suma en cuanto terminemos de revisar' + (cita.equipos_sin_precio.length > 1 ? 'las' : 'la') + '.' : '';
