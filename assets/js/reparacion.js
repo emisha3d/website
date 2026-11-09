@@ -484,10 +484,13 @@
             (x.grupo_diag ? '<span style="display:block;font-weight:400;font-size:.88rem;opacity:.8;white-space:pre-wrap">' + esc(x.grupo_diag) + '</span>' : '') + '</div>' : '';
         var sub = '';
         if (x.grupo && (i === conceptos.length - 1 || conceptos[i + 1].grupo !== x.grupo)) {
-          var st = conceptos.filter(function (y) { return y.grupo === x.grupo; }).reduce(function (t, y) { return t + (y.centavos || 0); }, 0);
+          var st = conceptos.filter(function (y) { return y.grupo === x.grupo; }).reduce(function (t, y) { return t + (y.pagado ? 0 : (y.centavos || 0)); }, 0);
           sub = '<div style="opacity:.75"><span>' + (eq && eq.por_autorizar ? 'Si la autorizas' : 'Subtotal') + '</span><b>' + esc(mxn(st)) + '</b></div>';
         }
-        return cab + '<div><span>' + esc(x.nombre) + (x.opcional ? ' *' : '') + '</span><b>' + esc(mxn(x.centavos)) + '</b></div>' + sub;
+        // Lo que ya pagó (el diagnóstico al dejarla): a la vista, tachado, sin contar.
+        return cab + (x.pagado
+          ? '<div><span>' + esc(x.nombre) + ' <span style="color:#067647">· ya pagado</span></span><b style="font-weight:400;opacity:.6"><s>' + esc(mxn(x.centavos)) + '</s></b></div>'
+          : '<div><span>' + esc(x.nombre) + (x.opcional ? ' *' : '') + '</span><b>' + esc(mxn(x.centavos)) + '</b></div>') + sub;
       }).join('') + filasTotales(cita, porEq, pendEq).map(function (f) {
         return '<div' + (f[2] ? ' class="total"' : '') + '><span>' + esc(f[0]) + '</span><b>' + (f[3] || '') + esc(mxn(f[1])) + '</b></div>';
       }).join('');
@@ -497,7 +500,8 @@
     var notaCostos = porEq
       ? (pendEq
           ? (pendEq === 1 ? 'Una impresora espera' : pendEq + ' impresoras esperan') + ' tu respuesta: autorízalas (o no) con el botón de abajo. No las tocamos hasta que respondas; las demás se pagan al recogerlas.'
-          : 'Ya respondiste por todas las impresoras cotizadas. Se paga al recogerlas.') + sinPrecio
+          : 'Ya respondiste por todas las impresoras cotizadas. Se paga al recogerlas.') +
+        (cita.diagnosticos_pagados ? ' Los diagnósticos ya los pagaste: no se cobran otra vez.' : '') + sinPrecio
       : cita.cotizacion_pendiente
         ? TEXTO_COSTOS.pendiente
         : (TEXTO_COSTOS[cita.cotizacion_respuesta] || '');
