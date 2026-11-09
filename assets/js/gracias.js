@@ -217,7 +217,7 @@
           pintar('El pago no se completó',
             '<p>No se hizo ningún cargo y las piezas volvieron al inventario. Puedes ' +
             'intentarlo de nuevo cuando gustes.</p>' +
-            '<p><a class="btn btn--primary" href="/tienda/">Volver a la tienda</a></p>');
+            '<p><a class="btn btn--primary" href="/#tienda">Volver a la tienda</a></p>');
         }
       })
       .catch(function () {
@@ -233,6 +233,6 @@
   } else {
     pintar('No hay pedido que mostrar',
       '<p>Parece que llegaste aquí sin un pedido en curso. La tienda está en ' +
-      '<a href="/tienda/">emisha.com.mx/tienda</a>.</p>');
+      '<a href="/#tienda">emisha.com.mx</a>.</p>');
   }
 })();
