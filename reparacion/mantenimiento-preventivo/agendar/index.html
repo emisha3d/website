@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda tu mantenimiento preventivo Bambu Lab | Emisha</title>
+<meta name="description" content="Escoge día y hora para traer tu Bambu Lab al mantenimiento preventivo en Benito Juárez, CDMX. $700 MXN por impresora, $300 más si traes el AMS, IVA incluido.">
+<link rel="canonical" href="https://www.emisha.com.mx/reparacion/mantenimiento-preventivo/agendar/">
+<!-- Es el formulario: la página que compite por búsquedas es /reparacion/mantenimiento-preventivo/. -->
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../../assets/css/styles.css?v=e9d69a94">
+
+<style>
+/* Mismo formulario que /reparacion/ (sus estilos viven en esa página, no en la
+   hoja global): impresoras, datos, día y hora. Aquí no hay tipo de falla. */
+#agendar{scroll-margin-top:70px}
+.cita-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start;min-width:0}
+@media (max-width:900px){.cita-grid{grid-template-columns:minmax(0,1fr)}}
+.cita-form{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 28px 26px}
+@media (max-width:520px){.cita-form{padding:22px 18px 20px}}
+.cita-paso{margin-bottom:26px}
+.cita-paso:last-of-type{margin-bottom:0}
+.cita-paso__titulo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cita-paso__num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:.85rem;display:grid;place-items:center;flex-shrink:0}
+.cita-paso__titulo h2{font-size:1.1rem;margin:0}
+.cita-campos{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.cita-campos .field--ancho{grid-column:1/-1}
+@media (max-width:560px){.cita-campos{grid-template-columns:1fr}}
+.field[hidden]{display:none}
+.field textarea{font:inherit;font-size:.93rem;color:var(--text);padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:#fff;min-height:84px;resize:vertical}
+.field textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
+.check{display:flex;align-items:center;gap:9px;font-size:.92rem;color:var(--text-2);cursor:pointer}
+.check input{width:17px;height:17px;accent-color:var(--brand)}
+.check b{color:var(--text)}
+.cita-campos [data-equipos],.cita-campos [data-agregar-equipo]{grid-column:1/-1}
+.cita-campos [data-agregar-equipo]{justify-self:start;width:auto}
+.equipo-bloque + .equipo-bloque{border-top:1px solid var(--border);margin-top:26px;padding-top:20px}
+.equipo-bloque__cab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.equipo-bloque__cab:empty{display:none}
+.equipo-bloque__num{font-family:var(--mono,ui-monospace,Menlo,monospace);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.equipo-bloque__num:empty{display:none}
+.equipo-bloque__quitar{border:0;background:none;color:var(--muted);font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;padding:4px 8px;border-radius:7px}
+.equipo-bloque__quitar:hover{background:rgba(180,35,24,.08);color:#b42318}
+.equipo-bloque__extra{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:14px}
+.equipo-bloque__extra .field--ancho{grid-column:1/-1}
+@media (max-width:560px){.equipo-bloque__extra{grid-template-columns:1fr}}
+[data-agregar-equipo]{margin-top:6px}
+[data-agregar-equipo][hidden]{display:none}
+.picker{border:0;padding:0;margin:0;min-width:0;grid-column:1/-1}
+.picker legend{font-family:var(--font-mono);font-size:.665rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:8px}
+.picker__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.picker__item{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px 9px;border:1px solid var(--border);border-radius:var(--radius);background:#fff;cursor:pointer;text-align:center;transition:border-color .15s var(--ease),box-shadow .15s var(--ease),background .15s var(--ease)}
+.picker__item:hover{border-color:#cfd8e3}
+.picker__item input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.picker__item.is-checked,.picker__item:has(input:checked){border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);background:#f5f9ff}
+.picker__item:has(input:focus-visible){outline:2px solid var(--brand);outline-offset:2px}
+.picker__media{width:64px;height:64px;display:grid;place-items:center}
+.picker__media--modelo svg{width:46px;height:46px;color:var(--text)}
+.picker__label{font-size:.82rem;font-weight:600;line-height:1.2;color:var(--text)}
+@media (max-width:520px){.picker__grid{grid-template-columns:repeat(3,1fr)}}
+.dias{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.dia{flex:0 0 auto;scroll-snap-align:start;border:1px solid var(--border);background:#fff;border-radius:var(--radius);padding:10px 14px;min-width:96px;text-align:center;cursor:pointer;font:inherit;line-height:1.25}
+.dia:hover{border-color:#cfd8e3}
+.dia[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.dia b{display:block;font-size:1.05rem}
+.dia small{display:block;font-size:.72rem;opacity:.75}
+.dia small:first-child{text-transform:capitalize}
+.dia:disabled{opacity:.45;cursor:default}
+.turnos{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;margin-top:12px}
+.turno{border:1px solid var(--border);background:#fff;border-radius:var(--radius-sm);padding:10px 6px;font:inherit;font-weight:600;font-size:.95rem;cursor:pointer;font-variant-numeric:tabular-nums}
+.turno:hover{border-color:#cfd8e3;background:var(--surface-2)}
+.turno[aria-pressed="true"]{border-color:var(--brand);background:var(--brand);color:#fff}
+.turno:disabled{opacity:.35;cursor:default;text-decoration:line-through}
+.turnos-vacio{color:var(--muted);font-size:.9rem;margin-top:12px}
+.cita-elegida{margin-top:14px;font-size:.95rem;color:var(--text-2)}
+.cita-elegida b{color:var(--text)}
+.cita-aviso{border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin:0 0 18px;background:#f8f7f5;font-size:.95rem}
+.cita-aviso--error{border-color:#e3b08a;background:#fdf3ea}
+.cita-enviar{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.cita-enviar .muted{font-size:.85rem}
+.hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;overflow:hidden}
+.cita-aside .card + .card{margin-top:16px}
+.cita-aside .card h3{font-size:1.05rem;margin-bottom:12px}
+.precios{display:grid;gap:8px}
+.precios div{display:flex;justify-content:space-between;gap:12px;font-size:.95rem;border-bottom:1px dashed var(--border);padding-bottom:8px}
+.precios div:last-child{border-bottom:0;padding-bottom:0}
+.precios b{white-space:nowrap;font-variant-numeric:tabular-nums}
+.precios[hidden],.galeria[hidden]{display:none}
+.precios .total{font-weight:600;border-bottom:0;padding-top:2px}
+.precios .total b{font-size:1.15rem}
+/* El total en vivo, junto al botón: en el celular la tarjeta de la derecha
+   queda hasta abajo y aquí es donde se decide. */
+.total-vivo{flex:1 1 100%;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 14px;border-radius:var(--radius);background:var(--surface-2,#f5f7fa);font-size:.95rem}
+.total-vivo b{font-size:1.25rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.total-vivo small{display:block;color:var(--muted);font-size:.82rem}
+.dato{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--text-2)}
+.dato + .dato{margin-top:10px}
+.dato svg{width:18px;height:18px;flex-shrink:0;color:var(--brand);margin-top:2px}
+.incluye{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.92rem;color:var(--text-2)}
+.incluye li{display:flex;gap:8px}
+.incluye li::before{content:"✓";color:var(--brand);font-weight:700}
+.confirmacion{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 30px}
+@media (max-width:520px){.confirmacion{padding:24px 18px}}
+.confirmacion h2{font-size:clamp(1.5rem,3vw,2rem);margin:8px 0 6px}
+.confirmacion .folio{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);letter-spacing:.06em}
+.confirmacion__datos{margin:22px 0;display:grid;gap:12px}
+.confirmacion__datos div{display:grid;grid-template-columns:120px 1fr;gap:10px;font-size:.95rem}
+.confirmacion__datos dt{color:var(--muted);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.confirmacion__datos dd{margin:0}
+.confirmacion__datos small{display:block;color:var(--muted);font-size:.84rem;white-space:pre-wrap}
+.confirmacion__datos .impresora{display:block}
+.confirmacion__datos .impresora + .impresora{margin-top:8px}
+@media (max-width:520px){.confirmacion__datos div{grid-template-columns:1fr;gap:2px}}
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:10px 0 4px}
+.galeria figure{margin:0}
+.galeria a{display:block;border-radius:10px;overflow:hidden;background:#0d1117;position:relative;aspect-ratio:4/3}
+.galeria img,.galeria video{width:100%;height:100%;object-fit:cover;display:block}
+.galeria figcaption{font-size:.82rem;color:var(--muted);margin-top:5px;line-height:1.35}
+.galeria-t{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:18px 0 0}
+.cita-encabezado{padding:20px 0 14px;background:var(--bg)}
+.cita-encabezado h1{font-size:clamp(1.35rem,2.6vw,1.6rem);margin:0 0 6px}
+.cita-encabezado__linea{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+@media (max-width:600px){.cita-encabezado{padding:16px 0 12px}}
+</style>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../../" aria-label="Emisha — inicio">
+      <img src="../../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../../filamentos/">Filamentos</a>
+          <a href="../../../hotends/">Hotends</a>
+          <a href="../../../placas/">Placas</a>
+          <a href="../../../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn is-current" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../../../servicios/">Servicios y reparación</a>
+          <a href="../../../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../../../cotizador/">Cotizar pieza</a>
+          <a href="../../../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../../../reparacion/" aria-current="page">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../../cortador/">Cortador</a>
+          <a href="../../../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../../../blog/">Blog</a>
+      <a href="../../../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================= ENCABEZADO -->
+  <section class="cita-encabezado">
+    <div class="wrap">
+      <h1>Agenda tu mantenimiento preventivo</h1>
+      <p class="cita-encabezado__linea">
+        Lun–vie 12:00 a 18:00 · Benito Juárez, CDMX · $700 por impresora · +$300 si traes el AMS · IVA incluido
+        · <a href="../../../reparacion/mantenimiento-preventivo/">qué incluye</a>
+        · ¿Fuera de CDMX? <a href="../../../reparacion/envio/">mándala por paquetería</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================ AGENDAR -->
+  <section class="section" id="agendar" style="padding-top:14px">
+    <div class="wrap">
+      <div class="cita-grid">
+
+        <!-- ------------------------------------------------ FORMULARIO -->
+        <div>
+          <div class="cita-aviso" data-cita-aviso hidden aria-live="polite"></div>
+
+          <form class="cita-form" data-mant-form novalidate>
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">1</span><h2>Tu impresora</h2></div>
+              <div class="cita-campos">
+                <div data-equipos>
+                  <div class="equipo-bloque" data-equipo>
+                    <div class="equipo-bloque__cab">
+                      <span class="equipo-bloque__num" data-equipo-titulo></span>
+                      <button type="button" class="equipo-bloque__quitar" data-quitar-equipo hidden>Quitar</button>
+                    </div>
+                <fieldset class="picker" data-picker-modelo>
+                  <legend>Modelo</legend>
+                  <div class="picker__grid picker__grid--modelos">
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="A1" required><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 41h32"/><path d="M13 41V9M35 41V9"/><path d="M13 17h22"/><rect x="21" y="17" width="6" height="7" rx="1"/><path d="M15 34h18"/></svg></span><span class="picker__label">A1</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="A1 mini"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 41h26"/><path d="M15 41V13"/><path d="M15 21h18"/><rect x="21" y="21" width="6" height="6" rx="1"/><path d="M17 34h14"/></svg></span><span class="picker__label">A1 mini</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="A2L"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 41h38"/><path d="M9 41V7M39 41V7"/><path d="M9 15h30"/><rect x="21" y="15" width="6" height="7" rx="1"/><path d="M12 34h24"/></svg></span><span class="picker__label">A2L</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="P1P"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17V9h8M31 9h8v8M39 31v8h-8M17 39H9v-8"/><path d="M11 17h26"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 33h18"/></svg></span><span class="picker__label">P1P</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="P1S"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="2"/><path d="M9 17h30"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 24v5"/></svg></span><span class="picker__label">P1S</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="P2S"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="2"/><path d="M9 17h30"/><path d="M13 13h5"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 24v5"/></svg></span><span class="picker__label">P2S</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="X1 Carbon"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M9 19h30"/><rect x="21" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 25v5"/></svg></span><span class="picker__label">X1 Carbon</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="X1E"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M25 8h3M31 8h3"/><path d="M9 19h30"/><rect x="21" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 25v5"/></svg></span><span class="picker__label">X1E</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="X2D"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M9 19h30"/><rect x="17" y="19" width="6" height="6" rx="1"/><rect x="25" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 26v5"/></svg></span><span class="picker__label">X2D</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="H2D"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><rect x="17" y="17" width="6" height="6" rx="1"/><rect x="25" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__label">H2D</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="H2D Pro"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M24 5.5h3M30 5.5h3"/><path d="M6 17h36"/><rect x="17" y="17" width="6" height="6" rx="1"/><rect x="25" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__label">H2D Pro</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="H2S"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__label">H2S</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="H2C"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><path d="M10 22h3M10 26h3M10 30h3"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 35h20"/><path d="M37 24v6"/></svg></span><span class="picker__label">H2C</span></label>
+                    <label class="picker__item"><input type="radio" data-campo="modelo" name="modelo" value="H3C"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M11 11v3M15 11v3M19 11v3M23 11v3M27 11v3M31 11v3M35 11v3"/><path d="M6 17h36"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__label">H3C</span></label>
+                  </div>
+                </fieldset>
+                <div class="equipo-bloque__extra">
+                  <label class="check field--ancho"><input type="checkbox" data-campo="trae_ams" name="trae_ams"> <span>¿Traes el AMS? <b>+$300</b></span></label>
+                  <div class="field">
+                    <label for="m-horas">Horas de uso aproximadas (opcional)</label>
+                    <input id="m-horas" data-campo="horas" name="horas" inputmode="numeric" maxlength="7" placeholder="Por ejemplo, 800" autocomplete="off">
+                  </div>
+                  <div class="field field--ancho">
+                    <label for="m-notas">Notas (opcional)</label>
+                    <textarea id="m-notas" data-campo="notas" name="notas" maxlength="1000"
+                      placeholder="Algo que debamos saber: un ruido nuevo, una pieza que ya cambiaste, si prefieres no actualizar el firmware…"></textarea>
+                  </div>
+                </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn--ghost btn--sm" data-agregar-equipo>+ Agregar otra impresora</button>
+              </div>
+            </div>
+
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">2</span><h2>Tus datos</h2></div>
+              <div class="cita-campos">
+                <div class="field field--ancho">
+                  <label for="m-nombre">Nombre completo</label>
+                  <input id="m-nombre" name="nombre" required minlength="2" maxlength="80" autocomplete="name">
+                </div>
+                <div class="field">
+                  <label for="m-telefono">WhatsApp o teléfono</label>
+                  <input id="m-telefono" name="telefono" type="tel" required maxlength="20"
+                         pattern="[0-9+\(\)\- ]{8,20}" autocomplete="tel"
+                         title="De 8 a 20 caracteres: números, espacios, +, -, ( )">
+                </div>
+                <div class="field">
+                  <label for="m-email">Correo</label>
+                  <input id="m-email" name="email" type="email" required maxlength="120" autocomplete="email">
+                  <span class="field__hint">Ahí te llega la confirmación y el enlace para cancelar.</span>
+                </div>
+                <div class="field">
+                  <label for="m-referencia">¿Cómo nos encontraste?</label>
+                  <select id="m-referencia" name="referencia" required>
+                    <option value="">Elige una opción</option>
+                    <option value="google">Google (búsqueda o Maps)</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="mercadolibre">Mercado Libre</option>
+                    <option value="recomendacion">Me lo recomendaron</option>
+                    <option value="cliente">Ya era cliente de Emisha</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="field" data-referencia-detalle hidden>
+                  <label for="m-referencia-detalle">Cuéntanos más (opcional)</label>
+                  <input id="m-referencia-detalle" name="referencia_detalle" maxlength="120"
+                         placeholder="¿Quién te recomendó? ¿Dónde nos viste?">
+                </div>
+                <!-- Trampa para bots: la gente no lo ve ni lo llena. -->
+                <div class="hp" aria-hidden="true">
+                  <label for="m-sitio">Sitio web</label>
+                  <input id="m-sitio" name="sitio_web" tabindex="-1" autocomplete="off">
+                </div>
+              </div>
+            </div>
+
+            <div class="cita-paso">
+              <div class="cita-paso__titulo"><span class="cita-paso__num">3</span><h2>Día y hora</h2></div>
+              <p class="muted" style="font-size:.9rem;margin-bottom:12px">Lunes a viernes, de 12:00 a 18:00. La recepción toma unos 10 minutos.</p>
+              <div class="dias" data-dias><span class="muted" style="font-size:.9rem">Cargando los días disponibles…</span></div>
+              <div class="turnos" data-turnos hidden></div>
+              <p class="turnos-vacio" data-turnos-vacio hidden></p>
+              <p class="cita-elegida" data-elegida hidden></p>
+            </div>
+
+            <div class="cita-enviar">
+              <div class="total-vivo" aria-live="polite">
+                <span>Total<small data-total-detalle>1 impresora</small></span>
+                <b data-total>$700 MXN</b>
+              </div>
+              <button type="submit" class="btn btn--accent btn--lg" data-enviar>Reservar mi mantenimiento</button>
+              <span class="muted">IVA incluido. <b>Se paga al dejar la impresora</b>; agendar no tiene costo. Te confirmamos por correo al instante.</span>
+            </div>
+          </form>
+
+          <!-- Confirmación: la llena mantenimiento.js al agendar o al abrir ?cita= -->
+          <div class="confirmacion" data-confirmacion hidden aria-live="polite">
+            <span class="eyebrow eyebrow--accent" data-conf-eyebrow>Mantenimiento agendado</span>
+            <h2 data-conf-titulo></h2>
+            <span class="folio" data-conf-folio></span>
+            <dl class="confirmacion__datos" data-conf-datos></dl>
+            <p class="galeria-t" data-conf-costos-t hidden>Tu cotización</p>
+            <div class="precios" data-conf-costos hidden></div>
+            <p class="muted" style="font-size:.86rem;margin-top:10px" data-conf-costos-nota hidden></p>
+            <p class="galeria-t" data-conf-galeria-t hidden>Fotos del mantenimiento</p>
+            <div class="galeria" data-conf-galeria hidden></div>
+            <div class="hero__cta" style="margin-top:6px" data-conf-acciones></div>
+            <p class="muted" style="font-size:.88rem;margin-top:18px" data-conf-nota></p>
+          </div>
+        </div>
+
+        <!-- ------------------------------------------------ LATERAL -->
+        <aside class="cita-aside">
+          <div class="card" data-precios-generales>
+            <span class="pill pill--brand pill--dot" style="margin-bottom:12px">Tu mantenimiento</span>
+            <div class="precios" data-resumen></div>
+            <p class="muted" style="font-size:.84rem;margin-top:12px">Precio fijo con <b>IVA incluido</b> y sin diagnóstico aparte: la revisión ya va incluida. <b>Se paga al dejar la impresora.</b> Las refacciones, solo si hacen falta y nunca sin tu autorización; esas se pagan al recogerla.</p>
+          </div>
+
+          <div class="card">
+            <h3>Qué incluye</h3>
+            <ul class="incluye">
+              <li>Limpieza general</li>
+              <li>Ejes y tornillos del eje Z, lubricados</li>
+              <li>Tensión de correas</li>
+              <li>Extrusor, hotend y cortador</li>
+              <li>Firmware al día</li>
+              <li>Calibración e impresión de prueba</li>
+              <li>Reporte con fotos</li>
+            </ul>
+            <p class="muted" style="font-size:.84rem;margin-top:12px">Garantía de 90 días. <a href="../../../reparacion/mantenimiento-preventivo/">Todo el detalle</a>.</p>
+          </div>
+
+          <div class="card">
+            <h3>El taller</h3>
+            <div class="dato">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>Av. División del Norte 1354, Piso 1, Letrán del Valle, Benito Juárez, CDMX 03650. <b>Estacionamiento con valet parking.</b></span>
+            </div>
+            <div class="dato">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span>Recepción: <b>lunes a viernes de 12:00 a 18:00</b>. Sábados y domingos cerrado.</span>
+            </div>
+            <div class="dato">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+              <span>¿Prefieres escribirnos? <a href="https://wa.me/525575639255?text=Hola%2C%20quiero%20agendar%20un%20mantenimiento%20preventivo%20para%20mi%20Bambu%20Lab." target="_blank" rel="noopener">WhatsApp +52&nbsp;55&nbsp;7563&nbsp;9255</a></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../../../placas/">Placas de impresión</a></li>
+          <li><a href="../../../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../../../tienda/">Tienda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reparación</h4>
+        <ul>
+          <li><a href="../../../reparacion/bambu-lab-a1/">Reparación Bambu Lab A1</a></li>
+          <li><a href="../../../reparacion/bambu-lab-a1-mini/">Reparación Bambu Lab A1 mini</a></li>
+          <li><a href="../../../reparacion/bambu-lab-a2l/">Reparación Bambu Lab A2L</a></li>
+          <li><a href="../../../reparacion/bambu-lab-p1p/">Reparación Bambu Lab P1P</a></li>
+          <li><a href="../../../reparacion/bambu-lab-p1s/">Reparación Bambu Lab P1S</a></li>
+          <li><a href="../../../reparacion/bambu-lab-p2s/">Reparación Bambu Lab P2S</a></li>
+          <li><a href="../../../reparacion/bambu-lab-x1-carbon/">Reparación Bambu Lab X1 Carbon</a></li>
+          <li><a href="../../../reparacion/bambu-lab-x1e/">Reparación Bambu Lab X1E</a></li>
+          <li><a href="../../../reparacion/bambu-lab-x2d/">Reparación Bambu Lab X2D</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2d/">Reparación Bambu Lab H2D</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2d-pro/">Reparación Bambu Lab H2D Pro</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2s/">Reparación Bambu Lab H2S</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2c/">Reparación Bambu Lab H2C</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h3c/">Reparación Bambu Lab H3C</a></li>
+          <li><a href="../../../reparacion/ams/">Reparación AMS</a></li>
+          <li><a href="../../../reparacion/">Agendar reparación</a></li>
+          <li><a href="../../../servicios/">Todos los servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span class="footer-legal"><a href="../../../terminos/">Términos y condiciones</a> · <a href="../../../privacidad/">Aviso de privacidad</a> · <a href="../../../devoluciones/">Devoluciones</a></span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../../assets/js/main.js?v=7782446c" defer></script>
+<script src="../../../assets/js/mantenimiento.js?v=d9a71b16" defer></script>
+</body>
+</html>
