@@ -398,6 +398,13 @@
     rechazada: 'No autorizaste la reparación, así que solo se cobra el diagnóstico.'
   };
 
+  // En qué va una impresora de una cita cotizada por impresora.
+  function chipEquipo(e) {
+    var k = e.por_autorizar ? 'cotizada' : e.respuesta === 'rechazada' ? 'fuera' : (e.estado || 'fuera');
+    var t = e.por_autorizar ? 'Falta tu respuesta' : e.respuesta === 'rechazada' ? 'No autorizada' : (e.estado_legible || '');
+    return t ? '<b class="avance__e avance__e--' + esc(k) + '" style="margin-left:6px;vertical-align:1px">' + esc(t) + '</b>' : '';
+  }
+
   function mostrarConfirmacion(cita, recien) {
     var t = TEXTO_ESTADO[cita.estado] || TEXTO_ESTADO.nueva;
     var equipos = cita.equipos || [];
@@ -445,26 +452,42 @@
     var costosT = conf.querySelector('[data-conf-costos-t]');
     var costosNota = conf.querySelector('[data-conf-costos-nota]');
     var conceptos = cita.conceptos || [];
+    // Cotizada por impresora (unas listas, otras esperando su respuesta, otra
+    // en revisión): cada impresora dice en qué va y abajo van los totales.
+    var porEq = !!cita.por_equipo;
+    var pendEq = porEq ? (cita.equipos_por_autorizar || []).length : 0;
     costos.hidden = costosT.hidden = !conceptos.length;
     if (conceptos.length) {
       costos.innerHTML = conceptos.map(function (x, i) {
+        var eq = porEq && x.equipo != null ? (cita.equipos || [])[x.equipo] : null;
         // Con varias impresoras: encabezado por impresora y su subtotal.
         var cab = x.grupo && (i === 0 || conceptos[i - 1].grupo !== x.grupo)
-          ? '<div style="display:block;margin-top:12px;font-weight:700">' + esc(x.grupo) +
+          ? '<div style="display:block;margin-top:12px;font-weight:700">' + esc(x.grupo) + (eq ? ' ' + chipEquipo(eq) : '') +
             (x.grupo_diag ? '<span style="display:block;font-weight:400;font-size:.88rem;opacity:.8;white-space:pre-wrap">' + esc(x.grupo_diag) + '</span>' : '') + '</div>' : '';
         var sub = '';
         if (x.grupo && (i === conceptos.length - 1 || conceptos[i + 1].grupo !== x.grupo)) {
           var st = conceptos.filter(function (y) { return y.grupo === x.grupo; }).reduce(function (t, y) { return t + (y.centavos || 0); }, 0);
-          sub = '<div style="opacity:.75"><span>Subtotal</span><b>' + esc(mxn(st)) + '</b></div>';
+          sub = '<div style="opacity:.75"><span>' + (eq && eq.por_autorizar ? 'Si la autorizas' : 'Subtotal') + '</span><b>' + esc(mxn(st)) + '</b></div>';
         }
         return cab + '<div><span>' + esc(x.nombre) + (x.opcional ? ' *' : '') + '</span><b>' + esc(mxn(x.centavos)) + '</b></div>' + sub;
-      }).join('') +
-        '<div class="total"><span>' + (cita.cotizacion_pendiente ? 'Total cotizado' : 'Total a pagar') +
-        '</span><b>' + esc(mxn(cita.a_pagar_centavos)) + '</b></div>';
+      }).join('') + (porEq
+        ? '<div' + (pendEq ? '' : ' class="total"') + '><span>' + (pendEq ? 'Lo ya hecho, se paga al recoger' : 'Total a pagar') + '</span><b>' + esc(mxn(cita.a_pagar_centavos)) + '</b></div>' +
+          (pendEq
+            ? '<div><span>Si autorizas lo pendiente</span><b>+ ' + esc(mxn(cita.por_autorizar_centavos)) + '</b></div>' +
+              '<div class="total"><span>Total si autorizas todo</span><b>' + esc(mxn(cita.total_si_autoriza_centavos)) + '</b></div>'
+            : '')
+        : '<div class="total"><span>' + (cita.cotizacion_pendiente ? 'Total cotizado' : 'Total a pagar') +
+          '</span><b>' + esc(mxn(cita.a_pagar_centavos)) + '</b></div>');
     }
-    var notaCostos = cita.cotizacion_pendiente
-      ? TEXTO_COSTOS.pendiente
-      : (TEXTO_COSTOS[cita.cotizacion_respuesta] || '');
+    var sinPrecio = porEq && (cita.equipos_sin_precio || []).length
+      ? ' Sin contar ' + cita.equipos_sin_precio.join(', ') + ': su costo se suma en cuanto terminemos de revisar' + (cita.equipos_sin_precio.length > 1 ? 'las' : 'la') + '.' : '';
+    var notaCostos = porEq
+      ? (pendEq
+          ? (pendEq === 1 ? 'Una impresora espera' : pendEq + ' impresoras esperan') + ' tu respuesta: autorízalas (o no) con el botón de abajo. No las tocamos hasta que respondas; las demás se pagan al recogerlas.'
+          : 'Ya respondiste por todas las impresoras cotizadas. Se paga al recogerlas.') + sinPrecio
+      : cita.cotizacion_pendiente
+        ? TEXTO_COSTOS.pendiente
+        : (TEXTO_COSTOS[cita.cotizacion_respuesta] || '');
     costosNota.hidden = !conceptos.length || !notaCostos;
     costosNota.textContent = notaCostos;
     // Con su cotización a la vista, la lista de precios de mostrador estorba:
@@ -497,7 +520,7 @@
     var acciones = conf.querySelector('[data-conf-acciones]');
     acciones.textContent = '';
     if (cita.cotizacion_pendiente) {
-      acciones.appendChild(boton('Ver y autorizar mi cotización', API + '/cotizacion/' + cita.cita_id, 'btn btn--accent'));
+      acciones.appendChild(boton(cita.por_equipo ? 'Autorizar las impresoras pendientes' : 'Ver y autorizar mi cotización', API + '/cotizacion/' + cita.cita_id, 'btn btn--accent'));
       acciones.appendChild(boton('WhatsApp', 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, tengo dudas de la cotización ' + cita.folio + ': '), 'btn btn--ghost'));
     } else if (cita.estado === 'nueva') {
       acciones.appendChild(boton('Agregar a mi calendario', cita.calendario_url, 'btn btn--primary'));
