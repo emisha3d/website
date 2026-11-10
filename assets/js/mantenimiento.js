@@ -348,7 +348,7 @@
     en_diagnostico: ['En mantenimiento', 'Estamos con el mantenimiento de tu {modelo}', 'La estamos limpiando, lubricando y calibrando. Refacciones, nunca sin tu autorización.'],
     cotizada: ['Cotización de piezas', 'Encontramos piezas que conviene cambiar', 'Te mandamos la cotización por correo. Autorízala (o no) desde el botón de abajo: no cambiamos nada hasta que respondas.'],
     en_reparacion: ['Cambiando piezas', 'Estamos terminando tu {modelo}', 'Te avisamos en cuanto esté lista.'],
-    lista: ['Lista para entrega', 'Tu {modelo} ya está lista', 'Pasa por ella al taller de lunes a viernes de 9:00 a 19:00. Dinos qué día pasas y la dejamos en el mostrador.'],
+    lista: ['Lista para entrega', 'Tu {modelo} ya está lista', 'Pasa por ella al taller de lunes a viernes de 9:00 a 18:00. Dinos qué día pasas y la dejamos en el mostrador.'],
     entregada: ['Entregada', 'Gracias por confiar en Emisha', 'Como referencia, el siguiente mantenimiento toca en 6 meses o 500 horas de impresión, lo que llegue primero.'],
     cancelada: ['Cita cancelada', 'Esta cita fue cancelada', 'Si quieres, agenda otro mantenimiento o escríbenos por WhatsApp.'],
     no_llego: ['Cita vencida', 'No recibimos tu impresora ese día', 'Puedes agendar otro mantenimiento cuando gustes.']
@@ -357,7 +357,7 @@
     recibida: [null, 'Ya tenemos tus {n} impresoras en el taller', 'Te avisamos por correo en cuanto estén listas. Si encontramos una pieza gastada, te mandamos la cotización antes de cambiarla.'],
     en_diagnostico: [null, 'Estamos con el mantenimiento de tus {n} impresoras', 'Las estamos limpiando, lubricando y calibrando. Refacciones, nunca sin tu autorización.'],
     en_reparacion: [null, 'Estamos terminando tus {n} impresoras', 'Te avisamos en cuanto estén listas.'],
-    lista: ['Listas para entrega', 'Tus {n} impresoras ya están listas', 'Pasa por ellas al taller de lunes a viernes de 9:00 a 19:00. Dinos qué día pasas y las dejamos en el mostrador.']
+    lista: ['Listas para entrega', 'Tus {n} impresoras ya están listas', 'Pasa por ellas al taller de lunes a viernes de 9:00 a 18:00. Dinos qué día pasas y las dejamos en el mostrador.']
   };
   var ETIQUETA_EQUIPO = {
     recibida: 'Recibida', en_diagnostico: 'En mantenimiento', cotizada: 'Cotización enviada',

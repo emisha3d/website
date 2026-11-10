@@ -367,7 +367,7 @@
     cotizada: ['Cotización enviada', 'Ya revisamos tu {modelo}', 'Te mandamos la cotización por correo. Autorízala (o no) desde el botón de abajo; no tocamos nada hasta que respondas.'],
     diagnosticada: ['Diagnóstico listo', 'Ya revisamos tu {modelo}', 'Te mandamos la cotización. Si tienes dudas, escríbenos por WhatsApp.'],
     en_reparacion: ['En reparación', 'Estamos trabajando en tu {modelo}', 'Te avisamos en cuanto esté lista.'],
-    lista: ['Lista para entrega', 'Tu {modelo} ya está lista', 'Pasa por ella al taller de lunes a viernes de 9:00 a 19:00. Si prefieres otro horario, escríbenos.'],
+    lista: ['Lista para entrega', 'Tu {modelo} ya está lista', 'Pasa por ella al taller de lunes a viernes de 9:00 a 18:00. Si prefieres otro horario, escríbenos.'],
     entregada: ['Entregada', 'Gracias por confiar en Emisha', 'Si vuelve a fallar o necesitas otra cosa, aquí estamos.'],
     cancelada: ['Cita cancelada', 'Esta cita fue cancelada', 'Si quieres, agenda otra abajo o escríbenos por WhatsApp.'],
     no_llego: ['Cita vencida', 'No recibimos tu impresora ese día', 'Puedes agendar otra cita cuando gustes.']
@@ -378,7 +378,7 @@
     en_diagnostico: [null, 'Estamos revisando tus {n} impresoras'],
     cotizada: [null, 'Ya revisamos tus {n} impresoras'],
     en_reparacion: [null, 'Estamos trabajando en tus {n} impresoras', 'Abajo ves en qué va cada una. Te avisamos en cuanto estén listas.'],
-    lista: ['Listas para entrega', 'Tus {n} impresoras ya están listas', 'Pasa por ellas al taller de lunes a viernes de 9:00 a 19:00. Si prefieres otro horario, escríbenos.']
+    lista: ['Listas para entrega', 'Tus {n} impresoras ya están listas', 'Pasa por ellas al taller de lunes a viernes de 9:00 a 18:00. Si prefieres otro horario, escríbenos.']
   };
 
   // Una impresora de la lista: número, modelo, serie y falla, y su estado si ya está en el taller.
