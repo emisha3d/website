@@ -1364,7 +1364,7 @@
       var puntaje = (cabe ? 0 : 1e18) + soporte * (plana ? 0.6 : 1) + h * 0.01;
       if (!mejor || puntaje < mejor.puntaje) {
         mejor = { puntaje: puntaje, malla: r, min: mn, caja: [w, d, h],
-                  soporteMm3: soporte, cabe: cabe, apoyo: o };
+                  soporteMm3: soporte, cabe: cabe, apoyo: o, giro: f };
       }
     }
     // Apoyada en el origen: z = 0 es la cama.
@@ -1373,7 +1373,8 @@
       m[k] -= mn2[0]; m[k + 1] -= mn2[1]; m[k + 2] -= mn2[2];
     }
     return { malla: m, caja: mejor.caja, soporteMm3: mejor.soporteMm3,
-             cabe: mejor.cabe, apoyo: normalManual ? -1 : mejor.apoyo };
+             cabe: mejor.cabe, apoyo: normalManual ? -1 : mejor.apoyo,
+             giro: mejor.giro, min: mn2.slice() };
   }
 
   /* Acomoda rectángulos (huellas de las piezas) en camas cuadradas con
@@ -1446,63 +1447,133 @@
     return camas.map(function (c) { return c.piezas; });
   }
 
-  /* Caras donde la sección se puede apoyar, como «apoyar en cara» de
-     Bambu Studio: zonas planas grandes que quedan por fuera (ningún punto
-     de la pieza sobresale de su plano). Las tapas de corte casi siempre
-     son una. Lo curvo no cuenta: ahí va soporte, no apoyo. Devuelve
-     {grupos: [{normal, tris, area}], deTri} con deTri[t] = grupo o -1. */
-  function carasDeApoyo(tri) {
-    var nTri = tri.length / 9, lim = limitesDeMalla(tri);
-    var diag = Math.sqrt(Math.pow(lim.max[0] - lim.min[0], 2) + Math.pow(lim.max[1] - lim.min[1], 2) +
-                         Math.pow(lim.max[2] - lim.min[2], 2)) || 1;
-    var tolD = Math.max(0.5, diag * 0.002), tolFuera = Math.max(0.3, diag * 0.004);
-    var cubos = Object.create(null), total = 0, t;
-    for (t = 0; t < nTri; t++) {
-      var o = t * 9;
-      var ux = tri[o + 3] - tri[o], uy = tri[o + 4] - tri[o + 1], uz = tri[o + 5] - tri[o + 2];
-      var vx = tri[o + 6] - tri[o], vy = tri[o + 7] - tri[o + 1], vz = tri[o + 8] - tri[o + 2];
-      var nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
-      var lg = Math.sqrt(nx * nx + ny * ny + nz * nz);
-      if (!(lg > 0)) continue;
-      var area = lg / 2; total += area;
-      nx /= lg; ny /= lg; nz /= lg;
-      var d = nx * (tri[o] + tri[o + 3] + tri[o + 6]) / 3 + ny * (tri[o + 1] + tri[o + 4] + tri[o + 7]) / 3 +
-              nz * (tri[o + 2] + tri[o + 5] + tri[o + 8]) / 3;
-      var k = Math.round(nx * 300) + ',' + Math.round(ny * 300) + ',' + Math.round(nz * 300) + ',' + Math.round(d / tolD);
-      var g = cubos[k] || (cubos[k] = { area: 0, n: [0, 0, 0], tris: [] });
-      g.area += area; g.n[0] += nx * area; g.n[1] += ny * area; g.n[2] += nz * area;
-      g.tris.push(t);
+  /* ======================================================= cascarón convexo
+     «Apoyar en cara» de Bambu Studio no usa solo las caras planas de la
+     malla: envuelve la pieza en su cascarón convexo (como una funda
+     estirada) y ofrece cada lado plano de esa funda, aunque toque la pieza
+     en unos cuantos puntos (el borde de una base y la punta de un pie).
+     Aquí igual. Incremental: cada punto que queda fuera borra las caras
+     que ve y se cose al horizonte. */
+  function cascaronConvexo(tri) {
+    // Puntos únicos; con mallas enormes, una muestra más los extremos.
+    var vistos = Object.create(null), pts = [], i;
+    for (i = 0; i < tri.length; i += 3) {
+      var k = Math.round(tri[i] * 20) + ',' + Math.round(tri[i + 1] * 20) + ',' + Math.round(tri[i + 2] * 20);
+      if (vistos[k]) continue;
+      vistos[k] = 1;
+      pts.push([tri[i], tri[i + 1], tri[i + 2]]);
     }
-    var minimo = Math.max(total * 0.005, 25);
-    var lista = Object.keys(cubos).map(function (k) { return cubos[k]; })
-      .filter(function (g) { return g.area >= minimo; })
-      .sort(function (a, b) { return b.area - a.area; }).slice(0, 40);
-    var paso = Math.max(3, Math.floor(tri.length / 3 / 60000) * 3);
-    var grupos = [];
-    lista.forEach(function (g) {
-      if (grupos.length >= 12) return;
-      var lg2 = Math.sqrt(g.n[0] * g.n[0] + g.n[1] * g.n[1] + g.n[2] * g.n[2]);
-      if (!(lg2 > 0)) return;
-      var n = [g.n[0] / lg2, g.n[1] / lg2, g.n[2] / lg2];
-      // plano del grupo: lo más afuera de sus propios vértices
-      var dG = -Infinity, i, q;
-      for (i = 0; i < g.tris.length; i++) {
-        for (q = 0; q < 9; q += 3) {
-          var o2 = g.tris[i] * 9 + q;
-          var pr = n[0] * tri[o2] + n[1] * tri[o2 + 1] + n[2] * tri[o2 + 2];
-          if (pr > dG) dG = pr;
+    var MAX = 2500;
+    if (pts.length > MAX) {
+      var paso = pts.length / MAX, muestra = [];
+      for (var f = 0; f < pts.length; f += paso) muestra.push(pts[Math.floor(f)]);
+      // extremos en 26 direcciones: la funda no se encoge por el muestreo
+      for (var dx = -1; dx <= 1; dx++) for (var dy = -1; dy <= 1; dy++) for (var dz = -1; dz <= 1; dz++) {
+        if (!dx && !dy && !dz) continue;
+        var mejor = null, mv = -Infinity;
+        for (i = 0; i < pts.length; i++) {
+          var v = pts[i][0] * dx + pts[i][1] * dy + pts[i][2] * dz;
+          if (v > mv) { mv = v; mejor = pts[i]; }
         }
+        muestra.push(mejor);
       }
-      // ¿algo de la pieza sobresale de ese plano? entonces no es apoyo
-      for (i = 0; i < tri.length; i += paso) {
-        if (n[0] * tri[i] + n[1] * tri[i + 1] + n[2] * tri[i + 2] > dG + tolFuera) return;
+      pts = muestra;
+    }
+    if (pts.length < 4) return null;
+    function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+    function cruz(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+    function punto(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+    var lim = limitesDeMalla(tri);
+    var tam = Math.max(lim.max[0] - lim.min[0], lim.max[1] - lim.min[1], lim.max[2] - lim.min[2]) || 1;
+    var eps = tam * 1e-7;
+    // Tetraedro inicial con puntos bien separados.
+    var a0 = 0, a1 = 0;
+    for (i = 1; i < pts.length; i++) { if (pts[i][0] < pts[a0][0]) a0 = i; if (pts[i][0] > pts[a1][0]) a1 = i; }
+    var lin = sub(pts[a1], pts[a0]), a2 = -1, md = 0;
+    for (i = 0; i < pts.length; i++) {
+      var c = cruz(lin, sub(pts[i], pts[a0])), dd = punto(c, c);
+      if (dd > md) { md = dd; a2 = i; }
+    }
+    if (a2 < 0) return null;
+    var nPl = cruz(sub(pts[a1], pts[a0]), sub(pts[a2], pts[a0])), a3 = -1;
+    md = 0;
+    for (i = 0; i < pts.length; i++) {
+      var dv = Math.abs(punto(nPl, sub(pts[i], pts[a0])));
+      if (dv > md) { md = dv; a3 = i; }
+    }
+    if (a3 < 0 || md < eps * Math.sqrt(punto(nPl, nPl))) return null;
+    var centro = [0, 1, 2].map(function (e) { return (pts[a0][e] + pts[a1][e] + pts[a2][e] + pts[a3][e]) / 4; });
+    var caras = [];
+    function cara(a, b, c2) {
+      var n = cruz(sub(pts[b], pts[a]), sub(pts[c2], pts[a]));
+      if (punto(n, sub(centro, pts[a])) > 0) { var t = b; b = c2; c2 = t; n = [-n[0], -n[1], -n[2]]; }
+      var lg = Math.sqrt(punto(n, n)) || 1;
+      n = [n[0] / lg, n[1] / lg, n[2] / lg];
+      caras.push({ v: [a, b, c2], n: n, d: punto(n, pts[a]), viva: true });
+    }
+    cara(a0, a1, a2); cara(a0, a1, a3); cara(a0, a2, a3); cara(a1, a2, a3);
+    for (i = 0; i < pts.length; i++) {
+      if (i === a0 || i === a1 || i === a2 || i === a3) continue;
+      var p = pts[i], visibles = [];
+      for (var q = 0; q < caras.length; q++) {
+        var cf = caras[q];
+        if (cf.viva && punto(cf.n, p) - cf.d > eps) visibles.push(cf);
       }
-      grupos.push({ normal: n, tris: g.tris, area: g.area });
+      if (!visibles.length) continue;
+      var aristas = Object.create(null);
+      visibles.forEach(function (cf) {
+        cf.viva = false;
+        for (var e = 0; e < 3; e++) aristas[cf.v[e] + '>' + cf.v[(e + 1) % 3]] = [cf.v[e], cf.v[(e + 1) % 3]];
+      });
+      Object.keys(aristas).forEach(function (k2) {
+        var ar = aristas[k2];
+        if (aristas[ar[1] + '>' + ar[0]]) return;          // arista interior
+        var n = cruz(sub(pts[ar[1]], pts[ar[0]]), sub(p, pts[ar[0]]));
+        var lg = Math.sqrt(punto(n, n));
+        if (!(lg > 0)) return;
+        n = [n[0] / lg, n[1] / lg, n[2] / lg];
+        caras.push({ v: [ar[0], ar[1], i], n: n, d: punto(n, pts[ar[0]]), viva: true });
+      });
+      if (caras.length > 4 * pts.length + 64) {              // limpieza de vez en cuando
+        caras = caras.filter(function (cf) { return cf.viva; });
+      }
+    }
+    return { pts: pts, caras: caras.filter(function (cf) { return cf.viva; }) };
+  }
+
+  /* Lados planos de la funda: triángulos del cascarón casi coplanares se
+     juntan en una sola cara. Se quedan las grandes. Devuelve
+     [{normal, tri (Float64Array, 9 por triángulo), area}]. */
+  function carasDeFunda(tri) {
+    var h = cascaronConvexo(tri);
+    if (!h) return [];
+    var lim = limitesDeMalla(tri);
+    var tam = Math.max(lim.max[0] - lim.min[0], lim.max[1] - lim.min[1], lim.max[2] - lim.min[2]) || 1;
+    var tolD = tam * 0.004, cosTol = Math.cos(3 * Math.PI / 180);
+    var grupos = [], total = 0;
+    h.caras.forEach(function (cf) {
+      var A = h.pts[cf.v[0]], B = h.pts[cf.v[1]], C = h.pts[cf.v[2]];
+      var area = areaDeTriangulo(A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2]);
+      total += area;
+      var g = null;
+      for (var k = 0; k < grupos.length; k++) {
+        var G = grupos[k];
+        if (G.n[0] * cf.n[0] + G.n[1] * cf.n[1] + G.n[2] * cf.n[2] > cosTol && Math.abs(G.d - cf.d) < tolD) { g = G; break; }
+      }
+      if (!g) { g = { n: cf.n.slice(), d: cf.d, area: 0, tri: [], nSum: [0, 0, 0] }; grupos.push(g); }
+      g.area += area;
+      g.nSum[0] += cf.n[0] * area; g.nSum[1] += cf.n[1] * area; g.nSum[2] += cf.n[2] * area;
+      g.tri.push(A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2]);
     });
-    var deTri = new Int16Array(nTri);
-    deTri.fill(-1);
-    grupos.forEach(function (g, gi) { g.tris.forEach(function (t2) { deTri[t2] = gi; }); });
-    return { grupos: grupos, deTri: deTri };
+    var minimo = total * 0.004;
+    return grupos.filter(function (g) { return g.area >= minimo; })
+      .sort(function (a, b) { return b.area - a.area; })
+      .slice(0, 60)
+      .map(function (g) {
+        var lg = Math.sqrt(g.nSum[0] * g.nSum[0] + g.nSum[1] * g.nSum[1] + g.nSum[2] * g.nSum[2]) || 1;
+        return { normal: [g.nSum[0] / lg, g.nSum[1] / lg, g.nSum[2] / lg],
+                 tri: new Float64Array(g.tri), area: g.area };
+      });
   }
 
   /* El plan de impresión de una pieza cortada en una impresora: cada
@@ -1550,7 +1621,8 @@
       centros.push([bx + cama / 2, by + cama / 2, 0]);
       piezasCama.forEach(function (pz) {
         var sec = plan.secciones[pz.i], m = sec.malla;
-        mapa.push({ sec: pz.i, ini: pos / 9, n: m.length / 9 });
+        mapa.push({ sec: pz.i, ini: pos / 9, n: m.length / 9,
+                    ox: bx + pz.x, oy: by + pz.y, girada: pz.girada });
         for (var k = 0; k < m.length; k += 3) {
           var x = m[k], y = m[k + 1];
           if (pz.girada) { var t = x; x = sec.caja[1] - y; y = t; }
@@ -1701,7 +1773,7 @@
     limites: limitesDeMalla, porCama: piezasPorCama,
     cotizar: cotizar, cortar: cortarEnPiezas,
     cortarEtiquetas: cortarPorEtiquetas, explotar: mallaExplotada,
-    orientar: orientarSeccion, empacar: empacar, plan: planDeCorte, caras: carasDeApoyo,
+    orientar: orientarSeccion, empacar: empacar, plan: planDeCorte, caras: carasDeFunda,
     config: CONFIG, whatsapp: WHATSAPP
   };
 
@@ -1910,9 +1982,9 @@
       /* Cortada: cada sección en su cama, girada como se va a imprimir. */
       var maqV = maquina(p._grande);
       var vista = vistaEnCamas(planDeCorte(corte, maqV), maqV);
-      vistaMapa = { corte: corte, mapa: vista.mapa, maq: maqV };
+      vistaMapa = { corte: corte, mapa: vista.mapa, maq: maqV, plan: planDeCorte(corte, maqV) };
       datos = vista.malla;
-      opciones = { camaMm: maqV.camaMm, alturaMm: maqV.alturaMm, camas: vista.camas };
+      opciones = { camaMm: maqV.camaMm, alturaMm: maqV.alturaMm, camas: vista.camas, quieto: true };
     } else if (visorModo === 'editar') {
       datos = trozosEnteros(p, s, null);
       opciones = { camaMm: maquina(p._grande).camaMm, alturaMm: maquina(p._grande).alturaMm,
@@ -1942,7 +2014,8 @@
     if (visorCtrl.elegir) {
       visorCtrl.elegir((visorModo === 'ver' && corte) ? alApoyarCara : null);
     }
-    caraResaltada = null;
+    caraSobre = null;
+    if (visorCtrl.superponer) visorCtrl.superponer(null);
     if (visorCtrl.sobre) {
       visorCtrl.sobre((visorModo === 'ver' && corte) ? alSobreCara : null);
     }
@@ -2080,24 +2153,8 @@
   }
 
   var vistaMapa = null;   // triángulos del visor -> sección del corte
-  var caraResaltada = null;
-  var COLOR_CARA = [0.25, 0.58, 1.0];
-
-  /* Triángulo del visor -> {sec, local, grupo} con las caras de apoyo de
-     esa sección (se calculan una vez por sección y se guardan). */
-  function caraEn(t) {
-    if (!vistaMapa || t < 0) return null;
-    for (var k = 0; k < vistaMapa.mapa.length; k++) {
-      var e = vistaMapa.mapa[k];
-      if (t >= e.ini && t < e.ini + e.n) {
-        var cel = vistaMapa.corte.celdas[e.sec];
-        if (!cel._caras) cel._caras = carasDeApoyo(cel.tri);
-        var local = t - e.ini;
-        return { e: e, cel: cel, local: local, grupo: cel._caras.deTri[local] };
-      }
-    }
-    return null;
-  }
+  var caraSobre = null;    // la cara de funda bajo el ratón: {sec, cara}
+  var COLOR_CARA = [0.30, 0.62, 1.0, 0.5];
 
   /* ¿Cabe en la impresora apoyada en esa cara? Solo se gira la caja. */
   function cabeEnCara(tri, normal, maq) {
@@ -2110,68 +2167,95 @@
     return mx[2] - mn[2] <= maq.alturaMm && mx[0] - mn[0] <= maq.camaMm && mx[1] - mn[1] <= maq.camaMm;
   }
 
-  /* Solo valen las caras planas donde la sección cabe en la impresora. */
-  function caraValida(h) {
-    if (!h || h.grupo < 0) return false;
-    var g = h.cel._caras.grupos[h.grupo], cl = vistaMapa.maq.camaMm + 'x' + vistaMapa.maq.alturaMm;
-    if (g._cabe === undefined || g._cabeClave !== cl) {
-      g._cabe = cabeEnCara(h.cel.tri, g.normal, vistaMapa.maq);
-      g._cabeClave = cl;
-    }
-    return g._cabe;
+  /* Las caras de funda de cada sección, ya donde el visor las dibuja (girada
+     y puesta en su cama) y solo las que caben en la impresora. Se calculan
+     al primer paso del ratón y se guardan en la vista. */
+  function carasEnVista() {
+    if (!vistaMapa) return [];
+    if (vistaMapa.caras) return vistaMapa.caras;
+    var maq = vistaMapa.maq, plan = vistaMapa.plan, lista = [];
+    vistaMapa.mapa.forEach(function (e) {
+      var cel = vistaMapa.corte.celdas[e.sec], sec = plan.secciones[e.sec];
+      if (!cel._funda) cel._funda = carasDeFunda(cel.tri);
+      var lim = limitesDeMalla(cel.tri);
+      var aire = Math.max(lim.max[0] - lim.min[0], lim.max[1] - lim.min[1], lim.max[2] - lim.min[2]) * 0.003;
+      function aVista(x, y, z) {
+        var q = sec.giro(x, y, z);
+        var qx = q[0] - sec.min[0], qy = q[1] - sec.min[1], qz = q[2] - sec.min[2];
+        if (e.girada) { var t = qx; qx = sec.caja[1] - qy; qy = t; }
+        return [e.ox + qx, e.oy + qy, qz];
+      }
+      cel._funda.forEach(function (cf) {
+        var clave = maq.camaMm + 'x' + maq.alturaMm;
+        if (cf._cabeClave !== clave) { cf._cabe = cabeEnCara(cel.tri, cf.normal, maq); cf._cabeClave = clave; }
+        if (!cf._cabe) return;
+        var n = cf.normal, out = new Float64Array(cf.tri.length);
+        for (var i = 0; i < cf.tri.length; i += 3) {
+          var v = aVista(cf.tri[i] + n[0] * aire, cf.tri[i + 1] + n[1] * aire, cf.tri[i + 2] + n[2] * aire);
+          out[i] = v[0]; out[i + 1] = v[1]; out[i + 2] = v[2];
+        }
+        lista.push({ sec: e.sec, cara: cf, tri: out });
+      });
+    });
+    vistaMapa.caras = lista;
+    return lista;
   }
 
-  function alSobreCara(t) {
-    var h = caraEn(t);
-    var clave = caraValida(h) ? h.e.sec + '|' + h.grupo : null;
-    if (clave === caraResaltada) return;
-    caraResaltada = clave;
+  /* La cara de funda bajo el cursor: la más cercana a la cámara. */
+  function caraBajo(x, y) {
+    if (!visorCtrl || !visorCtrl.proyectar) return null;
+    var mejor = null, mejorZ = Infinity;
+    carasEnVista().forEach(function (c) {
+      var t = c.tri;
+      for (var i = 0; i < t.length; i += 9) {
+        var a = visorCtrl.proyectar([t[i], t[i + 1], t[i + 2]]);
+        var b = visorCtrl.proyectar([t[i + 3], t[i + 4], t[i + 5]]);
+        var d = visorCtrl.proyectar([t[i + 6], t[i + 7], t[i + 8]]);
+        if (!a || !b || !d) continue;
+        var d0 = (b[0] - a[0]) * (y - a[1]) - (b[1] - a[1]) * (x - a[0]);
+        var d1 = (d[0] - b[0]) * (y - b[1]) - (d[1] - b[1]) * (x - b[0]);
+        var d2 = (a[0] - d[0]) * (y - d[1]) - (a[1] - d[1]) * (x - d[0]);
+        if (!((d0 >= 0 && d1 >= 0 && d2 >= 0) || (d0 <= 0 && d1 <= 0 && d2 <= 0))) continue;
+        /* Caras de espaldas a la cámara no cuentan: en pantalla (y hacia
+           abajo) una cara de frente queda en sentido horario. */
+        if ((b[0] - a[0]) * (d[1] - a[1]) - (b[1] - a[1]) * (d[0] - a[0]) > -1e-6) continue;
+        var z = (a[2] + b[2] + d[2]) / 3;
+        if (z < mejorZ) { mejorZ = z; mejor = c; }
+      }
+    });
+    return mejor;
+  }
+
+  function alSobreCara(t, x, y) {
+    var c = (t === -1 && x === undefined) ? null : caraBajo(x, y);
+    if (c === caraSobre) return;
+    caraSobre = c;
     if (!visorCtrl) return;
-    visorCtrl.desmarcar();
-    if (lienzo) lienzo.style.cursor = clave ? 'pointer' : '';
-    if (!clave) return;
-    var g = h.cel._caras.grupos[h.grupo];
-    visorCtrl.marcar(g.tris.map(function (x) { return h.e.ini + x; }), COLOR_CARA);
+    if (lienzo) lienzo.style.cursor = c ? 'pointer' : '';
+    if (visorCtrl.superponer) visorCtrl.superponer(c ? c.tri : null, COLOR_CARA);
   }
 
   function alApoyarCara(t) {
     if (!vistaMapa) return;
-    var corte = vistaMapa.corte, hit = null;
-    var h0 = caraEn(t);
-    if (h0 && !caraValida(h0)) {
-      if (visorNota) visorNota.textContent = (h0.grupo < 0
-        ? 'Esa parte es curva: ahí va soporte. '
-        : 'Apoyada en esa cara la sección no cabe en la impresora. ')
-        + 'Elige una de las caras que se iluminan al pasar el ratón.';
-      return;
-    }
-    if (t < 0) {                 // clic en el fondo: vuelve el acomodo automático
-      if (corte._manual && Object.keys(corte._manual).length) {
-        corte._manual = {};
-        visorClave = '';
-        refrescar();
+    var corte = vistaMapa.corte, c = caraSobre;
+    if (!c) {
+      if (t < 0) {                 // clic en el fondo: vuelve el acomodo automático
+        if (corte._manual && Object.keys(corte._manual).length) {
+          corte._manual = {};
+          visorClave = '';
+          refrescar();
+        }
+        return;
       }
+      if (visorNota) visorNota.textContent = 'Pasa el ratón por la pieza: las caras donde se puede '
+        + 'apoyar se iluminan. Haz clic en una para ponerla sobre la cama.';
       return;
     }
-    for (var k = 0; k < vistaMapa.mapa.length; k++) {
-      var e = vistaMapa.mapa[k];
-      if (t >= e.ini && t < e.ini + e.n) { hit = e; break; }
-    }
-    if (!hit) return;
-    var tri = corte.celdas[hit.sec].tri, o = (t - hit.ini) * 9;
-    var ux = tri[o + 3] - tri[o], uy = tri[o + 4] - tri[o + 1], uz = tri[o + 5] - tri[o + 2];
-    var wx = tri[o + 6] - tri[o], wy = tri[o + 7] - tri[o + 1], wz = tri[o + 8] - tri[o + 2];
-    var n = [uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx];
-    var lg = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
-    if (!(lg > 0)) return;
-    var nn = [n[0] / lg, n[1] / lg, n[2] / lg];
-    if (h0 && h0.grupo >= 0) nn = h0.cel._caras.grupos[h0.grupo].normal.slice();
-    if (!orientarSeccion(tri, vistaMapa.maq, null, nn).cabe) {
-      if (visorNota) visorNota.textContent = 'Apoyada en esa cara la sección no cabe en la impresora. Elige otra cara.';
-      return;
-    }
+    var n = c.cara.normal;
     corte._manual = corte._manual || {};
-    corte._manual[hit.sec] = [+(n[0] / lg).toFixed(4), +(n[1] / lg).toFixed(4), +(n[2] / lg).toFixed(4)];
+    corte._manual[c.sec] = [+n[0].toFixed(4), +n[1].toFixed(4), +n[2].toFixed(4)];
+    caraSobre = null;
+    if (visorCtrl && visorCtrl.superponer) visorCtrl.superponer(null);
     visorClave = '';            // fuerza a redibujar con el nuevo acomodo
     refrescar();
   }

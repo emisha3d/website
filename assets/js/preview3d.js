@@ -289,6 +289,9 @@
     /* Pasar el ratón por encima: avisa qué triángulo queda bajo el cursor
        (máximo una vez por cuadro). Lo enciende controlador.sobre(fn). */
     var alSobre = null, oyenteSobre = false, sobrePend = false, sobreX = 0, sobreY = 0;
+    /* Capa translúcida encima de la pieza (p. ej. la cara donde se va a
+       apoyar). La pone controlador.superponer(tri, [r,g,b,a]). */
+    var capa = { buf: null, n: 0, color: [0.3, 0.6, 1, 0.45] };
     /* Agarrar pieza (mover/girar/escalar arrastrando sobre ella) y arrastrar
        planos de corte. La página los enciende con controlador.agarre() y
        controlador.alMoverPlano(). */
@@ -954,6 +957,25 @@
         }
         /* Si quedara habilitado apuntando al búfer chico de líneas, el
            siguiente dibujo de la malla no pasaría la validación de WebGL. */
+        gl.disableVertexAttribArray(attrPosLin);
+      }
+
+      if (capa.n && capa.buf && programaLin) {
+        gl.disableVertexAttribArray(attrNor);
+        gl.useProgram(programaLin);
+        gl.uniformMatrix4fv(ubicLin.proy, false, mProy);
+        gl.uniformMatrix4fv(ubicLin.vista, false, mVista);
+        gl.uniform3f(ubicLin.centro, miraX, miraY, miraZ);
+        gl.enableVertexAttribArray(attrPosLin);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+        gl.depthMask(false);
+        gl.uniform4f(ubicLin.color, capa.color[0], capa.color[1], capa.color[2], capa.color[3]);
+        gl.bindBuffer(gl.ARRAY_BUFFER, capa.buf);
+        gl.vertexAttribPointer(attrPosLin, 3, gl.FLOAT, false, 0, 0);
+        gl.drawArrays(gl.TRIANGLES, 0, capa.n);
+        gl.depthMask(true);
+        gl.disable(gl.BLEND);
         gl.disableVertexAttribArray(attrPosLin);
       }
 
@@ -2022,6 +2044,33 @@
         alElegir = fn || null;
       },
 
+      /* Punto del mundo -> [x, y] de pantalla (clientX/Y) y su profundidad,
+         con la cámara del último cuadro; null si queda tras la cámara. */
+      proyectar: function (p) {
+        if (!vivo) return null;
+        var q = proyectarPantalla(p);
+        if (!q) return null;
+        var rect = canvas.getBoundingClientRect();
+        var m = mVista, lx = p[0] - miraX, ly = p[1] - miraY, lz = p[2] - miraZ;
+        var vz = m[2] * lx + m[6] * ly + m[10] * lz + m[14];
+        return [rect.left + q[0] * (rect.width / (canvas.width || 1)),
+                rect.top + q[1] * (rect.height / (canvas.height || 1)), -vz];
+      },
+
+      /* Triángulos translúcidos encima de todo lo demás (9 números por
+         triángulo, en mm de mundo). null o vacío la quita. */
+      superponer: function (tri, color) {
+        if (!vivo || contextoPerdido) return;
+        if (!tri || !tri.length) { capa.n = 0; pintar = true; return; }
+        if (!capa.buf) capa.buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, capa.buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(tri), gl.DYNAMIC_DRAW);
+        gl.bindBuffer(gl.ARRAY_BUFFER, null);
+        capa.n = tri.length / 3;
+        if (color) capa.color = color;
+        pintar = true;
+      },
+
       /* Ratón encima (sin arrastrar): fn(índice del triángulo bajo el
          cursor, o -1 fuera de la pieza). null lo apaga. */
       sobre: function (fn) {
@@ -2036,7 +2085,7 @@
             sobrePend = true;
             pedirCuadro(function () {
               sobrePend = false;
-              if (alSobre && !arrastrando) alSobre(triEn(sobreX, sobreY));
+              if (alSobre && !arrastrando) alSobre(triEn(sobreX, sobreY), sobreX, sobreY);
             });
           }, false);
           escuchar(canvas, 'mouseleave', function () { if (alSobre) alSobre(-1); }, false);
