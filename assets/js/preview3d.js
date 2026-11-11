@@ -286,6 +286,9 @@
     /* Elegir pieza: clic (o toque) sin arrastre avisa qué triángulo quedó
        bajo el cursor. Lo enciende controlador.elegir(fn). */
     var alElegir = null, clicX = 0, clicY = 0, clicMovido = false, tapPosible = false;
+    /* Pasar el ratón por encima: avisa qué triángulo queda bajo el cursor
+       (máximo una vez por cuadro). Lo enciende controlador.sobre(fn). */
+    var alSobre = null, oyenteSobre = false, sobrePend = false, sobreX = 0, sobreY = 0;
     /* Agarrar pieza (mover/girar/escalar arrastrando sobre ella) y arrastrar
        planos de corte. La página los enciende con controlador.agarre() y
        controlador.alMoverPlano(). */
@@ -1108,7 +1111,11 @@
         var d0 = (sx[1] - sx[0]) * (cyp - sy[0]) - (sy[1] - sy[0]) * (cx - sx[0]);
         var d1 = (sx[2] - sx[1]) * (cyp - sy[1]) - (sy[2] - sy[1]) * (cx - sx[1]);
         var d2 = (sx[0] - sx[2]) * (cyp - sy[2]) - (sy[0] - sy[2]) * (cx - sx[2]);
-        var dentro = (d0 >= 0 && d1 >= 0 && d2 >= 0) || (d0 <= 0 && d1 <= 0 && d2 <= 0);
+        /* Un triángulo sin área (vértices repetidos) daba «adentro» desde
+           cualquier punto de la pantalla: esos solo cuentan por cercanía. */
+        var a2 = (sx[1] - sx[0]) * (sy[2] - sy[0]) - (sy[1] - sy[0]) * (sx[2] - sx[0]);
+        var dentro = Math.abs(a2) > 1e-6 &&
+          ((d0 >= 0 && d1 >= 0 && d2 >= 0) || (d0 <= 0 && d1 <= 0 && d2 <= 0));
         if (!dentro) {
           var dd = distPuntoSegmento2(cx, cyp, sx[0], sy[0], sx[1], sy[1]);
           var d22 = distPuntoSegmento2(cx, cyp, sx[1], sy[1], sx[2], sy[2]);
@@ -1169,7 +1176,11 @@
         var d0 = (sx[1] - sx[0]) * (cyp - sy[0]) - (sy[1] - sy[0]) * (cx - sx[0]);
         var d1 = (sx[2] - sx[1]) * (cyp - sy[1]) - (sy[2] - sy[1]) * (cx - sx[1]);
         var d2 = (sx[0] - sx[2]) * (cyp - sy[2]) - (sy[0] - sy[2]) * (cx - sx[2]);
-        var dentro = (d0 >= 0 && d1 >= 0 && d2 >= 0) || (d0 <= 0 && d1 <= 0 && d2 <= 0);
+        /* Un triángulo sin área (vértices repetidos) daba «adentro» desde
+           cualquier punto de la pantalla: esos solo cuentan por cercanía. */
+        var a2 = (sx[1] - sx[0]) * (sy[2] - sy[0]) - (sy[1] - sy[0]) * (sx[2] - sx[0]);
+        var dentro = Math.abs(a2) > 1e-6 &&
+          ((d0 >= 0 && d1 >= 0 && d2 >= 0) || (d0 <= 0 && d1 <= 0 && d2 <= 0));
         if (!dentro) {
           var dd = distPuntoSegmento2(cx, cyp, sx[0], sy[0], sx[1], sy[1]);
           var d22 = distPuntoSegmento2(cx, cyp, sx[1], sy[1], sx[2], sy[2]);
@@ -2009,6 +2020,27 @@
       elegir: function (fn) {
         if (!vivo) return;
         alElegir = fn || null;
+      },
+
+      /* Ratón encima (sin arrastrar): fn(índice del triángulo bajo el
+         cursor, o -1 fuera de la pieza). null lo apaga. */
+      sobre: function (fn) {
+        if (!vivo) return;
+        alSobre = fn || null;
+        if (alSobre && !oyenteSobre) {
+          oyenteSobre = true;
+          escuchar(canvas, 'mousemove', function (ev) {
+            if (!alSobre || arrastrando || pintando) return;
+            sobreX = ev.clientX; sobreY = ev.clientY;
+            if (sobrePend) return;
+            sobrePend = true;
+            pedirCuadro(function () {
+              sobrePend = false;
+              if (alSobre && !arrastrando) alSobre(triEn(sobreX, sobreY));
+            });
+          }, false);
+          escuchar(canvas, 'mouseleave', function () { if (alSobre) alSobre(-1); }, false);
+        }
       },
 
       marcar: function (indices, color) {
