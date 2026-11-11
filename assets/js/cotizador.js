@@ -752,9 +752,12 @@
 
   /* planos (opcional): posiciones de corte elegidas a mano por eje, en mm
      ya escalados: {x:[...], y:[...], z:[...]}. Sin planos, la cuadrícula
-     se reparte pareja para que ninguna sección exceda maxMm.              */
+     se reparte pareja para que ninguna sección exceda maxMm. maxMm puede
+     ser un número (igual en los 3 ejes) o [x, y, z]: así las secciones
+     aprovechan la altura de la impresora, que no es igual a su cama.      */
   function cortarEnPiezas(malla, escala, maxMm, planos) {
     if (!malla || malla.length < 9) return null;
+    var maxEje = (maxMm && maxMm.length === 3) ? maxMm : [maxMm, maxMm, maxMm];
 
     var min = [Infinity, Infinity, Infinity], max = [-Infinity, -Infinity, -Infinity];
     var i, a, v;
@@ -779,7 +782,7 @@
         }).sort(function (q, r) { return q - r; });
       }
       if (interiores === null) {
-        var cuantos = Math.max(1, Math.ceil((dim[a] - EPS_CORTE) / maxMm));
+        var cuantos = Math.max(1, Math.ceil((dim[a] - EPS_CORTE) / maxEje[a]));
         interiores = [];
         for (i = 1; i < cuantos; i++) interiores.push(min[a] + dim[a] * i / cuantos);
       }
@@ -972,6 +975,198 @@
     return out;
   }
 
+  /* ===================================================== acomodo en camas
+     Lo que hace un laminador a mano con una pieza cortada: a cada sección
+     se le busca la cara que va abajo (la que pide menos soporte), luego se
+     acomodan todas en el menor número de camas posible, girándolas 90° si
+     así caben mejor. De ahí salen las camas que se cobran, el soporte que
+     se suma y lo que enseña el visor.                                     */
+
+  /* Las 6 maneras de apoyar una pieza: cuál de sus caras queda abajo.
+     Todas son rotaciones de verdad (determinante 1), así que no voltean
+     la malla al revés. */
+  var APOYOS = [
+    function (x, y, z) { return [x, y, z]; },      // como viene
+    function (x, y, z) { return [x, -y, -z]; },    // de cabeza
+    function (x, y, z) { return [-z, y, x]; },     // sobre su lado -X
+    function (x, y, z) { return [z, y, -x]; },     // sobre su lado +X
+    function (x, y, z) { return [x, -z, y]; },     // sobre su lado -Y
+    function (x, y, z) { return [x, z, -y]; }      // sobre su lado +Y
+  ];
+  var COS_VOLADIZO = Math.cos(Math.PI / 4);   // más de 45° colgando pide soporte
+  var DENSIDAD_SOPORTE = 0.12;                // soporte de árbol/rejilla: ~12 % del hueco
+
+  /* Prueba los 6 apoyos y se queda con el que cabe en la impresora y pide
+     menos soporte; a igual soporte, el más bajo (menos capas). Devuelve la
+     malla ya girada y apoyada en z = 0 con su caja y su soporte en mm³ de
+     material. */
+  function orientarSeccion(tri, maq) {
+    var mejor = null;
+    for (var o = 0; o < APOYOS.length; o++) {
+      var f = APOYOS[o];
+      var r = new Float64Array(tri.length);
+      var mn = [Infinity, Infinity, Infinity], mx = [-Infinity, -Infinity, -Infinity];
+      for (var i = 0; i < tri.length; i += 3) {
+        var q = f(tri[i], tri[i + 1], tri[i + 2]);
+        for (var a = 0; a < 3; a++) {
+          r[i + a] = q[a];
+          if (q[a] < mn[a]) mn[a] = q[a];
+          if (q[a] > mx[a]) mx[a] = q[a];
+        }
+      }
+      var w = mx[0] - mn[0], d = mx[1] - mn[1], h = mx[2] - mn[2];
+      var cabe = h <= maq.alturaMm &&
+        ((w <= maq.camaMm && d <= maq.camaMm));
+      var hueco = 0;
+      for (var t = 0; t < r.length; t += 9) {
+        var ux = r[t + 3] - r[t], uy = r[t + 4] - r[t + 1], uz = r[t + 5] - r[t + 2];
+        var vx = r[t + 6] - r[t], vy = r[t + 7] - r[t + 1], vz = r[t + 8] - r[t + 2];
+        var nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+        var lg = Math.sqrt(nx * nx + ny * ny + nz * nz);
+        if (!(lg > 0) || nz / lg > -COS_VOLADIZO) continue;
+        var zc = (r[t + 2] + r[t + 5] + r[t + 8]) / 3 - mn[2];
+        if (zc < 0.5) continue;                       // ya está sobre la cama
+        hueco += (-nz / 2) * zc;                      // área proyectada × altura
+      }
+      var soporte = hueco * DENSIDAD_SOPORTE;
+      var puntaje = (cabe ? 0 : 1e18) + soporte + h * 0.01;
+      if (!mejor || puntaje < mejor.puntaje) {
+        mejor = { puntaje: puntaje, malla: r, min: mn, caja: [w, d, h],
+                  soporteMm3: soporte, cabe: cabe, apoyo: o };
+      }
+    }
+    // Apoyada en el origen: z = 0 es la cama.
+    var m = mejor.malla, mn2 = mejor.min;
+    for (var k = 0; k < m.length; k += 3) {
+      m[k] -= mn2[0]; m[k + 1] -= mn2[1]; m[k + 2] -= mn2[2];
+    }
+    return { malla: m, caja: mejor.caja, soporteMm3: mejor.soporteMm3,
+             cabe: mejor.cabe, apoyo: mejor.apoyo };
+  }
+
+  /* Acomoda rectángulos (huellas de las piezas) en camas cuadradas con
+     MaxRects: cada cama guarda sus huecos libres y cada pieza va al hueco
+     donde sobra menos, derecha o girada 90°. items: [{w, d}] en mm.
+     Devuelve las camas: [[{i, x, y, girada}], …]. */
+  function empacar(items, cama, sep) {
+    var orden = items.map(function (it, i) { return i; });
+    orden.sort(function (a, b) {
+      return items[b].w * items[b].d - items[a].w * items[a].d;
+    });
+    var lado = cama + sep;
+    var camas = [];
+    function nuevaCama() {
+      var c = { libres: [{ x: 0, y: 0, w: lado, h: lado }], piezas: [] };
+      camas.push(c);
+      return c;
+    }
+    function colocar(c, pw, ph) {
+      var best = null;
+      for (var k = 0; k < c.libres.length; k++) {
+        var L = c.libres[k];
+        for (var g = 0; g < 2; g++) {
+          var w = g ? ph : pw, h = g ? pw : ph;
+          if (w > L.w + 1e-6 || h > L.h + 1e-6) continue;
+          var sobra = Math.min(L.w - w, L.h - h);
+          if (!best || sobra < best.sobra) best = { sobra: sobra, x: L.x, y: L.y, w: w, h: h, girada: !!g };
+        }
+      }
+      if (!best) return null;
+      // Partir los huecos que toca la pieza (MaxRects).
+      var nuevos = [];
+      for (var k2 = 0; k2 < c.libres.length; k2++) {
+        var F = c.libres[k2];
+        if (best.x >= F.x + F.w || best.x + best.w <= F.x ||
+            best.y >= F.y + F.h || best.y + best.h <= F.y) { nuevos.push(F); continue; }
+        if (best.x > F.x) nuevos.push({ x: F.x, y: F.y, w: best.x - F.x, h: F.h });
+        if (best.x + best.w < F.x + F.w) nuevos.push({ x: best.x + best.w, y: F.y, w: F.x + F.w - best.x - best.w, h: F.h });
+        if (best.y > F.y) nuevos.push({ x: F.x, y: F.y, w: F.w, h: best.y - F.y });
+        if (best.y + best.h < F.y + F.h) nuevos.push({ x: F.x, y: best.y + best.h, w: F.w, h: F.y + F.h - best.y - best.h });
+      }
+      // Quitar huecos contenidos en otros.
+      c.libres = nuevos.filter(function (A, ia) {
+        for (var ib = 0; ib < nuevos.length; ib++) {
+          var B = nuevos[ib];
+          if (ia !== ib && A.x >= B.x && A.y >= B.y &&
+              A.x + A.w <= B.x + B.w && A.y + A.h <= B.y + B.h &&
+              (ia > ib || A.w !== B.w || A.h !== B.h || A.x !== B.x || A.y !== B.y)) return false;
+        }
+        return true;
+      });
+      return best;
+    }
+    orden.forEach(function (i) {
+      var pw = items[i].w + sep, ph = items[i].d + sep;
+      var hecho = null;
+      for (var c = 0; c < camas.length && !hecho; c++) {
+        var pos = colocar(camas[c], pw, ph);
+        if (pos) { camas[c].piezas.push({ i: i, x: pos.x, y: pos.y, girada: pos.girada }); hecho = true; }
+      }
+      if (!hecho) {
+        var nc = nuevaCama();
+        var pos2 = colocar(nc, pw, ph);
+        // Una pieza más grande que la cama va sola en su cama (no debería pasar).
+        nc.piezas.push({ i: i, x: pos2 ? pos2.x : 0, y: pos2 ? pos2.y : 0,
+                         girada: pos2 ? pos2.girada : false });
+      }
+    });
+    return camas.map(function (c) { return c.piezas; });
+  }
+
+  /* El plan de impresión de una pieza cortada en una impresora: cada
+     sección orientada y todas acomodadas en camas. Se guarda en el corte
+     (que ya está en caché por pieza y tamaño) para no rehacerlo. */
+  function planDeCorte(corte, maq) {
+    var clave = maq.camaMm + 'x' + maq.alturaMm;
+    if (corte._plan && corte._plan.clave === clave) return corte._plan;
+    var secciones = corte.celdas.map(function (c) { return orientarSeccion(c.tri, maq); });
+    var soporte = 0;
+    secciones.forEach(function (x) { soporte += x.soporteMm3; });
+    var camas = empacar(secciones.map(function (x) { return { w: x.caja[0], d: x.caja[1] }; }),
+                        maq.camaMm, CONFIG.separacionMm);
+    corte._plan = { clave: clave, secciones: secciones, camas: camas,
+                    soporteCm3: soporte / 1000 };
+    return corte._plan;
+  }
+
+  /* Camas para n juegos: se acomodan las secciones de todos los juegos
+     juntas (los huecos de una cama se aprovechan con el siguiente juego).
+     Con muchas piezas se calcula un juego y se multiplica. */
+  function camasParaJuegos(plan, n, maq) {
+    if (n <= 1) return plan.camas.length;
+    if (plan.secciones.length * n > 300) return plan.camas.length * n;
+    var items = [];
+    for (var k = 0; k < n; k++) {
+      plan.secciones.forEach(function (x) { items.push({ w: x.caja[0], d: x.caja[1] }); });
+    }
+    return empacar(items, maq.camaMm, CONFIG.separacionMm).length;
+  }
+
+  /* Lo que enseña el visor: las camas una junto a otra y cada sección en
+     su cama, ya girada como se va a imprimir. */
+  function vistaEnCamas(plan, maq) {
+    var cama = maq.camaMm, paso = cama * 1.15;
+    var total = 0;
+    plan.secciones.forEach(function (x) { total += x.malla.length; });
+    var out = new Float64Array(total), pos = 0, centros = [];
+    var porFila = Math.max(1, Math.ceil(Math.sqrt(plan.camas.length)));
+    plan.camas.forEach(function (piezasCama, b) {
+      var bx = (b % porFila) * paso, by = -Math.floor(b / porFila) * paso;
+      centros.push([bx + cama / 2, by + cama / 2, 0]);
+      piezasCama.forEach(function (pz) {
+        var sec = plan.secciones[pz.i], m = sec.malla;
+        for (var k = 0; k < m.length; k += 3) {
+          var x = m[k], y = m[k + 1];
+          if (pz.girada) { var t = x; x = sec.caja[1] - y; y = t; }
+          out[pos++] = bx + pz.x + x;
+          out[pos++] = by + pz.y + y;
+          out[pos++] = m[k + 2];
+        }
+      });
+    });
+    return { malla: out.subarray(0, pos), camas: centros };
+  }
+
   /* ============================================================ precios */
 
   /* Cuántas copias de una pieza caben acostadas en una cama. Es una
@@ -1038,6 +1233,15 @@
       gramos = cm3 * mat.densidad * purga;
       horas = cm3 / maq.velocidadCm3PorHora;
     }
+    /* Pieza cortada: cada sección se orienta y se acomoda en camas de
+       verdad; el soporte que piden se suma al material y al tiempo. */
+    var plan = (corte && corte.celdas) ? planDeCorte(corte, maq) : null;
+    var soporteG = 0;
+    if (plan && plan.soporteCm3 > 0) {
+      soporteG = plan.soporteCm3 * mat.densidad;
+      gramos += soporteG;
+      horas += plan.soporteCm3 / maq.velocidadCm3PorHora;
+    }
     var material = (gramos / 1000) * mat.precioKg;
     var costoMaquina = horas * maq.tarifaHora;
 
@@ -1060,6 +1264,10 @@
       /* Al separar por color cada color imprime en su propia corrida:
          nunca menos de una cama por color, sin importar lo chico que sea. */
       if (regiones > 1 && camas < regiones) camas = regiones;
+    } else if (plan) {
+      camas = camasParaJuegos(plan, n, maq);
+      porCama = plan.camas.length === 1
+        ? Math.max(1, Math.floor(n / Math.max(1, camas))) : 1;
     } else {
       var cajaPack = corte ? corte.cajaMayor : caja;
       porCama = piezasPorCama(cajaPack, maq);
@@ -1078,7 +1286,8 @@
       gramos: gramos, horas: horas, delLaminador: delLaminador,
       unitario: unitario, total: unitario * n,
       porCama: porCama, camas: camas,
-      secciones: secciones, ensamble: ensamble, grande: maq.grande
+      secciones: secciones, ensamble: ensamble, grande: maq.grande,
+      soporteG: soporteG, camasPorJuego: plan ? plan.camas.length : 0
     };
   }
 
@@ -1096,6 +1305,7 @@
     limites: limitesDeMalla, porCama: piezasPorCama,
     cotizar: cotizar, cortar: cortarEnPiezas,
     cortarEtiquetas: cortarPorEtiquetas, explotar: mallaExplotada,
+    orientar: orientarSeccion, empacar: empacar, plan: planDeCorte,
     config: CONFIG, whatsapp: WHATSAPP
   };
 
@@ -1198,7 +1408,8 @@
     p._grande = esGrande(p, s, cajaE);
     var maq = maquina(p._grande);
     if (piezasPorCama(cajaE, maq) > 0) return null;
-    var lim = Math.min(maq.camaMm, maq.alturaMm) - CONFIG.margenCorteMm;
+    var lim = [maq.camaMm - CONFIG.margenCorteMm, maq.camaMm - CONFIG.margenCorteMm,
+               maq.alturaMm - CONFIG.margenCorteMm];
     var planos = (p.planos && p._planosEscala === s) ? p.planos : null;
     var clave = s.toFixed(4) + '|' + lim + '|'
               + (planos ? JSON.stringify(planos) : 'auto');
@@ -1300,8 +1511,11 @@
        Pincel: la pieza entera y se pinta sobre ella. */
     var datos, opciones;
     if (visorModo === 'ver' && corte) {
-      datos = mallaExplotada(corte);
-      opciones = null;
+      /* Cortada: cada sección en su cama, girada como se va a imprimir. */
+      var maqV = maquina(p._grande);
+      var vista = vistaEnCamas(planDeCorte(corte, maqV), maqV);
+      datos = vista.malla;
+      opciones = { camaMm: maqV.camaMm, alturaMm: maqV.alturaMm, camas: vista.camas };
     } else if (visorModo === 'editar') {
       datos = trozosEnteros(p, s, null);
       opciones = { camaMm: maquina(p._grande).camaMm, alturaMm: maquina(p._grande).alturaMm,
@@ -1900,8 +2114,9 @@
                        : ' · impresora Bambu Lab (25.6 cm)';
 
       if (corte) {
-        meta += ' · se corta en ' + q.secciones + ' secciones para armar · '
+        meta += ' · se corta en ' + q.secciones + ' secciones para armar, acomodadas en '
              + q.camas + (q.camas === 1 ? ' cama' : ' camas');
+        if (q.soporteG >= 1) meta += ' · soportes ~' + fmtPeso(q.soporteG);
       } else if (regiones) {
         meta += ' · ' + q.secciones + ' piezas por color, se pegan · '
              + q.camas + (q.camas === 1 ? ' cama' : ' camas');
@@ -1991,7 +2206,7 @@
       n += sinLeer.length;
     }
     l.push('', 'Material: ' + CONFIG.materiales[mat].nombre,
-           'Relleno: ' + Math.round(relleno * 100) + '%',
+           'Relleno: ' + (relleno === 0 ? '0% (hueca, solo paredes)' : Math.round(relleno * 100) + '%'),
            'Estimado del sitio: ' + fmt(total), '',
            n === 1 ? 'Enseguida te mando el archivo por aquí.'
                    : 'Enseguida te mando los archivos por aquí.');
