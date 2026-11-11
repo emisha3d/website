@@ -795,7 +795,7 @@ Rango de precio: $859 MXN a $4,879 MXN.
 Rango de precio: $259 MXN a $10,179 MXN.
 
 - Accesorio AMS permite utilizar 4 filamentos en una sola impresión, compatible con Bambu Lab X1, X1 carbón y serie P1 — $8,249 MXN · Compatible: serie P1, X1, X1C, AMS · SKU AG-BAMBULAB-AMS
-- Accesorio AMS permite utilizar hasta 4 filamentos diferentes en una sola impresión compatible con Bambu Lab A1 y A1 mini — $6,129 MXN · Compatible: A1 mini, A1, AMS · SKU AG-BAMBULAB-AMS-LITE
+- Accesorio AMS permite utilizar hasta 4 filamentos diferentes en una sola impresión compatible con Bambu Lab A1 y A1 mini — $5,769 MXN · Compatible: A1 mini, A1, AMS · SKU AG-BAMBULAB-AMS-LITE
 - AMS hub compatible con P1P,P1S,X1C — $2,319 MXN · Compatible: P1P, P1S, X1C, AMS · SKU AG-SA002-N
 - AMS Lite hub compartible con serie A1 — $1,299 MXN · Compatible: serie A1, AMS lite · SKU AG-BAMBULAB-AMS-HUB
 - Bobina RFID AMS HT — $289 MXN · Compatible: AMS HT · SKU AG-SAA059

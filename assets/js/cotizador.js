@@ -750,6 +750,68 @@
     return 0.5 * Math.sqrt(nx * nx + ny * ny + nz * nz);
   }
 
+  /* Largo del contorno que deja un plano al cortar la malla (eje = valor):
+     es lo que hay que pegar y lijar. Un cuello o una cintura dan un
+     contorno corto; el pecho, uno largo. */
+  function contornoEn(malla, escala, eje, valor, paso) {
+    var u = (eje + 1) % 3, v = (eje + 2) % 3, total = 0;
+    var pts = [0, 0, 0, 0], np;
+    for (var i = 0; i < malla.length; i += 9 * paso) {
+      var a = malla[i + eje] * escala, b = malla[i + 3 + eje] * escala, c = malla[i + 6 + eje] * escala;
+      if ((a < valor && b < valor && c < valor) || (a > valor && b > valor && c > valor)) continue;
+      np = 0;
+      var vs = [a, b, c];
+      for (var e = 0; e < 3 && np < 4; e++) {
+        var p0 = vs[e], p1 = vs[(e + 1) % 3];
+        if ((p0 - valor) * (p1 - valor) >= 0 || p0 === p1) continue;
+        var t = (valor - p0) / (p1 - p0);
+        var o0 = i + e * 3, o1 = i + ((e + 1) % 3) * 3;
+        pts[np++] = (malla[o0 + u] + (malla[o1 + u] - malla[o0 + u]) * t) * escala;
+        pts[np++] = (malla[o0 + v] + (malla[o1 + v] - malla[o0 + v]) * t) * escala;
+      }
+      if (np === 4) {
+        var dx = pts[2] - pts[0], dy = pts[3] - pts[1];
+        total += Math.sqrt(dx * dx + dy * dy);
+      }
+    }
+    return total * paso;
+  }
+
+  /* Dónde cortar en un eje: parte del reparto parejo y mueve cada corte,
+     dentro de lo que permite la impresora, al punto con el contorno más
+     corto (cuello, cintura, tobillo). Así el corte cae donde se pega mejor
+     y se nota menos. Cada sección sigue sin pasar de maxMm. */
+  function cortesFinos(malla, escala, eje, mn, mx, cuantos, maxMm) {
+    var fuera = [];
+    if (cuantos < 2) return fuera;
+    var largo = mx - mn, celda = largo / cuantos;
+    var nTri = malla.length / 9;
+    var paso = Math.max(1, Math.floor(nTri / 150000));   // mallas enormes: muestreo
+    var MUESTRAS = 40, prev = mn;
+    for (var k = 1; k < cuantos; k++) {
+      var ideal = mn + celda * k;
+      var lo = Math.max(prev + celda * 0.25, mx - (cuantos - k) * maxMm + 1, ideal - celda * 0.4);
+      var hi = Math.min(prev + maxMm - 1, ideal + celda * 0.4);
+      var mejor = ideal, mejorVal = Infinity;
+      if (hi > lo) {
+        var base = contornoEn(malla, escala, eje, ideal, paso);
+        for (var j = 0; j <= MUESTRAS; j++) {
+          var x = lo + (hi - lo) * j / MUESTRAS;
+          var val = contornoEn(malla, escala, eje, x, paso);
+          // Un pelo de preferencia por el reparto parejo, para no moverse por nada.
+          val *= 1 + 0.15 * Math.abs(x - ideal) / celda;
+          if (val < mejorVal) { mejorVal = val; mejor = x; }
+        }
+        if (!(mejorVal < base)) mejor = ideal;
+      }
+      // Nunca una sección más grande que la impresora, pase lo que pase.
+      mejor = Math.min(Math.max(mejor, mx - (cuantos - k) * maxMm), prev + maxMm);
+      fuera.push(mejor);
+      prev = mejor;
+    }
+    return fuera;
+  }
+
   /* planos (opcional): posiciones de corte elegidas a mano por eje, en mm
      ya escalados: {x:[...], y:[...], z:[...]}. Sin planos, la cuadrícula
      se reparte pareja para que ninguna sección exceda maxMm. maxMm puede
@@ -783,8 +845,7 @@
       }
       if (interiores === null) {
         var cuantos = Math.max(1, Math.ceil((dim[a] - EPS_CORTE) / maxEje[a]));
-        interiores = [];
-        for (i = 1; i < cuantos; i++) interiores.push(min[a] + dim[a] * i / cuantos);
+        interiores = cortesFinos(malla, escala, a, min[a], max[a], cuantos, maxEje[a]);
       }
       bordes[a] = [min[a]].concat(interiores);
       bordes[a].push(max[a]);
@@ -996,14 +1057,79 @@
   var COS_VOLADIZO = Math.cos(Math.PI / 4);   // más de 45° colgando pide soporte
   var DENSIDAD_SOPORTE = 0.12;                // soporte de árbol/rejilla: ~12 % del hueco
 
-  /* Prueba los 6 apoyos y se queda con el que cabe en la impresora y pide
-     menos soporte; a igual soporte, el más bajo (menos capas). Devuelve la
-     malla ya girada y apoyada en z = 0 con su caja y su soporte en mm³ de
-     material. */
-  function orientarSeccion(tri, maq) {
+  /* Giro que deja la normal n apuntando hacia abajo (0, 0, -1): la cara
+     que el cliente eligió queda sobre la cama (Rodrigues). */
+  function giroCaraAbajo(n) {
+    var lg = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]) || 1;
+    var ax = n[0] / lg, ay = n[1] / lg, az = n[2] / lg;
+    var c = -az;                                  // a · (0, 0, -1)
+    if (c < -0.999999) {                          // apunta arriba: media vuelta en X
+      return function (x, y, z) { return [x, -y, -z]; };
+    }
+    var vx = -ay, vy = ax;                        // a × (0, 0, -1), vz = 0
+    var k = 1 / (1 + c);
+    var m00 = 1 - vy * vy * k, m01 = vx * vy * k, m02 = vy;
+    var m10 = vx * vy * k,     m11 = 1 - vx * vx * k, m12 = -vx;
+    var m20 = -vy,             m21 = vx,          m22 = 1 - (vx * vx + vy * vy) * k;
+    return function (x, y, z) {
+      return [m00 * x + m01 * y + m02 * z,
+              m10 * x + m11 * y + m12 * z,
+              m20 * x + m21 * y + m22 * z];
+    };
+  }
+
+  /* Qué apoyo deja abajo una cara de corte (plana, sin soporte, buena
+     adherencia): es lo primero que haría una persona en el laminador.
+     Índices de APOYOS → la cara que queda abajo: -Z, +Z, -X, +X, -Y, +Y. */
+  function apoyosEnCorte(celda, n) {
+    if (!celda || !celda.ijk || !n) return null;
+    var c = celda.ijk;
+    return [c[2] > 0, c[2] < n[2] - 1, c[0] > 0, c[0] < n[0] - 1,
+            c[1] > 0, c[1] < n[1] - 1];
+  }
+
+  /* Hueco bajo los voladizos (mm³), ya girada la pieza. El soporte de un
+     voladizo baja hasta lo que tenga debajo: la cama o la misma pieza.
+     Para saber qué hay debajo se usa una rejilla de alturas con las caras
+     que miran hacia arriba. */
+  function soporteDe(r, mn, w, d) {
+    var N = 48, cw = Math.max(w, 1) / N, cd = Math.max(d, 1) / N;
+    var arriba = [];                     // por celda: alturas de caras que miran arriba
+    var colgantes = [];                  // [celda, z, área proyectada]
+    for (var t = 0; t < r.length; t += 9) {
+      var ux = r[t + 3] - r[t], uy = r[t + 4] - r[t + 1], uz = r[t + 5] - r[t + 2];
+      var vx = r[t + 6] - r[t], vy = r[t + 7] - r[t + 1], vz = r[t + 8] - r[t + 2];
+      var nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+      var lg = Math.sqrt(nx * nx + ny * ny + nz * nz);
+      if (!(lg > 0)) continue;
+      var cx = (r[t] + r[t + 3] + r[t + 6]) / 3 - mn[0];
+      var cy = (r[t + 1] + r[t + 4] + r[t + 7]) / 3 - mn[1];
+      var zc = (r[t + 2] + r[t + 5] + r[t + 8]) / 3 - mn[2];
+      var ci = Math.min(N - 1, Math.max(0, Math.floor(cx / cw)));
+      var cj = Math.min(N - 1, Math.max(0, Math.floor(cy / cd)));
+      var celda = ci * N + cj;
+      if (nz > 0) (arriba[celda] || (arriba[celda] = [])).push(zc);
+      else if (nz / lg <= -COS_VOLADIZO && zc >= 0.5) colgantes.push(celda, zc, -nz / 2);
+    }
+    var hueco = 0;
+    for (var k = 0; k < colgantes.length; k += 3) {
+      var zs = arriba[colgantes[k]], z = colgantes[k + 1], piso = 0;
+      if (zs) for (var q = 0; q < zs.length; q++) if (zs[q] < z && zs[q] > piso) piso = zs[q];
+      hueco += colgantes[k + 2] * (z - piso);
+    }
+    return hueco;
+  }
+
+  /* Prueba los 6 apoyos y se queda con el que cabe en la impresora, deja
+     una cara de corte abajo si tiene una, y pide menos soporte; a igual
+     soporte, el más bajo (menos capas). Con normalManual (la cara que el
+     cliente tocó en el visor) solo se usa ese giro. Devuelve la malla ya
+     girada y apoyada en z = 0 con su caja y su soporte en mm³ de material. */
+  function orientarSeccion(tri, maq, enCorte, normalManual) {
     var mejor = null;
-    for (var o = 0; o < APOYOS.length; o++) {
-      var f = APOYOS[o];
+    var giros = normalManual ? [giroCaraAbajo(normalManual)] : APOYOS;
+    for (var o = 0; o < giros.length; o++) {
+      var f = giros[o];
       var r = new Float64Array(tri.length);
       var mn = [Infinity, Infinity, Infinity], mx = [-Infinity, -Infinity, -Infinity];
       for (var i = 0; i < tri.length; i += 3) {
@@ -1017,19 +1143,11 @@
       var w = mx[0] - mn[0], d = mx[1] - mn[1], h = mx[2] - mn[2];
       var cabe = h <= maq.alturaMm &&
         ((w <= maq.camaMm && d <= maq.camaMm));
-      var hueco = 0;
-      for (var t = 0; t < r.length; t += 9) {
-        var ux = r[t + 3] - r[t], uy = r[t + 4] - r[t + 1], uz = r[t + 5] - r[t + 2];
-        var vx = r[t + 6] - r[t], vy = r[t + 7] - r[t + 1], vz = r[t + 8] - r[t + 2];
-        var nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
-        var lg = Math.sqrt(nx * nx + ny * ny + nz * nz);
-        if (!(lg > 0) || nz / lg > -COS_VOLADIZO) continue;
-        var zc = (r[t + 2] + r[t + 5] + r[t + 8]) / 3 - mn[2];
-        if (zc < 0.5) continue;                       // ya está sobre la cama
-        hueco += (-nz / 2) * zc;                      // área proyectada × altura
-      }
-      var soporte = hueco * DENSIDAD_SOPORTE;
-      var puntaje = (cabe ? 0 : 1e18) + soporte + h * 0.01;
+      var soporte = soporteDe(r, mn, w, d) * DENSIDAD_SOPORTE;
+      var plana = !normalManual && enCorte && enCorte[o];
+      // Cara de corte abajo: plana, pega bien a la cama. Se prefiere,
+      // pero no a costa de llenar la pieza de soporte.
+      var puntaje = (cabe ? 0 : 1e18) + soporte * (plana ? 0.6 : 1) + h * 0.01;
       if (!mejor || puntaje < mejor.puntaje) {
         mejor = { puntaje: puntaje, malla: r, min: mn, caja: [w, d, h],
                   soporteMm3: soporte, cabe: cabe, apoyo: o };
@@ -1041,7 +1159,7 @@
       m[k] -= mn2[0]; m[k + 1] -= mn2[1]; m[k + 2] -= mn2[2];
     }
     return { malla: m, caja: mejor.caja, soporteMm3: mejor.soporteMm3,
-             cabe: mejor.cabe, apoyo: mejor.apoyo };
+             cabe: mejor.cabe, apoyo: normalManual ? -1 : mejor.apoyo };
   }
 
   /* Acomoda rectángulos (huellas de las piezas) en camas cuadradas con
@@ -1108,6 +1226,7 @@
         // Una pieza más grande que la cama va sola en su cama (no debería pasar).
         nc.piezas.push({ i: i, x: pos2 ? pos2.x : 0, y: pos2 ? pos2.y : 0,
                          girada: pos2 ? pos2.girada : false });
+        if (!pos2) nc.libres = [];         // ocupa la cama entera: nadie más cabe
       }
     });
     return camas.map(function (c) { return c.piezas; });
@@ -1117,9 +1236,12 @@
      sección orientada y todas acomodadas en camas. Se guarda en el corte
      (que ya está en caché por pieza y tamaño) para no rehacerlo. */
   function planDeCorte(corte, maq) {
-    var clave = maq.camaMm + 'x' + maq.alturaMm;
+    var manual = corte._manual || {};
+    var clave = maq.camaMm + 'x' + maq.alturaMm + '|' + JSON.stringify(manual);
     if (corte._plan && corte._plan.clave === clave) return corte._plan;
-    var secciones = corte.celdas.map(function (c) { return orientarSeccion(c.tri, maq); });
+    var secciones = corte.celdas.map(function (c, i) {
+      return orientarSeccion(c.tri, maq, apoyosEnCorte(c, corte.n), manual[i] || null);
+    });
     var soporte = 0;
     secciones.forEach(function (x) { soporte += x.soporteMm3; });
     var camas = empacar(secciones.map(function (x) { return { w: x.caja[0], d: x.caja[1] }; }),
@@ -1148,13 +1270,14 @@
     var cama = maq.camaMm, paso = cama * 1.15;
     var total = 0;
     plan.secciones.forEach(function (x) { total += x.malla.length; });
-    var out = new Float64Array(total), pos = 0, centros = [];
+    var out = new Float64Array(total), pos = 0, centros = [], mapa = [];
     var porFila = Math.max(1, Math.ceil(Math.sqrt(plan.camas.length)));
     plan.camas.forEach(function (piezasCama, b) {
       var bx = (b % porFila) * paso, by = -Math.floor(b / porFila) * paso;
       centros.push([bx + cama / 2, by + cama / 2, 0]);
       piezasCama.forEach(function (pz) {
         var sec = plan.secciones[pz.i], m = sec.malla;
+        mapa.push({ sec: pz.i, ini: pos / 9, n: m.length / 9 });
         for (var k = 0; k < m.length; k += 3) {
           var x = m[k], y = m[k + 1];
           if (pz.girada) { var t = x; x = sec.caja[1] - y; y = t; }
@@ -1164,7 +1287,7 @@
         }
       });
     });
-    return { malla: out.subarray(0, pos), camas: centros };
+    return { malla: out.subarray(0, pos), camas: centros, mapa: mapa };
   }
 
   /* ============================================================ precios */
@@ -1514,6 +1637,7 @@
       /* Cortada: cada sección en su cama, girada como se va a imprimir. */
       var maqV = maquina(p._grande);
       var vista = vistaEnCamas(planDeCorte(corte, maqV), maqV);
+      vistaMapa = { corte: corte, mapa: vista.mapa, maq: maqV };
       datos = vista.malla;
       opciones = { camaMm: maqV.camaMm, alturaMm: maqV.alturaMm, camas: vista.camas };
     } else if (visorModo === 'editar') {
@@ -1539,6 +1663,11 @@
       repintarMarcas(p);
     } else {
       visorCtrl.pincel(0);
+    }
+    /* Como «apoyar en cara» de Bambu Studio: con la pieza cortada en sus
+       camas, un clic en una cara la deja sobre la cama. */
+    if (visorCtrl.elegir) {
+      visorCtrl.elegir((visorModo === 'ver' && corte) ? alApoyarCara : null);
     }
     ponerNotaVisor(p, corte);
     actualizarBarraVisor(p, corte);
@@ -1673,6 +1802,41 @@
     });
   }
 
+  var vistaMapa = null;   // triángulos del visor -> sección del corte
+
+  function alApoyarCara(t) {
+    if (!vistaMapa) return;
+    var corte = vistaMapa.corte, hit = null;
+    if (t < 0) {                 // clic en el fondo: vuelve el acomodo automático
+      if (corte._manual && Object.keys(corte._manual).length) {
+        corte._manual = {};
+        visorClave = '';
+        refrescar();
+      }
+      return;
+    }
+    for (var k = 0; k < vistaMapa.mapa.length; k++) {
+      var e = vistaMapa.mapa[k];
+      if (t >= e.ini && t < e.ini + e.n) { hit = e; break; }
+    }
+    if (!hit) return;
+    var tri = corte.celdas[hit.sec].tri, o = (t - hit.ini) * 9;
+    var ux = tri[o + 3] - tri[o], uy = tri[o + 4] - tri[o + 1], uz = tri[o + 5] - tri[o + 2];
+    var wx = tri[o + 6] - tri[o], wy = tri[o + 7] - tri[o + 1], wz = tri[o + 8] - tri[o + 2];
+    var n = [uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx];
+    var lg = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
+    if (!(lg > 0)) return;
+    var nn = [n[0] / lg, n[1] / lg, n[2] / lg];
+    if (!orientarSeccion(tri, vistaMapa.maq, null, nn).cabe) {
+      if (visorNota) visorNota.textContent = 'Apoyada en esa cara la sección no cabe en la impresora. Elige otra cara.';
+      return;
+    }
+    corte._manual = corte._manual || {};
+    corte._manual[hit.sec] = [+(n[0] / lg).toFixed(4), +(n[1] / lg).toFixed(4), +(n[2] / lg).toFixed(4)];
+    visorClave = '';            // fuerza a redibujar con el nuevo acomodo
+    refrescar();
+  }
+
   function ponerNotaVisor(p, corte) {
     if (!visorNota) return;
     if (visorModo === 'pincel') {
@@ -1687,7 +1851,10 @@
     }
     visorNota.textContent = corte
       ? p.nombre + ' — se corta en ' + corte.celdas.length
-        + ' secciones para armar · arrastra para girar · Shift+arrastrar mueve'
+        + ' secciones para armar · clic en una cara para apoyarla en la cama'
+        + (corte._manual && Object.keys(corte._manual).length
+            ? ' (clic en el fondo vuelve al acomodo automático)' : '')
+        + ' · arrastra para girar · Shift+arrastrar mueve'
       : p.nombre + ' — arrastra para girar · rueda o pellizco acerca · Shift+arrastrar mueve';
   }
 
@@ -2082,6 +2249,45 @@
     return { s: s, volE: volE, cajaE: cajaE, corte: corte, regiones: regiones, q: q };
   }
 
+  /* Figuras grandes con relleno: casi siempre conviene imprimirlas huecas
+     (solo paredes, con soporte donde cuelga). Se le enseña al cliente
+     cuánto queda así y se cambia con un clic. */
+  var recoEl = null;
+  function ponerRecomendacion(mat, relleno, total) {
+    if (!detalle) return;
+    var grandes = piezas.filter(function (p) {
+      return !p.cargando && !p.error && p._metaEl && p._grande;
+    });
+    if (!recoEl) {
+      recoEl = document.createElement('div');
+      recoEl.className = 'quote-total__label';
+      recoEl.style.cssText = 'margin-top:10px;max-width:46ch;line-height:1.45;text-transform:none;letter-spacing:0';
+      detalle.parentNode.appendChild(recoEl);
+    }
+    if (!grandes.length || !(relleno > 0)) { recoEl.hidden = true; return; }
+    var hueco = 0;
+    piezas.forEach(function (p) {
+      if (!p._metaEl || p.cargando || p.error) return;
+      hueco += cotizacionDe(p, mat, 0).q.total;
+    });
+    if (!(hueco < total)) { recoEl.hidden = true; return; }
+    recoEl.hidden = false;
+    recoEl.textContent = '';
+    recoEl.appendChild(document.createTextNode(
+      'Recomendado para figuras grandes: hueca, solo paredes y soporte donde hace falta. '
+      + 'Queda en ' + fmt(hueco) + ' en vez de ' + fmt(total) + '. '));
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = 'Usar hueca';
+    b.style.cssText = 'background:none;border:1px solid currentColor;border-radius:6px;'
+      + 'color:inherit;padding:2px 10px;margin-top:4px;cursor:pointer;font:inherit';
+    b.addEventListener('click', function () {
+      selRell.value = '0';
+      selRell.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    recoEl.appendChild(b);
+  }
+
   function refrescar() {
     var relleno = parseFloat(selRell.value);
     var mat = selMat.value;
@@ -2143,6 +2349,7 @@
         + fmtPeso(gramosTot) + ' de ' + CONFIG.materiales[mat].nombre
         + ' · ~' + horasTot.toFixed(1) + ' h de impresión'
       : 'Agrega un modelo para ver el estimado.';
+    ponerRecomendacion(mat, relleno, total);
 
     btnMail.href = 'https://wa.me/' + WHATSAPP + '?text='
       + encodeURIComponent(mensajeWhatsApp(mat, relleno, total));
