@@ -1896,7 +1896,8 @@
       }
       meta += (nPartes > 1 ? 'la mayor ' : '') + dims + ' mm';
       if (s !== 1) meta += ' (escala ×' + (s >= 10 ? s.toFixed(1) : s.toFixed(2)) + ')';
-      if (q.grande) meta += ' · impresora de formato grande (80 × 80 × 100 cm)';
+      meta += q.grande ? ' · impresora de formato grande (80 × 80 × 100 cm)'
+                       : ' · impresora Bambu Lab (25.6 cm)';
 
       if (corte) {
         meta += ' · se corta en ' + q.secciones + ' secciones para armar · '
