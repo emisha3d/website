@@ -40,8 +40,28 @@
     alturaMm: 256,              // altura útil
     separacionMm: 6,            // hueco entre piezas al acomodarlas en la cama
     margenCorteMm: 4,           // holgura al cortar: ninguna sección llega al borde de la cama
-    tamanoMaxMm: 2000           // tope del tamaño final que se puede pedir
+    tamanoMaxMm: 5000,          // tope del tamaño final: figuras armadas de hasta 5 m
+    /* Formato grande: lo que no cabe en la Bambu va a la Elegoo OrangeStorm
+       Giga (cama 810 × 810 × 1010 mm) y, si ni ahí cabe, se corta en
+       secciones de ese tamaño y se arma. Máquina ~$3 MXN/min de costo; el
+       margen se suma igual que en todo lo demás. Ritmo con boquilla de
+       0.6 mm: un laminado real dio ~61 cm³/h, se usa 50 para no quedarnos
+       cortos con figuras de mucho detalle. */
+    grande: {
+      camaMm: 800,
+      alturaMm: 1000,
+      tarifaHora: 180,
+      velocidadCm3PorHora: 50
+    }
   };
+
+  /* La impresora con la que se cotiza: la normal (Bambu) o la de formato
+     grande. Se lee de CONFIG cada vez para que un ajuste en vivo cuente. */
+  function maquina(grande) {
+    var g = grande ? CONFIG.grande : CONFIG;
+    return { grande: !!grande, camaMm: g.camaMm, alturaMm: g.alturaMm,
+             tarifaHora: g.tarifaHora, velocidadCm3PorHora: g.velocidadCm3PorHora };
+  }
 
   // Número de WhatsApp en formato internacional, sin + ni espacios.
   var WHATSAPP = '525575639255';
@@ -958,11 +978,12 @@
      aproximación por cuadrícula: no reacomoda ni rota las piezas, así que
      se queda corta con formas irregulares. Preferimos quedarnos cortos:
      cobrar de más una cama es mejor que prometer una que no cabe.          */
-  function piezasPorCama(caja) {
+  function piezasPorCama(caja, maq) {
     if (!caja) return 1;
-    var s = CONFIG.separacionMm, cama = CONFIG.camaMm;
+    maq = maq || maquina(false);
+    var s = CONFIG.separacionMm, cama = maq.camaMm;
     var w = caja[0], d = caja[1], h = caja[2];
-    if (h > CONFIG.alturaMm) return 0;                 // no cabe de altura
+    if (h > maq.alturaMm) return 0;                    // no cabe de altura
     function cupo(a, b) {
       var na = Math.floor((cama + s) / (a + s));
       var nb = Math.floor((cama + s) / (b + s));
@@ -987,8 +1008,9 @@
      color (sin purga) y se pegan al final. Quien llama ya debe haber
      pasado colores=1, medido=null y las cajas de las regiones como
      partesCajas para las camas.                                          */
-  function cotizar(volumenCm3, materialKey, relleno, cantidad, caja, corte, partesCajas, placas, areaMm2, colores, medido, regiones) {
+  function cotizar(volumenCm3, materialKey, relleno, cantidad, caja, corte, partesCajas, placas, areaMm2, colores, medido, regiones, grande) {
     var mat = CONFIG.materiales[materialKey];
+    var maq = maquina(grande);
     var gramos, horas, delLaminador = false;
     if (medido && medido.gramos > 0) {
       /* El proyecto viene laminado: gramos y tiempo son los del propio
@@ -996,9 +1018,11 @@
          estimación que le gane a eso. */
       delLaminador = true;
       gramos = medido.gramos;
-      horas = medido.horas > 0
+      /* En formato grande el tiempo del laminador del cliente no es el de
+         nuestra máquina: se rehace con el ritmo de la grande. */
+      horas = (medido.horas > 0 && !maq.grande)
         ? medido.horas
-        : (medido.gramos / mat.densidad) / CONFIG.velocidadCm3PorHora;
+        : (medido.gramos / mat.densidad) / maq.velocidadCm3PorHora;
     } else {
       var cm3;
       if (areaMm2 > 0) {
@@ -1012,10 +1036,10 @@
       }
       var purga = colores > 1 ? 1 + CONFIG.purgaPorColor * (colores - 1) : 1;
       gramos = cm3 * mat.densidad * purga;
-      horas = cm3 / CONFIG.velocidadCm3PorHora;
+      horas = cm3 / maq.velocidadCm3PorHora;
     }
     var material = (gramos / 1000) * mat.precioKg;
-    var maquina = horas * CONFIG.tarifaHora;
+    var costoMaquina = horas * maq.tarifaHora;
 
     var n = Math.max(1, cantidad || 1);
     var secciones = corte ? corte.celdas.length : (regiones > 1 ? regiones : 1);
@@ -1023,7 +1047,7 @@
     if (!corte && partesCajas && partesCajas.length > 1) {
       var frac = 0;
       for (var pc = 0; pc < partesCajas.length; pc++) {
-        var cupoP = piezasPorCama(partesCajas[pc]);
+        var cupoP = piezasPorCama(partesCajas[pc], maq);
         frac += cupoP > 0 ? 1 / cupoP : 1;
       }
       porCama = frac > 0 && frac <= 1 ? Math.floor(1 / frac) : 1;  // juegos por cama
@@ -1038,13 +1062,13 @@
       if (regiones > 1 && camas < regiones) camas = regiones;
     } else {
       var cajaPack = corte ? corte.cajaMayor : caja;
-      porCama = piezasPorCama(cajaPack);
+      porCama = piezasPorCama(cajaPack, maq);
       camas = porCama > 0 ? Math.ceil(n * secciones / porCama) : n * secciones;
     }
     var ensamble = (corte || regiones > 1)
       ? CONFIG.ensamblePorPieza * (secciones - 1) * n : 0;
 
-    var directo = (material + maquina) * CONFIG.margen * n;
+    var directo = (material + costoMaquina) * CONFIG.margen * n;
     var total = directo + CONFIG.preparacionPorArchivo
               + CONFIG.alistadoPorCama * camas + ensamble;
     // En pesos enteros: así lo que muestra la página es exactamente lo que se cobra.
@@ -1054,7 +1078,7 @@
       gramos: gramos, horas: horas, delLaminador: delLaminador,
       unitario: unitario, total: unitario * n,
       porCama: porCama, camas: camas,
-      secciones: secciones, ensamble: ensamble
+      secciones: secciones, ensamble: ensamble, grande: maq.grande
     };
   }
 
@@ -1145,7 +1169,20 @@
      movido) cuando la pieza —al tamaño pedido— no cabe en la impresora ni
      girada. Se guarda por clave porque cortar una malla grande cuesta
      trabajo y el usuario mueve los números seguido.                        */
+  /* ¿Va a la impresora de formato grande? Sí cuando la pieza —o la mayor
+     de las partes de un proyecto— no cabe en la Bambu ni girada. Si el
+     cliente pintó sus propias secciones, se respeta su plan en la Bambu. */
+  function esGrande(p, s, cajaE) {
+    if (p.pincelListo && p.pincel) return false;
+    var cajas = cajasEscaladas(p, s) || [cajaE];
+    for (var i = 0; i < cajas.length; i++) {
+      if (piezasPorCama(cajas[i]) === 0) return true;
+    }
+    return false;
+  }
+
   function corteDe(p, s) {
+    p._grande = false;
     if (!p.malla) return null;
 
     if (p.pincelListo && p.pincel) {
@@ -1158,8 +1195,10 @@
     }
 
     var cajaE = [p.caja[0] * s, p.caja[1] * s, p.caja[2] * s];
-    if (piezasPorCama(cajaE) > 0) return null;
-    var lim = Math.min(CONFIG.camaMm, CONFIG.alturaMm) - CONFIG.margenCorteMm;
+    p._grande = esGrande(p, s, cajaE);
+    var maq = maquina(p._grande);
+    if (piezasPorCama(cajaE, maq) > 0) return null;
+    var lim = Math.min(maq.camaMm, maq.alturaMm) - CONFIG.margenCorteMm;
     var planos = (p.planos && p._planosEscala === s) ? p.planos : null;
     var clave = s.toFixed(4) + '|' + lim + '|'
               + (planos ? JSON.stringify(planos) : 'auto');
@@ -1265,17 +1304,17 @@
       opciones = null;
     } else if (visorModo === 'editar') {
       datos = trozosEnteros(p, s, null);
-      opciones = { camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
+      opciones = { camaMm: maquina(p._grande).camaMm, alturaMm: maquina(p._grande).alturaMm,
                    camas: centrosDePlacas(p, s),
                    planos: corte ? corte.fronteras : null };
     } else if (visorModo === 'pincel') {
       datos = trozosEnteros(p, s, null);
-      opciones = { camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
+      opciones = { camaMm: maquina(p._grande).camaMm, alturaMm: maquina(p._grande).alturaMm,
                    camas: centrosDePlacas(p, s) };
     } else {
       var separar = p.porColor ? desplazamientosPorColor(p, s) : null;
       datos = trozosEnteros(p, s, separar);
-      opciones = { camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
+      opciones = { camaMm: maquina(p._grande).camaMm, alturaMm: maquina(p._grande).alturaMm,
                    camas: centrosDePlacas(p, s) };
     }
     if (!visorCtrl) visorCtrl = window.EmishaPreview.montar(lienzo, datos, opciones);
@@ -1525,7 +1564,7 @@
           p.planos[eje][i] = v;
           /* la línea se mueve en vivo; el recorte y el precio, con calma */
           if (visorCtrl) visorCtrl.configurar({
-            camaMm: CONFIG.camaMm, alturaMm: CONFIG.alturaMm,
+            camaMm: maquina(p._grande).camaMm, alturaMm: maquina(p._grande).alturaMm,
             camas: centrosDePlacas(p, s), planos: p.planos
           });
           clearTimeout(timerPlanos);
@@ -1819,12 +1858,12 @@
       });
       q = cotizar(volE, mat, relleno, p.cantidad, cajaE, null,
                   cajasReg, p.placas, (p.areaMm2 || 0) * s * s,
-                  1, null, regiones.length);
+                  1, null, regiones.length, p._grande);
     } else {
       q = cotizar(volE, mat, relleno, p.cantidad, cajaE, corte,
                   cajasEscaladas(p, s), p.placas,
                   (p.areaMm2 || 0) * s * s, p.coloresUsados || 1,
-                  medidoDe(p, s, corte));
+                  medidoDe(p, s, corte), 0, p._grande);
     }
     return { s: s, volE: volE, cajaE: cajaE, corte: corte, regiones: regiones, q: q };
   }
@@ -1857,6 +1896,7 @@
       }
       meta += (nPartes > 1 ? 'la mayor ' : '') + dims + ' mm';
       if (s !== 1) meta += ' (escala ×' + (s >= 10 ? s.toFixed(1) : s.toFixed(2)) + ')';
+      if (q.grande) meta += ' · impresora de formato grande (80 × 80 × 100 cm)';
 
       if (corte) {
         meta += ' · se corta en ' + q.secciones + ' secciones para armar · '
@@ -1867,7 +1907,7 @@
       } else if (nPartes > 1) {
         meta += ' · ' + q.camas + (q.camas === 1 ? ' cama' : ' camas');
       } else if (q.porCama === 0) {
-        meta += ' · ⚠ no cabe en la cama de ' + CONFIG.camaMm + ' mm';
+        meta += ' · ⚠ no cabe en la cama de ' + maquina(q.grande).camaMm + ' mm';
         noCabe = true;
       } else if (p.cantidad > 1) {
         meta += ' · caben ' + q.porCama + ' por cama, van ' + q.camas
@@ -1940,6 +1980,7 @@
       if (regiones) linea += ' · ' + q.secciones + ' piezas por color, pegadas';
       else if (p.coloresUsados > 1) linea += ' · ' + p.coloresUsados + ' colores';
       if (corte) linea += ' · en ' + q.secciones + ' secciones para armar';
+      if (q.grande) linea += ' · formato grande';
       l.push(linea);
     });
     if (sinLeer.length) {
