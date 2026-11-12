@@ -445,7 +445,7 @@
     var rc = cita.recoger;
     if (rc) {
       var nr = rc.parcial ? rc.nombres.length : 0;
-      resumen += '<div class="recoger-caja">' +
+      resumen += '<p class="recoger-caja">' +
         '<b>' + (rc.parcial
           ? 'Ya puedes pasar por ' + (nr === 1 ? 'tu ' + esc(rc.nombres[0]) : esc(rc.nombres.join(' y '))) + '.'
           : 'Ya puedes pasar por ' + (trabajadas > 1 ? 'tus impresoras' : 'tu impresora') + '.') + '</b>' +
@@ -453,7 +453,7 @@
         (rc.a_pagar ? '<br>A pagar ese día: <b>' + esc(rc.a_pagar) + '</b>' : '') +
         (rc.recoge_fecha_legible ? '<br>Quedaste de pasar el <b>' + esc(rc.recoge_fecha_legible) + ' cerca de las ' + esc(rc.recoge_hora) + '</b>.'
           : rc.espera ? '<br>Nos dijiste que prefieres esperar a que estén todas.' : '') +
-        '</div>';
+        '</p>';
     }
 
     var datos = [
