@@ -12,8 +12,8 @@ Generado: 2026-11-11
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
-- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-11-11
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-11
+- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-11-12
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-12
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -333,7 +333,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-536 piezas con existencia confirmada, listas para salir de la Ciudad de
+535 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -811,7 +811,7 @@ Rango de precio: $259 MXN a $10,179 MXN.
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $9,989 MXN · SKU AG-BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,069 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (79 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (78 piezas)
 
 Rango de precio: $259 MXN a $1,829 MXN.
 
@@ -882,7 +882,6 @@ Rango de precio: $259 MXN a $1,829 MXN.
 - Filamento Bambu Lab SOP PLA PETG natural 1.75 mm 0.5 kg — $869 MXN · SKU AG-BAMBULAB-SOP-PLA-PETG-NAT
 - Filamento Bambu Lab TPU para AMS azul 1.75 mm 1 kg — $1,179 MXN · Compatible: AMS · SKU AG-BAMBULAB-TPU-AMS-AZUL
 - Filamento Bambu Lab TPU para AMS blanco 1.75 mm 1 kg — $1,179 MXN · Compatible: AMS · SKU AG-BAMBULAB-TPU-AMS-BLANCO
-- Filamento Bambu Lab TPU para AMS gris 1.75 mm 1 kg — $1,179 MXN · Compatible: AMS · SKU AG-BAMBULAB-TPU-AMS-GRIS
 - Filamento Bambu Lab TPU para AMS negro 1.75 mm 1 kg — $1,179 MXN · Compatible: AMS · SKU AG-BAMBULAB-TPU-AMS-NEGRO
 - Filamento Bambu Lab TPU para AMS rojo 1.75 mm 1 kg — $1,179 MXN · Compatible: AMS · SKU AG-BAMBULAB-TPU-AMS-ROJO
 - Filamento Bambu Lab TPU para AMS verde neon 1.75 mm 1 kg — $1,179 MXN · Compatible: AMS · SKU AG-BAMBULAB-TPU-AMS-VER-NEON

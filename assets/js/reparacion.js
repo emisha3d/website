@@ -441,6 +441,21 @@
     var resumen = conAvance && listas && listas < trabajadas
       ? '<p class="avance-resumen">' + listas + ' de ' + trabajadas + (listas === 1 ? ' lista' : ' listas') + ' para recoger</p>' : '';
 
+    // Ya puede pasar a recoger: todo, o solo las listas (entrega parcial).
+    var rc = cita.recoger;
+    if (rc) {
+      var nr = rc.parcial ? rc.nombres.length : 0;
+      resumen += '<div class="recoger-caja">' +
+        '<b>' + (rc.parcial
+          ? 'Ya puedes pasar por ' + (nr === 1 ? 'tu ' + esc(rc.nombres[0]) : esc(rc.nombres.join(' y '))) + '.'
+          : 'Ya puedes pasar por ' + (trabajadas > 1 ? 'tus impresoras' : 'tu impresora') + '.') + '</b>' +
+        (rc.parcial ? ' No tienes que esperar: ' + esc(rc.siguen.join(' y ')) + (rc.siguen.length === 1 ? ' sigue' : ' siguen') + ' en el taller y te avisamos en cuanto ' + (rc.siguen.length === 1 ? 'quede' : 'queden') + '.' : '') +
+        (rc.a_pagar ? '<br>A pagar ese día: <b>' + esc(rc.a_pagar) + '</b>' : '') +
+        (rc.recoge_fecha_legible ? '<br>Quedaste de pasar el <b>' + esc(rc.recoge_fecha_legible) + ' cerca de las ' + esc(rc.recoge_hora) + '</b>.'
+          : rc.espera ? '<br>Nos dijiste que prefieres esperar a que estén todas.' : '') +
+        '</div>';
+    }
+
     var datos = [
       ['Cuándo', esc(cuando)],
       ['Dónde', 'Av. División del Norte 1354, Piso 1, Letrán del Valle, Benito Juárez, CDMX 03650. Estacionamiento con valet parking.'],
@@ -536,6 +551,10 @@
 
     var acciones = conf.querySelector('[data-conf-acciones]');
     acciones.textContent = '';
+    if (rc) {
+      acciones.appendChild(boton(rc.recoge_fecha_legible ? 'Cambiar el día que paso' : 'Decir cuándo paso', API + rc.url, 'btn btn--accent'));
+      if (rc.parcial && !rc.recoge_fecha_legible && !rc.espera) acciones.appendChild(boton('Prefiero esperar a que estén todas', API + rc.url + '?esperar=1', 'btn btn--ghost'));
+    }
     if (cita.cotizacion_pendiente) {
       acciones.appendChild(boton(cita.por_equipo ? 'Autorizar las impresoras pendientes' : 'Ver y autorizar mi cotización', API + '/cotizacion/' + cita.cita_id, 'btn btn--accent'));
       acciones.appendChild(boton('WhatsApp', 'https://wa.me/525575639255?text=' + encodeURIComponent('Hola, tengo dudas de la cotización ' + cita.folio + ': '), 'btn btn--ghost'));
