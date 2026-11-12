@@ -661,6 +661,134 @@
     return Math.abs(det) || 1;
   }
 
+  /* ============================================================== 3DM ===
+     Rhino. Se lee con rhino3dm.js (MIT, de McNeel), que vive en vendor/ y se
+     carga solo la primera vez que alguien suelta un .3dm (2.5 MB de wasm).
+     rhino3dm NO malla superficies: usa las mallas de render que Rhino guarda
+     en el archivo. Un archivo guardado con «Guardar pequeño» (o un Brep que
+     nunca se vio sombreado) no las trae, y eso se dice en el error.
+     Se respetan las unidades del modelo (un .3dm en metros sale en mm), se
+     saltan capas y objetos ocultos y se expanden los bloques.              */
+  var RHINO_BASE = '/assets/js/vendor/rhino3dm-8.35.0/';
+  var rhinoListo = null;
+
+  function cargarRhino() {
+    if (rhinoListo) return rhinoListo;
+    rhinoListo = new Promise(function (ok, mal) {
+      if (window.rhino3dm) return ok();
+      var s = document.createElement('script');
+      s.src = RHINO_BASE + 'rhino3dm.min.js';
+      s.onload = ok;
+      s.onerror = function () { mal(new Error('No se pudo cargar el lector de Rhino. Revisa tu conexión.')); };
+      document.head.appendChild(s);
+    }).then(function () {
+      return window.rhino3dm({ locateFile: function (f) { return RHINO_BASE + f; } });
+    });
+    rhinoListo.catch(function () { rhinoListo = null; });
+    return rhinoListo;
+  }
+
+  function mmPorUnidad(rh, u) {
+    var U = rh.UnitSystem, tabla = [
+      [U.Millimeters, 1], [U.Centimeters, 10], [U.Meters, 1000],
+      [U.Inches, 25.4], [U.Feet, 304.8], [U.Microns, 0.001],
+      [U.Kilometers, 1e6], [U.Yards, 914.4], [U.Decimeters, 100]
+    ];
+    for (var i = 0; i < tabla.length; i++) if (tabla[i][0] === u) return tabla[i][1];
+    return 1;   // sin unidades: se asume mm, como un STL
+  }
+
+  function multiplicar4(a, b) {   // 4×4 por renglones
+    var r = new Array(16);
+    for (var i = 0; i < 4; i++) for (var j = 0; j < 4; j++) {
+      r[i * 4 + j] = a[i * 4] * b[j] + a[i * 4 + 1] * b[4 + j]
+                   + a[i * 4 + 2] * b[8 + j] + a[i * 4 + 3] * b[12 + j];
+    }
+    return r;
+  }
+
+  async function parse3DM(buffer) {
+    var rh = await cargarRhino();
+    var doc = rh.File3dm.fromByteArray(new Uint8Array(buffer));
+    if (!doc) throw new Error('El archivo 3DM está dañado o es de una versión que no se puede leer.');
+    try {
+      var k = mmPorUnidad(rh, doc.settings().modelUnitSystem);
+      var escala = [k, 0, 0, 0, 0, k, 0, 0, 0, 0, k, 0, 0, 0, 0, 1];
+      var capas = doc.layers(), objetos = doc.objects(), defs = doc.instanceDefinitions();
+      var capaVisible = [], porId = {}, i;
+      for (i = 0; i < capas.count; i++) capaVisible[capas.get(i).index] = capas.get(i).visible;
+      for (i = 0; i < objetos.count; i++) porId[objetos.get(i).attributes().id] = i;
+      var trozos = [], total = 0, sinMalla = 0;
+
+      function mallasDe(g) {
+        if (g instanceof rh.Mesh) return [g];
+        if (g instanceof rh.Extrusion) { var m = g.getMesh(rh.MeshType.Any); return m ? [m] : []; }
+        if (g instanceof rh.Brep) {
+          var caras = g.faces(), out = [];
+          for (var c = 0; c < caras.count; c++) {
+            var mc = caras.get(c).getMesh(rh.MeshType.Any);
+            if (mc) out.push(mc);
+          }
+          return out;
+        }
+        return null;   // curvas, textos, puntos: no son sólidos
+      }
+
+      function emitir(m, xf) {
+        var j = m.toThreejsJSON(), pos = j.data.attributes.position.array;
+        var idx = j.data.index ? j.data.index.array : null;
+        var n = idx ? idx.length : pos.length / 3, t = new Float32Array(n * 3);
+        for (var q = 0; q < n; q++) {
+          var v = (idx ? idx[q] : q) * 3, x = pos[v], y = pos[v + 1], z = pos[v + 2];
+          t[q * 3]     = xf[0] * x + xf[1] * y + xf[2]  * z + xf[3];
+          t[q * 3 + 1] = xf[4] * x + xf[5] * y + xf[6]  * z + xf[7];
+          t[q * 3 + 2] = xf[8] * x + xf[9] * y + xf[10] * z + xf[11];
+        }
+        trozos.push(t); total += t.length;
+      }
+
+      function procesar(obj, xf, nivel) {
+        var at = obj.attributes();
+        if (!at.visible || capaVisible[at.layerIndex] === false) return;
+        var g = obj.geometry();
+        if (g instanceof rh.InstanceReference) {
+          if (nivel > 8) return;
+          var xr = multiplicar4(xf, g.xform.toFloatArray(true));
+          for (var d = 0; d < defs.count; d++) {
+            var def = defs.get(d);
+            if (def.id !== g.parentIdefId) continue;
+            var ids = def.getObjectIds();
+            for (var e = 0; e < ids.length; e++) {
+              if (porId[ids[e]] !== undefined) procesar(objetos.get(porId[ids[e]]), xr, nivel + 1);
+            }
+          }
+          return;
+        }
+        var ms = mallasDe(g);
+        if (ms === null) return;
+        if (!ms.length) { sinMalla++; return; }
+        ms.forEach(function (m) { emitir(m, xf); });
+      }
+
+      for (i = 0; i < objetos.count; i++) {
+        var o = objetos.get(i);
+        if (o.attributes().isInstanceDefinitionObject) continue;   // va dentro de un bloque
+        procesar(o, escala, 0);
+      }
+      if (!total) {
+        throw new Error(sinMalla
+          ? 'El archivo de Rhino no trae mallas. En Rhino usa «Guardar como» con la opción de guardar mallas de render (no «Guardar pequeño»), o exporta STL.'
+          : 'El archivo de Rhino no tiene sólidos ni mallas, solo curvas o textos.');
+      }
+      var tri = new Float32Array(total), o2 = 0;
+      trozos.forEach(function (t) { tri.set(t, o2); o2 += t.length; });
+      return { volumenMm3: volumenDeMalla(tri), caja: cajaDeMalla(tri), malla: tri,
+               sinMalla: sinMalla };
+    } finally {
+      doc.delete();
+    }
+  }
+
   /* =========================================================== geometría */
   function volumenDeMalla(tri) {
     var v = 0;
@@ -1803,7 +1931,7 @@
   /* El cortador de piezas (/cortador/) carga este archivo solo por el motor:
      al no existir #dropzone en esa página, la interfaz de abajo no corre. */
   window.__emishaQuote = {
-    parseSTL: parseSTL, parse3MF: parse3MF,
+    parseSTL: parseSTL, parse3MF: parse3MF, parse3DM: parse3DM,
     volumen: volumenDeMalla, caja: cajaDeMalla, area: areaDeMalla,
     limites: limitesDeMalla, porCama: piezasPorCama,
     cotizar: cotizar, cortar: cortarEnPiezas,
@@ -2539,8 +2667,12 @@
   function agregar(files) {
     Array.prototype.forEach.call(files, function (file) {
       var ext = (file.name.split('.').pop() || '').toLowerCase();
-      if (ext !== 'stl' && ext !== '3mf') {
-        piezas.push({ nombre: file.name, error: 'Formato no soportado. Solo STL o 3MF.', cantidad: 1 });
+      if (ext === 'sldprt' || ext === 'sldasm' || ext === 'step' || ext === 'stp') {
+        piezas.push({ nombre: file.name, error: 'Este formato no se puede medir aquí. Expórtalo como STL o 3MF, o mándanoslo por WhatsApp y lo cotizamos.', cantidad: 1 });
+        render(); return;
+      }
+      if (ext !== 'stl' && ext !== '3mf' && ext !== '3dm') {
+        piezas.push({ nombre: file.name, error: 'Formato no soportado. Solo STL, 3MF o 3DM (Rhino).', cantidad: 1 });
         render(); return;
       }
       // El File se conserva tal cual: si el cliente paga, es lo que se sube.
@@ -2555,6 +2687,7 @@
               var tri = parseSTL(reader.result);
               return { volumenMm3: volumenDeMalla(tri), caja: cajaDeMalla(tri), malla: tri };
             }
+            if (ext === '3dm') return parse3DM(reader.result);
             return parse3MF(reader.result);
           })
           .then(function (r) {

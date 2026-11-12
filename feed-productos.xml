@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-11-11</lastBuildDate>
+    <lastBuildDate>2026-11-12</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -3653,20 +3653,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAC099</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-FAC101</g:id>
-      <title><![CDATA[Tope de cortador de filamento izquierdo compatible con H2D]]></title>
-      <description><![CDATA[Tope de cortador de filamento izquierdo compatible con H2D. la H2D. Filamento original Bambu Lab, con existencia en Ciudad de México y envío a todo el país.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/tope-de-cortador-de-filamento-izquierdo-compatible-fac101/</link>
-      <g:image_link>https://agelectronica.com/vistas/images/F/FAC101.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>739.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAC101</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
