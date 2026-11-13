@@ -3,8 +3,8 @@
    Mismo worker y misma agenda que /reparacion/ (un mantenimiento ocupa el
    mismo turno de recepción), pero su propio formulario: impresoras con AMS,
    horas de uso y notas; sin tipo de falla ni diagnóstico. Precio fijo: $700 por
-   impresora Bambu Lab, $1,000 por Creality (desde 2026-11-13) y $300 por AMS o
-   CFS, IVA incluido. Manda a POST /mantenimiento.
+   impresora Bambu Lab +$300 por AMS, y $1,000 por Creality con el CFS incluido
+   (desde 2026-11-13), IVA incluido. Manda a POST /mantenimiento.
 
    ?cita=<uuid> (el enlace de sus correos) muestra cómo va ese mantenimiento.
    Si el uuid es de una reparación, manda a /reparacion/?cita=, que es su página.
@@ -22,6 +22,8 @@
   function precioDe(m) { return esCreality(m) ? PRECIO_CREALITY : PRECIO; }
   // «AMS» o «CFS» (Creality) para el contenedor de filamento de esa impresora.
   function amsNombre(m) { return esCreality(m) ? 'CFS' : 'AMS'; }
+  // El CFS de una Creality va incluido en sus $1,000.
+  function amsPrecio(m) { return esCreality(m) ? 0 : PRECIO_AMS; }
   var MAX_IMPRESORAS = 40;
 
   var form = document.querySelector('[data-mant-form]');
@@ -194,13 +196,13 @@
     pintarTotal();
   }
 
-  // $700 por Bambu / $1,000 por Creality + $300 por AMS o CFS. Cada bloque
+  // $700 por Bambu +$300 AMS / $1,000 por Creality, CFS incluido. Cada bloque
   // cuenta como una impresora aunque todavía no escoja el modelo (a precio
   // Bambu, el más bajo): así el total nunca baja al escogerlo.
   function pintarTotal() {
     var lista = equipos(), n = lista.length;
     var conAms = lista.filter(function (b) { return campo(b, 'trae_ams').checked; }), ams = conAms.length;
-    var total = lista.reduce(function (t, b) { return t + precioDe(modeloDe(b)) + (campo(b, 'trae_ams').checked ? PRECIO_AMS : 0); }, 0);
+    var total = lista.reduce(function (t, b) { return t + precioDe(modeloDe(b)) + (campo(b, 'trae_ams').checked ? amsPrecio(modeloDe(b)) : 0); }, 0);
     var cfs = conAms.some(function (b) { return esCreality(modeloDe(b)); }), bam = conAms.some(function (b) { return !esCreality(modeloDe(b)); });
     var detalle = n + plural(n, ' impresora', ' impresoras') + (ams ? ' + ' + ams + ' ' + (cfs ? (bam ? 'AMS/CFS' : 'CFS') : 'AMS') : '');
     form.querySelector('[data-total]').textContent = pesos(total);
@@ -209,7 +211,7 @@
       var filas = lista.map(function (b, i) {
         var m = modeloDe(b) || (n > 1 ? 'Impresora ' + (i + 1) : 'Tu impresora');
         return '<div><span>Mantenimiento · ' + esc(m) + '</span><b>' + esc(pesos(precioDe(modeloDe(b)))) + '</b></div>' +
-          (campo(b, 'trae_ams').checked ? '<div><span>' + amsNombre(modeloDe(b)) + ' · ' + esc(m) + '</span><b>' + esc(pesos(PRECIO_AMS)) + '</b></div>' : '');
+          (campo(b, 'trae_ams').checked ? '<div><span>' + amsNombre(modeloDe(b)) + ' · ' + esc(m) + '</span><b>' + (esCreality(modeloDe(b)) ? 'Incluido' : esc(pesos(PRECIO_AMS))) + '</b></div>' : '');
       }).join('');
       resumen.innerHTML = filas +
         '<div><span>Diagnóstico</span><b>Incluido</b></div>' +
@@ -396,13 +398,13 @@
     }).join('');
     var ams = eq.filter(function (e) { return e.trae_ams; }).length;
     var total = cita.mantenimiento_centavos != null ? cita.mantenimiento_centavos
-      : eq.reduce(function (t, e) { return t + precioDe(e.modelo) + (e.trae_ams ? PRECIO_AMS : 0); }, 0) * 100;
+      : eq.reduce(function (t, e) { return t + precioDe(e.modelo) + (e.trae_ams ? amsPrecio(e.modelo) : 0); }, 0) * 100;
     var crM = eq.some(function (e) { return esCreality(e.modelo); }), blM = eq.some(function (e) { return !esCreality(e.modelo); });
     var amsTxt = (function () {
       var con = eq.filter(function (e) { return e.trae_ams; }), c = con.some(function (e) { return esCreality(e.modelo); }), b = con.some(function (e) { return !esCreality(e.modelo); });
       return c ? (b ? 'el AMS o CFS' : 'el CFS') : 'el AMS';
     })();
-    var listaM = crM ? (blM ? 'Bambu Lab $700 por impresora (+$300 AMS) · Creality $1,000 por impresora (+$300 CFS)' : '$1,000 por impresora Creality (+$300 CFS)') : '$700 por impresora (+$300 AMS)';
+    var listaM = crM ? (blM ? 'Bambu Lab $700 por impresora (+$300 AMS) · Creality $1,000 por impresora (CFS incluido)' : '$1,000 por impresora Creality (CFS incluido)') : '$700 por impresora (+$300 AMS)';
 
     var datos = [
       ['Cuándo', esc(cuando)],
