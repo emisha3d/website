@@ -41,7 +41,8 @@
     '.picker__item--marca .cfg-marca__nombre{font-size:1.05rem;font-weight:700;color:var(--text)}' +
     '.picker__item--marca .cfg-marca__sub{font-size:.78rem;color:var(--muted);line-height:1.3}' +
     '.picker__item--modelo-oculto{display:none!important}' +
-    '.cfg-seguir{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}' +
+    '[data-picker-modelo]{margin-bottom:16px}' +
+    '.cfg-seguir{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}' +
     '.cfg-falta{color:#b42318;font-size:.88rem;margin:0}' +
     '[data-cfg-listo] .picker__marca{display:none}' +
     '@media (max-width:520px){.picker__grid--marcas{grid-template-columns:1fr}}';
@@ -53,10 +54,24 @@
     el.setAttribute('data-cfg-entra', '');
     return true;
   }
+  // Lo que tapa el encabezado fijo (en escritorio es sticky; en celular no).
+  function altoEncabezado() {
+    var h = document.querySelector('.site-header');
+    if (!h) return 0;
+    var pos = getComputedStyle(h).position;
+    return pos === 'sticky' || pos === 'fixed' ? h.getBoundingClientRect().height : 0;
+  }
+  // La tarjeta que se acaba de escoger: al bajar, queda justo debajo del
+  // encabezado (completa, sin cortarse) y el paso nuevo se ve debajo de ella.
+  var ancla = null;
   function bajarA(el) {
     if (!el) return;
+    var a = ancla;
+    ancla = null;
     requestAnimationFrame(function () {
-      el.scrollIntoView({ behavior: suave ? 'smooth' : 'auto', block: 'start' });
+      var ref = a || el;
+      var y = ref.getBoundingClientRect().top + window.scrollY - altoEncabezado() - 12;
+      window.scrollTo({ top: Math.max(0, y), behavior: suave ? 'smooth' : 'auto' });
     });
   }
   function radioMarcado(raiz, sel) { return raiz.querySelector(sel + ':checked'); }
@@ -155,6 +170,7 @@
   form.addEventListener('change', function (e) {
     var t = e.target, bloque = t.closest && t.closest('[data-equipo]');
     if (!bloque || !bloque.__cfgPasos) return;
+    ancla = t.type === 'radio' ? t.closest('.picker__item') : null;
     if (/^cfg_marca/.test(t.name)) {
       var modelo = radioMarcado(bloque, 'input[data-campo="modelo"]');
       var otro = bloque.querySelector('input[data-campo="modelo"][value="Otro"]');
