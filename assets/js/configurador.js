@@ -3,12 +3,15 @@
 
    Se va armando de arriba abajo: primero la marca (Bambu Lab, Creality u otra),
    luego el modelo de esa marca, luego la falla, luego los detalles; cada
-   elección abre el paso siguiente y baja la página hasta él. Los pasos grandes
-   («Tus datos», «Día y hora») se abren con «Continuar».
+   elección habilita el paso siguiente y baja la página hasta él. Lo que todavía
+   no toca se ve en gris y no se puede tocar (como Apple): todo el camino está a
+   la vista y en el HTML desde el principio. Los pasos grandes («Tus datos»,
+   «Día y hora») se habilitan con «Continuar». Recargar no borra lo escogido
+   (borrador en sessionStorage, ver abajo).
 
    Es una capa encima del formulario: no cambia ningún campo ni lo que se manda
    (reparacion.js / mantenimiento.js siguen igual). Sin JS se ve todo, como
-   antes. Lo que ya se abrió no se vuelve a cerrar, así nada brinca al
+   antes. Lo que ya se habilitó no se vuelve a poner en gris, así nada brinca al
    corregir. Los bloques de «Agregar otra impresora» arrancan desde la marca. */
 (function () {
   'use strict';
@@ -30,10 +33,12 @@
 
   var css = document.createElement('style');
   css.textContent =
-    '[data-cfg-oculto]{display:none!important}' +
-    '[data-cfg-entra]{animation:cfgEntra .4s ease both}' +
-    '@keyframes cfgEntra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}' +
-    '@media (prefers-reduced-motion:reduce){[data-cfg-entra]{animation:none}}' +
+    // Lo que todavía no toca se ve en gris (como Apple), no escondido: se ve
+    // todo el camino desde el principio y la página no cambia de alto.
+    '.cfg-paso{transition:opacity .35s ease,filter .35s ease}' +
+    '[data-cfg-oculto]{opacity:.38;filter:grayscale(1);pointer-events:none;user-select:none}' +
+    '[data-cfg-usado]{display:none!important}' +
+    '@media (prefers-reduced-motion:reduce){.cfg-paso{transition:none}}' +
     '.cfg-paso{scroll-margin-top:calc(var(--h-header,67px) + 14px)}' +
     '.picker__grid--marcas{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}' +
     '[data-cfg-marcas]{margin-bottom:16px}' +
@@ -51,7 +56,7 @@
   function abrir(el) {
     if (!el || !el.hasAttribute('data-cfg-oculto')) return false;
     el.removeAttribute('data-cfg-oculto');
-    el.setAttribute('data-cfg-entra', '');
+    el.inert = false;
     return true;
   }
   // Lo que tapa el encabezado fijo (en escritorio es sticky; en celular no).
@@ -64,6 +69,12 @@
   // La tarjeta que se acaba de escoger: al bajar, queda justo debajo del
   // encabezado (completa, sin cortarse) y el paso nuevo se ve debajo de ella.
   var ancla = null;
+  // En gris y sin poder tocarse (ni con teclado) hasta que le toque.
+  function cerrar(el) {
+    el.classList.add('cfg-paso');
+    el.setAttribute('data-cfg-oculto', '');
+    el.inert = true;
+  }
   function bajarA(el) {
     if (!el) return;
     var a = ancla;
@@ -127,7 +138,7 @@
       var r = marcasFs.querySelector('input[value="' + marcaDe(marcada.value) + '"]');
       if (r) r.checked = true;
     }
-    pasos.slice(1).forEach(function (p) { p.forEach(function (x) { x.setAttribute('data-cfg-oculto', ''); }); });
+    pasos.slice(1).forEach(function (p) { p.forEach(cerrar); });
     filtrar(bloque);
     avanzar(bloque, false);
   }
@@ -142,7 +153,8 @@
     var marca = marcaElegida(bloque);
     var picker = bloque.querySelector('[data-picker-modelo]');
     picker.querySelectorAll('input[data-campo="modelo"]').forEach(function (r) {
-      r.closest('.picker__item').classList.toggle('picker__item--modelo-oculto', marcaDe(r.value) !== marca);
+      // Sin marca todavía (en gris): todos los modelos, para ver lo que hay.
+      r.closest('.picker__item').classList.toggle('picker__item--modelo-oculto', !!marca && marcaDe(r.value) !== marca);
     });
     picker.classList.toggle('picker__item--modelo-oculto', marca === 'otra');
   }
@@ -273,6 +285,7 @@
     caja.innerHTML = '<button type="button" class="btn btn--accent">Continuar</button><p class="cfg-falta" aria-live="polite"></p>';
     var cont = paso.querySelector('.cita-campos') || paso;
     cont.appendChild(caja);
+    cajasSeguir.push({ caja: caja, siguiente: siguiente });
     caja.querySelector('button').addEventListener('click', function () {
       var aviso = caja.querySelector('.cfg-falta');
       var falta = revisar();
@@ -285,21 +298,23 @@
         return;
       }
       aviso.textContent = '';
-      caja.setAttribute('data-cfg-oculto', '');
+      caja.setAttribute('data-cfg-usado', '');
       siguiente.forEach(abrir);
       bajarA(siguiente[0]);
+      guardar();
     });
   }
+  var cajasSeguir = [];
 
   if (pasosForm.length >= 3 && enviar) {
     pasosForm.slice(1).concat([enviar]).forEach(function (x) {
       x.classList.add('cfg-paso');
-      x.setAttribute('data-cfg-oculto', '');
+      cerrar(x);
     });
     botonSeguir(pasosForm[0], [pasosForm[1]], faltaEnImpresoras);
     var campos1 = pasosForm[0].querySelector('.cita-campos');
     if (campos1) Array.prototype.forEach.call(campos1.children, function (x) {
-      if (!x.hasAttribute('data-equipos')) { x.setAttribute('data-cfg-oculto', ''); extrasPaso1.push(x); }
+      if (!x.hasAttribute('data-equipos')) { cerrar(x); extrasPaso1.push(x); }
     });
     botonSeguir(pasosForm[1], [pasosForm[2], enviar], function () {
       var f = faltaEnCampos(pasosForm[1]);
@@ -309,15 +324,116 @@
     });
   }
 
+  /* --- Borrador: recargar la página no borra lo que ya se escogió ------- */
+  // Vive en sessionStorage (solo esta pestaña, solo este navegador). Guarda
+  // marca, modelo, falla, textos y los pasos abiertos; el día y la hora no
+  // (los turnos cambian). Se borra al reservar. Si el navegador no deja
+  // guardar (modo privado, etc.), el formulario funciona igual.
+  var CLAVE = 'emisha-borrador:' + location.pathname;
+  var enCita = /[?&]cita=/.test(location.search);
+  function leerBorrador() { try { return JSON.parse(sessionStorage.getItem(CLAVE) || 'null'); } catch (e) { return null; } }
+  function borrarBorrador() { try { sessionStorage.removeItem(CLAVE); } catch (e) {} }
+  function guardar() {
+    if (form.hidden) return;
+    var equipos = Array.prototype.map.call(form.querySelectorAll('[data-equipo]'), function (b) {
+      var d = { marca: marcaElegida(b) };
+      b.querySelectorAll('[data-campo]').forEach(function (c) {
+        var k = c.getAttribute('data-campo');
+        if (c.type === 'radio') { if (c.checked) d[k] = c.value; }
+        else if (c.type === 'checkbox') d[k] = c.checked;
+        else d[k] = c.value;
+      });
+      return d;
+    });
+    var campos = {};
+    Array.prototype.forEach.call(form.elements, function (c) {
+      if (!c.name || c.closest('[data-equipo]') || c.type === 'hidden' || c.name === 'sitio_web') return;
+      if (c.type === 'checkbox') campos[c.name] = c.checked;
+      else if (c.type !== 'radio' && c.type !== 'button' && c.type !== 'submit') campos[c.name] = c.value;
+    });
+    var abiertos = pasosForm.filter(function (x) { return !x.hasAttribute('data-cfg-oculto'); }).length;
+    try {
+      sessionStorage.setItem(CLAVE, JSON.stringify({ equipos: equipos, campos: campos, abiertos: abiertos, y: Math.round(window.scrollY) }));
+    } catch (e) {}
+  }
+  function marcarRadio(raiz, campo, valor) {
+    if (!valor) return;
+    var r = raiz.querySelector('input[data-campo="' + campo + '"][value="' + String(valor).replace(/"/g, '') + '"]');
+    if (r && !r.checked) { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); }
+  }
+  function restaurar(d) {
+    if (!d || !d.equipos || !d.equipos.length) return false;
+    var boton = form.querySelector('[data-agregar-equipo]');
+    d.equipos.forEach(function (e, i) {
+      var bloques = form.querySelectorAll('[data-equipo]');
+      if (i >= bloques.length) {
+        if (!boton) return;
+        boton.click();   // reparacion.js / mantenimiento.js clonan el bloque
+        bloques = form.querySelectorAll('[data-equipo]');
+        if (i >= bloques.length) return;
+        if (!bloques[i].__cfgPasos) preparar(bloques[i]);
+      }
+      var b = bloques[i];
+      var m = e.marca && b.querySelector('[data-cfg-marcas] input[value="' + e.marca + '"]');
+      if (m) { m.checked = true; filtrar(b); }
+      marcarRadio(b, 'modelo', e.modelo);
+      marcarRadio(b, 'tipo_falla', e.tipo_falla);
+      b.querySelectorAll('[data-campo]').forEach(function (c) {
+        var v = e[c.getAttribute('data-campo')];
+        if (c.type === 'radio' || v === undefined) return;
+        if (c.type === 'checkbox') { if (c.checked !== !!v) { c.checked = !!v; c.dispatchEvent(new Event('change', { bubbles: true })); } }
+        else c.value = v;
+      });
+      avanzar(b, false);
+    });
+    Object.keys(d.campos || {}).forEach(function (k) {
+      var c = form.elements[k];
+      if (!c || c.type === 'radio' || c instanceof RadioNodeList) return;
+      if (c.type === 'checkbox') c.checked = !!d.campos[k];
+      else { c.value = d.campos[k]; c.dispatchEvent(new Event('change', { bubbles: true })); }
+    });
+    // Los pasos grandes que ya estaban abiertos, sin su «Continuar».
+    cajasSeguir.forEach(function (cs, k) {
+      if (d.abiertos > k + 1) { cs.caja.setAttribute('data-cfg-usado', ''); cs.siguiente.forEach(abrir); }
+    });
+    pintarPrecios();
+    return true;
+  }
+
   /* --- Arranque y bloques que se agregan después ------------------------- */
+
+  // La página regresa a donde estaba al recargar, pero eso pasa antes de que
+  // se reabran los pasos y caía en blanco: el lugar lo ponemos nosotros.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   form.querySelectorAll('[data-equipo]').forEach(preparar);
   new MutationObserver(function (cambios) {
     pintarPrecios();   // «Quitar» una impresora también cambia las marcas
     cambios.forEach(function (c) {
       c.addedNodes.forEach(function (n) {
-        if (n.nodeType === 1 && n.matches('[data-equipo]')) preparar(n);   // el clon ya baja solo
+        if (n.nodeType === 1 && n.matches('[data-equipo]') && !n.__cfgPasos) preparar(n);   // el clon ya baja solo
       });
     });
   }).observe(form, { childList: true, subtree: true });
+
+  if (enCita) borrarBorrador();
+  else {
+    var borrador = leerBorrador();
+    if (restaurar(borrador)) {
+      // Todo se reabrió: ahora sí, de vuelta a donde estaba (sin pasarse del final).
+      requestAnimationFrame(function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        window.scrollTo(0, Math.max(0, Math.min(borrador.y || 0, max)));
+      });
+    }
+  }
+  var tGuardar = null;
+  function guardarLuego() { clearTimeout(tGuardar); tGuardar = setTimeout(guardar, 300); }
+  form.addEventListener('change', guardarLuego);
+  form.addEventListener('input', guardarLuego);
+  form.addEventListener('click', guardarLuego);   // «Quitar» una impresora
+  window.addEventListener('pagehide', guardar);
+  // Al reservar, el formulario se esconde y sale la confirmación: ya no hay borrador.
+  new MutationObserver(function () { if (form.hidden) borrarBorrador(); })
+    .observe(form, { attributes: true, attributeFilter: ['hidden'] });
 })();
