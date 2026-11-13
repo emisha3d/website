@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fallas comunes de Bambu Lab y cómo se arreglan | Emisha CDMX</title>
+<meta name="description" content="Las fallas que más llegan al taller en impresoras Bambu Lab: no calienta, no extruye, error del AMS, cambio de hotend, no enciende y ruidos. Qué revisar tú y reparación en CDMX.">
+<link rel="canonical" href="https://www.emisha.com.mx/reparacion/fallas/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Fallas comunes de Bambu Lab — Emisha">
+<meta property="og:description" content="Las fallas que más llegan al taller en impresoras Bambu Lab: no calienta, no extruye, error del AMS, cambio de hotend, no enciende y ruidos. Qué revisar tú y reparación en CDMX.">
+<meta property="og:url" content="https://www.emisha.com.mx/reparacion/fallas/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/emisha-logo-512.png">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=e9d69a94">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://www.emisha.com.mx/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Agendar reparación",
+      "item": "https://www.emisha.com.mx/reparacion/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fallas comunes",
+      "item": "https://www.emisha.com.mx/reparacion/fallas/"
+    }
+  ]
+}
+</script>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../" aria-label="Emisha — inicio">
+      <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../filamentos/">Filamentos</a>
+          <a href="../../hotends/">Hotends</a>
+          <a href="../../placas/">Placas</a>
+          <a href="../../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn is-current" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../../servicios/">Servicios y reparación</a>
+          <a href="../../reparacion/mantenimiento-preventivo/">Mantenimiento preventivo</a>
+          <a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../../cotizador/">Cotizar pieza</a>
+          <a href="../../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../../reparacion/" aria-current="page">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../cortador/">Cortador</a>
+          <a href="../../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../../blog/">Blog</a>
+      <a href="../../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div style="max-width:760px">
+        <span class="eyebrow eyebrow--accent">Taller en Benito Juárez</span>
+        <h1>Fallas comunes de Bambu Lab</h1>
+        <p class="lede">Las fallas que más llegan al taller en impresoras Bambu Lab: no calienta, no extruye, error del AMS, cambio de hotend, no enciende y ruidos. Qué revisar tú y reparación en CDMX. Diagnóstico $300, fotos de cada paso y 90 días de garantía.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="../../reparacion/">Agendar mi cita</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="grid grid--2">
+        <a class="card" href="../../reparacion/fallas/bambu-lab-a1-no-calienta/" style="text-decoration:none">
+          <h3>¿Tu Bambu Lab A1 no calienta?</h3>
+          <p class="muted">La boquilla no llega a temperatura, sale un aviso de temperatura anormal o se enfría a media impresión. En la A1 y la A1 mini casi siempre es el hotend, el cable del cabezal o, si lo que no calienta es la cama, su cableado.</p>
+        </a>
+        <a class="card" href="../../reparacion/fallas/bambu-lab-p1s-no-extruye/" style="text-decoration:none">
+          <h3>¿Tu Bambu Lab P1S no extruye?</h3>
+          <p class="muted">El extrusor hace clic, el filamento no baja o la impresión sale delgada y con huecos. En la P1S casi siempre es un tapón en la boquilla o arriba de ella, los engranes del extrusor o el cortador del cabezal.</p>
+        </a>
+        <a class="card" href="../../reparacion/fallas/error-ams-bambu-lab/" style="text-decoration:none">
+          <h3>¿Tu AMS no carga el filamento o marca error?</h3>
+          <p class="muted">El AMS se queda intentando cargar, no regresa el filamento al cambiar de color o marca error en una ranura. Muchas veces se arregla con la punta del filamento o el carrete; cuando no, son los motores, los tubos o los sensores.</p>
+        </a>
+        <a class="card" href="../../reparacion/fallas/cambio-de-hotend-bambu-lab-a1/" style="text-decoration:none">
+          <h3>Cambio de hotend en Bambu Lab A1 y A1 mini</h3>
+          <p class="muted">En la A1 y la A1 mini el hotend es de cambio rápido: boquilla, calentador y termistor salen en una sola pieza. Cuando la boquilla se tapa y no sale, o la temperatura falla, cambiar el hotend completo suele ser lo más rápido y barato.</p>
+        </a>
+        <a class="card" href="../../reparacion/fallas/bambu-lab-no-enciende/" style="text-decoration:none">
+          <h3>¿Tu Bambu Lab no enciende?</h3>
+          <p class="muted">No prende nada, la pantalla se queda negra con los ventiladores girando, o arranca y se reinicia. Antes de pensar en la tarjeta, vale la pena descartar lo sencillo: el cable, el contacto y el interruptor.</p>
+        </a>
+        <a class="card" href="../../reparacion/fallas/bambu-lab-hace-ruido/" style="text-decoration:none">
+          <h3>¿Tu Bambu Lab hace un ruido nuevo?</h3>
+          <p class="muted">Un ruido que antes no estaba casi siempre avisa algo: una correa floja, un eje seco, un rodamiento o un ventilador con polvo. Atenderlo a tiempo es más barato que esperar a que la pieza truene.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../../placas/">Placas de impresión</a></li>
+          <li><a href="../../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../../#tienda">Tienda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reparación</h4>
+        <ul>
+          <li><a href="../../reparacion/bambu-lab-a1/">Reparación Bambu Lab A1</a></li>
+          <li><a href="../../reparacion/bambu-lab-a1-mini/">Reparación Bambu Lab A1 mini</a></li>
+          <li><a href="../../reparacion/bambu-lab-a2l/">Reparación Bambu Lab A2L</a></li>
+          <li><a href="../../reparacion/bambu-lab-p1p/">Reparación Bambu Lab P1P</a></li>
+          <li><a href="../../reparacion/bambu-lab-p1s/">Reparación Bambu Lab P1S</a></li>
+          <li><a href="../../reparacion/bambu-lab-p2s/">Reparación Bambu Lab P2S</a></li>
+          <li><a href="../../reparacion/bambu-lab-x1-carbon/">Reparación Bambu Lab X1 Carbon</a></li>
+          <li><a href="../../reparacion/bambu-lab-x1e/">Reparación Bambu Lab X1E</a></li>
+          <li><a href="../../reparacion/bambu-lab-x2d/">Reparación Bambu Lab X2D</a></li>
+          <li><a href="../../reparacion/bambu-lab-h2d/">Reparación Bambu Lab H2D</a></li>
+          <li><a href="../../reparacion/bambu-lab-h2d-pro/">Reparación Bambu Lab H2D Pro</a></li>
+          <li><a href="../../reparacion/bambu-lab-h2s/">Reparación Bambu Lab H2S</a></li>
+          <li><a href="../../reparacion/bambu-lab-h2c/">Reparación Bambu Lab H2C</a></li>
+          <li><a href="../../reparacion/bambu-lab-h3c/">Reparación Bambu Lab H3C</a></li>
+          <li><a href="../../reparacion/ams/">Reparación AMS</a></li>
+          <li><a href="../../reparacion/fallas/">Fallas comunes</a></li>
+          <li><a href="../../reparacion/">Agendar reparación</a></li>
+          <li><a href="../../servicios/">Todos los servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span class="footer-legal"><a href="../../terminos/">Términos y condiciones</a> · <a href="../../privacidad/">Aviso de privacidad</a> · <a href="../../devoluciones/">Devoluciones</a></span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js?v=7782446c" defer></script>
+</body>
+</html>
