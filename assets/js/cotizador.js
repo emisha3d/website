@@ -2703,6 +2703,15 @@
             pieza.coloresUsados = coloresDistintos(r.partes);
             pieza.tamanoNatural = Math.max(r.caja[0], r.caja[1], r.caja[2]);
             pieza.tamanoDeseado = Math.round(pieza.tamanoNatural) || 1;
+            /* Un modelo de más de 5 m (un .3dm de arquitectura en metros, un
+               STL en otra unidad) no se imprime a tamaño real: cortarlo así
+               serían miles de secciones y la página se congela. Arranca a
+               escala de maqueta y se le pide al cliente el tamaño que quiere. */
+            if (pieza.tamanoDeseado > CONFIG.tamanoMaxMm) {
+              pieza.tamanoDeseado = 250;
+              pieza.aviso = 'El modelo mide ' + (pieza.tamanoNatural / 1000).toFixed(0)
+                + ' m: lo pusimos a 25 cm, escribe el tamaño que quieres';
+            }
             if (!(pieza.volumenCm3 > 0)) throw new Error('El modelo no tiene volumen medible.');
             render();
           })
@@ -2786,6 +2795,7 @@
           var v = parseFloat(tam.value);
           if (isFinite(v) && v > 0) {
             p.tamanoDeseado = Math.min(Math.max(v, 5), CONFIG.tamanoMaxMm);
+            p.aviso = null;
           }
           clearTimeout(timerCorte);
           timerCorte = setTimeout(refrescar, 160);   // cortar la malla cuesta
@@ -2932,7 +2942,8 @@
         meta += ' · ' + q.horas.toFixed(1) + ' h · ';
       }
       meta += (nPartes > 1 ? 'la mayor ' : '') + dims + ' mm';
-      if (s !== 1) meta += ' (escala ×' + (s >= 10 ? s.toFixed(1) : s.toFixed(2)) + ')';
+      if (s !== 1) meta += s < 0.1 ? ' (escala 1:' + Math.round(1 / s).toLocaleString('es-MX') + ')'
+                               : ' (escala ×' + (s >= 10 ? s.toFixed(1) : s.toFixed(2)) + ')';
       meta += q.grande ? ' · impresora de formato grande (80 × 80 × 100 cm)'
                        : ' · impresora Bambu Lab (25.6 cm)';
 
@@ -2953,6 +2964,7 @@
               + (q.camas === 1 ? ' cama' : ' camas');
       }
 
+      if (p.aviso) meta = '⚠ ' + p.aviso + ' · ' + meta;
       p._metaEl.textContent = meta;
       if (p._priceEl) p._priceEl.textContent = fmt(q.total);
 
