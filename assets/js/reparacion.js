@@ -381,6 +381,17 @@
     lista: ['Listas para entrega', 'Tus {n} impresoras ya están listas', 'Pasa por ellas al taller de lunes a viernes de 9:00 a 18:00. Si prefieres otro horario, escríbenos.']
   };
 
+  // Creality tiene su propia lista ($400 que se abonan, $1,000 en total sin
+  // refacciones). Una cita mixta lleva las dos.
+  function esCreality(e) { return /^Creality /.test(String((e && e.modelo) || '')); }
+  function costosCita(lista) {
+    var cr = lista.some(esCreality), bl = lista.some(function (e) { return !esCreality(e); });
+    var t = [];
+    if (bl) t.push((cr ? 'Bambu Lab: ' : '') + 'Diagnóstico $300 · Reparación $700 (con diagnóstico previo, $400).');
+    if (cr) t.push((bl ? 'Creality: ' : '') + 'Diagnóstico $400, que se abona a la reparación · Reparada sin refacciones, $1,000 en total.');
+    return t.join('<br>') + ' Refacciones aparte, siempre con tu autorización.';
+  }
+
   // Una impresora de la lista: número, modelo, serie y falla, y su estado si ya está en el taller.
   function filaEquipo(e, i, conAvance) {
     var nombre = (i + 1) + '. ' + esc(e.modelo) + (e.trae_ams ? ' · con AMS' : '');
@@ -466,7 +477,7 @@
             ? equipos.map(function (e, i) { return filaEquipo(e, i, false); }).join('<br>')
             : esc(cita.modelo) + (cita.trae_ams ? ' · con AMS' : '') + ' · ' + esc(cita.tipo_falla)],
       ['Qué traer', ((cita.equipos && cita.equipos.length > 1) ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (cita.trae_ams ? ' y el AMS con el suyo' : '') + '. Si la falla pasa con un filamento en particular, tráelo.'],
-      ['Costos', 'Diagnóstico $300 · Reparación $700 (con diagnóstico previo, $400). Refacciones aparte, siempre con tu autorización.']
+      ['Costos', costosCita(equipos.length ? equipos : [cita])]
     ];
     // Con el equipo ya adentro, lo de traer y los precios de mostrador sobran:
     // en su lugar va lo que encontramos al revisarla.
