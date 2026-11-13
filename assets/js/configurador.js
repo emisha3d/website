@@ -70,8 +70,14 @@
     ancla = null;
     requestAnimationFrame(function () {
       var ref = a || el;
-      var y = ref.getBoundingClientRect().top + window.scrollY - altoEncabezado() - 12;
-      window.scrollTo({ top: Math.max(0, y), behavior: suave ? 'smooth' : 'auto' });
+      var arriba = ref.getBoundingClientRect().top + window.scrollY - altoEncabezado() - 12;
+      // Solo lo necesario: si el final de lo abierto (los pasos cerrados no
+      // ocupan lugar, así que es el final del formulario) ya cabe en pantalla,
+      // se baja hasta ahí y no más, para no dejar la página en blanco.
+      var finForm = form.getBoundingClientRect().bottom + window.scrollY + 24 - window.innerHeight;
+      var y = Math.min(arriba, finForm);
+      if (y <= window.scrollY + 4) return;   // ya se ve todo: no se mueve (nunca sube)
+      window.scrollTo({ top: y, behavior: suave ? 'smooth' : 'auto' });
     });
   }
   function radioMarcado(raiz, sel) { return raiz.querySelector(sel + ':checked'); }
@@ -209,6 +215,27 @@
     if (sig && !sig.hasAttribute('data-cfg-oculto')) { ancla = null; bajarA(sig); }
   });
 
+  /* --- Precios: solo los de la marca escogida -------------------------- */
+  // Sin marca escogida se ven las dos listas; con impresoras de las dos
+  // marcas, también. «Otra marca» paga la lista general (la de Bambu Lab).
+  var listasPrecios = document.querySelectorAll('[data-precios-marca]');
+  function pintarPrecios() {
+    if (!listasPrecios.length) return;
+    var hay = {};
+    form.querySelectorAll('[data-cfg-marcas] input:checked').forEach(function (r) {
+      hay[r.value === 'otra' ? 'bambu' : r.value] = true;
+    });
+    var ninguna = !hay.bambu && !hay.creality;
+    listasPrecios.forEach(function (l) {
+      var ver = ninguna || hay[l.getAttribute('data-precios-marca')];
+      l.hidden = !ver;
+      // El título de la marca sobra cuando solo hay una lista; el margen de arriba también.
+      var t = l.querySelector('p');
+      if (t) t.style.marginTop = (ninguna || (hay.bambu && hay.creality)) && l.getAttribute('data-precios-marca') !== 'bambu' ? '14px' : '0';
+    });
+  }
+  form.addEventListener('change', pintarPrecios);
+
   /* --- Los pasos grandes: «Tus datos», «Día y hora» y el botón final ------- */
 
   var pasosForm = Array.prototype.filter.call(form.children, function (x) { return x.classList.contains('cita-paso'); });
@@ -286,6 +313,7 @@
 
   form.querySelectorAll('[data-equipo]').forEach(preparar);
   new MutationObserver(function (cambios) {
+    pintarPrecios();   // «Quitar» una impresora también cambia las marcas
     cambios.forEach(function (c) {
       c.addedNodes.forEach(function (n) {
         if (n.nodeType === 1 && n.matches('[data-equipo]')) preparar(n);   // el clon ya baja solo

@@ -562,18 +562,25 @@
         <aside class="cita-aside">
           <div class="card" data-precios-generales>
             <span class="pill pill--brand pill--dot" style="margin-bottom:12px">Precios</span>
-            <div class="precios">
-              <div><span>Diagnóstico</span><b>$300 MXN</b></div>
-              <div><span>Reparación (mano de obra)</span><b>$700 MXN</b></div>
-              <div><span>Reparación con diagnóstico previo</span><b>$400 MXN</b></div>
-              <div><span>Refacciones</span><b>Se cotizan aparte</b></div>
+            <!-- configurador.js deja solo la marca que se escogió en el formulario. -->
+            <div data-precios-marca="bambu">
+              <p style="font-size:.84rem;font-weight:600">Bambu Lab y otras marcas</p>
+              <div class="precios">
+                <div><span>Diagnóstico</span><b>$300 MXN</b></div>
+                <div><span>Reparación (mano de obra)</span><b>$700 MXN</b></div>
+                <div><span>Reparación con diagnóstico previo</span><b>$400 MXN</b></div>
+                <div><span>Refacciones</span><b>Se cotizan aparte</b></div>
+              </div>
             </div>
-            <p style="font-size:.84rem;margin-top:14px;font-weight:600">Creality (K1, K2, Hi, Ender-3 V3 y CFS)</p>
-            <div class="precios">
-              <div><span>Diagnóstico (se abona a la reparación)</span><b>$400 MXN</b></div>
-              <div><span>Reparación sin refacciones, total</span><b>$1,000 MXN</b></div>
+            <div data-precios-marca="creality">
+              <p style="font-size:.84rem;margin-top:14px;font-weight:600">Creality (K1, K2, Hi, Ender-3 V3 y CFS)</p>
+              <div class="precios">
+                <div><span>Diagnóstico (se abona a la reparación)</span><b>$400 MXN</b></div>
+                <div><span>Reparación sin refacciones, total</span><b>$1,000 MXN</b></div>
+                <div><span>Refacciones</span><b>Se cotizan aparte</b></div>
+              </div>
+              <p class="muted" style="font-size:.84rem;margin-top:8px">Si traes el CFS junto con su impresora, va en el mismo precio.</p>
             </div>
-            <p class="muted" style="font-size:.84rem;margin-top:8px">Si traes el CFS junto con su impresora, va en el mismo precio.</p>
             <p class="muted" style="font-size:.84rem;margin-top:12px">Precios en pesos mexicanos con <b>IVA incluido</b>. Ninguna refacción se consigue ni se instala sin que la autorices. Si decides no reparar, solo pagas el diagnóstico.</p>
             <p class="muted" style="font-size:.84rem;margin-top:8px"><b>El diagnóstico tarda de 12 a 36 horas hábiles</b> desde que recibimos tu equipo. En cuanto está, te mandamos la cotización por correo.</p>
           </div>
@@ -760,6 +767,6 @@
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
 <script src="../assets/js/reparacion.js?v=bcb4bde4" defer></script>
-<script src="../assets/js/configurador.js?v=aef9030f" defer></script>
+<script src="../assets/js/configurador.js?v=ae2dc457" defer></script>
 </body>
 </html>
