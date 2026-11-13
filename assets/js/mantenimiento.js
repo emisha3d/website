@@ -3,7 +3,8 @@
    Mismo worker y misma agenda que /reparacion/ (un mantenimiento ocupa el
    mismo turno de recepción), pero su propio formulario: impresoras con AMS,
    horas de uso y notas; sin tipo de falla ni diagnóstico. Precio fijo: $700 por
-   impresora y $300 por AMS, IVA incluido. Manda a POST /mantenimiento.
+   impresora Bambu Lab, $1,000 por Creality (desde 2026-11-13) y $300 por AMS o
+   CFS, IVA incluido. Manda a POST /mantenimiento.
 
    ?cita=<uuid> (el enlace de sus correos) muestra cómo va ese mantenimiento.
    Si el uuid es de una reparación, manda a /reparacion/?cita=, que es su página.
@@ -16,7 +17,11 @@
     : 'https://citas.emisha.com.mx';
   var WA_NUM = 'https://wa.me/525575639255';
   var WA = WA_NUM + '?text=' + encodeURIComponent('Hola, quiero agendar un mantenimiento preventivo para mi Bambu Lab.');
-  var PRECIO = 700, PRECIO_AMS = 300;   // pesos, IVA incluido (los cobra el worker igual)
+  var PRECIO = 700, PRECIO_CREALITY = 1000, PRECIO_AMS = 300;   // pesos, IVA incluido (los cobra el worker igual)
+  function esCreality(m) { return /^Creality /.test(String(m || '')); }
+  function precioDe(m) { return esCreality(m) ? PRECIO_CREALITY : PRECIO; }
+  // «AMS» o «CFS» (Creality) para el contenedor de filamento de esa impresora.
+  function amsNombre(m) { return esCreality(m) ? 'CFS' : 'AMS'; }
   var MAX_IMPRESORAS = 40;
 
   var form = document.querySelector('[data-mant-form]');
@@ -189,20 +194,22 @@
     pintarTotal();
   }
 
-  // $700 por impresora + $300 por AMS. Cada bloque cuenta como una impresora
-  // aunque todavía no escoja el modelo: así el total nunca baja al escogerlo.
+  // $700 por Bambu / $1,000 por Creality + $300 por AMS o CFS. Cada bloque
+  // cuenta como una impresora aunque todavía no escoja el modelo (a precio
+  // Bambu, el más bajo): así el total nunca baja al escogerlo.
   function pintarTotal() {
     var lista = equipos(), n = lista.length;
-    var ams = lista.filter(function (b) { return campo(b, 'trae_ams').checked; }).length;
-    var total = n * PRECIO + ams * PRECIO_AMS;
-    var detalle = n + plural(n, ' impresora', ' impresoras') + (ams ? ' + ' + ams + ' AMS' : '');
+    var conAms = lista.filter(function (b) { return campo(b, 'trae_ams').checked; }), ams = conAms.length;
+    var total = lista.reduce(function (t, b) { return t + precioDe(modeloDe(b)) + (campo(b, 'trae_ams').checked ? PRECIO_AMS : 0); }, 0);
+    var cfs = conAms.some(function (b) { return esCreality(modeloDe(b)); }), bam = conAms.some(function (b) { return !esCreality(modeloDe(b)); });
+    var detalle = n + plural(n, ' impresora', ' impresoras') + (ams ? ' + ' + ams + ' ' + (cfs ? (bam ? 'AMS/CFS' : 'CFS') : 'AMS') : '');
     form.querySelector('[data-total]').textContent = pesos(total);
     form.querySelector('[data-total-detalle]').textContent = detalle;
     if (resumen) {
       var filas = lista.map(function (b, i) {
         var m = modeloDe(b) || (n > 1 ? 'Impresora ' + (i + 1) : 'Tu impresora');
-        return '<div><span>Mantenimiento · ' + esc(m) + '</span><b>' + esc(pesos(PRECIO)) + '</b></div>' +
-          (campo(b, 'trae_ams').checked ? '<div><span>AMS · ' + esc(m) + '</span><b>' + esc(pesos(PRECIO_AMS)) + '</b></div>' : '');
+        return '<div><span>Mantenimiento · ' + esc(m) + '</span><b>' + esc(pesos(precioDe(modeloDe(b)))) + '</b></div>' +
+          (campo(b, 'trae_ams').checked ? '<div><span>' + amsNombre(modeloDe(b)) + ' · ' + esc(m) + '</span><b>' + esc(pesos(PRECIO_AMS)) + '</b></div>' : '');
       }).join('');
       resumen.innerHTML = filas +
         '<div><span>Diagnóstico</span><b>Incluido</b></div>' +
@@ -383,12 +390,19 @@
 
     var enTaller = eq.length > 1 && eq.some(function (e) { return e.estado; });
     var impresoras = eq.map(function (e, i) {
-      var nombre = (eq.length > 1 ? (i + 1) + '. ' : '') + esc(e.modelo) + (e.trae_ams ? ' · con AMS' : '');
+      var nombre = (eq.length > 1 ? (i + 1) + '. ' : '') + esc(e.modelo) + (e.trae_ams ? ' · con ' + amsNombre(e.modelo) : '');
       var estado = enTaller ? ' — <b>' + esc(ETIQUETA_EQUIPO[e.estado] || 'Va tal como llegó') + '</b>' : '';
       return '<span class="impresora">' + nombre + estado + (e.descripcion ? '<small>' + esc(e.descripcion) + '</small>' : '') + '</span>';
     }).join('');
     var ams = eq.filter(function (e) { return e.trae_ams; }).length;
-    var total = cita.mantenimiento_centavos != null ? cita.mantenimiento_centavos : (eq.length * PRECIO + ams * PRECIO_AMS) * 100;
+    var total = cita.mantenimiento_centavos != null ? cita.mantenimiento_centavos
+      : eq.reduce(function (t, e) { return t + precioDe(e.modelo) + (e.trae_ams ? PRECIO_AMS : 0); }, 0) * 100;
+    var crM = eq.some(function (e) { return esCreality(e.modelo); }), blM = eq.some(function (e) { return !esCreality(e.modelo); });
+    var amsTxt = (function () {
+      var con = eq.filter(function (e) { return e.trae_ams; }), c = con.some(function (e) { return esCreality(e.modelo); }), b = con.some(function (e) { return !esCreality(e.modelo); });
+      return c ? (b ? 'el AMS o CFS' : 'el CFS') : 'el AMS';
+    })();
+    var listaM = crM ? (blM ? 'Bambu Lab $700 por impresora (+$300 AMS) · Creality $1,000 por impresora (+$300 CFS)' : '$1,000 por impresora Creality (+$300 CFS)') : '$700 por impresora (+$300 AMS)';
 
     var datos = [
       ['Cuándo', esc(cuando)],
@@ -396,8 +410,8 @@
       [eq.length > 1 ? 'Impresoras' : 'Impresora', impresoras || esc(cita.modelo)]
     ];
     if (cita.estado === 'nueva') {
-      datos.push(['Qué traer', (eq.length > 1 ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (ams ? ', y el AMS con el suyo' : '') + '. No hace falta la caja.']);
-      datos.push(['Costo', 'Mantenimiento preventivo — $700 por impresora (+$300 AMS), IVA incluido.<br>Tu total: <b>' + esc(mxn(total)) +
+      datos.push(['Qué traer', (eq.length > 1 ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (ams ? ', y ' + amsTxt + ' con el suyo' : '') + '. No hace falta la caja.']);
+      datos.push(['Costo', 'Mantenimiento preventivo — ' + listaM + ', IVA incluido.<br>Tu total: <b>' + esc(mxn(total)) +
         '</b>. <b>Se paga al dejar la impresora.</b> Refacciones aparte: solo si hacen falta, con tu autorización, y se pagan al recogerla.']);
     } else {
       if (cita.diagnostico) datos.push(['Lo que encontramos', esc(cita.diagnostico).replace(/\n/g, '<br>')]);
