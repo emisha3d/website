@@ -156,6 +156,7 @@
   }
 
   // Abre hasta el primer paso pendiente; si abrió algo y `mover`, baja hasta él.
+  // Regresa lo primero que abrió (o null).
   function avanzar(bloque, mover) {
     var pasos = pasosDe(bloque), hasta = Math.min(completos(bloque), pasos.length - 1), nuevo = null;
     for (var i = 0; i <= hasta; i++) {
@@ -164,13 +165,16 @@
     if (mover && nuevo) bajarA(nuevo);
     // Con la primera impresora completa aparecen «Agregar otra» y «Continuar».
     if (!pasos[pasos.length - 1][0] || !pasos[pasos.length - 1][0].hasAttribute('data-cfg-oculto')) extrasPaso1.forEach(abrir);
+    return nuevo;
   }
   var extrasPaso1 = [];
 
   form.addEventListener('change', function (e) {
     var t = e.target, bloque = t.closest && t.closest('[data-equipo]');
-    if (!bloque || !bloque.__cfgPasos) return;
-    ancla = t.type === 'radio' ? t.closest('.picker__item') : null;
+    // Solo lo que hace la persona: los change que lanzamos aquí (desmarcar el
+    // modelo, marcar «Otro») son para reparacion.js, no para mover la página.
+    if (!e.isTrusted || !bloque || !bloque.__cfgPasos) return;
+    var pasos = pasosDe(bloque);
     if (/^cfg_marca/.test(t.name)) {
       var modelo = radioMarcado(bloque, 'input[data-campo="modelo"]');
       var otro = bloque.querySelector('input[data-campo="modelo"][value="Otro"]');
@@ -182,16 +186,27 @@
         modelo.dispatchEvent(new Event('change', { bubbles: true }));
       }
       filtrar(bloque);
-      // Si ya estaba todo abierto (cambió de marca), baja al modelo.
       if (t.value === 'otra') {
         // Abre lo que sigue, pero baja a «¿Cuál?», que es lo que hay que llenar.
         avanzar(bloque, false);
+        ancla = null;
         bajarA(bloque.querySelector('[data-modelo-otro]'));
         return;
       }
-      if (!pasosDe(bloque)[1][0].hasAttribute('data-cfg-oculto')) bajarA(pasosDe(bloque)[1][0]);
     }
-    avanzar(bloque, true);
+    var nuevo = avanzar(bloque, false);
+    if (t.type !== 'radio') return;
+    if (nuevo) {
+      // Primera vez: la tarjeta elegida arriba, completa, y el paso nuevo debajo.
+      ancla = t.closest('.picker__item');
+      bajarA(nuevo);
+      return;
+    }
+    // Corrigiendo un paso de arriba: lleva al paso que sigue, que ya estaba abierto.
+    var i = -1;
+    pasos.forEach(function (p, k) { if (p.some(function (x) { return x.contains(t); })) i = k; });
+    var sig = pasos[i + 1] && pasos[i + 1][0];
+    if (sig && !sig.hasAttribute('data-cfg-oculto')) { ancla = null; bajarA(sig); }
   });
 
   /* --- Los pasos grandes: «Tus datos», «Día y hora» y el botón final ------- */
