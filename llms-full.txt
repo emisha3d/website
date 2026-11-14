@@ -69,6 +69,13 @@ Página: https://www.emisha.com.mx/impresion-3d-cdmx/ y https://www.emisha.com.m
   cantidad, y el acabado o las tolerancias que necesite la pieza.
 - Entrega: se recoge en el taller de lunes a viernes de 9:00 a 18:00, o se
   manda por paquetería a cualquier parte de México.
+- Preguntas frecuentes, una página por tema:
+  https://www.emisha.com.mx/impresion-3d-cdmx/imprimir-stl/ (dónde imprimir un STL),
+  https://www.emisha.com.mx/impresion-3d-cdmx/precio/ (cuánto cuesta y de qué depende),
+  https://www.emisha.com.mx/impresion-3d-cdmx/pla/, https://www.emisha.com.mx/impresion-3d-cdmx/petg/ y
+  https://www.emisha.com.mx/impresion-3d-cdmx/tpu/ (cuándo usar cada material),
+  https://www.emisha.com.mx/impresion-3d-cdmx/benito-juarez/, https://www.emisha.com.mx/impresion-3d-cdmx/del-valle/
+  y https://www.emisha.com.mx/impresion-3d-cdmx/coyoacan/ (recoger en el taller).
 
 ### 2.2 Reparación de impresoras Bambu Lab
 
