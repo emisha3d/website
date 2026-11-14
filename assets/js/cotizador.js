@@ -794,7 +794,7 @@
      CAD (.step/.stp). Se tesela con occt-import-js (LGPL, OpenCascade en
      wasm, ~7 MB), cargado de jsDelivr con versión fija la primera vez que
      alguien suelta un STEP. OCCT convierte las unidades del archivo a mm.  */
-  var OCCT_BASE = 'https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/';
+  var OCCT_BASE = '/assets/vendor/occt-0.0.23/';
   var occtListo = null;
 
   function cargarOCCT() {

@@ -78,7 +78,7 @@
     }
     if (pedido.tipo === 'impresion' && (detalle.material || detalle.relleno_pct)) {
       direccion += '<p class="muted" style="margin-top:10px">Material: ' + escapar(detalle.material || '') +
-        (detalle.relleno_pct ? ' · relleno ' + detalle.relleno_pct + ' %' : '') + '.</p>';
+        (detalle.relleno_pct ? ' · relleno ' + (Number(detalle.relleno_pct) || 0) + ' %' : '') + '.</p>';
     }
     var cabecera = (pedido.tipo === 'link' || pedido.tipo === 'recoleccion') ? 'Concepto' : (pedido.tipo === 'impresion' ? 'Modelo' : 'Pieza');
     return '<div class="table-scroll"><table class="specs">' +
