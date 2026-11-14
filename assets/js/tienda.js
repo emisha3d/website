@@ -1434,6 +1434,7 @@
     // no nos la trajo Google otra vez, y prellenar la respuesta vieja la sesga.
     d.referencia = formulario.elements.referencia ? formulario.elements.referencia.value : '';
     d.referencia_detalle = formulario.elements.referencia_detalle ? formulario.elements.referencia_detalle.value.trim() : '';
+    d.acepta_marketing = !!(formulario.elements.acepta_marketing && formulario.elements.acepta_marketing.checked);
     return d;
   }
 
@@ -1462,7 +1463,8 @@
         carrito_id: carrito.carrito_id,
         lineas: lineas,
         comprador: { nombre: datos.nombre, email: datos.email, telefono: datos.telefono,
-                     referencia: datos.referencia, referencia_detalle: datos.referencia_detalle },
+                     referencia: datos.referencia, referencia_detalle: datos.referencia_detalle,
+                     acepta_marketing: datos.acepta_marketing },
         origen_web: origenWeb(),
         envio: {
           calle: datos.calle, colonia: datos.colonia, cp: datos.cp,

@@ -62,11 +62,13 @@ Página: https://www.emisha.com.mx/impresion-3d-cdmx/ y https://www.emisha.com.m
   pieza, porque el tiempo de máquina y el material cambian con la geometría, el
   relleno y el acabado. El estimado inmediato sale del cotizador en línea.
 - Parámetros públicos del cotizador (punto de partida, no tarifa cerrada):
-  filamento $249 MXN/kg, ritmo de 12 cm³/hora con boquilla de 0.4 mm, tiempo de
-  máquina $60 MXN/hora, margen 1.35 sobre material + máquina, preparación de
-  archivo $35 MXN por pieza, cobro mínimo $80 MXN por pieza.
+  PLA y PETG $300 MXN/kg, TPU $450 MXN/kg, ritmo de 12 cm³/hora con boquilla de
+  0.4 mm, tiempo de máquina $90 MXN/hora ($180 MXN/hora en formato grande),
+  margen 1.35 sobre material + máquina, preparación de archivo $35 MXN por
+  modelo, $45 MXN por cama, cobro mínimo $80 MXN por pieza.
 - Para cotizar hacen falta: el archivo (STL, STEP o 3MF), material y color,
-  cantidad, y el acabado o las tolerancias que necesite la pieza.
+  cantidad, y el acabado o las tolerancias que necesite la pieza. El cotizador
+  en línea lee STL, 3MF, 3DM y STEP.
 - Entrega: se recoge en el taller de lunes a viernes de 9:00 a 18:00, o se
   manda por paquetería a cualquier parte de México.
 - Preguntas frecuentes, una página por tema:

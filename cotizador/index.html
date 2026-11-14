@@ -72,7 +72,7 @@
           "name": "¿Qué formatos acepta el cotizador?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las mallas y las transformaciones del bloque de impresión, así que el volumen corresponde a lo que realmente vas a imprimir. Si tu pieza está en STEP, IGES u otro formato CAD, mándanosla por WhatsApp y la convertimos nosotros."
+            "text": "STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las mallas y las transformaciones del bloque de impresión, así que el volumen corresponde a lo que realmente vas a imprimir. También STEP (.step/.stp). Si tu pieza está en IGES u otro formato CAD, mándanosla por WhatsApp y la convertimos nosotros. También STEP (.step/.stp) y 3DM de Rhino."
           }
         },
         {
@@ -80,7 +80,7 @@
           "name": "¿Por qué solo hay PLA y PETG?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Son los dos materiales que manejamos en inventario, en las cuatro líneas del filamento Emisha. El PLA es más rígido y fácil de imprimir, ideal para piezas decorativas, prototipos y modelos de exhibición. El PETG resiste mejor el impacto, la temperatura y la intemperie, así que conviene para piezas funcionales. Si necesitas otro material, escríbenos y lo vemos."
+            "text": "Son los dos materiales que manejamos en inventario, en las cuatro líneas del filamento Emisha. El PLA es más rígido y fácil de imprimir, ideal para piezas decorativas, prototipos y modelos de exhibición. El PETG resiste mejor el impacto, la temperatura y la intemperie, así que conviene para piezas funcionales. Si necesitas otro material, escríbenos y lo vemos. También imprimimos TPU flexible, en negro o blanco: elígelo en el cotizador."
           }
         },
         {
@@ -174,17 +174,17 @@
     <div class="wrap" style="max-width:880px">
 
       <div class="dropzone" id="dropzone" role="button" tabindex="0"
-           aria-label="Selecciona o arrastra tus archivos STL, 3MF o 3DM">
+           aria-label="Selecciona o arrastra tus archivos STL, 3MF, STEP o 3DM">
         <svg class="dropzone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <path d="M7 10l5-5 5 5"/><path d="M12 5v13"/>
         </svg>
         <h3><span class="dropzone__txt-inicial">Arrastra tus archivos aquí</span><span
             class="dropzone__txt-compacto">Agrega más archivos — arrástralos o haz clic</span></h3>
-        <p>o haz clic para elegirlos · STL, 3MF y 3DM (Rhino) · puedes subir varios a la vez</p>
+        <p>o haz clic para elegirlos · STL, 3MF, STEP y 3DM (Rhino) · puedes subir varios a la vez</p>
         <p>Elige el tamaño final de cada pieza: si no cabe en la impresora, la cortamos
           en secciones para armar y el estimado lo incluye.</p>
-        <input type="file" id="file-input" accept=".stl,.3mf,.3dm,model/stl,model/3mf" multiple>
+        <input type="file" id="file-input" accept=".stl,.3mf,.3dm,.step,.stp,model/stl,model/3mf,model/step" multiple>
       </div>
 
       <div class="quote-controls">
@@ -193,6 +193,7 @@
           <select id="material">
             <option value="pla" selected>PLA — rígido, uso general</option>
             <option value="petg">PETG — resistente, funcional</option>
+            <option value="tpu">TPU — flexible (negro o blanco)</option>
           </select>
         </div>
         <div class="field">
@@ -327,7 +328,7 @@
           <div class="faq__body">
             <p>STL en sus dos variantes, binario y ASCII, y 3MF. En el caso del 3MF se leen las
               mallas y las transformaciones del bloque de impresión, así que el volumen
-              corresponde a lo que realmente vas a imprimir. Si tu pieza está en STEP, IGES u otro
+              corresponde a lo que realmente vas a imprimir. También STEP (.step/.stp). Si tu pieza está en IGES u otro
               formato CAD, mándanosla por WhatsApp y la convertimos nosotros.</p>
           </div>
         </details>
@@ -340,6 +341,7 @@
               decorativas, prototipos y modelos de exhibición. El PETG resiste mejor el impacto,
               la temperatura y la intemperie, así que conviene para piezas funcionales. Si
               necesitas otro material, escríbenos y lo vemos.</p>
+            <p>También imprimimos TPU flexible, en negro o blanco: elígelo en el cotizador.</p>
           </div>
         </details>
 
@@ -483,6 +485,12 @@
         <input id="im-referencia-detalle" name="referencia_detalle" maxlength="120"
                placeholder="¿Quién te recomendó? ¿Dónde nos viste?">
       </div>
+      <div class="field field--ancho">
+        <label style="display:flex;gap:10px;align-items:flex-start;font-weight:400">
+          <input type="checkbox" name="acepta_marketing" value="1" style="width:auto;margin-top:4px">
+          <span>Quiero recibir promociones y novedades de Emisha por correo (opcional).</span>
+        </label>
+      </div>
       <fieldset class="checkout__entrega">
         <legend>Entrega</legend>
         <label class="checkout__radio">
@@ -546,6 +554,6 @@
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
 <script src="../assets/js/preview3d.js?v=b58f16b0" defer></script>
-<script src="../assets/js/cotizador.js?v=e098902d" defer></script>
+<script src="../assets/js/cotizador.js?v=30131728" defer></script>
 </body>
 </html>

@@ -17,7 +17,8 @@
   var CONFIG = {
     materiales: {
       pla:  { nombre: 'PLA',  densidad: 1.24, precioKg: 300 },
-      petg: { nombre: 'PETG', densidad: 1.27, precioKg: 300 }
+      petg: { nombre: 'PETG', densidad: 1.27, precioKg: 300 },
+      tpu:  { nombre: 'TPU',  densidad: 1.21, precioKg: 450 }
     },
     /* Material realmente depositado = cascarón + relleno. Cuando se conoce
        el área superficial de la malla, el cascarón se calcula de verdad
@@ -787,6 +788,52 @@
     } finally {
       doc.delete();
     }
+  }
+
+  /* ============================================================= STEP ===
+     CAD (.step/.stp). Se tesela con occt-import-js (LGPL, OpenCascade en
+     wasm, ~7 MB), cargado de jsDelivr con versión fija la primera vez que
+     alguien suelta un STEP. OCCT convierte las unidades del archivo a mm.  */
+  var OCCT_BASE = 'https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/';
+  var occtListo = null;
+
+  function cargarOCCT() {
+    if (occtListo) return occtListo;
+    occtListo = new Promise(function (ok, mal) {
+      if (window.occtimportjs) return ok();
+      var s = document.createElement('script');
+      s.src = OCCT_BASE + 'occt-import-js.js';
+      s.crossOrigin = 'anonymous';
+      s.onload = ok;
+      s.onerror = function () { mal(new Error('No se pudo cargar el lector de STEP. Revisa tu conexión.')); };
+      document.head.appendChild(s);
+    }).then(function () {
+      return window.occtimportjs({ locateFile: function (f) { return OCCT_BASE + f; } });
+    });
+    occtListo.catch(function () { occtListo = null; });
+    return occtListo;
+  }
+
+  async function parseSTEP(buffer) {
+    var occt = await cargarOCCT();
+    var r = occt.ReadStepFile(new Uint8Array(buffer), { linearUnit: 'millimeter' });
+    if (!r || !r.success) throw new Error('El archivo STEP está dañado o no se pudo leer. Expórtalo como STL o mándanoslo por WhatsApp.');
+    var trozos = [], total = 0;
+    (r.meshes || []).forEach(function (m) {
+      var pos = m.attributes && m.attributes.position && m.attributes.position.array;
+      if (!pos || !pos.length) return;
+      var idx = m.index && m.index.array;
+      var n = idx ? idx.length : pos.length / 3, t = new Float32Array(n * 3);
+      for (var q = 0; q < n; q++) {
+        var v = (idx ? idx[q] : q) * 3;
+        t[q * 3] = pos[v]; t[q * 3 + 1] = pos[v + 1]; t[q * 3 + 2] = pos[v + 2];
+      }
+      trozos.push(t); total += t.length;
+    });
+    if (!total) throw new Error('El archivo STEP no trae sólidos (solo curvas o superficies sueltas).');
+    var tri = new Float32Array(total), o = 0;
+    trozos.forEach(function (t) { tri.set(t, o); o += t.length; });
+    return { volumenMm3: volumenDeMalla(tri), caja: cajaDeMalla(tri), malla: tri };
   }
 
   /* =========================================================== geometría */
@@ -2667,12 +2714,13 @@
   function agregar(files) {
     Array.prototype.forEach.call(files, function (file) {
       var ext = (file.name.split('.').pop() || '').toLowerCase();
-      if (ext === 'sldprt' || ext === 'sldasm' || ext === 'step' || ext === 'stp') {
-        piezas.push({ nombre: file.name, error: 'Este formato no se puede medir aquí. Expórtalo como STL o 3MF, o mándanoslo por WhatsApp y lo cotizamos.', cantidad: 1 });
+      if (ext === 'sldprt' || ext === 'sldasm') {
+        piezas.push({ nombre: file.name, error: 'Este formato no se puede medir aquí. Expórtalo como STL, 3MF o STEP, o mándanoslo por WhatsApp y lo cotizamos.', cantidad: 1 });
         render(); return;
       }
-      if (ext !== 'stl' && ext !== '3mf' && ext !== '3dm') {
-        piezas.push({ nombre: file.name, error: 'Formato no soportado. Solo STL, 3MF o 3DM (Rhino).', cantidad: 1 });
+      if (ext === 'stp') ext = 'step';
+      if (ext !== 'stl' && ext !== '3mf' && ext !== '3dm' && ext !== 'step') {
+        piezas.push({ nombre: file.name, error: 'Formato no soportado. Solo STL, 3MF, STEP o 3DM (Rhino).', cantidad: 1 });
         render(); return;
       }
       // El File se conserva tal cual: si el cliente paga, es lo que se sube.
@@ -2688,6 +2736,7 @@
               return { volumenMm3: volumenDeMalla(tri), caja: cajaDeMalla(tri), malla: tri };
             }
             if (ext === '3dm') return parse3DM(reader.result);
+            if (ext === 'step') return parseSTEP(reader.result);
             return parse3MF(reader.result);
           })
           .then(function (r) {
@@ -3219,6 +3268,7 @@
     // «¿Cómo nos encontraste?» se manda pero NO se recuerda (ver tienda.js).
     d.referencia = formPago.elements.referencia ? formPago.elements.referencia.value : '';
     d.referencia_detalle = formPago.elements.referencia_detalle ? formPago.elements.referencia_detalle.value.trim() : '';
+    d.acepta_marketing = !!(formPago.elements.acepta_marketing && formPago.elements.acepta_marketing.checked);
     return d;
   }
 
@@ -3274,7 +3324,8 @@
     var fd = new FormData();
     fd.append('datos', JSON.stringify({
       comprador: { nombre: d.nombre, email: d.email, telefono: d.telefono,
-                   referencia: d.referencia, referencia_detalle: d.referencia_detalle },
+                   referencia: d.referencia, referencia_detalle: d.referencia_detalle,
+                   acepta_marketing: d.acepta_marketing },
       origen_web: origenWeb(),
       entrega: entrega,
       envio: entrega === 'envio' ? {
