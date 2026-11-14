@@ -26,6 +26,32 @@
   var dias = [];               // lo que manda /disponibilidad
   var diaSel = null, horaSel = null;
 
+  /* --- Embudo: hasta qué paso llega cada visita ---------------------------
+     Anónimo: un id al azar por carga de página, el nombre del paso y, si algo
+     falla, qué campo. Nada de nombre, correo ni teléfono. Se ve en /admin/embudo. */
+  var sesionEmbudo = Math.random().toString(36).slice(2, 12) + Date.now().toString(36);
+  var pasosMandados = {};
+  function paso(nombre, detalle) {
+    var clave = nombre + '|' + (detalle || '');
+    if (pasosMandados[clave]) return;
+    pasosMandados[clave] = true;
+    try {
+      var cuerpo = JSON.stringify({ g: 'reparacion', s: sesionEmbudo, p: nombre, d: detalle || '' });
+      if (navigator.sendBeacon) navigator.sendBeacon(API + '/embudo', new Blob([cuerpo], { type: 'text/plain' }));
+      else fetch(API + '/embudo', { method: 'POST', body: cuerpo, keepalive: true, headers: { 'Content-Type': 'text/plain' } });
+    } catch (e) {}
+  }
+  if (!/[?&]cita=/.test(location.search)) paso('vista');
+  form.addEventListener('change', function (e) {
+    var c = e.target.dataset && e.target.dataset.campo;
+    if (c === 'modelo') paso('modelo');
+    if (c === 'tipo_falla') paso('falla');
+    if (c === 'descripcion' && e.target.value.trim().length >= 10) paso('descripcion');
+    var f = form.elements;
+    if (f.nombre && f.telefono && f.email && f.nombre.checkValidity() && f.telefono.checkValidity() &&
+        f.email.checkValidity() && f.nombre.value && f.telefono.value && f.email.value) paso('datos');
+  });
+
   /* --- Utilidades ------------------------------------------------------- */
 
   function esc(s) {
@@ -73,11 +99,11 @@
       dias = r.datos.dias;
       pintarDias();
       if (mantener && diaSel && dias.some(function (d) { return d.fecha === diaSel; })) {
-        elegirDia(diaSel);
+        elegirDia(diaSel, true);
       } else if (!mantener) {
         // Primer día con lugar, para que el formulario ya muestre horas.
         var primero = dias.filter(function (d) { return d.libres > 0; })[0];
-        if (primero) elegirDia(primero.fecha);
+        if (primero) elegirDia(primero.fecha, true);
       }
     }).catch(function () {
       cajaDias.innerHTML = '';
@@ -120,7 +146,8 @@
     });
   }
 
-  function elegirDia(fecha) {
+  function elegirDia(fecha, automatico) {
+    if (!automatico) paso('dia');
     diaSel = fecha;
     horaSel = null;
     form.elements.fecha.value = fecha;
@@ -158,6 +185,7 @@
   }
 
   function elegirHora(hora) {
+    paso('hora');
     horaSel = hora;
     form.elements.hora.value = hora;
     cajaTurnos.querySelectorAll('.turno').forEach(function (b) {
@@ -283,6 +311,7 @@
 
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
+    paso('enviar');
     avisar('');
     var lista = equipos(), listos = [], falla = null;
     for (var i = 0; i < lista.length; i++) {
@@ -298,15 +327,19 @@
       });
     }
     if (falla) {
+      paso('invalido', /modelo/.test(falla[0]) ? 'modelo' : 'falla');
       avisar(falla[0], 'error');
       if (falla[1]) falla[1].scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
     if (!form.checkValidity()) {
+      var malo = form.querySelector(':invalid');
+      paso('invalido', malo ? (malo.dataset.campo || malo.name || 'campo') : 'campo');
       form.reportValidity();
       return;
     }
     if (!diaSel || !horaSel) {
+      paso('invalido', 'dia y hora');
       avisar('Elige el día y la hora en que traes ' + (lista.length > 1 ? 'tus impresoras' : 'tu impresora') + '.', 'error');
       cajaDias.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
@@ -336,9 +369,11 @@
       if ((r.status === 201 || r.status === 200) && r.datos.cita_id) {
         try { localStorage.setItem('emisha-ultima-cita', r.datos.cita_id); } catch (e) {}
         history.replaceState(null, '', location.pathname + '?cita=' + r.datos.cita_id);
+        paso('enviada');
         mostrarConfirmacion(r.datos, true);
         return;
       }
+      paso('error', r.status + ' ' + String((r.datos && r.datos.error) || '').slice(0, 45));
       restaurarBoton();
       if (r.status === 409 && r.datos.turno) {
         // Alguien más lo tomó o ya pasó: refrescar y que elija otro.
@@ -348,6 +383,7 @@
       }
       avisar((r.datos && r.datos.error) || 'No se pudo agendar. Inténtalo de nuevo o escríbenos por WhatsApp.', 'error');
     }).catch(function () {
+      paso('red');
       restaurarBoton();
       avisar('No se pudo agendar. Revisa tu conexión e inténtalo de nuevo, o escríbenos por WhatsApp al +52 55 7563 9255.', 'error');
     });
