@@ -8,6 +8,8 @@
     dsn: 'https://76b8383a59547d658ee8d18eccc4e427@o4512428352077824.ingest.us.sentry.io/4512428616318976',
     environment: 'production',
     sendDefaultPii: false,
+    // Por citas: los bloqueadores de anuncios tumban *.sentry.io.
+    tunnel: 'https://citas.emisha.com.mx/sentry-tunnel',
     tracesSampleRate: 0,
     // Solo errores de nuestro propio código, no de extensiones del navegador.
     allowUrls: [/https?:\/\/(www\.)?emisha\.com\.mx/],
