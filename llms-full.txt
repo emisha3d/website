@@ -342,7 +342,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-533 piezas con existencia confirmada, listas para salir de la Ciudad de
+532 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -820,7 +820,7 @@ Rango de precio: $259 MXN a $10,179 MXN.
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $9,989 MXN · SKU AG-BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,069 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (76 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (75 piezas)
 
 Rango de precio: $259 MXN a $1,829 MXN.
 
@@ -842,7 +842,6 @@ Rango de precio: $259 MXN a $1,829 MXN.
 - Filamento Bambu Lab PETG CF morado violeta 1.75 mm 1 kg — $929 MXN · SKU AG-BAMBULAB-PETG-CF-MORADO-V
 - Filamento Bambu Lab PETG CF negro 1.75 mm 1 kg — $929 MXN · SKU AG-BAMBULAB-PETG-CF-NEGRO
 - Filamento Bambu Lab PETG CF verde marea 1.75 mm 1 kg — $929 MXN · SKU AG-BAMBULAB-PETG-CF-VERDE-MA
-- Filamento Bambu Lab PETG transparente café 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-CAFE
 - Filamento Bambu Lab PETG transparente morado 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-MORA
 - Filamento Bambu Lab PETG transparente naranja 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-NARA
 - Filamento Bambu Lab PETG transparente verde azulado 1.75 mm 1 kg — $449 MXN · SKU AG-BAMBULAB-PETG-TRANSP-VEAZ
