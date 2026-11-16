@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Error 0300-8008 en Bambu Lab: fallo de la temperatura de la boquilla</title>
+<meta name="description" content="Error 0300-8008 «Fallo de la temperatura de la boquilla» en Bambu Lab A1, A1 mini, P1S o X1. Qué lo causa, qué revisar tú y reparación en CDMX: diagnóstico $300, hotend A1 en existencia.">
+<link rel="canonical" href="https://www.emisha.com.mx/reparacion/fallas/error-0300-8008-bambu-lab/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="¿Tu Bambu Lab marca el error 0300-8008? — Emisha">
+<meta property="og:description" content="Error 0300-8008 «Fallo de la temperatura de la boquilla» en Bambu Lab A1, A1 mini, P1S o X1. Qué lo causa, qué revisar tú y reparación en CDMX: diagnóstico $300, hotend A1 en existencia.">
+<meta property="og:url" content="https://www.emisha.com.mx/reparacion/fallas/error-0300-8008-bambu-lab/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/fallas/hotend-termistor.webp">
+
+<link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../../assets/css/styles.css?v=e9d69a94">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.emisha.com.mx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Agendar reparación",
+          "item": "https://www.emisha.com.mx/reparacion/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Fallas comunes",
+          "item": "https://www.emisha.com.mx/reparacion/fallas/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Error 0300-8008",
+          "item": "https://www.emisha.com.mx/reparacion/fallas/error-0300-8008-bambu-lab/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.emisha.com.mx/reparacion/fallas/error-0300-8008-bambu-lab/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ya cambié la boquilla y el hotend y sigue saliendo, ¿qué más puede ser?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entonces lo que queda son los conectores, el cable del cabezal o la tarjeta. Es justo el caso que conviene revisar en taller, con instrumentos, en lugar de seguir comprando piezas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo seguir imprimiendo si a veces sí termina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No conviene. Una boquilla que pierde temperatura deja capas débiles y puede taparse. Si el error se repite, apágala y revísala."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta la reparación?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El diagnóstico cuesta $300 MXN. La mano de obra de la reparación es $700 MXN, o $400 MXN si el diagnóstico ya se hizo aquí. Las refacciones van aparte y nunca se cambian sin que tú lo autorices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "No estoy en la Ciudad de México, ¿me la pueden reparar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Recibimos impresoras de todo México por paquetería: en envío al taller cotizas la guía y te decimos cómo empacarla."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../../" aria-label="Emisha — inicio">
+      <img src="../../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../../filamentos/">Filamentos</a>
+          <a href="../../../hotends/">Hotends</a>
+          <a href="../../../placas/">Placas</a>
+          <a href="../../../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn is-current" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../../../servicios/">Servicios y reparación</a>
+          <a href="../../../reparacion/mantenimiento-preventivo/">Mantenimiento preventivo</a>
+          <a href="../../../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../../../cotizador/">Cotizar pieza</a>
+          <a href="../../../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../../../reparacion/" aria-current="page">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../../cortador/">Cortador</a>
+          <a href="../../../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../../../blog/">Blog</a>
+      <a href="../../../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <div style="max-width:760px">
+        <span class="eyebrow eyebrow--accent">Fallas comunes · Taller en Benito Juárez</span>
+        <h1>¿Tu Bambu Lab marca el error 0300-8008?</h1>
+        <p class="lede">La pantalla dice «Fallo de la temperatura de la boquilla» con el código 0300-8008 y la impresión se detiene. Pasa mucho cuando arranca el ventilador de la pieza: la boquilla pierde temperatura y la impresora corta por seguridad.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="../../../reparacion/">Agendar mi cita</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20mi%20Bambu%20Lab:%20error%200300-8008." target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="causas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Qué lo causa</span>
+        <h2>Lo que casi siempre hay detrás</h2>
+      </div>
+      <figure class="foto" style="max-width:760px">
+        <img src="../../../assets/img/fallas/hotend-termistor.webp" width="1200" height="900"
+             loading="lazy" decoding="async" alt="Hotend de una A1 mini en el banco: la boquilla se tapó y el filamento derretido cubrió el bloque.">
+        <figcaption>Hotend de una A1 mini en el banco: la boquilla se tapó y el filamento derretido cubrió el bloque.</figcaption>
+      </figure>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>El calentador o el termistor</h3>
+          <p class="muted">Son las dos piezas que calientan y miden la boquilla. En la A1 y la A1 mini vienen dentro del hotend de cambio rápido; en la P1 y la X1 son piezas aparte. Si una falla, la temperatura no sube, brinca o se cae a media impresión.</p>
+        </div>
+        <div class="card">
+          <h3>Un conector flojo en el cabezal</h3>
+          <p class="muted">El calentador y el termistor se conectan a la tarjeta del cabezal. Si el error salió después de cambiar la boquilla o el hotend, casi siempre es un conector que no quedó bien metido o un cable pellizcado al cerrar la tapa.</p>
+        </div>
+        <div class="card">
+          <h3>Falta la funda de silicón</h3>
+          <p class="muted">Sin la funda, el aire del ventilador le pega directo al bloque caliente y lo enfría. La temperatura cae justo cuando entra el ventilador y sale el error.</p>
+        </div>
+        <div class="card">
+          <h3>El cable del cabezal o la tarjeta</h3>
+          <p class="muted">Menos común. Un hilo roto en el cable que va del cabezal a la tarjeta principal da lecturas que se cortan. Se revisa después de descartar lo anterior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="revisa">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Antes de traerla</span>
+        <h2>Lo que puedes revisar tú</h2>
+        <p>Muchas veces se resuelve aquí. Si no, ya tienes la mitad del diagnóstico hecho.</p>
+      </div>
+      <div class="card" style="max-width:760px">
+        <ol class="steps">
+            <li><strong>Fíjate cuándo sale</strong><p>Si el error aparece al empezar a calentar, apunta al calentador o al termistor. Si aparece cuando entra el ventilador, revisa la funda de silicón y los conectores.</p></li>
+            <li><strong>Revisa la funda de silicón</strong><p>Con la impresora fría, mira que la funda cubra todo el bloque caliente y no esté rota ni mal puesta.</p></li>
+            <li><strong>Revisa los conectores</strong><p>Apagada y desconectada, quita la tapa del cabezal y presiona con cuidado los conectores del calentador y del termistor. No jales los cables.</p></li>
+            <li><strong>En A1 y A1 mini, prueba otro hotend</strong><p>Si con otro hotend ya no sale el error, el problema era el hotend. El <a href="../../../hotends/hotend-a1-0-4-mm/">hotend A1 completo</a> lo tenemos en existencia en $499.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="taller">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Si no sale</span>
+        <h2>Lo que hacemos en el taller</h2>
+        <p>Medimos el calentador y el termistor, probamos con piezas de repuesto en el momento y revisamos el cable y la tarjeta del cabezal. Te mandamos la cotización con fotos antes de cambiar cualquier pieza. La reparación tiene garantía de 90 días.</p>
+      </div>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>Diagnóstico — $300 MXN</h3>
+          <p class="muted">Te decimos qué tiene, qué hay que cambiar y cuánto sale. Se cobra
+            siempre, salga la reparación o no.</p>
+        </div>
+        <div class="card">
+          <h3>Mano de obra — $700 MXN</h3>
+          <p class="muted">La reparación completa; <strong>$400 MXN</strong> si el
+            diagnóstico ya se hizo aquí. Refacciones aparte, siempre con tu autorización.</p>
+        </div>
+        <div class="card">
+          <h3>Desde otro estado</h3>
+          <p class="muted">Mándala por paquetería: en <a href="../../../reparacion/envio/">envío al
+            taller</a> cotizas la guía y te decimos cómo empacarla.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="faq">
+    <div class="wrap">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Lo que nos preguntan</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Ya cambié la boquilla y el hotend y sigue saliendo, ¿qué más puede ser?</summary>
+          <div class="faq__body"><p>Entonces lo que queda son los conectores, el cable del cabezal o la tarjeta. Es justo el caso que conviene revisar en taller, con instrumentos, en lugar de seguir comprando piezas.</p></div>
+        </details>
+        <details>
+          <summary>¿Puedo seguir imprimiendo si a veces sí termina?</summary>
+          <div class="faq__body"><p>No conviene. Una boquilla que pierde temperatura deja capas débiles y puede taparse. Si el error se repite, apágala y revísala.</p></div>
+        </details>
+        <details>
+          <summary>¿Cuánto cuesta la reparación?</summary>
+          <div class="faq__body"><p>El diagnóstico cuesta <strong>$300 MXN</strong>. La mano de obra de la reparación es <strong>$700 MXN</strong>, o <strong>$400 MXN</strong> si el diagnóstico ya se hizo aquí. Las refacciones van aparte y nunca se cambian sin que tú lo autorices.</p></div>
+        </details>
+        <details>
+          <summary>No estoy en la Ciudad de México, ¿me la pueden reparar?</summary>
+          <div class="faq__body"><p>Sí. Recibimos impresoras de todo México por paquetería: en <a href="../../../reparacion/envio/">envío al taller</a> cotizas la guía y te decimos cómo empacarla.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight section--alt">
+    <div class="wrap grid grid--2">
+      <div class="card">
+        <h3>Relacionado</h3>
+        <ul>
+          <li><a href="../../../reparacion/fallas/bambu-lab-a1-no-calienta/">Bambu Lab A1 no calienta</a></li>
+          <li><a href="../../../reparacion/bambu-lab-a1/">Reparación de Bambu Lab A1</a></li>
+          <li><a href="../../../hotends/">Hotends para A1 y A1 mini</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Otras fallas comunes</h3>
+        <ul>
+          <li><a href="../../../reparacion/fallas/bambu-lab-a1-no-calienta/">Tu Bambu Lab A1 no calienta</a></li>
+          <li><a href="../../../reparacion/fallas/bambu-lab-p1s-no-extruye/">Tu Bambu Lab P1S no extruye</a></li>
+          <li><a href="../../../reparacion/fallas/error-ams-bambu-lab/">Tu AMS no carga el filamento o marca error</a></li>
+          <li><a href="../../../reparacion/fallas/cambio-de-hotend-bambu-lab-a1/">Cambio de hotend en Bambu Lab A1 y A1 mini</a></li>
+          <li><a href="../../../reparacion/fallas/bambu-lab-no-enciende/">Tu Bambu Lab no enciende</a></li>
+          <li><a href="../../../reparacion/fallas/bambu-lab-hace-ruido/">Tu Bambu Lab hace un ruido nuevo</a></li>
+          <li><a href="../../../reparacion/fallas/error-0300-4002-nivelacion-de-cama-bambu-lab/">Tu Bambu Lab cancela por falla de nivelación de la cama</a></li>
+          <li><a href="../../../reparacion/fallas/error-0300-8016-boquilla-obstruida-bambu-lab/">Tu Bambu Lab dice que la boquilla está obstruida</a></li>
+          <li><a href="../../../reparacion/fallas/error-0700-8010-ams-bambu-lab/">Tu AMS marca el error 0700-8010</a></li>
+          <li><a href="../../../reparacion/fallas/error-0300-800c-perdida-de-pasos-bambu-lab/">Tu Bambu Lab marca pérdida de pasos (0300-800C)</a></li>
+          <li><a href="../../../reparacion/fallas/error-0300-8009-cama-caliente-bambu-lab/">Tu Bambu Lab marca el error 0300-8009 de la cama caliente</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow eyebrow--accent">Taller en CDMX</span>
+        <h2>¿No se arregló? Tráela al taller</h2>
+        <p>Elige el día y la hora para dejarla. Recepción de lunes a viernes de 12:00 a 18:00,
+          en Av. División del Norte 1354, Piso 1, Letrán del Valle, Benito Juárez, CP 03650.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="../../../reparacion/">Agendar mi cita</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20mi%20Bambu%20Lab:%20error%200300-8008." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../../../placas/">Placas de impresión</a></li>
+          <li><a href="../../../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../../../#tienda">Tienda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reparación</h4>
+        <ul>
+          <li><a href="../../../reparacion/bambu-lab-a1/">Reparación Bambu Lab A1</a></li>
+          <li><a href="../../../reparacion/bambu-lab-a1-mini/">Reparación Bambu Lab A1 mini</a></li>
+          <li><a href="../../../reparacion/bambu-lab-a2l/">Reparación Bambu Lab A2L</a></li>
+          <li><a href="../../../reparacion/bambu-lab-p1p/">Reparación Bambu Lab P1P</a></li>
+          <li><a href="../../../reparacion/bambu-lab-p1s/">Reparación Bambu Lab P1S</a></li>
+          <li><a href="../../../reparacion/bambu-lab-p2s/">Reparación Bambu Lab P2S</a></li>
+          <li><a href="../../../reparacion/bambu-lab-x1-carbon/">Reparación Bambu Lab X1 Carbon</a></li>
+          <li><a href="../../../reparacion/bambu-lab-x1e/">Reparación Bambu Lab X1E</a></li>
+          <li><a href="../../../reparacion/bambu-lab-x2d/">Reparación Bambu Lab X2D</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2d/">Reparación Bambu Lab H2D</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2d-pro/">Reparación Bambu Lab H2D Pro</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2s/">Reparación Bambu Lab H2S</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h2c/">Reparación Bambu Lab H2C</a></li>
+          <li><a href="../../../reparacion/bambu-lab-h3c/">Reparación Bambu Lab H3C</a></li>
+          <li><a href="../../../reparacion/ams/">Reparación AMS</a></li>
+          <li><a href="../../../reparacion/creality-k1/">Reparación Creality K1</a></li>
+          <li><a href="../../../reparacion/creality-k2/">Reparación Creality K2 Plus</a></li>
+          <li><a href="../../../reparacion/creality-hi/">Reparación Creality Hi</a></li>
+          <li><a href="../../../reparacion/creality-ender-3-v3/">Reparación Creality Ender-3 V3</a></li>
+          <li><a href="../../../reparacion/creality-cfs/">Reparación Creality CFS</a></li>
+          <li><a href="../../../reparacion/fallas/">Fallas comunes</a></li>
+          <li><a href="../../../reparacion/">Agendar reparación</a></li>
+          <li><a href="../../../servicios/">Todos los servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span class="footer-legal"><a href="../../../terminos/">Términos y condiciones</a> · <a href="../../../privacidad/">Aviso de privacidad</a> · <a href="../../../devoluciones/">Devoluciones</a></span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../../assets/js/main.js?v=7782446c" defer></script>
+</body>
+</html>

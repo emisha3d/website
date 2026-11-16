@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-11-14
+Generado: 2026-11-16
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
-- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-11-14
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-14
+- Refacciones Bambu Lab (surte AG Electrónica): en vivo, catálogo del 2026-11-16
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-16
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -342,7 +342,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-531 piezas con existencia confirmada, listas para salir de la Ciudad de
+529 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Se surten a través de AG Electrónica y normalmente se envían el
 mismo día o al siguiente día hábil. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
@@ -820,7 +820,7 @@ Rango de precio: $259 MXN a $10,179 MXN.
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $9,989 MXN · SKU AG-BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,069 MXN · Compatible: AMS · SKU AG-BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (74 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (72 piezas)
 
 Rango de precio: $259 MXN a $1,829 MXN.
 
@@ -829,11 +829,9 @@ Rango de precio: $259 MXN a $1,829 MXN.
 - Buffer de filamento para Bambu Lab H2S — $1,169 MXN · Compatible: H2S · SKU AG-SA010
 - Buffer de filamento para P2S — $1,569 MXN · Compatible: P2S · SKU AG-SA011
 - Filamento Bambu Lab ABS GF naranja 1.75 mm 1 kg — $939 MXN · SKU AG-BAMBULAB-ABS-GF-NARANJA
-- Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg — $939 MXN · SKU AG-BAMBULAB-ABS-GF-ROJO
 - Filamento Bambu Lab ABS naranja 1.75 mm 1 kg — $809 MXN · SKU AG-BAMBULAB-ABS-NARANJA
 - Filamento Bambu Lab ABS verde 1.75 mm 1 kg — $809 MXN · SKU AG-BAMBULAB-ABS-VERDE
 - Filamento Bambu Lab PA6 GF azul 1.75 mm 1 kg — $1,099 MXN · SKU AG-BAMBULAB-PA6-GF-AZUL
-- Filamento Bambu Lab PA6 GF blanco 1.75 mm 1 kg — $1,099 MXN · SKU AG-BAMBULAB-PA6-GF-BLANCO
 - Filamento Bambu Lab PA6 GF naranja 1.75 mm 1 kg — $1,109 MXN · SKU AG-BAMBULAB-PA6-GF-NARANJA
 - Filamento Bambu Lab PC blanco 1.75 mm 1 kg — $1,389 MXN · SKU AG-BAMBULAB-PC-BLANCO
 - Filamento Bambu Lab PC negro 1.75 mm 1 kg — $1,389 MXN · SKU AG-BAMBULAB-PC-NEGRO
@@ -1330,7 +1328,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-11-14 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-11-16 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 

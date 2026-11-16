@@ -256,11 +256,9 @@
   <url><loc>https://www.emisha.com.mx/refacciones/ensamble-de-calentador-de-hotend-derecho-compatible-fah029/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/extractor-de-camara-activa-compatible-con-h2d-fac120/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-naranja-1-75-mm-1-kg-abs-gf-naranja/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-rojo-1-75-mm-1-kg-abs-gf-rojo/</loc><lastmod>2026-11-09</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-naranja-1-75-mm-1-kg-abs-naranja/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-verde-1-75-mm-1-kg-abs-verde/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-gf-azul-1-75-mm-1-kg-pa6-gf-azul/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-gf-blanco-1-75-mm-1-kg-pa6-gf-blanco/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-gf-naranja-1-75-mm-1-kg-pa6-gf-naranja/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pc-blanco-1-75-mm-1-kg-pc-blanco/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pc-negro-1-75-mm-1-kg-pc-negro/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -632,7 +630,18 @@
   <url><loc>https://www.emisha.com.mx/reparacion/fallas/bambu-lab-no-enciende/</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.emisha.com.mx/reparacion/fallas/bambu-lab-p1s-no-extruye/</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.emisha.com.mx/reparacion/fallas/cambio-de-hotend-bambu-lab-a1/</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/creality-k1-capas-desplazadas/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/creality-k1-no-extruye/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-0300-4002-nivelacion-de-cama-bambu-lab/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-0300-8008-bambu-lab/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-0300-8009-cama-caliente-bambu-lab/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-0300-800c-perdida-de-pasos-bambu-lab/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-0300-8016-boquilla-obstruida-bambu-lab/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-0700-8010-ams-bambu-lab/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-2521-nivelacion-creality-k1/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-2564-creality-k1-no-calienta/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-ams-bambu-lab/</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.emisha.com.mx/reparacion/fallas/error-cfs-creality/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.emisha.com.mx/reparacion/fallas/</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.emisha.com.mx/reparacion/garantia-bambu-lab/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.emisha.com.mx/reparacion/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
