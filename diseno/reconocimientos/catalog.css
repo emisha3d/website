@@ -1,0 +1,49 @@
+.catalog-intro{padding-block:26px 48px}
+.catalog-intro .back-link{margin-bottom:32px}
+.catalog-intro-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:end}
+.catalog-intro h1{font-size:clamp(42px,4.6vw,66px);line-height:1.04;color:var(--blue);margin-top:18px}
+.catalog-intro h1 em{color:var(--ink)}
+.catalog-intro-grid>div>p:not(.eyebrow){font-size:16px;color:var(--muted);max-width:460px}
+.catalog-intro .hero-actions{gap:18px;margin-top:22px}
+.catalog-section{position:relative;padding-bottom:62px}
+.catalog-heading{border-top:1px solid var(--line);padding:23px 0 30px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.catalog-heading>span{font-size:12px;color:var(--muted)}
+.award-category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:46px 34px}
+.award-category{min-width:0}
+.reference-note{font-size:13px;color:var(--muted);margin:0 0 26px;max-width:760px}
+.award-category .slides figure{position:relative}
+.reference-badge{position:absolute;right:12px;bottom:12px;background:#173759;color:white;padding:7px 10px;font-size:11px;z-index:2;pointer-events:none}
+.special-finishes{margin-top:42px;padding:26px;background:#eef1f4;display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+.special-finishes h3{margin:0 0 8px;color:var(--blue);font-size:22px}
+.special-finishes p{margin:0;max-width:470px;color:var(--muted);font-size:14px}
+.special-finishes .tags{margin:0}
+.category-heading{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
+.category-heading>span{font-size:12px;color:var(--accent);padding-top:5px}
+.category-heading h2{font-size:28px;line-height:1.1;color:var(--blue);min-height:2.2em;max-width:350px}
+.category-description{font-size:14px;color:var(--muted);margin:14px 0 22px;min-height:3.3em;max-width:480px}
+.award-category .slides img{height:340px;object-fit:contain;background:#eef1f4}
+.award-category .slides img.cover{object-fit:cover;object-position:center 65%}
+#escultoricos .slides figure:first-child img{object-fit:cover;object-position:center bottom}
+.award-category .slides figcaption{font-size:11px}
+.award-category .gallery-controls{min-height:84px;gap:15px}
+.award-category .gallery-controls>div[hidden]{display:none}
+.award-category .gallery-caption{font-size:13px}
+.award-category .text-link{margin-top:8px;color:var(--blue)}
+.awards-catalog-page .design-advantage{padding-block:50px}
+.awards-catalog-page .editorial-heading{gap:50px;margin-bottom:28px}
+.awards-catalog-page .editorial-heading h2{font-size:36px}
+.awards-catalog-page .advantage-columns article{padding-top:18px}
+.awards-catalog-page .advantage-columns h3{margin:0 0 10px;font-size:22px}
+.awards-catalog-page .advantage-columns p{font-size:14px}
+.awards-catalog-page .shared-process{padding-block:55px}
+.awards-catalog-page .process-cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+.awards-catalog-page .process-cards article{border:0;border-top:1px solid var(--line);padding:18px 0 0;background:none;border-radius:0}
+.awards-catalog-page .process-cards h3{min-height:0;font-size:20px;margin:15px 0 9px}
+.awards-catalog-page .contact{padding-block:56px}
+.awards-catalog-page .contact h2{font-size:46px}
+.catalog-faq{margin-top:32px}
+.catalog-faq summary{font-size:13px;padding:13px 0}
+.catalog-faq p{font-size:13px;padding-bottom:16px}
+@media(max-width:1100px){.catalog-intro-grid{gap:35px;grid-template-columns:1.15fr 1fr}.catalog-intro h1{font-size:48px}.award-category .slides img{height:310px}.category-heading h2{font-size:26px}.catalog-intro .button{padding:15px;gap:12px;font-size:12px}}
+@media(max-width:800px){.catalog-intro-grid{grid-template-columns:1fr;gap:24px}.catalog-intro{padding-bottom:36px}.catalog-intro h1{font-size:54px}.award-category-grid{gap:36px 24px}.category-heading{grid-template-columns:22px 1fr;gap:8px}.category-heading h2{font-size:24px;min-height:3.3em}.category-description{min-height:5em;font-size:13px}.award-category .slides img{height:270px}.award-category .gallery-controls{min-height:115px;gap:10px}.award-category .gallery-caption{font-size:12px}.awards-catalog-page .editorial-heading{gap:22px}.awards-catalog-page .process-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.catalog-intro h1{font-size:clamp(31px,8.7vw,49px)}.catalog-intro .back-link{margin-bottom:25px}.catalog-intro-grid>div>p:not(.eyebrow){font-size:15px}.catalog-heading{align-items:start;gap:12px}.catalog-heading .eyebrow{font-size:10px}.catalog-heading>span{font-size:10px;white-space:nowrap}.award-category-grid{grid-template-columns:1fr;gap:38px}.category-heading{grid-template-columns:24px 1fr}.category-heading h2{font-size:28px;min-height:0}.category-description{min-height:0;font-size:14px;margin:13px 0 20px}.award-category .slides img{height:min(88vw,370px)}.award-category .gallery-controls{min-height:85px}.award-category .gallery-caption{font-size:13px}.catalog-section{padding-bottom:44px}.awards-catalog-page .editorial-heading h2{font-size:31px}.awards-catalog-page .design-advantage{padding-block:40px}.awards-catalog-page .shared-process{padding-block:40px}.awards-catalog-page .process-cards{gap:26px 20px}.awards-catalog-page .process-cards h3{font-size:19px}.awards-catalog-page .process-cards p{font-size:13px}.awards-catalog-page .contact{padding-block:42px}.awards-catalog-page .contact h2{font-size:44px}}
