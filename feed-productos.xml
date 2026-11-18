@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-11-16</lastBuildDate>
+    <lastBuildDate>2026-11-18</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -947,7 +947,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-bronce-1-75-mm-1-kg-pla-bronce/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-BRONCE.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-BRONCE</g:mpn>
@@ -1017,7 +1017,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-crepusculo-brillante-1-75-mm-1-crepus-brill/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-CREPUS-BRILL.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>429.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-CREPUS-BRILL</g:mpn>
@@ -1031,7 +1031,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-cyan-1-75-mm-1-kg-pla-cyan/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-CYAN.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-CYAN</g:mpn>
@@ -1045,7 +1045,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-gris-azulado-1-75-mm-1-kg-pla-gris-azulado/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-GRIS-AZULADO.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>429.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-GRIS-AZULADO</g:mpn>
@@ -1059,24 +1059,10 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-azul-1-75-mm-1-kg-pla-lite-azul/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-LITE-AZUL.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>429.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-AZUL</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-LITE-CYAN</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA Lite cyan 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA Lite cyan 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-cyan-1-75-mm-1-kg-pla-lite-cyan/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-LITE-CYAN.webp</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>319.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-LITE-CYAN</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -1087,7 +1073,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-gris-1-75-mm-1-kg-pla-lite-gris/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-LITE-GRIS.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>429.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-LITE-GRIS</g:mpn>
@@ -1185,7 +1171,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-marron-cocoa-1-75-mm-1-kg-pla-marron-cocoa/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-MARRON-COCOA.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-MARRON-COCOA</g:mpn>
@@ -1235,27 +1221,13 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-PLA-MATTE-CHARCO</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA matte charco 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA matte charco 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-charco-1-75-mm-1-kg-pla-matte-charco/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-MATTE-CHARCO.webp</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>529.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-BAMBULAB-PLA-MATTE-CHARCO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-PLA-MATTE-GRIS</g:id>
       <title><![CDATA[Filamento Bambu Lab PLA matte gris 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab PLA matte gris 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-gris-1-75-mm-1-kg-pla-matte-gris/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-MATTE-GRIS.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>489.00 MXN</g:price>
+      <g:price>569.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-MATTE-GRIS</g:mpn>
@@ -1283,7 +1255,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-menta-lima-1-75-mm-1-kg-pla-menta-lima/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-MENTA-LIMA.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-MENTA-LIMA</g:mpn>
@@ -1353,7 +1325,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-nube-algodon-dulce-1-75-mm-1-kg-alg-dul/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-NUBE-ALG-DUL.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>539.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-NUBE-ALG-DUL</g:mpn>
@@ -1367,7 +1339,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-purpura-indigo-1-75-mm-1-kg-indi/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-PURPURA-INDI.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-PURPURA-INDI</g:mpn>
@@ -1381,7 +1353,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-rosa-citrico-1-75-mm-1-kg-pla-rosa-citrico/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-BAMBULAB-PLA-ROSA-CITRICO.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-BAMBULAB-PLA-ROSA-CITRICO</g:mpn>
@@ -1809,20 +1781,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-CAB023</g:id>
-      <title><![CDATA[Cable Bambu tipo USB-C para A1]]></title>
-      <description><![CDATA[Cable Bambu tipo USB-C para A1. la A1. Refacción original Bambu Lab, nueva. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/cable-bambu-tipo-usb-c-para-a1-cab023/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-CAB023.webp</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>389.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-CAB023</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-CAB034</g:id>
       <title><![CDATA[Kit de cables (6 en 1) para AMS 2 Pro]]></title>
       <description><![CDATA[Kit de cables (6 en 1) para AMS 2 Pro. el AMS 2 Pro. Refacción original Bambu Lab, nueva. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
@@ -2215,20 +2173,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>AG-DLB021</g:id>
-      <title><![CDATA[Placa de CA para A1]]></title>
-      <description><![CDATA[Placa de CA para A1. la A1. Refacción original Bambu Lab, nueva. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/placa-de-ca-para-a1-dlb021/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-DLB021.webp</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>769.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-DLB021</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-DLB022</g:id>
       <title><![CDATA[Placa base para AMS 2 Pro]]></title>
       <description><![CDATA[Placa base para AMS 2 Pro. el AMS 2 Pro. Refacción original Bambu Lab, nueva. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
@@ -2477,20 +2421,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-DLB054</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-DLB055</g:id>
-      <title><![CDATA[Sensor de filamento compatible con P2S]]></title>
-      <description><![CDATA[Sensor de filamento compatible con P2S. la P2S. Refacción original Bambu Lab, nueva. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/sensor-de-filamento-compatible-con-p2s-dlb055/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-DLB055.webp</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>749.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-DLB055</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -6565,20 +6495,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>AG-FAS071</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-FAT001</g:id>
-      <title><![CDATA[Tubo de PTFE 370 mm×1 + 550 mm×2 (AMS - AMS Hub - coupler - cabezal) compatible con P1/X1]]></title>
-      <description><![CDATA[Tubo de PTFE 370 mm×1 + 550 mm×2 (AMS - AMS Hub - coupler - cabezal) compatible con P1/X1. toda la serie P1, la X1 y el AMS. Refacción original Bambu Lab, nueva. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-370-mmx1-550-mmx2-ams-ams-hub-fat001/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/AG-FAT001.webp</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>219.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>AG-FAT001</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
