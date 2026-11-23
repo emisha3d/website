@@ -18,10 +18,11 @@
   var WA_NUM = 'https://wa.me/525575639255';
   var WA = WA_NUM + '?text=' + encodeURIComponent('Hola, quiero agendar un mantenimiento preventivo para mi Bambu Lab.');
   var PRECIO = 700, PRECIO_CREALITY = 1000, PRECIO_AMS = 300;   // pesos, IVA incluido (los cobra el worker igual)
-  function esCreality(m) { return /^Creality /.test(String(m || '')); }
+  // Anycubic (desde 2026-11-23) va como Creality: $1,000 con su ACE incluido.
+  function esCreality(m) { return /^(Creality|Anycubic) /.test(String(m || '')); }
   function precioDe(m) { return esCreality(m) ? PRECIO_CREALITY : PRECIO; }
   // «AMS» o «CFS» (Creality) para el contenedor de filamento de esa impresora.
-  function amsNombre(m) { return esCreality(m) ? 'CFS' : 'AMS'; }
+  function amsNombre(m) { return /^Anycubic /.test(String(m || '')) ? 'ACE' : esCreality(m) ? 'CFS' : 'AMS'; }
   // El CFS de una Creality va incluido en sus $1,000.
   function amsPrecio(m) { return esCreality(m) ? 0 : PRECIO_AMS; }
   var MAX_IMPRESORAS = 40;
@@ -204,7 +205,7 @@
     var conAms = lista.filter(function (b) { return campo(b, 'trae_ams').checked; }), ams = conAms.length;
     var total = lista.reduce(function (t, b) { return t + precioDe(modeloDe(b)) + (campo(b, 'trae_ams').checked ? amsPrecio(modeloDe(b)) : 0); }, 0);
     var cfs = conAms.some(function (b) { return esCreality(modeloDe(b)); }), bam = conAms.some(function (b) { return !esCreality(modeloDe(b)); });
-    var detalle = n + plural(n, ' impresora', ' impresoras') + (ams ? ' + ' + ams + ' ' + (cfs ? (bam ? 'AMS/CFS' : 'CFS') : 'AMS') : '');
+    var detalle = n + plural(n, ' impresora', ' impresoras') + (ams ? ' + ' + ams + ' ' + (cfs ? (bam ? 'AMS/CFS' : 'CFS/ACE') : 'AMS') : '');
     form.querySelector('[data-total]').textContent = pesos(total);
     form.querySelector('[data-total-detalle]').textContent = detalle;
     if (resumen) {
@@ -402,9 +403,9 @@
     var crM = eq.some(function (e) { return esCreality(e.modelo); }), blM = eq.some(function (e) { return !esCreality(e.modelo); });
     var amsTxt = (function () {
       var con = eq.filter(function (e) { return e.trae_ams; }), c = con.some(function (e) { return esCreality(e.modelo); }), b = con.some(function (e) { return !esCreality(e.modelo); });
-      return c ? (b ? 'el AMS o CFS' : 'el CFS') : 'el AMS';
+      return c ? (b ? 'el AMS o CFS' : 'el ' + amsNombre(con.filter(function (e) { return esCreality(e.modelo); })[0].modelo)) : 'el AMS';
     })();
-    var listaM = crM ? (blM ? 'Bambu Lab $700 por impresora (+$300 AMS) · Creality $1,000 por impresora (CFS incluido)' : '$1,000 por impresora Creality (CFS incluido)') : '$700 por impresora (+$300 AMS)';
+    var listaM = crM ? (blM ? 'Bambu Lab $700 por impresora (+$300 AMS) · Creality y Anycubic $1,000 por impresora (CFS o ACE incluido)' : '$1,000 por impresora (CFS o ACE incluido)') : '$700 por impresora (+$300 AMS)';
 
     var datos = [
       ['Cuándo', esc(cuando)],

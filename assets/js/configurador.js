@@ -1,7 +1,7 @@
 /* Emisha — formulario «tipo Apple» para /reparacion/ y
    /reparacion/mantenimiento-preventivo/agendar/.
 
-   Se va armando de arriba abajo: primero la marca (Bambu Lab, Creality u otra),
+   Se va armando de arriba abajo: primero la marca (Bambu Lab, Creality, Anycubic u otra),
    luego el modelo de esa marca, luego la falla, luego los detalles; cada
    elección habilita el paso siguiente y baja la página hasta él. Lo que todavía
    no toca se ve en gris y no se puede tocar (como Apple): todo el camino está a
@@ -24,10 +24,12 @@
   var MARCAS = [
     { id: 'bambu', nombre: 'Bambu Lab', sub: 'A1, P1, P2, X1, X2, H2, H3 y AMS' },
     { id: 'creality', nombre: 'Creality', sub: 'K1, K2, Hi, Ender-3 V3 y CFS' },
+    { id: 'anycubic', nombre: 'Anycubic', sub: 'Kobra S1, Kobra 3, Kobra X y ACE Pro' },
     { id: 'otra', nombre: 'Otra marca', sub: 'Dinos cuál', soloRep: true }
   ];
   function marcaDe(valor) {
     if (valor === 'Otro') return 'otra';
+    if (/^Anycubic /.test(valor)) return 'anycubic';
     return /^Creality /.test(valor) ? 'creality' : 'bambu';
   }
 
@@ -235,7 +237,8 @@
     if (!listasPrecios.length) return;
     var hay = {};
     form.querySelectorAll('[data-cfg-marcas] input:checked').forEach(function (r) {
-      hay[r.value === 'otra' ? 'bambu' : r.value] = true;
+      // Anycubic paga la lista de Creality (la tarjeta «Creality y Anycubic»).
+      hay[r.value === 'otra' ? 'bambu' : r.value === 'anycubic' ? 'creality' : r.value] = true;
     });
     var ninguna = !hay.bambu && !hay.creality;
     listasPrecios.forEach(function (l) {

@@ -418,22 +418,26 @@
   };
 
   // Creality tiene su propia lista ($400 que se abonan, $1,000 en total sin
-  // refacciones). Una cita mixta lleva las dos.
-  function esCreality(e) { return /^Creality /.test(String((e && e.modelo) || '')); }
+  // refacciones); Anycubic (desde 2026-11-23) usa la misma. Una cita mixta lleva las dos.
+  function esCreality(e) { return /^(Creality|Anycubic) /.test(String((e && e.modelo) || '')); }
+  // La caja de cambio de color de cada marca: AMS (Bambu), CFS (Creality), ACE (Anycubic).
+  function cajaDe(e) { var m = String((e && e.modelo) || ''); return /^Anycubic /.test(m) ? 'ACE' : /^Creality /.test(m) ? 'CFS' : 'AMS'; }
   function costosCita(lista) {
     var cr = lista.some(esCreality), bl = lista.some(function (e) { return !esCreality(e); });
+    var marcasCr = ['Creality', 'Anycubic'].filter(function (n) { return lista.some(function (e) { return String(e.modelo || '').indexOf(n + ' ') === 0; }); });
     var t = [];
     if (bl) t.push((cr ? 'Bambu Lab: ' : '') + 'Diagnóstico $300 · Reparación $700 (con diagnóstico previo, $400).');
-    if (cr) t.push((bl ? 'Creality: ' : '') + 'Diagnóstico $400, que se abona a la reparación · Reparada sin refacciones, $1,000 en total' +
-      (lista.some(function (e) { return esCreality(e) && e.trae_ams; }) ? ' (el CFS que viene con su impresora va en el mismo precio).' : '.'));
+    var conCaja = lista.filter(function (e) { return esCreality(e) && e.trae_ams; });
+    if (cr) t.push((bl ? marcasCr.join(' / ') + ': ' : '') + 'Diagnóstico $400, que se abona a la reparación · Reparada sin refacciones, $1,000 en total' +
+      (conCaja.length ? ' (el ' + cajaDe(conCaja[0]) + ' que viene con su impresora va en el mismo precio).' : '.'));
     return t.join('<br>') + ' Refacciones aparte, siempre con tu autorización.';
   }
 
   // Una impresora de la lista: número, modelo, serie y falla, y su estado si ya está en el taller.
   function filaEquipo(e, i, conAvance) {
-    var nombre = (i + 1) + '. ' + esc(e.modelo) + (e.trae_ams ? (esCreality(e) ? ' · con CFS' : ' · con AMS') : '');
+    var nombre = (i + 1) + '. ' + esc(e.modelo) + (e.trae_ams ? ' · con ' + cajaDe(e) : '');
     var sub = [e.serie ? 'Serie ' + esc(e.serie) : '', esc(e.tipo_falla)].filter(Boolean).join(' · ');
-    if (!conAvance) return esc(e.modelo) + (e.trae_ams ? (esCreality(e) ? ' · con CFS' : ' · con AMS') : '') + ' · ' + esc(e.tipo_falla);
+    if (!conAvance) return esc(e.modelo) + (e.trae_ams ? ' · con ' + cajaDe(e) : '') + ' · ' + esc(e.tipo_falla);
     return '<li><span>' + nombre + '<small>' + sub + '</small></span>' +
       '<b class="avance__e avance__e--' + esc(e.estado || 'fuera') + '">' + esc(e.estado_legible || 'Va tal como llegó') + '</b></li>';
   }
@@ -513,7 +517,7 @@
           : equipos.length
             ? equipos.map(function (e, i) { return filaEquipo(e, i, false); }).join('<br>')
             : esc(cita.modelo) + (cita.trae_ams ? ' · con AMS' : '') + ' · ' + esc(cita.tipo_falla)],
-      ['Qué traer', ((cita.equipos && cita.equipos.length > 1) ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (cita.trae_ams ? (esCreality(cita) ? ' y el CFS con el suyo' : ' y el AMS con el suyo') : '') + '. Si la falla pasa con un filamento en particular, tráelo.'],
+      ['Qué traer', ((cita.equipos && cita.equipos.length > 1) ? 'Las impresoras' : 'La impresora') + ' con su cable de corriente' + (cita.trae_ams ? ' y el ' + cajaDe(cita) + ' con el suyo' : '') + '. Si la falla pasa con un filamento en particular, tráelo.'],
       ['Costos', costosCita(equipos.length ? equipos : [cita])]
     ];
     // Con el equipo ya adentro, lo de traer y los precios de mostrador sobran:
