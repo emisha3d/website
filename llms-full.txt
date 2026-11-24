@@ -38,7 +38,7 @@ lo contrario. Las existencias cambian a diario: se confirman al tomar el pedido.
 - WhatsApp: +52 55 7563 9255
 - Sitio: https://www.emisha.com.mx
 - Zona de servicio: taller físico en Benito Juárez, CDMX; envíos a todo México
-  por paquetería y por los marketplaces (MercadoLibre, Amazon, Walmart).
+  por paquetería y por los marketplaces (MercadoLibre, Amazon).
   Los equipos para reparación también se reciben de otros estados por
   paquetería, con el envío de ida y vuelta por cuenta del cliente.
 - Aviso importante: Emisha es un taller INDEPENDIENTE. NO es centro de
@@ -1313,7 +1313,7 @@ convertirlos, separar las capas y acomodar las piezas en la hoja. Ver 2.4.
   $999 MXN de compra en productos Emisha. Las refacciones Bambu Lab de
   proveedor salen de su almacén en su propio paquete y pagan el envío que
   cobra el proveedor (Paquete Express o DHL, cotizado con el código postal).
-- Otros canales de venta: MercadoLibre, Amazon y Walmart (con la cobertura, el
+- Otros canales de venta: MercadoLibre y Amazon (con la cobertura, el
   rastreo y los tiempos de entrega de cada plataforma).
 - Recolección en el taller: Av. División del Norte 1354, Piso 1, Letrán del
   Valle, Benito Juárez, CDMX 03650, de lunes a viernes de 9:00 a 18:00.
@@ -1333,7 +1333,7 @@ de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 
 Emisha es un taller independiente. Bambu Lab, AMS, Elegoo, Snapmaker,
-Mercado Pago, MercadoLibre, Amazon y Walmart son marcas de sus respectivos
+Mercado Pago, MercadoLibre y Amazon son marcas de sus respectivos
 propietarios; se nombran aquí para describir compatibilidad y canales de venta,
 no para dar a entender afiliación, patrocinio ni autorización de ninguna.
 
