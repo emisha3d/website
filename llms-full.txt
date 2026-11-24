@@ -342,14 +342,14 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-804 piezas con existencia confirmada, listas para salir de la Ciudad de
+900 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Normalmente se envían en 1 a 4 días hábiles. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
 leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
 comprar, porque boquillas y hotends NO son iguales entre las series A1, P1,
 X1 y H2. Emisha no es distribuidor autorizado de Bambu Lab.
 
-### 4.1 Refacciones y piezas de repuesto (548 piezas)
+### 4.1 Refacciones y piezas de repuesto (605 piezas)
 
 Rango de precio: $39 MXN a $80,989 MXN.
 
@@ -362,6 +362,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Acoplador del tubo de asistencia de aire para láser de 40 W para series H2 — $729 MXN · Compatible: serie H2 · SKU SLA001
 - Acoplador eje Z para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAC029
 - Actived carbón filter for airpure — $379 MXN · SKU ANC-1A80
+- Adaptador de tarjeta SD sermoon d1 / ender 6 — $149 MXN · SKU 2101030028
 - Adaptador de tubo PTFE 4 en 1 — $539 MXN · SKU SA014
 - Adaptador de tubo PTFE 4 en 1 compatible con X2D/P2S/X1/P1/a2l — $279 MXN · Compatible: serie P1, P2S, X1, X2D · SKU FAZ013-N
 - Airpure 2.0 anycubic — $2,779 MXN · SKU ANC-1N5O
@@ -379,6 +380,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Auto-fill set m7pro — $7,199 MXN · SKU ANC-1XJ5
 - Bambu Lab AMS reacondicionado — $7,889 MXN · Compatible: AMS · SKU SA001-R
 - Bambu Lab r1 (preventa) — $80,989 MXN · SKU LM001-P
+- Banda de ejes para impresora ender-6 — $579 MXN · SKU 2102010117
 - Banda dentada eje X para impresora ender-3 V3 se — $119 MXN · SKU 2102012843
 - Banda eje Z compatible con P1P, P1S, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAB002
 - Banda X para A1 — $289 MXN · Compatible: A1 · SKU FAB006
@@ -408,6 +410,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cable creality 485 para cfs - 45 cm — $329 MXN · SKU 4004010269
 - Cable de alimentación para A1 mini — $439 MXN · Compatible: A1 mini · SKU CAB020-US
 - Cable de alimentación para series A1, P1, P2S, X1, H2 y X2D — $439 MXN · Compatible: A1, serie P1, P2S, X1, X2D, serie H2 · SKU CAB031
+- Cable de cabezal (toolhead) compatible con sermoon d3 Pro — $259 MXN · SKU 3103100134
 - Cable de cabezal de impresión para P2S — $439 MXN · Compatible: P2S · SKU CAB046
 - Cable de senal para cama caliente compatible con X1, X1C, P1P, P1S y X1E — $219 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU CAB016
 - Cable del cabezal de herramientas a la placa MC compatible con H2D — $289 MXN · Compatible: H2D · SKU CAB038
@@ -429,6 +432,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cadena de cable para X1E — $509 MXN · Compatible: X1E · SKU FAC037
 - Cadena para cables compatible con H2D — $579 MXN · Compatible: H2D · SKU FAC098
 - Cadena portacables para serie H2S — $579 MXN · Compatible: H2S · SKU FAC144
+- Caja acrilica para ender-5 s1 — $4,939 MXN · SKU 4005010057
 - Caja de accesorios para AMS — $369 MXN · Compatible: AMS · SKU FAC078-C
 - Caja de accesorios para AMS Lite — $369 MXN · Compatible: AMS lite · SKU FAC079-C
 - Camera para serie P1 — $949 MXN · Compatible: serie P1 · SKU CAM002
@@ -454,6 +458,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cinturón Y para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAB004
 - Cinturón Z para A1 — $219 MXN · Compatible: A1 · SKU FAB008
 - Coleccion de kit de componentes de raton inalambrico Bambu Lab — $509 MXN · SKU MH002
+- Columnas de silica para nivelacion de hotbed para series cr-10 y series ender-3 — $279 MXN · SKU 4008030016
 - Conducto de ventilación para pieza compatible con H2D — $439 MXN · Compatible: H2D · SKU FAF012
 - Conector de alimentación AMS HT — $339 MXN · Compatible: AMS HT · SKU SAA057
 - Conector de tubo de asistencia de aire láser compatible con H2D — $169 MXN · Compatible: H2D · SKU FAC113
@@ -515,12 +520,15 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cubierta inferior para AMS Bambu Lab X1, X1C, P1P y P1S — $1,959 MXN · Compatible: P1P, P1S, X1, X1C, AMS · SKU SAA001
 - Cubierta inferior trasera para A1 — $369 MXN · Compatible: A1 · SKU FAS020
 - Cubierta LED de la cámara superior compatible con serie H2 — $219 MXN · Compatible: serie H2 · SKU FAZ034
+- Cubierta para impresora ender 5 max — $5,889 MXN · SKU 4005010097
 - Cubierta para tarjeta AP para serie P2S y X2D — $439 MXN · Compatible: P2S, X2D · SKU DLB049-V2
 - Cubierta posterior de la cabeza de impresión compatible con X1, X1C, P1P, P1S y X1E — $289 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAE005
 - Cubierta superior del eje Y para A1 — $219 MXN · Compatible: A1 · SKU FAS022-N
 - Cubierta superior del eje Z para A1 mini — $189 MXN · Compatible: A1 mini · SKU FAC035
 - Cubierta superior del revestimiento interior (derecha) compatible con serie H2 — $1,669 MXN · Compatible: serie H2 · SKU FAS051
 - Cubierta superior para A1 mini — $1,309 MXN · Compatible: A1 mini · SKU FAS034
+- Cubierta superior para ender 6 — $3,439 MXN · SKU 4007010024
+- Cubierta superior para ender-5-s1 — $4,549 MXN · SKU 4005010058
 - Cubierta trasera de la cabeza de impresión para A1 mini y A1 — $189 MXN · Compatible: A1 mini, A1 · SKU FAE007
 - Cubierta trasera del cabezal de impresión para serie X2D — $289 MXN · Compatible: X2D · SKU FAE054
 - Cubierta trasera del cabezal para H2S — $289 MXN · Compatible: H2S · SKU FAE030
@@ -534,6 +542,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - DLB005 — $1,459 MXN · SKU DLB005
 - DLB014 — $1,669 MXN · SKU DLB014
 - DLB019-n — $439 MXN · SKU DLB019-N
+- Driver de motor para halot-sky — $2,179 MXN · SKU 3102070096
 - Eje de soporte activo AMS HT — $289 MXN · Compatible: AMS HT · SKU SAA061
 - Eje de soporte motriz AMS 2 Pro — $289 MXN · Compatible: AMS 2 Pro · SKU SAA033
 - Eje de soporte motriz AMS HT — $279 MXN · Compatible: AMS HT · SKU SAA060
@@ -544,6 +553,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Fep film for mono 4, 4 ulta, mono 2 anycubic — $1,129 MXN · SKU ANC-1SQF
 - Fep m7 max (2pz) anycubic — $1,629 MXN · SKU ANC-1SQ7
 - Filament hub 8 colors anycubic — $1,339 MXN · SKU ANC-1XG2
+- Filtros de carbón activado para impresoras halot mage Pro — $779 MXN · SKU 4004010239
 - Fresnel lens anycubic — $2,099 MXN · SKU ANC-1PO6
 - Fuente de alimentación conmutada compatible con H2D y láser H2D — $4,059 MXN · Compatible: H2D · SKU FAC121
 - Fuente de alimentación interna (entrada 100-240 V y salida de 24 V) compatible con serie X1 y P1 — $1,959 MXN · Compatible: serie P1, serie X1 · SKU FAC059
@@ -551,6 +561,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Fuente de alimentación para A1 mini (salida de 24v) — $1,959 MXN · Compatible: A1 mini · SKU FAC031
 - Fuente de alimentación para P2S — $1,959 MXN · Compatible: P2S · SKU FAC165
 - Fuente de alimentación para serie X2D — $1,959 MXN · Compatible: X2D · SKU FAC220
+- Funda para impresora ender 3/ender 3 Pro/ender 3 V2/ender 5 Pro — $2,509 MXN · SKU 1002990026
 - Gomas anti-vibracion compatibles con P1P, P1S, X1C y X1E — $439 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAZ004-N
 - Gomas antivibracion compatible con H2D — $309 MXN · Compatible: H2D · SKU FAZ037
 - Guía de filamento para doble extrusor compatible con H2D — $289 MXN · Compatible: H2D · SKU FAE022
@@ -559,7 +570,10 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Indicador de estado láser 10 W compatible con H2D — $579 MXN · Compatible: H2D · SKU SLA014
 - Indicador de estado para H2 — $729 MXN · Compatible: serie H2 · SKU FAZ038
 - Interfaz de cambio rápido de herramienta compatible con H2D — $869 MXN · Compatible: H2D · SKU FAE023
+- Interruptor de limite compatible con series ender y cr — $99 MXN · SKU 4004180004
+- Interruptor de limite para impresora 3D ender-6 — $159 MXN · SKU 4004180005
 - Kit 4 lentes protectores para cr láser falcon 2 40 W — $1,029 MXN · SKU 4007010147
+- Kit bloque de calefacción estándar para ender 3 s1 — $809 MXN · SKU 4006010039
 - Kit de accesorios de luz y sonido con activación por movimiento — $4,209 MXN · SKU B-ZC007
 - Kit de alto flujo para TPU para serie H2D — $1,309 MXN · Compatible: H2D · SKU FAC233
 - Kit de cables (2 en 1) para MC AP compatible con H2D y láser H2D — $289 MXN · Compatible: H2D · SKU CAB041
@@ -569,6 +583,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Kit de cables (5 en 1) para AMS — $509 MXN · Compatible: AMS · SKU SAA003
 - Kit de cables (6 en 1) para AMS 2 Pro — $589 MXN · Compatible: AMS 2 Pro · SKU CAB034
 - Kit de cables (7 en 1) para H2D y láser H2D — $579 MXN · Compatible: H2D · SKU CAB040
+- Kit de cama compatible con impresoras cr-m4 y CR10-max — $2,409 MXN · SKU 4004090101
 - Kit de cargador inalámbrico — $1,599 MXN · SKU K012
 - Kit de componentes del modelo de motor Bambu Lab — $439 MXN · SKU MH005
 - Kit de componentes para pista de canicas Bambu Lab — $439 MXN · SKU MH003
@@ -584,11 +599,21 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Kit de montaje de puerta frontal compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAS044
 - Kit de montaje para puerta delantera compatible con serie X1 y P1 — $579 MXN · Compatible: serie P1, serie X1 · SKU FAS002-A2
 - Kit de montaje para puerta frontal compatible con P1S y X1C — $739 MXN · Compatible: P1S, X1C · SKU FAS002-A1
+- Kit de nivelacion automática compatible con series ender 3 / 5 y cr-10 — $1,489 MXN · SKU 4001010026
+- Kit de nivelacion automática de cama compatible con series ender 3 / 5 y cr-10 — $1,709 MXN · SKU 4001010027
 - Kit de placa de retroiluminación LED para litofanías — 192x144 mm (4pcs) - KC010 — $579 MXN · SKU B-KC010
 - Kit de placa de retroiluminación LED para litofanías — 96x144 mm (2pcs) - KC009 — $439 MXN · SKU B-KC009
+- Kit de plataforma de formacion para halot-Lite — $2,839 MXN · SKU 4001140005
+- Kit de plataforma de formacion para halot-one plus — $2,069 MXN · SKU 4001140006
+- Kit de plataforma de formacion para halot-ray — $3,069 MXN · SKU 4001140008
+- Kit de resortes de nivelacion de cama compatible con series ender y series cr — $139 MXN · SKU 4004010196
+- Kit de riel de guías lineales para impresoras ender 3 — $1,389 MXN · SKU 4003010023
+- Kit de tarjeta de control para impresora sermoon d3 Pro — $2,349 MXN · SKU 2101020227
 - Kit de tornillos compatible con serie A1 y AMS Lite — $439 MXN · Compatible: serie A1, AMS lite · SKU SCR003
 - Kit de tornillos para series H2 — $369 MXN · Compatible: serie H2 · SKU SCR005
 - Kit de ventilación superior automática compatible con H2D — $439 MXN · Compatible: H2D · SKU FAS048
+- Kit pantalla lcd para halot-sky versión 2022 — $10,089 MXN · SKU 4001150013
+- Kit pantalla para halot-sky — $10,119 MXN · SKU 4001150003
 - Kit para principiantes maker — $439 MXN · SKU B-ZC002
 - Kobra 3 max motherboard anycubic — $499 MXN · SKU ANC-1X4S
 - Kobra s1/kobra 3 max strain gauge — $289 MXN · SKU ANC-1XJY
@@ -608,7 +633,9 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - M5s Pro lcd screen — $6,219 MXN · SKU ANC-170D
 - Marcador de área de referencia de la plataforma láser compatible con H2D y H2S — $219 MXN · Compatible: H2D, H2S · SKU SLA008
 - Mono 2 resin vat anycubic — $1,559 MXN · SKU ANC-1FMC
+- Motherboard halot-mage Pro — $3,849 MXN · SKU 4002020064
 - Motherboard kobra3/kobra3 combo anycubic — $2,689 MXN · SKU ANC-1KHU
+- Motor a pasos para impresora 3D compatible con series cr y series ender — $849 MXN · SKU 3005020018
 - Motor de alimentación para AMS Lite — $369 MXN · Compatible: AMS lite · SKU SAA017
 - Motor de asistencia interna 3520 compatible con AMS 2 Pro y AMS HT — $1,309 MXN · Compatible: AMS 2 Pro, AMS HT · SKU FAM013
 - Motor de extrusión compatible con serie A1 — $659 MXN · Compatible: serie A1 · SKU FAM008
@@ -618,6 +645,9 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Motor eje X para A1 — $869 MXN · Compatible: A1 · SKU FAM009
 - Motor eje Y para A1 — $1,169 MXN · Compatible: A1 · SKU FAM010
 - Motor interno para AMS hub — $1,159 MXN · Compatible: AMS · SKU SPP038
+- Motor paso a paso 42-48 compatible con cr-30 y ender-6 — $1,269 MXN · SKU 3204120018
+- Motor paso a paso 42-60 compatible con series ender 6/7 y cr-5 — $1,819 MXN · SKU 4004100014
+- Motor paso a paso de doble eje 42-48 compatible con ender-5 plus — $1,339 MXN · SKU 3204120037
 - Motor X para A1 mini — $869 MXN · Compatible: A1 mini · SKU FAM005
 - Motor X y y para serie P2S y X2D — $1,019 MXN · Compatible: P2S, X2D · SKU FAM020
 - Motor X y y para series x y p — $1,019 MXN · SKU FAM004
@@ -628,6 +658,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Motor Z compatible con P1P, P1S, X1, X1C y X1E — $869 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAM003
 - Motor Z para A1 mini — $729 MXN · Compatible: A1 mini · SKU FAM007
 - Módulo láser 10 W compatible con H2D combo2 para grabado en madera, acrilico y mas — $11,319 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-10W
+- Módulo láser 24v para ender-3 s1 — $3,109 MXN · SKU 4001100015
 - Módulo láser 40 W compatible con H2D combo2 alta potencia para corte y grabado de materiales densos — $34,489 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-40W
 - Nfep film 6 pcs photon P1 (dual color/ dual material release film) — $2,369 MXN · Compatible: serie P1 · SKU ANC-1TG0
 - Nfep film mono m5 (5pcs) anycubic — $1,889 MXN · SKU ANC-1C5J
@@ -662,6 +693,8 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Pantalla de alta resolución compatible con P1P y P1S — $1,019 MXN · Compatible: P1P, P1S · SKU DIS002
 - Pantalla de alta resolución para series X1 — $4,719 MXN · Compatible: X1 · SKU DIS006
 - Pantalla de alta resolución para X1C y X1E — $6,149 MXN · Compatible: X1C, X1E · SKU DIS001
+- Pantalla de impresión para halot-Lite — $7,629 MXN · SKU 4001150005
+- Pantalla lcd original compatible con series ender 3 — $2,079 MXN · SKU 4001050009
 - Pantalla para serie P2S — $4,059 MXN · Compatible: P2S · SKU DIS009
 - Pantalla para serie X2D — $4,719 MXN · Compatible: X2D · SKU DIS010
 - Pantalla touch para series A1 y a2l — $1,089 MXN · Compatible: A1 · SKU DIS005
@@ -691,10 +724,16 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Placa AP bajo voltaje para P2S — $3,769 MXN · Compatible: P2S · SKU DLB050
 - Placa AP LV para P2S — $8,859 MXN · Compatible: P2S · SKU DLB051
 - Placa AP para P1S — $1,309 MXN · Compatible: P1S · SKU FAC008
+- Placa base de 32 bit para ender-6 — $3,399 MXN · SKU 4002020006
+- Placa base ender-3 neo — $1,579 MXN · SKU 4002020057
+- Placa base ender-3 V2 neo — $1,719 MXN · SKU 4002020054
 - Placa base para A1 mini — $699 MXN · Compatible: A1 mini · SKU FAS012-V2
 - Placa base para A1 mini — $1,999 MXN · Compatible: A1 mini · SKU SAA016-N
 - Placa base para AMS 2 Pro — $1,959 MXN · Compatible: AMS 2 Pro · SKU DLB022
 - Placa base para AMS Lite — $1,599 MXN · Compatible: AMS lite · SKU SAA020
+- Placa base para ender-3 max — $2,309 MXN · SKU 4002020019
+- Placa base para ender-3 V2 — $2,019 MXN · SKU 4002020012
+- Placa base para ender-7 — $3,359 MXN · SKU 4002020042
 - Placa de alimentación AMS HT — $369 MXN · Compatible: AMS HT · SKU DLB039
 - Placa de alimentación para AMS — $439 MXN · Compatible: AMS · SKU DLB010
 - Placa de alimentación para AMS 2 Pro — $719 MXN · Compatible: AMS 2 Pro · SKU DLB023
@@ -731,6 +770,8 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Placa RFID para AMS — $439 MXN · Compatible: AMS · SKU SAA027
 - Placa TH para P2S — $1,019 MXN · Compatible: P2S · SKU DLB057
 - Placa TH para series H2 — $1,959 MXN · Compatible: serie H2 · SKU DLB025-V1
+- Plataforma de formacion para halot sky — $2,249 MXN · SKU 4001140004
+- Plataforma de vidrio carborundo para ender-6 — $1,209 MXN · SKU 4004090030
 - Polea de distribución de la correa Z compatible con serie X1 y P1 — $289 MXN · Compatible: serie P1, serie X1 · SKU FAB005
 - Polea de eje XY para A1 mini — $219 MXN · Compatible: A1 mini · SKU FAC026
 - Polea dentada de la correa Z para P2S — $289 MXN · Compatible: P2S · SKU FAC177
@@ -808,6 +849,12 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Tarjeta AP para serie X2D — alto — $4,639 MXN · Compatible: X2D · SKU DLB069
 - Tarjeta AP para serie X2D — bajo — $4,639 MXN · Compatible: X2D · SKU DLB070
 - Tarjeta de AMS para A1 — $209 MXN · Compatible: A1, AMS · SKU DLB008
+- Tarjeta de cabezal para sermoon d3 Pro — $299 MXN · SKU 2101030203
+- Tarjeta de control para cr-10max — $3,919 MXN · SKU 4002020003
+- Tarjeta de control para ender-3s1 — $2,519 MXN · SKU 4002020048
+- Tarjeta de control para impresora 3D ender-3 V3 se — $1,589 MXN · SKU 4002020066
+- Tarjeta de control para impresora sermoon d3 — $2,779 MXN · SKU 4002020058
+- Tarjeta de control sermoon d1 — $2,869 MXN · SKU 4002020025
 - Tarjeta de extrusor compatible con P1S y P1P — $439 MXN · Compatible: P1P, P1S · SKU FAE002
 - Tarjeta de interfaz de red y conexión AMS para serie X1E — $1,379 MXN · Compatible: X1E, AMS · SKU DLB003
 - Tarjeta interfaz de red para serie X1E — $1,239 MXN · Compatible: X1E · SKU DLB002
@@ -828,9 +875,14 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Tensor eje Y para A1 — $299 MXN · Compatible: A1 · SKU FAC044
 - Termistor de hotbed para todos los modelos de impresora 3D ender — $159 MXN · SKU 3005030013
 - Termistor para ender-3 s1 pro; cr-10 smart Pro — $199 MXN · SKU 3103020114
+- Termistor para ender-3 s1; ender-3 s1 plus — $99 MXN · SKU 3103020119
 - Toma de corriente compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAC097
 - Toolhead carriage compatible con P2S — $509 MXN · Compatible: P2S · SKU FAC170
 - Tope del cortador de filamento H2S — $579 MXN · Compatible: H2S · SKU FAC148-V1
+- Tubo calefactor 24v 50 W para impresora 3D ender/cr 10 — $169 MXN · SKU 4004060035
+- Tubo calefactor para impresora 3D ender 5 s1 — $279 MXN · SKU 3103010107
+- Tubo de acero inoxidable para impresora 3D ender 3 max — $119 MXN · SKU 4004050002
+- Tubo de garganta de aleacion de cobre+titanio para cr-10 smart Pro/ender-3s1 pr — $689 MXN · SKU 4004050019
 - Tubo de PTFE (alimentación filamento AMS y externo) compatible con H2D — $219 MXN · Compatible: H2D, AMS · SKU FAT010
 - Tubo de PTFE (cabezal) compatible con H2D — $309 MXN · Compatible: H2D · SKU FAT009
 - Tubo de PTFE 185 mm*2 + 225 mm*2 (interno) compatible con AMS 2 Pro — $219 MXN · Compatible: AMS 2 Pro · SKU FAT008
@@ -846,6 +898,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Tubo de teflon 1m para todos los modelos de impresoras 3D creality — $209 MXN · SKU 3006040006
 - Tubo de teflon capricorn para impresoras 3D fmd creality — $409 MXN · SKU 6004010005
 - Tubo de teflon PTFE para impresoras 3D fmd creality — $329 MXN · SKU 4004200025
+- Tubo de ventilación para halot mage Pro — $1,019 MXN · SKU 4004010241
 - Tubo PTFE conector para series A1 — $289 MXN · Compatible: A1 · SKU FAC051
 - Unidad alimentadora AMS 2 Pro — $1,309 MXN · Compatible: AMS 2 Pro · SKU SAA035-V1
 - Unidad alimentadora AMS con sensor hall — $1,159 MXN · Compatible: AMS · SKU SA001-F1H-V2
@@ -881,8 +934,11 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Unidad izquierda de embudo de filamento para AMS Lite — $579 MXN · Compatible: AMS lite · SKU SAA022
 - Ventana de seguridad para láser — $3,249 MXN · SKU FAS056
 - Ventana frontal de seguridad láser compatible con H2D — $3,189 MXN · Compatible: H2D · SKU FAS057
+- Ventilador 4020 24v compatible con series cr y sermoon d1 — $289 MXN · SKU 4004110083
 - Ventilador auxiliar de enfriamiento para pieza compatible con H2D — $1,309 MXN · Compatible: H2D · SKU FAF016
 - Ventilador axial 2510 24v para impresora 3D ender-3 V3 se — $229 MXN · SKU 3205010374
+- Ventilador de capa 4010 24v compatible con series ender y series cr — $269 MXN · SKU 4004110082
+- Ventilador de capa 5015 24v para impresora 3D sermoon d3 — $329 MXN · SKU 3205010294
 - Ventilador de circulacion de calor de la cámara compatible con serie H2 — $869 MXN · Compatible: serie H2 · SKU FAF018
 - Ventilador de enfriamento de hotend compatible con A1 mini y A1 — $729 MXN · Compatible: A1 mini, A1 · SKU FAF007
 - Ventilador de enfriamento de piezas compatible con A1 mini y A1 — $439 MXN · Compatible: A1 mini, A1 · SKU FAF006
@@ -892,6 +948,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Ventilador de la placa de control compatible con P1S, X1C y X1E — $439 MXN · Compatible: P1S, X1C, X1E · SKU FAF005-N
 - Ventilador de placa base para A1 mini — $509 MXN · Compatible: A1 mini · SKU FAF010
 - Ventilador de placa MC compatible con serie H2 — $439 MXN · Compatible: serie H2 · SKU FAF015
+- Ventilador de refrigeración 4010 24v para impresora 3D ender-3 V3 se — $339 MXN · SKU 3205010377
 - Ventilador de refrigeración de potencia para impresora X1E — $949 MXN · Compatible: X1E · SKU FAF009
 - Ventilador de refrigeración mejorada del cabezal de impresión para series H2S — $579 MXN · Compatible: H2S · SKU FAF020
 - Ventilador de refrigeración para hotend compatible con P1P y P1S — $509 MXN · Compatible: P1P, P1S · SKU FAF002-P
@@ -902,7 +959,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Ventilador regulador de temperatura de la cámara compatible con X1E — $1,529 MXN · Compatible: X1E · SKU FAF008
 - Vidrio lateral para H2D y H2C — $729 MXN · Compatible: H2D, H2C · SKU FAS041
 
-### 4.2 Hotends, extrusores y cabezales (88 piezas)
+### 4.2 Hotends, extrusores y cabezales (107 piezas)
 
 Rango de precio: $129 MXN a $17,709 MXN.
 
@@ -940,6 +997,8 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Funda de silicona para hotend para P2S — $209 MXN · Compatible: P2S · SKU FAH048
 - Funda de silicón para hotend por inducción de serie H2C — $139 MXN · Compatible: H2C · SKU FAH067
 - Guía de filamento para extrusor dual para series h2cc — $279 MXN · SKU FAE048
+- Hotend compatible con series ender-3 neo — $1,109 MXN · SKU 4001030111
+- Hotend compatible con sermon d1 — $509 MXN · SKU 4001030106
 - Hotend completo con boquilla de acero endurecido 0.4 mm para P1P y P1S — $1,119 MXN · Compatible: P1P, P1S · SKU FAH001-P
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1C — $1,119 MXN · Compatible: X1C · SKU FAH001
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1E — $1,759 MXN · Compatible: X1E · SKU FAH013
@@ -962,6 +1021,7 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Hotend de alto flujo con boquilla de carburo de tungsteno - 0.4 mm compatible con H2/P2S/X2D/a2l — $2,729 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH043
 - Hotend de alto flujo con boquilla de carburo de tungsteno - 0.6 mm compatible con H2/P2S/X2D/a2l — $2,729 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH044
 - Hotend de alto flujo con boquilla de carburo de tungsteno - 0.8 mm compatible con H2/P2S/X2D/a2l — $2,729 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH045
+- Hotend de impresoras ender-3 s1/cr-10 smart Pro/ender-3 s1 Pro — $4,209 MXN · SKU 4001020038
 - Hotend de inducción con boquilla de acero inoxidable - 0.2 mm compatible con H2C — $1,259 MXN · Compatible: H2C · SKU FAH050
 - Hotend de inducción con boquilla de acero inoxidable - 0.4 mm compatible con H2C — $1,259 MXN · Compatible: H2C · SKU FAH051
 - Hotend de inducción con boquilla de acero inoxidable - 0.6 mm compatible con H2C — $1,259 MXN · Compatible: H2C · SKU FAH052
@@ -969,37 +1029,55 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.4 mm compatible con H2C — $2,169 MXN · Compatible: H2C · SKU FAH054
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.6 mm compatible con H2C — $2,989 MXN · Compatible: H2C · SKU FAH055
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.8 mm compatible con H2C — $2,169 MXN · Compatible: H2C · SKU FAH056
+- Hotend estándar para ender-3s1 — $3,329 MXN · SKU 4001020033
 - Hotend kit de de intercambio rápido para ender-3 V3 se/ke — $1,429 MXN · SKU 4001030135
+- Hotend kit para impresoras ender-3 V3, ender-3 V3 plus — $1,089 MXN · SKU 4001030134
+- Hotend kit para impresoras sermoon V1/ V1 Pro — $459 MXN · SKU 4001030105
+- Hotend para cr-10 V2 — $809 MXN · SKU 2001020318
 - Hotend para ender 5-plus creality — $859 MXN · SKU 2001020215
+- Hotend para impresora 3D ender-3 V3 se — $539 MXN · SKU 4001030127
 - Hotend para impresora 3D ender-5 creality — $809 MXN · SKU 6002030022
+- Hotend para impresora ender-3 max — $979 MXN · SKU 4001030013
+- Hotend para impresora sermoon d3 — $989 MXN · SKU 4001030116
 - Hotend para impresoras creality ender-3 — $609 MXN · SKU 2001020049
+- Hotend spider de alta temperatura compatible con series ender 3/5 y series cr — $1,939 MXN · SKU 4008030043
+- Kit accesorios para hotend series ender 3 — $199 MXN · SKU 4007010106
+- Kit completo de hotend para ender 3 V2 — $1,339 MXN · SKU 4001030040
 - Kit completo de hotend para impresora 3D ender-5 creality — $1,169 MXN · SKU 6002030023
+- Kit de bloque calefactor de alta temperatura para ender 3 s1 Pro y cr 10 smart p — $899 MXN · SKU 4006010040
+- Kit de extrusor metálico de doble engrane compatible con cr-10 series — $1,519 MXN · SKU 4001020010
 - Kit de extrusor para impresora 3D ender-3 V3 se — $569 MXN · SKU 4001020064
 - Kit extrusor para creality k2 plus — $1,369 MXN · SKU 4001020083
 - Kit extrusor para impresora 3D compatible con series ender-3 y cr-10 — $559 MXN · SKU 4001020011
+- Kit hotend ender-7 completo — $3,779 MXN · SKU 4001030084
 - Kobra 3 kobra 3 V2 hotend anycubic — $1,129 MXN · SKU ANC-1GQT
 - Kobra s1 quick release hotend 0.4 mm — $1,199 MXN · SKU ANC-1T9S
 - Leva del interruptor del extrusor para H2D y láser H2D — $419 MXN · Compatible: H2D · SKU FAC137
 - Placa de conexión del extrusor para serieh2d — $699 MXN · SKU DLB024
+- Placa posterior hotend ender-3 V2 ender 5/5 pro. — $359 MXN · SKU 2102010283
 - Poleas dobles del extrusor y sensor de filamento para H2D — $839 MXN · Compatible: H2D · SKU FAE024-V1
 - Sensor de filamento de la extrusor para serie X2D — derecho — $489 MXN · Compatible: X2D · SKU DLB068
 - Sensor de filamento de la extrusor para serie X2D — izquierdo — $489 MXN · Compatible: X2D · SKU DLB067
+- Sensor de temperatura calefactor hotend 24v 40 W compatible con series ender, cr, ct y sermoon — $329 MXN · SKU 4004060033
 - Servo motor 3513 para extrusor compatible con H2D — $1,889 MXN · Compatible: H2D · SKU FAM012
 - Servomotor 3508 para extrusor compatible con P2S — $1,889 MXN · Compatible: P2S · SKU FAM018
 - Tapa frontal de extrusor para series A1 — $199 MXN · Compatible: A1 · SKU FAE019
 - Tarjeta de conexión del conjunto de calentamiento del hotend para serie X2D — $839 MXN · Compatible: X2D · SKU DLB065
 - Tarjeta de conexión del extrusor para serie X2D — $839 MXN · Compatible: X2D · SKU DLB066
 - Tarjeta de control del calentador de la cámara para serie X1E — $149 MXN · Compatible: X1E · SKU DLB004
+- Termistor para hotend ender 5 s1 — $149 MXN · SKU 3103020150
 - Termistor para hotend X1C — $489 MXN · Compatible: X1C · SKU FAH001-T-3
 - Ventilador de enfriamiento del hotend para serie X2D — $489 MXN · Compatible: X2D · SKU FAF023
 - Ventilador de enfriamiento para el hotend de X1E — $489 MXN · Compatible: X1E · SKU FAF011-V2
 - Ventilador de refrigeracin del hotend para H2S — $489 MXN · Compatible: H2S · SKU FAH047-V1
 
-### 4.3 Boquillas (26 piezas)
+### 4.3 Boquillas (36 piezas)
 
-Rango de precio: $129 MXN a $909 MXN.
+Rango de precio: $129 MXN a $1,669 MXN.
 
 - Almohadilla limpiadora de boquilla para P2S — $379 MXN · Compatible: P2S · SKU FAW006
+- Boquilla de 0.4 mm para impresoras cr-10s Pro, cr-10 max, cr-10s Pro V2 — $209 MXN · SKU 4004020040
+- Boquilla de 0.6 mm compatible con series ender-3/5 y series cr — $189 MXN · SKU 4004020044
 - Boquilla de acero endurecido 0.2 mm estándar compatible con H2/P2S/X2D/a2l — $659 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH059
 - Boquilla de acero endurecido 0.4 mm compatible con serie P y X1C — $579 MXN · Compatible: serie P1, X1C · SKU FAH001-N-1
 - Boquilla de acero endurecido 0.4 mm compatible serie A1 — $509 MXN · Compatible: serie A1 · SKU FAH019
@@ -1018,6 +1096,14 @@ Rango de precio: $129 MXN a $909 MXN.
 - Boquilla de intercambio rápido unicorn k2p/ creality hi - 0.8 mm — $489 MXN · SKU 4008030091
 - Boquilla de intercambio rápido unicorn k2p/creality- 0.4 mm — $469 MXN · SKU 4008030074
 - Boquilla m6 de alta velocidad creality ender-7, ender 5-s1 y ender 3-V3 se — $129 MXN · SKU 4004020054
+- Boquilla para impresora sermoon d3 Pro — $309 MXN · SKU 3205050220
+- Boquilla unicornio de 0.4 mm para impresoras k1(2024), k1max (2024), k1c, ender-3 V3, ender-3 V3 plus — $549 MXN · SKU 4008030071
+- Boquillas de laton mk8 para impresora 3D ender 3 series, ender 5 series, cr-10/1 — $279 MXN · SKU 4007010038
+- Kit de 5 boquillas de repuesto mk 0.4 mm - compatible con serie ender — $249 MXN · SKU 4004020028
+- Kit de boquilla de tornillo para impresora sermoon d3 Pro — $1,299 MXN · SKU 2102012506
+- Kit de boquillas compatibles con ender 5 max — $609 MXN · SKU 4008030092
+- Kit de boquillas de intercambio rápido unicornio para impresora k1c,ender-3 V3,ender-3 V3 plus — $1,669 MXN · SKU 4008030065
+- Kit de boquillas principal para impresora sermoon d3 Pro — $1,299 MXN · SKU 2102012507
 - Kobra s1 max combo quick-swap hardened steel nozzle 0.4 mm — $319 MXN · SKU ANC-1V1J
 - Kobra x quick-swap hardened steel nozzle 0.4 mm — $319 MXN · SKU ANC-1V1M
 - Sensor de calibración de boquilla para serie h2cc — $729 MXN · SKU FAE047
@@ -1026,7 +1112,7 @@ Rango de precio: $129 MXN a $909 MXN.
 - Stainless steel nozzle 0.4 mm kobra 3 max/combo anycubic — $909 MXN · SKU ANC-1O3T
 - Termistor de boquilla para todos los modelos de impresora 3D ender — $169 MXN · SKU 3005030012
 
-### 4.4 Camas calientes y placas de impresión (40 piezas)
+### 4.4 Camas calientes y placas de impresión (50 piezas)
 
 Rango de precio: $479 MXN a $4,959 MXN.
 
@@ -1036,12 +1122,22 @@ Rango de precio: $479 MXN a $4,959 MXN.
 - Cama caliente compatible con A1 — $3,819 MXN · Compatible: A1 · SKU FAC066
 - Cama caliente compatible con A1 mini — $1,219 MXN · Compatible: A1 mini · SKU FAC017-N
 - Cama caliente LV para serie P2S — $2,099 MXN · Compatible: P2S · SKU FAC163
+- Cama caliente para ender-5 plus — $949 MXN · SKU 4001040025
 - Cama caliente para impresora 3D ender-5 creality — $809 MXN · SKU 2001020218
 - Cama caliente para impresora creality hi — $4,959 MXN · SKU 4001040065
+- Cama caliente para series ender 3; series cr-20 y cp-01 — $1,349 MXN · SKU 4001040019
 - Cama caliente V2 compatible con A1 — $3,129 MXN · Compatible: A1 · SKU FAC066-V2
 - Cama caliente V3 compatible con P1 — $3,509 MXN · Compatible: serie P1 · SKU FAC056
 - Cama caliente V3 compatible con X1 — $3,509 MXN · Compatible: X1 · SKU FAC058
+- Cama de acero para impresora 3D ender-3 V3 se — $1,379 MXN · SKU 4004090110
+- Cama de vidrio carborundo 235x235x1mm para impresora 3D ender 3pro, ender 5 Pro — $929 MXN · SKU 3007020013
 - Cama de vidrio para series ender-3 y ender-5 Pro — $729 MXN · SKU 6004010027
+- Cama magnética de impresión de doble cara para impresora k1max y ender 3 V3 plus — $1,739 MXN · SKU 4004090124
+- Cama magnética de impresión para impresora ender 3 V3 se /ke y otros modelos — $1,029 MXN · SKU 4004090116
+- Cama magnética para ender-3, ender-3 V2 y ender-3 Pro — $689 MXN · SKU 6004010010
+- Cama para impresora sermoon V1, sermoon V1 Pro — $629 MXN · SKU 4004090076
+- Cama tipo PEI compatible con series ender-3 y ender-5 — $1,579 MXN · SKU 4004090039
+- Cama tipo PEI para series cr-10/cr-x y ender-3 max neo — $2,209 MXN · SKU 4004090036
 - Cama térmica magnética para serie P1P — $679 MXN · Compatible: P1P · SKU FAC025
 - Cámara de vista en vivo para serie X2D — $1,559 MXN · Compatible: X2D · SKU CAM012
 - Cámara del cabezal de impresión para serie X2D — $949 MXN · Compatible: X2D · SKU CAM011
@@ -1094,9 +1190,9 @@ Rango de precio: $249 MXN a $11,229 MXN.
 - Wash & cure 3 plus anycubic — $5,419 MXN · SKU ANC-11IA
 - Wash & cure max anycubic — $11,229 MXN · SKU ANC-XI6
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (71 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (70 piezas)
 
-Rango de precio: $199 MXN a $1,849 MXN.
+Rango de precio: $199 MXN a $1,409 MXN.
 
 - Bloqueador de filamento para boquilla compatible con H2D — $279 MXN · Compatible: H2D · SKU FAC090
 - Buffer de filamento compatible con H2D — $1,379 MXN · Compatible: H2D · SKU SA009
@@ -1119,7 +1215,6 @@ Rango de precio: $199 MXN a $1,849 MXN.
 - Filamento Bambu Lab PETG transparente naranja 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-TRANSP-NARA
 - Filamento Bambu Lab PETG transparente verde azulado 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-TRANSP-VEAZ
 - Filamento Bambu Lab PETG transparente verde oliva 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-TRANSP-VEOL
-- Filamento Bambu Lab PLA Basic cmyk set multicolor 1.75 mm 4 x 1 kg — $1,849 MXN · SKU BAMBULAB-PLA-CMYK
 - Filamento Bambu Lab PLA Basic cyan 1.75 mm 1 kg — $519 MXN · SKU BAMBULAB-PLA-CYAN
 - Filamento Bambu Lab PLA bronce 1.75 mm 1 kg — $519 MXN · SKU BAMBULAB-PLA-BRONCE
 - Filamento Bambu Lab PLA CF azul mezcla 1.75 mm 1 kg — $919 MXN · SKU BAMBULAB-PLA-CF-AZUL-MEZC
@@ -1170,10 +1265,11 @@ Rango de precio: $199 MXN a $1,849 MXN.
 - Tope de cortador de filamento izquierdo compatible con H2D — $519 MXN · Compatible: H2D · SKU FAC101
 - Tope del cortador de filamento para P2S — $479 MXN · Compatible: P2S · SKU FAC171
 
-### 4.7 Mantenimiento: filtros, limpiadores y purga (13 piezas)
+### 4.7 Mantenimiento: filtros, limpiadores y purga (14 piezas)
 
 Rango de precio: $159 MXN a $1,129 MXN.
 
+- Adhesivo para cama de impresión para ender 3s, ender 3pro, cr-20 y cr-20pro — $419 MXN · SKU 3007070029
 - Canal de purga para serie H2 — $449 MXN · Compatible: serie H2 · SKU FAC123-V1
 - Conducto de purga compatible con serie X1 y P1 — $599 MXN · Compatible: serie P1, serie X1 · SKU FAC023
 - Conducto de purga para H2D — $629 MXN · Compatible: H2D · SKU FAC123
