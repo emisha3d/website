@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-07",
+  "actualizado": "2026-11-23",
   "nota": [
     "Las tiras que giran arriba de la tienda. Para cambiarlas no hace falta",
     "tocar código: edita este archivo y publica con ./build.sh --deploy.",
@@ -12,8 +12,13 @@
     "  cta      el texto del botón",
     "  url      a dónde va (interna con / o completa con https://)",
     "  imagen   opcional; si falta, la tira usa solo color",
+    "  fotos    con arte:escena, lista de PNG/WebP con fondo transparente;",
+    "             cómo se acomodan va en styles.css (.banner-escena--<id>)",
+    "  etiqueta opcional, el precio o dato grande junto al botón",
     "  tono     marca | acento | tinta   (azul, naranja, negro)",
-    "  arte     ilustracion | fondo | lado | trama",
+    "  arte     escena | ilustracion | fondo | lado | trama",
+    "             escena = fotos de producto recortadas sobre fondo oscuro",
+    "                      (anuncio de tienda); usa «fotos» y «etiqueta»",
     "             ilustracion = un SVG de línea sobre el color (lo de hoy)",
     "             fondo = una foto a toda la tira, con velo oscuro encima",
     "             lado  = la foto va a la derecha, chica",
@@ -32,12 +37,18 @@
       "id": "reparacion",
       "eyebrow": "Servicio técnico",
       "titulo": "Reparamos tu impresora 3D",
-      "texto": "Diagnóstico $300, reparación desde $700. Taller propio en CDMX, con cita en línea.",
+      "texto": "Taller propio en CDMX para Bambu Lab, Creality y Anycubic. Reparación desde $700.",
       "cta": "Agendar reparación",
       "url": "/reparacion/",
       "tono": "tinta",
-      "arte": "ilustracion",
-      "imagen": "/assets/img/banner/reparacion.svg"
+      "arte": "escena",
+      "imagen": "/assets/img/banner/reparacion.svg",
+      "fotos": [
+        "/assets/img/banner/creality.webp",
+        "/assets/img/banner/anycubic.webp",
+        "/assets/img/banner/impresora.webp"
+      ],
+      "etiqueta": "Diagnóstico $300"
     },
     {
       "id": "placas",
@@ -48,7 +59,11 @@
       "url": "/placas/",
       "imagen": "/assets/img/banner/placas.svg",
       "tono": "marca",
-      "arte": "ilustracion"
+      "arte": "escena",
+      "fotos": [
+        "/assets/img/banner/placa-h2.webp",
+        "/assets/img/banner/placa.webp"
+      ]
     },
     {
       "id": "filamentos",
@@ -58,8 +73,13 @@
       "cta": "Ver filamentos",
       "url": "/filamentos/",
       "tono": "acento",
-      "arte": "ilustracion",
-      "imagen": "/assets/img/banner/filamentos.svg"
+      "arte": "escena",
+      "imagen": "/assets/img/banner/filamentos.svg",
+      "fotos": [
+        "/assets/img/banner/spool-azul.webp",
+        "/assets/img/banner/spool-madera.webp",
+        "/assets/img/banner/spool-rojo.webp"
+      ]
     }
   ]
 }
