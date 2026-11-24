@@ -77,6 +77,7 @@
   <url><loc>https://www.emisha.com.mx/placas/neo-ultra-sticky-355/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/privacidad/</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/accesorio-ams-permite-utilizar-4-filamentos-en-una-sola-ams/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/accesorio-ams-permite-utilizar-hasta-4-filamentos-lite/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/accesorios-de-instalacion-de-puerta-delantera-fas036/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/acoplador-de-tubo-de-asistencia-area-laser-de-10-w-sla002/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/acoplador-de-tubo-de-ptfe-compatible-con-p1p-y-p1s-faz009/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -104,6 +105,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/bloqueador-de-flujo-compatible-con-h2d-y-laser-h2d-fac125/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/bobina-rfid-ams-ht-saa059/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/bomba-de-aire-integrada-para-h2d-fac124/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-2-mm-estandar-compatible-fah059/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-4-mm-compatible-fah001-n-1/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-4-mm-compatible-serie-a1-fah019/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-4-mm-estandar-compatible-fah060-v1/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -111,6 +113,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-6-mm-compatible-serie-a1-fah020/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-6-mm-estandar-compatible-fah061/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-8-mm-compatible-fah003-n-1/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-8-mm-compatible-fah025/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-8-mm-compatible-serie-a1-fah021/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-endurecido-0-8-mm-estandar-compatible-fah062/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/boquilla-de-acero-inoxidable-0-2-mm-compatible-fah004-n-1/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -128,7 +131,9 @@
   <url><loc>https://www.emisha.com.mx/refacciones/cable-bambu-bus-de-4-pines-compatible-con-p1p-p1s-x1c-cab002-n/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-bambu-bus-de-6-pines-compatible-con-p1p-p1s-x1c-cab003/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-bambu-bus-de-6-pines-para-ams-hub-compatible-cab004/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/cable-bambu-tipo-usb-c-compatible-con-p1p-p1s-x1c-cab001/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-bambu-tipo-usb-c-compatible-con-x1-x1c-p1s-p1p-cab001-n/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/cable-bambu-tipo-usb-c-para-a1-cab023/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-bambu-tipo-usb-c-para-a1-mini-cab019/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-bus-de-6-pines-compatible-con-ams-2-pro-y-ams-ht-cab035/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-conector-de-pantalla-compatible-con-p1p-y-p1s-cab007/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -137,6 +142,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/cable-de-cabezal-de-impresion-para-p2s-cab046/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-de-senal-para-cama-caliente-compatible-con-x1-cab016/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-del-cabezal-de-herramientas-a-la-placa-mc-cab038/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/cable-flexor-compatible-con-x1c-y-x1e-cab005/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-fpc-de-la-placa-th-v9-compatible-con-x1-x1c-y-x1e-cab012/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-fpc-de-placa-th-compatible-con-h2d-cab036/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cable-fpc-de-placa-th-para-p2s-cab045/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -150,9 +156,12 @@
   <url><loc>https://www.emisha.com.mx/refacciones/cadena-de-cable-compatible-con-p1s-y-x1c-faz005/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cadena-de-cable-para-x1e-fac037/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cadena-para-cables-compatible-con-h2d-fac098/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/caja-de-carton-para-a1-faz018/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/calentador-ceramico-para-hotend-x1c-fah001-c-3/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/calentador-y-termistor-de-ceramica-compatibles-con-p1p-fah001-ct/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cama-caliente-compatible-con-a1-fac066/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cama-caliente-compatible-con-a1-mini-fac017-n/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/cama-caliente-para-impresora-bambu-lab-a1-fac041-n/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cama-caliente-v2-compatible-con-a1-fac066/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cama-caliente-v3-compatible-con-p1-fac056/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/cama-caliente-v3-compatible-con-x1-fac058/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -168,6 +177,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/carcasa-de-motor-del-eje-x-para-a1-fac043-n/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/carcasa-de-motor-x-para-a1-fac043/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/carcasa-delantera-compatible-con-p1p-y-p1s-faz003/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/carcasa-delantera-compatible-con-x1c-y-x1e-faz001/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/carcasa-intermedia-del-cabezal-de-la-herramienta-fae006/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/carcasa-superior-del-gabinete-compatible-con-serie-h2-fas047/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/carcasa-top-frame-para-bambu-lab-h2s-fas068/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -252,62 +262,135 @@
   <url><loc>https://www.emisha.com.mx/refacciones/ensamblaje-de-varillas-de-carbono-del-eje-x-compatible-fac003/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/ensamblaje-del-eje-z-para-a1-mini-fac030/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/ensamble-de-calentador-de-hotend-derecho-compatible-fah029/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/ensamble-de-calentador-de-hotend-izquierdo-compatible-fah028-v1/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/extractor-de-camara-activa-compatible-con-h2d-fac120/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-azul-1-75-mm-1-kg-abs-gf-azul/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-blanco-1-75-mm-1-kg-abs-gf-blanco/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-gris-1-75-mm-1-kg-abs-gf-gris/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-naranja-1-75-mm-1-kg-abs-gf-naranja/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-negro-1-75-mm-1-kg-abs-gf-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-rojo-1-75-mm-1-kg-abs-gf-rojo/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-menta-1-75-mm-1-kg-abs-menta/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-morado-1-75-mm-1-kg-abs-morado/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-naranja-1-75-mm-1-kg-abs-naranja/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-plateado-1-75-mm-1-kg-abs-plateado/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-verde-1-75-mm-1-kg-abs-verde/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-asa-cf-negro-1-75-mm-1-kg-asa-cf-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-cf-negro-1-75-mm-0-5-kg-pa6-cf-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-gf-azul-1-75-mm-1-kg-pa6-gf-azul/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-gf-blanco-1-75-mm-1-kg-pa6-gf-blanco/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-gf-gris-1-75-mm-1-kg-pa6-gf-gris/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pa6-gf-naranja-1-75-mm-1-kg-pa6-gf-naranja/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-paht-cf-negro-1-75-mm-1-kg-paht-cf-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pc-blanco-1-75-mm-1-kg-pc-blanco/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pc-negro-1-75-mm-1-kg-pc-negro/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pc-negro-transparente-1-75-mm-1-kg-transpa/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pc-transparente-1-75-mm-1-kg-pc-transparente/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-azul-1-75-mm-1-kg-petg-azul/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-blanco-1-75-mm-1-kg-petg-blanco/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-cf-azul-industrial-1-75-mm-1-kg-ind/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-cf-gris-titanio-1-75-mm-1-kg-tit/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-cf-morado-violeta-1-75-mm-1-kg-v/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-cf-negro-1-75-mm-1-kg-petg-cf-negro/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-cf-rojo-ladrillo-1-75-mm-1-kg-lad/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-cf-verde-marea-1-75-mm-1-kg-ma/</loc><lastmod>2026-11-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-dorado-1-75-mm-1-kg-petg-dorado/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-gris-1-75-mm-1-kg-petg-gris/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-naranja-1-75-mm-1-kg-petg-naranja/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-negro-1-75-mm-1-kg-petg-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-azul-claro-1-75-transp-azcl/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-cafe-1-75-mm-1-kg-transp/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-gris-1-75-mm-1-kg-transp/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-morado-1-75-mm-1-transp-mora/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-naranja-1-75-mm-1-transp-nara/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-rosa-1-75-mm-1-kg-transp/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-verde-azulado-transp-veaz/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-transparente-verde-oliva-1-75-transp-veol/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-petg-verde-1-75-mm-1-kg-petg-verde/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-amarillo-1-75-mm-1-kg-pla-amarillo/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-arandano-burbuja-1-75-mm-1-kg-bub/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-bambu-verde-1-75-mm-1-kg-pla-bambu-verde/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-azul-1-75-mm-1-kg-pla-azul/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-blanco-jade-1-75-mm-1-kg-pla-blanco-jade/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-cmyk-set-multicolor-1-75-pla-cmyk/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-cyan-1-75-mm-1-kg-pla-cyan/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-dorado-1-75-mm-1-kg-pla-dorado/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-magenta-1-75-mm-1-kg-pla-magenta/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-morado-1-75-mm-1-kg-pla-morado/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-negro-1-75-mm-1-kg-pla-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-plateado-1-75-mm-1-kg-pla-plateado/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-rojo-1-75-mm-1-kg-pla-rojo/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-beige-1-75-mm-1-kg-pla-beige/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-bronce-1-75-mm-1-kg-pla-bronce/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cafe-1-75-mm-1-kg-pla-cafe/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-calabaza-naranja-1-75-mm-1-kg-nar/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cf-azul-mezcla-1-75-mm-1-kg-mezc/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cf-azul-rey-1-75-mm-1-kg-pla-cf-azul-rey/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cf-gris-lava-1-75-mm-1-kg-pla-cf-gris-lava/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cf-morado-iridio-1-75-mm-1-kg-ir/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cf-negro-1-75-mm-1-kg-pla-cf-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cf-rojo-burdeos-1-75-mm-1-kg-burd/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-cf-verde-mate-1-75-mm-1-kg-mat/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-crepusculo-brillante-1-75-mm-1-crepus-brill/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-girasol-amarillo-1-75-mm-1-kg-amar/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-gris-1-75-mm-1-kg-pla-gris/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-gris-azulado-1-75-mm-1-kg-pla-gris-azulado/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-amarillo-1-75-mm-1-kg-amarill/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-azul-1-75-mm-1-kg-pla-lite-azul/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-beige-mate-1-75-mm-1-kg-beig-ma/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-cyan-1-75-mm-1-kg-pla-lite-cyan/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-girasol-amarillo-1-75-mm-1-gsol-am/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-gris-1-75-mm-1-kg-pla-lite-gris/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-naranja-1-75-mm-1-kg-pla-lite-naranja/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-amarillo-1-75-mm-1-spl-ama/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-azul-1-75-mm-1-kg-spl-azu/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-beige-mate-1-75-mm-spl-b-m/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-cyan-1-75-mm-1-kg-spl-cya/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-girasol-amarillo-spl-g-a/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-gris-1-75-mm-1-kg-spl-gri/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-naranja-1-75-mm-1-kg-spl-nar/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-rojo-1-75-mm-1-kg-spl-roj/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-verde-1-75-mm-1-kg-spl-ver/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-rojo-1-75-mm-1-kg-pla-lite-rojo/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-verde-1-75-mm-1-kg-pla-lite-verde/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-marron-cocoa-1-75-mm-1-kg-pla-marron-cocoa/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-arena-1-75-mm-1-kg-pla-matte-arena/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-azul-1-75-mm-1-kg-pla-matte-azul/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-azul-hielo-1-75-mm-1-kg-h/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-azul-marino-1-75-mm-1-kg-m/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-blanco-1-75-mm-1-kg-pla-matte-blanco/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-cafe-1-75-mm-1-kg-pla-matte-cafe/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-charco-1-75-mm-1-kg-pla-matte-charco/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-gris-1-75-mm-1-kg-pla-matte-gris/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-rojo-1-75-mm-1-kg-pla-matte-rojo/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-rojo-escarlata-1-75-mm-1-e/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-menta-lima-1-75-mm-1-kg-pla-menta-lima/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-metal-azul-1-75-mm-1-kg-pla-metal-azul/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-metal-cafe-1-75-mm-1-kg-pla-metal-cafe/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-metal-gris-1-75-mm-1-kg-pla-metal-gris/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-metal-oro-iridio-1-75-mm-1-kg-ir/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-metal-verde-1-75-mm-1-kg-pla-metal-verde/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-muerdago-verde-1-75-mm-1-kg-ver/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-naranja-1-75-mm-1-kg-pla-naranja/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-nube-algodon-dulce-1-75-mm-1-kg-alg-dul/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-purpura-indigo-1-75-mm-1-kg-indi/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-amarillo-1-75-mm-1-kg-spl/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-azul-1-75-mm-1-kg-spl/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-blanco-jade-1-75-mm-1-kg-spl-j/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-gris-1-75-mm-1-kg-spl/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-naranja-1-75-mm-1-kg-spl/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-negro-1-75-mm-1-kg-spl/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-plata-1-75-mm-1-kg-spl/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-refill-rojo-1-75-mm-1-kg-spl/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-rosa-1-75-mm-1-kg-pla-rosa/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-rosa-citrico-1-75-mm-1-kg-pla-rosa-citrico/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-ppa-cf-negro-1-75-mm-0-75-kg-ppa-cf-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pps-cf-negro-1-75-mm-0-75-kg-pps-cf-negro/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-sop-abs-blanco-1-75-mm-0-5-kg-sop-abs-blanco/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-sop-pla-petg-natural-1-75-mm-0-5-kg-nat/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-tpu-para-ams-azul-1-75-mm-1-kg-tpu-ams-azul/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-tpu-para-ams-blanco-1-75-mm-1-kg-tpu-ams-blanco/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-tpu-para-ams-gris-1-75-mm-1-kg-tpu-ams-gris/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-tpu-para-ams-negro-1-75-mm-1-kg-tpu-ams-negro/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-tpu-para-ams-rojo-1-75-mm-1-kg-tpu-ams-rojo/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-tpu-para-ams-verde-neon-1-75-mm-1-kg-ver/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -322,6 +405,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/fuente-de-alimentacion-para-a1-mini-salida-de-24-v-fac031/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/funda-de-silicona-para-hotend-compatible-con-h2d-fah022/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/funda-de-silicona-para-hotend-de-a1-mini-y-a1-fah006/</loc><lastmod>2026-10-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/funda-de-silicona-para-hotend-p1p-p1s-x1c-y-x1e-fah001-s-3/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/funda-de-silicona-para-hotend-para-p2s-fah048/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/gomas-anti-vibracion-compatibles-con-p1p-p1s-x1c-y-x1e-faz004-n/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/gomas-antivibracion-compatible-con-h2d-faz037/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -368,11 +452,13 @@
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-cables-6-en-1-para-ams-2-pro-cab034/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-cables-7-en-1-para-h2d-y-laser-h2d-cab040/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-conversion-para-habilitar-compatibilidad-laser-upgrade-kt/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/kit-de-modulo-de-corte-compatible-con-h2d-y-a2l-sc004/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-montaje-de-puerta-frontal-compatible-con-serie-h2-fas044/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-montaje-para-puerta-delantera-compatible-fas002-a2/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-montaje-para-puerta-frontal-compatible-con-p1s-fas002-a1/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-tornillos-compatible-con-serie-a1-y-ams-lite-scr003/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/kit-de-ventilacion-superior-automatica-compatible-fas048/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/lamina-de-repuesto-para-placa-de-alta-temperatura-fap002-1/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/led-de-camara-superior-derecha-faz033/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/led-de-camara-superior-izquierda-faz032/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/leva-del-interruptor-del-extrusor-para-h2d-y-laser-h2d-fac137/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -398,8 +484,10 @@
   <url><loc>https://www.emisha.com.mx/refacciones/motor-del-extrusor-para-h2s-fam019/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/motor-eje-x-para-a1-fam009/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/motor-eje-y-para-a1-fam010/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/motor-eje-z-para-a1-fam011/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/motor-x-para-a1-mini-fam005/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/motor-xy-compatible-con-h2d-fam016/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/motor-xy-compatible-con-p1p-y-p1s-spc008/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/motor-xy-compatible-con-x1-x1c-y-x1e-fam001/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/motor-y-para-a1-mini-fam006/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/motor-z-compatible-con-h2d-fam017/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -410,6 +498,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/palanca-de-cortador-de-filamento-derecha-compatible-fac094/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/palanca-de-cortador-de-filamento-izquierda-compatible-fac093/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/palanca-de-corte-compatible-con-p1p-p1s-x1-x1c-y-x1e-fac004/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/palanca-de-corte-de-filamento-compatible-con-a1-mini-fac013/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/panel-de-plastico-derecho-para-p1s-fas005/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/panel-de-plastico-izquierdo-para-p1s-fas004/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/panel-lateral-con-ventana-de-vidrio-izquierdo-para-h2d-fas039/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -430,6 +519,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/pantalla-de-alta-resolucion-para-x1c-y-x1e-dis001/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/pantalla-tactil-para-a1-mini-dis003/</loc><lastmod>2026-10-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/paquete-de-cables-mc-ap-2-en-1-para-p2s-cab044/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/pies-antivibracion-para-p2s-faz051/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/pinza-de-carrete-para-ams-lite-saa011/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-ac-lv-para-p2s-dlb054/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-ac-para-serie-h2-dlb031/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -447,6 +537,8 @@
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-botones-con-sensor-de-temperatura-de-la-camara-dlb018/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-ca-3d-bambu-lab-x1-y-p1-series-dlb017/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-ca-impresora-110-v-compatible-con-h2d-h2s-dlb030/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/placa-de-ca-para-a1-dlb007/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/placa-de-ca-para-a1-dlb021/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-cabezal-de-herramientas-compatible-con-serie-a1-fae020/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-conexion-del-bufer-de-filamento-para-ams-saa025/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-conexion-del-extrusor-para-p2s-dlb056/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -458,10 +550,12 @@
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-interfaz-piezoelectrica-para-cama-calefactable-fac010/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-puerto-usb-compatible-con-h2d-dlb034/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-de-sensor-hall-para-extrusor-compatible-con-h2d-dlb026/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/placa-del-cabezal-de-herramientas-para-a1-mini-y-a1-fae009/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-del-cabezal-de-herramientas-th-compatible-con-p1p-fae003/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-del-cabezal-de-herramientas-th-compatible-dlb025/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-del-cabezal-de-herramientas-version-2-para-serie-fae009-v2/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-fria-super-track-compatible-con-h2-fap040-v1/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/placa-fria-supertrack-compatible-con-a1-mini-fap024/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-madre-para-a1-dlb006/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-madre-para-a1-dlb006-v2/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-mc-compatible-con-h2d-h2s-y-laser-h2d-y-h2s-dlb029/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -471,6 +565,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/placa-pei-lisa-compatible-con-h2d-h2s-fap026/</loc><lastmod>2026-11-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-pei-texturizada-compatible-con-a1-mini-fap009/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-pei-texturizada-compatible-con-h2d-h2s-fap025/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/placa-pei-texturizada-compatible-con-p1-x1-a1-fap007/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-principal-ams-ht-dlb038/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-principal-ams-version-2-fab010-v2/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/placa-rfid-para-ams-saa027/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -488,13 +583,16 @@
   <url><loc>https://www.emisha.com.mx/refacciones/puerta-de-cristal-compatible-con-p1s-x1c-y-x1e-fas002/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/puerta-frontal-de-cristal-para-bambu-lab-h2s-fas043/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/puerta-frontal-de-vidrio-para-p2s-fas070/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/raspador-para-placa-de-impresion-fac002-n/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/riel-de-elevacion-de-boquilla-compatible-con-h2d-fac089/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/riel-lineal-del-eje-y-para-a1-mini-fac016/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/rodamientos-de-pista-del-eje-y-para-a1-mini-fac027/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/sello-de-goma-para-ams-saa021/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-calibracion-de-compensacion-de-boquilla-fac128/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-cama-caliente-bambu-lab-para-a1-fac046/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-efecto-hall-compatible-con-h2d-dlb033/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-filamento-compatible-con-a1-mini-y-a1-fae010/</loc><lastmod>2026-11-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-filamento-compatible-con-p2s-dlb055/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-filamento-del-extrusor-compatible-con-serie-p1-dlb012/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-filamento-del-extrusor-compatible-con-serie-x1-dlb013/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/sensor-de-filamento-del-extrusor-para-h2s-fac142/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -517,6 +615,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/soporte-para-ams-lite-saa005/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/superficie-imantada-compatible-con-x1c-p1p-p1s-fac024/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tapa-de-alimentacion-para-ams-lite-saa018/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/tapa-de-cristal-compatible-con-p1s-x1c-y-x1e-fas001/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tapa-de-eje-z-para-a1-fas023/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tapa-superior-ams-ht-saa049/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tapa-superior-para-ams-2-pro-saa030/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -535,13 +634,16 @@
   <url><loc>https://www.emisha.com.mx/refacciones/tensor-del-eje-y-para-a1-mini-fac028/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tensor-del-eje-z-compatible-con-serie-x1-y-p1-fac052/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tensor-eje-y-para-a1-fac044/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/termistor-para-hotend-x1c-fah001-t-3/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/toma-de-corriente-compatible-con-serie-h2-fac097/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/toolhead-carriage-compatible-con-p2s-fac170/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tope-de-cortador-de-filamento-derecho-compatible-con-h2d-fac102/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/tope-de-cortador-de-filamento-izquierdo-compatible-fac101/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tope-del-cortador-de-filamento-para-p2s-fac171/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-185-mmx2-225-mmx2-interno-compatible-fat008/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-195-mmx4-230-mmx4-interno-compatible-fat002-8/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-263-mmx1-compatible-con-ams-ht-fat011/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-370-mmx1-550-mmx2-ams-ams-hub-fat001/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-530-mmx2-30-mmx2-spool-coupler-fat004/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-580-mmx2-700-mmx2-ams-impresora-fat006/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/tubo-de-ptfe-730-mmx2-830-mmx2-ams-impresora-fat007/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -571,7 +673,9 @@
   <url><loc>https://www.emisha.com.mx/refacciones/unidad-derecha-de-alimentacion-para-ams-lite-3-y-4-saa007/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/unidad-derecha-de-embudo-de-filamento-para-ams-lite-saa023/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/unidad-dual-de-extrusion-compatible-con-h2d-y-h2c-fae044/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/unidad-extrusora-de-acero-endurecido-compatible-fae016/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/unidad-extrusora-de-acero-endurecido-para-x1c-fae017/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/unidad-extrusora-para-a1-fae014-n/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/unidad-extrusora-para-bambu-lab-h2s-fae031/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/unidad-izquierda-de-alimentacion-para-ams-lite-1-y-2-saa006/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/unidad-izquierda-de-embudo-de-filamento-para-ams-lite-saa022/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -580,6 +684,7 @@
   <url><loc>https://www.emisha.com.mx/refacciones/ventilador-auxiliar-de-enfriamiento-para-pieza-faf016/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/ventilador-de-circulacion-de-calor-de-la-camara-faf018/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/ventilador-de-enfriamiento-de-hotend-compatible-con-a1-faf007/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.emisha.com.mx/refacciones/ventilador-de-enfriamiento-de-piezas-compatible-con-a1-faf006/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/ventilador-de-enfriamiento-para-hotend-compatible-faf014/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/ventilador-de-enfriamiento-para-pieza-compatible-con-h2d-faf013/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.emisha.com.mx/refacciones/ventilador-de-extraccion-de-camara-compatible-con-serie-faf017/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>

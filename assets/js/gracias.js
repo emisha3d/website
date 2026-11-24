@@ -132,9 +132,13 @@
     fetch(API + '/pedido/' + encodeURIComponent(folio))
       .then(function (r) {
         if (r.status === 404) throw new Error('404');
+        // Un 5xx (D1 o Mercado Pago con hipo) NO es «no se hizo ningún cargo»:
+        // antes un {error} sin estado caía en la rama de pago fallido.
+        if (!r.ok) throw new Error('reintentar');
         return r.json();
       })
       .then(function (p) {
+        if (!p || typeof p.estado !== 'string') throw new Error('reintentar');
         if (p.estado === 'paid') {
           var cuerpo;
           if (p.tipo === 'impresion') {
@@ -220,7 +224,23 @@
             '<p><a class="btn btn--primary" href="/#tienda">Volver a la tienda</a></p>');
         }
       })
-      .catch(function () {
+      .catch(function (e) {
+        // Red caída o error del servidor: se reintenta con el mismo tope que
+        // la espera de Mercado Pago, y al final se dice la verdad (no sabemos).
+        if (!(e && e.message === '404')) {
+          if (intentos++ < 12) {
+            pintar('Confirmando tu pago…',
+              '<p>Estamos consultando tu pedido. Esta página se actualiza sola; no hace falta recargar.</p>');
+            setTimeout(consultar, 5000);
+            return;
+          }
+          pintar('No pudimos confirmar tu pedido todavía',
+            '<p>No logramos consultar tu pedido en este momento. Si ya pagaste, tu pago está seguro: ' +
+            'no vuelvas a pagar. Recarga esta página en unos minutos o escríbenos por ' +
+            '<a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp</a> con tu folio.</p>' +
+            '<p class="muted" style="font-size:.86rem">Folio: ' + escapar(folio) + '</p>');
+          return;
+        }
         pintar('No encontramos ese pedido',
           '<p>Revisa que el enlace esté completo. Si pagaste y ves este mensaje, ' +
           'escríbenos por <a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp</a> ' +

@@ -140,6 +140,9 @@
     });
 
     if (!visibles.length) {
+      // Sin esto se quedaba la cuenta del filtro anterior junto al «no hay».
+      var cuentaVacia = document.querySelector('[data-ag-cuenta]');
+      if (cuentaVacia) cuentaVacia.textContent = '';
       texto(estado, 'No hay piezas de esa categoría con existencia en este momento.');
       estado.hidden = false;
       return;

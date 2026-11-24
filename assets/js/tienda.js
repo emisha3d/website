@@ -246,7 +246,7 @@
       var n = carrito.lineas[sku];
       t += p.precio_centavos * n;
       piezas += n;
-      if (p.origen === 'ag') {
+      if (p.origen === 'ag' && p.sale_de !== 'taller') {
         hayAG = true;
         agGramos += gramosAG(p) * n;
       } else {
@@ -594,12 +594,29 @@
 
   // Si AG no contesta, la tienda propia tiene que abrir igual: por eso el
   // catch devuelve una lista vacía en vez de tumbar el Promise.all.
+  // sku -> slug de su ficha en /refacciones/ (lo escribe gen-refacciones.py).
+  // Si no carga, las tarjetas de AG solo se quedan sin enlace.
+  function slugsFichas() {
+    return fetch('/assets/data/refacciones-slugs.json', { signal: limite(T_LEER) })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .catch(function () { return {}; });
+  }
+
   function catalogoAG() {
+    var pSlugs = slugsFichas();
     return fetch(AG_API + '/productos', { signal: limite(T_LEER) })
       .then(function (r) { return r.ok ? r.json() : { productos: [] }; })
-      .then(function (d) {
+      .then(function (d) { return pSlugs.then(function (slugs) { return [d, slugs || {}]; }); })
+      .then(function (par) {
+        var d = par[0], slugs = par[1];
         return (d.productos || []).map(function (p) {
           return {
+            // La ficha con foto, compatibilidad y para qué sirve: el clic en
+            // la tarjeta lleva ahí (antes las piezas de AG no abrían nada).
+            pagina: slugs[p.sku] ? '/refacciones/' + slugs[p.sku] + '/' : '',
+            // 'taller' = sale de nuestro taller en nuestro paquete (paga el
+            // envío propio, no el del proveedor). Igual que armarCarrito().
+            sale_de: p.sale_de || null,
             sku: p.sku,
             nombre: p.nombre,
             precio_centavos: p.precio_centavos,
@@ -1319,7 +1336,10 @@
     // Si el carrito trae refacciones de AG, se dice ANTES de cobrar: no salen
     // del taller sino del proveedor, y eso cambia el tiempo de entrega.
     var hayAG = Object.keys(carrito.lineas).some(function (sku) {
-      return porSku[sku] && porSku[sku].origen === 'ag';
+      return porSku[sku] && porSku[sku].origen === 'ag' && porSku[sku].sale_de !== 'taller';
+    });
+    var hayTaller = Object.keys(carrito.lineas).some(function (sku) {
+      return porSku[sku] && porSku[sku].sale_de === 'taller';
     });
     dialogo.querySelector('[data-checkout-resumen]').innerHTML =
       '<div><span>' + t.piezas + (t.piezas === 1 ? ' pieza' : ' piezas') + '</span><span>' + precio(t.centavos) + '</span></div>' +
@@ -1336,7 +1356,11 @@
           'Algunas refacciones de tu carrito las surte nuestro proveedor: salen directo de su ' +
           'almacén y pueden tardar unos días más. Si algo no estuviera disponible, te avisamos ' +
           'y te devolvemos tu dinero.</div>'
-        : '');
+        : hayTaller
+          ? '<div style="display:block;font-size:.86rem;color:var(--muted);margin-top:8px">' +
+            'Algunas refacciones de tu carrito salen de nuestro taller en 2 a 4 días hábiles. ' +
+            'Si algo no estuviera disponible, te avisamos y te devolvemos tu dinero.</div>'
+          : '');
   }
 
   function cpActual() {
