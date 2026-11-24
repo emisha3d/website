@@ -1482,6 +1482,16 @@ convertirlos, separar las capas y acomodar las piezas en la hoja. Ver 2.4.
 - 0.2, 0.4, 0.6 u 0.8 mm: qué boquilla usar — https://www.emisha.com.mx/blog/que-boquilla-usar/
 - Cómo aplicar metal líquido en una PS5 sin arruinarla — https://www.emisha.com.mx/blog/metal-liquido-ps5/
 - Cómo usar el cortador — https://www.emisha.com.mx/blog/como-usar-el-cortador/
+- Bambu Lab A1 prende pero no da imagen: la placa de CA quemada — https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/
+- Tu A1 raspa la cama en la primera capa: lo que encontramos en el taller — https://www.emisha.com.mx/blog/a1-raspa-la-cama-en-la-primera-capa/
+- El AMS gira pero no jala el filamento: un engrane gastado en una X1 Carbon — https://www.emisha.com.mx/blog/ams-no-jala-el-filamento-engrane-desgastado/
+- Antes de llevar tu impresora al taller: tres casos que no eran falla — https://www.emisha.com.mx/blog/antes-de-llevar-tu-impresora-al-taller/
+- Bola de filamento en el hotend: cómo se forma y qué hacer — https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/
+- Humedad en el AMS: así se ve una placa corroída por dentro — https://www.emisha.com.mx/blog/humedad-en-el-ams-corrosion-en-la-placa/
+- Anycubic Kobra 3 con el eje X que rechina y arrastra: baleros y lubricación — https://www.emisha.com.mx/blog/kobra-3-eje-x-rechina-baleros/
+- Mi P1S no reconoce el AMS: cuando la falla está en la impresora — https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/
+- Tu Bambu Lab P2S no extruye: lo que encontramos dentro del cabezal — https://www.emisha.com.mx/blog/p2s-no-extruye-sensor-de-filamento-y-cortador/
+- Bambu Lab X2D no detecta la boquilla derecha: el cable del sensor Eddy roto — https://www.emisha.com.mx/blog/x2d-no-detecta-la-boquilla-sensor-eddy/
 
 ## 8. Envíos, pagos y contacto
 

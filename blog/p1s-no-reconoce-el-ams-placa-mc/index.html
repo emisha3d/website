@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi P1S no reconoce el AMS: cuando la falla está en la impresora | Blog Emisha</title>
+<meta name="description" content="Una P1S que dejó de reconocer su AMS. Medimos cable, voltaje y señales, probamos el AMS en otra impresora y cambiamos tarjetas para encontrar al culpable: la placa MC de la impresora. Así se diagnostica paso a paso.">
+<link rel="canonical" href="https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Mi P1S no reconoce el AMS: cuando la falla está en la impresora">
+<meta property="og:description" content="Una P1S que dejó de reconocer su AMS. Medimos cable, voltaje y señales, probamos el AMS en otra impresora y cambiamos tarjetas para encontrar al culpable: la placa MC de la impresora. Así se diagnostica paso a paso.">
+<meta property="og:url" content="https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/p1s-prueba-4-colores.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=e9d69a94">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/#post",
+      "url": "https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/",
+      "headline": "Mi P1S no reconoce el AMS: cuando la falla está en la impresora",
+      "description": "Una P1S que dejó de reconocer su AMS. Medimos cable, voltaje y señales, probamos el AMS en otra impresora y cambiamos tarjetas para encontrar al culpable: la placa MC de la impresora. Así se diagnostica paso a paso.",
+      "image": "https://www.emisha.com.mx/assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/p1s-prueba-4-colores.webp",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "inLanguage": "es-MX",
+      "articleSection": "Caso del taller",
+      "keywords": "P1S no reconoce AMS, AMS sin señal, placa MC P1S, Machine Controller, Bambu Lab P1S reparación",
+      "author": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.emisha.com.mx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.emisha.com.mx/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mi P1S no reconoce el AMS: cuando la falla está en la impresora",
+          "item": "https://www.emisha.com.mx/blog/p1s-no-reconoce-el-ams-placa-mc/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../" aria-label="Emisha — inicio">
+      <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../filamentos/">Filamentos</a>
+          <a href="../../hotends/">Hotends</a>
+          <a href="../../placas/">Placas</a>
+          <a href="../../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../../servicios/">Servicios y reparación</a>
+          <a href="../../reparacion/mantenimiento-preventivo/">Mantenimiento preventivo</a>
+          <a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../../renta/">Renta de impresoras</a>
+          <a href="../../cotizador/">Cotizar pieza</a>
+          <a href="../../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../../reparacion/">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../cortador/">Cortador</a>
+          <a href="../../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section">
+    <div class="wrap">
+
+      <div class="post-header">
+        <span class="eyebrow eyebrow--accent">Caso del taller</span>
+        <h1>Mi P1S no reconoce el AMS: cuando la falla está en la impresora</h1>
+        <p class="muted"><time datetime="2026-11-23">23 de noviembre de 2026</time> · Caso del taller</p>
+        <p class="lede">Cuando una P1S deja de ver su AMS, casi todos culpan al AMS. Tiene sentido: es la pieza que deja de funcionar. Pero en este caso el AMS estaba bien. El problema vivía dentro de la impresora, y la única forma de saberlo fue medir y descartar una cosa a la vez.</p>
+      </div>
+
+      <div class="hero__figure">
+        <img src="../../assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/p1s-prueba-4-colores.webp"
+             alt="Bambu Lab P1S con su AMS de cuatro colores imprimiendo una pieza de prueba en el taller"
+             width="1156" height="867" fetchpriority="high">
+      </div>
+
+      <div class="prose">
+
+        <h2>Lo que vio el dueño</h2>
+        <p>La queja fue corta: la impresora no reconoce el AMS. Sin AMS, adiós multicolor y adiós cambio automático de rollo. La impresora sigue imprimiendo con el carrete externo, así que muchos se quedan así meses.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/ams-sin-senal.webp" width="1200" height="666"
+               loading="lazy" decoding="async" alt="AMS abierto en el banco: los alimentadores sin señal de la impresora.">
+          <figcaption>AMS abierto en el banco: los alimentadores sin señal de la impresora.</figcaption>
+        </figure>
+        <h2>Primero, el cable</h2>
+        <p>Entre la impresora y el AMS va un cable de cuatro hilos: dos de corriente y dos de comunicación (señal A y señal B). Es lo primero que se revisa porque es lo más barato de cambiar. Medimos la resistencia de cada hilo de punta a punta y todos salieron dentro de valores normales. El cable estaba bien.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/medicion-resistencia-cable.webp" width="867" height="1156"
+               loading="lazy" decoding="async" alt="Medición de resistencia de un hilo del cable del AMS: dentro de valores normales.">
+          <figcaption>Medición de resistencia de un hilo del cable del AMS: dentro de valores normales.</figcaption>
+        </figure>
+        <h2>Luego, voltaje y señales en la impresora</h2>
+        <p>Con la impresora abierta medimos directo en el conector. La alimentación daba sus 24 V, como debe. También medimos la señal A y la señal B contra tierra, y la resistencia entre las dos señales. Con eso se descarta que el AMS no tenga corriente o que haya un corto evidente en la línea de comunicación.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/medicion-24v.webp" width="867" height="1156"
+               loading="lazy" decoding="async" alt="La impresora entrega 24 V en el conector del AMS, lo correcto.">
+          <figcaption>La impresora entrega 24 V en el conector del AMS, lo correcto.</figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/medicion-senal-a-b.webp" width="867" height="1156"
+               loading="lazy" decoding="async" alt="Medición de resistencia entre la señal A y la señal B en la P1S.">
+          <figcaption>Medición de resistencia entre la señal A y la señal B en la P1S.</figcaption>
+        </figure>
+        <h2>Cambiar una cosa a la vez</h2>
+        <p>Con el cable y el voltaje bien, quedaban dos sospechosos: el AMS o la placa principal de la impresora, la MC (Machine Controller). Así que probamos el AMS en otra impresora de la serie P. Resultado: tampoco respondía bien. Hasta ahí parecía culpa del AMS.</p><p>La prueba que lo resolvió fue la siguiente: poner en esta P1S una placa MC de otra impresora de la misma línea. Con esa placa, el AMS respondió a la primera. La conclusión fue que la placa MC de esta P1S estaba dañada y su salida hacia el AMS ya no funcionaba.</p><p>Por eso no sirve adivinar. Si hubiéramos cambiado el AMS por lo que pasó en la primera prueba, el dueño habría pagado una pieza cara y la falla habría seguido ahí.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/p1s-placa-mc.webp" width="900" height="1200"
+               loading="lazy" decoding="async" alt="Placa MC (Machine Controller) de la P1S con la tapa trasera abierta.">
+          <figcaption>Placa MC (Machine Controller) de la P1S con la tapa trasera abierta.</figcaption>
+        </figure>
+        <h2>Qué hicimos</h2>
+        <p>Recomendamos cambiar la tarjeta MC y mandamos la cotización con las fotos de cada medición, para que el dueño viera lo mismo que nosotros. Con una placa MC que funciona, la impresora reconoce el AMS al encender, y así la probamos imprimiendo a cuatro colores antes de entregarla.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/p1s-no-reconoce-el-ams-placa-mc/benchy-4-colores.webp" width="867" height="1156"
+               loading="lazy" decoding="async" alt="Benchy y pieza de prueba a cuatro colores sobre la cama de la P1S.">
+          <figcaption>Benchy y pieza de prueba a cuatro colores sobre la cama de la P1S.</figcaption>
+        </figure>
+        <h2>¿Es el AMS o es la impresora?</h2>
+        <p>Desde afuera las dos fallas se ven igual: la pantalla no muestra el AMS. La diferencia está en dónde se corta el camino. El AMS necesita tres cosas para aparecer: corriente, un cable sano y una impresora que le hable. Si falta la corriente, el AMS no prende ninguna luz. Si el cable tiene un hilo roto, a veces aparece y a veces no, sobre todo cuando lo mueves. Si la falla es de comunicación, en la impresora o en la placa del AMS, prende, intenta conectarse y se queda en error.</p><p>Por eso el orden importa: primero lo que se mide fácil y sale barato, al final las placas.</p>
+        <h2>Lo que puedes revisar en casa</h2>
+        <ol><li><strong>Reinicia las dos.</strong> Apaga la impresora, desconecta el AMS, espera un minuto y vuelve a conectar antes de encender.</li><li><strong>Revisa el cable y sus conectores.</strong> Que entren hasta el fondo, sin pines doblados ni manchas verdes. Si tienes otro cable de AMS, pruébalo.</li><li><strong>Actualiza el firmware</strong> de la impresora y del AMS desde la pantalla o Bambu Handy.</li><li><strong>Fíjate en los indicadores del AMS.</strong> Si no prende nada, el problema es de corriente; si prende y luego marca error, es de comunicación.</li><li><strong>Si tienes acceso a otro AMS u otra impresora, cruza las pruebas.</strong> Pero ojo: como en este caso, una sola prueba puede engañar.</li></ol>
+        <h2>Cuándo traerla al taller</h2>
+        <p>Si ya probaste lo de arriba y el AMS sigue sin aparecer, lo que sigue es medir con la impresora abierta. Trae la impresora con su AMS y su cable; así podemos probar cada parte por separado y decirte con fotos cuál es la que falla antes de cambiar nada.</p>
+
+        <h2>Sigue leyendo</h2>
+        <ul>
+          <li><a href="../../reparacion/fallas/error-ams-bambu-lab/">Error en el AMS de Bambu Lab</a></li>
+          <li><a href="../../reparacion/fallas/error-0700-8010-ams-bambu-lab/">Error 0700-8010 del AMS</a></li>
+          <li><a href="../../reparacion/bambu-lab-p1s/">Reparación de Bambu Lab P1S</a></li>
+          <li><a href="../../reparacion/ams/">Reparación de AMS</a></li>
+          <li><a href="../../blog/humedad-en-el-ams-corrosion-en-la-placa/">Humedad en el AMS: así se ve una placa corroída</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow eyebrow--accent">Taller Emisha · CDMX</span>
+        <h2>¿Tu impresora tiene algo parecido?</h2>
+        <p>Diagnóstico en el taller con fotos de lo que encontramos y la cotización antes de
+          cambiar cualquier pieza. Recibimos impresoras de todo México por paquetería.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="../../reparacion/">Agendar reparación</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20mi%20P1S%20tiene%20una%20falla%2C%20%C2%BFme%20pueden%20ayudar%3F" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../../placas/">Placas de impresión</a></li>
+          <li><a href="../../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../../servicios/">Servicios y reparación</a></li>
+          <li><a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/#aplicacion">Cómo aplicar</a></li>
+          <li><a href="../../liquid-ultra/#seguridad">Seguridad</a></li>
+          <li><a href="../../liquid-ultra/#faq">Preguntas frecuentes</a></li>
+          <li><a href="../../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span class="footer-legal"><a href="../../terminos/">Términos y condiciones</a> · <a href="../../privacidad/">Aviso de privacidad</a> · <a href="../../devoluciones/">Devoluciones</a></span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js?v=7782446c" defer></script>
+</body>
+</html>

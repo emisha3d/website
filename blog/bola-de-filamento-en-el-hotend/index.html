@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bola de filamento en el hotend: cómo se forma y qué hacer | Blog Emisha</title>
+<meta name="description" content="Una A1 mini con el cabezal cubierto de filamento derretido y una P2S con la boquilla atascada por una pieza que se despegó. Por qué se forma la bola, cómo quitarla sin dañar los cables y qué hacer para que no vuelva a pasar.">
+<link rel="canonical" href="https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Bola de filamento en el hotend: cómo se forma y qué hacer">
+<meta property="og:description" content="Una A1 mini con el cabezal cubierto de filamento derretido y una P2S con la boquilla atascada por una pieza que se despegó. Por qué se forma la bola, cómo quitarla sin dañar los cables y qué hacer para que no vuelva a pasar.">
+<meta property="og:url" content="https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/blog/bola-de-filamento-en-el-hotend/boquilla-p2s-atascada.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=e9d69a94">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/#post",
+      "url": "https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/",
+      "headline": "Bola de filamento en el hotend: cómo se forma y qué hacer",
+      "description": "Una A1 mini con el cabezal cubierto de filamento derretido y una P2S con la boquilla atascada por una pieza que se despegó. Por qué se forma la bola, cómo quitarla sin dañar los cables y qué hacer para que no vuelva a pasar.",
+      "image": "https://www.emisha.com.mx/assets/img/blog/bola-de-filamento-en-el-hotend/boquilla-p2s-atascada.webp",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "inLanguage": "es-MX",
+      "articleSection": "Caso del taller",
+      "keywords": "bola de filamento, blob, hotend, boquilla tapada, Bambu Lab A1 mini, P2S, pieza despegada, reparación CDMX",
+      "author": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.emisha.com.mx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.emisha.com.mx/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bola de filamento en el hotend: cómo se forma y qué hacer",
+          "item": "https://www.emisha.com.mx/blog/bola-de-filamento-en-el-hotend/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../" aria-label="Emisha — inicio">
+      <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../filamentos/">Filamentos</a>
+          <a href="../../hotends/">Hotends</a>
+          <a href="../../placas/">Placas</a>
+          <a href="../../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../../servicios/">Servicios y reparación</a>
+          <a href="../../reparacion/mantenimiento-preventivo/">Mantenimiento preventivo</a>
+          <a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../../renta/">Renta de impresoras</a>
+          <a href="../../cotizador/">Cotizar pieza</a>
+          <a href="../../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../../reparacion/">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../cortador/">Cortador</a>
+          <a href="../../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section">
+    <div class="wrap">
+
+      <div class="post-header">
+        <span class="eyebrow eyebrow--accent">Caso del taller</span>
+        <h1>Bola de filamento en el hotend: cómo se forma y qué hacer</h1>
+        <p class="muted"><time datetime="2026-11-23">23 de noviembre de 2026</time> · Caso del taller</p>
+        <p class="lede">Dejas una impresión corriendo y al regresar el cabezal es una piedra de plástico. Es de las fallas que más asustan y casi siempre empieza igual: algo dejó de salir por donde debía y el filamento siguió saliendo. Te contamos dos casos que nos llegaron y qué hicimos con cada uno.</p>
+      </div>
+
+      <div class="hero__figure">
+        <img src="../../assets/img/blog/bola-de-filamento-en-el-hotend/boquilla-p2s-atascada.webp"
+             alt="Cabezal de una Bambu Lab P2S con una bola de filamento negro derretido alrededor de la boquilla"
+             width="867" height="1156" fetchpriority="high">
+      </div>
+
+      <div class="prose">
+
+        <h2>Cómo se forma la bola</h2>
+        <p>La boquilla sigue empujando filamento aunque ya no haya pieza abajo. Pasa cuando la pieza se despega de la cama, cuando la boquilla se tapa a medias y el plástico se sale por arriba, o cuando el material se enrosca alrededor del bloque en lugar de caer. El plástico caliente se pega al bloque, se enfría, se le pega más encima y en pocos minutos cubre el hotend, los cables y a veces el ventilador.</p>
+        <p>La impresora no siempre se da cuenta. Mientras el filamento avance, para ella todo va bien.</p>
+        <h2>Caso 1: una A1 mini cubierta de filamento</h2>
+        <p>La boquilla se tapó, la impresora siguió calentando y derritiendo filamento, y al enfriarse quedó una masa seca cubriendo todo el cabezal. Así nos llegó.</p>
+        <p>Desmontamos el hotend del cabezal con todo y la masa, con cuidado de no jalar los cables del calentador ni del sensor de temperatura. Ya fuera, retiramos el filamento pegado, revisamos el cabezal abierto, armamos, calibramos y la pusimos a imprimir.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/bola-de-filamento-en-el-hotend/bola-filamento-cabezal-a1-mini.webp" width="1200" height="900"
+               loading="lazy" decoding="async" alt="Así llegó: la masa de filamento cubría el hotend de la A1 mini.">
+          <figcaption>Así llegó: la masa de filamento cubría el hotend de la A1 mini.</figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../assets/img/blog/bola-de-filamento-en-el-hotend/hotend-retirado-con-filamento.webp" width="1200" height="900"
+               loading="lazy" decoding="async" alt="Hotend fuera del cabezal, todavía con el filamento pegado y colgando de sus cables.">
+          <figcaption>Hotend fuera del cabezal, todavía con el filamento pegado y colgando de sus cables.</figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../assets/img/blog/bola-de-filamento-en-el-hotend/cabezal-sin-hotend.webp" width="1200" height="900"
+               loading="lazy" decoding="async" alt="Cabezal de la A1 mini abierto, ya sin el hotend, para limpiar y revisar.">
+          <figcaption>Cabezal de la A1 mini abierto, ya sin el hotend, para limpiar y revisar.</figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../assets/img/blog/bola-de-filamento-en-el-hotend/benchy-a1-mini.webp" width="1200" height="900"
+               loading="lazy" decoding="async" alt="Prueba de impresión terminada después de la reparación.">
+          <figcaption>Prueba de impresión terminada después de la reparación.</figcaption>
+        </figure>
+        <h2>Caso 2: una P2S y una pieza que no pegó</h2>
+        <p>El dueño nos dijo que el filamento se atoró a la mitad de una impresión. Lo que encontramos fue la boquilla tapada por una acumulación de filamento. La causa no estaba en el hotend: la pieza no se adhirió a la cama, se movió y la boquilla terminó extruyendo sobre sí misma.</p>
+        <p>Quitamos y limpiamos el atasco, y limpiamos la placa para que el plástico volviera a pegar. Hicimos pruebas en otra placa del taller y al final en la placa del cliente, para confirmar que con la superficie limpia la pieza se queda en su lugar.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/bola-de-filamento-en-el-hotend/p2s-prueba-placa-propia.webp" width="867" height="1156"
+               loading="lazy" decoding="async" alt="Prueba final de la P2S en su propia placa, ya limpia.">
+          <figcaption>Prueba final de la P2S en su propia placa, ya limpia.</figcaption>
+        </figure>
+        <h2>Si ya tienes la bola: qué hacer y qué no</h2>
+        <ol>
+          <li><strong>No la arranques en frío.</strong> El plástico frío está pegado a los cables. Si jalas, puedes romper el cable del calentador o del sensor de temperatura.</li>
+          <li><strong>Calienta la boquilla a la temperatura de impresión</strong> de ese material para que el plástico se ablande, y retíralo poco a poco con pinzas. Cuidado: todo está caliente.</li>
+          <li><strong>Si la masa cubre cables, el ventilador o el interior del cabezal</strong>, mejor no sigas. Ahí ya hay que desmontar el hotend.</li>
+          <li><strong>Después de limpiar</strong>, revisa que la temperatura suba normal y haz una purga antes de imprimir algo largo.</li>
+        </ol>
+        <h2>Cómo evitar que vuelva a pasar</h2>
+        <ul>
+          <li><strong>Placa limpia.</strong> Lávala con agua y jabón para trastes y no la toques con los dedos. Es la causa más común de piezas que se despegan.</li>
+          <li><strong>Mira la primera capa.</strong> Si no pega bien, detén la impresión ahí. Una primera capa floja es una bola de filamento en camino.</li>
+          <li><strong>Calcetín de silicón puesto y en buen estado.</strong> Hace que el plástico se pegue menos al bloque.</li>
+          <li><strong>Usa la cámara y la detección de fallas</strong> si tu impresora las tiene, sobre todo en impresiones largas.</li>
+          <li><strong>Filamento seco.</strong> El filamento húmedo truena, deja hilos y tapa la boquilla más fácil.</li>
+        </ul>
+        <h2>Cuándo conviene traerla</h2>
+        <p>Si la masa cubre los cables o el ventilador, si después de limpiar la boquilla no calienta o marca error de temperatura, o si sigue sin extruir, tráela. Desmontamos el hotend sin forzar los cables, te mandamos fotos de lo que encontramos y la cotización antes de cambiar cualquier pieza.</p>
+
+        <h2>Sigue leyendo</h2>
+        <ul>
+          <li><a href="../../reparacion/fallas/error-0300-8016-boquilla-obstruida-bambu-lab/">Error 0300-8016: boquilla obstruida</a></li>
+          <li><a href="../../blog/extrusor-atascado-bambu-lab/">Por qué se atasca el extrusor de tu Bambu Lab</a></li>
+          <li><a href="../../blog/la-primera-capa-no-pega/">La primera capa no pega: causas y soluciones</a></li>
+          <li><a href="../../blog/filamento-humedo/">Filamento húmedo: cómo saberlo y cómo secarlo</a></li>
+          <li><a href="../../reparacion/fallas/bambu-lab-a1-no-calienta/">Bambu Lab A1 no calienta</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow eyebrow--accent">Taller Emisha · CDMX</span>
+        <h2>¿Tu impresora tiene algo parecido?</h2>
+        <p>Diagnóstico en el taller con fotos de lo que encontramos y la cotización antes de
+          cambiar cualquier pieza. Recibimos impresoras de todo México por paquetería.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="../../reparacion/">Agendar reparación</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20mi%20impresora%20tiene%20una%20falla%2C%20%C2%BFme%20pueden%20ayudar%3F" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../../placas/">Placas de impresión</a></li>
+          <li><a href="../../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../../servicios/">Servicios y reparación</a></li>
+          <li><a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/#aplicacion">Cómo aplicar</a></li>
+          <li><a href="../../liquid-ultra/#seguridad">Seguridad</a></li>
+          <li><a href="../../liquid-ultra/#faq">Preguntas frecuentes</a></li>
+          <li><a href="../../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span class="footer-legal"><a href="../../terminos/">Términos y condiciones</a> · <a href="../../privacidad/">Aviso de privacidad</a> · <a href="../../devoluciones/">Devoluciones</a></span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js?v=7782446c" defer></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bambu Lab A1 prende pero no da imagen: la placa de CA quemada | Blog Emisha</title>
+<meta name="description" content="Una A1 que se conecta y no hace nada: ni pantalla ni sonido. Abrimos la base y encontramos un capacitor reventado en la placa de CA. Qué revisar tú antes y por qué esa parte no se abre conectada.">
+<link rel="canonical" href="https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Emisha">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Bambu Lab A1 prende pero no da imagen: la placa de CA quemada">
+<meta property="og:description" content="Una A1 que se conecta y no hace nada: ni pantalla ni sonido. Abrimos la base y encontramos un capacitor reventado en la placa de CA. Qué revisar tú antes y por qué esa parte no se abre conectada.">
+<meta property="og:url" content="https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/">
+<meta property="og:image" content="https://www.emisha.com.mx/assets/img/blog/a1-prende-pero-no-da-imagen-placa-de-ca/placa-ca-capacitor-quemado.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/emisha-logo-512.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=e9d69a94">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/#post",
+      "url": "https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/",
+      "headline": "Bambu Lab A1 prende pero no da imagen: la placa de CA quemada",
+      "description": "Una A1 que se conecta y no hace nada: ni pantalla ni sonido. Abrimos la base y encontramos un capacitor reventado en la placa de CA. Qué revisar tú antes y por qué esa parte no se abre conectada.",
+      "image": "https://www.emisha.com.mx/assets/img/blog/a1-prende-pero-no-da-imagen-placa-de-ca/placa-ca-capacitor-quemado.webp",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "inLanguage": "es-MX",
+      "articleSection": "Caso del taller",
+      "keywords": "Bambu Lab A1, A1 no prende, A1 pantalla negra, placa de CA, capacitor quemado, reparación A1 CDMX",
+      "author": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.emisha.com.mx/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.emisha.com.mx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.emisha.com.mx/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bambu Lab A1 prende pero no da imagen: la placa de CA quemada",
+          "item": "https://www.emisha.com.mx/blog/a1-prende-pero-no-da-imagen-placa-de-ca/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../../" aria-label="Emisha — inicio">
+      <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:34px;width:auto">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-productos">Productos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-productos">
+          <a href="../../liquid-ultra/">Liquid Ultra</a>
+          <a href="../../filamentos/">Filamentos</a>
+          <a href="../../hotends/">Hotends</a>
+          <a href="../../placas/">Placas</a>
+          <a href="../../bambulab/">Bambu Lab</a>
+        </div>
+      </div>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-servicios">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-servicios">
+          <a href="../../servicios/">Servicios y reparación</a>
+          <a href="../../reparacion/mantenimiento-preventivo/">Mantenimiento preventivo</a>
+          <a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a>
+          <a href="../../renta/">Renta de impresoras</a>
+          <a href="../../cotizador/">Cotizar pieza</a>
+          <a href="../../servicios/cotizador-laser/">Cotizar corte láser</a>
+        </div>
+      </div>
+      <a href="../../reparacion/">Agendar reparación</a>
+      <div class="nav__group" data-nav-group>
+        <button type="button" class="nav__group-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-herramientas">Herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav__menu" id="nav-herramientas">
+          <a href="../../cortador/">Cortador</a>
+          <a href="../../calculadora/">Calculadora</a>
+        </div>
+      </div>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section">
+    <div class="wrap">
+
+      <div class="post-header">
+        <span class="eyebrow eyebrow--accent">Caso del taller</span>
+        <h1>Bambu Lab A1 prende pero no da imagen: la placa de CA quemada</h1>
+        <p class="muted"><time datetime="2026-11-23">23 de noviembre de 2026</time> · Caso del taller</p>
+        <p class="lede">La conectas, la enciendes y nada. La pantalla se queda negra y no se oye ni el ventilador. Así nos llegó esta A1. El problema no estaba en la pantalla ni en el firmware: un capacitor de la placa de CA, la que recibe la corriente de la pared, había reventado. Te contamos qué encontramos, qué cambiamos y qué puedes revisar tú sin abrir nada.</p>
+      </div>
+
+      <div class="hero__figure">
+        <img src="../../assets/img/blog/a1-prende-pero-no-da-imagen-placa-de-ca/placa-ca-capacitor-quemado.webp"
+             alt="Base de una Bambu Lab A1 abierta: la placa de CA con el capacitor quemado arriba y la fuente de 24 V abajo"
+             width="1200" height="1139" fetchpriority="high">
+      </div>
+
+      <div class="prose">
+
+        <h2>Lo que veía el dueño</h2>
+        <p>La impresora no daba ninguna señal. Ni la pantalla encendía ni se escuchaba el arranque de los motores o del ventilador. Cuando una A1 hace eso, la gente suele pensar primero en la pantalla, en el cable plano que la conecta o en una actualización que salió mal. Son sospechas razonables, pero si no se oye <em>nada</em>, lo más probable es que la corriente ni siquiera esté llegando a la electrónica.</p>
+        <h2>Lo que encontramos al abrir la base</h2>
+        <p>La A1 tiene la parte eléctrica en la base. Ahí viven dos piezas: la fuente que convierte la corriente de la pared en 24 V y, antes de ella, la placa de CA, que recibe la corriente del contacto, la filtra y la reparte. Al quitar la tapa y revisar la placa de CA encontramos un capacitor quemado, literalmente reventado. Al sacar la placa salieron los pedazos del componente.</p><p>Con ese capacitor abierto, la placa ya no deja pasar la corriente hacia la fuente y la impresora se queda muerta. Es una falla que conocemos bien en la A1 y que se repite: la placa de CA es de las piezas que más vemos dañadas en este modelo.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/a1-prende-pero-no-da-imagen-placa-de-ca/restos-del-capacitor.webp" width="455" height="928"
+               loading="lazy" decoding="async" alt="La placa de CA ya fuera de la A1, con los pedazos del capacitor que reventó.">
+          <figcaption>La placa de CA ya fuera de la A1, con los pedazos del capacitor que reventó.</figcaption>
+        </figure>
+        <h2>Lo que hicimos</h2>
+        <p>Cambiamos la placa de CA completa por una nueva para A1. En el camino nos topamos con un tornillo barrido en la base, algo que pasa seguido cuando un equipo ya se abrió antes con la herramienta equivocada. Con la placa nueva en su lugar, revisamos las conexiones de fase, neutro y tierra hacia la fuente y cerramos.</p><p>Después de encenderla corrimos la calibración completa: ruido de motores y nivelación automática de la cama. Al final hicimos impresiones de prueba para confirmar que la impresora quedara trabajando normal, no nada más encendiendo.</p>
+        <figure class="foto">
+          <img src="../../assets/img/blog/a1-prende-pero-no-da-imagen-placa-de-ca/placa-ca-nueva-instalada.webp" width="1200" height="1088"
+               loading="lazy" decoding="async" alt="Placa de CA nueva en su lugar, arriba de la fuente de 24 V.">
+          <figcaption>Placa de CA nueva en su lugar, arriba de la fuente de 24 V.</figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../assets/img/blog/a1-prende-pero-no-da-imagen-placa-de-ca/nivelacion-despues-de-reparar.webp" width="1193" height="1400"
+               loading="lazy" decoding="async" alt="Ya con corriente: la A1 corriendo la nivelación automática de la cama.">
+          <figcaption>Ya con corriente: la A1 corriendo la nivelación automática de la cama.</figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../assets/img/blog/a1-prende-pero-no-da-imagen-placa-de-ca/pieza-de-prueba-a1.webp" width="1200" height="1136"
+               loading="lazy" decoding="async" alt="Pieza de prueba terminada en la A1 después del cambio de placa.">
+          <figcaption>Pieza de prueba terminada en la A1 después del cambio de placa.</figcaption>
+        </figure>
+        <h2>Lo que puedes revisar tú, sin abrirla</h2>
+        <div class="note note--warn"><div><strong>No abras la base conectada.</strong> La placa de CA trabaja con el voltaje de la pared y la fuente puede guardar carga un rato después de desconectarla. Lo que sigue se revisa por fuera.</div></div><ol><li><strong>Prueba otro contacto.</strong> Parece obvio, pero un contacto flojo o una extensión dañada dan exactamente el mismo síntoma.</li><li><strong>Revisa el cable de corriente.</strong> Que entre firme en la impresora y que no esté pelado ni doblado. Si tienes otro cable compatible, pruébalo.</li><li><strong>Revisa el interruptor.</strong> Que esté en encendido y que no se sienta suelto.</li><li><strong>Huele la base.</strong> Si huele a quemado o viste un chispazo o un tronido al conectarla, desconéctala y no la vuelvas a encender. Eso ya es taller.</li><li><strong>Protege la impresora.</strong> Un supresor de picos o un regulador entre la pared y la impresora ayuda contra variaciones de voltaje, sobre todo si se te va la luz seguido.</li></ol>
+        <h2>Cuándo llevarla al taller</h2>
+        <p>Si probaste otro contacto y otro cable y la A1 sigue sin dar ninguna señal, la falla está adentro: placa de CA, fuente o la conexión entre ellas. Ahí ya no conviene seguirle en casa. Se trabaja con corriente de la pared y un error puede dañar la fuente o la tarjeta principal, que son piezas más caras.</p><p>En el taller revisamos la placa y la fuente con multímetro, te mandamos fotos de lo que encontramos y la cotización antes de cambiar cualquier pieza. Si quieres ver más causas de este síntoma, en <a href="../../reparacion/fallas/bambu-lab-no-enciende/">Bambu Lab no enciende</a> tenemos la lista completa.</p>
+
+        <h2>Sigue leyendo</h2>
+        <ul>
+          <li><a href="../../reparacion/fallas/bambu-lab-no-enciende/">Bambu Lab no enciende: causas y qué revisar</a></li>
+          <li><a href="../../reparacion/bambu-lab-a1/">Reparación de Bambu Lab A1</a></li>
+          <li><a href="../../reparacion/fallas/">Fallas comunes de impresoras 3D</a></li>
+          <li><a href="../../reparacion/mantenimiento-preventivo/">Mantenimiento preventivo</a></li>
+          <li><a href="../../blog/mantenimiento-bambu-lab/">Mantenimiento de tu Bambu Lab: el calendario del taller</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow eyebrow--accent">Taller Emisha · CDMX</span>
+        <h2>¿Tu impresora tiene algo parecido?</h2>
+        <p>Diagnóstico en el taller con fotos de lo que encontramos y la cotización antes de
+          cambiar cualquier pieza. Recibimos impresoras de todo México por paquetería.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="../../reparacion/">Agendar reparación</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/525575639255?text=Hola%2C%20mi%20Bambu%20Lab%20A1%20tiene%20una%20falla%2C%20%C2%BFme%20pueden%20ayudar%3F" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../assets/img/emisha-logo.png" alt="Emisha 3D Print" width="480" height="202" style="height:32px;width:auto">
+        <p>Compuesto térmico de metal líquido y filamento para impresión 3D. Inventario en
+          Ciudad de México, envío a todo el país.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/">Liquid Ultra</a></li>
+          <li><a href="../../liquid-ultra/#mundial">Edición Mundial</a></li>
+          <li><a href="../../filamentos/">Filamentos 1.75 mm</a></li>
+          <li><a href="../../hotends/">Hotends y boquillas</a></li>
+          <li><a href="../../placas/">Placas de impresión</a></li>
+          <li><a href="../../bambulab/">Refacciones Bambu Lab</a></li>
+          <li><a href="../../servicios/">Servicios y reparación</a></li>
+          <li><a href="../../impresion-3d-cdmx/">Impresión 3D en CDMX</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="../../liquid-ultra/#aplicacion">Cómo aplicar</a></li>
+          <li><a href="../../liquid-ultra/#seguridad">Seguridad</a></li>
+          <li><a href="../../liquid-ultra/#faq">Preguntas frecuentes</a></li>
+          <li><a href="../../assets/docs/emisha-liquid-ultra-sds.pdf">Hoja de seguridad (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp +52 55 7563 9255</a></li>
+          <li><a href="https://www.mercadolibre.com.mx/tienda/emisha" target="_blank" rel="noopener">Tienda MercadoLibre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Emisha Design And Consulting S.A. de C.V. · RFC EDC140515CJ7</span>
+      <span class="footer-legal"><a href="../../terminos/">Términos y condiciones</a> · <a href="../../privacidad/">Aviso de privacidad</a> · <a href="../../devoluciones/">Devoluciones</a></span>
+      <span>Ciudad de México, México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js?v=7782446c" defer></script>
+</body>
+</html>
