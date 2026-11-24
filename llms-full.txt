@@ -342,30 +342,35 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-530 piezas con existencia confirmada, listas para salir de la Ciudad de
+707 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Normalmente se envían en 1 a 4 días hábiles. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
 leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
 comprar, porque boquillas y hotends NO son iguales entre las series A1, P1,
 X1 y H2. Emisha no es distribuidor autorizado de Bambu Lab.
 
-### 4.1 Refacciones y piezas de repuesto (359 piezas)
+### 4.1 Refacciones y piezas de repuesto (487 piezas)
 
-Rango de precio: $169 MXN a $34,489 MXN.
+Rango de precio: $169 MXN a $80,989 MXN.
 
 - Accesorios de instalación de puerta delantera compatible con serie X1 y P1 — $219 MXN · Compatible: serie P1, serie X1 · SKU FAS036
 - Acoplador de tubo de asistencia área láser de 10 W compatible con H2D y H2S — $279 MXN · Compatible: H2D, H2S · SKU SLA002
 - Acoplador de tubo de PTFE compatible con P1P y P1S — $219 MXN · Compatible: P1P, P1S · SKU FAZ009
 - Acoplador de tubo PTFE H2 compatible con H2D — $439 MXN · Compatible: H2D · SKU FAC114
+- Acoplador del tubo de asistencia de aire para láser de 40 W para series H2 — $729 MXN · Compatible: serie H2 · SKU SLA001
 - Acoplador eje Z para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAC029
 - Adaptador de tubo PTFE 4 en 1 — $539 MXN · SKU SA014
 - Adaptador de tubo PTFE 4 en 1 compatible con X2D/P2S/X1/P1/a2l — $279 MXN · Compatible: serie P1, P2S, X1, X2D · SKU FAZ013-N
+- Alimentador para AMS HT — $729 MXN · Compatible: AMS HT · SKU SAA054
 - Almohadilla de soporte para base de impresora A1 — $219 MXN · Compatible: A1 · SKU FAZ014-N
 - Anillo inferior de plástico del gabinete compatible con serie H2 — $869 MXN · Compatible: serie H2 · SKU FAS050
 - Antena Wi-Fi Bambu Lab para impresoras P1P y P1S — $279 MXN · Compatible: P1P, P1S · SKU FAS009
 - Antena Wi-Fi compatible con serie H2 — $289 MXN · Compatible: serie H2 · SKU FAC099
 - Antena Wi-Fi compatible con X1, X1C y X1E — $219 MXN · Compatible: X1, X1C, X1E · SKU FAS008
 - Antena Wi-Fi para A1 — $209 MXN · Compatible: A1 · SKU FAC048
+- AP board para series X1E — $4,939 MXN · Compatible: X1E · SKU DLB001
+- Bambu Lab AMS reacondicionado — $7,889 MXN · Compatible: AMS · SKU SA001-R
+- Bambu Lab r1 (preventa) — $80,989 MXN · SKU LM001-P
 - Banda eje Z compatible con P1P, P1S, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAB002
 - Banda X para A1 — $289 MXN · Compatible: A1 · SKU FAB006
 - Banda X para A1 mini — $279 MXN · Compatible: A1 mini · SKU FAB003
@@ -374,10 +379,12 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Base del sensor de filamento compatible con serie A1 — $259 MXN · Compatible: serie A1 · SKU FAC055
 - Base para hotend de inducción compatible con H2C — $1,309 MXN · Compatible: H2C · SKU FAC190
 - Bloqueador de flujo compatible con H2D y láser H2D — $549 MXN · Compatible: H2D · SKU FAC125
+- Bloqueador de flujo para serie X2D — $289 MXN · Compatible: X2D · SKU FAC207
 - Bomba de aire integrada para H2D — $5,109 MXN · Compatible: H2D · SKU FAC124
 - Botón de emergencia compatible con láser H2D y H2S — $1,019 MXN · Compatible: H2D, H2S · SKU FAC136
 - Botón de inicio/pausa compatible con H2D — $289 MXN · Compatible: H2D · SKU FAC096
 - Botón de liberación para tubos PTFE de AMS 2 Pro — $299 MXN · Compatible: AMS 2 Pro · SKU SAA046
+- Buffer de filamento para serie X2D — $1,019 MXN · Compatible: X2D · SKU SA015
 - Cable Bambu bus de 4 pines compatible con P1P, P1S, X1C y X1E — $219 MXN · Compatible: P1P, P1S, X1C, X1E · SKU CAB002-N
 - Cable Bambu bus de 6 pines compatible con P1P, P1S, X1C y X1E — $219 MXN · Compatible: P1P, P1S, X1C, X1E · SKU CAB003
 - Cable Bambu bus de 6 pines para AMS hub compatible con P1P, P1S, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1C, X1E, AMS · SKU CAB004
@@ -387,44 +394,60 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Cable conector de pantalla compatible con P1P y P1S — $219 MXN · Compatible: P1P, P1S · SKU CAB007
 - Cable conector para cabezal de herramientas para P1P — $279 MXN · Compatible: P1P · SKU CAB006-1
 - Cable conector para cabezal de herramientas para P1S — $289 MXN · Compatible: P1S · SKU CAB010
+- Cable de alimentación para A1 mini — $439 MXN · Compatible: A1 mini · SKU CAB020-US
+- Cable de alimentación para series A1, P1, P2S, X1, H2 y X2D — $439 MXN · Compatible: A1, serie P1, P2S, X1, X2D, serie H2 · SKU CAB031
 - Cable de cabezal de impresión para P2S — $439 MXN · Compatible: P2S · SKU CAB046
 - Cable de senal para cama caliente compatible con X1, X1C, P1P, P1S y X1E — $219 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU CAB016
 - Cable del cabezal de herramientas a la placa MC compatible con H2D — $289 MXN · Compatible: H2D · SKU CAB038
+- Cable del cabezal de impresión para serie a2l — $579 MXN · SKU CAB054
 - Cable flexor compatible con X1C y X1E — $289 MXN · Compatible: X1C, X1E · SKU CAB005
 - Cable FPC de la placa TH v9 compatible con X1, X1C y X1E — $289 MXN · Compatible: X1, X1C, X1E · SKU CAB012
 - Cable FPC de placa TH compatible con H2D — $179 MXN · Compatible: H2D · SKU CAB036
 - Cable FPC de placa TH para P2S — $369 MXN · Compatible: P2S · SKU CAB045
+- Cable FPC para pantalla de series P2S y X2D — $289 MXN · Compatible: P2S, X2D · SKU CAB048
 - Cable FPC para placa TH compatible con serie P1 — $369 MXN · Compatible: serie P1 · SKU CAB009
 - Cable LED logo compatible con X1, X1C, P1P, P1S y X1E — $369 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU CAB013
 - Cable MC a AP compatible con serie P1 — $369 MXN · Compatible: serie P1 · SKU CAB011
 - Cable para AMS Lite de 4 pines — $369 MXN · Compatible: AMS lite · SKU CAB018
 - Cable para cama caliente para A1 mini — $289 MXN · Compatible: A1 mini · SKU CAB017
+- Cable tipo c para serie X2D — $439 MXN · Compatible: X2D · SKU CAB050
 - Cable USB-C compatible con H2D — $579 MXN · Compatible: H2D · SKU CAB037
 - Cable USB-C para H2S — $729 MXN · Compatible: H2S · SKU CAB042
 - Cadena de cable compatible con P1S y X1C — $509 MXN · Compatible: P1S, X1C · SKU FAZ005
 - Cadena de cable para X1E — $509 MXN · Compatible: X1E · SKU FAC037
 - Cadena para cables compatible con H2D — $579 MXN · Compatible: H2D · SKU FAC098
+- Cadena portacables para serie H2S — $579 MXN · Compatible: H2S · SKU FAC144
+- Caja de accesorios para AMS — $369 MXN · Compatible: AMS · SKU FAC078-C
+- Caja de accesorios para AMS Lite — $369 MXN · Compatible: AMS lite · SKU FAC079-C
+- Camera para serie P1 — $949 MXN · Compatible: serie P1 · SKU CAM002
 - Carcasa base para A1 — $1,399 MXN · Compatible: A1 · SKU FAS021
 - Carcasa base para A1 mini — $579 MXN · Compatible: A1 mini · SKU FAS013
+- Carcasa central del cabezal de impresión para serie X2D — $219 MXN · Compatible: X2D · SKU FAE055
 - Carcasa de motor del eje X para A1 — $369 MXN · Compatible: A1 · SKU FAC043-N
 - Carcasa de motor X para A1 — $369 MXN · Compatible: A1 · SKU FAC043
 - Carcasa delantera compatible con P1P y P1S — $729 MXN · Compatible: P1P, P1S · SKU FAZ003
 - Carcasa delantera compatible con X1C y X1E — $729 MXN · Compatible: X1C, X1E · SKU FAZ001
 - Carcasa superior del gabinete compatible con serie H2 y láser H2 — $3,769 MXN · Compatible: serie H2 · SKU FAS047
 - Carcasa top frame para Bambu Lab H2S — $5,629 MXN · Compatible: H2S · SKU FAS068
+- Carcasa trasera de la pantalla con bisagra para serie X2D — $579 MXN · Compatible: X2D · SKU FAC211
+- Carcasa trasera de la pantalla para serie X1 — $579 MXN · Compatible: serie X1 · SKU DIS004
 - Carcasa trasera de pantalla con bisagra para P2S — $289 MXN · Compatible: P2S · SKU FAC154
 - Carril lineal del eje X para A1 — $2,259 MXN · Compatible: A1 · SKU FAC040
 - Carril lineal del eje X para A1 — $2,289 MXN · Compatible: A1 · SKU FAC040-N
 - Carril lineal del eje Y para A1 — $1,849 MXN · Compatible: A1 · SKU FAC042
+- Carro del cabezal de impresión para serie X2D — $1,089 MXN · Compatible: X2D · SKU FAE057
+- Cinturón X y y para series P2S — $509 MXN · Compatible: P2S · SKU FAC169
 - Cinturón Y para A1 — $289 MXN · Compatible: A1 · SKU FAB007
 - Cinturón Y para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAB004
 - Cinturón Z para A1 — $219 MXN · Compatible: A1 · SKU FAB008
+- Coleccion de kit de componentes de raton inalambrico Bambu Lab — $509 MXN · SKU MH002
 - Conducto de ventilación para pieza compatible con H2D — $439 MXN · Compatible: H2D · SKU FAF012
 - Conector de alimentación AMS HT — $339 MXN · Compatible: AMS HT · SKU SAA057
 - Conector de tubo de asistencia de aire láser compatible con H2D — $169 MXN · Compatible: H2D · SKU FAC113
 - Conector de tubo de PTFE para A1 — $309 MXN · Compatible: A1 · SKU FAC051-N
 - Conector de tubo de PTFE para A1 mini — $189 MXN · Compatible: A1 mini · SKU FAC015
 - Conector de tubo PTFE compatible con P1P, P1S, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAZ006
+- Conector de tubo PTFE para soporte de bobina para series P2S y X2D — $289 MXN · Compatible: P2S, X2D · SKU FAC184
 - Conjunto calefactor de hotend para P2S — $1,019 MXN · Compatible: P2S · SKU FAH049
 - Conjunto calefactor por inducción (derecha) compatible con H2C — $1,959 MXN · Compatible: H2C · SKU FAC191
 - Conjunto de calefacción para hotend versión 2 compatible con serie A — $989 MXN · Compatible: serie A1 · SKU FAH012-V1
@@ -439,21 +462,28 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Conjunto de engranes del extrusor para H2S — $509 MXN · Compatible: H2S · SKU FAE033
 - Conjunto de engranes del extrusor para P2S — $729 MXN · Compatible: P2S · SKU FAE035
 - Conjunto de interruptor de encendido compatible con serie X1 y P1 — $439 MXN · Compatible: serie P1, serie X1 · SKU FAC054
+- Conjunto de la cubierta frontal de la unidad de extrusión para serie X2D — $579 MXN · Compatible: X2D · SKU FAE056
+- Conjunto de la cubierta frontal del cabezal de impresión para serie X2D — $869 MXN · Compatible: X2D · SKU FAE053
 - Conjunto de puerto USB para P2S — $289 MXN · Compatible: P2S · SKU FAC153
 - Conjunto de retraccion de filamento para AMS HT — $509 MXN · Compatible: AMS HT · SKU SAA055
 - Conjunto de ruedas de extrusión activa AMS compatible con P1P, P1S y X1C — $509 MXN · Compatible: P1P, P1S, X1C, AMS · SKU SA001-W1
 - Conjunto de sensor hall del alimentador para AMS HT — $289 MXN · Compatible: AMS HT · SKU SAA053
+- Conjunto del bloqueador de flujo para serie X2D — $579 MXN · Compatible: X2D · SKU FAC208
 - Conjunto del eje X para A1 mini — $1,819 MXN · Compatible: A1 mini · SKU FAC014-N
 - Conjunto del eje X para P2S — $1,959 MXN · Compatible: P2S · SKU FAC172
+- Correa X y y para serie H2S — $729 MXN · Compatible: H2S · SKU FAC145
 - Correa XY compatible con H2D — $1,109 MXN · Compatible: H2D · SKU FAB010
 - Correa XY compatibles con P1P, P1S, X1C y X1E — $889 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAB001
 - Correa Z / conjunto de polea de sincronización Z compatible con H2D — $369 MXN · Compatible: H2D · SKU FAB011
 - Cortador de filamento de repuesto compatible con H2D — $219 MXN · Compatible: H2D · SKU FAC095
 - Cortador de filamento de repuesto para A1 mini y A1 — $219 MXN · Compatible: A1 mini, A1 · SKU FAC034
-- Cristal lateral izquierdo para H2D — $1,749 MXN · Compatible: H2D · SKU FAS042
+- Cortador de filamento para serie X2D — derecho — $219 MXN · Compatible: X2D · SKU FAC204
+- Cortador de filamento para serie X2D — izquierdo — $219 MXN · Compatible: X2D · SKU FAC203
+- Cristal lateral izquierdo para H2D — $869 MXN · Compatible: H2D · SKU FAS042
 - Cubierta de placa AP compatible con serie H2 — $509 MXN · Compatible: serie H2 · SKU FAC103
 - Cubierta de placa de CA compatible con serie H2 — $289 MXN · Compatible: serie H2 · SKU FAC104
 - Cubierta del filtro de aire de carbón activado compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAC117
+- Cubierta del filtro de aire de serie p2 y x2 — $289 MXN · SKU FAC157
 - Cubierta del motor del eje X para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAC032
 - Cubierta frontal compatible con serie y láser H2 — $579 MXN · Compatible: serie H2 · SKU FAS049
 - Cubierta frontal de la unidad extrusora compatible con P2S — $389 MXN · Compatible: P2S · SKU FAE039
@@ -464,44 +494,55 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Cubierta frontal para impresora H2S — $579 MXN · Compatible: H2S · SKU FAS065
 - Cubierta frontal para P1P — $609 MXN · Compatible: P1P · SKU SPC011
 - Cubierta frontal para serie P1 — $619 MXN · Compatible: serie P1 · SKU FAS035
-- Cubierta frontal para X1C — $1,079 MXN · Compatible: X1C · SKU FAS007
+- Cubierta frontal para serie X2D — $439 MXN · Compatible: X2D · SKU FAS082
+- Cubierta frontal para X1C — $729 MXN · Compatible: X1C · SKU FAS007
 - Cubierta inferior AMS HT — $1,959 MXN · Compatible: AMS HT · SKU SAA050
 - Cubierta inferior frontal para A1 — $529 MXN · Compatible: A1 · SKU FAS019
 - Cubierta inferior para AMS Bambu Lab X1, X1C, P1P y P1S — $1,959 MXN · Compatible: P1P, P1S, X1, X1C, AMS · SKU SAA001
 - Cubierta inferior trasera para A1 — $369 MXN · Compatible: A1 · SKU FAS020
 - Cubierta LED de la cámara superior compatible con serie H2 — $219 MXN · Compatible: serie H2 · SKU FAZ034
+- Cubierta para tarjeta AP para serie P2S y X2D — $439 MXN · Compatible: P2S, X2D · SKU DLB049-V2
 - Cubierta posterior de la cabeza de impresión compatible con X1, X1C, P1P, P1S y X1E — $289 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAE005
 - Cubierta superior del eje Y para A1 — $219 MXN · Compatible: A1 · SKU FAS022-N
 - Cubierta superior del eje Z para A1 mini — $189 MXN · Compatible: A1 mini · SKU FAC035
 - Cubierta superior del revestimiento interior (derecha) compatible con serie H2 — $1,669 MXN · Compatible: serie H2 · SKU FAS051
 - Cubierta superior para A1 mini — $1,309 MXN · Compatible: A1 mini · SKU FAS034
 - Cubierta trasera de la cabeza de impresión para A1 mini y A1 — $189 MXN · Compatible: A1 mini, A1 · SKU FAE007
+- Cubierta trasera del cabezal de impresión para serie X2D — $289 MXN · Compatible: X2D · SKU FAE054
 - Cubierta trasera del cabezal para H2S — $289 MXN · Compatible: H2S · SKU FAE030
 - Cubierta trasera del cabezal para P2S — $379 MXN · Compatible: P2S · SKU FAE037
 - Cuchilla de punta fina compatible con H2D — $1,269 MXN · Compatible: H2D · SKU SCA003
 - Cámara de boquilla compatible con H2D y láser H2D — $1,599 MXN · Compatible: H2D · SKU CAM008
 - Cámara de vigilancia para X1C — $2,189 MXN · Compatible: X1C · SKU CAM001
 - Cámara de vigilancia y tira LED compatibles con P1P y P1S — $1,399 MXN · Compatible: P1P, P1S · SKU CAM002+FAZ004
-- Cámara del cabezal de herramientas (1080p, 30 fps) compatible con H2D, H2S y láser H2D y H2S — $1,439 MXN · Compatible: H2D, H2S · SKU FAC092
+- Cámara del cabezal de herramientas (1080p, 30 fps) compatible con H2D, H2S y láser H2D y H2S — $1,019 MXN · Compatible: H2D, H2S · SKU FAC092
 - Cámara para A1 mini — $1,019 MXN · Compatible: A1 mini · SKU CAM003
+- DLB005 — $1,459 MXN · SKU DLB005
+- DLB014 — $1,669 MXN · SKU DLB014
+- DLB019-n — $439 MXN · SKU DLB019-N
 - Eje de soporte activo AMS HT — $289 MXN · Compatible: AMS HT · SKU SAA061
 - Eje de soporte motriz AMS 2 Pro — $289 MXN · Compatible: AMS 2 Pro · SKU SAA033
 - Eje de soporte motriz AMS HT — $279 MXN · Compatible: AMS HT · SKU SAA060
 - Ensamblaje de varillas de carbono del eje X compatible con P1P, P1S, X1C, X1 y X1E — $3,649 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAC003
 - Ensamblaje del eje Z para A1 mini — $2,069 MXN · Compatible: A1 mini · SKU FAC030
 - Extractor de cámara activa compatible con H2D — $289 MXN · Compatible: H2D · SKU FAC120
-- FAF019 — $1,949 MXN · SKU FAF019
+- FAF019 — $1,309 MXN · SKU FAF019
 - Fuente de alimentación conmutada compatible con H2D y láser H2D — $4,059 MXN · Compatible: H2D · SKU FAC121
 - Fuente de alimentación interna (entrada 100-240 V y salida de 24 V) compatible con serie X1 y P1 — $1,959 MXN · Compatible: serie P1, serie X1 · SKU FAC059
 - Fuente de alimentación para A1 — $1,959 MXN · Compatible: A1 · SKU FAC065
 - Fuente de alimentación para A1 mini (salida de 24v) — $1,959 MXN · Compatible: A1 mini · SKU FAC031
+- Fuente de alimentación para P2S — $1,959 MXN · Compatible: P2S · SKU FAC165
+- Fuente de alimentación para serie X2D — $1,959 MXN · Compatible: X2D · SKU FAC220
 - Gomas anti-vibracion compatibles con P1P, P1S, X1C y X1E — $439 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAZ004-N
 - Gomas antivibracion compatible con H2D — $309 MXN · Compatible: H2D · SKU FAZ037
 - Guía de filamento para doble extrusor compatible con H2D — $289 MXN · Compatible: H2D · SKU FAE022
 - Herramienta de desbaste compatible con H2D — $289 MXN · Compatible: H2D · SKU SCA001
+- Hub de AMS para serie A1 — $729 MXN · Compatible: serie A1, AMS · SKU SA013
 - Indicador de estado láser 10 W compatible con H2D — $579 MXN · Compatible: H2D · SKU SLA014
 - Indicador de estado para H2 — $729 MXN · Compatible: serie H2 · SKU FAZ038
 - Interfaz de cambio rápido de herramienta compatible con H2D — $869 MXN · Compatible: H2D · SKU FAE023
+- Kit de accesorios de luz y sonido con activación por movimiento — $4,209 MXN · SKU B-ZC007
+- Kit de alto flujo para TPU para serie H2D — $1,309 MXN · Compatible: H2D · SKU FAC233
 - Kit de cables (2 en 1) para MC AP compatible con H2D y láser H2D — $289 MXN · Compatible: H2D · SKU CAB041
 - Kit de cables (2 en 1) para MC AP compatible con serie X1 — $439 MXN · Compatible: serie X1 · SKU CAB015
 - Kit de cables (4 en 1) para impresora — $579 MXN · SKU CAB014
@@ -509,16 +550,36 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Kit de cables (5 en 1) para AMS — $509 MXN · Compatible: AMS · SKU SAA003
 - Kit de cables (6 en 1) para AMS 2 Pro — $589 MXN · Compatible: AMS 2 Pro · SKU CAB034
 - Kit de cables (7 en 1) para H2D y láser H2D — $579 MXN · Compatible: H2D · SKU CAB040
+- Kit de cargador inalámbrico — $1,599 MXN · SKU K012
+- Kit de componentes del modelo de motor Bambu Lab — $439 MXN · SKU MH005
+- Kit de componentes para pista de canicas Bambu Lab — $439 MXN · SKU MH003
 - Kit de conversion para habilitar compatibilidad con módulo láser en impresoras H2D y H2D combo 1 — $20,359 MXN · Compatible: H2D · SKU BAMBULAB-LASER-UPGRADE-KT
+- Kit de hardware cyberbrick para principiantes — $1,449 MXN · SKU B-ZK004
+- Kit de hardware cyberbrick para time-lapse - ZK005 — $659 MXN · SKU B-ZK005
+- Kit de hardware cyberbrick ultimate — $2,539 MXN · SKU B-ZK003
+- Kit de herramienta wdt eléctrica para café — $1,239 MXN · SKU K013
+- Kit de husillos del eje Z para serie P2S — $659 MXN · Compatible: P2S · SKU FAC178
+- Kit de lampara LED Bambu Lab — $509 MXN · SKU MH001
+- Kit de levitación controlada electrónicamente — $2,029 MXN · SKU B-ZC008
+- Kit de montaje de la puerta frontal para serie P2S — $579 MXN · Compatible: P2S · SKU FAS075
 - Kit de montaje de puerta frontal compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAS044
 - Kit de montaje para puerta delantera compatible con serie X1 y P1 — $579 MXN · Compatible: serie P1, serie X1 · SKU FAS002-A2
 - Kit de montaje para puerta frontal compatible con P1S y X1C — $739 MXN · Compatible: P1S, X1C · SKU FAS002-A1
+- Kit de placa de retroiluminación LED para litofanías — 192x144 mm (4pcs) - KC010 — $579 MXN · SKU B-KC010
+- Kit de placa de retroiluminación LED para litofanías — 96x144 mm (2pcs) - KC009 — $439 MXN · SKU B-KC009
 - Kit de tornillos compatible con serie A1 y AMS Lite — $439 MXN · Compatible: serie A1, AMS lite · SKU SCR003
+- Kit de tornillos para series H2 — $369 MXN · Compatible: serie H2 · SKU SCR005
 - Kit de ventilación superior automática compatible con H2D — $439 MXN · Compatible: H2D · SKU FAS048
+- Kit para principiantes maker — $439 MXN · SKU B-ZC002
 - LED de cámara superior (derecha) — $439 MXN · SKU FAZ033
 - LED de cámara superior (izquierda) — $439 MXN · SKU FAZ032
+- Limpiador de purga para serie H2S — $439 MXN · Compatible: H2S · SKU FAC147
+- Limpiador de purga para serie P2S — $509 MXN · Compatible: P2S · SKU FAC162
+- Limpiador de purga para serie X2D — $579 MXN · Compatible: X2D · SKU FAC209
 - Llave de seguridad H2 compatible con H2D — $439 MXN · Compatible: H2D · SKU FAC134
+- Luces rgbw tipo puck de 16 colores con control remoto (2 piezas) — $369 MXN · SKU B-KC007
 - Luz LED frontal para P2S — $439 MXN · Compatible: P2S · SKU FAZ048
+- Luz LED frontal para serie X1E — $439 MXN · Compatible: X1E · SKU FAZ012
 - Luz LED lateral izquierda para P2S — $439 MXN · Compatible: P2S · SKU FAZ049
 - Marcador de área de referencia de la plataforma láser compatible con H2D y H2S — $219 MXN · Compatible: H2D, H2S · SKU SLA008
 - Motor de alimentación para AMS Lite — $369 MXN · Compatible: AMS lite · SKU SAA017
@@ -529,7 +590,10 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Motor del extrusor para H2S — $2,839 MXN · Compatible: H2S · SKU FAM019
 - Motor eje X para A1 — $869 MXN · Compatible: A1 · SKU FAM009
 - Motor eje Y para A1 — $1,169 MXN · Compatible: A1 · SKU FAM010
+- Motor interno para AMS hub — $1,159 MXN · Compatible: AMS · SKU SPP038
 - Motor X para A1 mini — $869 MXN · Compatible: A1 mini · SKU FAM005
+- Motor X y y para serie P2S y X2D — $1,019 MXN · Compatible: P2S, X2D · SKU FAM020
+- Motor X y y para series x y p — $1,019 MXN · SKU FAM004
 - Motor XY compatible con H2D — $1,019 MXN · Compatible: H2D · SKU FAM016
 - Motor XY compatible con X1, X1C y X1E — $1,019 MXN · Compatible: X1, X1C, X1E · SKU FAM001
 - Motor Y para A1 mini — $869 MXN · Compatible: A1 mini · SKU FAM006
@@ -539,7 +603,10 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Módulo láser 10 W compatible con H2D combo2 para grabado en madera, acrilico y mas — $11,319 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-10W
 - Módulo láser 40 W compatible con H2D combo2 alta potencia para corte y grabado de materiales densos — $34,489 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-40W
 - Organizador de tubos para H2D y láser H2D — $289 MXN · Compatible: H2D · SKU FAC138
+- Pack de cables para serie P2S y X2D — $589 MXN · Compatible: P2S, X2D · SKU CAB047
 - Palanca de corte compatible con P1P, P1S, X1, X1C y X1E — $279 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAC004
+- Palanca del cortador de filamento para serie H2S — $289 MXN · Compatible: H2S · SKU FAC143
+- Palanca del cortador de filamento para serie X2D — $289 MXN · Compatible: X2D · SKU FAC202
 - Panel de plástico derecho para P1S — $1,399 MXN · Compatible: P1S · SKU FAS005
 - Panel de plástico izquiero para P1S — $1,019 MXN · Compatible: P1S · SKU FAS004
 - Panel lateral con ventana de vidrio (izquierdo) para H2D — $2,109 MXN · Compatible: H2D · SKU FAS039
@@ -547,37 +614,53 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Panel lateral derecho (hr) compatible con serie X1 — $4,409 MXN · Compatible: serie X1 · SKU FAS029
 - Panel lateral derecho con ventana de seguridad láser compatible con H2D — $2,979 MXN · Compatible: H2D · SKU FAS055
 - Panel lateral derecho para H2S — $1,669 MXN · Compatible: H2S · SKU FAS067
+- Panel lateral derecho para serie X1C — $3,849 MXN · Compatible: X1C · SKU SPP055
+- Panel lateral derecho para serie X1E — $3,849 MXN · Compatible: X1E · SKU FAS016
+- Panel lateral derecho para series P2S — $1,019 MXN · Compatible: P2S · SKU FAS073
 - Panel lateral izquierdo (hr) compatible con serie X1 — $4,399 MXN · Compatible: serie X1 · SKU FAS028
 - Panel lateral izquierdo con ventana de seguridad láser compatible con H2D — $2,829 MXN · Compatible: H2D · SKU FAS054
 - Panel lateral izquierdo para H2S — $1,669 MXN · Compatible: H2S · SKU FAS066
+- Panel lateral izquierdo para serie P2S — $1,019 MXN · Compatible: P2S · SKU FAS072
+- Panel lateral izquierdo para serie X1E — $3,849 MXN · Compatible: X1E · SKU FAS017
 - Panel metálico trasero para X1C — $579 MXN · Compatible: X1C · SKU FAS011
 - Panel trasero de metal para P1S — $729 MXN · Compatible: P1S · SKU FAS003
 - Panel trasero para P1P — $729 MXN · Compatible: P1P · SKU FAS010
 - Panel trasero para P2S — $949 MXN · Compatible: P2S · SKU FAS071
 - Panel trasero para serie H2 — $1,159 MXN · Compatible: serie H2 · SKU FAS046
+- Panel trasero para serie X1E — $2,249 MXN · Compatible: X1E · SKU FAS014
 - Pantalla AMS HT — $869 MXN · Compatible: AMS HT · SKU SAA058
 - Pantalla de alta resolución compatible con P1P y P1S — $1,019 MXN · Compatible: P1P, P1S · SKU DIS002
+- Pantalla de alta resolución para series X1 — $4,719 MXN · Compatible: X1 · SKU DIS006
 - Pantalla de alta resolución para X1C y X1E — $6,149 MXN · Compatible: X1C, X1E · SKU DIS001
+- Pantalla para serie P2S — $4,059 MXN · Compatible: P2S · SKU DIS009
+- Pantalla para serie X2D — $4,719 MXN · Compatible: X2D · SKU DIS010
+- Pantalla touch para series A1 y a2l — $1,089 MXN · Compatible: A1 · SKU DIS005
+- Pantalla touch para series H2 — $4,719 MXN · Compatible: serie H2 · SKU DIS007
 - Pantalla táctil para A1 mini — $869 MXN · Compatible: A1 mini · SKU DIS003
+- Paquete de cables de comunicación de tarjeta MC a ac 4 en 1 para serie X1E — $269 MXN · Compatible: X1E · SKU CAB022
 - Paquete de cables MC AP 2 en 1 para P2S — $369 MXN · Compatible: P2S · SKU CAB044
+- Paquete de cables para serie X2D — $579 MXN · Compatible: X2D · SKU CAB051
+- Placa ac bajo voltaje para serie P2S — $869 MXN · Compatible: P2S · SKU DLB053
 - Placa ac LV para P2S — $1,849 MXN · Compatible: P2S · SKU DLB054
 - Placa ac para serie H2 — $2,149 MXN · Compatible: serie H2 · SKU DLB031
 - Placa AP (impresora 110v) compatible con H2D, H2S y láser H2D y H2S — $6,009 MXN · Compatible: H2D, H2S · SKU DLB027
-- Placa AP (V2) compatible con serie X1 — $6,249 MXN · Compatible: serie X1 · SKU FAC011-N
+- Placa AP (V2) compatible con serie X1 — $4,429 MXN · Compatible: serie X1 · SKU FAC011-N
+- Placa AP bajo voltaje para P2S — $3,769 MXN · Compatible: P2S · SKU DLB050
 - Placa AP LV para P2S — $8,859 MXN · Compatible: P2S · SKU DLB051
-- Placa AP para P1S — $1,919 MXN · Compatible: P1S · SKU FAC008
+- Placa AP para P1S — $1,309 MXN · Compatible: P1S · SKU FAC008
 - Placa base para A1 mini — $699 MXN · Compatible: A1 mini · SKU FAS012-V2
 - Placa base para A1 mini — $1,999 MXN · Compatible: A1 mini · SKU SAA016-N
 - Placa base para AMS 2 Pro — $1,959 MXN · Compatible: AMS 2 Pro · SKU DLB022
 - Placa base para AMS Lite — $1,599 MXN · Compatible: AMS lite · SKU SAA020
-- Placa de alimentación AMS HT — $599 MXN · Compatible: AMS HT · SKU DLB039
-- Placa de alimentación para AMS — $579 MXN · Compatible: AMS · SKU DLB010
+- Placa de alimentación AMS HT — $369 MXN · Compatible: AMS HT · SKU DLB039
+- Placa de alimentación para AMS — $439 MXN · Compatible: AMS · SKU DLB010
 - Placa de alimentación para AMS 2 Pro — $719 MXN · Compatible: AMS 2 Pro · SKU DLB023
 - Placa de botones con sensor de temperatura de la cámara compatible con serie X1 — $289 MXN · Compatible: serie X1 · SKU DLB018
+- Placa de botón para serie X1E — $879 MXN · Compatible: X1E · SKU DLB016
 - Placa de CA (impresora 110v) compatible con H2D, H2S y láser H2D y H2S — $1,399 MXN · Compatible: H2D, H2S · SKU DLB030
 - Placa de CA 3D-Bambu Lab X1 y P1 series — $869 MXN · Compatible: serie P1, X1 · SKU DLB017
-- Placa de cabezal de herramientas compatible con serie A1 — $1,189 MXN · Compatible: serie A1 · SKU FAE020
-- Placa de conexión del bufer de filamento para AMS — $819 MXN · Compatible: AMS · SKU SAA025
+- Placa de cabezal de herramientas compatible con serie A1 — $869 MXN · Compatible: serie A1 · SKU FAE020
+- Placa de conexión del bufer de filamento para AMS — $579 MXN · Compatible: AMS · SKU SAA025
 - Placa de conexión del extrusor para P2S — $439 MXN · Compatible: P2S · SKU DLB056
 - Placa de conexión para AMS — $439 MXN · Compatible: AMS · SKU DLB011
 - Placa de cubierta de vidrio para P2S — $2,009 MXN · Compatible: P2S · SKU FAS069
@@ -587,8 +670,10 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Placa de interfaz piezoelectrica para cama calefactable compatible con X1 y P1 — $289 MXN · Compatible: serie P1, X1 · SKU FAC010
 - Placa de puerto USB compatible con H2D — $289 MXN · Compatible: H2D · SKU DLB034
 - Placa de sensor hall para extrusor compatible con H2D — $439 MXN · Compatible: H2D · SKU DLB026
+- Placa de superficie de diamante Bambu Lab para serie A1 mini — $729 MXN · Compatible: serie A1 · SKU FAP022-N
 - Placa del cabezal de herramientas (TH) compatible con H2D y H2D Pro — $2,449 MXN · Compatible: H2D · SKU DLB025
-- Placa del cabezal de herramientas TH compatible con P1P y P1S — $1,749 MXN · Compatible: P1P, P1S · SKU FAE003
+- Placa del cabezal de herramientas para A1 mini y A1 — $869 MXN · Compatible: A1 mini, A1 · SKU FAE009
+- Placa del cabezal de herramientas TH compatible con P1P y P1S — $1,309 MXN · Compatible: P1P, P1S · SKU FAE003
 - Placa del cabezal de herramientas versión 2 para serie A1 — $1,529 MXN · Compatible: serie A1 · SKU FAE009-V2
 - Placa fría super track compatible con H2 — $3,599 MXN · Compatible: serie H2 · SKU FAP040-V1
 - Placa madre para A1 — $3,309 MXN · Compatible: A1 · SKU DLB006
@@ -596,21 +681,27 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Placa MC compatible con H2D, H2S y láser H2D y H2S — $3,259 MXN · Compatible: H2D, H2S · SKU DLB029
 - Placa MC compatible con serie X1 — $2,109 MXN · Compatible: serie X1 · SKU FAC006
 - Placa MC para P2S — $2,029 MXN · Compatible: P2S · SKU DLB052
+- Placa MC para series H2 — $2,539 MXN · Compatible: serie H2 · SKU DLB029-V1
+- Placa PEI texturizada Bambu Lab para h2cc — $1,819 MXN · SKU FAP035
 - Placa principal AMS HT — $2,249 MXN · Compatible: AMS HT · SKU DLB038
 - Placa principal AMS versión 2 — $729 MXN · Compatible: AMS · SKU FAB010-V2
 - Placa RFID para AMS — $439 MXN · Compatible: AMS · SKU SAA027
 - Placa TH para P2S — $1,019 MXN · Compatible: P2S · SKU DLB057
+- Placa TH para series H2 — $1,959 MXN · Compatible: serie H2 · SKU DLB025-V1
 - Polea de distribución de la correa Z compatible con serie X1 y P1 — $289 MXN · Compatible: serie P1, serie X1 · SKU FAB005
 - Polea de eje XY para A1 mini — $219 MXN · Compatible: A1 mini · SKU FAC026
+- Polea dentada de la correa Z para P2S — $289 MXN · Compatible: P2S · SKU FAC177
 - Polea loca para P2S — $439 MXN · Compatible: P2S · SKU FAC173
 - Polea tensora compatible con serie X1 y P1 — $289 MXN · Compatible: serie P1, serie X1 · SKU FAC049
-- Polea tensora del eje X compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAC108
+- Polea tensora del eje X compatible con serie H2 — $439 MXN · Compatible: serie H2 · SKU FAC108
 - Polea tensora regular compatible con serie H2 — $439 MXN · Compatible: serie H2 · SKU FAC109
 - Porta bobina A1 mini — $189 MXN · Compatible: A1 mini · SKU FAC019
 - Portacarrete y soporte compatible con serie H2 — $369 MXN · Compatible: serie H2 · SKU FAC130
+- Portada para serie P2S — $729 MXN · Compatible: P2S · SKU FAS074
 - Puerta de cristal compatible con P1S, X1C y X1E — $1,309 MXN · Compatible: P1S, X1C, X1E · SKU FAS002
 - Puerta frontal de cristal para Bambu Lab H2S — $2,399 MXN · Compatible: H2S · SKU FAS043
 - Puerta frontal de vidrio para P2S — $1,379 MXN · Compatible: P2S · SKU FAS070
+- Revestimiento interior para serie P2S — $1,089 MXN · Compatible: P2S · SKU FAS076
 - Riel de elevación de boquilla compatible con H2D — $1,019 MXN · Compatible: H2D · SKU FAC089
 - Riel lineal del eje Y para A1 mini — $1,529 MXN · Compatible: A1 mini · SKU FAC016
 - Rodamientos de pista del eje Y para A1 mini — $349 MXN · Compatible: A1 mini · SKU FAC027
@@ -621,13 +712,21 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Sensor de filamento del extrusor compatible con serie P1 — $889 MXN · Compatible: serie P1 · SKU DLB012
 - Sensor de filamento del extrusor compatible con serie X1 — $509 MXN · Compatible: serie X1 · SKU DLB013
 - Sensor de filamento del extrusor para H2S — $439 MXN · Compatible: H2S · SKU FAC142
-- Sensor de placa de cama caliente compatible con P1P, P1S, X1, X1C y X1E — $369 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAC005
+- Sensor de placa de cama caliente compatible con P1P, P1S, X1, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAC005
 - Sensor de puerta compatible con serie X1 — $319 MXN · Compatible: serie X1 · SKU FAC053
+- Sensor de puerta para serie P2S — $289 MXN · Compatible: P2S · SKU FAC161
 - Sensor de remolino de boquilla (derecha) compatible con H2D y láser H2D — $319 MXN · Compatible: H2D · SKU FAC091
 - Sensor de remolino de boquilla (izquierda) compatible con H2D y láser H2D — $439 MXN · Compatible: H2D · SKU FAC129
+- Sensor de temperatura de la cámara para serie P2S — $289 MXN · Compatible: P2S · SKU FAC156
+- Sensor de temperatura de la cámara para serie X2D — $289 MXN · Compatible: X2D · SKU FAC217
 - Sensor eddy para P2S — $439 MXN · Compatible: P2S · SKU FAC155
+- Sensor eddy para serie H2S — $439 MXN · Compatible: H2S · SKU FAC185
+- Sensor eddy para serie X2D — derecho — $439 MXN · Compatible: X2D · SKU FAC206
+- Sensor eddy para serie X2D — izquierdo — $439 MXN · Compatible: X2D · SKU FAC205
 - Sensor hall de estado de tapa para AMS HT — $289 MXN · Compatible: AMS HT · SKU DLB040
-- Soporte de alimentación para AMS Lite — $599 MXN · Compatible: AMS lite · SKU SAA019
+- Set de velas LED tipo té con efecto llama, luz amarillo cálido (12 piezas) — $439 MXN · SKU B-KC008
+- Soporte de alimentación para AMS Lite — $439 MXN · Compatible: AMS lite · SKU SAA019
+- Soporte de bobina para serie P2S y X2D — $369 MXN · Compatible: P2S, X2D · SKU FAC183
 - Soporte de tensor de banda para P2S — $279 MXN · Compatible: P2S · SKU FAC186
 - Soporte de tubo PTFE para P2S — $289 MXN · Compatible: P2S · SKU FAC152
 - Soporte del cabezal de herramientas compatible con serie A1 — $289 MXN · Compatible: serie A1 · SKU FAE013
@@ -635,105 +734,146 @@ Rango de precio: $169 MXN a $34,489 MXN.
 - Soporte lateral interior (izquierdo) compatible con serie H2 — $1,159 MXN · Compatible: serie H2 · SKU FAS053
 - Soporte para AMS Lite — $729 MXN · Compatible: AMS lite · SKU SAA005
 - SSA038-V1 — $219 MXN · SKU SSA038-V1
-- Tapa de alimentación para AMS Lite — $259 MXN · Compatible: AMS lite · SKU SAA018
+- Tapa de alimentación para AMS Lite — $219 MXN · Compatible: AMS lite · SKU SAA018
 - Tapa de cristal compatible con P1S, X1C y X1E — $1,019 MXN · Compatible: P1S, X1C, X1E · SKU FAS001
 - Tapa de eje Z para A1 — $189 MXN · Compatible: A1 · SKU FAS023
+- Tapa de filtro para serie X1E — $369 MXN · Compatible: X1E · SKU FAS018
+- Tapa frontal de carbono para serie X1E — $1,169 MXN · Compatible: X1E · SKU FAS015
+- Tapa frontal para serie P1S — $439 MXN · Compatible: P1S · SKU FAS006
+- Tapa inferior para serie A1 mini — $439 MXN · Compatible: serie A1 · SKU FAS012
 - Tapa superior AMS HT — $1,679 MXN · Compatible: AMS HT · SKU SAA049
 - Tapa superior para AMS — $1,939 MXN · Compatible: AMS · SKU SAA002-N
-- Tapa superior para AMS 2 Pro — $2,699 MXN · Compatible: AMS 2 Pro · SKU SAA030
-- Tarjeta de AMS para A1 — $379 MXN · Compatible: A1, AMS · SKU DLB008
+- Tapa superior para AMS — $1,309 MXN · Compatible: AMS · SKU SPP058
+- Tapa superior para AMS 2 Pro — $1,449 MXN · Compatible: AMS 2 Pro · SKU SAA030
+- Tarjeta ac de bajo voltage para serie a2l — $729 MXN · SKU DLB080
+- Tarjeta ac para serie X2D — alto — $1,019 MXN · Compatible: X2D · SKU DLB072
+- Tarjeta ac para serie X2D — bajo — $1,019 MXN · Compatible: X2D · SKU DLB073
+- Tarjeta ac para series H2 — $1,239 MXN · Compatible: serie H2 · SKU DLB030-V2
+- Tarjeta AP para serie H2S — $6,169 MXN · Compatible: H2S · SKU DLB046
+- Tarjeta AP para serie P1P — $1,449 MXN · Compatible: P1P · SKU DLB009
+- Tarjeta AP para serie X2D — alto — $4,639 MXN · Compatible: X2D · SKU DLB069
+- Tarjeta AP para serie X2D — bajo — $4,639 MXN · Compatible: X2D · SKU DLB070
+- Tarjeta de AMS para A1 — $209 MXN · Compatible: A1, AMS · SKU DLB008
 - Tarjeta de extrusor compatible con P1S y P1P — $439 MXN · Compatible: P1P, P1S · SKU FAE002
+- Tarjeta de interfaz de red y conexión AMS para serie X1E — $1,379 MXN · Compatible: X1E, AMS · SKU DLB003
+- Tarjeta interfaz de red para serie X1E — $1,239 MXN · Compatible: X1E · SKU DLB002
 - Tarjeta madre para AMS (V2) — $2,599 MXN · Compatible: AMS · SKU SAA024
 - Tarjeta MC compatible con P1P y P1S — $2,109 MXN · Compatible: P1P, P1S · SKU FAC007
+- Tarjeta MC para serie X2D — $2,829 MXN · Compatible: X2D · SKU DLB071
 - Tarjeta micro SD de 32 gb para A1, serie X1 y P1 — $459 MXN · Compatible: A1, serie P1, serie X1 · SKU FAZ015
-- Tensor de banda XY para P2S — $519 MXN · Compatible: P2S · SKU FAC174
-- Tensor de correa XY compatible con H2D — $449 MXN · Compatible: H2D · SKU FAB009
-- Tensor de correa XY con polea compatible con serie X1 y P1 — $519 MXN · Compatible: serie P1, serie X1 · SKU FAC033
-- Tensor de eje Z compatible con H2D — $309 MXN · Compatible: H2D · SKU FAC107
-- Tensor de eje Z para A1 — $369 MXN · Compatible: A1 · SKU FAC045
-- Tensor del eje Y para A1 mini — $429 MXN · Compatible: A1 mini · SKU FAC028
-- Tensor del eje Z compatible con serie X1 y P1 — $309 MXN · Compatible: serie P1, serie X1 · SKU FAC052
-- Tensor eje Y para A1 — $369 MXN · Compatible: A1 · SKU FAC044
-- Toma de corriente compatible con serie H2 — $889 MXN · Compatible: serie H2 · SKU FAC097
+- Tarjeta principal para serie a2l — $2,689 MXN · SKU DLB078
+- Tarjeta TH para serie X2D — $1,669 MXN · Compatible: X2D · SKU DLB064
+- Tensor de banda XY para P2S — $369 MXN · Compatible: P2S · SKU FAC174
+- Tensor de correa XY compatible con H2D — $289 MXN · Compatible: H2D · SKU FAB009
+- Tensor de correa XY con polea compatible con serie X1 y P1 — $369 MXN · Compatible: serie P1, serie X1 · SKU FAC033
+- Tensor de eje Z compatible con H2D — $289 MXN · Compatible: H2D · SKU FAC107
+- Tensor de eje Z para A1 — $299 MXN · Compatible: A1 · SKU FAC045
+- Tensor del eje Y para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAC028
+- Tensor del eje Z compatible con serie X1 y P1 — $289 MXN · Compatible: serie P1, serie X1 · SKU FAC052
+- Tensor eje Y para A1 — $299 MXN · Compatible: A1 · SKU FAC044
+- Toma de corriente compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAC097
 - Toolhead carriage compatible con P2S — $509 MXN · Compatible: P2S · SKU FAC170
-- Tubo de PTFE (alimentación filamento AMS y externo) compatible con H2D — $249 MXN · Compatible: H2D, AMS · SKU FAT010
+- Tope del cortador de filamento H2S — $579 MXN · Compatible: H2S · SKU FAC148-V1
+- Tubo de PTFE (alimentación filamento AMS y externo) compatible con H2D — $219 MXN · Compatible: H2D, AMS · SKU FAT010
 - Tubo de PTFE (cabezal) compatible con H2D — $309 MXN · Compatible: H2D · SKU FAT009
-- Tubo de PTFE 185 mm*2 + 225 mm*2 (interno) compatible con AMS 2 Pro — $249 MXN · Compatible: AMS 2 Pro · SKU FAT008
+- Tubo de PTFE 185 mm*2 + 225 mm*2 (interno) compatible con AMS 2 Pro — $219 MXN · Compatible: AMS 2 Pro · SKU FAT008
 - Tubo de PTFE 195 mm*4 + 230 mm*4 (interno) compatible con AMS 1 — $219 MXN · Compatible: AMS · SKU FAT002-8
 - Tubo de PTFE 263 mm*1 compatible con AMS HT — $249 MXN · Compatible: AMS HT · SKU FAT011
+- Tubo de PTFE 370 mm*1 + 550 mm*2 (AMS - AMS hub - coupler - cabezal) compatible con P1/X1 — $219 MXN · Compatible: serie P1, X1, AMS · SKU FAT001
 - Tubo de PTFE 530 mm*2 +30 mm*2 (spool- coupler - cabezal) compatible con P1P — $279 MXN · Compatible: P1P · SKU FAT004
-- Tubo de PTFE 580 mm*2 + 700 mm*2 (AMS - impresora) compatible con A1 mini — $529 MXN · Compatible: A1 mini, AMS · SKU FAT006
-- Tubo de PTFE 730 mm*2 + 830 mm*2 (AMS - impresora) compatible con A1 — $699 MXN · Compatible: A1, AMS · SKU FAT007
-- Tubo de PTFE de 4m blanco — $519 MXN · SKU FAT003
-- Tubo de PTFE de 4m gris — $529 MXN · SKU FAT005
+- Tubo de PTFE 580 mm*2 + 700 mm*2 (AMS - impresora) compatible con A1 mini — $289 MXN · Compatible: A1 mini, AMS · SKU FAT006
+- Tubo de PTFE 730 mm*2 + 830 mm*2 (AMS - impresora) compatible con A1 — $369 MXN · Compatible: A1, AMS · SKU FAT007
+- Tubo de PTFE de 4m blanco — $439 MXN · SKU FAT003
+- Tubo de PTFE de 4m gris — $439 MXN · SKU FAT005
 - Tubo de pu con asistencia de aire para láser para H2D — $289 MXN · Compatible: H2D · SKU FAC133
-- Unidad alimentadora AMS 2 Pro — $2,149 MXN · Compatible: AMS 2 Pro · SKU SAA035-V1
+- Tubo PTFE conector para series A1 — $289 MXN · Compatible: A1 · SKU FAC051
+- Unidad alimentadora AMS 2 Pro — $1,309 MXN · Compatible: AMS 2 Pro · SKU SAA035-V1
 - Unidad alimentadora AMS con sensor hall — $1,159 MXN · Compatible: AMS · SKU SA001-F1H-V2
-- Unidad calefactora AMS 2 Pro para ranuras 3 y 4 — $2,839 MXN · Compatible: AMS 2 Pro · SKU SAA040
+- Unidad calefactora AMS 2 Pro para ranuras 3 y 4 — $1,159 MXN · Compatible: AMS 2 Pro · SKU SAA040
 - Unidad calefactora AMS HT — $2,179 MXN · Compatible: AMS HT · SKU SAA052
-- Unidad calefactora de cámara compatible con serie H2 — $3,109 MXN · Compatible: serie H2 · SKU FAC118
+- Unidad calefactora de cámara compatible con serie H2 — $2,249 MXN · Compatible: serie H2 · SKU FAC118
 - Unidad calefactora de cámara para serie H2 — $5,019 MXN · Compatible: serie H2 · SKU FAC119
-- Unidad de alimentación de AMS compatible con P1P, P1S y X1C — $419 MXN · Compatible: P1P, P1S, X1C, AMS · SKU SA001-F2H
-- Unidad de calentador de cámara para X1E — $6,559 MXN · Compatible: X1E · SKU FAC038
-- Unidad de calentamiento para slots 1 y 2 de AMS 2 Pro — $1,629 MXN · Compatible: AMS 2 Pro · SKU SAA039
+- Unidad de alimentación de AMS compatible con P1P, P1S y X1C — $289 MXN · Compatible: P1P, P1S, X1C, AMS · SKU SA001-F2H
+- Unidad de calentador de cámara para X1E — $4,429 MXN · Compatible: X1E · SKU FAC038
+- Unidad de calentamiento para slots 1 y 2 de AMS 2 Pro — $1,159 MXN · Compatible: AMS 2 Pro · SKU SAA039
 - Unidad de concentrador interno AMS 2 Pro — $1,819 MXN · Compatible: AMS 2 Pro · SKU SAA038-V1
+- Unidad de conmutación adaptativa del flujo de airpara series P2S y X2D — $1,959 MXN · Compatible: P2S, X2D · SKU FAC160
+- Unidad de conmutación de flujo de aire adaptativo para P2S — $509 MXN · Compatible: P2S · SKU FAC159
 - Unidad de cubierta inferior para AMS 2 Pro — $1,959 MXN · Compatible: AMS 2 Pro · SKU SAA031
 - Unidad de doble extrusor compatible con H2D — $5,589 MXN · Compatible: H2D · SKU FAE021
-- Unidad de entrada de aire AMS HT — $659 MXN · Compatible: AMS HT · SKU SAA056
-- Unidad de entrada de aire para AMS 2 Pro — $929 MXN · Compatible: AMS 2 Pro · SKU SAA042
-- Unidad de llave de seguridad de alimentación compatible con H2D — $739 MXN · Compatible: H2D · SKU DLB035
+- Unidad de entrada de aire AMS HT — $289 MXN · Compatible: AMS HT · SKU SAA056
+- Unidad de entrada de aire para AMS 2 Pro — $289 MXN · Compatible: AMS 2 Pro · SKU SAA042
+- Unidad de extrusión para serie X1E — $1,159 MXN · Compatible: X1E · SKU FAE018
+- Unidad de lecho calefactado para serie H2S — $4,929 MXN · Compatible: H2S · SKU FAC149
+- Unidad de liberación rápida para módulo láser de 40 W para H2D — $439 MXN · Compatible: H2D · SKU SLA013
+- Unidad de llave de seguridad de alimentación compatible con H2D — $439 MXN · Compatible: H2D · SKU DLB035
 - Unidad de motor de conmutacion 2004 para H2D — $1,529 MXN · Compatible: H2D · SKU FAM015
-- Unidad de motor de elevación 2004 para H2D — $2,199 MXN · Compatible: H2D · SKU FAM014
-- Unidad de palanca de liberación rápida para módulo láser de 10 W compatible con H2D y H2S — $559 MXN · Compatible: H2D, H2S · SKU SLA012
+- Unidad de motor de elevación 2004 para H2D — $1,529 MXN · Compatible: H2D · SKU FAM014
+- Unidad de palanca de liberación rápida para módulo láser de 10 W compatible con H2D y H2S — $439 MXN · Compatible: H2D, H2S · SKU SLA012
 - Unidad derecha de alimentación para AMS Lite (3 y 4) — $2,249 MXN · Compatible: AMS lite · SKU SAA007
-- Unidad derecha de embudo de filamento para AMS Lite — $799 MXN · Compatible: AMS lite · SKU SAA023
-- Unidad dual de extrusión compatible con H2D y H2C — $8,399 MXN · Compatible: H2D, H2C · SKU FAE044
-- Unidad extrusora de acero endurecido para X1C — $2,009 MXN · Compatible: X1C · SKU FAE017
+- Unidad derecha de embudo de filamento para AMS Lite — $579 MXN · Compatible: AMS lite · SKU SAA023
+- Unidad dual de extrusión compatible con H2D y H2C — $5,589 MXN · Compatible: H2D, H2C · SKU FAE044
+- Unidad extrusora de acero endurecido compatible con serie P1 — $1,159 MXN · Compatible: serie P1 · SKU FAE016
+- Unidad extrusora de acero endurecido para X1C — $1,449 MXN · Compatible: X1C · SKU FAE017
 - Unidad extrusora para A1 — $1,089 MXN · Compatible: A1 · SKU FAE014-N
-- Unidad extrusora para Bambu Lab H2S — $4,589 MXN · Compatible: H2S · SKU FAE031
+- Unidad extrusora para Bambu Lab H2S — $2,539 MXN · Compatible: H2S · SKU FAE031
 - Unidad izquierda de alimentación para AMS Lite (1 y 2) — $2,249 MXN · Compatible: AMS lite · SKU SAA006
-- Unidad izquierda de embudo de filamento para AMS Lite — $739 MXN · Compatible: AMS lite · SKU SAA022
+- Unidad izquierda de embudo de filamento para AMS Lite — $579 MXN · Compatible: AMS lite · SKU SAA022
 - Ventana de seguridad para láser — $3,249 MXN · SKU FAS056
-- Ventana frontal de seguridad láser compatible con H2D — $4,309 MXN · Compatible: H2D · SKU FAS057
-- Ventilador auxiliar de enfriamiento para pieza compatible con H2D — $1,909 MXN · Compatible: H2D · SKU FAF016
-- Ventilador de circulacion de calor de la cámara compatible con serie H2 — $1,309 MXN · Compatible: serie H2 · SKU FAF018
+- Ventana frontal de seguridad láser compatible con H2D — $3,189 MXN · Compatible: H2D · SKU FAS057
+- Ventilador auxiliar de enfriamiento para pieza compatible con H2D — $1,309 MXN · Compatible: H2D · SKU FAF016
+- Ventilador de circulacion de calor de la cámara compatible con serie H2 — $869 MXN · Compatible: serie H2 · SKU FAF018
 - Ventilador de enfriamento de hotend compatible con A1 mini y A1 — $729 MXN · Compatible: A1 mini, A1 · SKU FAF007
-- Ventilador de enfriamiento para hotend compatible con H2D — $1,229 MXN · Compatible: H2D · SKU FAF014
-- Ventilador de enfriamiento para pieza compatible con H2D — $1,239 MXN · Compatible: H2D · SKU FAF013
-- Ventilador de extraccion de cámara compatible con serie H2 — $1,829 MXN · Compatible: serie H2 · SKU FAF017
-- Ventilador de la placa de control compatible con P1S, X1C y X1E — $519 MXN · Compatible: P1S, X1C, X1E · SKU FAF005-N
-- Ventilador de placa base para A1 mini — $689 MXN · Compatible: A1 mini · SKU FAF010
-- Ventilador de placa MC compatible con serie H2 — $649 MXN · Compatible: serie H2 · SKU FAF015
-- Ventilador de refrigeración de potencia para impresora X1E — $1,749 MXN · Compatible: X1E · SKU FAF009
-- Ventilador de refrigeración para hotend compatible con P1P y P1S — $629 MXN · Compatible: P1P, P1S · SKU FAF002-P
-- Ventilador de refrigeración para hotend compatible con P2S — $769 MXN · Compatible: P2S · SKU FAF021
-- Ventilador de refrigeración para hotend compatible con X1C — $629 MXN · Compatible: X1C · SKU FAF002
-- Ventilador de refrigeración para impresora P1P, P1S, X1C y X1E — $1,399 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAF001-G
-- Ventilador regulador de temperatura de cámara compatible con P1S, P1P y X1C — $739 MXN · Compatible: P1P, P1S, X1C · SKU FAF004-N
-- Ventilador regulador de temperatura de la cámara compatible con X1E — $2,049 MXN · Compatible: X1E · SKU FAF008
-- Vidrio lateral para H2D y H2C — $1,479 MXN · Compatible: H2D, H2C · SKU FAS041
+- Ventilador de enfriamento de piezas compatible con A1 mini y A1 — $439 MXN · Compatible: A1 mini, A1 · SKU FAF006
+- Ventilador de enfriamiento para hotend compatible con H2D — $729 MXN · Compatible: H2D · SKU FAF014
+- Ventilador de enfriamiento para pieza compatible con H2D — $729 MXN · Compatible: H2D · SKU FAF013
+- Ventilador de extraccion de cámara compatible con serie H2 — $1,239 MXN · Compatible: serie H2 · SKU FAF017
+- Ventilador de la placa de control compatible con P1S, X1C y X1E — $439 MXN · Compatible: P1S, X1C, X1E · SKU FAF005-N
+- Ventilador de placa base para A1 mini — $509 MXN · Compatible: A1 mini · SKU FAF010
+- Ventilador de placa MC compatible con serie H2 — $439 MXN · Compatible: serie H2 · SKU FAF015
+- Ventilador de refrigeración de potencia para impresora X1E — $949 MXN · Compatible: X1E · SKU FAF009
+- Ventilador de refrigeración mejorada del cabezal de impresión para series H2S — $579 MXN · Compatible: H2S · SKU FAF020
+- Ventilador de refrigeración para hotend compatible con P1P y P1S — $509 MXN · Compatible: P1P, P1S · SKU FAF002-P
+- Ventilador de refrigeración para hotend compatible con P2S — $509 MXN · Compatible: P2S · SKU FAF021
+- Ventilador de refrigeración para hotend compatible con X1C — $509 MXN · Compatible: X1C · SKU FAF002
+- Ventilador de refrigeración para impresora P1P, P1S, X1C y X1E — $1,019 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAF001-G
+- Ventilador regulador de temperatura de cámara compatible con P1S, P1P y X1C — $579 MXN · Compatible: P1P, P1S, X1C · SKU FAF004-N
+- Ventilador regulador de temperatura de la cámara compatible con X1E — $1,529 MXN · Compatible: X1E · SKU FAF008
+- Vidrio lateral para H2D y H2C — $729 MXN · Compatible: H2D, H2C · SKU FAS041
 
-### 4.2 Hotends, extrusores y cabezales (49 piezas)
+### 4.2 Hotends, extrusores y cabezales (73 piezas)
 
-Rango de precio: $179 MXN a $17,709 MXN.
+Rango de precio: $139 MXN a $17,709 MXN.
 
+- Actuador del pestillo del hotend por inducción — $419 MXN · SKU FAC189
 - Cabezal de herramienta con ensamblaje de eje X compatible con serie H2 — $17,709 MXN · Compatible: serie H2 · SKU FAC132
 - Cabezal de herramientas con conjunto eje X para Bambu Lab H2S — $14,189 MXN · Compatible: H2S · SKU FAE043
 - Calentador ceramico para hotend X1C — $489 MXN · Compatible: X1C · SKU FAH001-C-3
+- Calentador cerámico y termistor 3pz para serie X1E — $839 MXN · Compatible: X1E · SKU FAH017
 - Calentador y termistor de ceramica compatibles con P1P y P1S — $839 MXN · Compatible: P1P, P1S · SKU FAH001-CT
 - Carcasa central del cabezal para P2S — $719 MXN · Compatible: P2S · SKU FAE038
-- Carcasa intermedia del cabezal de la herramienta compatible con serie X1 y P1 — $559 MXN · Compatible: serie P1, serie X1 · SKU FAE006
+- Carcasa del extrusor auxiliar para serie X2D — $279 MXN · Compatible: X2D · SKU FAE052
+- Carcasa intermedia del cabezal de la herramienta compatible con serie X1 y P1 — $419 MXN · Compatible: serie P1, serie X1 · SKU FAE006
 - Carro frontal del cabezal de herramientas compatible con serie X1 y P1 — $419 MXN · Compatible: serie P1, serie X1 · SKU FAE011
 - Conducto de aire del ventilador de enfriamiento del hotend compatible con H2D y láser H2D — $279 MXN · Compatible: H2D · SKU FAH027
-- Controlador de extrusor compatible con X1 y X1C — $789 MXN · Compatible: X1, X1C · SKU FAE004
+- Conjunto calefactor del hotend para serie H2S — $979 MXN · Compatible: H2S · SKU FAH046
+- Conjunto de calentamiento del hotend para serie a2l — $979 MXN · SKU FAH070
+- Conjunto de calentamiento del hotend para serie X2D — derecho — $979 MXN · Compatible: X2D · SKU FAH058
+- Conjunto de engranajes del extrusor auxiliar para serie X2D — $489 MXN · Compatible: X2D · SKU FAE051
+- Conjunto de la cubierta superior del extrusor auxiliar para serie X2D — $279 MXN · Compatible: X2D · SKU FAE050
+- Controlador de extrusor compatible con X1 y X1C — $419 MXN · Compatible: X1, X1C · SKU FAE004
 - Disipador de calor para placa MC compatible con serie P1 — $419 MXN · Compatible: serie P1 · SKU FAC012
 - Engranajes de doble extrusor compatible con H2D — $419 MXN · Compatible: H2D · SKU FAE025
 - Ensamble de calentador de hotend derecho compatible con H2D — $979 MXN · Compatible: H2D · SKU FAH029
 - Ensamble de calentador de hotend izquierdo compatible con H2D — $979 MXN · Compatible: H2D · SKU FAH028-V1
+- Ensamble de calentamiento del hotend para series A1 — $699 MXN · Compatible: A1 · SKU FAH012
+- Extrusor auxiliar para serie X2D — $1,399 MXN · Compatible: X2D · SKU FAE049
 - Funda de silicona para hotend compatible con H2D — $209 MXN · Compatible: H2D · SKU FAH022
 - Funda de silicona para hotend de A1 mini y A1 — $179 MXN · Compatible: A1 mini, A1 · SKU FAH006
 - Funda de silicona para hotend P1P, P1S, X1C y X1E — $209 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAH001-S-3
 - Funda de silicona para hotend para P2S — $209 MXN · Compatible: P2S · SKU FAH048
+- Funda de silicón para hotend por inducción de serie H2C — $139 MXN · Compatible: H2C · SKU FAH067
+- Guía de filamento para extrusor dual para series h2cc — $279 MXN · SKU FAE048
 - Hotend completo con boquilla de acero endurecido 0.4 mm para P1P y P1S — $1,119 MXN · Compatible: P1P, P1S · SKU FAH001-P
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1C — $1,119 MXN · Compatible: X1C · SKU FAH001
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1E — $1,759 MXN · Compatible: X1E · SKU FAH013
@@ -764,10 +904,22 @@ Rango de precio: $179 MXN a $17,709 MXN.
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.6 mm compatible con H2C — $2,989 MXN · Compatible: H2C · SKU FAH055
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.8 mm compatible con H2C — $2,169 MXN · Compatible: H2C · SKU FAH056
 - Leva del interruptor del extrusor para H2D y láser H2D — $419 MXN · Compatible: H2D · SKU FAC137
+- Placa de conexión del extrusor para serieh2d — $699 MXN · SKU DLB024
+- Poleas dobles del extrusor y sensor de filamento para H2D — $839 MXN · Compatible: H2D · SKU FAE024-V1
+- Sensor de filamento de la extrusor para serie X2D — derecho — $489 MXN · Compatible: X2D · SKU DLB068
+- Sensor de filamento de la extrusor para serie X2D — izquierdo — $489 MXN · Compatible: X2D · SKU DLB067
 - Servo motor 3513 para extrusor compatible con H2D — $1,889 MXN · Compatible: H2D · SKU FAM012
 - Servomotor 3508 para extrusor compatible con P2S — $1,889 MXN · Compatible: P2S · SKU FAM018
+- Tapa frontal de extrusor para series A1 — $199 MXN · Compatible: A1 · SKU FAE019
+- Tarjeta de conexión del conjunto de calentamiento del hotend para serie X2D — $839 MXN · Compatible: X2D · SKU DLB065
+- Tarjeta de conexión del extrusor para serie X2D — $839 MXN · Compatible: X2D · SKU DLB066
+- Tarjeta de control del calentador de la cámara para serie X1E — $149 MXN · Compatible: X1E · SKU DLB004
+- Termistor para hotend X1C — $489 MXN · Compatible: X1C · SKU FAH001-T-3
+- Ventilador de enfriamiento del hotend para serie X2D — $489 MXN · Compatible: X2D · SKU FAF023
+- Ventilador de enfriamiento para el hotend de X1E — $489 MXN · Compatible: X1E · SKU FAF011-V2
+- Ventilador de refrigeracin del hotend para H2S — $489 MXN · Compatible: H2S · SKU FAH047-V1
 
-### 4.3 Boquillas (15 piezas)
+### 4.3 Boquillas (18 piezas)
 
 Rango de precio: $379 MXN a $889 MXN.
 
@@ -786,20 +938,43 @@ Rango de precio: $379 MXN a $889 MXN.
 - Boquilla de acero inoxidable 0.2 mm compatible con serie P y X1C — $579 MXN · Compatible: serie P1, X1C · SKU FAH004-N-1
 - Boquilla de acero inoxidable 0.4 mm compatible con serie P y X1C — $529 MXN · Compatible: serie P1, X1C · SKU FAH002-N-1
 - Boquilla de acero inoxidable 0.4 mm compatible serie A1 — $439 MXN · Compatible: serie A1 · SKU FAH007
+- Sensor de calibración de boquilla para serie h2cc — $729 MXN · SKU FAE047
+- Sensor eddy de la boquilla para serie a2l — $439 MXN · SKU FAE067
+- Sensor eddy de la boquilla para serie H2C - derecho — $439 MXN · Compatible: H2C · SKU FAC197-V1
 
-### 4.4 Camas calientes y placas de impresión (10 piezas)
+### 4.4 Camas calientes y placas de impresión (30 piezas)
 
-Rango de precio: $679 MXN a $4,949 MXN.
+Rango de precio: $479 MXN a $3,819 MXN.
 
 - Cama caliente compatible con A1 — $3,819 MXN · Compatible: A1 · SKU FAC066
 - Cama caliente compatible con A1 mini — $1,219 MXN · Compatible: A1 mini · SKU FAC017-N
+- Cama caliente LV para serie P2S — $2,099 MXN · Compatible: P2S · SKU FAC163
 - Cama caliente V2 compatible con A1 — $3,129 MXN · Compatible: A1 · SKU FAC066-V2
 - Cama caliente V3 compatible con P1 — $3,509 MXN · Compatible: serie P1 · SKU FAC056
-- Cama caliente V3 compatible con X1 — $4,949 MXN · Compatible: X1 · SKU FAC058
+- Cama caliente V3 compatible con X1 — $3,509 MXN · Compatible: X1 · SKU FAC058
+- Cama térmica magnética para serie P1P — $679 MXN · Compatible: P1P · SKU FAC025
+- Cámara de vista en vivo para serie X2D — $1,559 MXN · Compatible: X2D · SKU CAM012
+- Cámara del cabezal de impresión para serie X2D — $949 MXN · Compatible: X2D · SKU CAM011
+- Cámara lateral para serie P2S — $949 MXN · Compatible: P2S · SKU CAM010
+- Cámara para serie A1 — $949 MXN · Compatible: serie A1 · SKU CAM004
+- Cámara para serie X1 — $1,559 MXN · Compatible: serie X1 · SKU CAM005
+- Cámara para series H2 — $949 MXN · Compatible: serie H2 · SKU CAM006
+- Cámara toolhead serie H2S — $949 MXN · Compatible: H2S · SKU CAM009
+- Lamina con superficie de galaxia para serie A1 mini — $479 MXN · Compatible: serie A1 · SKU FAP019-N
+- Lamina con superficie de galaxia para series A1, X1 y P1 — $559 MXN · Compatible: A1, serie P1, X1 · SKU FAP015
+- Placa con efecto estrellada para A1 mini — $479 MXN · Compatible: A1 mini · SKU FAP020-N
+- Placa con superficie de diamante para series A1, X1 y P1 — $679 MXN · Compatible: A1, serie P1, X1 · SKU FAP018-N
+- Placa de efecto fibra de carbono para series A1 mini — $479 MXN · Compatible: A1 mini · SKU FAP021-N
+- Placa de ingeniería para serie H2C — $1,689 MXN · Compatible: H2C · SKU FAP039
+- Placa de ingeniería para series A1, P1, p2 y X1 — $949 MXN · Compatible: A1, serie P1, X1 · SKU FAP042
+- Placa de ingeniería para series H2 — $1,829 MXN · Compatible: serie H2 · SKU FAP038
+- Placa fría (supertack) Pro de Bambu Lab para series A1, P1, p2, X1 y x2 — $1,079 MXN · Compatible: A1, serie P1, X1 · SKU FAP032
+- Placa fría (supertack) Pro de Bambu Lab para series H2C y h3c — $2,639 MXN · Compatible: H2C · SKU FAP041
 - Placa PEI lisa compatible con A1 mini — $749 MXN · Compatible: A1 mini · SKU FAP008
 - Placa PEI lisa compatible con H2D/H2S — $2,339 MXN · Compatible: H2D, H2S · SKU FAP026
 - Placa PEI texturizada compatible con A1 mini — $679 MXN · Compatible: A1 mini · SKU FAP009
 - Placa PEI texturizada compatible con H2D/H2S — $1,829 MXN · Compatible: H2D, H2S · SKU FAP025
+- Placa PEI texturizada para serie A1 mini — $809 MXN · Compatible: serie A1 · SKU FAP012
 - Superficie imantada compatible con X1C/P1P/P1S — $679 MXN · Compatible: P1P, P1S, X1C · SKU FAC024
 
 ### 4.5 AMS y alimentación de filamento (15 piezas)
@@ -822,7 +997,7 @@ Rango de precio: $249 MXN a $10,319 MXN.
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $9,989 MXN · SKU BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,069 MXN · Compatible: AMS · SKU BAMBULAB-AMS-HT
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (70 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (71 piezas)
 
 Rango de precio: $199 MXN a $1,849 MXN.
 
@@ -894,10 +1069,11 @@ Rango de precio: $199 MXN a $1,849 MXN.
 - Palanca de corte de filamento compatible con A1 mini y A1 — $199 MXN · Compatible: A1 mini, A1 · SKU FAC013
 - Pinza de carrete para AMS Lite — $259 MXN · Compatible: AMS lite · SKU SAA011
 - Tapón de filamento compatible con P1P, P1S y X1C — $779 MXN · Compatible: P1P, P1S, X1C · SKU SA003
-- Tope de cortador de filamento derecho compatible con H2D — $749 MXN · Compatible: H2D · SKU FAC102
+- Tope de cortador de filamento derecho compatible con H2D — $519 MXN · Compatible: H2D · SKU FAC102
+- Tope de cortador de filamento izquierdo compatible con H2D — $519 MXN · Compatible: H2D · SKU FAC101
 - Tope del cortador de filamento para P2S — $479 MXN · Compatible: P2S · SKU FAC171
 
-### 4.7 Mantenimiento: filtros, limpiadores y purga (12 piezas)
+### 4.7 Mantenimiento: filtros, limpiadores y purga (13 piezas)
 
 Rango de precio: $159 MXN a $1,129 MXN.
 
@@ -913,6 +1089,7 @@ Rango de precio: $159 MXN a $1,129 MXN.
 - Limpiador de boquilla para A1 mini — $299 MXN · Compatible: A1 mini · SKU FAW002
 - Limpiador de boquillas compatible con P1P, P1S, X1C y X1E — $229 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAW001
 - Limpiador de purga compatible con A1 mini y A1 — $389 MXN · Compatible: A1 mini, A1 · SKU FAC021-N
+- Raspador de aleación de magnesio — $749 MXN · SKU B-SA001
 
 ## 5. Piezas impresas en 3D bajo pedido (tienda en línea)
 
