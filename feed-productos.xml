@@ -4,7 +4,7 @@
     <title>Emisha — filamento, refacciones y placas para impresión 3D</title>
     <link>https://www.emisha.com.mx/tienda/</link>
     <description>Catálogo de Emisha: filamento propio 1.75 mm, hotends, boquillas, placas de impresión y refacciones Bambu Lab. Inventario en Ciudad de México, envío a todo México.</description>
-    <lastBuildDate>2026-11-25</lastBuildDate>
+    <lastBuildDate>2026-11-26</lastBuildDate>
     <item>
       <g:id>EMI-PL-NEO-257</g:id>
       <title><![CDATA[Placa Emisha Neo Ultra Sticky 257 × 257 mm]]></title>
@@ -605,6 +605,48 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
+      <g:id>AG-BAMBULAB-ABS-GF-AZUL</g:id>
+      <title><![CDATA[Filamento Bambu Lab ABS GF azul 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab ABS GF azul 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-azul-1-75-mm-1-kg-abs-gf-azul/</link>
+      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-GF-AZUL</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>979.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>BAMBULAB-ABS-GF-AZUL</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-BAMBULAB-ABS-GF-BLANCO</g:id>
+      <title><![CDATA[Filamento Bambu Lab ABS GF blanco 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab ABS GF blanco 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-blanco-1-75-mm-1-kg-abs-gf-blanco/</link>
+      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-GF-BLANCO</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>979.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>BAMBULAB-ABS-GF-BLANCO</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-BAMBULAB-ABS-GF-GRIS</g:id>
+      <title><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-gris-1-75-mm-1-kg-abs-gf-gris/</link>
+      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-GF-GRIS</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>979.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>BAMBULAB-ABS-GF-GRIS</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
       <g:id>AG-BAMBULAB-ABS-GF-NARANJA</g:id>
       <title><![CDATA[Filamento Bambu Lab ABS GF naranja 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab ABS GF naranja 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
@@ -619,6 +661,20 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
+      <g:id>AG-BAMBULAB-ABS-GF-ROJO</g:id>
+      <title><![CDATA[Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-rojo-1-75-mm-1-kg-abs-gf-rojo/</link>
+      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-ABS-GF-ROJO.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>979.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>BAMBULAB-ABS-GF-ROJO</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
       <g:id>AG-BAMBULAB-ABS-NARANJA</g:id>
       <title><![CDATA[Filamento Bambu Lab ABS naranja 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab ABS naranja 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
@@ -629,6 +685,20 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-ABS-NARANJA</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-BAMBULAB-ABS-PLATEADO</g:id>
+      <title><![CDATA[Filamento Bambu Lab ABS plateado 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab ABS plateado 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-plateado-1-75-mm-1-kg-abs-plateado/</link>
+      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-PLATEADO</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>629.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>BAMBULAB-ABS-PLATEADO</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -653,7 +723,7 @@
       <link>https://www.emisha.com.mx/refacciones/accesorio-ams-permite-utilizar-4-filamentos-en-una-sola-ams/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-AMS.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>7969.00 MXN</g:price>
+      <g:price>7769.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-AMS</g:mpn>
@@ -667,7 +737,7 @@
       <link>https://www.emisha.com.mx/refacciones/sistema-de-alimentacion-automatica-de-filamento-ams-2-pro/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-AMS-2-PRO.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>10249.00 MXN</g:price>
+      <g:price>9989.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-AMS-2-PRO</g:mpn>
@@ -681,7 +751,7 @@
       <link>https://www.emisha.com.mx/refacciones/version-especializada-de-ams-para-materiales-de-alta-ht/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-AMS-HT.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>5199.00 MXN</g:price>
+      <g:price>5069.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-AMS-HT</g:mpn>
@@ -1017,7 +1087,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-cyan-1-75-mm-1-kg-pla-cyan/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-CYAN.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>529.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-CYAN</g:mpn>
@@ -1031,7 +1101,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-gris-azulado-1-75-mm-1-kg-pla-gris-azulado/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-GRIS-AZULADO.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>529.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-GRIS-AZULADO</g:mpn>
@@ -1045,7 +1115,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-azul-1-75-mm-1-kg-pla-lite-azul/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-LITE-AZUL.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-AZUL</g:mpn>
@@ -1059,7 +1129,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-beige-mate-1-75-mm-spl-b-m/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-LITE-SPL-B-M.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
+      <g:price>379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-SPL-B-M</g:mpn>
@@ -1073,7 +1143,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-cyan-1-75-mm-1-kg-spl-cya/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-LITE-SPL-CYA.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
+      <g:price>379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-SPL-CYA</g:mpn>
@@ -1175,6 +1245,20 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-MATTE-GRIS</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>AG-BAMBULAB-PLA-MATTE-ROJO</g:id>
+      <title><![CDATA[Filamento Bambu Lab PLA matte rojo 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab PLA matte rojo 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-rojo-1-75-mm-1-kg-pla-matte-rojo/</link>
+      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-MATTE-ROJO</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>839.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>BAMBULAB-PLA-MATTE-ROJO</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -1563,7 +1647,7 @@
       <link>https://www.emisha.com.mx/refacciones/cable-conector-para-cabezal-de-herramientas-para-p1p-cab006-1/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/CAB006-1.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>279.00 MXN</g:price>
+      <g:price>289.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>CAB006-1</g:mpn>
@@ -2081,7 +2165,7 @@
       <link>https://www.emisha.com.mx/refacciones/sensor-de-filamento-del-extrusor-compatible-con-serie-p1-dlb012/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/DLB012.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>909.00 MXN</g:price>
+      <g:price>509.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>DLB012</g:mpn>
@@ -2417,7 +2501,7 @@
       <link>https://www.emisha.com.mx/refacciones/correa-xy-compatibles-con-p1p-p1s-x1c-y-x1e-fab001/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/FAB001.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>889.00 MXN</g:price>
+      <g:price>909.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>FAB001</g:mpn>
@@ -2445,7 +2529,7 @@
       <link>https://www.emisha.com.mx/refacciones/banda-x-para-a1-mini-fab003/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/FAB003.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>279.00 MXN</g:price>
+      <g:price>289.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>FAB003</g:mpn>
@@ -3047,7 +3131,7 @@
       <link>https://www.emisha.com.mx/refacciones/carril-lineal-del-eje-x-para-a1-fac040/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/FAC040.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2259.00 MXN</g:price>
+      <g:price>2319.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>FAC040</g:mpn>
@@ -3061,7 +3145,7 @@
       <link>https://www.emisha.com.mx/refacciones/carril-lineal-del-eje-x-para-a1-fac040-n/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/FAC040-N.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2289.00 MXN</g:price>
+      <g:price>2339.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>FAC040-N</g:mpn>
@@ -3075,7 +3159,7 @@
       <link>https://www.emisha.com.mx/refacciones/carril-lineal-del-eje-y-para-a1-fac042/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/FAC042.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1849.00 MXN</g:price>
+      <g:price>1899.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>FAC042</g:mpn>
@@ -3089,7 +3173,7 @@
       <link>https://www.emisha.com.mx/refacciones/carcasa-de-motor-x-para-a1-fac043/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/FAC043.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
+      <g:price>379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>FAC043</g:mpn>
@@ -7163,7 +7247,7 @@
       <link>https://www.emisha.com.mx/refacciones/ams-hub-compatible-con-p1p-p1s-x1c-sa002-n/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/SA002-N.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2349.00 MXN</g:price>
+      <g:price>2409.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>SA002-N</g:mpn>
@@ -7191,7 +7275,7 @@
       <link>https://www.emisha.com.mx/refacciones/sistema-automatico-de-materiales-ams-lite-compatible-sa005/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/SA005.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>10319.00 MXN</g:price>
+      <g:price>10579.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>SA005</g:mpn>
@@ -7219,7 +7303,7 @@
       <link>https://www.emisha.com.mx/refacciones/buffer-de-filamento-compatible-con-h2d-sa009/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/SA009.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1379.00 MXN</g:price>
+      <g:price>1409.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>SA009</g:mpn>
@@ -7233,7 +7317,7 @@
       <link>https://www.emisha.com.mx/refacciones/buffer-de-filamento-para-bambu-lab-h2s-sa010/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/SA010.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1189.00 MXN</g:price>
+      <g:price>1219.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>SA010</g:mpn>
@@ -7261,7 +7345,7 @@
       <link>https://www.emisha.com.mx/refacciones/adaptador-de-tubo-ptfe-4-en-1-sa014/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/SA014.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>539.00 MXN</g:price>
+      <g:price>549.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>SA014</g:mpn>
@@ -7289,7 +7373,7 @@
       <link>https://www.emisha.com.mx/refacciones/tapa-superior-para-ams-saa002-n/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/SAA002-N.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1939.00 MXN</g:price>
+      <g:price>1989.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>SAA002-N</g:mpn>
@@ -7387,7 +7471,7 @@
       <link>https://www.emisha.com.mx/refacciones/portacarrete-giratorio-version-verde-para-ams-lite-saa010/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/SAA010.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>509.00 MXN</g:price>
+      <g:price>529.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>SAA010</g:mpn>
@@ -9613,7 +9697,7 @@
       <link>https://www.emisha.com.mx/refacciones/tarjeta-de-cabezal-para-sermoon-d3-pro-2101030203/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/2101030203</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>299.00 MXN</g:price>
+      <g:price>309.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>2101030203</g:mpn>
@@ -9627,7 +9711,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-boquilla-de-tornillo-para-impresora-sermoon-d3-2102012506/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/2102012506</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1299.00 MXN</g:price>
+      <g:price>1329.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>2102012506</g:mpn>
@@ -9641,7 +9725,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-boquillas-principal-para-impresora-sermoon-d3-pro-2102012507/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/2102012507</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1299.00 MXN</g:price>
+      <g:price>1329.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>2102012507</g:mpn>
@@ -9655,7 +9739,7 @@
       <link>https://www.emisha.com.mx/refacciones/hotend-kit-para-impresoras-sermoon-v1-v1-pro-4001030105/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001030105</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>459.00 MXN</g:price>
+      <g:price>469.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001030105</g:mpn>
@@ -9669,7 +9753,7 @@
       <link>https://www.emisha.com.mx/refacciones/tarjeta-de-control-sermoon-d1-4002020025/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4002020025</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2869.00 MXN</g:price>
+      <g:price>2949.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4002020025</g:mpn>
@@ -9683,7 +9767,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-tarjeta-de-control-para-impresora-sermoon-d3-pro-2101020227/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/2101020227</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2349.00 MXN</g:price>
+      <g:price>2409.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>2101020227</g:mpn>
@@ -9711,7 +9795,7 @@
       <link>https://www.emisha.com.mx/refacciones/boquilla-para-impresora-sermoon-d3-pro-3205050220/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/3205050220</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>309.00 MXN</g:price>
+      <g:price>319.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>3205050220</g:mpn>
@@ -9725,7 +9809,7 @@
       <link>https://www.emisha.com.mx/refacciones/hotend-compatible-con-sermon-d1-4001030106/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001030106</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>509.00 MXN</g:price>
+      <g:price>519.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001030106</g:mpn>
@@ -9739,7 +9823,7 @@
       <link>https://www.emisha.com.mx/refacciones/tarjeta-de-control-para-impresora-sermoon-d3-4002020058/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4002020058</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2779.00 MXN</g:price>
+      <g:price>2849.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4002020058</g:mpn>
@@ -9753,7 +9837,7 @@
       <link>https://www.emisha.com.mx/refacciones/cama-para-impresora-sermoon-v1-sermoon-v1-pro-4004090076/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4004090076</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>629.00 MXN</g:price>
+      <g:price>639.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4004090076</g:mpn>
@@ -9767,7 +9851,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-plataforma-de-formacion-para-halot-one-plus-4001140006/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001140006</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2069.00 MXN</g:price>
+      <g:price>2119.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001140006</g:mpn>
@@ -9781,7 +9865,7 @@
       <link>https://www.emisha.com.mx/refacciones/filtros-de-carbon-activado-para-impresoras-halot-mage-4004010239/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4004010239</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>779.00 MXN</g:price>
+      <g:price>799.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4004010239</g:mpn>
@@ -9795,7 +9879,7 @@
       <link>https://www.emisha.com.mx/refacciones/driver-de-motor-para-halot-sky-3102070096/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/3102070096</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2179.00 MXN</g:price>
+      <g:price>2239.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>3102070096</g:mpn>
@@ -9809,7 +9893,7 @@
       <link>https://www.emisha.com.mx/refacciones/plataforma-de-formacion-para-halot-sky-4001140004/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001140004</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2249.00 MXN</g:price>
+      <g:price>2299.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001140004</g:mpn>
@@ -9823,7 +9907,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-plataforma-de-formacion-para-halot-lite-4001140005/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001140005</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2839.00 MXN</g:price>
+      <g:price>2909.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001140005</g:mpn>
@@ -9837,7 +9921,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-plataforma-de-formacion-para-halot-ray-4001140008/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001140008</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>3069.00 MXN</g:price>
+      <g:price>3149.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001140008</g:mpn>
@@ -9851,7 +9935,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-pantalla-para-halot-sky-4001150003/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001150003</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>10119.00 MXN</g:price>
+      <g:price>10379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001150003</g:mpn>
@@ -9865,7 +9949,7 @@
       <link>https://www.emisha.com.mx/refacciones/pantalla-de-impresion-para-halot-lite-4001150005/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001150005</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>7629.00 MXN</g:price>
+      <g:price>7829.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001150005</g:mpn>
@@ -9879,7 +9963,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-pantalla-lcd-para-halot-sky-version-2022-4001150013/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001150013</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>10089.00 MXN</g:price>
+      <g:price>10349.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001150013</g:mpn>
@@ -9893,7 +9977,7 @@
       <link>https://www.emisha.com.mx/refacciones/motherboard-halot-mage-pro-4002020064/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4002020064</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>3849.00 MXN</g:price>
+      <g:price>3939.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4002020064</g:mpn>
@@ -9907,7 +9991,7 @@
       <link>https://www.emisha.com.mx/refacciones/tubo-de-ventilacion-para-halot-mage-pro-4004010241/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4004010241</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>1019.00 MXN</g:price>
+      <g:price>1039.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4004010241</g:mpn>
@@ -13093,48 +13177,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Anycubic</g:product_type>
     </item>
     <item>
-      <g:id>AG-BAMBULAB-ABS-GF-AZUL</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS GF azul 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS GF azul 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-azul-1-75-mm-1-kg-abs-gf-azul/</link>
-      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-GF-AZUL</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>979.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>BAMBULAB-ABS-GF-AZUL</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-ABS-GF-BLANCO</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS GF blanco 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS GF blanco 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-blanco-1-75-mm-1-kg-abs-gf-blanco/</link>
-      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-GF-BLANCO</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>979.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>BAMBULAB-ABS-GF-BLANCO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-ABS-GF-GRIS</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-gris-1-75-mm-1-kg-abs-gf-gris/</link>
-      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-GF-GRIS</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>979.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>BAMBULAB-ABS-GF-GRIS</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>AG-BAMBULAB-ABS-GF-NEGRO</g:id>
       <title><![CDATA[Filamento Bambu Lab ABS GF negro 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab ABS GF negro 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
@@ -13145,20 +13187,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-ABS-GF-NEGRO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-ABS-GF-ROJO</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-rojo-1-75-mm-1-kg-abs-gf-rojo/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-ABS-GF-ROJO.webp</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>979.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>BAMBULAB-ABS-GF-ROJO</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -13187,20 +13215,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-ABS-MORADO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-ABS-PLATEADO</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS plateado 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS plateado 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-plateado-1-75-mm-1-kg-abs-plateado/</link>
-      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-ABS-PLATEADO</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>629.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>BAMBULAB-ABS-PLATEADO</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -13659,7 +13673,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-basic-dorado-1-75-mm-1-kg-pla-dorado/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-DORADO</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>529.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-DORADO</g:mpn>
@@ -13673,7 +13687,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-girasol-amarillo-1-75-mm-1-kg-amar/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-GIRASOL-AMAR</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>529.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-GIRASOL-AMAR</g:mpn>
@@ -13687,7 +13701,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-gris-1-75-mm-1-kg-pla-gris/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-GRIS</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>519.00 MXN</g:price>
+      <g:price>529.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-GRIS</g:mpn>
@@ -13701,7 +13715,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-amarillo-1-75-mm-1-kg-amarill/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-LITE-AMARILL</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-AMARILL</g:mpn>
@@ -13715,7 +13729,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-beige-mate-1-75-mm-1-kg-beig-ma/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-LITE-BEIG-MA</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-BEIG-MA</g:mpn>
@@ -13729,7 +13743,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-cyan-1-75-mm-1-kg-pla-lite-cyan/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-LITE-CYAN.webp</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-CYAN</g:mpn>
@@ -13743,7 +13757,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-gris-1-75-mm-1-kg-pla-lite-gris/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-LITE-GRIS.webp</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-GRIS</g:mpn>
@@ -13757,7 +13771,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-girasol-amarillo-1-75-mm-1-gsol-am/</link>
       <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-PLA-LITE-GSOL-AM.webp</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-GSOL-AM</g:mpn>
@@ -13771,7 +13785,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-naranja-1-75-mm-1-kg-pla-lite-naranja/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-LITE-NARANJA</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-NARANJA</g:mpn>
@@ -13785,7 +13799,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-rojo-1-75-mm-1-kg-pla-lite-rojo/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-LITE-ROJO</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>439.00 MXN</g:price>
+      <g:price>449.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-ROJO</g:mpn>
@@ -13799,7 +13813,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-amarillo-1-75-mm-1-spl-ama/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-LITE-SPL-AMA</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
+      <g:price>379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-SPL-AMA</g:mpn>
@@ -13813,7 +13827,7 @@
       <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-lite-refill-azul-1-75-mm-1-kg-spl-azu/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-LITE-SPL-AZU</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>369.00 MXN</g:price>
+      <g:price>379.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-LITE-SPL-AZU</g:mpn>
@@ -13943,20 +13957,6 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-PLA-MATTE-CHARCO</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
-      <g:id>AG-BAMBULAB-PLA-MATTE-ROJO</g:id>
-      <title><![CDATA[Filamento Bambu Lab PLA matte rojo 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab PLA matte rojo 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-pla-matte-rojo-1-75-mm-1-kg-pla-matte-rojo/</link>
-      <g:image_link>https://catalogo.emisha.com.mx/img/BAMBULAB-PLA-MATTE-ROJO</g:image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>839.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>BAMBULAB-PLA-MATTE-ROJO</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
@@ -14233,7 +14233,7 @@
       <link>https://www.emisha.com.mx/refacciones/cama-caliente-para-impresora-bambu-lab-a1-fac041-n/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/FAC041-N</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>2869.00 MXN</g:price>
+      <g:price>2939.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>FAC041-N</g:mpn>
@@ -14471,7 +14471,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-cama-pei-para-impresora-sermoon-d3-pro-3205020146/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/3205020146</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>1479.00 MXN</g:price>
+      <g:price>1519.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>3205020146</g:mpn>
@@ -14485,7 +14485,7 @@
       <link>https://www.emisha.com.mx/refacciones/pelicula-fep-fotopolimerizable-halot-sky-ld-006-4004010157/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4004010157</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>619.00 MXN</g:price>
+      <g:price>629.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4004010157</g:mpn>
@@ -14499,7 +14499,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-fep-para-impresoras-halot-mage-pro-4004080015/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4004080015</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>1029.00 MXN</g:price>
+      <g:price>1049.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4004080015</g:mpn>
@@ -14513,7 +14513,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-film-de-alta-velocidad-para-impresoras-halot-mage-4004080017/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4004080017</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>1009.00 MXN</g:price>
+      <g:price>1039.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4004080017</g:mpn>
@@ -14527,7 +14527,7 @@
       <link>https://www.emisha.com.mx/refacciones/kit-de-pantalla-de-impresion-halot-mage-mage-pro-400150015/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/400150015</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>5799.00 MXN</g:price>
+      <g:price>5949.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>400150015</g:mpn>
@@ -14541,7 +14541,7 @@
       <link>https://www.emisha.com.mx/refacciones/pantalla-de-impresion-compatible-con-halot-x1-4001150018/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4001150018</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>9839.00 MXN</g:price>
+      <g:price>10099.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4001150018</g:mpn>
@@ -14555,7 +14555,7 @@
       <link>https://www.emisha.com.mx/refacciones/pelicula-nacf-compatible-con-halot-x1-4004080020/</link>
       <g:image_link>https://catalogo.emisha.com.mx/img/4004080020</g:image_link>
       <g:availability>out_of_stock</g:availability>
-      <g:price>5719.00 MXN</g:price>
+      <g:price>5869.00 MXN</g:price>
       <g:condition>new</g:condition>
       <g:brand>Creality</g:brand>
       <g:mpn>4004080020</g:mpn>
