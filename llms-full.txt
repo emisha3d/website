@@ -342,7 +342,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-905 piezas con existencia confirmada, listas para salir de la Ciudad de
+921 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Normalmente se envían en 1 a 4 días hábiles. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
 leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
@@ -1093,7 +1093,7 @@ Rango de precio: $129 MXN a $1,719 MXN.
 - Boquilla de acero inoxidable 0.4 mm compatible con serie P y X1C — $539 MXN · Compatible: serie P1, X1C · SKU FAH002-N-1
 - Boquilla de acero inoxidable 0.4 mm compatible serie A1 — $439 MXN · Compatible: serie A1 · SKU FAH007
 - Boquilla de intercambio rápido unicorn k2p/ creality hi - 0.2 mm — $509 MXN · SKU 4008030090
-- Boquilla de intercambio rápido unicorn k2p/ creality hi - 0.8 mm — $489 MXN · SKU 4008030091
+- Boquilla de intercambio rápido unicorn k2p/ creality hi - 0.8 mm — $509 MXN · SKU 4008030091
 - Boquilla de intercambio rápido unicorn k2p/creality- 0.4 mm — $479 MXN · SKU 4008030074
 - Boquilla m6 de alta velocidad creality ender-7, ender 5-s1 y ender 3-V3 se — $129 MXN · SKU 4004020054
 - Boquilla para impresora sermoon d3 Pro — $319 MXN · SKU 3205050220
@@ -1112,7 +1112,7 @@ Rango de precio: $129 MXN a $1,719 MXN.
 - Stainless steel nozzle 0.4 mm kobra 3 max/combo anycubic — $909 MXN · SKU ANC-1O3T
 - Termistor de boquilla para todos los modelos de impresora 3D ender — $179 MXN · SKU 3005030012
 
-### 4.4 Camas calientes y placas de impresión (50 piezas)
+### 4.4 Camas calientes y placas de impresión (49 piezas)
 
 Rango de precio: $479 MXN a $5,089 MXN.
 
@@ -1147,7 +1147,6 @@ Rango de precio: $479 MXN a $5,089 MXN.
 - Cámara para series H2 — $949 MXN · Compatible: serie H2 · SKU CAM006
 - Cámara toolhead serie H2S — $949 MXN · Compatible: H2S · SKU CAM009
 - Lamina con superficie de galaxia para serie A1 mini — $479 MXN · Compatible: serie A1 · SKU FAP019-N
-- Lamina con superficie de galaxia para series A1, X1 y P1 — $559 MXN · Compatible: A1, serie P1, X1 · SKU FAP015
 - Mono m5 build plate anycubic — $829 MXN · SKU ANC-186P
 - P1 hollow steel build plate anycubic — $4,659 MXN · Compatible: serie P1 · SKU ANC-1N5R
 - Photon m3 max build platform anycubic — $2,109 MXN · SKU ANC-1HSS
@@ -1167,11 +1166,12 @@ Rango de precio: $479 MXN a $5,089 MXN.
 - Printing platform for photon mono m7 max anycubic — $2,009 MXN · SKU ANC-1UMN
 - Superficie imantada compatible con X1C/P1P/P1S — $679 MXN · Compatible: P1P, P1S, X1C · SKU FAC024
 
-### 4.5 AMS y alimentación de filamento (18 piezas)
+### 4.5 AMS y alimentación de filamento (19 piezas)
 
 Rango de precio: $249 MXN a $11,229 MXN.
 
 - Accesorio AMS permite utilizar 4 filamentos en una sola impresión, compatible con Bambu Lab X1, X1 carbón y serie P1 — $7,769 MXN · Compatible: serie P1, X1, X1C, AMS · SKU BAMBULAB-AMS
+- Accesorio AMS permite utilizar hasta 4 filamentos diferentes en una sola impresión compatible con Bambu Lab A1 y A1 mini — $5,769 MXN · Compatible: A1 mini, A1, AMS · SKU BAMBULAB-AMS-LITE
 - AMS hub compatible con P1P,P1S,X1C — $2,409 MXN · Compatible: P1P, P1S, X1C, AMS · SKU SA002-N
 - AMS Lite hub compartible con serie A1 — $1,349 MXN · Compatible: serie A1, AMS lite · SKU BAMBULAB-AMS-HUB
 - Bobina RFID AMS HT — $299 MXN · Compatible: AMS HT · SKU SAA059
@@ -1190,10 +1190,11 @@ Rango de precio: $249 MXN a $11,229 MXN.
 - Wash & cure 3 plus anycubic — $5,419 MXN · SKU ANC-11IA
 - Wash & cure max anycubic — $11,229 MXN · SKU ANC-XI6
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (75 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (91 piezas)
 
-Rango de precio: $199 MXN a $1,449 MXN.
+Rango de precio: $199 MXN a $2,949 MXN.
 
+- Bambu Lab-TPU-85a-no-51305 — $1,299 MXN · SKU BAMBULAB-TPU-85A-NO-51305
 - Bloqueador de filamento para boquilla compatible con H2D — $279 MXN · Compatible: H2D · SKU FAC090
 - Buffer de filamento compatible con H2D — $1,409 MXN · Compatible: H2D · SKU SA009
 - Buffer de filamento para Bambu Lab H2S — $1,219 MXN · Compatible: H2S · SKU SA010
@@ -1208,22 +1209,36 @@ Rango de precio: $199 MXN a $1,449 MXN.
 - Filamento Bambu Lab ABS verde 1.75 mm 1 kg — $839 MXN · SKU BAMBULAB-ABS-VERDE
 - Filamento Bambu Lab PA6 GF azul 1.75 mm 1 kg — $1,139 MXN · SKU BAMBULAB-PA6-GF-AZUL
 - Filamento Bambu Lab PA6 GF blanco 1.75 mm 1 kg — $1,139 MXN · SKU BAMBULAB-PA6-GF-BLANCO
+- Filamento Bambu Lab PA6 GF gris 1.75 mm 1 kg — $1,139 MXN · SKU BAMBULAB-PA6-GF-GRIS
 - Filamento Bambu Lab PA6 GF naranja 1.75 mm 1 kg — $1,149 MXN · SKU BAMBULAB-PA6-GF-NARANJA
+- Filamento Bambu Lab PAHT CF negro 1.75 mm 1 kg — $2,949 MXN · SKU BAMBULAB-PAHT-CF-NEGRO
 - Filamento Bambu Lab PC blanco 1.75 mm 1 kg — $1,449 MXN · SKU BAMBULAB-PC-BLANCO
 - Filamento Bambu Lab PC negro 1.75 mm 1 kg — $1,449 MXN · SKU BAMBULAB-PC-NEGRO
 - Filamento Bambu Lab PC negro transparente 1.75 mm 1 kg — $1,449 MXN · SKU BAMBULAB-PC-NEGRO-TRANSPA
 - Filamento Bambu Lab PC transparente 1.75 mm 1 kg — $1,449 MXN · SKU BAMBULAB-PC-TRANSPARENTE
+- Filamento Bambu Lab PETG blanco 1.75 mm 1 kg — $589 MXN · SKU BAMBULAB-PETG-BLANCO
+- Filamento Bambu Lab PETG CF gris titanio 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-GRIS-TIT
 - Filamento Bambu Lab PETG CF morado violeta 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-MORADO-V
 - Filamento Bambu Lab PETG CF negro 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-NEGRO
 - Filamento Bambu Lab PETG CF verde marea 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-VERDE-MA
+- Filamento Bambu Lab PETG gris 1.75 mm 1 kg — $579 MXN · SKU BAMBULAB-PETG-GRIS
+- Filamento Bambu Lab PETG negro 1.75 mm 1 kg — $589 MXN · SKU BAMBULAB-PETG-NEGRO
 - Filamento Bambu Lab PETG transparente morado 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-MORA
 - Filamento Bambu Lab PETG transparente naranja 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-NARA
 - Filamento Bambu Lab PETG transparente verde azulado 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-VEAZ
 - Filamento Bambu Lab PETG transparente verde oliva 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-VEOL
+- Filamento Bambu Lab PLA arándano burbuja 1.75 mm 1 kg — $669 MXN · SKU BAMBULAB-PLA-ARANDANO-BUB
+- Filamento Bambu Lab PLA Basic azul 1.75 mm 1 kg — $579 MXN · SKU BAMBULAB-PLA-AZUL
 - Filamento Bambu Lab PLA Basic cyan 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-CYAN
-- Filamento Bambu Lab PLA bronce 1.75 mm 1 kg — $519 MXN · SKU BAMBULAB-PLA-BRONCE
+- Filamento Bambu Lab PLA Basic negro 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-NEGRO
+- Filamento Bambu Lab PLA Basic plateado 1.75 mm 1 kg — $579 MXN · SKU BAMBULAB-PLA-PLATEADO
+- Filamento Bambu Lab PLA Basic rojo 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-ROJO
+- Filamento Bambu Lab PLA bronce 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-BRONCE
+- Filamento Bambu Lab PLA café 1.75 mm 1 kg — $589 MXN · SKU BAMBULAB-PLA-CAFE
 - Filamento Bambu Lab PLA CF azul mezcla 1.75 mm 1 kg — $949 MXN · SKU BAMBULAB-PLA-CF-AZUL-MEZC
+- Filamento Bambu Lab PLA CF azul rey 1.75 mm 1 kg — $949 MXN · SKU BAMBULAB-PLA-CF-AZUL-REY
 - Filamento Bambu Lab PLA CF morado iridio 1.75 mm 1 kg — $949 MXN · SKU BAMBULAB-PLA-CF-MORADO-IR
+- Filamento Bambu Lab PLA CF negro 1.75 mm 1 kg — $949 MXN · SKU BAMBULAB-PLA-CF-NEGRO
 - Filamento Bambu Lab PLA CF rojo burdeos 1.75 mm 1 kg — $949 MXN · SKU BAMBULAB-PLA-CF-ROJO-BURD
 - Filamento Bambu Lab PLA crepusculo brillante 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-CREPUS-BRILL
 - Filamento Bambu Lab PLA gris azulado 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-GRIS-AZULADO
@@ -1242,16 +1257,17 @@ Rango de precio: $199 MXN a $1,449 MXN.
 - Filamento Bambu Lab PLA menta lima 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-MENTA-LIMA
 - Filamento Bambu Lab PLA metal azul 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-AZUL
 - Filamento Bambu Lab PLA metal café 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-CAFE
+- Filamento Bambu Lab PLA metal gris 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-GRIS
 - Filamento Bambu Lab PLA metal oro iridio 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-ORO-IR
 - Filamento Bambu Lab PLA metal verde 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-VERDE
-- Filamento Bambu Lab PLA nube algodon dulce 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-NUBE-ALG-DUL
+- Filamento Bambu Lab PLA nube algodon dulce 1.75 mm 1 kg — $669 MXN · SKU BAMBULAB-PLA-NUBE-ALG-DUL
 - Filamento Bambu Lab PLA púrpura indigo 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-PURPURA-INDI
 - Filamento Bambu Lab PLA Refill amarillo 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-AMARILLO
 - Filamento Bambu Lab PLA Refill azul 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-AZUL
 - Filamento Bambu Lab PLA Refill gris 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-GRIS
-- Filamento Bambu Lab PLA Refill naranja 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-NARANJA
-- Filamento Bambu Lab PLA Refill plata 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-PLATA
-- Filamento Bambu Lab PLA Refill rojo 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-ROJO
+- Filamento Bambu Lab PLA Refill naranja 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-NARANJA
+- Filamento Bambu Lab PLA Refill plata 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-PLATA
+- Filamento Bambu Lab PLA Refill rojo 1.75 mm 1 kg — $469 MXN · SKU BAMBULAB-PLA-SPL-ROJO
 - Filamento Bambu Lab PLA rosa cítrico 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-ROSA-CITRICO
 - Filamento Bambu Lab SOP ABS blanco 1.75 mm 0.5 kg — $559 MXN · SKU BAMBULAB-SOP-ABS-BLANCO
 - Filamento Bambu Lab SOP PLA PETG natural 1.75 mm 0.5 kg — $899 MXN · SKU BAMBULAB-SOP-PLA-PETG-NAT

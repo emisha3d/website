@@ -61,12 +61,12 @@
             "itemOffered": { "@type": "Product", "name": "Bambu Lab A1 mini" } },
           { "@type": "Offer", "name": "Bambu Lab A1 — renta por día", "price": "350", "priceCurrency": "MXN",
             "itemOffered": { "@type": "Product", "name": "Bambu Lab A1" } },
-          { "@type": "Offer", "name": "Bambu Lab A2 — renta por día", "price": "520", "priceCurrency": "MXN",
-            "itemOffered": { "@type": "Product", "name": "Bambu Lab A2" } },
+          { "@type": "Offer", "name": "Bambu Lab A2L — renta por día", "price": "520", "priceCurrency": "MXN",
+            "itemOffered": { "@type": "Product", "name": "Bambu Lab A2L" } },
           { "@type": "Offer", "name": "Bambu Lab P1S — renta por día", "price": "650", "priceCurrency": "MXN",
             "itemOffered": { "@type": "Product", "name": "Bambu Lab P1S" } },
-          { "@type": "Offer", "name": "Snapmaker — renta por día", "price": "1200", "priceCurrency": "MXN",
-            "itemOffered": { "@type": "Product", "name": "Snapmaker" } },
+          { "@type": "Offer", "name": "Snapmaker U1 — renta por día", "price": "1200", "priceCurrency": "MXN",
+            "itemOffered": { "@type": "Product", "name": "Snapmaker U1" } },
           { "@type": "Offer", "name": "Bambu Lab X1 Carbon — renta por día", "price": "1200", "priceCurrency": "MXN",
             "itemOffered": { "@type": "Product", "name": "Bambu Lab X1 Carbon" } },
           { "@type": "Offer", "name": "Bambu Lab H2S — renta por día", "price": "1600", "priceCurrency": "MXN",
@@ -214,6 +214,21 @@
 .resumen .btn{width:100%;margin-top:14px}
 .resumen__pie{margin:10px 0 0;font-size:.74rem;color:var(--muted);line-height:1.45;text-align:center}
 
+/* ---------- disponibilidad y apartado ---------- */
+.renta-disp{margin:0;font-size:.86rem;line-height:1.45;padding:9px 12px;border-radius:var(--radius);background:var(--tile)}
+.renta-disp--ok{background:#f0f9f2;color:#1e6b39}
+.renta-disp--no{background:#fff2f2;color:#8a2626}
+.renta-fechas{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.renta-fechas button{border:1px solid var(--border);background:#fff;border-radius:99px;padding:5px 11px;font:inherit;font-size:.8rem;cursor:pointer}
+.renta-fechas button:hover{border-color:var(--brand);color:var(--brand)}
+.renta-apartado{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin-bottom:22px;scroll-margin-top:80px}
+.renta-apartado h3{margin:0 0 10px;font-size:1.15rem}
+.renta-apartado p{margin:0 0 10px;font-size:.9rem;line-height:1.5}
+.renta-apartado dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:12px 0;font-size:.88rem}
+.renta-apartado dt{color:var(--muted)}
+.renta-apartado dd{margin:0;font-weight:600}
+.renta-apartado .btn{margin:4px 8px 4px 0}
+.renta-disp[hidden],.renta-fechas[hidden],.renta-apartado[hidden]{display:none}
 /* ---------- avisos ---------- */
 .renta-aviso{margin-bottom:16px;padding:12px 16px;border-radius:var(--radius);font-size:.88rem;line-height:1.5}
 .renta-aviso--error{background:#fff2f2;border:1px solid #f3c6c6;color:#8a2626}
@@ -302,7 +317,8 @@
             <div class="maquina__precio"><dt>Mes</dt><dd>$2,000</dd></div>
           </dl>
           <p class="maquina__deposito">Depósito en garantía <b>$1,500</b> · se devuelve completo</p>
-          <button type="button" class="btn btn--primary btn--sm" data-rentar="A1 mini">Rentar esta</button>
+          <p class="maquina__nota">Por ahora sin equipo para rentar</p>
+          <a class="btn btn--ghost btn--sm" href="https://wa.me/525575639255?text=Hola%2C%20%C2%BFtienen%20A1%20mini%20para%20rentar%3F" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
         </article>
 
         <article class="maquina">
@@ -318,7 +334,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">A2</h3>
+          <h3 class="maquina__nombre">A2L</h3>
           <p class="maquina__para">El escalón entre la A1 y la P1S. Si la A1 se te queda corta pero no necesitas cámara cerrada, esta es la que buscas.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$520</dd></div>
@@ -326,7 +342,7 @@
             <div class="maquina__precio"><dt>Mes</dt><dd>$4,800</dd></div>
           </dl>
           <p class="maquina__deposito">Depósito en garantía <b>$3,600</b> · se devuelve completo</p>
-          <button type="button" class="btn btn--primary btn--sm" data-rentar="A2">Rentar esta</button>
+          <button type="button" class="btn btn--primary btn--sm" data-rentar="A2L">Rentar esta</button>
         </article>
 
         <article class="maquina">
@@ -341,23 +357,21 @@
           <button type="button" class="btn btn--primary btn--sm" data-rentar="P1S">Rentar esta</button>
         </article>
 
-        <article class="maquina maquina--pedido">
-          <h3 class="maquina__nombre">Snapmaker</h3>
-          <p class="maquina__nota">Bajo disponibilidad</p>
-          <p class="maquina__para">Volumen grande. Para piezas que sencillamente no caben en las demás.</p>
+        <article class="maquina">
+          <h3 class="maquina__nombre">Snapmaker U1</h3>
+                    <p class="maquina__para">Volumen grande. Para piezas que sencillamente no caben en las demás.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$1,200</dd></div>
             <div class="maquina__precio"><dt>Semana</dt><dd>$4,300</dd></div>
             <div class="maquina__precio"><dt>Mes</dt><dd>$10,800</dd></div>
           </dl>
           <p class="maquina__deposito">Depósito en garantía <b>$8,100</b> · se devuelve completo</p>
-          <button type="button" class="btn btn--primary btn--sm" data-rentar="Snapmaker">Rentar esta</button>
+          <button type="button" class="btn btn--primary btn--sm" data-rentar="Snapmaker U1">Rentar esta</button>
         </article>
 
-        <article class="maquina maquina--pedido">
+        <article class="maquina">
           <h3 class="maquina__nombre">X1 Carbon</h3>
-          <p class="maquina__nota">Bajo disponibilidad</p>
-          <p class="maquina__para">Cerrada, con lidar y AMS. Para materiales técnicos y para el trabajo que no admite una pieza fallada.</p>
+                    <p class="maquina__para">Cerrada, con lidar y AMS. Para materiales técnicos y para el trabajo que no admite una pieza fallada.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$1,200</dd></div>
             <div class="maquina__precio"><dt>Semana</dt><dd>$4,500</dd></div>
@@ -367,10 +381,9 @@
           <button type="button" class="btn btn--primary btn--sm" data-rentar="X1 Carbon">Rentar esta</button>
         </article>
 
-        <article class="maquina maquina--pedido">
+        <article class="maquina">
           <h3 class="maquina__nombre">H2S</h3>
-          <p class="maquina__nota">Bajo disponibilidad</p>
-          <p class="maquina__para">La más rápida del taller y con cámara cerrada grande. Se renta para producción en serie o para una pieza sola de buen tamaño.</p>
+                    <p class="maquina__para">La más rápida del taller y con cámara cerrada grande. Se renta para producción en serie o para una pieza sola de buen tamaño.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$1,600</dd></div>
             <div class="maquina__precio"><dt>Semana</dt><dd>$5,800</dd></div>
@@ -380,10 +393,9 @@
           <button type="button" class="btn btn--primary btn--sm" data-rentar="H2S">Rentar esta</button>
         </article>
 
-        <article class="maquina maquina--pedido">
+        <article class="maquina">
           <h3 class="maquina__nombre">Orange Storm</h3>
-          <p class="maquina__nota">Bajo disponibilidad</p>
-          <p class="maquina__para">La Elegoo de formato gigante: casi un metro de alto de impresión. Para la pieza que no se puede partir en pedazos.</p>
+                    <p class="maquina__para">La Elegoo de formato gigante: casi un metro de alto de impresión. Para la pieza que no se puede partir en pedazos.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$4,000</dd></div>
             <div class="maquina__precio"><dt>Semana</dt><dd>$14,400</dd></div>
@@ -410,12 +422,12 @@
       <h2>Cómo funciona</h2>
       <div class="pasos" style="margin-top:18px">
         <div class="paso">
-          <h3>Nos mandas tu solicitud</h3>
-          <p>Escoges la máquina, cuántos días la quieres y desde cuándo, y nos llega por WhatsApp. Te confirmamos que esté libre y te decimos cómo pagar el anticipo del 20% para que quede apartada a tu nombre (la Orange Storm no lleva anticipo: esa se paga al empezar, aquí en el taller).</p>
+          <h3>La apartas en línea</h3>
+          <p>Escoges la máquina, cuántas, cuánto tiempo y desde cuándo, y ves al momento si está libre. Pagas con Mercado Pago el anticipo del 20% o la renta completa, como prefieras, y te llega el correo con tu folio y tu contrato ya lleno (la Orange Storm se paga completa: esa se usa aquí en el taller).</p>
         </div>
         <div class="paso">
           <h3>Pasas al taller</h3>
-          <p>Traes tu INE y tu comprobante de domicilio. Firmas el contrato y el pagaré, dejas el depósito en garantía y pagas el resto de la renta.</p>
+          <p>Traes tu INE y tu comprobante de domicilio. Firmas el contrato y el pagaré, dejas el depósito en garantía en efectivo o por transferencia y, si pagaste anticipo, el resto de la renta.</p>
         </div>
         <div class="paso">
           <h3>Revisamos juntos</h3>
@@ -456,10 +468,12 @@
     <div class="wrap">
       <h2>Aparta tu equipo</h2>
       <p class="lede" style="margin-bottom:20px">
-        Aquí no se cobra nada: llenas esto y se abre WhatsApp con tu solicitud ya escrita.
-        Te confirmamos por ahí si la máquina está libre en tus fechas, y el resto se paga
-        en el taller cuando pasas por ella.
+        Escoges, ves si está libre en tus fechas y pagas en línea el anticipo o la renta
+        completa. La máquina queda a tu nombre en cuanto se acredita el pago. El depósito
+        en garantía no se paga aquí: lo dejas al recoger, en efectivo o por transferencia.
       </p>
+
+      <div class="renta-apartado" id="apartado" data-apartado hidden aria-live="polite"></div>
 
       <div class="renta-grid">
 
@@ -475,17 +489,21 @@
                 <fieldset class="picker" data-picker-maquina>
                   <legend>Impresora</legend>
                   <div class="picker__grid">
-                    <label class="picker__item"><input type="radio" name="maquina" value="A1 mini" required><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 41h26"/><path d="M15 41V13"/><path d="M15 21h18"/><rect x="21" y="21" width="6" height="6" rx="1"/><path d="M17 34h14"/></svg></span><span class="picker__label">A1 mini</span><span class="picker__desde">$220/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="A1"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 41h32"/><path d="M13 41V9M35 41V9"/><path d="M13 17h22"/><rect x="21" y="17" width="6" height="7" rx="1"/><path d="M15 34h18"/></svg></span><span class="picker__label">A1</span><span class="picker__desde">$350/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="A2"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 41h34"/><path d="M12 41V7M36 41V7"/><path d="M12 16h24"/><rect x="20" y="16" width="8" height="7" rx="1"/><path d="M14 34h20"/></svg></span><span class="picker__label">A2</span><span class="picker__desde">$520/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="A1" required><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 41h32"/><path d="M13 41V9M35 41V9"/><path d="M13 17h22"/><rect x="21" y="17" width="6" height="7" rx="1"/><path d="M15 34h18"/></svg></span><span class="picker__label">A1</span><span class="picker__desde">$350/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="A2L"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 41h34"/><path d="M12 41V7M36 41V7"/><path d="M12 16h24"/><rect x="20" y="16" width="8" height="7" rx="1"/><path d="M14 34h20"/></svg></span><span class="picker__label">A2L</span><span class="picker__desde">$520/día</span></label>
                     <label class="picker__item"><input type="radio" name="maquina" value="P1S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="2"/><path d="M9 17h30"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 24v5"/></svg></span><span class="picker__label">P1S</span><span class="picker__desde">$650/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="Snapmaker"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 20h36"/><rect x="19" y="20" width="10" height="7" rx="1"/><path d="M12 36h24"/></svg></span><span class="picker__label">Snapmaker</span><span class="picker__desde">$1,200/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="Snapmaker U1"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 20h36"/><rect x="19" y="20" width="10" height="7" rx="1"/><path d="M12 36h24"/></svg></span><span class="picker__label">Snapmaker U1</span><span class="picker__desde">$1,200/día</span></label>
                     <label class="picker__item"><input type="radio" name="maquina" value="X1 Carbon"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M9 19h30"/><rect x="21" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 25v5"/></svg></span><span class="picker__label">X1 Carbon</span><span class="picker__desde">$1,200/día</span></label>
                     <label class="picker__item"><input type="radio" name="maquina" value="H2S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__label">H2S</span><span class="picker__desde">$1,600/día</span></label>
                     <label class="picker__item"><input type="radio" name="maquina" value="Orange Storm"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="4" width="34" height="40" rx="2"/><path d="M7 14h34"/><rect x="20" y="14" width="8" height="6" rx="1"/><path d="M12 38h24"/><path d="M12 4v40M36 4v40"/></svg></span><span class="picker__label">Orange Storm</span><span class="picker__desde">$4,000/día</span></label>
                   </div>
                   <span class="renta-error" data-error-maquina hidden>Escoge una impresora.</span>
                 </fieldset>
+                <div class="renta-campo">
+                  <label for="equipos">Cuántas impresoras</label>
+                  <input type="number" id="equipos" name="equipos" min="1" max="10" step="1" value="1" inputmode="numeric">
+                  <span class="renta-error" data-error-equipos hidden></span>
+                </div>
               </div>
             </div>
 
@@ -514,6 +532,10 @@
                   <p class="renta-campo__hint">Recoges ese día entre 12:00 y 18:00, de lunes a viernes.</p>
                   <span class="renta-error" data-error-inicio hidden></span>
                 </div>
+                <div class="renta-campo ancho">
+                  <p class="renta-disp" data-disp hidden></p>
+                  <div class="renta-fechas" data-fechas-libres hidden></div>
+                </div>
 
                 <div class="renta-campo ancho">
                   <label for="para">Para qué la vas a usar <span style="text-transform:none;letter-spacing:0">(opcional)</span></label>
@@ -524,7 +546,29 @@
             </div>
 
             <div class="renta-paso">
-              <div class="renta-paso__titulo"><span class="renta-paso__num">3</span><h2>Tus datos</h2></div>
+              <div class="renta-paso__titulo"><span class="renta-paso__num">3</span><h2>Cómo pagas</h2></div>
+              <div class="renta-campos">
+                <fieldset class="picker" data-picker-pago>
+                  <legend>Ahora, en línea (Mercado Pago)</legend>
+                  <div class="picker__grid picker__grid--duracion" style="grid-template-columns:repeat(2,1fr)">
+                    <label class="picker__item picker__item--duracion"><input type="radio" name="pago" value="anticipo" checked><span class="picker__label">Anticipo 20%</span><span class="picker__desde">el resto al recoger</span></label>
+                    <label class="picker__item picker__item--duracion" data-op-total><input type="radio" name="pago" value="total"><span class="picker__label">Renta completa</span><span class="picker__desde">ya no pagas nada más</span></label>
+                  </div>
+                  <p class="renta-campo__hint" data-hint-pago hidden>La Orange Storm se paga completa: se usa aquí en el taller.</p>
+                </fieldset>
+                <fieldset class="picker" data-picker-deposito>
+                  <legend>El depósito en garantía, al recoger</legend>
+                  <div class="picker__grid picker__grid--duracion" style="grid-template-columns:repeat(2,1fr)">
+                    <label class="picker__item picker__item--duracion"><input type="radio" name="deposito" value="efectivo" checked><span class="picker__label">Efectivo</span><span class="picker__desde">en el mostrador</span></label>
+                    <label class="picker__item picker__item--duracion"><input type="radio" name="deposito" value="transferencia"><span class="picker__label">Transferencia</span><span class="picker__desde">ahí mismo, al recoger</span></label>
+                  </div>
+                  <p class="renta-campo__hint">Se te devuelve completo cuando regresas la impresora como te la llevaste.</p>
+                </fieldset>
+              </div>
+            </div>
+
+            <div class="renta-paso">
+              <div class="renta-paso__titulo"><span class="renta-paso__num">4</span><h2>Tus datos</h2></div>
               <div class="renta-campos">
                 <div class="renta-campo">
                   <label for="nombre">Nombre completo</label>
@@ -561,9 +605,8 @@
           <div class="resumen__renglon"><span data-r-maquina>Escoge una impresora</span><span data-r-renta>—</span></div>
           <div class="resumen__renglon resumen__renglon--suave"><span>IVA 16%</span><span data-r-iva>—</span></div>
           <div class="resumen__renglon resumen__renglon--total"><span>Total de la renta</span><span data-r-total>—</span></div>
-          <div class="resumen__renglon" data-fila-anticipo><span>Anticipo para apartar (20%)</span><span data-r-anticipo>—</span></div>
-          <div class="resumen__renglon resumen__renglon--suave" data-fila-resto><span>Resto en el taller</span><span data-r-resto>—</span></div>
-          <div class="resumen__renglon resumen__renglon--suave" data-fila-taller hidden><span>Se paga completo al empezar, en el taller</span><span data-r-entaller>—</span></div>
+          <div class="resumen__renglon"><span>Pagas ahora en línea</span><span data-r-ahora>—</span></div>
+          <div class="resumen__renglon resumen__renglon--suave" data-fila-resto><span>Resto al recoger</span><span data-r-resto>—</span></div>
 
           <div class="resumen__caja" data-caja-deposito>
             Además del pago, al recoger dejas <b data-r-deposito>—</b> de depósito en garantía.
@@ -573,12 +616,13 @@
 
           <div class="resumen__caja" data-caja-taller hidden>
             Esta máquina <b>no sale del taller</b>: la rentas aquí y trabajas con ella
-            aquí, así que no se deja depósito en garantía ni se cobra anticipo. Te damos
-            el acceso y el horario al confirmar el apartado, y pagas al empezar.
+            aquí, así que no se deja depósito en garantía y se paga completa al apartar.
+            Te confirmamos el horario por correo.
           </div>
 
-          <button type="submit" class="btn btn--primary btn--lg" form="renta-form" data-enviar>Enviar solicitud por WhatsApp</button>
-          <p class="resumen__pie">Se abre WhatsApp con todo ya escrito. No se cobra nada hasta que te confirmemos.</p>
+          <button type="submit" class="btn btn--primary btn--lg" form="renta-form" data-enviar>Apartar y pagar</button>
+          <p class="resumen__pie">Te llevamos a Mercado Pago. La máquina queda apartada 2 horas mientras pagas.
+            ¿Dudas antes? <a href="https://wa.me/525575639255" target="_blank" rel="noopener">WhatsApp</a>.</p>
         </aside>
 
       </div>
@@ -684,6 +728,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/renta.js?v=51053bac" defer></script>
+<script src="../assets/js/renta.js?v=ff5d1f5d" defer></script>
 </body>
 </html>
