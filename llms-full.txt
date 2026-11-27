@@ -8,12 +8,12 @@
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
-Generado: 2026-11-26
+Generado: 2026-11-27
 Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
-- Refacciones Bambu Lab: en vivo, catálogo del 2026-11-26
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-26
+- Refacciones Bambu Lab: en vivo, catálogo del 2026-11-27
+- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-27
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -342,7 +342,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-921 piezas con existencia confirmada, listas para salir de la Ciudad de
+922 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Normalmente se envían en 1 a 4 días hábiles. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
 leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
@@ -354,18 +354,18 @@ X1 y H2. Emisha no es distribuidor autorizado de Bambu Lab.
 Rango de precio: $39 MXN a $80,989 MXN.
 
 - Accesorios de instalación de puerta delantera compatible con serie X1 y P1 — $219 MXN · Compatible: serie P1, serie X1 · SKU FAS036
-- Ace 2 Pro anycubic — $9,199 MXN · SKU ANC-1REQ
-- Acf film for photon series — $2,009 MXN · SKU ANC-19BZ
+- Ace 2 Pro anycubic — $9,989 MXN · SKU ANC-1REQ
+- Acf film for photon series — $1,889 MXN · SKU ANC-19BZ
 - Acoplador de tubo de asistencia área láser de 10 W compatible con H2D y H2S — $289 MXN · Compatible: H2D, H2S · SKU SLA002
 - Acoplador de tubo de PTFE compatible con P1P y P1S — $219 MXN · Compatible: P1P, P1S · SKU FAZ009
 - Acoplador de tubo PTFE H2 compatible con H2D — $439 MXN · Compatible: H2D · SKU FAC114
 - Acoplador del tubo de asistencia de aire para láser de 40 W para series H2 — $729 MXN · Compatible: serie H2 · SKU SLA001
 - Acoplador eje Z para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAC029
-- Actived carbón filter for airpure — $379 MXN · SKU ANC-1A80
+- Actived carbón filter for airpure — $329 MXN · SKU ANC-1A80
 - Adaptador de tarjeta SD sermoon d1 / ender 6 — $149 MXN · SKU 2101030028
 - Adaptador de tubo PTFE 4 en 1 — $549 MXN · SKU SA014
 - Adaptador de tubo PTFE 4 en 1 compatible con X2D/P2S/X1/P1/a2l — $279 MXN · Compatible: serie P1, P2S, X1, X2D · SKU FAZ013-N
-- Airpure 2.0 anycubic — $2,779 MXN · SKU ANC-1N5O
+- Airpure 2.0 anycubic — $1,239 MXN · SKU ANC-1N5O
 - Alimentador para AMS HT — $729 MXN · Compatible: AMS HT · SKU SAA054
 - Almohadilla de soporte para base de impresora A1 — $219 MXN · Compatible: A1 · SKU FAZ014-N
 - Anillo inferior de plástico del gabinete compatible con serie H2 — $869 MXN · Compatible: serie H2 · SKU FAS050
@@ -375,9 +375,9 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Antena Wi-Fi para A1 — $209 MXN · Compatible: A1 · SKU FAC048
 - Anycubic m6k/m3p lcd — $4,959 MXN · SKU ANC-16ZS
 - Anycubic mono 4k lcd — $3,089 MXN · SKU ANC-1SAF
-- Anycubic pantalla touch photon mono 4 ultra 10k — $1,119 MXN · SKU ANC-1SZA
+- Anycubic pantalla touch photon mono 4 ultra 10k — $929 MXN · SKU ANC-1SZA
 - AP board para series X1E — $4,939 MXN · Compatible: X1E · SKU DLB001
-- Auto-fill set m7pro — $7,199 MXN · SKU ANC-1XJ5
+- Auto-fill set m7pro — $1,959 MXN · SKU ANC-1XJ5
 - Bambu Lab AMS reacondicionado — $7,889 MXN · Compatible: AMS · SKU SA001-R
 - Bambu Lab r1 (preventa) — $80,989 MXN · SKU LM001-P
 - Banda de ejes para impresora ender-6 — $599 MXN · SKU 2102010117
@@ -550,11 +550,11 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Ensamblaje del eje Z para A1 mini — $2,069 MXN · Compatible: A1 mini · SKU FAC030
 - Extractor de cámara activa compatible con H2D — $289 MXN · Compatible: H2D · SKU FAC120
 - FAF019 — $1,309 MXN · SKU FAF019
-- Fep film for mono 4, 4 ulta, mono 2 anycubic — $1,129 MXN · SKU ANC-1SQF
-- Fep m7 max (2pz) anycubic — $1,629 MXN · SKU ANC-1SQ7
-- Filament hub 8 colors anycubic — $1,339 MXN · SKU ANC-1XG2
+- Fep film for mono 4, 4 ulta, mono 2 anycubic — $1,449 MXN · SKU ANC-1SQF
+- Fep m7 max (2pz) anycubic — $1,559 MXN · SKU ANC-1SQ7
+- Filament hub 8 colors anycubic — $279 MXN · SKU ANC-1XG2
 - Filtros de carbón activado para impresoras halot mage Pro — $799 MXN · SKU 4004010239
-- Fresnel lens anycubic — $2,099 MXN · SKU ANC-1PO6
+- Fresnel lens anycubic — $1,019 MXN · SKU ANC-1PO6
 - Fuente de alimentación conmutada compatible con H2D y láser H2D — $4,059 MXN · Compatible: H2D · SKU FAC121
 - Fuente de alimentación interna (entrada 100-240 V y salida de 24 V) compatible con serie X1 y P1 — $1,959 MXN · Compatible: serie P1, serie X1 · SKU FAC059
 - Fuente de alimentación para A1 — $1,959 MXN · Compatible: A1 · SKU FAC065
@@ -615,11 +615,11 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Kit pantalla lcd para halot-sky versión 2022 — $10,349 MXN · SKU 4001150013
 - Kit pantalla para halot-sky — $10,379 MXN · SKU 4001150003
 - Kit para principiantes maker — $439 MXN · SKU B-ZC002
-- Kobra 3 max motherboard anycubic — $499 MXN · SKU ANC-1X4S
-- Kobra s1/kobra 3 max strain gauge — $289 MXN · SKU ANC-1XJY
-- Lcd screen for photon mono m7 Pro / photon mono m7″ — $6,119 MXN · SKU ANC-1708
-- Lcd screen for photon P1 anycubic — $6,399 MXN · Compatible: serie P1 · SKU ANC-1UMR
-- Lcd screen photon mono m4 anycubic — $5,459 MXN · SKU ANC-1GEY
+- Kobra 3 max motherboard anycubic — $549 MXN · SKU ANC-1X4S
+- Kobra s1/kobra 3 max strain gauge — $259 MXN · SKU ANC-1XJY
+- Lcd screen for photon mono m7 Pro / photon mono m7″ — $6,469 MXN · SKU ANC-1708
+- Lcd screen for photon P1 anycubic — $7,939 MXN · Compatible: serie P1 · SKU ANC-1UMR
+- Lcd screen photon mono m4 anycubic — $6,579 MXN · SKU ANC-1GEY
 - LED de cámara superior (derecha) — $439 MXN · SKU FAZ033
 - LED de cámara superior (izquierda) — $439 MXN · SKU FAZ032
 - Limpiador de purga para serie H2S — $439 MXN · Compatible: H2S · SKU FAC147
@@ -630,11 +630,11 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Luz LED frontal para P2S — $439 MXN · Compatible: P2S · SKU FAZ048
 - Luz LED frontal para serie X1E — $439 MXN · Compatible: X1E · SKU FAZ012
 - Luz LED lateral izquierda para P2S — $439 MXN · Compatible: P2S · SKU FAZ049
-- M5s Pro lcd screen — $6,219 MXN · SKU ANC-170D
+- M5s Pro lcd screen — $6,669 MXN · SKU ANC-170D
 - Marcador de área de referencia de la plataforma láser compatible con H2D y H2S — $219 MXN · Compatible: H2D, H2S · SKU SLA008
-- Mono 2 resin vat anycubic — $1,559 MXN · SKU ANC-1FMC
+- Mono 2 resin vat anycubic — $1,489 MXN · SKU ANC-1FMC
 - Motherboard halot-mage Pro — $3,939 MXN · SKU 4002020064
-- Motherboard kobra3/kobra3 combo anycubic — $2,689 MXN · SKU ANC-1KHU
+- Motherboard kobra3/kobra3 combo anycubic — $2,999 MXN · SKU ANC-1KHU
 - Motor a pasos para impresora 3D compatible con series cr y series ender — $869 MXN · SKU 3005020018
 - Motor de alimentación para AMS Lite — $369 MXN · Compatible: AMS lite · SKU SAA017
 - Motor de asistencia interna 3520 compatible con AMS 2 Pro y AMS HT — $1,309 MXN · Compatible: AMS 2 Pro, AMS HT · SKU FAM013
@@ -660,10 +660,10 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Módulo láser 10 W compatible con H2D combo2 para grabado en madera, acrilico y mas — $11,609 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-10W
 - Módulo láser 24v para ender-3 s1 — $3,189 MXN · SKU 4001100015
 - Módulo láser 40 W compatible con H2D combo2 alta potencia para corte y grabado de materiales densos — $35,369 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-40W
-- Nfep film 6 pcs photon P1 (dual color/ dual material release film) — $2,369 MXN · Compatible: serie P1 · SKU ANC-1TG0
-- Nfep film mono m5 (5pcs) anycubic — $1,889 MXN · SKU ANC-1C5J
+- Nfep film 6 pcs photon P1 (dual color/ dual material release film) — $1,719 MXN · Compatible: serie P1 · SKU ANC-1TG0
+- Nfep film mono m5 (5pcs) anycubic — $1,959 MXN · SKU ANC-1C5J
 - Organizador de tubos para H2D y láser H2D — $289 MXN · Compatible: H2D · SKU FAC138
-- P1 dual material kit anycubic — $4,999 MXN · Compatible: serie P1 · SKU ANC-1N5V
+- P1 dual material kit anycubic — $5,729 MXN · Compatible: serie P1 · SKU ANC-1N5V
 - Pack de cables para serie P2S y X2D — $589 MXN · Compatible: P2S, X2D · SKU CAB047
 - Palanca de corte compatible con P1P, P1S, X1, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAC004
 - Palanca del cortador de filamento para serie H2S — $289 MXN · Compatible: H2S · SKU FAC143
@@ -703,18 +703,18 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Paquete de cables de comunicación de tarjeta MC a ac 4 en 1 para serie X1E — $269 MXN · Compatible: X1E · SKU CAB022
 - Paquete de cables MC AP 2 en 1 para P2S — $369 MXN · Compatible: P2S · SKU CAB044
 - Paquete de cables para serie X2D — $579 MXN · Compatible: X2D · SKU CAB051
-- Pelicula fep photon mono 4k — $1,369 MXN · SKU ANC-PTY
+- Pelicula fep photon mono 4k — $1,209 MXN · SKU ANC-PTY
 - Pellets creality PETG con fibra de vidrio blanco 25 kg — $14,739 MXN · SKU PETG-GF-PELLET-BLANCO
 - Pellets creality PLA blanco 25 kg — $13,809 MXN · SKU PLA-PELLET-BLANCO
 - Photon m3 lcd anycubic — $2,249 MXN · SKU ANC-13KS
-- Photon m3 max fep film anycubic 13.6 inch (2 pzs) — $889 MXN · SKU ANC-191P
+- Photon m3 max fep film anycubic 13.6 inch (2 pzs) — $969 MXN · SKU ANC-191P
 - Photon m3 max lcd 13.6” 7k anycubic — $9,829 MXN · SKU ANC-1700
-- Photon m3 max resin vat anycubic — $2,699 MXN · SKU ANC-1FGY
-- Photon m3 max screen protector(5pzs) anycubic — $2,269 MXN · SKU ANC-1C0J
-- Photon m3 plus resin vat anycubic — $1,829 MXN · SKU ANC-1FMP
+- Photon m3 max resin vat anycubic — $2,899 MXN · SKU ANC-1FGY
+- Photon m3 max screen protector(5pzs) anycubic — $2,429 MXN · SKU ANC-1C0J
+- Photon m3 plus resin vat anycubic — $1,959 MXN · SKU ANC-1FMP
 - Photon m3 premium resin vat — $1,699 MXN · SKU ANC-1FQT
-- Photon m7 max screen protector c versión 0.1 mm anycubic — $309 MXN · SKU ANC-1UMK
-- Photon P1 (integrated release film) fep film anycubic — $1,679 MXN · Compatible: serie P1 · SKU ANC-1NHW
+- Photon m7 max screen protector c versión 0.1 mm anycubic — $269 MXN · SKU ANC-1UMK
+- Photon P1 (integrated release film) fep film anycubic — $2,069 MXN · Compatible: serie P1 · SKU ANC-1NHW
 - Photon s, m4k, ultra resin vat alumin 1 — $1,899 MXN · SKU ANC-1FQZ
 - Placa ac bajo voltaje para serie P2S — $869 MXN · Compatible: P2S · SKU DLB053
 - Placa ac LV para P2S — $1,899 MXN · Compatible: P2S · SKU DLB054
@@ -782,14 +782,14 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Porta bobina A1 mini — $189 MXN · Compatible: A1 mini · SKU FAC019
 - Portacarrete y soporte compatible con serie H2 — $369 MXN · Compatible: serie H2 · SKU FAC130
 - Portada para serie P2S — $729 MXN · Compatible: P2S · SKU FAS074
-- Print head pcba kobra s1 — $839 MXN · SKU ANC-1T1I
+- Print head pcba kobra s1 — $1,019 MXN · SKU ANC-1T1I
 - Puerta de cristal compatible con P1S, X1C y X1E — $1,309 MXN · Compatible: P1S, X1C, X1E · SKU FAS002
 - Puerta frontal de cristal para Bambu Lab H2S — $2,469 MXN · Compatible: H2S · SKU FAS043
 - Puerta frontal de vidrio para P2S — $1,379 MXN · Compatible: P2S · SKU FAS070
-- Resin vat for photon mono m7/m7 Pro anycubic — $2,269 MXN · SKU ANC-1FGS
-- Resin vat mono 4k (2 piezas) — $1,729 MXN · SKU ANC-PTV
-- Resin vat photon mono 4/4 ultra anycubic — $889 MXN · SKU ANC-1XFQ
-- Resin vat photon mono 7 Pro — $3,409 MXN · SKU ANC-1FQK
+- Resin vat for photon mono m7/m7 Pro anycubic — $2,559 MXN · SKU ANC-1FGS
+- Resin vat mono 4k (2 piezas) — $1,769 MXN · SKU ANC-PTV
+- Resin vat photon mono 4/4 ultra anycubic — $809 MXN · SKU ANC-1XFQ
+- Resin vat photon mono 7 Pro — $4,549 MXN · SKU ANC-1FQK
 - Resin vat photon P1 anycubic — $4,229 MXN · Compatible: serie P1 · SKU ANC-1NHS
 - Resorte de cama caliente para impresora ender-3 Pro creality — $39 MXN · SKU 6004010205
 - Revestimiento interior para serie P2S — $1,089 MXN · Compatible: P2S · SKU FAS076
@@ -799,7 +799,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Rueda de nivelacion de hotbed compatible con series cr y series ender-3 — $119 MXN · SKU 4004010098
 - Ruedas de nivelacion de hotbed compatible con series cr y series ender — $299 MXN · SKU 3006020036
 - SAA062 — $649 MXN · SKU SAA062
-- Screen protector m7 Pro anycubic — $749 MXN · SKU ANC-1RFH
+- Screen protector m7 Pro anycubic — $219 MXN · SKU ANC-1RFH
 - Sensor de calibración de compensacion de boquilla compatible con H2D y láser H2D — $729 MXN · Compatible: H2D · SKU FAC128
 - Sensor de efecto hall compatible con H2D — $289 MXN · Compatible: H2D · SKU DLB033
 - Sensor de filamento compatible con A1 mini y A1 — $289 MXN · Compatible: A1 mini, A1 · SKU FAE010
@@ -987,8 +987,8 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Ensamble de calentador de hotend derecho compatible con H2D — $979 MXN · Compatible: H2D · SKU FAH029
 - Ensamble de calentador de hotend izquierdo compatible con H2D — $979 MXN · Compatible: H2D · SKU FAH028-V1
 - Ensamble de calentamiento del hotend para series A1 — $699 MXN · Compatible: A1 · SKU FAH012
-- Extruder kobra s1 anycubic — $1,029 MXN · SKU ANC-1RFK
-- Extruder kobra s1 max anycubic — $339 MXN · SKU ANC-1RFN
+- Extruder kobra s1 anycubic — $719 MXN · SKU ANC-1RFK
+- Extruder kobra s1 max anycubic — $369 MXN · SKU ANC-1RFN
 - Extrusor auxiliar para serie X2D — $1,399 MXN · Compatible: X2D · SKU FAE049
 - Extrusor kit compatible con creality hi — $1,199 MXN · SKU 4001020085
 - Funda de silicona para hotend compatible con H2D — $209 MXN · Compatible: H2D · SKU FAH022
@@ -1051,7 +1051,7 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Kit extrusor para impresora 3D compatible con series ender-3 y cr-10 — $579 MXN · SKU 4001020011
 - Kit hotend ender-7 completo — $3,879 MXN · SKU 4001030084
 - Kobra 3 kobra 3 V2 hotend anycubic — $1,129 MXN · SKU ANC-1GQT
-- Kobra s1 quick release hotend 0.4 mm — $1,199 MXN · SKU ANC-1T9S
+- Kobra s1 quick release hotend 0.4 mm — $669 MXN · SKU ANC-1T9S
 - Leva del interruptor del extrusor para H2D y láser H2D — $419 MXN · Compatible: H2D · SKU FAC137
 - Placa de conexión del extrusor para serieh2d — $699 MXN · SKU DLB024
 - Placa posterior hotend ender-3 V2 ender 5/5 pro. — $369 MXN · SKU 2102010283
@@ -1104,8 +1104,8 @@ Rango de precio: $129 MXN a $1,719 MXN.
 - Kit de boquillas compatibles con ender 5 max — $629 MXN · SKU 4008030092
 - Kit de boquillas de intercambio rápido unicornio para impresora k1c,ender-3 V3,ender-3 V3 plus — $1,719 MXN · SKU 4008030065
 - Kit de boquillas principal para impresora sermoon d3 Pro — $1,329 MXN · SKU 2102012507
-- Kobra s1 max combo quick-swap hardened steel nozzle 0.4 mm — $319 MXN · SKU ANC-1V1J
-- Kobra x quick-swap hardened steel nozzle 0.4 mm — $319 MXN · SKU ANC-1V1M
+- Kobra s1 max combo quick-swap hardened steel nozzle 0.4 mm — $379 MXN · SKU ANC-1V1J
+- Kobra x quick-swap hardened steel nozzle 0.4 mm — $379 MXN · SKU ANC-1V1M
 - Sensor de calibración de boquilla para serie h2cc — $729 MXN · SKU FAE047
 - Sensor eddy de la boquilla para serie a2l — $439 MXN · SKU FAE067
 - Sensor eddy de la boquilla para serie H2C - derecho — $439 MXN · Compatible: H2C · SKU FAC197-V1
@@ -1114,7 +1114,7 @@ Rango de precio: $129 MXN a $1,719 MXN.
 
 ### 4.4 Camas calientes y placas de impresión (49 piezas)
 
-Rango de precio: $479 MXN a $5,089 MXN.
+Rango de precio: $479 MXN a $5,339 MXN.
 
 - Build plate for photon m3 anycubic — $959 MXN · SKU ANC-1FHO
 - Build plate for photon mono x, x 6k y m3 plus anycubic — $1,389 MXN · SKU ANC-1FHT
@@ -1148,8 +1148,8 @@ Rango de precio: $479 MXN a $5,089 MXN.
 - Cámara toolhead serie H2S — $949 MXN · Compatible: H2S · SKU CAM009
 - Lamina con superficie de galaxia para serie A1 mini — $479 MXN · Compatible: serie A1 · SKU FAP019-N
 - Mono m5 build plate anycubic — $829 MXN · SKU ANC-186P
-- P1 hollow steel build plate anycubic — $4,659 MXN · Compatible: serie P1 · SKU ANC-1N5R
-- Photon m3 max build platform anycubic — $2,109 MXN · SKU ANC-1HSS
+- P1 hollow steel build plate anycubic — $5,339 MXN · Compatible: serie P1 · SKU ANC-1N5R
+- Photon m3 max build platform anycubic — $2,269 MXN · SKU ANC-1HSS
 - Placa con efecto estrellada para A1 mini — $479 MXN · Compatible: A1 mini · SKU FAP020-N
 - Placa con superficie de diamante para series A1, X1 y P1 — $679 MXN · Compatible: A1, serie P1, X1 · SKU FAP018-N
 - Placa de efecto fibra de carbono para series A1 mini — $479 MXN · Compatible: A1 mini · SKU FAP021-N
@@ -1163,15 +1163,14 @@ Rango de precio: $479 MXN a $5,089 MXN.
 - Placa PEI texturizada compatible con A1 mini — $679 MXN · Compatible: A1 mini · SKU FAP009
 - Placa PEI texturizada compatible con H2D/H2S — $1,829 MXN · Compatible: H2D, H2S · SKU FAP025
 - Placa PEI texturizada para serie A1 mini — $809 MXN · Compatible: serie A1 · SKU FAP012
-- Printing platform for photon mono m7 max anycubic — $2,009 MXN · SKU ANC-1UMN
+- Printing platform for photon mono m7 max anycubic — $2,409 MXN · SKU ANC-1UMN
 - Superficie imantada compatible con X1C/P1P/P1S — $679 MXN · Compatible: P1P, P1S, X1C · SKU FAC024
 
-### 4.5 AMS y alimentación de filamento (19 piezas)
+### 4.5 AMS y alimentación de filamento (18 piezas)
 
-Rango de precio: $249 MXN a $11,229 MXN.
+Rango de precio: $249 MXN a $10,579 MXN.
 
 - Accesorio AMS permite utilizar 4 filamentos en una sola impresión, compatible con Bambu Lab X1, X1 carbón y serie P1 — $7,769 MXN · Compatible: serie P1, X1, X1C, AMS · SKU BAMBULAB-AMS
-- Accesorio AMS permite utilizar hasta 4 filamentos diferentes en una sola impresión compatible con Bambu Lab A1 y A1 mini — $5,769 MXN · Compatible: A1 mini, A1, AMS · SKU BAMBULAB-AMS-LITE
 - AMS hub compatible con P1P,P1S,X1C — $2,409 MXN · Compatible: P1P, P1S, X1C, AMS · SKU SA002-N
 - AMS Lite hub compartible con serie A1 — $1,349 MXN · Compatible: serie A1, AMS lite · SKU BAMBULAB-AMS-HUB
 - Bobina RFID AMS HT — $299 MXN · Compatible: AMS HT · SKU SAA059
@@ -1186,11 +1185,11 @@ Rango de precio: $249 MXN a $11,229 MXN.
 - Sistema automático de materiales AMS Lite compatible con serie A1 — $10,579 MXN · Compatible: serie A1, AMS lite · SKU SA005
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $9,989 MXN · SKU BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,069 MXN · Compatible: AMS · SKU BAMBULAB-AMS-HT
-- Wash & cure 3 anycubic — $2,969 MXN · SKU ANC-11HT
-- Wash & cure 3 plus anycubic — $5,419 MXN · SKU ANC-11IA
-- Wash & cure max anycubic — $11,229 MXN · SKU ANC-XI6
+- Wash & cure 3 anycubic — $3,259 MXN · SKU ANC-11HT
+- Wash & cure 3 plus anycubic — $5,849 MXN · SKU ANC-11IA
+- Wash & cure max anycubic — $10,539 MXN · SKU ANC-XI6
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (91 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (93 piezas)
 
 Rango de precio: $199 MXN a $2,949 MXN.
 
@@ -1216,24 +1215,24 @@ Rango de precio: $199 MXN a $2,949 MXN.
 - Filamento Bambu Lab PC negro 1.75 mm 1 kg — $1,449 MXN · SKU BAMBULAB-PC-NEGRO
 - Filamento Bambu Lab PC negro transparente 1.75 mm 1 kg — $1,449 MXN · SKU BAMBULAB-PC-NEGRO-TRANSPA
 - Filamento Bambu Lab PC transparente 1.75 mm 1 kg — $1,449 MXN · SKU BAMBULAB-PC-TRANSPARENTE
-- Filamento Bambu Lab PETG blanco 1.75 mm 1 kg — $589 MXN · SKU BAMBULAB-PETG-BLANCO
+- Filamento Bambu Lab PETG blanco 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-BLANCO
 - Filamento Bambu Lab PETG CF gris titanio 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-GRIS-TIT
 - Filamento Bambu Lab PETG CF morado violeta 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-MORADO-V
 - Filamento Bambu Lab PETG CF negro 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-NEGRO
 - Filamento Bambu Lab PETG CF verde marea 1.75 mm 1 kg — $969 MXN · SKU BAMBULAB-PETG-CF-VERDE-MA
-- Filamento Bambu Lab PETG gris 1.75 mm 1 kg — $579 MXN · SKU BAMBULAB-PETG-GRIS
-- Filamento Bambu Lab PETG negro 1.75 mm 1 kg — $589 MXN · SKU BAMBULAB-PETG-NEGRO
-- Filamento Bambu Lab PETG transparente morado 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-MORA
-- Filamento Bambu Lab PETG transparente naranja 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-NARA
-- Filamento Bambu Lab PETG transparente verde azulado 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-VEAZ
-- Filamento Bambu Lab PETG transparente verde oliva 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PETG-TRANSP-VEOL
+- Filamento Bambu Lab PETG gris 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-GRIS
+- Filamento Bambu Lab PETG negro 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-NEGRO
+- Filamento Bambu Lab PETG transparente morado 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-TRANSP-MORA
+- Filamento Bambu Lab PETG transparente naranja 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-TRANSP-NARA
+- Filamento Bambu Lab PETG transparente verde azulado 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-TRANSP-VEAZ
+- Filamento Bambu Lab PETG transparente verde oliva 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PETG-TRANSP-VEOL
 - Filamento Bambu Lab PLA arándano burbuja 1.75 mm 1 kg — $669 MXN · SKU BAMBULAB-PLA-ARANDANO-BUB
-- Filamento Bambu Lab PLA Basic azul 1.75 mm 1 kg — $579 MXN · SKU BAMBULAB-PLA-AZUL
+- Filamento Bambu Lab PLA Basic azul 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-AZUL
 - Filamento Bambu Lab PLA Basic cyan 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-CYAN
-- Filamento Bambu Lab PLA Basic negro 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-NEGRO
+- Filamento Bambu Lab PLA Basic negro 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-NEGRO
 - Filamento Bambu Lab PLA Basic plateado 1.75 mm 1 kg — $579 MXN · SKU BAMBULAB-PLA-PLATEADO
-- Filamento Bambu Lab PLA Basic rojo 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-ROJO
-- Filamento Bambu Lab PLA bronce 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-BRONCE
+- Filamento Bambu Lab PLA Basic rojo 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-ROJO
+- Filamento Bambu Lab PLA bronce 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-BRONCE
 - Filamento Bambu Lab PLA café 1.75 mm 1 kg — $589 MXN · SKU BAMBULAB-PLA-CAFE
 - Filamento Bambu Lab PLA CF azul mezcla 1.75 mm 1 kg — $949 MXN · SKU BAMBULAB-PLA-CF-AZUL-MEZC
 - Filamento Bambu Lab PLA CF azul rey 1.75 mm 1 kg — $949 MXN · SKU BAMBULAB-PLA-CF-AZUL-REY
@@ -1243,32 +1242,34 @@ Rango de precio: $199 MXN a $2,949 MXN.
 - Filamento Bambu Lab PLA crepusculo brillante 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-CREPUS-BRILL
 - Filamento Bambu Lab PLA gris azulado 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-GRIS-AZULADO
 - Filamento Bambu Lab PLA Lite azul 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-LITE-AZUL
-- Filamento Bambu Lab PLA Lite Refill beige mate 1.75 mm 1 kg — $379 MXN · SKU BAMBULAB-PLA-LITE-SPL-B-M
-- Filamento Bambu Lab PLA Lite Refill cyan 1.75 mm 1 kg — $379 MXN · SKU BAMBULAB-PLA-LITE-SPL-CYA
-- Filamento Bambu Lab PLA Lite Refill gris 1.75 mm 1 kg — $379 MXN · SKU BAMBULAB-PLA-LITE-SPL-GRI
-- Filamento Bambu Lab PLA Lite Refill naranja 1.75 mm 1 kg — $379 MXN · SKU BAMBULAB-PLA-LITE-SPL-NAR
-- Filamento Bambu Lab PLA Lite Refill verde 1.75 mm 1 kg — $379 MXN · SKU BAMBULAB-PLA-LITE-SPL-VER
-- Filamento Bambu Lab PLA marrón cocoa 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-MARRON-COCOA
+- Filamento Bambu Lab PLA Lite Refill beige mate 1.75 mm 1 kg — $369 MXN · SKU BAMBULAB-PLA-LITE-SPL-B-M
+- Filamento Bambu Lab PLA Lite Refill cyan 1.75 mm 1 kg — $369 MXN · SKU BAMBULAB-PLA-LITE-SPL-CYA
+- Filamento Bambu Lab PLA Lite Refill gris 1.75 mm 1 kg — $369 MXN · SKU BAMBULAB-PLA-LITE-SPL-GRI
+- Filamento Bambu Lab PLA Lite Refill naranja 1.75 mm 1 kg — $369 MXN · SKU BAMBULAB-PLA-LITE-SPL-NAR
+- Filamento Bambu Lab PLA Lite Refill verde 1.75 mm 1 kg — $369 MXN · SKU BAMBULAB-PLA-LITE-SPL-VER
+- Filamento Bambu Lab PLA marrón cocoa 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-MARRON-COCOA
+- Filamento Bambu Lab PLA Matte arena 1.75 mm 1 kg — $809 MXN · SKU BAMBULAB-PLA-MATTE-ARENA
 - Filamento Bambu Lab PLA Matte azul 1.75 mm 1 kg — $619 MXN · SKU BAMBULAB-PLA-MATTE-AZUL
+- Filamento Bambu Lab PLA Matte azul hielo 1.75 mm 1 kg — $819 MXN · SKU BAMBULAB-PLA-MATTE-AZUL-H
 - Filamento Bambu Lab PLA Matte azul marino 1.75 mm 1 kg — $809 MXN · SKU BAMBULAB-PLA-MATTE-AZUL-M
 - Filamento Bambu Lab PLA Matte gris 1.75 mm 1 kg — $589 MXN · SKU BAMBULAB-PLA-MATTE-GRIS
 - Filamento Bambu Lab PLA Matte rojo 1.75 mm 1 kg — $839 MXN · SKU BAMBULAB-PLA-MATTE-ROJO
 - Filamento Bambu Lab PLA Matte rojo escarlata 1.75 mm 1 kg — $809 MXN · SKU BAMBULAB-PLA-MATTE-ROJO-E
-- Filamento Bambu Lab PLA menta lima 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-MENTA-LIMA
+- Filamento Bambu Lab PLA menta lima 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-MENTA-LIMA
 - Filamento Bambu Lab PLA metal azul 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-AZUL
 - Filamento Bambu Lab PLA metal café 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-CAFE
 - Filamento Bambu Lab PLA metal gris 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-GRIS
 - Filamento Bambu Lab PLA metal oro iridio 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-ORO-IR
 - Filamento Bambu Lab PLA metal verde 1.75 mm 1 kg — $909 MXN · SKU BAMBULAB-PLA-METAL-VERDE
 - Filamento Bambu Lab PLA nube algodon dulce 1.75 mm 1 kg — $669 MXN · SKU BAMBULAB-PLA-NUBE-ALG-DUL
-- Filamento Bambu Lab PLA púrpura indigo 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-PURPURA-INDI
-- Filamento Bambu Lab PLA Refill amarillo 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-AMARILLO
-- Filamento Bambu Lab PLA Refill azul 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-AZUL
-- Filamento Bambu Lab PLA Refill gris 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-GRIS
-- Filamento Bambu Lab PLA Refill naranja 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-NARANJA
-- Filamento Bambu Lab PLA Refill plata 1.75 mm 1 kg — $459 MXN · SKU BAMBULAB-PLA-SPL-PLATA
+- Filamento Bambu Lab PLA púrpura indigo 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-PURPURA-INDI
+- Filamento Bambu Lab PLA Refill amarillo 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-AMARILLO
+- Filamento Bambu Lab PLA Refill azul 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-AZUL
+- Filamento Bambu Lab PLA Refill gris 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-GRIS
+- Filamento Bambu Lab PLA Refill naranja 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-NARANJA
+- Filamento Bambu Lab PLA Refill plata 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-PLATA
 - Filamento Bambu Lab PLA Refill rojo 1.75 mm 1 kg — $469 MXN · SKU BAMBULAB-PLA-SPL-ROJO
-- Filamento Bambu Lab PLA rosa cítrico 1.75 mm 1 kg — $529 MXN · SKU BAMBULAB-PLA-ROSA-CITRICO
+- Filamento Bambu Lab PLA rosa cítrico 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-ROSA-CITRICO
 - Filamento Bambu Lab SOP ABS blanco 1.75 mm 0.5 kg — $559 MXN · SKU BAMBULAB-SOP-ABS-BLANCO
 - Filamento Bambu Lab SOP PLA PETG natural 1.75 mm 0.5 kg — $899 MXN · SKU BAMBULAB-SOP-PLA-PETG-NAT
 - Filamento Bambu Lab TPU para AMS azul 1.75 mm 1 kg — $1,219 MXN · Compatible: AMS · SKU BAMBULAB-TPU-AMS-AZUL
@@ -1729,7 +1730,7 @@ puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
 atribución a Emisha y un enlace a https://www.emisha.com.mx.
 
 Al citar precios o existencias, conviene decir que son del catálogo del
-2026-11-26 y que se confirman al tomar el pedido. Emisha no se hace responsable
+2026-11-27 y que se confirman al tomar el pedido. Emisha no se hace responsable
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 

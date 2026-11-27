@@ -136,6 +136,8 @@
 .flota{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .maquina{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 16px 14px;min-width:0}
 .maquina__nombre{font-size:1.02rem;font-weight:700;margin:0;line-height:1.2}
+.maquina__marca{display:block;font-family:var(--font-mono);font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.picker__marca{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:-4px}
 .maquina__para{margin:6px 0 12px;font-size:.85rem;line-height:1.45;color:var(--muted);flex:1}
 .maquina__precios{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
 .maquina__precio{border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:7px 4px;text-align:center}
@@ -309,7 +311,7 @@
       <div class="flota" data-flota>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">A1 mini</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>A1 mini</h3>
           <p class="maquina__para">Cama abierta, volumen chico. La más sencilla de usar si es tu primera impresora: PLA y PETG sin complicaciones.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$220</dd></div>
@@ -322,7 +324,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">A1</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>A1</h3>
           <p class="maquina__para">Cama abierta con más volumen que la mini y multicolor si le pones el AMS lite. El caballito de batalla para PLA y PETG.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$350</dd></div>
@@ -334,7 +336,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">A2L</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>A2L</h3>
           <p class="maquina__para">El escalón entre la A1 y la P1S. Si la A1 se te queda corta pero no necesitas cámara cerrada, esta es la que buscas.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$520</dd></div>
@@ -346,7 +348,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">P1S</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>P1S</h3>
           <p class="maquina__para">Cámara cerrada. Aquí ya puedes imprimir ABS y ASA sin que se te levanten las esquinas. La renta más pedida para piezas funcionales.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$650</dd></div>
@@ -358,7 +360,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">Snapmaker U1</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Snapmaker</span>Snapmaker U1</h3>
                     <p class="maquina__para">Volumen grande. Para piezas que sencillamente no caben en las demás.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$1,200</dd></div>
@@ -370,7 +372,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">X1 Carbon</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>X1 Carbon</h3>
                     <p class="maquina__para">Cerrada, con lidar y AMS. Para materiales técnicos y para el trabajo que no admite una pieza fallada.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$1,200</dd></div>
@@ -382,7 +384,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">H2S</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>H2S</h3>
                     <p class="maquina__para">La más rápida del taller y con cámara cerrada grande. Se renta para producción en serie o para una pieza sola de buen tamaño.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$1,600</dd></div>
@@ -394,7 +396,7 @@
         </article>
 
         <article class="maquina">
-          <h3 class="maquina__nombre">Orange Storm</h3>
+          <h3 class="maquina__nombre"><span class="maquina__marca">Elegoo</span>Orange Storm</h3>
                     <p class="maquina__para">La Elegoo de formato gigante: casi un metro de alto de impresión. Para la pieza que no se puede partir en pedazos.</p>
           <dl class="maquina__precios">
             <div class="maquina__precio"><dt>Día</dt><dd>$4,000</dd></div>
@@ -468,9 +470,9 @@
     <div class="wrap">
       <h2>Aparta tu equipo</h2>
       <p class="lede" style="margin-bottom:20px">
-        Escoges, ves si está libre en tus fechas y pagas en línea el anticipo o la renta
-        completa. La máquina queda a tu nombre en cuanto se acredita el pago. El depósito
-        en garantía no se paga aquí: lo dejas al recoger, en efectivo o por transferencia.
+        Escoge la o las impresoras. En cuanto el pago queda confirmado tus equipos quedan
+        apartados. Deberás dejar un depósito en garantía que te será devuelto al regresar
+        el o los equipos al taller.
       </p>
 
       <div class="renta-apartado" id="apartado" data-apartado hidden aria-live="polite"></div>
@@ -489,13 +491,13 @@
                 <fieldset class="picker" data-picker-maquina>
                   <legend>Impresora</legend>
                   <div class="picker__grid">
-                    <label class="picker__item"><input type="radio" name="maquina" value="A1" required><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 41h32"/><path d="M13 41V9M35 41V9"/><path d="M13 17h22"/><rect x="21" y="17" width="6" height="7" rx="1"/><path d="M15 34h18"/></svg></span><span class="picker__label">A1</span><span class="picker__desde">$350/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="A2L"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 41h34"/><path d="M12 41V7M36 41V7"/><path d="M12 16h24"/><rect x="20" y="16" width="8" height="7" rx="1"/><path d="M14 34h20"/></svg></span><span class="picker__label">A2L</span><span class="picker__desde">$520/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="P1S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="2"/><path d="M9 17h30"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 24v5"/></svg></span><span class="picker__label">P1S</span><span class="picker__desde">$650/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="Snapmaker U1"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 20h36"/><rect x="19" y="20" width="10" height="7" rx="1"/><path d="M12 36h24"/></svg></span><span class="picker__label">Snapmaker U1</span><span class="picker__desde">$1,200/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="X1 Carbon"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M9 19h30"/><rect x="21" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 25v5"/></svg></span><span class="picker__label">X1 Carbon</span><span class="picker__desde">$1,200/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="H2S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__label">H2S</span><span class="picker__desde">$1,600/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="Orange Storm"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="4" width="34" height="40" rx="2"/><path d="M7 14h34"/><rect x="20" y="14" width="8" height="6" rx="1"/><path d="M12 38h24"/><path d="M12 4v40M36 4v40"/></svg></span><span class="picker__label">Orange Storm</span><span class="picker__desde">$4,000/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="A1" required><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 41h32"/><path d="M13 41V9M35 41V9"/><path d="M13 17h22"/><rect x="21" y="17" width="6" height="7" rx="1"/><path d="M15 34h18"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">A1</span><span class="picker__desde">$350/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="A2L"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 41h34"/><path d="M12 41V7M36 41V7"/><path d="M12 16h24"/><rect x="20" y="16" width="8" height="7" rx="1"/><path d="M14 34h20"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">A2L</span><span class="picker__desde">$520/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="P1S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="2"/><path d="M9 17h30"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 24v5"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">P1S</span><span class="picker__desde">$650/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="Snapmaker U1"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 20h36"/><rect x="19" y="20" width="10" height="7" rx="1"/><path d="M12 36h24"/></svg></span><span class="picker__marca">Snapmaker</span><span class="picker__label">Snapmaker U1</span><span class="picker__desde">$1,200/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="X1 Carbon"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M9 19h30"/><rect x="21" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 25v5"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">X1 Carbon</span><span class="picker__desde">$1,200/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="H2S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">H2S</span><span class="picker__desde">$1,600/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="Orange Storm"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="4" width="34" height="40" rx="2"/><path d="M7 14h34"/><rect x="20" y="14" width="8" height="6" rx="1"/><path d="M12 38h24"/><path d="M12 4v40M36 4v40"/></svg></span><span class="picker__marca">Elegoo</span><span class="picker__label">Orange Storm</span><span class="picker__desde">$4,000/día</span></label>
                   </div>
                   <span class="renta-error" data-error-maquina hidden>Escoge una impresora.</span>
                 </fieldset>
@@ -583,7 +585,7 @@
                 <div class="renta-campo ancho">
                   <label for="correo">Correo</label>
                   <input type="email" id="correo" name="correo" required autocomplete="email" maxlength="160">
-                  <p class="renta-campo__hint">Va en tu solicitud, para mandarte el contrato y la confirmación.</p>
+                  <p class="renta-campo__hint">Te enviaremos el contrato por correo con los detalles.</p>
                   <span class="renta-error" data-error-correo hidden>Escribe un correo válido.</span>
                 </div>
                 <div class="renta-campo ancho">
@@ -728,6 +730,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/renta.js?v=ff5d1f5d" defer></script>
+<script src="../assets/js/renta.js?v=be33ea36" defer></script>
 </body>
 </html>
