@@ -21,7 +21,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/emisha-logo-512.png">
-<link rel="stylesheet" href="../assets/css/styles.css?v=fcd33c50">
+<link rel="stylesheet" href="../assets/css/styles.css?v=4e9bcc98">
 
 <script type="application/ld+json">
 {
@@ -231,6 +231,22 @@
 .renta-apartado dd{margin:0;font-weight:600}
 .renta-apartado .btn{margin:4px 8px 4px 0}
 .renta-disp[hidden],.renta-fechas[hidden],.renta-apartado[hidden]{display:none}
+/* ---------- fotos: tarjetas, selector y vitrina ---------- */
+.maquina__foto{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);margin:0 0 10px;background:#f5f5f7}
+.picker__media img{width:56px;height:56px;object-fit:cover;border-radius:8px;background:#f5f5f7}
+.vitrina{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:22px;align-items:center;background:#f5f5f7;border-radius:var(--radius-lg);padding:18px 24px}
+.vitrina__foto{aspect-ratio:1;display:grid;place-items:center;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(13,17,23,.08)}
+.vitrina__foto img{width:100%;height:100%;object-fit:cover;transition:opacity .25s var(--ease),transform .35s var(--ease)}
+.vitrina.is-cambiando .vitrina__foto img{opacity:0;transform:scale(.96)}
+.vitrina__texto{transition:opacity .25s var(--ease)}
+.vitrina.is-cambiando .vitrina__texto{opacity:0}
+.vitrina__marca{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.vitrina__nombre{font-size:1.5rem;margin:2px 0 8px;line-height:1.15}
+.vitrina__para{margin:0 0 10px;font-size:.92rem;line-height:1.5;color:var(--text)}
+.vitrina__precio{margin:0;font-size:.84rem;color:var(--muted)}
+.vitrina__precio b{color:var(--text)}
+.vitrina[hidden]{display:none}
+@media (max-width:620px){.vitrina{grid-template-columns:minmax(0,1fr);padding:14px 16px;gap:8px}.vitrina__foto{max-width:220px;margin:0 auto}}
 /* ---------- avisos ---------- */
 .renta-aviso{margin-bottom:16px;padding:12px 16px;border-radius:var(--radius);font-size:.88rem;line-height:1.5}
 .renta-aviso--error{background:#fff2f2;border:1px solid #f3c6c6;color:#8a2626}
@@ -311,6 +327,7 @@
       <div class="flota" data-flota>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/a1-mini.webp" alt="Bambu Lab A1 mini" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>A1 mini</h3>
           <p class="maquina__para">Cama abierta, volumen chico. La más sencilla de usar si es tu primera impresora: PLA y PETG sin complicaciones.</p>
           <dl class="maquina__precios">
@@ -324,6 +341,7 @@
         </article>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/a1.webp" alt="Bambu Lab A1" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>A1</h3>
           <p class="maquina__para">Cama abierta con más volumen que la mini y multicolor si le pones el AMS lite. El caballito de batalla para PLA y PETG.</p>
           <dl class="maquina__precios">
@@ -336,6 +354,7 @@
         </article>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/a2l.webp" alt="Bambu Lab A2L" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>A2L</h3>
           <p class="maquina__para">El escalón entre la A1 y la P1S. Si la A1 se te queda corta pero no necesitas cámara cerrada, esta es la que buscas.</p>
           <dl class="maquina__precios">
@@ -348,6 +367,7 @@
         </article>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/p1s.webp" alt="Bambu Lab P1S" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>P1S</h3>
           <p class="maquina__para">Cámara cerrada. Aquí ya puedes imprimir ABS y ASA sin que se te levanten las esquinas. La renta más pedida para piezas funcionales.</p>
           <dl class="maquina__precios">
@@ -360,6 +380,7 @@
         </article>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/snapmaker-u1.webp" alt="Snapmaker Snapmaker U1" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Snapmaker</span>Snapmaker U1</h3>
                     <p class="maquina__para">Volumen grande. Para piezas que sencillamente no caben en las demás.</p>
           <dl class="maquina__precios">
@@ -372,6 +393,7 @@
         </article>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/x1-carbon.webp" alt="Bambu Lab X1 Carbon" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>X1 Carbon</h3>
                     <p class="maquina__para">Cerrada, con lidar y AMS. Para materiales técnicos y para el trabajo que no admite una pieza fallada.</p>
           <dl class="maquina__precios">
@@ -384,6 +406,7 @@
         </article>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/h2s.webp" alt="Bambu Lab H2S" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Bambu Lab</span>H2S</h3>
                     <p class="maquina__para">La más rápida del taller y con cámara cerrada grande. Se renta para producción en serie o para una pieza sola de buen tamaño.</p>
           <dl class="maquina__precios">
@@ -396,6 +419,7 @@
         </article>
 
         <article class="maquina">
+          <img class="maquina__foto" src="../assets/img/modelos/elegoo-orangestorm-giga.webp" alt="Elegoo Orange Storm" width="400" height="400" loading="lazy" decoding="async">
           <h3 class="maquina__nombre"><span class="maquina__marca">Elegoo</span>Orange Storm</h3>
                     <p class="maquina__para">La Elegoo de formato gigante: casi un metro de alto de impresión. Para la pieza que no se puede partir en pedazos.</p>
           <dl class="maquina__precios">
@@ -491,16 +515,25 @@
                 <fieldset class="picker" data-picker-maquina>
                   <legend>Impresora</legend>
                   <div class="picker__grid">
-                    <label class="picker__item"><input type="radio" name="maquina" value="A1" required><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 41h32"/><path d="M13 41V9M35 41V9"/><path d="M13 17h22"/><rect x="21" y="17" width="6" height="7" rx="1"/><path d="M15 34h18"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">A1</span><span class="picker__desde">$350/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="A2L"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 41h34"/><path d="M12 41V7M36 41V7"/><path d="M12 16h24"/><rect x="20" y="16" width="8" height="7" rx="1"/><path d="M14 34h20"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">A2L</span><span class="picker__desde">$520/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="P1S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="2"/><path d="M9 17h30"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 24v5"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">P1S</span><span class="picker__desde">$650/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="Snapmaker U1"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 20h36"/><rect x="19" y="20" width="10" height="7" rx="1"/><path d="M12 36h24"/></svg></span><span class="picker__marca">Snapmaker</span><span class="picker__label">Snapmaker U1</span><span class="picker__desde">$1,200/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="X1 Carbon"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="30" height="28" rx="2"/><rect x="12" y="5" width="9" height="6" rx="1"/><path d="M9 19h30"/><rect x="21" y="19" width="6" height="6" rx="1"/><path d="M15 33h18"/><path d="M34 25v5"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">X1 Carbon</span><span class="picker__desde">$1,200/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="H2S"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="2"/><rect x="10" y="3" width="10" height="5" rx="1"/><path d="M6 17h36"/><rect x="21" y="17" width="6" height="6" rx="1"/><path d="M13 35h22"/><path d="M37 24v6"/></svg></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">H2S</span><span class="picker__desde">$1,600/día</span></label>
-                    <label class="picker__item"><input type="radio" name="maquina" value="Orange Storm"><span class="picker__media"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="4" width="34" height="40" rx="2"/><path d="M7 14h34"/><rect x="20" y="14" width="8" height="6" rx="1"/><path d="M12 38h24"/><path d="M12 4v40M36 4v40"/></svg></span><span class="picker__marca">Elegoo</span><span class="picker__label">Orange Storm</span><span class="picker__desde">$4,000/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="A1" required><span class="picker__media"><img src="../assets/img/modelos/a1.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">A1</span><span class="picker__desde">$350/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="A2L"><span class="picker__media"><img src="../assets/img/modelos/a2l.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">A2L</span><span class="picker__desde">$520/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="P1S"><span class="picker__media"><img src="../assets/img/modelos/p1s.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">P1S</span><span class="picker__desde">$650/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="Snapmaker U1"><span class="picker__media"><img src="../assets/img/modelos/snapmaker-u1.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><span class="picker__marca">Snapmaker</span><span class="picker__label">Snapmaker U1</span><span class="picker__desde">$1,200/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="X1 Carbon"><span class="picker__media"><img src="../assets/img/modelos/x1-carbon.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">X1 Carbon</span><span class="picker__desde">$1,200/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="H2S"><span class="picker__media"><img src="../assets/img/modelos/h2s.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><span class="picker__marca">Bambu Lab</span><span class="picker__label">H2S</span><span class="picker__desde">$1,600/día</span></label>
+                    <label class="picker__item"><input type="radio" name="maquina" value="Orange Storm"><span class="picker__media"><img src="../assets/img/modelos/elegoo-orangestorm-giga.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><span class="picker__marca">Elegoo</span><span class="picker__label">Orange Storm</span><span class="picker__desde">$4,000/día</span></label>
                   </div>
                   <span class="renta-error" data-error-maquina hidden>Escoge una impresora.</span>
                 </fieldset>
+                <div class="vitrina ancho" data-vitrina hidden aria-live="polite">
+                  <div class="vitrina__foto"><img data-v-foto src="" alt="" width="400" height="400" decoding="async"></div>
+                  <div class="vitrina__texto">
+                    <span class="vitrina__marca" data-v-marca></span>
+                    <h3 class="vitrina__nombre" data-v-nombre></h3>
+                    <p class="vitrina__para" data-v-para></p>
+                    <p class="vitrina__precio" data-v-precio></p>
+                  </div>
+                </div>
                 <div class="renta-campo">
                   <label for="equipos">Cuántas impresoras</label>
                   <input type="number" id="equipos" name="equipos" min="1" max="10" step="1" value="1" inputmode="numeric">
@@ -730,6 +763,6 @@
 </footer>
 
 <script src="../assets/js/main.js?v=7782446c" defer></script>
-<script src="../assets/js/renta.js?v=be33ea36" defer></script>
+<script src="../assets/js/renta.js?v=d29195e5" defer></script>
 </body>
 </html>
