@@ -249,8 +249,9 @@
       <div class="section-head">
         <span class="eyebrow">Pedir una visita</span>
         <h2>Cuéntanos qué le pasa</h2>
-        <p>Te contestamos por correo o por WhatsApp para acordar el día. Mientras más nos
-          cuentes, mejor llegamos preparados.</p>
+        <p>Llena tus datos y aparta la visita con un <strong>anticipo de $2,000</strong> en
+          Mercado Pago. Después te escribimos por WhatsApp para acordar el día. Mientras más
+          nos cuentes, mejor llegamos preparados.</p>
       </div>
 
       <form class="card" id="giga-form" novalidate style="display:flex;flex-direction:column;gap:16px">
@@ -282,8 +283,18 @@
           <label for="g-sitio">No llenar</label>
           <input id="g-sitio" name="sitio" tabindex="-1" autocomplete="off">
         </div>
+        <div style="padding:12px 14px;border-radius:var(--radius-sm);background:#f5f8ff;border:1px solid #d6e2f5;font-size:.95rem;line-height:1.5">
+          <strong>Anticipo: $2,000 MXN.</strong> Se descuenta de los $4,000 de la visita, así que en sitio pagas los
+          $2,000 restantes, más las horas extra o refacciones que autorices. Si cancelas o cambias la fecha con al menos
+          <strong>48 horas</strong> de anticipación, te lo devolvemos o lo movemos a otro día. Si cancelas después, o
+          no hay nadie para recibirnos, el anticipo no se devuelve.
+        </div>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:.95rem">
+          <input id="g-acepto" name="acepto" type="checkbox" required style="margin-top:4px">
+          <span>Entiendo que el anticipo solo se devuelve si cancelo con 48 h de anticipación y que alguien estará para recibirlos.</span>
+        </label>
         <p id="giga-msg" class="muted" role="status" aria-live="polite" style="margin:0"></p>
-        <button class="btn btn--accent btn--lg" type="submit">Enviar solicitud</button>
+        <button class="btn btn--accent btn--lg" type="submit">Pagar anticipo de $2,000</button>
       </form>
     </div>
   </section>
@@ -300,6 +311,10 @@
         <details open>
           <summary>¿Cuánto cuesta el servicio a domicilio de una OrangeStorm Giga?</summary>
           <div class="faq__body"><p>La visita cuesta <strong>$4,000 MXN</strong> dentro de la Ciudad de México e incluye el diagnóstico y hasta 2 horas de trabajo. Cada hora adicional, $1,100 MXN. Las refacciones van aparte y nunca se cambian sin que tú lo autorices.</p></div>
+        </details>
+        <details>
+          <summary>¿Por qué piden un anticipo?</summary>
+          <div class="faq__body"><p>Vamos dos técnicos hasta donde está la impresora y apartamos ese día solo para ti. El anticipo de <strong>$2,000 MXN</strong> aparta la visita y se descuenta del total. Si cancelas o cambias la fecha con al menos 48 horas de anticipación, te lo devolvemos o lo movemos a otro día.</p></div>
         </details>
         <details>
           <summary>¿Por qué solo la Giga a domicilio?</summary>
@@ -335,17 +350,54 @@
       decir('Llena nombre, WhatsApp de 10 dígitos, correo, dónde está y qué le pasa.', true);
       return;
     }
+    if (!form.acepto.checked) { decir('Marca la casilla del anticipo para continuar.', true); return; }
     boton.disabled = true;
-    decir('Enviando…');
+    decir('Abriendo el pago…');
     fetch(API + '/giga', { method: 'POST', body: JSON.stringify(d), headers: { 'Content-Type': 'text/plain;charset=UTF-8' } })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
-        if (x.ok) { form.reset(); decir('Listo. Recibimos tu solicitud: te contestamos por correo o por WhatsApp para acordar el día.'); }
-        else decir((x.j && x.j.error) || 'No se pudo enviar. Escríbenos por WhatsApp.', true);
+        if (x.ok && x.j && x.j.pagar) {
+          try { sessionStorage.setItem('giga-pagar', x.j.pagar); } catch (e) {}
+          decir('Te llevamos a Mercado Pago…');
+          location.href = x.j.pagar;
+          return;
+        }
+        decir((x.j && x.j.error) || 'No se pudo enviar. Escríbenos por WhatsApp.', true);
+        boton.disabled = false;
       })
-      .catch(function () { decir('No se pudo enviar. Escríbenos por WhatsApp al 55 7563 9255.', true); })
-      .then(function () { boton.disabled = false; });
+      .catch(function () { decir('No se pudo enviar. Escríbenos por WhatsApp al 55 7563 9255.', true); boton.disabled = false; });
   });
+
+  // De regreso de Mercado Pago (?visita=1 y lo que MP agrega: status=approved…).
+  var q = new URLSearchParams(location.search);
+  if (q.get('visita')) {
+    var st = q.get('collection_status') || q.get('status') || '';
+    var guardado = null;
+    try { guardado = sessionStorage.getItem('giga-pagar'); } catch (e) {}
+    if (st === 'approved') {
+      form.style.display = 'none';
+      var ok = document.createElement('div');
+      ok.className = 'card';
+      ok.setAttribute('role', 'status');
+      ok.innerHTML = '<h3 style="margin:0 0 6px">Listo, tu visita está apartada</h3>' +
+        '<p style="margin:0">Recibimos tu anticipo de $2,000. Te escribimos por WhatsApp para acordar el día. ' +
+        'Si necesitas cambiar la fecha, avísanos con al menos 48 horas.</p>';
+      form.parentNode.appendChild(ok);
+      try { sessionStorage.removeItem('giga-pagar'); } catch (e) {}
+    } else if (st === 'pending' || st === 'in_process') {
+      decir('Tu pago está en proceso (por ejemplo, en efectivo en tienda). En cuanto se acredite te escribimos por WhatsApp.');
+    } else {
+      msg.innerHTML = '';
+      decir('El pago no se completó y la visita todavía no está apartada. ');
+      if (guardado && /^https:\/\/(www\.)?mercadopago\.com/.test(guardado)) {
+        var a = document.createElement('a');
+        a.href = guardado; a.textContent = 'Intentar pagar otra vez';
+        msg.appendChild(a);
+      }
+      msg.style.color = '#b42318';
+    }
+    document.getElementById('solicitud').scrollIntoView();
+  }
 })();
 </script>
 
