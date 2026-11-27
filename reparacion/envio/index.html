@@ -158,6 +158,18 @@
 .opcion__txt small{display:block;color:var(--muted);font-size:.82rem}
 .opcion b.precio{white-space:nowrap;font-size:1.05rem}
 .envio-pasos{margin:0;padding-left:20px;display:grid;gap:8px;font-size:.93rem;color:var(--text-2)}
+.caja-bloque + .caja-bloque{border-top:1px solid var(--border);margin-top:18px;padding-top:14px}
+[data-agregar-caja][hidden],[data-varias-nota][hidden]{display:none}
+.empaque-guia{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.empaque-paso{background:#fff;border:1px solid var(--border);border-radius:var(--radius,12px);overflow:hidden;display:flex;flex-direction:column}
+.empaque-paso__dibujo{background:#f8fafc;border-bottom:1px solid var(--border-soft);padding:14px 18px 8px}
+.empaque-paso__dibujo svg{display:block;width:100%;height:auto;max-height:150px}
+.empaque-paso__txt{padding:14px 16px 16px}
+.empaque-paso__num{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:.78rem;font-weight:700;margin-bottom:8px}
+.empaque-paso h3{font-size:1rem;margin:0 0 6px}
+.empaque-paso p{margin:0;font-size:.92rem;color:var(--text-2);line-height:1.5}
+.empaque-varias{margin:18px 0 0;padding:12px 16px;border:1px solid var(--border);border-radius:12px;background:#fff;font-size:.95rem;color:var(--text-2)}
+.empaque-varias b{color:var(--text)}
 .envio-empaque{margin:0;padding-left:22px;display:grid;gap:14px;font-size:1rem;color:var(--text-2)}
 .envio-empaque b{color:var(--text)}
 #enviar,#empaque{scroll-margin-top:70px}
@@ -241,11 +253,15 @@
 
           <form class="cita-form" data-envio-form novalidate>
             <div class="cita-paso">
-              <div class="cita-paso__titulo"><span class="cita-paso__num">1</span><h2>Tu impresora</h2></div>
+              <div class="cita-paso__titulo"><span class="cita-paso__num">1</span><h2>Tus impresoras</h2></div>
               <div class="cita-campos">
+                <div data-equipos>
+                <div class="equipo-bloque" data-equipo>
+                <div class="equipo-bloque__cab"><span class="equipo-bloque__num" data-equipo-num></span><button type="button" class="equipo-bloque__quitar" data-quitar-equipo hidden>Quitar</button></div>
+                <div class="cita-campos">
                 <div class="field">
                   <label for="e-modelo">Modelo</label>
-                  <select id="e-modelo" name="modelo" required>
+                  <select id="e-modelo" name="modelo" required data-modelo>
                     <option value="">Elige el modelo</option>
                     <optgroup label="Bambu Lab">
                     <option>A1</option>
@@ -288,50 +304,61 @@
                     <option value="Otro">Otro modelo o marca</option>
                   </select>
                 </div>
-                <div class="field" data-modelo-otro hidden>
+                <div class="field" data-modelo-otro-campo hidden>
                   <label for="e-modelo-otro">¿Cuál?</label>
-                  <input id="e-modelo-otro" name="modelo_otro" maxlength="50" placeholder="Marca y modelo">
+                  <input id="e-modelo-otro" name="modelo_otro" maxlength="50" placeholder="Marca y modelo" data-modelo-otro>
                 </div>
                 <div class="field field--ancho">
                   <label for="e-falla">¿Qué falla tiene?</label>
-                  <textarea id="e-falla" name="falla" required minlength="5" maxlength="1000"
+                  <textarea id="e-falla" name="falla" required minlength="5" maxlength="1000" data-falla
                     placeholder="Desde cuándo falla, qué mensaje marca, si ya intentaste algo. Si mandas también el AMS o el CFS, dilo aquí."></textarea>
                 </div>
+                </div>
+                </div>
+                </div>
+                <button type="button" class="btn btn--ghost" data-agregar-equipo>+ Agregar otra impresora</button>
               </div>
             </div>
 
             <div class="cita-paso">
               <div class="cita-paso__titulo"><span class="cita-paso__num">2</span><h2>La caja, ya empacada</h2></div>
               <p class="envio-nota">Pésala y mídela <b>ya cerrada</b>. Sin báscula: súbete a una báscula de baño con la caja y resta tu peso.
-                La guía se hace con estos datos; si la caja pesa o mide más, la paquetería cobra la diferencia y se suma a tu reparación.</p>
+                La guía se hace con estos datos; si la caja pesa o mide más, la paquetería cobra la diferencia y se suma a tu reparación.
+                <span data-varias-nota hidden>¿Varias impresoras? Lo normal es <b>una caja por impresora</b>: agrega cada caja y todas van en la misma guía.</span></p>
+              <div data-cajas>
+              <div class="caja-bloque" data-caja>
+              <div class="equipo-bloque__cab"><span class="equipo-bloque__num" data-caja-num></span><button type="button" class="equipo-bloque__quitar" data-quitar-caja hidden>Quitar</button></div>
               <div class="envio-caja">
                 <div class="field">
                   <label for="e-peso">Peso (kg)</label>
-                  <input id="e-peso" name="peso_kg" type="number" inputmode="decimal" min="1" max="70" step="0.1" required placeholder="18">
+                  <input id="e-peso" name="peso_kg" data-medida="peso_kg" type="number" inputmode="decimal" min="1" max="70" step="0.1" required placeholder="18">
                 </div>
                 <div class="field">
                   <label for="e-largo">Largo (cm)</label>
-                  <input id="e-largo" name="largo_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="50">
+                  <input id="e-largo" name="largo_cm" data-medida="largo_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="50">
                 </div>
                 <div class="field">
                   <label for="e-ancho">Ancho (cm)</label>
-                  <input id="e-ancho" name="ancho_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="50">
+                  <input id="e-ancho" name="ancho_cm" data-medida="ancho_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="50">
                 </div>
                 <div class="field">
                   <label for="e-alto">Alto (cm)</label>
-                  <input id="e-alto" name="alto_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="55">
+                  <input id="e-alto" name="alto_cm" data-medida="alto_cm" type="number" inputmode="decimal" min="1" max="150" step="1" required placeholder="55">
                 </div>
               </div>
+              </div>
+              </div>
+              <button type="button" class="btn btn--ghost" data-agregar-caja style="margin-top:10px">+ Agregar otra caja</button>
               <fieldset class="envio-si-no">
-                <legend>¿Va en su caja original, con sus espumas?</legend>
+                <legend>¿Va en su caja original, con sus espumas?<span data-varias-cajas hidden> (todas)</span></legend>
                 <label class="check"><input type="radio" name="caja_original" value="si" required> Sí</label>
                 <label class="check"><input type="radio" name="caja_original" value="no"> No, en otra caja</label>
               </fieldset>
               <div class="envio-seguro">
-                <label class="check"><input type="checkbox" name="asegurar" data-asegurar> <span><b>Asegurar mi impresora</b> contra pérdida o daño en el camino</span></label>
+                <label class="check"><input type="checkbox" name="asegurar" data-asegurar> <span><b>Asegurar el envío</b> contra pérdida o daño en el camino</span></label>
                 <div class="envio-seguro__campos" data-seguro-campos hidden>
                   <div class="field">
-                    <label for="e-valor">¿Cuánto vale? (MXN)</label>
+                    <label for="e-valor">¿Cuánto vale? Si son varias, el total (MXN)</label>
                     <input id="e-valor" name="valor_mxn" type="number" inputmode="numeric" min="1000" max="150000" step="1" placeholder="15000">
                   </div>
                   <p class="envio-nota" style="margin:0">Cubre pérdida o daño en el camino, hasta el valor que declares; el costo sale en cada paquetería al cotizar.
@@ -376,7 +403,7 @@
                 <span class="muted" data-cotizar-estado></span>
               </div>
               <fieldset class="envio-opciones" data-opciones hidden>
-                <legend>Elige paquetería · enviamos con Paquetexpress, FedEx, DHL o UPS</legend>
+                <legend>Elige paquetería · enviamos con FedEx, DHL o UPS</legend>
                 <div data-opciones-lista></div>
               </fieldset>
             </div>
@@ -431,7 +458,7 @@
           <div class="card">
             <h3>Cómo funciona</h3>
             <ol class="envio-pasos">
-              <li>Cotizas y pagas la guía aquí. Trabajamos con Paquetexpress, FedEx, DHL y UPS.</li>
+              <li>Cotizas y pagas la guía aquí. Trabajamos con FedEx, DHL y UPS.</li>
               <li>Generamos tu guía y te llega en PDF a tu correo el mismo día hábil. La imprimes y la pegas en la caja.</li>
               <li>Entregas la caja en una sucursal de la paquetería.</li>
               <li>Cuando llega, te escribimos por WhatsApp, hacemos el diagnóstico y te mandamos la cotización antes de reparar.</li>
@@ -465,19 +492,118 @@
   </section>
 
   <section class="section section--alt" id="empaque">
-    <div class="wrap" style="max-width:820px">
+    <div class="wrap" style="max-width:1040px">
       <div class="section-head">
         <span class="eyebrow">Antes de cerrar la caja</span>
         <h2>Cómo empacar tu impresora</h2>
       </div>
-      <ol class="envio-empaque">
-        <li><b>Saca el filamento.</b> Descarga el filamento del extrusor y del AMS y quita las bobinas. Saca también la placa de impresión y envuélvela aparte.</li>
-        <li><b>Inmoviliza la cama y el cabezal.</b> En P1 y X1, vuelve a apretar los tornillos de transporte de la cama. Si ya no los tienes (o es A1), fija cama y cabezal con cinta de papel y un trozo de espuma o cartón para que no se muevan.</li>
-        <li><b>Empaca bien.</b> Usa la caja original con sus espumas si la tienes. Si no, una caja rígida con al menos 5 cm de relleno por cada lado (burbuja, espuma o papel arrugado). La impresora no debe moverse si sacudes la caja.</li>
-        <li><b>Mete una hoja con tus datos.</b> Tu nombre, WhatsApp, el folio y qué falla tiene. Manda solo lo que haga falta: si la falla es del AMS, incluye el AMS y su cable.</li>
-        <li><b>Toma fotos.</b> De la impresora antes de empacar y de la caja ya cerrada. Si la paquetería la golpea, con eso se reclama.</li>
-        <li><b>Pega la guía y entrégala.</b> Imprime la guía y pégala en la cara más grande, sin cinta sobre el código de barras. Lleva la caja a una sucursal de la paquetería (o pídeles recolección con el número de guía).</li>
+      <ol class="empaque-guia">
+        <li class="empaque-paso">
+          <div class="empaque-paso__dibujo"><svg viewBox="0 0 200 140" role="img" aria-label="Se saca la bobina de filamento y la placa de impresión de la impresora" fill="none" stroke="#111418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="30" y="30" width="86" height="92" rx="8" fill="#fff"/>
+<rect x="40" y="44" width="66" height="56" rx="4" fill="#e7f0fa"/>
+<line x1="40" y1="56" x2="106" y2="56"/>
+<rect x="64" y="50" width="16" height="12" rx="2" fill="#fff"/>
+<line x1="72" y1="62" x2="72" y2="68"/>
+<rect x="48" y="86" width="50" height="5" rx="1.5" fill="#0b6bcb" stroke="#0b6bcb"/>
+<path d="M98 88 L150 88" stroke="#d2590b" stroke-dasharray="1 7"/>
+<path d="M142 82 L152 88 L142 94" stroke="#d2590b"/>
+<rect x="150" y="78" width="40" height="20" rx="2" transform="rotate(-8 170 88)" fill="#0b6bcb" stroke="#0b6bcb"/>
+<circle cx="160" cy="40" r="17" fill="#fff"/>
+<circle cx="160" cy="40" r="11" fill="#e7f0fa" stroke="#0b6bcb"/>
+<circle cx="160" cy="40" r="4" fill="#fff"/>
+<path d="M116 48 C128 50 134 46 143 44" stroke="#0b6bcb"/>
+<path d="M126 26 L136 22 M128 34 L139 33" stroke="#d2590b"/>
+</svg></div>
+          <div class="empaque-paso__txt"><span class="empaque-paso__num">1</span><h3>Saca el filamento</h3><p>Descarga el filamento del extrusor y del AMS y quita las bobinas. Saca también la placa de impresión y envuélvela aparte.</p></div>
+        </li>
+        <li class="empaque-paso">
+          <div class="empaque-paso__dibujo"><svg viewBox="0 0 200 140" role="img" aria-label="La cama y el cabezal se fijan con cinta y un trozo de espuma" fill="none" stroke="#111418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="44" y="18" width="112" height="108" rx="8" fill="#fff"/>
+<line x1="56" y1="38" x2="144" y2="38"/>
+<rect x="88" y="31" width="24" height="18" rx="3" fill="#e7f0fa"/>
+<line x1="100" y1="49" x2="100" y2="58"/>
+<rect x="60" y="84" width="80" height="8" rx="2" fill="#e7f0fa"/>
+<line x1="100" y1="92" x2="100" y2="116"/>
+<rect x="74" y="58" width="52" height="24" rx="3" fill="#fff" stroke="#98a2b3" stroke-dasharray="4 4"/>
+<path d="M50 40 L86 40" stroke="#d2590b" stroke-width="7" opacity=".85"/>
+<path d="M114 40 L150 40" stroke="#d2590b" stroke-width="7" opacity=".85"/>
+<path d="M54 86 L72 96 M146 86 L128 96" stroke="#d2590b" stroke-width="7" opacity=".85"/>
+<circle cx="60" cy="108" r="4" fill="#0b6bcb" stroke="#0b6bcb"/>
+<circle cx="140" cy="108" r="4" fill="#0b6bcb" stroke="#0b6bcb"/>
+<path d="M60 102 v-4 M140 102 v-4" stroke="#0b6bcb"/>
+</svg></div>
+          <div class="empaque-paso__txt"><span class="empaque-paso__num">2</span><h3>Inmoviliza la cama y el cabezal</h3><p>En P1 y X1, vuelve a apretar los tornillos de transporte de la cama. Si ya no los tienes (o es A1), fija cama y cabezal con cinta de papel y un trozo de espuma o cartón para que no se muevan.</p></div>
+        </li>
+        <li class="empaque-paso">
+          <div class="empaque-paso__dibujo"><svg viewBox="0 0 200 140" role="img" aria-label="Caja con al menos 5 cm de relleno por cada lado alrededor de la impresora" fill="none" stroke="#111418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M24 46 L176 46 L176 128 L24 128 Z" fill="#fff"/>
+<path d="M24 46 L8 30 M176 46 L192 30" />
+<rect x="32" y="54" width="136" height="66" rx="4" fill="#e7f0fa" stroke="#e7f0fa"/>
+<g fill="#fff" stroke="#0b6bcb" stroke-width="1.8">
+<circle cx="40" cy="64" r="4"/><circle cx="40" cy="80" r="4"/><circle cx="40" cy="96" r="4"/><circle cx="40" cy="112" r="4"/>
+<circle cx="160" cy="64" r="4"/><circle cx="160" cy="80" r="4"/><circle cx="160" cy="96" r="4"/><circle cx="160" cy="112" r="4"/>
+<circle cx="70" cy="60" r="3.5"/><circle cx="100" cy="60" r="3.5"/><circle cx="130" cy="60" r="3.5"/>
+</g>
+<rect x="56" y="68" width="88" height="48" rx="6" fill="#fff"/>
+<rect x="66" y="76" width="68" height="32" rx="3" fill="#e7f0fa"/>
+<path d="M32 22 L56 22" stroke="#d2590b"/><path d="M32 17 v10 M56 17 v10" stroke="#d2590b"/>
+<text x="44" y="14" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#d2590b" stroke="none" font-weight="700">5 cm</text>
+<path d="M112 22 q6 -8 12 0 t12 0 t12 0" stroke="#98a2b3"/>
+<path d="M150 14 l6 -6 M156 22 l8 0" stroke="#98a2b3"/>
+</svg></div>
+          <div class="empaque-paso__txt"><span class="empaque-paso__num">3</span><h3>Empaca bien</h3><p>Usa la caja original con sus espumas si la tienes. Si no, una caja rígida con al menos 5 cm de relleno por cada lado (burbuja, espuma o papel arrugado). La impresora no debe moverse si sacudes la caja.</p></div>
+        </li>
+        <li class="empaque-paso">
+          <div class="empaque-paso__dibujo"><svg viewBox="0 0 200 140" role="img" aria-label="Una hoja con nombre, WhatsApp, folio y falla va dentro de la caja" fill="none" stroke="#111418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 70 L160 70 L160 128 L40 128 Z" fill="#fff"/>
+<path d="M40 70 L60 52 L180 52 L160 70" fill="#fff"/>
+<path d="M40 70 L22 54" />
+<g transform="rotate(-10 100 42)">
+<rect x="70" y="6" width="64" height="76" rx="3" fill="#fff"/>
+<line x1="80" y1="20" x2="112" y2="20" stroke="#0b6bcb"/>
+<line x1="80" y1="32" x2="124" y2="32" stroke="#98a2b3" stroke-width="2"/>
+<line x1="80" y1="42" x2="118" y2="42" stroke="#98a2b3" stroke-width="2"/>
+<line x1="80" y1="52" x2="122" y2="52" stroke="#98a2b3" stroke-width="2"/>
+<rect x="80" y="60" width="30" height="12" rx="2" fill="#e7f0fa" stroke="#0b6bcb" stroke-width="1.8"/>
+</g>
+<path d="M150 22 L150 46" stroke="#d2590b"/><path d="M144 40 L150 47 L156 40" stroke="#d2590b"/>
+</svg></div>
+          <div class="empaque-paso__txt"><span class="empaque-paso__num">4</span><h3>Mete una hoja con tus datos</h3><p>Tu nombre, WhatsApp, el folio y qué falla tiene. Manda solo lo que haga falta: si la falla es del AMS, incluye el AMS y su cable.</p></div>
+        </li>
+        <li class="empaque-paso">
+          <div class="empaque-paso__dibujo"><svg viewBox="0 0 200 140" role="img" aria-label="Fotos de la impresora antes de empacar y de la caja cerrada" fill="none" stroke="#111418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="18" y="58" width="70" height="56" rx="3" fill="#fff"/>
+<path d="M18 58 L34 44 L104 44 L88 58" fill="#fff"/>
+<path d="M88 58 L104 44 L104 100 L88 114" fill="#fff"/>
+<path d="M44 58 L60 44" stroke="#d2590b" stroke-width="6" opacity=".85"/>
+<rect x="116" y="20" width="62" height="104" rx="10" fill="#fff"/>
+<rect x="123" y="32" width="48" height="74" rx="3" fill="#e7f0fa" stroke="#0b6bcb"/>
+<path d="M131 40 h8 M131 40 v8 M163 40 h-8 M163 40 v8 M131 98 h8 M131 98 v-8 M163 98 h-8 M163 98 v-8" stroke="#0b6bcb"/>
+<rect x="138" y="62" width="18" height="14" rx="2" fill="#fff" stroke="#111418" stroke-width="2"/>
+<circle cx="147" cy="115" r="4"/>
+<path d="M104 30 l-8 -8 M110 22 l-2 -10 M98 40 l-10 -2" stroke="#d2590b"/>
+</svg></div>
+          <div class="empaque-paso__txt"><span class="empaque-paso__num">5</span><h3>Toma fotos</h3><p>De la impresora antes de empacar y de la caja ya cerrada. Si la paquetería la golpea, con eso se reclama.</p></div>
+        </li>
+        <li class="empaque-paso">
+          <div class="empaque-paso__dibujo"><svg viewBox="0 0 200 140" role="img" aria-label="La guía va pegada en la cara más grande de la caja y la paquetería se la lleva" fill="none" stroke="#111418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="14" y="52" width="80" height="62" rx="3" fill="#fff"/>
+<path d="M14 52 L30 38 L110 38 L94 52" fill="#fff"/>
+<path d="M94 52 L110 38 L110 100 L94 114" fill="#fff"/>
+<rect x="26" y="62" width="56" height="42" rx="2" fill="#fff" stroke="#0b6bcb"/>
+<g stroke="#111418" stroke-width="2"><line x1="32" y1="70" x2="32" y2="84"/><line x1="36" y1="70" x2="36" y2="84"/><line x1="41" y1="70" x2="41" y2="84"/><line x1="44" y1="70" x2="44" y2="84"/><line x1="49" y1="70" x2="49" y2="84"/><line x1="53" y1="70" x2="53" y2="84"/><line x1="58" y1="70" x2="58" y2="84"/></g>
+<line x1="32" y1="92" x2="74" y2="92" stroke="#98a2b3" stroke-width="2"/>
+<line x1="32" y1="98" x2="66" y2="98" stroke="#98a2b3" stroke-width="2"/>
+<path d="M128 70 h34 v34 h-34 Z" fill="#e7f0fa" stroke="#0b6bcb"/>
+<path d="M162 80 h14 l10 12 v12 h-24 Z" fill="#fff"/>
+<circle cx="140" cy="108" r="7" fill="#fff"/><circle cx="174" cy="108" r="7" fill="#fff"/>
+<path d="M118 78 h-10 M120 88 h-16 M118 98 h-8" stroke="#d2590b"/>
+</svg></div>
+          <div class="empaque-paso__txt"><span class="empaque-paso__num">6</span><h3>Pega la guía y entrégala</h3><p>Imprime la guía y pégala en la cara más grande, sin cinta sobre el código de barras. Lleva la caja a una sucursal de la paquetería (o pídeles recolección con el número de guía).</p></div>
+        </li>
       </ol>
+      <p class="empaque-varias"><b>¿Mandas varias impresoras?</b> Empaca cada una en su propia caja, con su hoja de datos adentro. Todas van en la misma guía: cada caja lleva su etiqueta (te llegan todas en el PDF).</p>
     </div>
   </section>
 
@@ -534,6 +660,6 @@
 <script src="../../assets/js/main.js?v=7782446c" defer></script>
 <script src="../../assets/vendor/sentry-browser-11.12.0.min.js" defer></script>
 <script src="../../assets/js/sentry-web.js?v=28663bf7" defer></script>
-<script src="../../assets/js/reparacion-envio.js?v=7c9242a3" defer></script>
+<script src="../../assets/js/reparacion-envio.js?v=4f37c852" defer></script>
 </body>
 </html>
