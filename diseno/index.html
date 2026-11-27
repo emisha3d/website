@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Diseñamos, personalizamos y fabricamos objetos para marcas en CDMX: objetos de marca, reconocimientos y piezas para exhibición y eventos, desde una pieza hasta cientos.">
+<link rel="canonical" href="https://www.emisha.com.mx/diseno/">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<title>Diseño · Emisha</title>
+<style>
+:root{--ink:#202c3b;--muted:#5c6878;--blue:#2f5da8;--accent:#4b9ec8;--line:#e3e8ef;--soft:#f2f4f7;--sans:Arial,Helvetica,sans-serif;--serif:Georgia,'Times New Roman',serif}
+*{box-sizing:border-box}body{margin:0;font-family:var(--sans);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}a{color:inherit;text-decoration:none}h1,h2,h3,p{margin:0}
+em{font-family:var(--serif);font-weight:400}
+.wrap{max-width:1200px;margin:auto;padding-inline:48px}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:16px 26px;font-size:14px;font-weight:600;border-radius:3px}
+.btn:hover{background:var(--blue)}
+.note{background:#fff8d6;border:1px dashed #d8b300;color:#6b5700;font-size:12px;padding:8px 12px;margin-top:14px;display:inline-block}
+
+header{border-bottom:1px solid var(--line)}header .wrap{height:72px;display:flex;align-items:center;justify-content:space-between}
+header img{width:100px;height:auto}header nav{font-size:13px;display:flex;gap:28px}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:82vh}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:28px;padding:64px 48px 64px max(48px,calc((100vw - 1200px)/2 + 48px))}
+.hero h1{font-size:clamp(48px,6vw,84px);line-height:.98;letter-spacing:-.05em;font-weight:700}
+.hero h1 em{color:var(--blue)}
+.hero p{font-size:19px;line-height:1.5;color:var(--muted);max-width:430px}
+
+.brands{border-block:1px solid var(--line);padding:26px 0}
+.brands .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.brands span{font-size:24px;font-weight:700;letter-spacing:-.05em;color:#8a96a6}
+
+section.cat{padding:96px 0;border-bottom:1px solid var(--line)}
+.cat-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:36px}
+.cat h2{font-size:clamp(38px,4.4vw,58px);letter-spacing:-.045em;line-height:1}
+.cat-head p{font-size:17px;line-height:1.6;color:var(--muted)}
+.cat-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:12px}
+.cat-grid figure{margin:0;position:relative;overflow:hidden;background:var(--soft)}
+.cat-grid figure:first-child{grid-row:span 2}
+.cat-grid figcaption{position:absolute;left:12px;bottom:12px;background:#fffffff0;font-size:11px;letter-spacing:.04em;padding:7px 10px}
+.cat-head small{display:block;margin-top:10px;font-size:13px;color:#8a96a6}
+.mass{padding:96px 0;border-bottom:1px solid var(--line)}
+.mass .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.mass h2{font-size:clamp(38px,4.4vw,58px);letter-spacing:-.045em;line-height:1;margin-top:14px}
+.mass p{font-size:17px;line-height:1.6;color:var(--muted);margin-top:22px;max-width:460px}
+.mass figure{margin:0;height:420px}
+.cat-more{margin-top:22px;font-size:14px;font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:4px;display:inline-block}
+
+.idea{background:#173759;color:#f3f7fb;padding:110px 0}
+.idea h2{font-size:clamp(38px,4.6vw,62px);letter-spacing:-.045em;line-height:1.02;max-width:720px}
+.idea h2 em{color:#b6daef}
+.idea>.wrap>p{font-size:18px;color:#c7d8e9;margin-top:22px;max-width:560px;line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.step .ph{aspect-ratio:4/3;background:#25476d;display:flex;align-items:center;justify-content:center;color:#9fbbd6;font-size:13px;text-align:center;padding:12px;border:1px dashed #5f84aa}
+.step .ph img{aspect-ratio:4/3}
+.step{border-top:1px solid #526f8d;padding-top:18px}.step b{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;color:#b6daef}
+.step span{font-size:13px;color:#c7d8e9;line-height:1.55;display:block;margin-top:6px}
+
+.process{padding:96px 0;border-bottom:1px solid var(--line)}
+.process ol{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.process li{border-top:2px solid var(--accent);padding-top:18px}
+.process li b{font-size:20px;letter-spacing:-.02em}.process li p{color:var(--muted);font-size:15px;line-height:1.6;margin-top:8px}
+.process .aside{margin-top:40px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--muted)}
+
+.contact{background:var(--soft);padding:110px 0}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact h2{font-size:clamp(42px,5vw,66px);letter-spacing:-.05em;line-height:1}
+.contact .who{margin-top:28px;font-size:14px;line-height:1.9}
+form{display:flex;flex-direction:column;gap:18px}
+label{font-size:12px;font-weight:600;display:flex;flex-direction:column;gap:8px}
+input,select,textarea{font:inherit;font-size:15px;border:0;border-bottom:1px solid #aebdcc;background:#fff;padding:14px 12px}
+textarea{min-height:110px;resize:vertical}
+.form-note{font-size:12px;color:var(--muted);line-height:1.5}
+form .btn{border:0;cursor:pointer;margin-top:6px}
+footer{padding:26px 0;font-size:12px;color:var(--muted)}footer .wrap{display:flex;justify-content:space-between}
+
+@media(max-width:860px){
+ .wrap{padding-inline:16px}header nav{display:none}
+ .hero{grid-template-columns:1fr;min-height:0}.hero-copy{padding:44px 16px}.hero>div:last-child{height:420px}
+ .cat-head,.contact .wrap,.mass .wrap{grid-template-columns:1fr;gap:18px}.mass{padding:64px 0}.mass figure{height:320px}
+ .cat-grid{grid-template-columns:1fr 1fr;grid-template-rows:300px 160px 160px}.cat-grid figure:first-child{grid-column:span 2;grid-row:auto}
+ .steps{grid-template-columns:1fr 1fr}.process ol{grid-template-columns:1fr;gap:28px}
+ section.cat,.idea,.process,.contact{padding:64px 0}
+}
+</style>
+<script>(function(){try{var K='emisha-origen-v1',L=localStorage,q=location.search;var g=function(n){var m=new RegExp('[?&]'+n+'=([^&#]*)').exec(q);return m?decodeURIComponent(m[1].replace(/\+/g,' ')).slice(0,80):''};var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(r===location.hostname)r='';var u={source:g('utm_source'),medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content'),term:g('utm_term')};var t={referrer:r,utm:u,gclid:!!g('gclid'),fbclid:!!g('fbclid'),landing:location.pathname.slice(0,120),fecha:new Date().toISOString()};var sabe=function(x){return !!(x&&(x.referrer||(x.utm&&x.utm.source)||x.gclid||x.fbclid))};var p=null;try{p=JSON.parse(L.getItem(K))}catch(e){}if(!p||(sabe(t)&&!sabe(p)))L.setItem(K,JSON.stringify(t));}catch(e){}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f2de1d7456fb4f3d8bc0465d2bf854ec"}'></script>
+</head>
+<body>
+<!-- Copia pública de la página Diseño de Adolfo (fuente: worker/reparaciones/diseno/index.html). Las fotos están en site/assets/diseno/. -->
+<header><div class="wrap">
+  <a href="../"><img src="https://www.emisha.com.mx/assets/diseno/emisha-logo.png" alt="Emisha"></a>
+  <nav><a href="#objetos">Objetos de marca</a><a href="#reconocimientos">Reconocimientos</a><a href="#exhibicion">Exhibición y eventos</a><a href="#contacto">Contacto</a></nav>
+</div></header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Diseño · Fabricación · CDMX</span>
+    <h1>Tu idea,<br><em>materializada.</em></h1>
+    <p>Diseñamos, personalizamos y fabricamos objetos para marcas, desde una pieza hasta cientos.</p>
+    <div><a class="btn" href="#contacto">Cuéntanos tu idea ↗</a></div>
+  </div>
+  <div><img src="https://www.emisha.com.mx/assets/diseno/bust.webp" alt="Busto Nike de gran formato"></div>
+</section>
+
+<div class="brands"><div class="wrap">
+  <span class="eyebrow">Hemos creado para</span>
+  <span>Nike</span><span>Steelcase</span><span>adidas</span><span>TikTok</span><span>The North Face</span>
+</div></div>
+
+<section class="cat" id="objetos"><div class="wrap">
+  <div class="cat-head">
+    <div><span class="eyebrow">01</span><h2>Objetos <em>de marca.</em></h2></div>
+    <p>Merch, regalos corporativos y productos, diseñados para tu marca.<small>Pines, portavasos, llaveros, figuras, juegos, empaques.</small></p>
+  </div>
+  <div class="cat-grid">
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/chess-blanco.jpg" alt=""><figcaption>Ajedrez · Steelcase</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/inspiracion/ejemplo-10.webp" alt=""><figcaption>Figura · Adidas</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/ejemplo-12-blanco.jpg" alt=""><figcaption>Figura con empaque</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/ejemplo-04-blanco.jpg" alt=""><figcaption>Organizador</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/ejemplo-03-blanco.jpg" alt=""><figcaption>Llaveros</figcaption></figure>
+  </div>
+  <a class="cat-more" href="#contacto">Quiero un objeto de marca ↗</a>
+</div></section>
+
+<section class="cat" id="reconocimientos"><div class="wrap">
+  <div class="cat-head">
+    <div><span class="eyebrow">02</span><h2>Reconocimientos.</h2></div>
+    <p>Premios y trofeos diseñados para cada ocasión, con las formas y colores de tu marca. Personalizados uno a uno, aunque sean cientos: cada pieza con su nombre y categoría.</p>
+  </div>
+  <div class="cat-grid">
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/awards-tiktok-lightning.webp" alt=""><figcaption>Rayos · TikTok</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/awards-tiktok-figures.webp" alt=""><figcaption>Personajes · TikTok</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/inspiracion/ejemplo-19.webp" alt=""><figcaption>Pantera · UP</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/placas-steelcase.jpg" alt="Reconocimientos de acrílico Beyond the Dots"><figcaption>Placas · Steelcase</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/letras-los-roses.jpg" alt="Letras en volumen Los Roses sobre base negra"><figcaption>Letras en volumen · Searchlight</figcaption></figure>
+  </div>
+  <a class="cat-more" href="#contacto">Ver reconocimientos ↗</a>
+</div></section>
+
+<section class="cat" id="exhibicion"><div class="wrap">
+  <div class="cat-head">
+    <div><span class="eyebrow">03</span><h2>Exhibición <em>y eventos.</em></h2></div>
+    <p>Displays, material POP y piezas para activaciones y eventos.<small>Exhibidores, letreros luminosos, gafetes, números y centros de mesa, props.</small></p>
+  </div>
+  <div class="cat-grid">
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/display-nike.jpg" alt=""><figcaption>Display · Nike</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/oppa.webp" alt=""><figcaption>Logo luminoso · Oppa Mart</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/replica-producto.jpg" alt="Réplica de un dispositivo de belleza"><figcaption>Réplicas de producto</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/escultura-evento.jpg" alt="Escultura de conejo con alas en una activación con luz neón"><figcaption>Escultura para activación</figcaption></figure>
+    <figure><img src="https://www.emisha.com.mx/assets/diseno/props-ositos.jpg" alt="Figuras de ositos y conejo en acabado brillante"><figcaption>Props</figcaption></figure>
+  </div>
+  <a class="cat-more" href="#contacto">Hablemos de tu espacio ↗</a>
+</div></section>
+
+<section class="mass"><div class="wrap">
+  <div>
+    <span class="eyebrow">Personalización en serie</span>
+    <h2>Una pieza. <em>Cientos de versiones.</em></h2>
+    <p>Cambiamos nombres, colores y detalles en cada pieza desde el archivo digital, sin moldes. Cada asistente, ganador o cliente recibe una pieza única, con la misma identidad de marca.</p>
+  </div>
+  <figure><img src="https://www.emisha.com.mx/assets/diseno/ejemplo-11-blanco.jpg" alt="Una figura con distintas versiones"></figure>
+</div></section>
+
+<section class="idea"><div class="wrap">
+  <span class="eyebrow" style="color:#c7d8e9">Diseño a la medida</span>
+  <h2>¿Aún no sabes qué crear? <em>Para eso estamos.</em></h2>
+  <p>Partimos de tu marca, tu evento o tu objetivo. Exploramos ideas contigo y te mostramos cómo se verá antes de fabricar.</p>
+  <div class="steps">
+    <div class="step"><b>La idea</b><span>Nos cuentas qué quieres comunicar, aunque todavía sea vago.</span></div>
+    <div class="step"><b>Boceto</b><span>Exploramos formas y conceptos contigo.</span></div>
+    <div class="step"><b>Render</b><span>Ves cómo quedará antes de producir.</span></div>
+    <div class="step"><b>La pieza</b><span>La fabricamos y personalizamos para tu marca.</span></div>
+  </div>
+</div></section>
+
+<section class="process"><div class="wrap">
+  <span class="eyebrow">Cómo trabajamos</span>
+  <ol>
+    <li><b>Nos cuentas</b><p>Tu objetivo, cantidad, fecha y presupuesto.</p></li>
+    <li><b>Diseñamos contigo</b><p>Propuesta, render y ajustes hasta que te convenza.</p></li>
+    <li><b>Fabricamos y entregamos</b><p>Producimos, revisamos cada pieza y la entregamos.</p></li>
+  </ol>
+  <p class="aside">No necesitas un diseño listo: una idea o tu logo bastan.</p>
+</div></section>
+
+<section class="contact" id="contacto"><div class="wrap">
+  <div>
+    <span class="eyebrow">Empecemos</span>
+    <h2>Creemos algo <em>juntos.</em></h2>
+    <div class="who">Adolfo Romero · Diseño, Emisha<br><a href="mailto:adolfo.romerog@emisha.com.mx">adolfo.romerog@emisha.com.mx</a><br><a href="https://www.instagram.com/emisha3dprint/" target="_blank" rel="noopener">@emisha3dprint</a></div>
+  </div>
+  <form id="brief">
+    <label>Tu nombre<input name="nombre" required></label>
+    <label>Marca o empresa<input name="empresa"></label>
+    <label>¿Qué te gustaría crear?<select name="categoria"><option>Aún no sé</option><option>Objetos de marca</option><option>Reconocimientos</option><option>Exhibición y eventos</option></select></label>
+    <label>Cuéntanos tu idea, aunque sea vaga<textarea name="idea" required></textarea></label>
+    <button class="btn">Enviar por correo ↗</button>
+    <p class="form-note">Se abrirá tu correo con el mensaje listo para enviar; ahí puedes adjuntar tu logo o referencias. Si no se abre, escríbenos a adolfo.romerog@emisha.com.mx.</p>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span>Emisha · Diseño + fabricación · Ciudad de México</span><span>© 2026</span></div></footer>
+<script>
+document.getElementById('brief').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var d = new FormData(this);
+  var cuerpo = ['Nombre: ' + d.get('nombre'), d.get('empresa') ? 'Marca o empresa: ' + d.get('empresa') : '', 'Proyecto: ' + d.get('categoria'), '', d.get('idea')].filter(function (x, i) { return x || i === 3; }).join('
+');
+  location.href = 'mailto:adolfo.romerog@emisha.com.mx?subject=' + encodeURIComponent('Proyecto de diseño · ' + (d.get('empresa') || d.get('nombre'))) + '&body=' + encodeURIComponent(cuerpo);
+});
+</script>
+</body>
+</html>
