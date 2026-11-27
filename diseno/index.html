@@ -72,6 +72,7 @@ label{font-size:12px;font-weight:600;display:flex;flex-direction:column;gap:8px}
 input,select,textarea{font:inherit;font-size:15px;border:0;border-bottom:1px solid #aebdcc;background:#fff;padding:14px 12px}
 textarea{min-height:110px;resize:vertical}
 .form-note{font-size:12px;color:var(--muted);line-height:1.5}
+#brief-msg:empty{display:none}
 form .btn{border:0;cursor:pointer;margin-top:6px}
 footer{padding:26px 0;font-size:12px;color:var(--muted)}footer .wrap{display:flex;justify-content:space-between}
 
@@ -178,7 +179,7 @@ footer{padding:26px 0;font-size:12px;color:var(--muted)}footer .wrap{display:fle
   <span class="eyebrow">Cómo trabajamos</span>
   <ol>
     <li><b>Nos cuentas</b><p>Tu objetivo, cantidad, fecha y presupuesto.</p></li>
-    <li><b>Diseñamos contigo</b><p>Propuesta, render y ajustes hasta que te convenza.</p></li>
+    <li><b>Diseñamos contigo</b><p>Propuesta, render y una ronda de ajustes incluida.</p></li>
     <li><b>Fabricamos y entregamos</b><p>Producimos, revisamos cada pieza y la entregamos.</p></li>
   </ol>
   <p class="aside">No necesitas un diseño listo: una idea o tu logo bastan.</p>
@@ -188,27 +189,56 @@ footer{padding:26px 0;font-size:12px;color:var(--muted)}footer .wrap{display:fle
   <div>
     <span class="eyebrow">Empecemos</span>
     <h2>Creemos algo <em>juntos.</em></h2>
-    <div class="who">Adolfo Romero · Diseño, Emisha<br><a href="mailto:adolfo.romerog@emisha.com.mx">adolfo.romerog@emisha.com.mx</a><br><a href="https://www.instagram.com/emisha3dprint/" target="_blank" rel="noopener">@emisha3dprint</a></div>
+    <div class="who">Adolfo Romero · Diseño, Emisha<br><a href="mailto:3dprint@emisha.com.mx">3dprint@emisha.com.mx</a><br><a href="https://www.instagram.com/emisha3dprint/" target="_blank" rel="noopener">@emisha3dprint</a></div>
   </div>
-  <form id="brief">
-    <label>Tu nombre<input name="nombre" required></label>
-    <label>Marca o empresa<input name="empresa"></label>
+  <form id="brief" novalidate>
+    <label>Tu nombre<input name="nombre" required autocomplete="name" maxlength="80"></label>
+    <label>Marca o empresa<input name="empresa" autocomplete="organization" maxlength="120"></label>
+    <label>WhatsApp<input name="telefono" type="tel" inputmode="tel" required autocomplete="tel" placeholder="10 dígitos" maxlength="25"></label>
+    <label>Correo<input name="correo" type="email" required autocomplete="email" maxlength="120"></label>
     <label>¿Qué te gustaría crear?<select name="categoria"><option>Aún no sé</option><option>Objetos de marca</option><option>Reconocimientos</option><option>Exhibición y eventos</option></select></label>
-    <label>Cuéntanos tu idea, aunque sea vaga<textarea name="idea" required></textarea></label>
-    <button class="btn">Enviar por correo ↗</button>
-    <p class="form-note">Se abrirá tu correo con el mensaje listo para enviar; ahí puedes adjuntar tu logo o referencias. Si no se abre, escríbenos a adolfo.romerog@emisha.com.mx.</p>
+    <label>Cuéntanos tu idea, aunque sea vaga<textarea name="idea" required maxlength="2000"></textarea></label>
+    <div style="position:absolute;left:-9999px" aria-hidden="true"><label>No llenar<input name="sitio" tabindex="-1" autocomplete="off"></label></div>
+    <button type="submit" class="btn">Enviar proyecto ↗</button>
+    <p id="brief-msg" class="form-note" role="status" aria-live="polite"></p>
+    <p class="form-note">Tu logo o referencias nos los mandas después por WhatsApp o respondiendo nuestro correo. También puedes escribirnos a 3dprint@emisha.com.mx.</p>
   </form>
 </div></section>
 
 <footer><div class="wrap"><span>Emisha · Diseño + fabricación · Ciudad de México</span><span>© 2026</span></div></footer>
 <script>
-document.getElementById('brief').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var d = new FormData(this);
-  var cuerpo = ['Nombre: ' + d.get('nombre'), d.get('empresa') ? 'Marca o empresa: ' + d.get('empresa') : '', 'Proyecto: ' + d.get('categoria'), '', d.get('idea')].filter(function (x, i) { return x || i === 3; }).join('
-');
-  location.href = 'mailto:adolfo.romerog@emisha.com.mx?subject=' + encodeURIComponent('Proyecto de diseño · ' + (d.get('empresa') || d.get('nombre'))) + '&body=' + encodeURIComponent(cuerpo);
-});
+(function () {
+  'use strict';
+  var API = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) ? 'http://localhost:8787' : 'https://citas.emisha.com.mx';
+  var form = document.getElementById('brief');
+  var msg = document.getElementById('brief-msg');
+  var boton = form.querySelector('button[type=submit]');
+  function decir(t, error) { msg.textContent = t; msg.style.color = error ? '#b42318' : ''; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = {};
+    ['nombre', 'empresa', 'telefono', 'correo', 'categoria', 'idea', 'sitio'].forEach(function (k) { d[k] = (form[k].value || '').trim(); });
+    if (!d.nombre || d.telefono.replace(/\D/g, '').length < 10 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.correo) || !d.idea) {
+      decir('Llena tu nombre, WhatsApp de 10 dígitos, correo y cuéntanos tu idea.', true);
+      return;
+    }
+    boton.disabled = true;
+    decir('Enviando…');
+    fetch(API + '/diseno', { method: 'POST', body: JSON.stringify(d), headers: { 'Content-Type': 'text/plain;charset=UTF-8' } })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (x) {
+        if (x.ok && x.j && x.j.ok) {
+          form.reset();
+          decir('Listo. Recibimos tu proyecto: te escribimos por WhatsApp o correo.');
+          boton.disabled = false;
+          return;
+        }
+        decir(((x.j && x.j.error) || 'No se pudo enviar.') + ' Escríbenos por WhatsApp al 55 7563 9255.', true);
+        boton.disabled = false;
+      })
+      .catch(function () { decir('No se pudo enviar. Escríbenos por WhatsApp al 55 7563 9255.', true); boton.disabled = false; });
+  });
+})();
 </script>
 </body>
 </html>

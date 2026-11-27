@@ -3,8 +3,9 @@
 > Versión extendida de https://www.emisha.com.mx/llms.txt, en texto plano y sin
 > JavaScript, para que un asistente con IA pueda leer y citar todo el catálogo.
 > Emisha es un taller de impresión 3D en la Ciudad de México: imprimimos piezas
-> bajo pedido en PLA y PETG, reparamos impresoras Bambu Lab, rentamos equipo, y
-> fabricamos consumibles propios (filamento de 1.75 mm, placas de impresión,
+> bajo pedido en PLA y PETG, diseñamos objetos de marca y reconocimientos,
+> reparamos impresoras Bambu Lab, Creality y Anycubic, rentamos impresoras 3D,
+> y fabricamos consumibles propios (filamento de 1.75 mm, placas de impresión,
 > hotends y el compuesto térmico de metal líquido Liquid Ultra). Enviamos a
 > todo México.
 
@@ -13,7 +14,6 @@ Formato: https://llmstxt.org/
 Versión corta: https://www.emisha.com.mx/llms.txt
 Fuentes de este archivo:
 - Refacciones Bambu Lab: en vivo, catálogo del 2026-11-27
-- Piezas impresas bajo pedido (tienda en línea): en vivo, catálogo del 2026-11-27
 - Productos propios Emisha: site/assets/data/propios-3d.json (2026-09-09)
 
 Los precios están en pesos mexicanos (MXN) e incluyen IVA salvo que se indique
@@ -24,9 +24,10 @@ lo contrario. Las existencias cambian a diario: se confirman al tomar el pedido.
 - Nombre comercial: Emisha
 - Razón social: Emisha Design And Consulting S.A. de C.V.
 - RFC: EDC140515CJ7
-- Giro: taller de impresión 3D, corte y grabado láser, reparación de
-  impresoras Bambu Lab, renta de equipo y venta de consumibles propios y de
-  refacciones Bambu Lab.
+- Giro: taller de impresión 3D, corte y grabado láser, diseño de objetos de
+  marca, reparación y mantenimiento de impresoras 3D (Bambu Lab, Creality,
+  Anycubic y Elegoo OrangeStorm Giga a domicilio), renta de impresoras 3D y
+  venta de consumibles propios y de refacciones Bambu Lab.
 - Dirección: Av. División del Norte 1354, Piso 1, Letrán del Valle,
   Benito Juárez, Ciudad de México, CP 03650. Hay valet parking.
 - Google Maps: https://maps.app.goo.gl/fZnFa1JurYKchB5F9
@@ -42,7 +43,8 @@ lo contrario. Las existencias cambian a diario: se confirman al tomar el pedido.
   Los equipos para reparación también se reciben de otros estados por
   paquetería, con el envío de ida y vuelta por cuenta del cliente.
 - Aviso importante: Emisha es un taller INDEPENDIENTE. NO es centro de
-  servicio autorizado por Bambu Lab, ni distribuidor oficial de Bambu Lab.
+  servicio autorizado de ninguna marca (Bambu Lab, Creality, Anycubic, Elegoo,
+  Snapmaker) ni distribuidor oficial de ninguna de ellas.
 
 ## 2. Servicios y precios
 
@@ -79,31 +81,88 @@ Página: https://www.emisha.com.mx/impresion-3d-cdmx/ y https://www.emisha.com.m
   https://www.emisha.com.mx/impresion-3d-cdmx/benito-juarez/, https://www.emisha.com.mx/impresion-3d-cdmx/del-valle/
   y https://www.emisha.com.mx/impresion-3d-cdmx/coyoacan/ (recoger en el taller).
 
-### 2.2 Reparación de impresoras Bambu Lab
+### 2.2 Reparación y mantenimiento de impresoras 3D
 
-Página: https://www.emisha.com.mx/servicios/ · Agenda: https://www.emisha.com.mx/reparacion/
+Página: https://www.emisha.com.mx/servicios/ · Agenda: https://www.emisha.com.mx/reparacion/ · Desde otro estado:
+https://www.emisha.com.mx/reparacion/envio/
 
-- Diagnóstico: $300 MXN. Se abona a la reparación.
+Precios en pesos mexicanos con IVA incluido. Ninguna refacción se consigue ni
+se instala sin autorización del cliente: se cotizan aparte y la cotización
+llega por correo. Si el cliente decide no reparar, paga solo el diagnóstico y
+se le devuelve la impresora con el diagnóstico por escrito. El diagnóstico
+tarda de 12 a 36 horas hábiles desde que se recibe el equipo.
+
+Bambu Lab (y otros modelos o marcas que no están en las listas de abajo):
+- Diagnóstico: $300 MXN.
 - Mano de obra: $700 MXN sin refacciones.
 - Mano de obra con diagnóstico previo hecho en Emisha: $400 MXN.
   (Diagnóstico $300 + reparación $400 = los mismos $700 MXN en total.)
-- Refacciones: se cotizan aparte. Ninguna se consigue ni se instala sin
-  autorización del cliente. Si el cliente decide no reparar, paga solo el
-  diagnóstico y se le devuelve la impresora.
+- Modelos: A1, A1 mini, A2L, P1P, P1S, P2S, X1 Carbon, X1E, X2D, H2D,
+  H2D Pro, H2S, H2C, H3C y el AMS por separado. Una página por modelo en
+  https://www.emisha.com.mx/reparacion/bambu-lab-<modelo>/ (por ejemplo
+  https://www.emisha.com.mx/reparacion/bambu-lab-h2s/) y https://www.emisha.com.mx/reparacion/ams/
+
+Creality y Anycubic:
+- Diagnóstico: $400 MXN, que se abona a la reparación.
+- Reparación sin refacciones: $1,000 MXN en total ($400 de diagnóstico +
+  $600 de reparación).
+- El CFS (Creality) o el ACE (Anycubic) que llega junto con su impresora va en
+  el mismo precio.
+- Creality: K1, K1C, K1 Max, K2 Plus, K2 Pro, Hi, Ender-3 V3 (V3, V3 KE y
+  V3 SE) y el CFS por separado. Páginas: https://www.emisha.com.mx/reparacion/creality-k1/,
+  https://www.emisha.com.mx/reparacion/creality-k2/, https://www.emisha.com.mx/reparacion/creality-hi/,
+  https://www.emisha.com.mx/reparacion/creality-ender-3-v3/ y https://www.emisha.com.mx/reparacion/creality-cfs/
+- Anycubic: Kobra S1, Kobra S1 Max, Kobra 3, Kobra 3 V2, Kobra 3 Max,
+  Kobra X y el ACE Pro (y ACE 2 Pro) por separado. Páginas:
+  https://www.emisha.com.mx/reparacion/anycubic-kobra-s1/, https://www.emisha.com.mx/reparacion/anycubic-kobra-3/,
+  https://www.emisha.com.mx/reparacion/anycubic-kobra-x/ y https://www.emisha.com.mx/reparacion/anycubic-ace-pro/
+
+Otros modelos o marcas: se agendan en el mismo calendario con la opción «Otro
+modelo o marca» y llevan los precios de Bambu Lab de arriba.
+
+Elegoo OrangeStorm Giga — SOLO a domicilio:
+Página y solicitud: https://www.emisha.com.mx/reparacion/elegoo-orangestorm-giga/
+- Es la única impresora que se atiende a domicilio (no cabe en una cita de
+  taller). Las demás se reparan en el taller.
+- Visita dentro de la Ciudad de México: $4,000 MXN. Incluye el diagnóstico y
+  hasta 2 horas de trabajo (ajustes, limpieza, calibración y una impresión de
+  prueba).
+- Hora adicional: $1,100 MXN, siempre con aviso y autorización antes.
+- Se aparta con un anticipo de $2,000 MXN en Mercado Pago, que se descuenta de
+  la visita. Se devuelve o se mueve de fecha si se cancela con al menos 48
+  horas de anticipación.
+- Estado de México y alrededores: el traslado se cotiza aparte según la zona.
+
+Mantenimiento preventivo (la impresora no tiene que estar descompuesta):
+Página: https://www.emisha.com.mx/reparacion/mantenimiento-preventivo/
+- Bambu Lab: $700 MXN por impresora. El AMS, $300 MXN más.
+- Creality (K1, K1C, K1 Max, K2 Plus, K2 Pro, Hi, Ender-3 V3, KE y SE):
+  $1,000 MXN por impresora, con el CFS incluido.
+- Anycubic (Kobra S1, Kobra S1 Max, Kobra 3, Kobra 3 V2, Kobra 3 Max,
+  Kobra X): $1,000 MXN por impresora, con el ACE incluido.
+- Precio fijo con IVA incluido; ya trae la revisión completa, sin diagnóstico
+  aparte. Garantía de 90 días naturales sobre lo que se ajustó.
+- Incluye: limpieza general, limpieza y lubricación de ejes y tornillos del
+  eje Z, tensión de correas, revisión de extrusor y hotend, limpieza del
+  cortador y del camino del filamento, actualización de firmware (opcional),
+  calibración completa, impresión de prueba y reporte con fotos.
+- Referencia: cada 6 meses o 500 horas de impresión, lo que llegue primero.
+
+Cómo funciona en el taller:
 - Qué incluye la mano de obra: desmontaje, limpieza y desobstrucción, ajustes
   mecánicos, calibración y pruebas de impresión antes de la entrega.
-- Modelos que se atienden: A1, A1 mini, P1P, P1S, P2S, X1 Carbon, X1E, H2D,
-  H2S y
-  el AMS por separado. Otras marcas: se revisa caso por caso.
 - Fallas más comunes que llegan al taller: extrusor tapado, hotend o termistor,
-  cama y nivelación, correas y ejes desalineados, fallas del AMS, y
+  cama y nivelación, correas y ejes desalineados, fallas del AMS, CFS o ACE, y
   electrónica, firmware o calibración.
 - Cita: en línea, lunes a viernes de 12:00 a 18:00. La recepción toma unos
   10 minutos. Agendar no tiene costo.
-- Qué traer: la impresora con su cable de corriente; el AMS con su cable y su
-  tubo si la falla lo involucra; el filamento con el que falla, si el problema
-  pasa solo con uno en particular. No hace falta la caja.
-- Emisha NO es centro de servicio autorizado por Bambu Lab.
+- Qué traer: la impresora con su cable de corriente; el AMS (o el CFS / ACE)
+  con su cable y su tubo si la falla lo involucra; el filamento con el que
+  falla, si el problema pasa solo con uno en particular. No hace falta la caja.
+- Desde otro estado: se manda por paquetería (https://www.emisha.com.mx/reparacion/envio/),
+  con el envío de ida y vuelta por cuenta del cliente.
+- Emisha NO es centro de servicio autorizado de Bambu Lab, Creality, Anycubic
+  ni Elegoo.
 
 ### 2.3 Renta de impresoras 3D
 
@@ -113,16 +172,28 @@ va aparte. Se recoge y se devuelve en el taller; no hay entrega a domicilio.
 
 | Equipo        | Día    | Semana  | Mes     | Depósito en garantía |
 |---------------|--------|---------|---------|----------------------|
-| A1 mini       | $220   | $800    | $2,000  | $1,500               |
-| A1            | $350   | $1,300  | $3,200  | $2,400               |
-| A2            | $520   | $1,900  | $4,800  | $3,600               |
-| P1S           | $650   | $2,400  | $6,000  | $4,500               |
-| Snapmaker     | $1,200 | $4,300  | $10,800 | $8,100               |
-| X1 Carbon     | $1,200 | $4,500  | $11,200 | $8,400               |
-| H2S           | $1,600 | $5,800  | $14,400 | $10,800              |
+| Bambu Lab A1  | $350   | $1,300  | $3,200  | $2,400               |
+| Bambu Lab A2L | $520   | $1,900  | $4,800  | $3,600               |
+| Bambu Lab P1S | $650   | $2,400  | $6,000  | $4,500               |
+| Bambu Lab X1 Carbon | $1,200 | $4,500 | $11,200 | $8,400           |
+| Bambu Lab H2S | $1,600 | $5,800  | $14,400 | $10,800              |
+| Snapmaker U1  | $1,200 | $4,300  | $10,800 | $8,100               |
 | Elegoo Orange Storm | $4,000 | $14,400 | $36,000 | sin depósito   |
 
-- Anticipo del 20% en línea para apartar; el resto se paga en el taller.
+AMS opcional (multicolor), por AMS y por impresora, también antes de IVA:
+
+| Equipo        | Día    | Semana  | Mes     | Notas                         |
+|---------------|--------|---------|---------|-------------------------------|
+| A1 y A2L      | $50    | $180    | $450    | AMS lite, hasta 1 por equipo  |
+| P1S           | $50    | $180    | $450    | hasta 2 AMS por equipo        |
+| H2S           | $100   | $360    | $900    | hasta 2 AMS por equipo        |
+| X1 Carbon     | —      | —       | —       | el AMS ya va incluido         |
+
+La Snapmaker U1 y la Orange Storm no llevan AMS. La A1 mini no se renta.
+
+- Se aparta en línea con Mercado Pago: anticipo del 20% (el resto se paga al
+  recoger) o la renta completa. El depósito se deja al recoger, en efectivo o
+  por transferencia.
 - Depósito en garantía: 30% del valor del equipo. Se devuelve completo el mismo
   día que se regresa la impresora en las mismas condiciones.
 - Excepción: la Elegoo Orange Storm se renta SOLO dentro del taller, no sale a
@@ -169,6 +240,22 @@ WhatsApp. Un asistente con IA puede enviar a su usuario directo a esa liga.
   pedido. Se recoge en el taller o se envía.
 - Si el archivo todavía no está listo o no se sabe qué material conviene:
   WhatsApp +52 55 7563 9255 y lo revisamos con el cliente.
+
+### 2.5 Diseño a la medida
+
+Página y formulario: https://www.emisha.com.mx/diseno/
+
+- Qué diseñamos y fabricamos: objetos de marca (merch, regalos corporativos,
+  pines, portavasos, llaveros, figuras, juegos, empaques), reconocimientos y
+  trofeos con las formas y colores de la marca, y piezas para exhibición y
+  eventos (displays, material POP, letreros luminosos, gafetes, centros de
+  mesa, props).
+- Personalización en serie: nombres, colores y detalles cambian en cada pieza
+  desde el archivo digital, sin moldes.
+- No hace falta un diseño listo: una idea o el logo bastan. Proceso: idea,
+  boceto, render y la pieza; la propuesta incluye una ronda de ajustes.
+- Para empezar: objetivo, cantidad, fecha y presupuesto, en el formulario de
+  la página o en 3dprint@emisha.com.mx.
 
 ## 3. Productos propios Emisha
 
@@ -354,18 +441,18 @@ X1 y H2. Emisha no es distribuidor autorizado de Bambu Lab.
 Rango de precio: $39 MXN a $80,989 MXN.
 
 - Accesorios de instalación de puerta delantera compatible con serie X1 y P1 — $219 MXN · Compatible: serie P1, serie X1 · SKU FAS036
-- Ace 2 Pro anycubic — $9,989 MXN · SKU ANC-1REQ
-- Acf film for photon series — $1,889 MXN · SKU ANC-19BZ
+- ACE 2 Pro Anycubic — $9,989 MXN · SKU ANC-1REQ
+- ACF Film for Photon Series — $1,889 MXN · SKU ANC-19BZ
 - Acoplador de tubo de asistencia área láser de 10 W compatible con H2D y H2S — $289 MXN · Compatible: H2D, H2S · SKU SLA002
 - Acoplador de tubo de PTFE compatible con P1P y P1S — $219 MXN · Compatible: P1P, P1S · SKU FAZ009
 - Acoplador de tubo PTFE H2 compatible con H2D — $439 MXN · Compatible: H2D · SKU FAC114
 - Acoplador del tubo de asistencia de aire para láser de 40 W para series H2 — $729 MXN · Compatible: serie H2 · SKU SLA001
 - Acoplador eje Z para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAC029
-- Actived carbón filter for airpure — $329 MXN · SKU ANC-1A80
-- Adaptador de tarjeta SD sermoon d1 / ender 6 — $149 MXN · SKU 2101030028
+- Activated Carbon Filter for AirPure — $329 MXN · SKU ANC-1A80
+- Adaptador de tarjeta SD Sermoon D1/Ender 6 — $149 MXN · SKU 2101030028
 - Adaptador de tubo PTFE 4 en 1 — $549 MXN · SKU SA014
 - Adaptador de tubo PTFE 4 en 1 compatible con X2D/P2S/X1/P1/a2l — $279 MXN · Compatible: serie P1, P2S, X1, X2D · SKU FAZ013-N
-- Airpure 2.0 anycubic — $1,239 MXN · SKU ANC-1N5O
+- AirPure 2.0 Anycubic — $1,239 MXN · SKU ANC-1N5O
 - Alimentador para AMS HT — $729 MXN · Compatible: AMS HT · SKU SAA054
 - Almohadilla de soporte para base de impresora A1 — $219 MXN · Compatible: A1 · SKU FAZ014-N
 - Anillo inferior de plástico del gabinete compatible con serie H2 — $869 MXN · Compatible: serie H2 · SKU FAS050
@@ -373,15 +460,15 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Antena Wi-Fi compatible con serie H2 — $289 MXN · Compatible: serie H2 · SKU FAC099
 - Antena Wi-Fi compatible con X1, X1C y X1E — $219 MXN · Compatible: X1, X1C, X1E · SKU FAS008
 - Antena Wi-Fi para A1 — $209 MXN · Compatible: A1 · SKU FAC048
-- Anycubic m6k/m3p lcd — $4,959 MXN · SKU ANC-16ZS
-- Anycubic mono 4k lcd — $3,089 MXN · SKU ANC-1SAF
-- Anycubic pantalla touch photon mono 4 ultra 10k — $929 MXN · SKU ANC-1SZA
+- Anycubic M6K/M3P LCD — $4,959 MXN · SKU ANC-16ZS
+- Anycubic Mono 4K LCD — $3,089 MXN · SKU ANC-1SAF
+- Anycubic Pantalla Touch Photon Mono 4 Ultra 10K — $929 MXN · SKU ANC-1SZA
 - AP board para series X1E — $4,939 MXN · Compatible: X1E · SKU DLB001
-- Auto-fill set m7pro — $1,959 MXN · SKU ANC-1XJ5
+- Auto-fill set M7 Pro — $1,959 MXN · SKU ANC-1XJ5
 - Bambu Lab AMS reacondicionado — $7,889 MXN · Compatible: AMS · SKU SA001-R
 - Bambu Lab r1 (preventa) — $80,989 MXN · SKU LM001-P
-- Banda de ejes para impresora ender-6 — $599 MXN · SKU 2102010117
-- Banda dentada eje X para impresora ender-3 V3 se — $119 MXN · SKU 2102012843
+- Banda de ejes para impresora Ender-6 — $599 MXN · SKU 2102010117
+- Banda dentada eje X para impresora Ender-3 V3 SE — $119 MXN · SKU 2102012843
 - Banda eje Z compatible con P1P, P1S, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAB002
 - Banda X para A1 — $289 MXN · Compatible: A1 · SKU FAB006
 - Banda X para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAB003
@@ -389,7 +476,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Barra de luz LED para cámara compatible con X1, X1C y X1E — $439 MXN · Compatible: X1, X1C, X1E · SKU FAZ008
 - Base del sensor de filamento compatible con serie A1 — $269 MXN · Compatible: serie A1 · SKU FAC055
 - Base para hotend de inducción compatible con H2C — $1,309 MXN · Compatible: H2C · SKU FAC190
-- Bloque de disipacion de calor para impresoras cr y ender creality — $139 MXN · SKU 3205030014
+- Bloque de disipación de calor para impresoras CR y Ender Creality — $139 MXN · SKU 3205030014
 - Bloqueador de flujo compatible con H2D y láser H2D — $569 MXN · Compatible: H2D · SKU FAC125
 - Bloqueador de flujo para serie X2D — $289 MXN · Compatible: X2D · SKU FAC207
 - Bomba de aire integrada para H2D — $5,149 MXN · Compatible: H2D · SKU FAC124
@@ -406,11 +493,11 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cable conector de pantalla compatible con P1P y P1S — $219 MXN · Compatible: P1P, P1S · SKU CAB007
 - Cable conector para cabezal de herramientas para P1P — $289 MXN · Compatible: P1P · SKU CAB006-1
 - Cable conector para cabezal de herramientas para P1S — $289 MXN · Compatible: P1S · SKU CAB010
-- Cable creality 485 para cfs - 100 cm — $319 MXN · SKU 4004010270
-- Cable creality 485 para cfs - 45 cm — $339 MXN · SKU 4004010269
+- Cable Creality 485 para CFS - 100 cm — $319 MXN · SKU 4004010270
+- Cable Creality 485 para CFS - 45 cm — $339 MXN · SKU 4004010269
 - Cable de alimentación para A1 mini — $439 MXN · Compatible: A1 mini · SKU CAB020-US
 - Cable de alimentación para series A1, P1, P2S, X1, H2 y X2D — $439 MXN · Compatible: A1, serie P1, P2S, X1, X2D, serie H2 · SKU CAB031
-- Cable de cabezal (toolhead) compatible con sermoon d3 Pro — $259 MXN · SKU 3103100134
+- Cable de cabezal (toolhead) compatible con Sermoon D3 Pro — $259 MXN · SKU 3103100134
 - Cable de cabezal de impresión para P2S — $439 MXN · Compatible: P2S · SKU CAB046
 - Cable de senal para cama caliente compatible con X1, X1C, P1P, P1S y X1E — $219 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU CAB016
 - Cable del cabezal de herramientas a la placa MC compatible con H2D — $289 MXN · Compatible: H2D · SKU CAB038
@@ -432,11 +519,11 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cadena de cable para X1E — $509 MXN · Compatible: X1E · SKU FAC037
 - Cadena para cables compatible con H2D — $579 MXN · Compatible: H2D · SKU FAC098
 - Cadena portacables para serie H2S — $579 MXN · Compatible: H2S · SKU FAC144
-- Caja acrilica para ender-5 s1 — $5,069 MXN · SKU 4005010057
+- Caja acrílica para Ender-5 S1 — $5,069 MXN · SKU 4005010057
 - Caja de accesorios para AMS — $369 MXN · Compatible: AMS · SKU FAC078-C
 - Caja de accesorios para AMS Lite — $369 MXN · Compatible: AMS lite · SKU FAC079-C
 - Camera para serie P1 — $949 MXN · Compatible: serie P1 · SKU CAM002
-- Capacitación anycubic — $5,119 MXN · SKU ANC-18QH
+- Capacitación Anycubic — $5,119 MXN · SKU ANC-18QH
 - Carcasa base para A1 — $1,429 MXN · Compatible: A1 · SKU FAS021
 - Carcasa base para A1 mini — $579 MXN · Compatible: A1 mini · SKU FAS013
 - Carcasa central del cabezal de impresión para serie X2D — $219 MXN · Compatible: X2D · SKU FAE055
@@ -458,7 +545,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cinturón Y para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAB004
 - Cinturón Z para A1 — $219 MXN · Compatible: A1 · SKU FAB008
 - Coleccion de kit de componentes de raton inalambrico Bambu Lab — $509 MXN · SKU MH002
-- Columnas de silica para nivelacion de hotbed para series cr-10 y series ender-3 — $279 MXN · SKU 4008030016
+- Columnas de silica para nivelación de hotbed para series CR-10 y series Ender-3 — $279 MXN · SKU 4008030016
 - Conducto de ventilación para pieza compatible con H2D — $439 MXN · Compatible: H2D · SKU FAF012
 - Conector de alimentación AMS HT — $349 MXN · Compatible: AMS HT · SKU SAA057
 - Conector de tubo de asistencia de aire láser compatible con H2D — $179 MXN · Compatible: H2D · SKU FAC113
@@ -489,7 +576,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Conjunto del bloqueador de flujo para serie X2D — $579 MXN · Compatible: X2D · SKU FAC208
 - Conjunto del eje X para A1 mini — $1,819 MXN · Compatible: A1 mini · SKU FAC014-N
 - Conjunto del eje X para P2S — $1,959 MXN · Compatible: P2S · SKU FAC172
-- Cople rigido (gripper) para impresora 3D creality — $299 MXN · SKU 3004070004
+- Cople rígido (gripper) para impresora 3D Creality — $299 MXN · SKU 3004070004
 - Correa X y y para serie H2S — $729 MXN · Compatible: H2S · SKU FAC145
 - Correa XY compatible con H2D — $1,139 MXN · Compatible: H2D · SKU FAB010
 - Correa XY compatibles con P1P, P1S, X1C y X1E — $909 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAB001
@@ -520,15 +607,15 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Cubierta inferior para AMS Bambu Lab X1, X1C, P1P y P1S — $1,959 MXN · Compatible: P1P, P1S, X1, X1C, AMS · SKU SAA001
 - Cubierta inferior trasera para A1 — $379 MXN · Compatible: A1 · SKU FAS020
 - Cubierta LED de la cámara superior compatible con serie H2 — $219 MXN · Compatible: serie H2 · SKU FAZ034
-- Cubierta para impresora ender 5 max — $6,039 MXN · SKU 4005010097
+- Cubierta para impresora Ender 5 Max — $6,039 MXN · SKU 4005010097
 - Cubierta para tarjeta AP para serie P2S y X2D — $439 MXN · Compatible: P2S, X2D · SKU DLB049-V2
 - Cubierta posterior de la cabeza de impresión compatible con X1, X1C, P1P, P1S y X1E — $289 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAE005
 - Cubierta superior del eje Y para A1 — $219 MXN · Compatible: A1 · SKU FAS022-N
 - Cubierta superior del eje Z para A1 mini — $189 MXN · Compatible: A1 mini · SKU FAC035
 - Cubierta superior del revestimiento interior (derecha) compatible con serie H2 — $1,669 MXN · Compatible: serie H2 · SKU FAS051
 - Cubierta superior para A1 mini — $1,309 MXN · Compatible: A1 mini · SKU FAS034
-- Cubierta superior para ender 6 — $3,529 MXN · SKU 4007010024
-- Cubierta superior para ender-5-s1 — $4,669 MXN · SKU 4005010058
+- Cubierta superior para Ender 6 — $3,529 MXN · SKU 4007010024
+- Cubierta superior para Ender-5-S1 — $4,669 MXN · SKU 4005010058
 - Cubierta trasera de la cabeza de impresión para A1 mini y A1 — $189 MXN · Compatible: A1 mini, A1 · SKU FAE007
 - Cubierta trasera del cabezal de impresión para serie X2D — $289 MXN · Compatible: X2D · SKU FAE054
 - Cubierta trasera del cabezal para H2S — $299 MXN · Compatible: H2S · SKU FAE030
@@ -542,7 +629,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - DLB005 — $1,459 MXN · SKU DLB005
 - DLB014 — $1,669 MXN · SKU DLB014
 - DLB019-n — $439 MXN · SKU DLB019-N
-- Driver de motor para halot-sky — $2,239 MXN · SKU 3102070096
+- Driver de motor para Halot-Sky — $2,239 MXN · SKU 3102070096
 - Eje de soporte activo AMS HT — $289 MXN · Compatible: AMS HT · SKU SAA061
 - Eje de soporte motriz AMS 2 Pro — $289 MXN · Compatible: AMS 2 Pro · SKU SAA033
 - Eje de soporte motriz AMS HT — $289 MXN · Compatible: AMS HT · SKU SAA060
@@ -550,18 +637,18 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Ensamblaje del eje Z para A1 mini — $2,069 MXN · Compatible: A1 mini · SKU FAC030
 - Extractor de cámara activa compatible con H2D — $289 MXN · Compatible: H2D · SKU FAC120
 - FAF019 — $1,309 MXN · SKU FAF019
-- Fep film for mono 4, 4 ulta, mono 2 anycubic — $1,449 MXN · SKU ANC-1SQF
-- Fep m7 max (2pz) anycubic — $1,559 MXN · SKU ANC-1SQ7
-- Filament hub 8 colors anycubic — $279 MXN · SKU ANC-1XG2
-- Filtros de carbón activado para impresoras halot mage Pro — $799 MXN · SKU 4004010239
-- Fresnel lens anycubic — $1,019 MXN · SKU ANC-1PO6
+- FEP Film for Mono 4, 4 Ultra, Mono 2 Anycubic — $1,449 MXN · SKU ANC-1SQF
+- FEP M7 Max (2pz) Anycubic — $1,559 MXN · SKU ANC-1SQ7
+- Filament Hub 8 Colors Anycubic — $279 MXN · SKU ANC-1XG2
+- Filtros de carbón activado para impresoras Halot Mage Pro — $799 MXN · SKU 4004010239
+- Fresnel Lens Anycubic — $1,019 MXN · SKU ANC-1PO6
 - Fuente de alimentación conmutada compatible con H2D y láser H2D — $4,059 MXN · Compatible: H2D · SKU FAC121
 - Fuente de alimentación interna (entrada 100-240 V y salida de 24 V) compatible con serie X1 y P1 — $1,959 MXN · Compatible: serie P1, serie X1 · SKU FAC059
 - Fuente de alimentación para A1 — $1,959 MXN · Compatible: A1 · SKU FAC065
 - Fuente de alimentación para A1 mini (salida de 24v) — $1,959 MXN · Compatible: A1 mini · SKU FAC031
 - Fuente de alimentación para P2S — $1,959 MXN · Compatible: P2S · SKU FAC165
 - Fuente de alimentación para serie X2D — $1,959 MXN · Compatible: X2D · SKU FAC220
-- Funda para impresora ender 3/ender 3 Pro/ender 3 V2/ender 5 Pro — $2,569 MXN · SKU 1002990026
+- Funda para impresora Ender 3/Ender 3 Pro/Ender 3 V2/Ender 5 Pro — $2,569 MXN · SKU 1002990026
 - Gomas anti-vibracion compatibles con P1P, P1S, X1C y X1E — $439 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAZ004-N
 - Gomas antivibracion compatible con H2D — $319 MXN · Compatible: H2D · SKU FAZ037
 - Guía de filamento para doble extrusor compatible con H2D — $289 MXN · Compatible: H2D · SKU FAE022
@@ -570,10 +657,10 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Indicador de estado láser 10 W compatible con H2D — $589 MXN · Compatible: H2D · SKU SLA014
 - Indicador de estado para H2 — $729 MXN · Compatible: serie H2 · SKU FAZ038
 - Interfaz de cambio rápido de herramienta compatible con H2D — $869 MXN · Compatible: H2D · SKU FAE023
-- Interruptor de limite compatible con series ender y cr — $99 MXN · SKU 4004180004
-- Interruptor de limite para impresora 3D ender-6 — $169 MXN · SKU 4004180005
-- Kit 4 lentes protectores para cr láser falcon 2 40 W — $1,059 MXN · SKU 4007010147
-- Kit bloque de calefacción estándar para ender 3 s1 — $829 MXN · SKU 4006010039
+- Interruptor de límite compatible con series Ender y CR — $99 MXN · SKU 4004180004
+- Interruptor de límite para impresora 3D Ender-6 — $169 MXN · SKU 4004180005
+- Kit 4 lentes protectores para CR láser Falcon 2 40 W — $1,059 MXN · SKU 4007010147
+- Kit bloque de calefacción estándar para Ender 3 S1 — $829 MXN · SKU 4006010039
 - Kit de accesorios de luz y sonido con activación por movimiento — $4,209 MXN · SKU B-ZC007
 - Kit de alto flujo para TPU para serie H2D — $1,309 MXN · Compatible: H2D · SKU FAC233
 - Kit de cables (2 en 1) para MC AP compatible con H2D y láser H2D — $289 MXN · Compatible: H2D · SKU CAB041
@@ -583,7 +670,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Kit de cables (5 en 1) para AMS — $509 MXN · Compatible: AMS · SKU SAA003
 - Kit de cables (6 en 1) para AMS 2 Pro — $589 MXN · Compatible: AMS 2 Pro · SKU CAB034
 - Kit de cables (7 en 1) para H2D y láser H2D — $579 MXN · Compatible: H2D · SKU CAB040
-- Kit de cama compatible con impresoras cr-m4 y CR10-max — $2,469 MXN · SKU 4004090101
+- Kit de cama compatible con impresoras CR-M4 y CR10-Max — $2,469 MXN · SKU 4004090101
 - Kit de cargador inalámbrico — $1,599 MXN · SKU K012
 - Kit de componentes del modelo de motor Bambu Lab — $439 MXN · SKU MH005
 - Kit de componentes para pista de canicas Bambu Lab — $439 MXN · SKU MH003
@@ -599,27 +686,27 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Kit de montaje de puerta frontal compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAS044
 - Kit de montaje para puerta delantera compatible con serie X1 y P1 — $579 MXN · Compatible: serie P1, serie X1 · SKU FAS002-A2
 - Kit de montaje para puerta frontal compatible con P1S y X1C — $759 MXN · Compatible: P1S, X1C · SKU FAS002-A1
-- Kit de nivelacion automática compatible con series ender 3 / 5 y cr-10 — $1,529 MXN · SKU 4001010026
-- Kit de nivelacion automática de cama compatible con series ender 3 / 5 y cr-10 — $1,759 MXN · SKU 4001010027
+- Kit de nivelación automática compatible con series Ender 3/5 y CR-10 — $1,529 MXN · SKU 4001010026
+- Kit de nivelación automática de cama compatible con series Ender 3/5 y CR-10 — $1,759 MXN · SKU 4001010027
 - Kit de placa de retroiluminación LED para litofanías — 192x144 mm (4pcs) - KC010 — $579 MXN · SKU B-KC010
 - Kit de placa de retroiluminación LED para litofanías — 96x144 mm (2pcs) - KC009 — $439 MXN · SKU B-KC009
-- Kit de plataforma de formacion para halot-Lite — $2,909 MXN · SKU 4001140005
-- Kit de plataforma de formacion para halot-one plus — $2,119 MXN · SKU 4001140006
-- Kit de plataforma de formacion para halot-ray — $3,149 MXN · SKU 4001140008
-- Kit de resortes de nivelacion de cama compatible con series ender y series cr — $139 MXN · SKU 4004010196
-- Kit de riel de guías lineales para impresoras ender 3 — $1,429 MXN · SKU 4003010023
-- Kit de tarjeta de control para impresora sermoon d3 Pro — $2,409 MXN · SKU 2101020227
+- Kit de plataforma de formación para Halot-Lite — $2,909 MXN · SKU 4001140005
+- Kit de plataforma de formación para Halot-One Plus — $2,119 MXN · SKU 4001140006
+- Kit de plataforma de formación para Halot-Ray — $3,149 MXN · SKU 4001140008
+- Kit de resortes de nivelación de cama compatible con series Ender y series CR — $139 MXN · SKU 4004010196
+- Kit de riel de guías lineales para impresoras Ender 3 — $1,429 MXN · SKU 4003010023
+- Kit de tarjeta de control para impresora Sermoon D3 Pro — $2,409 MXN · SKU 2101020227
 - Kit de tornillos compatible con serie A1 y AMS Lite — $439 MXN · Compatible: serie A1, AMS lite · SKU SCR003
 - Kit de tornillos para series H2 — $369 MXN · Compatible: serie H2 · SKU SCR005
 - Kit de ventilación superior automática compatible con H2D — $439 MXN · Compatible: H2D · SKU FAS048
-- Kit pantalla lcd para halot-sky versión 2022 — $10,349 MXN · SKU 4001150013
-- Kit pantalla para halot-sky — $10,379 MXN · SKU 4001150003
+- Kit pantalla LCD para Halot-Sky versión 2022 — $10,349 MXN · SKU 4001150013
+- Kit pantalla para Halot-Sky — $10,379 MXN · SKU 4001150003
 - Kit para principiantes maker — $439 MXN · SKU B-ZC002
-- Kobra 3 max motherboard anycubic — $549 MXN · SKU ANC-1X4S
-- Kobra s1/kobra 3 max strain gauge — $259 MXN · SKU ANC-1XJY
-- Lcd screen for photon mono m7 Pro / photon mono m7″ — $6,469 MXN · SKU ANC-1708
-- Lcd screen for photon P1 anycubic — $7,939 MXN · Compatible: serie P1 · SKU ANC-1UMR
-- Lcd screen photon mono m4 anycubic — $6,579 MXN · SKU ANC-1GEY
+- Kobra 3 Max Motherboard Anycubic — $549 MXN · SKU ANC-1X4S
+- Kobra S1/Kobra 3 Max Strain Gauge — $259 MXN · SKU ANC-1XJY
+- LCD Screen for Photon Mono M7 Pro / Photon Mono M7 — $6,469 MXN · SKU ANC-1708
+- LCD Screen for Photon P1 Anycubic — $7,939 MXN · Compatible: serie P1 · SKU ANC-1UMR
+- LCD Screen Photon Mono M4 Anycubic — $6,579 MXN · SKU ANC-1GEY
 - LED de cámara superior (derecha) — $439 MXN · SKU FAZ033
 - LED de cámara superior (izquierda) — $439 MXN · SKU FAZ032
 - Limpiador de purga para serie H2S — $439 MXN · Compatible: H2S · SKU FAC147
@@ -630,12 +717,12 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Luz LED frontal para P2S — $439 MXN · Compatible: P2S · SKU FAZ048
 - Luz LED frontal para serie X1E — $439 MXN · Compatible: X1E · SKU FAZ012
 - Luz LED lateral izquierda para P2S — $439 MXN · Compatible: P2S · SKU FAZ049
-- M5s Pro lcd screen — $6,669 MXN · SKU ANC-170D
+- M5S Pro LCD Screen — $6,669 MXN · SKU ANC-170D
 - Marcador de área de referencia de la plataforma láser compatible con H2D y H2S — $219 MXN · Compatible: H2D, H2S · SKU SLA008
-- Mono 2 resin vat anycubic — $1,489 MXN · SKU ANC-1FMC
-- Motherboard halot-mage Pro — $3,939 MXN · SKU 4002020064
-- Motherboard kobra3/kobra3 combo anycubic — $2,999 MXN · SKU ANC-1KHU
-- Motor a pasos para impresora 3D compatible con series cr y series ender — $869 MXN · SKU 3005020018
+- Mono 2 Resin Vat Anycubic — $1,489 MXN · SKU ANC-1FMC
+- Motherboard Halot-Mage Pro — $3,939 MXN · SKU 4002020064
+- Motherboard Kobra 3/Kobra 3 Combo Anycubic — $2,999 MXN · SKU ANC-1KHU
+- Motor a pasos para impresora 3D compatible con series CR y series Ender — $869 MXN · SKU 3005020018
 - Motor de alimentación para AMS Lite — $369 MXN · Compatible: AMS lite · SKU SAA017
 - Motor de asistencia interna 3520 compatible con AMS 2 Pro y AMS HT — $1,309 MXN · Compatible: AMS 2 Pro, AMS HT · SKU FAM013
 - Motor de extrusión compatible con serie A1 — $659 MXN · Compatible: serie A1 · SKU FAM008
@@ -645,9 +732,9 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Motor eje X para A1 — $869 MXN · Compatible: A1 · SKU FAM009
 - Motor eje Y para A1 — $1,169 MXN · Compatible: A1 · SKU FAM010
 - Motor interno para AMS hub — $1,159 MXN · Compatible: AMS · SKU SPP038
-- Motor paso a paso 42-48 compatible con cr-30 y ender-6 — $1,299 MXN · SKU 3204120018
-- Motor paso a paso 42-60 compatible con series ender 6/7 y cr-5 — $1,869 MXN · SKU 4004100014
-- Motor paso a paso de doble eje 42-48 compatible con ender-5 plus — $1,369 MXN · SKU 3204120037
+- Motor paso a paso 42-48 compatible con CR-30 y Ender-6 — $1,299 MXN · SKU 3204120018
+- Motor paso a paso 42-60 compatible con series Ender 6/7 y CR-5 — $1,869 MXN · SKU 4004100014
+- Motor paso a paso de doble eje 42-48 compatible con Ender-5 Plus — $1,369 MXN · SKU 3204120037
 - Motor X para A1 mini — $869 MXN · Compatible: A1 mini · SKU FAM005
 - Motor X y y para serie P2S y X2D — $1,019 MXN · Compatible: P2S, X2D · SKU FAM020
 - Motor X y y para series x y p — $1,019 MXN · SKU FAM004
@@ -658,12 +745,12 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Motor Z compatible con P1P, P1S, X1, X1C y X1E — $869 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAM003
 - Motor Z para A1 mini — $729 MXN · Compatible: A1 mini · SKU FAM007
 - Módulo láser 10 W compatible con H2D combo2 para grabado en madera, acrilico y mas — $11,609 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-10W
-- Módulo láser 24v para ender-3 s1 — $3,189 MXN · SKU 4001100015
+- Módulo láser 24 V para Ender-3 S1 — $3,189 MXN · SKU 4001100015
 - Módulo láser 40 W compatible con H2D combo2 alta potencia para corte y grabado de materiales densos — $35,369 MXN · Compatible: H2D · SKU BAMBULAB-LASER-MODULE-40W
-- Nfep film 6 pcs photon P1 (dual color/ dual material release film) — $1,719 MXN · Compatible: serie P1 · SKU ANC-1TG0
-- Nfep film mono m5 (5pcs) anycubic — $1,959 MXN · SKU ANC-1C5J
+- NFEP Film 6 pcs Photon P1 (Dual color / Dual material release film) — $1,719 MXN · Compatible: serie P1 · SKU ANC-1TG0
+- NFEP Film Mono M5 (5pcs) Anycubic — $1,959 MXN · SKU ANC-1C5J
 - Organizador de tubos para H2D y láser H2D — $289 MXN · Compatible: H2D · SKU FAC138
-- P1 dual material kit anycubic — $5,729 MXN · Compatible: serie P1 · SKU ANC-1N5V
+- P1 Dual Material Kit Anycubic — $5,729 MXN · Compatible: serie P1 · SKU ANC-1N5V
 - Pack de cables para serie P2S y X2D — $589 MXN · Compatible: P2S, X2D · SKU CAB047
 - Palanca de corte compatible con P1P, P1S, X1, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAC004
 - Palanca del cortador de filamento para serie H2S — $289 MXN · Compatible: H2S · SKU FAC143
@@ -693,8 +780,8 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Pantalla de alta resolución compatible con P1P y P1S — $1,019 MXN · Compatible: P1P, P1S · SKU DIS002
 - Pantalla de alta resolución para series X1 — $4,719 MXN · Compatible: X1 · SKU DIS006
 - Pantalla de alta resolución para X1C y X1E — $6,309 MXN · Compatible: X1C, X1E · SKU DIS001
-- Pantalla de impresión para halot-Lite — $7,829 MXN · SKU 4001150005
-- Pantalla lcd original compatible con series ender 3 — $2,129 MXN · SKU 4001050009
+- Pantalla de impresión para Halot-Lite — $7,829 MXN · SKU 4001150005
+- Pantalla LCD original compatible con series Ender 3 — $2,129 MXN · SKU 4001050009
 - Pantalla para serie P2S — $4,059 MXN · Compatible: P2S · SKU DIS009
 - Pantalla para serie X2D — $4,719 MXN · Compatible: X2D · SKU DIS010
 - Pantalla touch para series A1 y a2l — $1,089 MXN · Compatible: A1 · SKU DIS005
@@ -703,19 +790,19 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Paquete de cables de comunicación de tarjeta MC a ac 4 en 1 para serie X1E — $269 MXN · Compatible: X1E · SKU CAB022
 - Paquete de cables MC AP 2 en 1 para P2S — $369 MXN · Compatible: P2S · SKU CAB044
 - Paquete de cables para serie X2D — $579 MXN · Compatible: X2D · SKU CAB051
-- Pelicula fep photon mono 4k — $1,209 MXN · SKU ANC-PTY
-- Pellets creality PETG con fibra de vidrio blanco 25 kg — $14,739 MXN · SKU PETG-GF-PELLET-BLANCO
-- Pellets creality PLA blanco 25 kg — $13,809 MXN · SKU PLA-PELLET-BLANCO
-- Photon m3 lcd anycubic — $2,249 MXN · SKU ANC-13KS
-- Photon m3 max fep film anycubic 13.6 inch (2 pzs) — $969 MXN · SKU ANC-191P
-- Photon m3 max lcd 13.6” 7k anycubic — $9,829 MXN · SKU ANC-1700
-- Photon m3 max resin vat anycubic — $2,899 MXN · SKU ANC-1FGY
-- Photon m3 max screen protector(5pzs) anycubic — $2,429 MXN · SKU ANC-1C0J
-- Photon m3 plus resin vat anycubic — $1,959 MXN · SKU ANC-1FMP
-- Photon m3 premium resin vat — $1,699 MXN · SKU ANC-1FQT
-- Photon m7 max screen protector c versión 0.1 mm anycubic — $269 MXN · SKU ANC-1UMK
-- Photon P1 (integrated release film) fep film anycubic — $2,069 MXN · Compatible: serie P1 · SKU ANC-1NHW
-- Photon s, m4k, ultra resin vat alumin 1 — $1,899 MXN · SKU ANC-1FQZ
+- Pellets Creality PETG con fibra de vidrio blanco 25 kg — $14,739 MXN · SKU PETG-GF-PELLET-BLANCO
+- Pellets Creality PLA blanco 25 kg — $13,809 MXN · SKU PLA-PELLET-BLANCO
+- Película FEP Photon Mono 4K — $1,209 MXN · SKU ANC-PTY
+- Photon M3 LCD Anycubic — $2,249 MXN · SKU ANC-13KS
+- Photon M3 Max FEP Film Anycubic 13.6 inch (2 pzs) — $969 MXN · SKU ANC-191P
+- Photon M3 Max LCD 13.6” 7K Anycubic — $9,829 MXN · SKU ANC-1700
+- Photon M3 Max Resin Vat Anycubic — $2,899 MXN · SKU ANC-1FGY
+- Photon M3 Max Screen Protector (5 pzs) Anycubic — $2,429 MXN · SKU ANC-1C0J
+- Photon M3 Plus Resin Vat Anycubic — $1,959 MXN · SKU ANC-1FMP
+- Photon M3 Premium resin vat — $1,699 MXN · SKU ANC-1FQT
+- Photon M7 Max Screen Protector C Version 0.1 mm Anycubic — $269 MXN · SKU ANC-1UMK
+- Photon P1 (Integrated Release Film) FEP Film Anycubic — $2,069 MXN · Compatible: serie P1 · SKU ANC-1NHW
+- Photon S, M4K, Ultra Resin Vat Alumin 1 — $1,899 MXN · SKU ANC-1FQZ
 - Placa ac bajo voltaje para serie P2S — $869 MXN · Compatible: P2S · SKU DLB053
 - Placa ac LV para P2S — $1,899 MXN · Compatible: P2S · SKU DLB054
 - Placa ac para serie H2 — $2,199 MXN · Compatible: serie H2 · SKU DLB031
@@ -724,15 +811,15 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Placa AP bajo voltaje para P2S — $3,769 MXN · Compatible: P2S · SKU DLB050
 - Placa AP LV para P2S — $9,089 MXN · Compatible: P2S · SKU DLB051
 - Placa AP para P1S — $1,309 MXN · Compatible: P1S · SKU FAC008
-- Placa base de 32 bit para ender-6 — $3,489 MXN · SKU 4002020006
-- Placa base ender-3 V2 neo — $1,759 MXN · SKU 4002020054
+- Placa base de 32 bit para Ender-6 — $3,489 MXN · SKU 4002020006
+- Placa base Ender-3 V2 Neo — $1,759 MXN · SKU 4002020054
 - Placa base para A1 mini — $719 MXN · Compatible: A1 mini · SKU FAS012-V2
 - Placa base para A1 mini — $1,999 MXN · Compatible: A1 mini · SKU SAA016-N
 - Placa base para AMS 2 Pro — $1,959 MXN · Compatible: AMS 2 Pro · SKU DLB022
 - Placa base para AMS Lite — $1,599 MXN · Compatible: AMS lite · SKU SAA020
-- Placa base para ender-3 max — $2,369 MXN · SKU 4002020019
-- Placa base para ender-3 V2 — $2,069 MXN · SKU 4002020012
-- Placa base para ender-7 — $3,449 MXN · SKU 4002020042
+- Placa base para Ender-3 Max — $2,369 MXN · SKU 4002020019
+- Placa base para Ender-3 V2 — $2,069 MXN · SKU 4002020012
+- Placa base para Ender-7 — $3,449 MXN · SKU 4002020042
 - Placa de alimentación AMS HT — $369 MXN · Compatible: AMS HT · SKU DLB039
 - Placa de alimentación para AMS — $439 MXN · Compatible: AMS · SKU DLB010
 - Placa de alimentación para AMS 2 Pro — $739 MXN · Compatible: AMS 2 Pro · SKU DLB023
@@ -769,8 +856,8 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Placa RFID para AMS — $439 MXN · Compatible: AMS · SKU SAA027
 - Placa TH para P2S — $1,019 MXN · Compatible: P2S · SKU DLB057
 - Placa TH para series H2 — $1,959 MXN · Compatible: serie H2 · SKU DLB025-V1
-- Plataforma de formacion para halot sky — $2,299 MXN · SKU 4001140004
-- Plataforma de vidrio carborundo para ender-6 — $1,239 MXN · SKU 4004090030
+- Plataforma de formación para Halot Sky — $2,299 MXN · SKU 4001140004
+- Plataforma de vidrio carborundo para Ender-6 — $1,239 MXN · SKU 4004090030
 - Polea de distribución de la correa Z compatible con serie X1 y P1 — $289 MXN · Compatible: serie P1, serie X1 · SKU FAB005
 - Polea de eje XY para A1 mini — $219 MXN · Compatible: A1 mini · SKU FAC026
 - Polea dentada de la correa Z para P2S — $289 MXN · Compatible: P2S · SKU FAC177
@@ -781,31 +868,31 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Porta bobina A1 mini — $189 MXN · Compatible: A1 mini · SKU FAC019
 - Portacarrete y soporte compatible con serie H2 — $369 MXN · Compatible: serie H2 · SKU FAC130
 - Portada para serie P2S — $729 MXN · Compatible: P2S · SKU FAS074
-- Print head pcba kobra s1 — $1,019 MXN · SKU ANC-1T1I
+- Print head PCBA Kobra S1 — $1,019 MXN · SKU ANC-1T1I
 - Puerta de cristal compatible con P1S, X1C y X1E — $1,309 MXN · Compatible: P1S, X1C, X1E · SKU FAS002
 - Puerta frontal de cristal para Bambu Lab H2S — $2,469 MXN · Compatible: H2S · SKU FAS043
 - Puerta frontal de vidrio para P2S — $1,379 MXN · Compatible: P2S · SKU FAS070
-- Resin vat for photon mono m7/m7 Pro anycubic — $2,559 MXN · SKU ANC-1FGS
-- Resin vat mono 4k (2 piezas) — $1,769 MXN · SKU ANC-PTV
-- Resin vat photon mono 4/4 ultra anycubic — $809 MXN · SKU ANC-1XFQ
-- Resin vat photon mono 7 Pro — $4,549 MXN · SKU ANC-1FQK
-- Resin vat photon P1 anycubic — $4,229 MXN · Compatible: serie P1 · SKU ANC-1NHS
-- Resorte de cama caliente para impresora ender-3 Pro creality — $39 MXN · SKU 6004010205
+- Resin Vat for Photon Mono M7/M7 Pro Anycubic — $2,559 MXN · SKU ANC-1FGS
+- Resin Vat Mono 4K (2 piezas) — $1,769 MXN · SKU ANC-PTV
+- Resin Vat Photon Mono 4/4 Ultra Anycubic — $809 MXN · SKU ANC-1XFQ
+- Resin vat Photon Mono 7 Pro — $4,549 MXN · SKU ANC-1FQK
+- Resin Vat Photon P1 Anycubic — $4,229 MXN · Compatible: serie P1 · SKU ANC-1NHS
+- Resorte de cama caliente para impresora Ender-3 Pro Creality — $39 MXN · SKU 6004010205
 - Revestimiento interior para serie P2S — $1,089 MXN · Compatible: P2S · SKU FAS076
 - Riel de elevación de boquilla compatible con H2D — $1,019 MXN · Compatible: H2D · SKU FAC089
 - Riel lineal del eje Y para A1 mini — $1,529 MXN · Compatible: A1 mini · SKU FAC016
 - Rodamientos de pista del eje Y para A1 mini — $349 MXN · Compatible: A1 mini · SKU FAC027
-- Rueda de nivelacion de hotbed compatible con series cr y series ender-3 — $119 MXN · SKU 4004010098
-- Ruedas de nivelacion de hotbed compatible con series cr y series ender — $299 MXN · SKU 3006020036
+- Rueda de nivelación de hotbed compatible con series CR y series Ender-3 — $119 MXN · SKU 4004010098
+- Ruedas de nivelación de hotbed compatible con series CR y series Ender — $299 MXN · SKU 3006020036
 - SAA062 — $649 MXN · SKU SAA062
-- Screen protector m7 Pro anycubic — $219 MXN · SKU ANC-1RFH
+- Screen Protector M7 Pro Anycubic — $219 MXN · SKU ANC-1RFH
 - Sensor de calibración de compensacion de boquilla compatible con H2D y láser H2D — $729 MXN · Compatible: H2D · SKU FAC128
 - Sensor de efecto hall compatible con H2D — $289 MXN · Compatible: H2D · SKU DLB033
 - Sensor de filamento compatible con A1 mini y A1 — $289 MXN · Compatible: A1 mini, A1 · SKU FAE010
 - Sensor de filamento del extrusor compatible con serie P1 — $509 MXN · Compatible: serie P1 · SKU DLB012
 - Sensor de filamento del extrusor compatible con serie X1 — $509 MXN · Compatible: serie X1 · SKU DLB013
 - Sensor de filamento del extrusor para H2S — $439 MXN · Compatible: H2S · SKU FAC142
-- Sensor de limite eje Y para ender-3 V3 se ender-3 V3 ke — $159 MXN · SKU 2101030197
+- Sensor de límite eje Y para Ender-3 V3 SE Ender-3 V3 KE — $159 MXN · SKU 2101030197
 - Sensor de placa de cama caliente compatible con P1P, P1S, X1, X1C y X1E — $289 MXN · Compatible: P1P, P1S, X1, X1C, X1E · SKU FAC005
 - Sensor de puerta compatible con serie X1 — $329 MXN · Compatible: serie X1 · SKU FAC053
 - Sensor de puerta para serie P2S — $289 MXN · Compatible: P2S · SKU FAC161
@@ -848,12 +935,12 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Tarjeta AP para serie X2D — alto — $4,639 MXN · Compatible: X2D · SKU DLB069
 - Tarjeta AP para serie X2D — bajo — $4,639 MXN · Compatible: X2D · SKU DLB070
 - Tarjeta de AMS para A1 — $209 MXN · Compatible: A1, AMS · SKU DLB008
-- Tarjeta de cabezal para sermoon d3 Pro — $309 MXN · SKU 2101030203
-- Tarjeta de control para cr-10max — $4,019 MXN · SKU 4002020003
-- Tarjeta de control para ender-3s1 — $2,589 MXN · SKU 4002020048
-- Tarjeta de control para impresora 3D ender-3 V3 se — $1,629 MXN · SKU 4002020066
-- Tarjeta de control para impresora sermoon d3 — $2,849 MXN · SKU 4002020058
-- Tarjeta de control sermoon d1 — $2,949 MXN · SKU 4002020025
+- Tarjeta de cabezal para Sermoon D3 Pro — $309 MXN · SKU 2101030203
+- Tarjeta de control para CR-10 Max — $4,019 MXN · SKU 4002020003
+- Tarjeta de control para Ender-3S1 — $2,589 MXN · SKU 4002020048
+- Tarjeta de control para impresora 3D Ender-3 V3 SE — $1,629 MXN · SKU 4002020066
+- Tarjeta de control para impresora Sermoon D3 — $2,849 MXN · SKU 4002020058
+- Tarjeta de control Sermoon D1 — $2,949 MXN · SKU 4002020025
 - Tarjeta de extrusor compatible con P1S y P1P — $439 MXN · Compatible: P1P, P1S · SKU FAE002
 - Tarjeta de interfaz de red y conexión AMS para serie X1E — $1,379 MXN · Compatible: X1E, AMS · SKU DLB003
 - Tarjeta interfaz de red para serie X1E — $1,239 MXN · Compatible: X1E · SKU DLB002
@@ -861,7 +948,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Tarjeta MC compatible con P1P y P1S — $2,109 MXN · Compatible: P1P, P1S · SKU FAC007
 - Tarjeta MC para serie X2D — $2,829 MXN · Compatible: X2D · SKU DLB071
 - Tarjeta micro SD de 32 gb para A1, serie X1 y P1 — $469 MXN · Compatible: A1, serie P1, serie X1 · SKU FAZ015
-- Tarjeta principal para ender-3 creality — $2,369 MXN · SKU 6001020007
+- Tarjeta principal para Ender-3 Creality — $2,369 MXN · SKU 6001020007
 - Tarjeta principal para serie a2l — $2,689 MXN · SKU DLB078
 - Tarjeta TH para serie X2D — $1,669 MXN · Compatible: X2D · SKU DLB064
 - Tensor de banda XY para P2S — $369 MXN · Compatible: P2S · SKU FAC174
@@ -872,16 +959,16 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Tensor del eje Y para A1 mini — $289 MXN · Compatible: A1 mini · SKU FAC028
 - Tensor del eje Z compatible con serie X1 y P1 — $289 MXN · Compatible: serie P1, serie X1 · SKU FAC052
 - Tensor eje Y para A1 — $299 MXN · Compatible: A1 · SKU FAC044
-- Termistor de hotbed para todos los modelos de impresora 3D ender — $169 MXN · SKU 3005030013
-- Termistor para ender-3 s1 pro; cr-10 smart Pro — $209 MXN · SKU 3103020114
-- Termistor para ender-3 s1; ender-3 s1 plus — $99 MXN · SKU 3103020119
+- Termistor de hotbed para todos los modelos de impresora 3D Ender — $169 MXN · SKU 3005030013
+- Termistor para Ender-3 S1 Pro; CR-10 Smart Pro — $209 MXN · SKU 3103020114
+- Termistor para Ender-3 S1; Ender-3 S1 Plus — $99 MXN · SKU 3103020119
 - Toma de corriente compatible con serie H2 — $579 MXN · Compatible: serie H2 · SKU FAC097
 - Toolhead carriage compatible con P2S — $509 MXN · Compatible: P2S · SKU FAC170
 - Tope del cortador de filamento H2S — $579 MXN · Compatible: H2S · SKU FAC148-V1
-- Tubo calefactor 24v 50 W para impresora 3D ender/cr 10 — $169 MXN · SKU 4004060035
-- Tubo calefactor para impresora 3D ender 5 s1 — $289 MXN · SKU 3103010107
-- Tubo de acero inoxidable para impresora 3D ender 3 max — $129 MXN · SKU 4004050002
-- Tubo de garganta de aleacion de cobre+titanio para cr-10 smart Pro/ender-3s1 pr — $699 MXN · SKU 4004050019
+- Tubo calefactor 24 V 50 W para impresora 3D Ender/CR 10 — $169 MXN · SKU 4004060035
+- Tubo calefactor para impresora 3D Ender 5 S1 — $289 MXN · SKU 3103010107
+- Tubo de acero inoxidable para impresora 3D Ender 3 Max — $129 MXN · SKU 4004050002
+- Tubo de garganta de aleación de cobre+titanio para CR-10 Smart Pro/Ender-3S1 pr — $699 MXN · SKU 4004050019
 - Tubo de PTFE (alimentación filamento AMS y externo) compatible con H2D — $219 MXN · Compatible: H2D, AMS · SKU FAT010
 - Tubo de PTFE (cabezal) compatible con H2D — $319 MXN · Compatible: H2D · SKU FAT009
 - Tubo de PTFE 185 mm*2 + 225 mm*2 (interno) compatible con AMS 2 Pro — $219 MXN · Compatible: AMS 2 Pro · SKU FAT008
@@ -894,10 +981,10 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Tubo de PTFE de 4m blanco — $439 MXN · SKU FAT003
 - Tubo de PTFE de 4m gris — $439 MXN · SKU FAT005
 - Tubo de pu con asistencia de aire para láser para H2D — $289 MXN · Compatible: H2D · SKU FAC133
-- Tubo de teflon 1m para todos los modelos de impresoras 3D creality — $219 MXN · SKU 3006040006
-- Tubo de teflon capricorn para impresoras 3D fmd creality — $419 MXN · SKU 6004010005
-- Tubo de teflon PTFE para impresoras 3D fmd creality — $339 MXN · SKU 4004200025
-- Tubo de ventilación para halot mage Pro — $1,039 MXN · SKU 4004010241
+- Tubo de teflón 1 m para todos los modelos de impresoras 3D Creality — $219 MXN · SKU 3006040006
+- Tubo de teflón Capricorn para impresoras 3D FDM Creality — $419 MXN · SKU 6004010005
+- Tubo de teflón PTFE para impresoras 3D FDM Creality — $339 MXN · SKU 4004200025
+- Tubo de ventilación para Halot Mage Pro — $1,039 MXN · SKU 4004010241
 - Tubo PTFE conector para series A1 — $289 MXN · Compatible: A1 · SKU FAC051
 - Unidad alimentadora AMS 2 Pro — $1,309 MXN · Compatible: AMS 2 Pro · SKU SAA035-V1
 - Unidad alimentadora AMS con sensor hall — $1,159 MXN · Compatible: AMS · SKU SA001-F1H-V2
@@ -933,11 +1020,11 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Unidad izquierda de embudo de filamento para AMS Lite — $579 MXN · Compatible: AMS lite · SKU SAA022
 - Ventana de seguridad para láser — $3,339 MXN · SKU FAS056
 - Ventana frontal de seguridad láser compatible con H2D — $3,189 MXN · Compatible: H2D · SKU FAS057
-- Ventilador 4020 24v compatible con series cr y sermoon d1 — $289 MXN · SKU 4004110083
+- Ventilador 4020 24 V compatible con series CR y Sermoon D1 — $289 MXN · SKU 4004110083
 - Ventilador auxiliar de enfriamiento para pieza compatible con H2D — $1,309 MXN · Compatible: H2D · SKU FAF016
-- Ventilador axial 2510 24v para impresora 3D ender-3 V3 se — $239 MXN · SKU 3205010374
-- Ventilador de capa 4010 24v compatible con series ender y series cr — $279 MXN · SKU 4004110082
-- Ventilador de capa 5015 24v para impresora 3D sermoon d3 — $339 MXN · SKU 3205010294
+- Ventilador axial 2510 24 V para impresora 3D Ender-3 V3 SE — $239 MXN · SKU 3205010374
+- Ventilador de capa 4010 24 V compatible con series Ender y series CR — $279 MXN · SKU 4004110082
+- Ventilador de capa 5015 24 V para impresora 3D Sermoon D3 — $339 MXN · SKU 3205010294
 - Ventilador de circulacion de calor de la cámara compatible con serie H2 — $869 MXN · Compatible: serie H2 · SKU FAF018
 - Ventilador de enfriamento de hotend compatible con A1 mini y A1 — $749 MXN · Compatible: A1 mini, A1 · SKU FAF007
 - Ventilador de enfriamento de piezas compatible con A1 mini y A1 — $439 MXN · Compatible: A1 mini, A1 · SKU FAF006
@@ -947,7 +1034,7 @@ Rango de precio: $39 MXN a $80,989 MXN.
 - Ventilador de la placa de control compatible con P1S, X1C y X1E — $439 MXN · Compatible: P1S, X1C, X1E · SKU FAF005-N
 - Ventilador de placa base para A1 mini — $509 MXN · Compatible: A1 mini · SKU FAF010
 - Ventilador de placa MC compatible con serie H2 — $439 MXN · Compatible: serie H2 · SKU FAF015
-- Ventilador de refrigeración 4010 24v para impresora 3D ender-3 V3 se — $349 MXN · SKU 3205010377
+- Ventilador de refrigeración 4010 24 V para impresora 3D Ender-3 V3 SE — $349 MXN · SKU 3205010377
 - Ventilador de refrigeración de potencia para impresora X1E — $949 MXN · Compatible: X1E · SKU FAF009
 - Ventilador de refrigeración mejorada del cabezal de impresión para series H2S — $579 MXN · Compatible: H2S · SKU FAF020
 - Ventilador de refrigeración para hotend compatible con P1P y P1S — $509 MXN · Compatible: P1P, P1S · SKU FAF002-P
@@ -963,8 +1050,8 @@ Rango de precio: $39 MXN a $80,989 MXN.
 Rango de precio: $129 MXN a $17,709 MXN.
 
 - Actuador del pestillo del hotend por inducción — $419 MXN · SKU FAC189
-- Adaptador de extrusor de sistema bowden a directo para impresoras 3D creality — $2,769 MXN · SKU 4001020054
-- Base de extrusor para impresora 3D creality compatible con, cr-100, cr-10s, etc — $129 MXN · SKU 3006020118
+- Adaptador de extrusor de sistema bowden a directo para impresoras 3D Creality — $2,769 MXN · SKU 4001020054
+- Base de extrusor para impresora 3D Creality compatible con CR-100, CR-10S, etc — $129 MXN · SKU 3006020118
 - Cabezal de herramienta con ensamblaje de eje X compatible con serie H2 — $17,709 MXN · Compatible: serie H2 · SKU FAC132
 - Cabezal de herramientas con conjunto eje X para Bambu Lab H2S — $14,549 MXN · Compatible: H2S · SKU FAE043
 - Calentador ceramico para hotend X1C — $489 MXN · Compatible: X1C · SKU FAH001-C-3
@@ -986,18 +1073,18 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Ensamble de calentador de hotend derecho compatible con H2D — $979 MXN · Compatible: H2D · SKU FAH029
 - Ensamble de calentador de hotend izquierdo compatible con H2D — $979 MXN · Compatible: H2D · SKU FAH028-V1
 - Ensamble de calentamiento del hotend para series A1 — $699 MXN · Compatible: A1 · SKU FAH012
-- Extruder kobra s1 anycubic — $719 MXN · SKU ANC-1RFK
-- Extruder kobra s1 max anycubic — $369 MXN · SKU ANC-1RFN
+- Extruder Kobra S1 Anycubic — $719 MXN · SKU ANC-1RFK
+- Extruder Kobra S1 Max Anycubic — $369 MXN · SKU ANC-1RFN
 - Extrusor auxiliar para serie X2D — $1,399 MXN · Compatible: X2D · SKU FAE049
-- Extrusor kit compatible con creality hi — $1,199 MXN · SKU 4001020085
+- Extrusor kit compatible con Creality Hi — $1,199 MXN · SKU 4001020085
 - Funda de silicona para hotend compatible con H2D — $209 MXN · Compatible: H2D · SKU FAH022
 - Funda de silicona para hotend de A1 mini y A1 — $179 MXN · Compatible: A1 mini, A1 · SKU FAH006
 - Funda de silicona para hotend P1P, P1S, X1C y X1E — $209 MXN · Compatible: P1P, P1S, X1C, X1E · SKU FAH001-S-3
 - Funda de silicona para hotend para P2S — $209 MXN · Compatible: P2S · SKU FAH048
 - Funda de silicón para hotend por inducción de serie H2C — $139 MXN · Compatible: H2C · SKU FAH067
 - Guía de filamento para extrusor dual para series h2cc — $279 MXN · SKU FAE048
-- Hotend compatible con series ender-3 neo — $1,139 MXN · SKU 4001030111
-- Hotend compatible con sermon d1 — $519 MXN · SKU 4001030106
+- Hotend compatible con series Ender-3 Neo — $1,139 MXN · SKU 4001030111
+- Hotend compatible con Sermoon D1 — $519 MXN · SKU 4001030106
 - Hotend completo con boquilla de acero endurecido 0.4 mm para P1P y P1S — $1,119 MXN · Compatible: P1P, P1S · SKU FAH001-P
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1C — $1,119 MXN · Compatible: X1C · SKU FAH001
 - Hotend completo con boquilla de acero endurecido 0.4 mm para X1E — $1,759 MXN · Compatible: X1E · SKU FAH013
@@ -1020,7 +1107,7 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Hotend de alto flujo con boquilla de carburo de tungsteno - 0.4 mm compatible con H2/P2S/X2D/a2l — $2,729 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH043
 - Hotend de alto flujo con boquilla de carburo de tungsteno - 0.6 mm compatible con H2/P2S/X2D/a2l — $2,729 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH044
 - Hotend de alto flujo con boquilla de carburo de tungsteno - 0.8 mm compatible con H2/P2S/X2D/a2l — $2,729 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH045
-- Hotend de impresoras ender-3 s1/cr-10 smart Pro/ender-3 s1 Pro — $4,319 MXN · SKU 4001020038
+- Hotend de impresoras Ender-3 S1/CR-10 Smart Pro/Ender-3 S1 Pro — $4,319 MXN · SKU 4001020038
 - Hotend de inducción con boquilla de acero inoxidable - 0.2 mm compatible con H2C — $1,259 MXN · Compatible: H2C · SKU FAH050
 - Hotend de inducción con boquilla de acero inoxidable - 0.4 mm compatible con H2C — $1,259 MXN · Compatible: H2C · SKU FAH051
 - Hotend de inducción con boquilla de acero inoxidable - 0.6 mm compatible con H2C — $1,259 MXN · Compatible: H2C · SKU FAH052
@@ -1028,43 +1115,43 @@ Rango de precio: $129 MXN a $17,709 MXN.
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.4 mm compatible con H2C — $2,169 MXN · Compatible: H2C · SKU FAH054
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.6 mm compatible con H2C — $3,069 MXN · Compatible: H2C · SKU FAH055
 - Hotend de inducción de alto flujo con boquilla de acero inoxidable - 0.8 mm compatible con H2C — $2,169 MXN · Compatible: H2C · SKU FAH056
-- Hotend estándar para ender-3s1 — $3,409 MXN · SKU 4001020033
-- Hotend kit de de intercambio rápido para ender-3 V3 se/ke — $1,469 MXN · SKU 4001030135
-- Hotend kit para impresoras ender-3 V3, ender-3 V3 plus — $1,119 MXN · SKU 4001030134
-- Hotend kit para impresoras sermoon V1/ V1 Pro — $469 MXN · SKU 4001030105
-- Hotend para cr-10 V2 — $829 MXN · SKU 2001020318
-- Hotend para ender 5-plus creality — $879 MXN · SKU 2001020215
-- Hotend para impresora 3D ender-3 V3 se — $559 MXN · SKU 4001030127
-- Hotend para impresora 3D ender-5 creality — $829 MXN · SKU 6002030022
-- Hotend para impresora ender-3 max — $1,009 MXN · SKU 4001030013
-- Hotend para impresora sermoon d3 — $1,009 MXN · SKU 4001030116
-- Hotend para impresoras creality ender-3 — $629 MXN · SKU 2001020049
-- Hotend spider de alta temperatura compatible con series ender 3/5 y series cr — $1,989 MXN · SKU 4008030043
-- Kit accesorios para hotend series ender 3 — $199 MXN · SKU 4007010106
-- Kit completo de hotend para ender 3 V2 — $1,369 MXN · SKU 4001030040
-- Kit completo de hotend para impresora 3D ender-5 creality — $1,199 MXN · SKU 6002030023
-- Kit de bloque calefactor de alta temperatura para ender 3 s1 Pro y cr 10 smart p — $919 MXN · SKU 4006010040
-- Kit de extrusor metálico de doble engrane compatible con cr-10 series — $1,559 MXN · SKU 4001020010
-- Kit de extrusor para impresora 3D ender-3 V3 se — $589 MXN · SKU 4001020064
-- Kit extrusor para creality k2 plus — $1,409 MXN · SKU 4001020083
-- Kit extrusor para impresora 3D compatible con series ender-3 y cr-10 — $579 MXN · SKU 4001020011
-- Kit hotend ender-7 completo — $3,879 MXN · SKU 4001030084
-- Kobra 3 kobra 3 V2 hotend anycubic — $1,129 MXN · SKU ANC-1GQT
-- Kobra s1 quick release hotend 0.4 mm — $669 MXN · SKU ANC-1T9S
+- Hotend estándar para Ender-3S1 — $3,409 MXN · SKU 4001020033
+- Hotend kit de intercambio rápido para Ender-3 V3 SE/KE — $1,469 MXN · SKU 4001030135
+- Hotend kit para impresoras Ender-3 V3, Ender-3 V3 Plus — $1,119 MXN · SKU 4001030134
+- Hotend kit para impresoras Sermoon V1/V1 Pro — $469 MXN · SKU 4001030105
+- Hotend para CR-10 V2 — $829 MXN · SKU 2001020318
+- Hotend para Ender 5-Plus Creality — $879 MXN · SKU 2001020215
+- Hotend para impresora 3D Ender-3 V3 SE — $559 MXN · SKU 4001030127
+- Hotend para impresora 3D Ender-5 Creality — $829 MXN · SKU 6002030022
+- Hotend para impresora Ender-3 Max — $1,009 MXN · SKU 4001030013
+- Hotend para impresora Sermoon D3 — $1,009 MXN · SKU 4001030116
+- Hotend para impresoras Creality Ender-3 — $629 MXN · SKU 2001020049
+- Hotend spider de alta temperatura compatible con series Ender 3/5 y series CR — $1,989 MXN · SKU 4008030043
+- Kit accesorios para hotend series Ender 3 — $199 MXN · SKU 4007010106
+- Kit completo de hotend para Ender 3 V2 — $1,369 MXN · SKU 4001030040
+- Kit completo de hotend para impresora 3D Ender-5 Creality — $1,199 MXN · SKU 6002030023
+- Kit de bloque calefactor de alta temperatura para Ender 3 S1 Pro y CR 10 Smart P — $919 MXN · SKU 4006010040
+- Kit de extrusor metálico de doble engrane compatible con CR-10 series — $1,559 MXN · SKU 4001020010
+- Kit de extrusor para impresora 3D Ender-3 V3 SE — $589 MXN · SKU 4001020064
+- Kit extrusor para Creality K2 Plus — $1,409 MXN · SKU 4001020083
+- Kit extrusor para impresora 3D compatible con series Ender-3 y CR-10 — $579 MXN · SKU 4001020011
+- Kit hotend Ender-7 completo — $3,879 MXN · SKU 4001030084
+- Kobra 3 Kobra 3 V2 Hotend Anycubic — $1,129 MXN · SKU ANC-1GQT
+- Kobra S1 quick release hotend 0.4 mm — $669 MXN · SKU ANC-1T9S
 - Leva del interruptor del extrusor para H2D y láser H2D — $419 MXN · Compatible: H2D · SKU FAC137
 - Placa de conexión del extrusor para serieh2d — $699 MXN · SKU DLB024
-- Placa posterior hotend ender-3 V2 ender 5/5 pro. — $369 MXN · SKU 2102010283
+- Placa posterior hotend Ender-3 V2 Ender 5/5 Pro. — $369 MXN · SKU 2102010283
 - Poleas dobles del extrusor y sensor de filamento para H2D — $839 MXN · Compatible: H2D · SKU FAE024-V1
 - Sensor de filamento de la extrusor para serie X2D — derecho — $489 MXN · Compatible: X2D · SKU DLB068
 - Sensor de filamento de la extrusor para serie X2D — izquierdo — $489 MXN · Compatible: X2D · SKU DLB067
-- Sensor de temperatura calefactor hotend 24v 40 W compatible con series ender, cr, ct y sermoon — $339 MXN · SKU 4004060033
+- Sensor de temperatura calefactor hotend 24 V 40 W compatible con series Ender, CR, CT y Sermoon — $339 MXN · SKU 4004060033
 - Servo motor 3513 para extrusor compatible con H2D — $1,889 MXN · Compatible: H2D · SKU FAM012
 - Servomotor 3508 para extrusor compatible con P2S — $1,889 MXN · Compatible: P2S · SKU FAM018
 - Tapa frontal de extrusor para series A1 — $199 MXN · Compatible: A1 · SKU FAE019
 - Tarjeta de conexión del conjunto de calentamiento del hotend para serie X2D — $839 MXN · Compatible: X2D · SKU DLB065
 - Tarjeta de conexión del extrusor para serie X2D — $839 MXN · Compatible: X2D · SKU DLB066
 - Tarjeta de control del calentador de la cámara para serie X1E — $149 MXN · Compatible: X1E · SKU DLB004
-- Termistor para hotend ender 5 s1 — $159 MXN · SKU 3103020150
+- Termistor para hotend Ender 5 S1 — $159 MXN · SKU 3103020150
 - Termistor para hotend X1C — $489 MXN · Compatible: X1C · SKU FAH001-T-3
 - Ventilador de enfriamiento del hotend para serie X2D — $489 MXN · Compatible: X2D · SKU FAF023
 - Ventilador de enfriamiento para el hotend de X1E — $489 MXN · Compatible: X1E · SKU FAF011-V2
@@ -1075,8 +1162,8 @@ Rango de precio: $129 MXN a $17,709 MXN.
 Rango de precio: $129 MXN a $1,719 MXN.
 
 - Almohadilla limpiadora de boquilla para P2S — $379 MXN · Compatible: P2S · SKU FAW006
-- Boquilla de 0.4 mm para impresoras cr-10s Pro, cr-10 max, cr-10s Pro V2 — $219 MXN · SKU 4004020040
-- Boquilla de 0.6 mm compatible con series ender-3/5 y series cr — $199 MXN · SKU 4004020044
+- Boquilla de 0.4 mm para impresoras CR-10S Pro, CR-10 Max, CR-10S Pro V2 — $219 MXN · SKU 4004020040
+- Boquilla de 0.6 mm compatible con series Ender-3/5 y series CR — $199 MXN · SKU 4004020044
 - Boquilla de acero endurecido 0.2 mm estándar compatible con H2/P2S/X2D/a2l — $659 MXN · Compatible: P2S, X2D, serie H2 · SKU FAH059
 - Boquilla de acero endurecido 0.4 mm compatible con serie P y X1C — $579 MXN · Compatible: serie P1, X1C · SKU FAH001-N-1
 - Boquilla de acero endurecido 0.4 mm compatible serie A1 — $509 MXN · Compatible: serie A1 · SKU FAH019
@@ -1091,52 +1178,52 @@ Rango de precio: $129 MXN a $1,719 MXN.
 - Boquilla de acero inoxidable 0.2 mm compatible con serie P y X1C — $579 MXN · Compatible: serie P1, X1C · SKU FAH004-N-1
 - Boquilla de acero inoxidable 0.4 mm compatible con serie P y X1C — $539 MXN · Compatible: serie P1, X1C · SKU FAH002-N-1
 - Boquilla de acero inoxidable 0.4 mm compatible serie A1 — $439 MXN · Compatible: serie A1 · SKU FAH007
-- Boquilla de intercambio rápido unicorn k2p/ creality hi - 0.2 mm — $509 MXN · SKU 4008030090
-- Boquilla de intercambio rápido unicorn k2p/ creality hi - 0.8 mm — $509 MXN · SKU 4008030091
-- Boquilla de intercambio rápido unicorn k2p/creality- 0.4 mm — $479 MXN · SKU 4008030074
-- Boquilla m6 de alta velocidad creality ender-7, ender 5-s1 y ender 3-V3 se — $129 MXN · SKU 4004020054
-- Boquilla para impresora sermoon d3 Pro — $319 MXN · SKU 3205050220
-- Boquilla unicornio de 0.4 mm para impresoras k1(2024), k1max (2024), k1c, ender-3 V3, ender-3 V3 plus — $559 MXN · SKU 4008030071
-- Boquillas de laton mk8 para impresora 3D ender 3 series, ender 5 series, cr-10/1 — $289 MXN · SKU 4007010038
-- Kit de 5 boquillas de repuesto mk 0.4 mm - compatible con serie ender — $259 MXN · SKU 4004020028
-- Kit de boquilla de tornillo para impresora sermoon d3 Pro — $1,329 MXN · SKU 2102012506
-- Kit de boquillas compatibles con ender 5 max — $629 MXN · SKU 4008030092
-- Kit de boquillas de intercambio rápido unicornio para impresora k1c,ender-3 V3,ender-3 V3 plus — $1,719 MXN · SKU 4008030065
-- Kit de boquillas principal para impresora sermoon d3 Pro — $1,329 MXN · SKU 2102012507
-- Kobra s1 max combo quick-swap hardened steel nozzle 0.4 mm — $379 MXN · SKU ANC-1V1J
-- Kobra x quick-swap hardened steel nozzle 0.4 mm — $379 MXN · SKU ANC-1V1M
+- Boquilla de intercambio rápido Unicorn K2P / Creality - 0.4 mm — $479 MXN · SKU 4008030074
+- Boquilla de intercambio rápido Unicorn K2P / Creality Hi - 0.2 mm — $509 MXN · SKU 4008030090
+- Boquilla de intercambio rápido Unicorn K2P / Creality Hi - 0.8 mm — $509 MXN · SKU 4008030091
+- Boquilla M6 de alta velocidad Creality Ender-7, Ender 5-S1 y Ender 3-V3 SE — $129 MXN · SKU 4004020054
+- Boquilla para impresora Sermoon D3 Pro — $319 MXN · SKU 3205050220
+- Boquilla unicornio de 0.4 mm para impresoras K1(2024), K1 Max (2024), K1C, Ender-3 V3, Ender-3 V3 Plus — $559 MXN · SKU 4008030071
+- Boquillas de latón MK8 para impresora 3D Ender 3 series, Ender 5 series, CR-10/1 — $289 MXN · SKU 4007010038
+- Kit de 5 boquillas de repuesto MK 0.4 mm - compatible con serie Ender — $259 MXN · SKU 4004020028
+- Kit de boquilla de tornillo para impresora Sermoon D3 Pro — $1,329 MXN · SKU 2102012506
+- Kit de boquillas compatibles con Ender 5 Max — $629 MXN · SKU 4008030092
+- Kit de boquillas de intercambio rápido unicornio para impresora K1C, Ender-3 V3, Ender-3 V3 Plus — $1,719 MXN · SKU 4008030065
+- Kit de boquillas principal para impresora Sermoon D3 Pro — $1,329 MXN · SKU 2102012507
+- Kobra S1 Max Combo Quick-Swap Hardened Steel Nozzle 0.4 mm — $379 MXN · SKU ANC-1V1J
+- Kobra X Quick-Swap Hardened Steel Nozzle 0.4 mm — $379 MXN · SKU ANC-1V1M
 - Sensor de calibración de boquilla para serie h2cc — $729 MXN · SKU FAE047
 - Sensor eddy de la boquilla para serie a2l — $439 MXN · SKU FAE067
 - Sensor eddy de la boquilla para serie H2C - derecho — $439 MXN · Compatible: H2C · SKU FAC197-V1
-- Stainless steel nozzle 0.4 mm kobra 3 max/combo anycubic — $909 MXN · SKU ANC-1O3T
-- Termistor de boquilla para todos los modelos de impresora 3D ender — $179 MXN · SKU 3005030012
+- Stainless Steel Nozzle 0.4 mm Kobra 3 Max/Combo Anycubic — $909 MXN · SKU ANC-1O3T
+- Termistor de boquilla para todos los modelos de impresora 3D Ender — $179 MXN · SKU 3005030012
 
 ### 4.4 Camas calientes y placas de impresión (49 piezas)
 
 Rango de precio: $479 MXN a $5,339 MXN.
 
-- Build plate for photon m3 anycubic — $959 MXN · SKU ANC-1FHO
-- Build plate for photon mono x, x 6k y m3 plus anycubic — $1,389 MXN · SKU ANC-1FHT
-- Build plate photon mono 4k — $1,149 MXN · SKU ANC-PTK
+- Build Plate for Photon M3 Anycubic — $959 MXN · SKU ANC-1FHO
+- Build Plate for Photon Mono X, X 6K y M3 Plus Anycubic — $1,389 MXN · SKU ANC-1FHT
+- Build plate Photon Mono 4K — $1,149 MXN · SKU ANC-PTK
 - Cama caliente compatible con A1 — $3,919 MXN · Compatible: A1 · SKU FAC066
 - Cama caliente compatible con A1 mini — $1,219 MXN · Compatible: A1 mini · SKU FAC017-N
 - Cama caliente LV para serie P2S — $2,099 MXN · Compatible: P2S · SKU FAC163
-- Cama caliente para ender-5 plus — $969 MXN · SKU 4001040025
-- Cama caliente para impresora 3D ender-5 creality — $829 MXN · SKU 2001020218
-- Cama caliente para impresora creality hi — $5,089 MXN · SKU 4001040065
-- Cama caliente para series ender 3; series cr-20 y cp-01 — $1,389 MXN · SKU 4001040019
+- Cama caliente para Ender-5 Plus — $969 MXN · SKU 4001040025
+- Cama caliente para impresora 3D Ender-5 Creality — $829 MXN · SKU 2001020218
+- Cama caliente para impresora Creality Hi — $5,089 MXN · SKU 4001040065
+- Cama caliente para series Ender 3; series CR-20 y CP-01 — $1,389 MXN · SKU 4001040019
 - Cama caliente V2 compatible con A1 — $3,209 MXN · Compatible: A1 · SKU FAC066-V2
 - Cama caliente V3 compatible con P1 — $3,509 MXN · Compatible: serie P1 · SKU FAC056
 - Cama caliente V3 compatible con X1 — $3,509 MXN · Compatible: X1 · SKU FAC058
-- Cama de acero para impresora 3D ender-3 V3 se — $1,419 MXN · SKU 4004090110
-- Cama de vidrio carborundo 235x235x1mm para impresora 3D ender 3pro, ender 5 Pro — $949 MXN · SKU 3007020013
-- Cama de vidrio para series ender-3 y ender-5 Pro — $749 MXN · SKU 6004010027
-- Cama magnética de impresión de doble cara para impresora k1max y ender 3 V3 plus — $1,789 MXN · SKU 4004090124
-- Cama magnética de impresión para impresora ender 3 V3 se /ke y otros modelos — $1,059 MXN · SKU 4004090116
-- Cama magnética para ender-3, ender-3 V2 y ender-3 Pro — $709 MXN · SKU 6004010010
-- Cama para impresora sermoon V1, sermoon V1 Pro — $639 MXN · SKU 4004090076
-- Cama tipo PEI compatible con series ender-3 y ender-5 — $1,619 MXN · SKU 4004090039
-- Cama tipo PEI para series cr-10/cr-x y ender-3 max neo — $2,269 MXN · SKU 4004090036
+- Cama de acero para impresora 3D Ender-3 V3 SE — $1,419 MXN · SKU 4004090110
+- Cama de vidrio carborundo 235×235×1 mm para impresora 3D Ender 3 Pro, Ender 5 Pro — $949 MXN · SKU 3007020013
+- Cama de vidrio para series Ender-3 y Ender-5 Pro — $749 MXN · SKU 6004010027
+- Cama magnética de impresión de doble cara para impresora K1 Max y Ender 3 V3 Plus — $1,789 MXN · SKU 4004090124
+- Cama magnética de impresión para impresora Ender 3 V3 SE/KE y otros modelos — $1,059 MXN · SKU 4004090116
+- Cama magnética para Ender-3, Ender-3 V2 y Ender-3 Pro — $709 MXN · SKU 6004010010
+- Cama para impresora Sermoon V1, Sermoon V1 Pro — $639 MXN · SKU 4004090076
+- Cama tipo PEI compatible con series Ender-3 y Ender-5 — $1,619 MXN · SKU 4004090039
+- Cama tipo PEI para series CR-10/CR-X y Ender-3 Max Neo — $2,269 MXN · SKU 4004090036
 - Cama térmica magnética para serie P1P — $679 MXN · Compatible: P1P · SKU FAC025
 - Cámara de vista en vivo para serie X2D — $1,559 MXN · Compatible: X2D · SKU CAM012
 - Cámara del cabezal de impresión para serie X2D — $949 MXN · Compatible: X2D · SKU CAM011
@@ -1146,9 +1233,9 @@ Rango de precio: $479 MXN a $5,339 MXN.
 - Cámara para series H2 — $949 MXN · Compatible: serie H2 · SKU CAM006
 - Cámara toolhead serie H2S — $949 MXN · Compatible: H2S · SKU CAM009
 - Lamina con superficie de galaxia para serie A1 mini — $479 MXN · Compatible: serie A1 · SKU FAP019-N
-- Mono m5 build plate anycubic — $829 MXN · SKU ANC-186P
-- P1 hollow steel build plate anycubic — $5,339 MXN · Compatible: serie P1 · SKU ANC-1N5R
-- Photon m3 max build platform anycubic — $2,269 MXN · SKU ANC-1HSS
+- Mono M5 Build Plate Anycubic — $829 MXN · SKU ANC-186P
+- P1 Hollow Steel Build Plate Anycubic — $5,339 MXN · Compatible: serie P1 · SKU ANC-1N5R
+- Photon M3 Max Build Platform Anycubic — $2,269 MXN · SKU ANC-1HSS
 - Placa con efecto estrellada para A1 mini — $479 MXN · Compatible: A1 mini · SKU FAP020-N
 - Placa con superficie de diamante para series A1, X1 y P1 — $679 MXN · Compatible: A1, serie P1, X1 · SKU FAP018-N
 - Placa de efecto fibra de carbono para series A1 mini — $479 MXN · Compatible: A1 mini · SKU FAP021-N
@@ -1162,7 +1249,7 @@ Rango de precio: $479 MXN a $5,339 MXN.
 - Placa PEI texturizada compatible con A1 mini — $679 MXN · Compatible: A1 mini · SKU FAP009
 - Placa PEI texturizada compatible con H2D/H2S — $1,829 MXN · Compatible: H2D, H2S · SKU FAP025
 - Placa PEI texturizada para serie A1 mini — $809 MXN · Compatible: serie A1 · SKU FAP012
-- Printing platform for photon mono m7 max anycubic — $2,409 MXN · SKU ANC-1UMN
+- Printing Platform for Photon Mono M7 Max Anycubic — $2,409 MXN · SKU ANC-1UMN
 - Superficie imantada compatible con X1C/P1P/P1S — $679 MXN · Compatible: P1P, P1S, X1C · SKU FAC024
 
 ### 4.5 AMS y alimentación de filamento (18 piezas)
@@ -1184,9 +1271,9 @@ Rango de precio: $249 MXN a $10,579 MXN.
 - Sistema automático de materiales AMS Lite compatible con serie A1 — $10,579 MXN · Compatible: serie A1, AMS lite · SKU SA005
 - Sistema de alimentación automática de filamento con detección inteligente, compatible con múltiples materiales y colores — $9,989 MXN · SKU BAMBULAB-AMS-2-PRO
 - Versión especializada de AMS para materiales de alta temperatura como PC, PA y CF — $5,069 MXN · Compatible: AMS · SKU BAMBULAB-AMS-HT
-- Wash & cure 3 anycubic — $3,259 MXN · SKU ANC-11HT
-- Wash & cure 3 plus anycubic — $5,849 MXN · SKU ANC-11IA
-- Wash & cure max anycubic — $10,539 MXN · SKU ANC-XI6
+- Wash & Cure 3 Anycubic — $3,259 MXN · SKU ANC-11HT
+- Wash & Cure 3 Plus Anycubic — $5,849 MXN · SKU ANC-11IA
+- Wash & Cure Max Anycubic — $10,539 MXN · SKU ANC-XI6
 
 ### 4.6 Filamento Bambu Lab y accesorios de filamento (92 piezas)
 
@@ -1289,7 +1376,7 @@ Rango de precio: $199 MXN a $4,679 MXN.
 
 Rango de precio: $159 MXN a $1,129 MXN.
 
-- Adhesivo para cama de impresión para ender 3s, ender 3pro, cr-20 y cr-20pro — $429 MXN · SKU 3007070029
+- Adhesivo para cama de impresión para Ender 3S, Ender 3 Pro, CR-20 y CR-20 Pro — $429 MXN · SKU 3007070029
 - Canal de purga para serie H2 — $449 MXN · Compatible: serie H2 · SKU FAC123-V1
 - Conducto de purga compatible con serie X1 y P1 — $599 MXN · Compatible: serie P1, serie X1 · SKU FAC023
 - Conducto de purga para H2D — $649 MXN · Compatible: H2D · SKU FAC123
@@ -1304,358 +1391,7 @@ Rango de precio: $159 MXN a $1,129 MXN.
 - Limpiador de purga compatible con A1 mini y A1 — $399 MXN · Compatible: A1 mini, A1 · SKU FAC021-N
 - Raspador de aleación de magnesio — $749 MXN · SKU B-SA001
 
-## 5. Piezas impresas en 3D bajo pedido (tienda en línea)
-
-Página: https://www.emisha.com.mx/tienda/
-
-2614 diseños distintos, todos impresos por Emisha en la CDMX con filamento
-propio de 1.75 mm. Se fabrican BAJO PEDIDO: no son existencia en anaquel,
-así que aquí no se publican cifras de inventario. Pago con Mercado Pago y
-envío a todo México ($149 MXN; gratis desde $999 MXN).
-
-Abajo va el resumen por categoría con el rango de precio y una muestra
-representativa de hasta 20 piezas por categoría. El catálogo completo,
-con foto, peso y medidas de cada pieza, está en https://www.emisha.com.mx/tienda/
-
-### 5.1 Impresión 3D y filamento (96 piezas)
-
-Rango de precio: $129 MXN a $4,239 MXN. Peso: 25 a 14040 g.
-
-- Emisha 5 Pack Carretes Vacíos Reutilizables Impresion 3d Azul — $199 MXN · 210 × 230 × 350 mm · SKU E-SP-E-5P
-- Emisha Boquilla Compatible Con Impresoras Bambulab Serie H2 0.2mm — $499 MXN · 30 × 40 × 90 mm · SKU EMI-HE-H2-0.2
-- Emisha Boquilla Lubricante compatible con Bambu A1 — $169 MXN · 70 × 70 × 80 mm · SKU EMISHA-BU566465
-- Emisha Caja de Herramientas compatible con Bambu — $999 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU508656
-- Emisha Carrete para Cintas de Amarre Automotriz Tensión — $609 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU1267206
-- Emisha Estación de Bomba para Bolsas al Vacío Filamento — $459 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU2130830
-- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Blue — $249 MXN · 211 × 216 × 76 mm · SKU E-PETG-M-1KG-DBlue
-- Emisha Filamento 1kg Petg Matte Hf Premium Ultra Colores Color Deep Red — $249 MXN · 216 × 208 × 76 mm · SKU E-PETG-M-1KG-DRed
-- Emisha Filamento 5kg Petg Matte Hf Premium Ultra Colores Deep Black — $1,449 MXN · 210 × 210 × 360 mm · SKU E-PETG-M-5KG-DBlack
-- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Clay — $249 MXN · 210 × 204 × 78 mm · SKU E-PLA-M-1KG-Clay
-- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Midnight Blue — $249 MXN · 214 × 206 × 76 mm · SKU E-PLA-M-1KG-MidnightBlue
-- Emisha Filamento Pla 1kg Matte Premium Ultra Colores Color Soft Pink — $249 MXN · 80 × 210 × 210 mm · SKU E-PLA-M-1KG-SoftPink
-- Emisha Filamento Pla 1kg Premium Ultra Colores Color Cosmic Blue — $249 MXN · 212 × 76 × 212 mm · SKU E-PLA-M-1KG-CosmicBlue
-- Emisha Filamento Pla 5kg Matte Premium Ultra Colores Midnight Black — $1,449 MXN · 220 × 230 × 370 mm · SKU E-PLA-M-5KG-MidnightBlack
-- Emisha Hélice Decorativa Decoración compatible con Bambu — $629 MXN · 80 × 100 × 90 mm · SKU EMISHA-BU1200771
-- Emisha Módulo Organizador compatible con Cajón Bambu — $2,159 MXN · 190 × 320 × 120 mm · SKU EMISHA-BU16350
-- Emisha Placa Cold Plate Ultra Sticky Para Bambu Lab H2s H2d — $1,399 MXN · 400 × 400 × 30 mm · SKU EMI-CP-H2
-- Emisha Soporte para Bobina Filamento Sunlu A1 — $549 MXN · 160 × 150 × 120 mm · SKU EMISHA-BU109516
-- Filamento Pla 100m Para Pluma 3d, 10 Colores Aleatorios 10 Colores Surtidos — $229 MXN · 60 × 170 × 190 mm · SKU E-PLA-V2-100m
-- Hotend Boquilla Compatible Con Impresora Bambulab A1/a1 Mini 0.8mm — $499 MXN · 100 × 320 × 230 mm · SKU EMI-HE-HS-0.8
-- (…y 76 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.2 Tecnología, cómputo y gaming (452 piezas)
-
-Rango de precio: $59 MXN a $7,849 MXN. Peso: 10 a 1733 g.
-
-- Base Compatible Con Dispositivos Apple Todo En Uno — $249 MXN · 70 × 210 × 220 mm · SKU EMI-AADD-DP-W-001
-- Emisha Caja Organizadora de Cables Escritorio Oficina — $3,369 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU2121425
-- Emisha Clip compatible con Cables Skadis Cable Organizador — $149 MXN · 50 × 60 × 60 mm · SKU EMISHA-BU483429
-- Emisha Extractor de Teclas Teclado Gaming Impresión 3D — $139 MXN · 60 × 70 × 50 mm · SKU EMISHA-BU170513
-- Emisha Llavero Kawaii Aguacate Feliz Switch Fidget Clicky Color Marrón Claro — $69 MXN · 110 × 260 × 370 mm · SKU EMI-KC-DP-A-BR-001
-- Emisha Organizador de Cables Ajustable Escritorio — $149 MXN · 50 × 70 × 60 mm · SKU EMISHA-BU1599103
-- Emisha Organizador de Cables Escritorio Mochila — $149 MXN · 60 × 80 × 60 mm · SKU EMISHA-BU2852675
-- Emisha Organizador de Cables para Escritorio — $289 MXN · 120 × 160 × 80 mm · SKU EMISHA-BU926084
-- Emisha Organizador para Memorias Usb Escritorio — $169 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU75438
-- Emisha Soporte Ajustable para Tarjeta de Video Pc — $259 MXN · 120 × 190 × 290 mm · SKU EMISHA-BU1574539
-- Emisha Soporte de Pared compatible con Baterías Makita — $589 MXN · 120 × 190 × 240 mm · SKU EMISHA-BU34931
-- Emisha Soporte para Audífonos Pared Ajustable — $449 MXN · 90 × 120 × 140 mm · SKU EMISHA-BU22747
-- Emisha Soporte para Celular Escritorio Cargador — $429 MXN · 120 × 150 × 180 mm · SKU EMISHA-BU426142
-- Emisha Soporte para Celular Llave Bolsillo Plegable — $189 MXN · 80 × 100 × 130 mm · SKU EMISHA-BU1087279
-- Emisha Soporte para Laptop Escritorio Ajustable Impresión 3D — $1,369 MXN · 240 × 290 × 190 mm · SKU EMISHA-BU1139653
-- Emisha Soporte para Soldadura Electrónica Pcb Manual — $519 MXN · 100 × 130 × 80 mm · SKU EMISHA-BU1057596
-- Emisha Soporte Vertical para Ps4 Slim Consola Escritorio — $479 MXN · 120 × 150 × 190 mm · SKU EMISHA-BU550550
-- Emisha Trípode para Celular Compacto Viaje — $559 MXN · 80 × 90 × 160 mm · SKU EMISHA-BU697600
-- Llavero Kawaii Forma Macarron Feliz Switch Café Premium Color Rojo — $69 MXN · 100 × 100 × 100 mm · SKU EMI-KK-DP-R-001
-- Soportedual Para Cargador Inalambrico Compatible Con Magsafe — $259 MXN · 100 × 150 × 150 mm · SKU EMI-MSSD-DP-BL-001
-- (…y 432 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.3 Baño, salud y cuidado personal (168 piezas)
-
-Rango de precio: $89 MXN a $4,669 MXN. Peso: 40 a 1750 g.
-
-- Emisha Araña Bromista para Papel Higiénico — $139 MXN · 100 × 120 × 90 mm · SKU EMISHA-BU2469265
-- Emisha Caja para Jabón Viaje Seguro Removible — $509 MXN · 130 × 110 × 70 mm · SKU EMISHA-BU723648
-- Emisha Contenedor para Pastillas Viaje Medicamentos Portátil — $469 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU13932
-- Emisha Embudo de Trasvase Botella Cocina Jabones — $1,369 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU960788
-- Emisha Exprimidor de Pasta de Dientes Dental Cocina — $169 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU1162561
-- Emisha Exprimidor para Tubos de Pasta de Dientes Baño Facil — $279 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU30246
-- Emisha Gancho para Puerta Ducha Toalla — $209 MXN · 80 × 120 × 160 mm · SKU EMISHA-BU2160717
-- Emisha Jabonera Baño Esponja — $269 MXN · 120 × 140 × 90 mm · SKU EMISHA-BU1870601
-- Emisha Organizador de Algodones Baño Tocador Maquillaje — $719 MXN · 110 × 150 × 120 mm · SKU EMISHA-BU2074092
-- Emisha Organizador de Maquillaje Cajón Almacenamiento — $2,899 MXN · 270 × 190 × 120 mm · SKU EMISHA-BU722908
-- Emisha Organizador Giratorio Cocina Escritorio Baño — $2,109 MXN · 220 × 240 × 190 mm · SKU EMISHA-BU1738386
-- Emisha Organizador Semanal de Pastillas Viaje Circular — $499 MXN · 120 × 120 × 70 mm · SKU EMISHA-BU1704198
-- Emisha Pastillero Semanal Salud Hogar Medicamentos — $4,529 MXN · 120 × 150 × 80 mm · SKU EMISHA-BU171880
-- Emisha Peine para Barba Viaje Impresión — $169 MXN · 60 × 130 × 70 mm · SKU EMISHA-BU1058810
-- Emisha Percha Autoajustable Baño Toalla Cocina — $279 MXN · 80 × 120 × 190 mm · SKU EMISHA-BU1846340
-- Emisha Rociador de Ducha Anular Baño Moderno Minimalista — $669 MXN · 220 × 240 × 190 mm · SKU EMISHA-BU752317
-- Emisha Soporte para Gafas Escritorio Ajustable — $849 MXN · 120 × 140 × 160 mm · SKU EMISHA-BU416844
-- Emisha Sujetador para Gafas Automóvil Parasol Universal — $429 MXN · 70 × 110 × 90 mm · SKU EMISHA-BU1578412
-- Lanzador De Palillos De Dientes Lanzador De Palillos De Dientes Negro — $89 MXN · 100 × 180 × 270 mm · SKU EMI-TL-DP-B-001
-- Soporte Doble Para Lentes Marrón — $449 MXN · 70 × 210 × 290 mm · SKU EMI-SSM-DP-BBr-001
-- (…y 148 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.4 Cocina, comedor y hogar (182 piezas)
-
-Rango de precio: $139 MXN a $18,339 MXN. Peso: 52 a 4025 g.
-
-- Emisha Abrebotellas Bar Cerveza Fuerte — $249 MXN · 60 × 100 × 80 mm · SKU EMISHA-BU2565168
-- Emisha Abrelatas para Bebidas Manicura Seguro Ayudante — $139 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1333843
-- Emisha Basurero con Ruedas Oficina Cocina — $239 MXN · 190 × 320 × 440 mm · SKU EMISHA-BU838728
-- Emisha Clip para Café Cocina Bolsa Hermético — $719 MXN · 60 × 100 × 70 mm · SKU EMISHA-BU1880940
-- Emisha Cortador de Galletas Corazón Cocina San Valentín — $169 MXN · 60 × 120 × 120 mm · SKU EMISHA-BU575486
-- Emisha Dispensador de Huevos Cocina Almacenaje Impresión 3D — $1,249 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU659796
-- Emisha Dosificador de Huevos Refrigerador Almacenaje — $1,399 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU1021562
-- Emisha Embudo Precisión Líquidos Tamaños — $199 MXN · 120 × 120 × 160 mm · SKU EMISHA-BU601523
-- Emisha Estante para Especias Cocina Organizador Moderno — $1,189 MXN · 120 × 190 × 240 mm · SKU EMISHA-BU935359
-- Emisha Gancho de Pared Cocina Adhesivo — $159 MXN · 60 × 80 × 80 mm · SKU EMISHA-BU191611
-- Emisha Macetas Decorativas Hogar Moderno Jardín — $679 MXN · 160 × 160 × 190 mm · SKU EMISHA-BU428498
-- Emisha Organizador de Especias Cocina Modular Apilable — $3,769 MXN · 120 × 240 × 190 mm · SKU EMISHA-BU966576
-- Emisha Organizador de Utensilios de Cocina Tapas — $539 MXN · 120 × 160 × 190 mm · SKU EMISHA-BU1107388
-- Emisha Organizador para Tapas de Frascos Cocina — $919 MXN · 160 × 190 × 120 mm · SKU EMISHA-BU1348119
-- Emisha Pinza para Bolsas Cocina Alimentos Organizador — $749 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU813980
-- Emisha Repisa para Pared Cocina A1 Organizador — $579 MXN · 220 × 240 × 70 mm · SKU EMISHA-BU1160438
-- Emisha Soporte para Esponjas Cocina Fregadero Drenaje — $259 MXN · 90 × 130 × 110 mm · SKU EMISHA-BU2335916
-- Emisha Taza Medidora Cocina Repostería Volumen Impresión 3D — $409 MXN · 110 × 110 × 140 mm · SKU EMISHA-BU504520
-- Emisha Árbol de Navidad Decoración Vaso Iluminación — $489 MXN · 120 × 120 × 160 mm · SKU EMISHA-BU800827
-- Tapa Para Latas Compatible Con Termo Yeti Negro — $149 MXN · 100 × 190 × 270 mm · SKU EMI-PTYF-DP-B-001
-- (…y 162 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.5 Jardín, plantas y mascotas (85 piezas)
-
-Rango de precio: $85 MXN a $11,619 MXN. Peso: 20 a 2779 g.
-
-- Comedero Colgante Para Pájaros Negro — $449 MXN · 130 × 140 × 460 mm · SKU EMI-HBF-DP-B-001
-- Emisha Adaptador para Manguera Jardín Personalizable Diy — $1,849 MXN · 70 × 90 × 70 mm · SKU EMISHA-BU201264
-- Emisha Aro de Baloncesto Flexible Deporte Jardín Niños — $259 MXN · 240 × 340 × 490 mm · SKU EMISHA-BU1055971
-- Emisha Casetón para Pájaros Jardín Decoración Colgable — $3,309 MXN · 160 × 190 × 290 mm · SKU EMISHA-BU1196668
-- Emisha Conector para Mangueras Manguera Tubo Adaptador — $849 MXN · 60 × 70 × 70 mm · SKU EMISHA-BU1259571
-- Emisha Figura de Gato Decoración Mascota Estatuilla — $279 MXN · 90 × 100 × 120 mm · SKU EMISHA-BU1552647
-- Emisha Florero Facetado Decorativo Plantas Corte — $389 MXN · 130 × 130 × 200 mm · SKU EMISHA-BU748131
-- Emisha Gato Articulado Juguete Mascota Decoración — $619 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1397464
-- Emisha Guía para Manguera de Lavado Automotriz Rueda Jardín — $679 MXN · 90 × 140 × 120 mm · SKU EMISHA-BU568247
-- Emisha Llavero de Bulldog Francés Mascota Mini Regalo — $189 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU250122
-- Emisha Maceta Hermosa Para Suculenta Calidad Premium — $85 MXN · 100 × 100 × 100 mm · SKU EMI-DP-SUCMAC
-- Emisha Macetas Decorativas Decoración Minimalista Habitación — $729 MXN · 120 × 150 × 120 mm · SKU EMISHA-BU796264
-- Emisha Macetas Espiral Jardín Decoración Exterior — $669 MXN · 140 × 160 × 220 mm · SKU EMISHA-BU221532
-- Emisha Marcador de Página Gato Lectura — $139 MXN · 50 × 70 × 220 mm · SKU EMISHA-BU465131
-- Emisha Marcador para Libros Libro Gato Personalizable — $149 MXN · 50 × 70 × 220 mm · SKU EMISHA-BU449941
-- Emisha Perro Fantasma Flotante Halloween Ilusión Óptica — $749 MXN · 140 × 160 × 220 mm · SKU EMISHA-BU1864876
-- Emisha Rosa Decorativa Decoración Jardín Regalo — $559 MXN · 70 × 90 × 160 mm · SKU EMISHA-BU973668
-- Emisha Silbato de Pájaro Juguete Sonido Exterior — $759 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1148442
-- Emisha Tulipán Decoración Jardín Regalo — $419 MXN · 80 × 90 × 220 mm · SKU EMISHA-BU1331914
-- Palillos Para Sushi Con Patas De Gato Y Perro Blanco Perro Y Gato — $249 MXN · 30 × 150 × 220 mm · SKU EMI-SPT-DP-Mc-001
-- (…y 65 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.6 Deporte, camping y aire libre (48 piezas)
-
-Rango de precio: $79 MXN a $4,849 MXN. Peso: 51 a 1600 g.
-
-- 1 Soporte Gancho Para Casco Chamarra Guantes Biker Moto — $99 MXN · 100 × 100 × 100 mm · SKU EMI-DP-SOPGAN1
-- 2 Soportes Gancho Para Casco Chamarra Guantes Biker Moto — $139 MXN · 150 × 150 × 40 mm · SKU EMI-DP-SOPGAN2
-- Contenedor Impermeable De Alimentos Para Exteriores Negro — $449 MXN · 130 × 220 × 300 mm · SKU EMI-OCRW-DP-B-001
-- Emisha Avión Planador Juguete Vuelo Exterior — $169 MXN · 70 × 190 × 120 mm · SKU EMISHA-BU525146
-- Emisha Caja para Municiones 9mm Almacenaje Munición — $1,679 MXN · 240 × 190 × 120 mm · SKU EMISHA-BU27953
-- Emisha Contenedor Resistente Aventura Almacenaje — $609 MXN · 100 × 130 × 100 mm · SKU EMISHA-BU714261
-- Emisha Cuchillo de Gravedad Plegable Paracord — $289 MXN · 60 × 110 × 80 mm · SKU EMISHA-BU59931
-- Emisha Figura de Golf Articulada Deporte Juguete Llave — $199 MXN · 70 × 80 × 100 mm · SKU EMISHA-BU921144
-- Emisha Giro de Munición Fortnite Alivio del Estrés — $409 MXN · 60 × 90 × 60 mm · SKU EMISHA-BU2170086
-- Emisha Huevo de Dragón Fantasia Decoración Aventura — $4,849 MXN · 120 × 140 × 160 mm · SKU EMISHA-BU395708
-- Emisha Llavero de Casco Moto Visera Kart — $259 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU407684
-- Emisha Llavero de Mancuerna Gimnasio Deporte Mancuernas — $209 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU1085378
-- Emisha Mosquetón Tipo Llavero Personalizable — $169 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU857360
-- Emisha Pinza para Mancuernas Gimnasio Herramienta Ergonómico — $1,279 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU792115
-- Emisha Silbato Rescate Exterior Llavero Impresión 3D — $219 MXN · 60 × 80 × 100 mm · SKU EMISHA-BU1617101
-- Emisha Silbato Ultrasónico Camping Emergencia Llavero — $189 MXN · 50 × 70 × 100 mm · SKU EMISHA-BU2598185
-- Emisha Soporte para Casco Muro Gimnasio Almacenaje — $569 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU783069
-- Emisha Soporte para Cañas de Pesca Pared Techo — $489 MXN · 120 × 140 × 290 mm · SKU EMISHA-BU1860865
-- Modelo A Escala De Máscara De Gas Con Casco — $149 MXN · 130 × 190 × 260 mm · SKU EMI-GMHH-DP-W-001
-- Salpicadera Sencilla Para Bicicleta Amarillo — $79 MXN · 90 × 340 × 420 mm · SKU E-DP-SM-Y-001
-- (…y 28 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.7 Automotriz y movilidad (55 piezas)
-
-Rango de precio: $69 MXN a $9,799 MXN. Peso: 52 a 2679 g.
-
-- Emisha Accesorios para Tablero Perforado — $3,409 MXN · 90 × 190 × 240 mm · SKU EMISHA-BU869344
-- Emisha Bandeja para Tablero Perforado Organizador — $239 MXN · 340 × 240 × 90 mm · SKU EMISHA-BU497499
-- Emisha Caja para Tablero Perforado Organizador — $519 MXN · 220 × 290 × 340 mm · SKU EMISHA-BU213759
-- Emisha Cerradura para Ventana de Caravan Seguridad — $169 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU492698
-- Emisha Conector compatible con Tablero Skadis Horizontal — $179 MXN · 60 × 100 × 70 mm · SKU EMISHA-BU471800
-- Emisha Conector compatible con Tablero Skadis Vertical — $199 MXN · 60 × 70 × 100 mm · SKU EMISHA-BU466731
-- Emisha Estante compatible con Tablero Perforado Ikea — $619 MXN · 120 × 190 × 240 mm · SKU EMISHA-BU835903
-- Emisha Gancho compatible con Tablero Ikea Skadis — $229 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU632335
-- Emisha Ganchos para Bolsas de Asiento Automóvil Organizador — $239 MXN · 70 × 100 × 130 mm · SKU EMISHA-BU2129191
-- Emisha Ganchos para Tablero Perforado Herramientas — $1,349 MXN · 50 × 80 × 100 mm · SKU EMISHA-BU651956
-- Emisha Ganchos y Cajas para Tablero Perforado — $2,249 MXN · 70 × 120 × 80 mm · SKU EMISHA-BU710070
-- Emisha Llavero Palanca de Cambios Coche Juguete Llave — $589 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU725445
-- Emisha Organizador para Tablero Perforado Modular — $9,129 MXN · 190 × 290 × 440 mm · SKU EMISHA-BU1911945
-- Emisha Pato Miniatura Decoración Vehículo Juguete — $169 MXN · 60 × 60 × 60 mm · SKU EMISHA-BU2024431
-- Emisha Soporte compatible con Cinta Adhesiva Tablero Ikea — $499 MXN · 90 × 120 × 160 mm · SKU EMISHA-BU453714
-- Emisha Soporte de Pared compatible con Tablero Ikea Skadis — $229 MXN · 120 × 190 × 240 mm · SKU EMISHA-BU861073
-- Emisha Soporte para Paraguas Automóvil Isofix — $419 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU1793135
-- Emisha Tablero compatible con Skadis Pared Ikea Fácil — $2,489 MXN · 70 × 400 × 440 mm · SKU EMISHA-BU2354853
-- Emisha Tablero Perforado Pared compatible con Skadis — $2,899 MXN · 60 × 440 × 640 mm · SKU EMISHA-BU2010632
-- Tapones Para Valvula De Llanta Universales — $69 MXN · 100 × 230 × 340 mm · SKU EMI-DP-TAP
-- (…y 35 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.8 Herramientas y taller (358 piezas)
-
-Rango de precio: $79 MXN a $6,339 MXN. Peso: 20 a 1964 g.
-
-- Accesorio De Sujeción Para Soldadura De Alambre — $129 MXN · 80 × 170 × 240 mm · SKU EMI-WSF-DP-WGr-001
-- Emisha Bandeja Clasificadora Organización Taller Piezas — $519 MXN · 160 × 240 × 90 mm · SKU EMISHA-BU476243
-- Emisha Caja de Herramientas Taller Organizador Almacenaje — $2,309 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU936724
-- Emisha Calibrador de Diámetro Métrico Industrial Medición — $589 MXN · 60 × 80 × 70 mm · SKU EMISHA-BU109504
-- Emisha Calzas Ajustable Universal — $159 MXN · 50 × 70 × 50 mm · SKU EMISHA-BU1234601
-- Emisha Contenedor Ovalado compatible con Skådis Herramientas — $599 MXN · 120 × 160 × 120 mm · SKU EMISHA-BU1660126
-- Emisha Destornillador Ratchet Herramienta Pequeño Fidget — $159 MXN · 60 × 70 × 100 mm · SKU EMISHA-BU2078273
-- Emisha Extractor de Garrapatas Seguro Rápido Tamaño Pequeño — $159 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU1337244
-- Emisha Guía para Taladro Construcción Precisión — $219 MXN · 70 × 100 × 90 mm · SKU EMISHA-BU909708
-- Emisha Limitador de Profundidad para Taladro M3 — $239 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU783395
-- Emisha Llavero Silbato Turbo Automotriz — $279 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU431063
-- Emisha Mordaza para Carpintería Herramientas — $619 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1731451
-- Emisha Organizador de Llaves Herramientas Módulo Gabinete — $709 MXN · 100 × 190 × 120 mm · SKU EMISHA-BU1525511
-- Emisha Organizador para Destornilladores Taller — $889 MXN · 120 × 190 × 290 mm · SKU EMISHA-BU582674
-- Emisha Recolector De Polvo Para Taladro Premium Calidad — $119 MXN · 50 × 100 × 130 mm · SKU EMI-DC-G-001
-- Emisha Soporte compatible con Herramienta Dewalt — $239 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU888042
-- Emisha Soporte para Cortadores Herramientas Gancho — $189 MXN · 80 × 100 × 140 mm · SKU EMISHA-BU401527
-- Emisha Soporte para Placa Electrónica Soldadura — $1,159 MXN · 80 × 130 × 100 mm · SKU EMISHA-BU159336
-- Emisha Tiburón Flexible con Llavero Juguete Fidget — $549 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU960197
-- Soporte Para Sujeción De Lija Con Identificador De Grano 1 — $159 MXN · 80 × 260 × 320 mm · SKU EMI-SSGN-DP-W-001
-- (…y 338 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.9 Escritorio, oficina y papelería (231 piezas)
-
-Rango de precio: $69 MXN a $16,689 MXN. Peso: 30 a 3067 g.
-
-- Cajas De Escritorio Apilables En Forma De Ladrillo — $269 MXN · 100 × 360 × 430 mm · SKU EMI-DP-API
-- Emisha Bandeja Organizadora Escritorio Modular — $579 MXN · 180 × 240 × 80 mm · SKU EMISHA-BU1146462
-- Emisha Billetera Delgada Dinero Tarjetas Compacta — $839 MXN · 60 × 110 × 140 mm · SKU EMISHA-BU732289
-- Emisha Caja Almacenaje Escritorio Decoración Impresión 3D — $779 MXN · 160 × 190 × 140 mm · SKU EMISHA-BU1390380
-- Emisha Caja Organizadora Escritorio Almacenaje Practico — $3,629 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU147260
-- Emisha Camaleón Articulado Decoración Escritorio Juguete — $549 MXN · 70 × 90 × 100 mm · SKU EMISHA-BU1744181
-- Emisha Clip para Fotos Foto Organizador Estante — $199 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU1012679
-- Emisha Cuchillo Plegable Tarjeta Bolsillo Práctico — $399 MXN · 50 × 70 × 110 mm · SKU EMISHA-BU1092420
-- Emisha Estuche para Lápices Escritorio Magnético Expandible — $1,179 MXN · 90 × 140 × 100 mm · SKU EMISHA-BU599053
-- Emisha Funda para Pasaporte Viaje Documentos Delgada — $459 MXN · 50 × 150 × 190 mm · SKU EMISHA-BU980908
-- Emisha Marcapáginas de Mariposa Lectura Libro — $269 MXN · 50 × 80 × 100 mm · SKU EMISHA-BU1036219
-- Emisha Organizador de Escritorio Giratorio — $1,349 MXN · 160 × 190 × 240 mm · SKU EMISHA-BU140821
-- Emisha Organizador de Escritorio Post It Oficina — $1,569 MXN · 120 × 190 × 140 mm · SKU EMISHA-BU940481
-- Emisha Pinza Modular Universal Escritorio Mesa Sujeción — $1,249 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1579791
-- Emisha Porta-lápices con Capucha Escritorio Decorativo — $679 MXN · 120 × 130 × 160 mm · SKU EMISHA-BU2074420
-- Emisha Soporte compatible con Ratón Escritorio Ikea — $229 MXN · 130 × 150 × 110 mm · SKU EMISHA-BU1155469
-- Emisha Soporte para Libros Lectura Mano Escritorio — $169 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU92061
-- Emisha Soporte para Reloj Escritorio Relojería Decoración — $399 MXN · 90 × 130 × 100 mm · SKU EMISHA-BU1843636
-- Emisha Sujetacables Escritorio Organización Impresión 3D — $159 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU1553496
-- Regla Centro Para Carpintería Gris — $69 MXN · 70 × 300 × 390 mm · SKU EMI-CPM-DP-G-001
-- (…y 211 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.10 Juguetes, llaveros y decoración (413 piezas)
-
-Rango de precio: $99 MXN a $8,829 MXN. Peso: 40 a 2250 g.
-
-- Adorno Con Forma De Copo De Nieve Para Foto Circular (4pack) Blanco Copo De Nieve — $469 MXN · 100 × 220 × 250 mm · SKU EMI-SPCO-DP-W-001
-- Emisha Balisong de Entrenamiento Halloween — $409 MXN · 70 × 90 × 290 mm · SKU EMISHA-BU68586
-- Emisha Calabaza de Halloween Decoración Vela Espantoso — $1,079 MXN · 120 × 120 × 140 mm · SKU EMISHA-BU633969
-- Emisha Cono Passthrough Imposible Fidget Vortex Juguete — $249 MXN · 70 × 80 × 80 mm · SKU EMISHA-BU715642
-- Emisha Cubo Juguete Impresión — $489 MXN · 110 × 130 × 100 mm · SKU EMISHA-BU1000899
-- Emisha Dragón Bebé Articulado Colección Juguete Articulación — $879 MXN · 90 × 110 × 100 mm · SKU EMISHA-BU473409
-- Emisha Escultura Lunar Decoración Vanguardista Estante — $959 MXN · 120 × 160 × 220 mm · SKU EMISHA-BU1799289
-- Emisha Exhibidor Apilable Decoración Colección Modular — $249 MXN · 120 × 190 × 140 mm · SKU EMISHA-BU1029729
-- Emisha Figura Decorativa Safari Colección Regalo — $169 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU1590627
-- Emisha Giro para Ansiedad Juguete Concentración Escuela — $159 MXN · 110 × 110 × 60 mm · SKU EMISHA-BU388095
-- Emisha Jarrón Antiestrés Retorcido Decoración Juguete — $819 MXN · 100 × 100 × 120 mm · SKU EMISHA-BU1444526
-- Emisha Juguete Fidget Estelar Mano Ansiedad Concentración — $1,059 MXN · 60 × 120 × 80 mm · SKU EMISHA-BU1783379
-- Emisha Lanzador de Tic Tacs Juguete Niños Diversión — $589 MXN · 70 × 140 × 90 mm · SKU EMISHA-BU945220
-- Emisha Paleta para Texturas Secas Pintura Miniaturas — $589 MXN · 60 × 150 × 110 mm · SKU EMISHA-BU1493338
-- Emisha Púa de Guitarra Hexagonal Música Fidget — $129 MXN · 50 × 70 × 50 mm · SKU EMISHA-BU201653
-- Emisha Serpiente Articulada Juguete Animal — $1,759 MXN · 100 × 120 × 80 mm · SKU EMISHA-BU2050713
-- Emisha Silbato Telescópico Música Colgante Portátil — $199 MXN · 60 × 70 × 110 mm · SKU EMISHA-BU1174027
-- Emisha Topador de Puerta Flexible Tpu — $249 MXN · 100 × 110 × 140 mm · SKU EMISHA-BU1599911
-- Emisha Árbol de Navidad con Faldón Decoración — $1,669 MXN · 190 × 190 × 290 mm · SKU EMISHA-BU621664
-- Portavasos Flexible Para Sofá Portavasos Flexible Negro — $289 MXN · 50 × 80 × 240 mm · SKU EMI-FSAT-DP-B-001
-- (…y 393 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.11 Organización y almacenamiento (252 piezas)
-
-Rango de precio: $69 MXN a $55,779 MXN. Peso: 50 a 18084 g.
-
-- Bandeja Continental Rectangular Negro — $169 MXN · 80 × 310 × 390 mm · SKU EMI-DTOW-DP-B-001
-- Emisha Bandeja para Carrito Compras Supermercado Organizador — $1,759 MXN · 360 × 490 × 120 mm · SKU EMISHA-BU552974
-- Emisha Caja Apilable Almacenaje Organización Contenedor — $709 MXN · 160 × 240 × 190 mm · SKU EMISHA-BU1022861
-- Emisha Caja con Cierre Almacenaje Contenedor Seguro — $459 MXN · 100 × 160 × 120 mm · SKU EMISHA-BU2168356
-- Emisha Caja de Almacenaje Almacenamiento Resistente Encaje — $589 MXN · 140 × 190 × 120 mm · SKU EMISHA-BU377006
-- Emisha Caja Deslizante Pequeña Bolsillo Almacenaje — $189 MXN · 70 × 90 × 60 mm · SKU EMISHA-BU1137340
-- Emisha Caja para Cartas Juegos Coleccionables Organizador — $639 MXN · 90 × 110 × 70 mm · SKU EMISHA-BU1076649
-- Emisha Cajas Apilables Organización Modular Almacenamiento — $8,659 MXN · 140 × 240 × 190 mm · SKU EMISHA-BU1259420
-- Emisha Colgador de Gorras Apilable Viaje Universal — $509 MXN · 80 × 120 × 160 mm · SKU EMISHA-BU622039
-- Emisha Contenedor compatible con Gridfinity Organización — $14,119 MXN · 100 × 150 × 110 mm · SKU EMISHA-BU861579
-- Emisha Contenedor de Viaje Sellado Moderno — $479 MXN · 90 × 120 × 110 mm · SKU EMISHA-BU1356395
-- Emisha Divisor de Compartimentos Almacenaje Organización — $729 MXN · 130 × 130 × 80 mm · SKU EMISHA-BU50848
-- Emisha Estante para Hilos Muro Almacenamiento Organizador — $439 MXN · 120 × 240 × 190 mm · SKU EMISHA-BU452686
-- Emisha Funda para Lighter Bic Táctico — $259 MXN · 60 × 80 × 100 mm · SKU EMISHA-BU1232133
-- Emisha Organizador compatible con Skadis Modular Almacenaje — $1,599 MXN · 140 × 190 × 240 mm · SKU EMISHA-BU895826
-- Emisha Organizador para Hilos Almacenaje Cajón — $1,309 MXN · 140 × 160 × 120 mm · SKU EMISHA-BU640718
-- Emisha Perforador para Cartón Manual Caja — $409 MXN · 160 × 110 × 70 mm · SKU EMISHA-BU1233632
-- Emisha Soporte para Escoba Pared Garaje Modular Impresión 3D — $409 MXN · 80 × 100 × 140 mm · SKU EMISHA-BU1789134
-- Mini Contenedor Negro — $149 MXN · 60 × 100 × 180 mm · SKU EMI-MC-DP-BY-001
-- Soportes Alta Resistencia Compatible Con Ikea Skadis (2pzas) — $749 MXN · 100 × 200 × 260 mm · SKU EMI-ISSHD-DP-B-001
-- (…y 232 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.12 Soportes, ganchos y sujeción (83 piezas)
-
-Rango de precio: $49 MXN a $2,189 MXN. Peso: 53 a 3316 g.
-
-- Base Exhibidor De Pared Compatible Con Funko Pack De 5 — $389 MXN · 190 × 420 × 550 mm · SKU E-3D-EX-White
-- Emisha Colgador de Cinturones Armario Organización Cintura — $269 MXN · 120 × 160 × 290 mm · SKU EMISHA-BU964813
-- Emisha Conector para Paneles Panel Universal Montaje — $419 MXN · 70 × 80 × 60 mm · SKU EMISHA-BU790825
-- Emisha Gancho de Pared Puerta Removible Pequeño — $139 MXN · 50 × 70 × 80 mm · SKU EMISHA-BU210353
-- Emisha Gancho Plegable para Abrigo Pared Minimalista — $229 MXN · 80 × 100 × 140 mm · SKU EMISHA-BU980224
-- Emisha Percha para Abrigo Puerta Fuerte Gancho Impresión 3D — $699 MXN · 100 × 160 × 290 mm · SKU EMISHA-BU570536
-- Emisha Pinza de Fijación Pegamento Impresión — $429 MXN · 60 × 90 × 70 mm · SKU EMISHA-BU1382348
-- Emisha Pinza para Bolsa de Papas Snacks Divertido Sellado — $279 MXN · 50 × 90 × 70 mm · SKU EMISHA-BU1732983
-- Emisha Pinzas Precisión Manualidades — $169 MXN · 50 × 60 × 220 mm · SKU EMISHA-BU1039684
-- Emisha Soporte compatible con Limpiador de Placa Ikea — $419 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU839274
-- Emisha Soporte de Pared para Guitarra — $419 MXN · 120 × 160 × 290 mm · SKU EMISHA-BU447604
-- Emisha Soporte para Cartas Juegos de Mesa Plegable — $649 MXN · 80 × 150 × 110 mm · SKU EMISHA-BU219052
-- Emisha Soporte para Fotos Corazón Instax Polaroid — $149 MXN · 100 × 120 × 160 mm · SKU EMISHA-BU1116215
-- Emisha Soporte para Labial Mamá Floral Accesorio — $439 MXN · 50 × 80 × 100 mm · SKU EMISHA-BU2706365
-- Emisha Soporte para Latas de Aerosol Pared Organización — $419 MXN · 90 × 160 × 120 mm · SKU EMISHA-BU850440
-- Emisha Soporte para Palos de Hockey Muro Deportes — $829 MXN · 120 × 190 × 290 mm · SKU EMISHA-BU159751
-- Emisha Sujetador de Hilo Yarnomatic Hilado Tejido — $219 MXN · 70 × 80 × 70 mm · SKU EMISHA-BU983487
-- Gancho De Ropa Plegable Gris — $149 MXN · 140 × 270 × 360 mm · SKU EMI-FCH-DP-G-001
-- Soporte Para Cargar Bolsas De Supermercado Blanco — $189 MXN · 60 × 210 × 290 mm · SKU EMI-GBH-DP-W-001
-- Soporte Vertical Compatible Con Cartuchos De Nes — $1,099 MXN · 150 × 160 × 290 mm · SKU EMI-NVCH-DP-G-001
-- (…y 63 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-### 5.13 Otras piezas (191 piezas)
-
-Rango de precio: $59 MXN a $7,419 MXN. Peso: 20 a 5658 g.
-
-- Agarrador De Sushi/cualquier Cosa (2 Pack) Verde Agarra Sushi — $79 MXN · 110 × 220 × 280 mm · SKU EMI-SAG-DP-Gr-001
-- Emisha Abrebotellas para Adultos Mayores Artritis Agarre — $1,149 MXN · 50 × 80 × 70 mm · SKU EMISHA-BU1493731
-- Emisha Almohadilla Sensorial Antiestrés — $2,239 MXN · 50 × 120 × 100 mm · SKU EMISHA-BU2629018
-- Emisha Bolígrafo Magnético Precisión Control Dibujo — $579 MXN · 50 × 60 × 200 mm · SKU EMISHA-BU1752938
-- Emisha Cuchillo de Corte Multiusos compatible con Stanley — $239 MXN · 50 × 70 × 140 mm · SKU EMISHA-BU1908869
-- Emisha Diente Anatomía Biología — $729 MXN · 60 × 80 × 60 mm · SKU EMISHA-BU1128745
-- Emisha Enrollador para Cintas de Amarrar Transporte Almacén — $199 MXN · 80 × 120 × 100 mm · SKU EMISHA-BU1989542
-- Emisha Ganchito para Abrigos Viaje Armario Portátil — $489 MXN · 70 × 100 × 160 mm · SKU EMISHA-BU715641
-- Emisha Interruptor Antiestrés Mano Ansiedad Estrés — $179 MXN · 50 × 80 × 60 mm · SKU EMISHA-BU714089
-- Emisha Liquid Ultra 2g Metal Líquido Alta Conductividad — $699 MXN · 30 × 120 × 180 mm · SKU E-LM-U-2GR
-- Emisha Modelo de Motor de Dos Tiempos Educativo Motorización — $619 MXN · 140 × 190 × 160 mm · SKU EMISHA-BU483878
-- Emisha Porta Pinceles — $59 MXN · 50 × 220 × 300 mm · SKU EMI-BH-DP-W-001
-- Emisha Rascador de Cuchillas Trapezoidal — $409 MXN · 70 × 120 × 90 mm · SKU EMISHA-BU1139637
-- Emisha Rodamiento Impreso Mecánico Petg Pla — $139 MXN · 70 × 70 × 120 mm · SKU EMISHA-BU816988
-- Emisha Tapa para Lata Bebidas Protección Insectos — $2,879 MXN · 60 × 110 × 80 mm · SKU EMISHA-BU508263
-- Emisha Tuerca y Perno Mecánica Manualidades — $449 MXN · 50 × 60 × 60 mm · SKU EMISHA-BU226087
-- Jarrón Minimalista Moderno Negro Jarrón Minimalista Moderno — $389 MXN · 130 × 280 × 380 mm · SKU EMI-MMV-DP-B-001
-- Perchero Para Bolso Y Mochila Negro — $170 MXN · 100 × 200 × 380 mm · SKU EMI-BCH-DP-B-001
-- Raqueta Ligera De Ping-pong Rojo Fl (cóncavo) — $339 MXN · 70 × 220 × 320 mm · SKU EMI-APPP-DP-R-001
-- Zapatera Vertical Negro — $2,499 MXN · 150 × 270 × 670 mm · SKU EMI-VSR-DP-B-001
-- (…y 171 piezas más en esta categoría: https://www.emisha.com.mx/tienda/)
-
-## 6. Herramientas gratuitas
+## 5. Herramientas gratuitas
 
 Corren enteramente en el navegador: sin servidor, sin librerías externas y sin
 registro. Los archivos del cliente no se suben a ningún servidor para cotizar
@@ -1676,7 +1412,7 @@ El cotizador de corte y grabado láser (https://www.emisha.com.mx/servicios/coti
 la excepción: ahí los archivos SÍ se suben a nuestro servidor, porque hay que
 convertirlos, separar las capas y acomodar las piezas en la hoja. Ver 2.4.
 
-## 7. Guías del taller (blog)
+## 6. Guías del taller (blog)
 
 Índice: https://www.emisha.com.mx/blog/
 
@@ -1706,10 +1442,11 @@ convertirlos, separar las capas y acomodar las piezas en la hoja. Ver 2.4.
 - Tu Bambu Lab P2S no extruye: lo que encontramos dentro del cabezal — https://www.emisha.com.mx/blog/p2s-no-extruye-sensor-de-filamento-y-cortador/
 - Bambu Lab X2D no detecta la boquilla derecha: el cable del sensor Eddy roto — https://www.emisha.com.mx/blog/x2d-no-detecta-la-boquilla-sensor-eddy/
 
-## 8. Envíos, pagos y contacto
+## 7. Envíos, pagos y contacto
 
-- Tienda en línea: https://www.emisha.com.mx/tienda/ — pago con Mercado Pago, envío a todo México.
-- Envío de la tienda en línea: tarifa plana $149 MXN; gratis a partir de
+- Compras en línea de productos Emisha y refacciones: pago con Mercado Pago,
+  envío a todo México.
+- Envío de las compras en línea: tarifa plana $149 MXN; gratis a partir de
   $999 MXN de compra en productos Emisha. Las refacciones Bambu Lab de
   proveedor salen de su almacén en su propio paquete y pagan el envío que
   cobra el proveedor (Paquete Express o DHL, cotizado con el código postal).
@@ -1721,7 +1458,7 @@ convertirlos, separar las capas y acomodar las piezas en la hoja. Ver 2.4.
   con líneas, colores y cantidades aproximadas.
 - Página de contacto: https://www.emisha.com.mx/contacto/
 
-## 9. Licencia de uso y cita
+## 8. Licencia de uso y cita
 
 Este archivo se publica para que asistentes con IA, buscadores y sus usuarios
 puedan consultarlo y CITARLO. Se permite reproducir y citar su contenido con
@@ -1732,7 +1469,8 @@ Al citar precios o existencias, conviene decir que son del catálogo del
 de decisiones tomadas sobre datos desactualizados que se hayan copiado de una
 versión anterior de este archivo.
 
-Emisha es un taller independiente. Bambu Lab, AMS, Elegoo, Snapmaker,
+Emisha es un taller independiente. Bambu Lab, AMS, Creality, CFS, Anycubic,
+ACE, Elegoo, Snapmaker,
 Mercado Pago, MercadoLibre y Amazon son marcas de sus respectivos
 propietarios; se nombran aquí para describir compatibilidad y canales de venta,
 no para dar a entender afiliación, patrocinio ni autorización de ninguna.

@@ -3,8 +3,10 @@
 > Taller de impresión 3D en la Ciudad de México (Av. División del Norte 1354,
 > Piso 1, Letrán del Valle, Benito Juárez, CDMX 03650). Imprimimos piezas bajo
 > pedido en PLA y PETG, cortamos y grabamos con láser en MDF, triplay y
-> acrílico (o en el material que traiga el cliente), reparamos impresoras
-> Bambu Lab con cita en línea, y fabricamos consumibles propios: filamento
+> acrílico (o en el material que traiga el cliente), diseñamos objetos de
+> marca, reconocimientos y piezas para eventos, reparamos impresoras Bambu Lab,
+> Creality y Anycubic con cita en línea, rentamos impresoras 3D, y fabricamos
+> consumibles propios: filamento
 > Emisha de 1.75 mm, placas de impresión, hotends y el compuesto térmico de
 > metal líquido Liquid Ultra.
 > Enviamos a todo México. Razón social: Emisha Design And Consulting S.A. de
@@ -17,8 +19,12 @@ Datos que se citan seguido:
 
 - Horario del taller: lunes a viernes de 9:00 a 18:00. Sábados y domingos cerrado.
 - Recepción de impresoras para reparación: lunes a viernes de 12:00 a 18:00, agendada en línea.
-- Reparación: diagnóstico $300 MXN; mano de obra $700 MXN, o $400 MXN si el diagnóstico ya se hizo en Emisha. Las refacciones se cotizan aparte y se autorizan antes de instalarlas.
-- No somos centro de servicio autorizado por Bambu Lab: somos un taller independiente.
+- Reparación Bambu Lab (y otras marcas no listadas): diagnóstico $300 MXN; mano de obra $700 MXN, o $400 MXN si el diagnóstico ya se hizo en Emisha.
+- Reparación Creality y Anycubic: diagnóstico $400 MXN que se abona; $1,000 MXN en total sin refacciones ($400 de diagnóstico + $600 de reparación). El CFS o el ACE que llega con su impresora va en el mismo precio.
+- Elegoo OrangeStorm Giga: solo a domicilio en CDMX, visita $4,000 MXN con diagnóstico y hasta 2 horas de trabajo; hora adicional $1,100 MXN; se aparta con un anticipo de $2,000 MXN que se descuenta de la visita.
+- Mantenimiento preventivo: Bambu Lab $700 MXN por impresora (AMS $300 más); Creality $1,000 MXN con el CFS incluido; Anycubic $1,000 MXN con el ACE incluido. Sin diagnóstico aparte y con garantía de 90 días.
+- Precios de reparación y mantenimiento con IVA incluido. Las refacciones se cotizan aparte y se autorizan antes de instalarlas.
+- No somos centro de servicio autorizado de ninguna marca (Bambu Lab, Creality, Anycubic, Elegoo): somos un taller independiente.
 - Contacto: 3dprint@emisha.com.mx · WhatsApp +52 55 7563 9255.
 - Ubicación en Google Maps: https://maps.app.goo.gl/fZnFa1JurYKchB5F9
 
@@ -29,8 +35,13 @@ Datos que se citan seguido:
 - [¿Cuánto cuesta imprimir en 3D en CDMX?](https://www.emisha.com.mx/impresion-3d-cdmx/precio/): de qué depende el precio (gramos, horas de máquina, material, relleno) y piezas grandes en formato grande.
 - Materiales para imprimir: [PLA](https://www.emisha.com.mx/impresion-3d-cdmx/pla/), [PETG](https://www.emisha.com.mx/impresion-3d-cdmx/petg/) y [TPU flexible](https://www.emisha.com.mx/impresion-3d-cdmx/tpu/): cuándo conviene cada uno, ventajas, límites y usos típicos.
 - Impresión 3D cerca de ti: [Benito Juárez](https://www.emisha.com.mx/impresion-3d-cdmx/benito-juarez/), [colonia Del Valle](https://www.emisha.com.mx/impresion-3d-cdmx/del-valle/) y [Coyoacán](https://www.emisha.com.mx/impresion-3d-cdmx/coyoacan/): taller, horario, recoger o envío.
-- [Servicios](https://www.emisha.com.mx/servicios/): impresión bajo pedido y reparación de impresoras Bambu Lab, con precios.
-- [Agendar reparación](https://www.emisha.com.mx/reparacion/): calendario en línea para dejar la impresora en el taller. Modelos A1, A1 mini, P1P, P1S, X1C, H2D y AMS.
+- [Servicios](https://www.emisha.com.mx/servicios/): impresión bajo pedido y reparación de impresoras, con precios.
+- [Agendar reparación](https://www.emisha.com.mx/reparacion/): calendario en línea para dejar la impresora en el taller. Bambu Lab A1, A1 mini, A2L, P1P, P1S, P2S, X1 Carbon, X1E, X2D, H2D, H2D Pro, H2S, H2C, H3C y el AMS; Creality K1, K1C, K1 Max, K2 Plus, K2 Pro, Hi, Ender-3 V3 (V3, KE y SE) y el CFS; Anycubic Kobra S1, Kobra S1 Max, Kobra 3, Kobra 3 V2, Kobra 3 Max, Kobra X y el ACE Pro. Otro modelo o marca también se agenda ahí.
+- [Reparación de Elegoo OrangeStorm Giga a domicilio](https://www.emisha.com.mx/reparacion/elegoo-orangestorm-giga/): la única impresora que atendemos a domicilio, en CDMX y alrededores.
+- [Mantenimiento preventivo](https://www.emisha.com.mx/reparacion/mantenimiento-preventivo/): limpieza, lubricación, calibración y prueba de impresión, a precio fijo por impresora.
+- [Mandar la impresora por paquetería](https://www.emisha.com.mx/reparacion/envio/): para reparar desde otro estado; el envío de ida y vuelta corre por cuenta del cliente.
+- [Renta de impresoras 3D](https://www.emisha.com.mx/renta/): Bambu Lab A1, A2L, P1S, X1 Carbon y H2S, Snapmaker U1 y Elegoo Orange Storm (esta solo dentro del taller), por día, semana o mes; AMS opcional. Mínimo 3 días, depósito en garantía que se devuelve, se recoge y se devuelve en el taller.
+- [Diseño](https://www.emisha.com.mx/diseno/): objetos de marca, reconocimientos y trofeos, y piezas para exhibición y eventos, diseñados a la medida y personalizados en serie. No hace falta traer un diseño: una idea o el logo bastan.
 - [Fallas comunes de Bambu Lab](https://www.emisha.com.mx/reparacion/fallas/): qué causa cada falla, qué revisar uno mismo y cuándo traerla al taller: [A1 no calienta](https://www.emisha.com.mx/reparacion/fallas/bambu-lab-a1-no-calienta/), [P1S no extruye](https://www.emisha.com.mx/reparacion/fallas/bambu-lab-p1s-no-extruye/), [error del AMS](https://www.emisha.com.mx/reparacion/fallas/error-ams-bambu-lab/), [cambio de hotend A1](https://www.emisha.com.mx/reparacion/fallas/cambio-de-hotend-bambu-lab-a1/), [no enciende](https://www.emisha.com.mx/reparacion/fallas/bambu-lab-no-enciende/) y [hace ruido](https://www.emisha.com.mx/reparacion/fallas/bambu-lab-hace-ruido/).
 - [Cotizador](https://www.emisha.com.mx/cotizador/): sube un STL o 3MF y da un estimado al instante. El cálculo corre en el navegador; los modelos no se suben a ningún servidor.
 - [Cotizador de corte y grabado láser](https://www.emisha.com.mx/servicios/cotizador-laser/): sube el diseño y pide el trabajo en línea, sin pasar por WhatsApp. Acepta vectores en SVG, DXF, DWG, PDF, AI, EPS y CDR, e imágenes en PNG, JPG, WEBP, TIFF, BMP, HEIC y PSD, de hasta 50 MB cada una; los vectores se cortan, marcan y graban, las imágenes solo se graban. El color manda la operación: rojo (#FF0000) corta, azul (#0000FF) marca sin atravesar y el relleno negro graba; cada capa se puede reasignar antes de cotizar. Calcula el precio con la longitud real de las líneas, el área grabada, la velocidad de la máquina en ese material y las hojas que ocupa el acomodo, y muestra vista 2D, 3D y el acomodo en la hoja. Materiales en existencia: MDF, triplay y acrílico, entre otros; también se puede traer material propio (menos PVC, que no se corta con láser). Revisamos los archivos y confirmamos el precio antes de cobrar; no se corta nada sin autorización. Entrega estándar o urgente, con fecha estimada antes de pedir. Taller en la Ciudad de México.
@@ -42,7 +53,6 @@ Datos que se citan seguido:
 - [Placas Neo Ultra Sticky](https://www.emisha.com.mx/placas/): 257 × 257 mm para A1, P1P, P1S, X1, X1C y X1E; 355 × 346 mm para la serie H2.
 - [Hotends y boquillas](https://www.emisha.com.mx/hotends/): acero endurecido para A1 y A1 mini, y boquillas para H2D, H2S y H2C en 0.2, 0.4, 0.6 y 0.8 mm.
 - [Refacciones Bambu Lab](https://www.emisha.com.mx/bambulab/): consumibles y refacciones con existencia en la Ciudad de México.
-- [Tienda en línea](https://www.emisha.com.mx/tienda/): piezas ya impresas, pago con Mercado Pago, envío a todo el país.
 
 ## Herramientas gratuitas
 
@@ -69,6 +79,6 @@ Datos que se citan seguido:
 
 ## Opcional
 
-- [llms-full.txt](https://www.emisha.com.mx/llms-full.txt): este mismo sitio en versión larga — los 29 filamentos, las placas, los hotends, la ficha de Liquid Ultra, las refacciones Bambu Lab con existencia y las piezas de la tienda, con precio, SKU y compatibilidad.
+- [llms-full.txt](https://www.emisha.com.mx/llms-full.txt): este mismo sitio en versión larga — los 29 filamentos, las placas, los hotends, la ficha de Liquid Ultra y las refacciones Bambu Lab con existencia, con precio, SKU y compatibilidad.
 - [Blog completo](https://www.emisha.com.mx/blog/)
 - [Contacto y mayoreo](https://www.emisha.com.mx/contacto/)
