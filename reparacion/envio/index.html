@@ -65,6 +65,14 @@
 [data-agregar-equipo]{margin-top:6px}
 [data-agregar-equipo][hidden]{display:none}
 
+/* Paso a paso, como la cita de reparación: lo que todavía no toca se ve en
+   gris y no se puede tocar; cada elección abre lo que sigue y baja hasta ahí. */
+.cfg-paso{transition:opacity .35s ease,filter .35s ease;scroll-margin-top:calc(var(--h-header,67px) + 14px)}
+[data-cfg-oculto]{opacity:.38;filter:grayscale(1);pointer-events:none;user-select:none}
+[data-cfg-usado]{display:none!important}
+@media (prefers-reduced-motion:reduce){.cfg-paso{transition:none}}
+.cfg-seguir{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
+.cfg-falta{color:#b42318;font-size:.88rem;margin:0}
 .picker[hidden]{display:none}
 .picker__grid.picker__grid--marcas{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
 [data-picker-marca],[data-picker-modelo]{margin-bottom:6px}
@@ -272,7 +280,7 @@
                   <legend>Marca</legend>
                   <div class="picker__grid picker__grid--marcas"><label class="picker__item picker__item--marca"><input type="radio" name="marca" value="bambu" data-marca-radio><span class="cfg-marca__nombre">Bambu Lab</span><span class="cfg-marca__sub">A1, P1, P2, X1, X2, H2, H3 y AMS</span></label><label class="picker__item picker__item--marca"><input type="radio" name="marca" value="creality" data-marca-radio><span class="cfg-marca__nombre">Creality</span><span class="cfg-marca__sub">K1, K2, Hi, Ender-3 V3 y CFS</span></label><label class="picker__item picker__item--marca"><input type="radio" name="marca" value="anycubic" data-marca-radio><span class="cfg-marca__nombre">Anycubic</span><span class="cfg-marca__sub">Kobra S1, Kobra 3, Kobra X y ACE Pro</span></label><label class="picker__item picker__item--marca"><input type="radio" name="marca" value="otra" data-marca-radio><span class="cfg-marca__nombre">Otra marca</span><span class="cfg-marca__sub">Dinos cuál</span></label></div>
                 </fieldset>
-                <fieldset class="picker" data-picker-modelo hidden>
+                <fieldset class="picker" data-picker-modelo>
                   <legend>Modelo</legend>
                   <div class="picker__grid picker__grid--modelos">
                     <label class="picker__item"><input type="radio" name="modelo" data-modelo-radio value="A1"><span class="picker__media picker__media--modelo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 41h32"/><path d="M13 41V9M35 41V9"/><path d="M13 17h22"/><rect x="21" y="17" width="6" height="7" rx="1"/><path d="M15 34h18"/></svg></span><span class="picker__label">A1</span></label>
@@ -665,6 +673,6 @@
 <script src="../../assets/js/main.js?v=7782446c" defer></script>
 <script src="../../assets/vendor/sentry-browser-11.12.0.min.js" defer></script>
 <script src="../../assets/js/sentry-web.js?v=28663bf7" defer></script>
-<script src="../../assets/js/reparacion-envio.js?v=1130a1ae" defer></script>
+<script src="../../assets/js/reparacion-envio.js?v=9a402ffe" defer></script>
 </body>
 </html>
