@@ -342,7 +342,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-922 piezas con existencia confirmada, listas para salir de la Ciudad de
+923 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Normalmente se envían en 1 a 4 días hábiles. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
 leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
@@ -1189,9 +1189,9 @@ Rango de precio: $249 MXN a $10,579 MXN.
 - Wash & cure 3 plus anycubic — $5,849 MXN · SKU ANC-11IA
 - Wash & cure max anycubic — $10,539 MXN · SKU ANC-XI6
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (93 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (94 piezas)
 
-Rango de precio: $199 MXN a $2,949 MXN.
+Rango de precio: $199 MXN a $4,679 MXN.
 
 - Bambu Lab-TPU-85a-no-51305 — $1,299 MXN · SKU BAMBULAB-TPU-85A-NO-51305
 - Bloqueador de filamento para boquilla compatible con H2D — $279 MXN · Compatible: H2D · SKU FAC090
@@ -1268,8 +1268,9 @@ Rango de precio: $199 MXN a $2,949 MXN.
 - Filamento Bambu Lab PLA Refill gris 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-GRIS
 - Filamento Bambu Lab PLA Refill naranja 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-NARANJA
 - Filamento Bambu Lab PLA Refill plata 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-PLATA
-- Filamento Bambu Lab PLA Refill rojo 1.75 mm 1 kg — $469 MXN · SKU BAMBULAB-PLA-SPL-ROJO
+- Filamento Bambu Lab PLA Refill rojo 1.75 mm 1 kg — $449 MXN · SKU BAMBULAB-PLA-SPL-ROJO
 - Filamento Bambu Lab PLA rosa cítrico 1.75 mm 1 kg — $509 MXN · SKU BAMBULAB-PLA-ROSA-CITRICO
+- Filamento Bambu Lab PPS CF negro 1.75 mm 0.75 kg — $4,679 MXN · SKU BAMBULAB-PPS-CF-NEGRO
 - Filamento Bambu Lab SOP ABS blanco 1.75 mm 0.5 kg — $559 MXN · SKU BAMBULAB-SOP-ABS-BLANCO
 - Filamento Bambu Lab SOP PLA PETG natural 1.75 mm 0.5 kg — $899 MXN · SKU BAMBULAB-SOP-PLA-PETG-NAT
 - Filamento Bambu Lab TPU para AMS azul 1.75 mm 1 kg — $1,219 MXN · Compatible: AMS · SKU BAMBULAB-TPU-AMS-AZUL
