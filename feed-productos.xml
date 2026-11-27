@@ -619,20 +619,6 @@
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>
     <item>
-      <g:id>BAMBULAB-ABS-GF-GRIS</g:id>
-      <title><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg]]></title>
-      <description><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
-      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-gris-1-75-mm-1-kg-abs-gf-gris/</link>
-      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-ABS-GF-GRIS.webp</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>979.00 MXN</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Bambu Lab</g:brand>
-      <g:mpn>BAMBULAB-ABS-GF-GRIS</g:mpn>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
-    </item>
-    <item>
       <g:id>BAMBULAB-ABS-GF-NARANJA</g:id>
       <title><![CDATA[Filamento Bambu Lab ABS GF naranja 1.75 mm 1 kg]]></title>
       <description><![CDATA[Filamento Bambu Lab ABS GF naranja 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
@@ -13383,6 +13369,20 @@
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:mpn>BAMBULAB-ABS-GF-AZUL</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
+    </item>
+    <item>
+      <g:id>BAMBULAB-ABS-GF-GRIS</g:id>
+      <title><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg]]></title>
+      <description><![CDATA[Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg. Filamento original Bambu Lab. Vendido por Emisha, revendedor independiente en Ciudad de México; envío a todo el país en 1 a 3 días hábiles.]]></description>
+      <link>https://www.emisha.com.mx/refacciones/filamento-bambu-lab-abs-gf-gris-1-75-mm-1-kg-abs-gf-gris/</link>
+      <g:image_link>https://www.emisha.com.mx/assets/img/refacciones/BAMBULAB-ABS-GF-GRIS.webp</g:image_link>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>979.00 MXN</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:mpn>BAMBULAB-ABS-GF-GRIS</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>Impresión 3D &gt; Refacciones Bambu Lab</g:product_type>
     </item>

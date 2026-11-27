@@ -429,7 +429,7 @@ está en PDF en la página del producto.
 
 Página: https://www.emisha.com.mx/bambulab/
 
-920 piezas con existencia confirmada, listas para salir de la Ciudad de
+919 piezas con existencia confirmada, listas para salir de la Ciudad de
 México. Normalmente se envían en 1 a 4 días hábiles. El catálogo se revisa cada seis horas
 y la existencia se confirma al tomar el pedido. Los modelos compatibles se
 leen del nombre de la pieza: si tu modelo no aparece, pregunta antes de
@@ -1275,7 +1275,7 @@ Rango de precio: $249 MXN a $10,579 MXN.
 - Wash & Cure 3 Plus Anycubic — $5,849 MXN · SKU ANC-11IA
 - Wash & Cure Max Anycubic — $10,539 MXN · SKU ANC-XI6
 
-### 4.6 Filamento Bambu Lab y accesorios de filamento (92 piezas)
+### 4.6 Filamento Bambu Lab y accesorios de filamento (91 piezas)
 
 Rango de precio: $199 MXN a $4,679 MXN.
 
@@ -1285,7 +1285,6 @@ Rango de precio: $199 MXN a $4,679 MXN.
 - Buffer de filamento para Bambu Lab H2S — $1,219 MXN · Compatible: H2S · SKU SA010
 - Buffer de filamento para P2S — $979 MXN · Compatible: P2S · SKU SA011
 - Filamento Bambu Lab ABS GF blanco 1.75 mm 1 kg — $979 MXN · SKU BAMBULAB-ABS-GF-BLANCO
-- Filamento Bambu Lab ABS GF gris 1.75 mm 1 kg — $979 MXN · SKU BAMBULAB-ABS-GF-GRIS
 - Filamento Bambu Lab ABS GF naranja 1.75 mm 1 kg — $979 MXN · SKU BAMBULAB-ABS-GF-NARANJA
 - Filamento Bambu Lab ABS GF rojo 1.75 mm 1 kg — $979 MXN · SKU BAMBULAB-ABS-GF-ROJO
 - Filamento Bambu Lab ABS naranja 1.75 mm 1 kg — $839 MXN · SKU BAMBULAB-ABS-NARANJA
